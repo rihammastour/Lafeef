@@ -43,5 +43,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>item1</key>
+	<string>FFHekaya-Light.otf</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>
