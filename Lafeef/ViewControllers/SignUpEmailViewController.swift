@@ -10,7 +10,7 @@ import UIKit
 class SignUpEmailViewController: UIViewController{
     var password : String = ""
   
-    @IBOutlet weak var logo: UIImageView!
+  @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var lemon: UIButton!
     @IBOutlet weak var strawberry: UIButton!
     @IBOutlet weak var pineapple: UIButton!
@@ -20,8 +20,11 @@ class SignUpEmailViewController: UIViewController{
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
     override func viewDidLoad() {
-        emailTextfield.delegate = self as? UITextFieldDelegate
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.navigationBar.layer.zPosition = -1
+        emailTextfield.delegate = self as? UITextFieldDelegate
+    
         logo.layer.zPosition = 2
         lemon.layer.cornerRadius = 40
         pineapple.layer.cornerRadius = 40
