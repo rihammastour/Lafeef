@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
-		416293FB25BB734000CA59D9 /* FFHekaya-Light .otf in Resources */ = {isa = PBXBuildFile; fileRef = 419203BF25BB713D00EE5D75 /* FFHekaya-Light .otf */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
 		41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */; };
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
@@ -23,6 +22,11 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
+		4E53480725BC90B600ACA8BC /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE0CF25BC94D000CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE0D325BC94D100CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE0FF25BCF4A900CA7B9A /* Child.swift */; };
+		4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 /* End PBXBuildFile section */
@@ -48,8 +52,7 @@
 		0012A2D5C7CABC6C1AE985E3 /* Pods-Lafeef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.debug.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.debug.xcconfig"; sourceTree = "<group>"; };
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
-		419203BF25BB713D00EE5D75 /* FFHekaya-Light .otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light .otf"; path = "../../../../../Downloads/FFHekaya-Light .otf"; sourceTree = "<group>"; };
-		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
 		41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCharachterViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4EEDE0FF25BCF4A900CA7B9A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,15 +124,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		419203BA25BB623000EE5D75 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				419203BF25BB713D00EE5D75 /* FFHekaya-Light .otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		41BD684225BABE7800257EA6 /* ViewControllers */ = {
+		41BD684225BABE7800257EA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */,
@@ -134,13 +132,14 @@
 				41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */,
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		4E453A3525B61D5000B8363F = {
 			isa = PBXGroup;
 			children = (
 				4E453A4025B61D5100B8363F /* Lafeef */,
+				4E53480025BC904500ACA8BC /* Fonts */,
 				4E453A5825B61D5500B8363F /* LafeefTests */,
 				4E453A6325B61D5500B8363F /* LafeefUITests */,
 				4E453A3F25B61D5100B8363F /* Products */,
@@ -169,8 +168,8 @@
 				4E453A4925B61D5100B8363F /* GameViewController.swift */,
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
-				419203BA25BB623000EE5D75 /* Fonts */,
-				41BD684225BABE7800257EA6 /* ViewControllers */,
+				4EEDE0FA25BCF42600CA7B9A /* Model */,
+				41BD684225BABE7800257EA6 /* Controllers */,
 				41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */,
 				4E453A5025B61D5400B8363F /* Info.plist */,
 			);
@@ -193,6 +192,31 @@
 				4E453A6625B61D5500B8363F /* Info.plist */,
 			);
 			path = LafeefUITests;
+			sourceTree = "<group>";
+		};
+		4E53480025BC904500ACA8BC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4EEDE0FA25BCF42600CA7B9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
+				4EEDE0FF25BCF4A900CA7B9A /* Child.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4EEDE0FB25BCF43700CA7B9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E3CA613ED32609BDDAB603CE /* Frameworks */ = {
@@ -313,8 +337,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416293FB25BB734000CA59D9 /* FFHekaya-Light .otf in Resources */,
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
+				4E53480725BC90B600ACA8BC /* FFHekaya-Light.otf in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
@@ -326,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEDE0CF25BC94D000CA7B9A /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEDE0D325BC94D100CA7B9A /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,9 +474,11 @@
 			files = (
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
+				4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 			);

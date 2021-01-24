@@ -35,6 +35,8 @@ class SignUpEmailViewController: UIViewController{
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         emailTextfield.layer.cornerRadius = emailTextfield.frame.size.height/2
         emailTextfield.clipsToBounds = true
+        
+        self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
     }
     
    

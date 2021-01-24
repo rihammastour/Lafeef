@@ -27,8 +27,8 @@ class SignUpCharachterViewController: UIViewController {
         boy.layer.cornerRadius = 0.5 * boy.bounds.size.width
         boy.clipsToBounds = true
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
-
-        // Do any additional setup after loading the view.
+        
+        self.setGradientBackground(redTop: 0.96, greenTop: 0.71, blueTop: 0.71, redBottom: 1, greenBottom: 1, blueBottom: 1, type: "radial")
     }
     
 

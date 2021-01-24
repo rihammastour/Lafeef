@@ -14,10 +14,10 @@ class SignUpNameViewController: UIViewController {
     var month = ""
     var year = ""
      var charachter = ""
-
     @IBOutlet weak var charachterImage: UIImageView!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextfield.delegate = self as? UITextFieldDelegate
@@ -25,7 +25,8 @@ class SignUpNameViewController: UIViewController {
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
         nameTextfield.clipsToBounds = true
-        // Do any additional setup after loading the view.
+
+        self.setGradientBackground(redTop: 0.96, greenTop: 0.71, blueTop: 0.71, redBottom: 1, greenBottom: 1, blueBottom: 1, type: "radial")
     }
     
 
