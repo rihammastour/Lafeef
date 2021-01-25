@@ -443,7 +443,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <state key="normal" title="استعادة رمز المرور ">
-                                    <color key="titleColor" red="0.55507087710000003" green="0.80785089730000004" blue="0.80000352860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                         </subviews>
@@ -461,6 +461,12 @@
                         <outlet property="pineapple" destination="8TP-ux-YTI" id="dPe-PZ-Ycd"/>
                         <outlet property="resetPass" destination="oAF-Qn-bdM" id="GAP-3I-5ac"/>
                         <outlet property="strawberry" destination="ojZ-rJ-Da0" id="EfL-Oe-hLj"/>
+                        <outletCollection property="deSelectedButton" destination="oTF-xH-mc3" collectionClass="NSMutableArray" id="Sw2-OD-AiB"/>
+                        <outletCollection property="deSelectedButton" destination="fu6-Jd-bzu" collectionClass="NSMutableArray" id="JK2-IB-JS8"/>
+                        <outletCollection property="deSelectedButton" destination="iI5-EI-2kZ" collectionClass="NSMutableArray" id="5cZ-5o-egc"/>
+                        <outletCollection property="deSelectedButton" destination="8TP-ux-YTI" collectionClass="NSMutableArray" id="gLn-wS-5MP"/>
+                        <outletCollection property="deSelectedButton" destination="ojZ-rJ-Da0" collectionClass="NSMutableArray" id="jEv-ld-Qf6"/>
+                        <outletCollection property="deSelectedButton" destination="WHh-q9-eaK" collectionClass="NSMutableArray" id="WMo-0u-PPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f01-ho-oPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

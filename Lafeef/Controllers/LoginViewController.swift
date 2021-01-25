@@ -22,6 +22,7 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet weak var resetPass:UIButton!
+    @IBOutlet var deSelectedButton: [UIButton]!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -45,40 +46,63 @@ class LoginViewController: UIViewController{
         self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
         
         
+        
     }
-    @IBAction func berryPass(_ sender: Any) {
+    @IBAction func berryPass(_ sender: UIButton) {
         password = "berry123"
-        berry.backgroundColor = UIColor.blue
+      //  berry.backgroundColor = UIColor.blue
+        selectButton(sender)
 
     }
     
-    @IBAction func kiwiPass(_ sender: Any) {
+    @IBAction func kiwiPass(_ sender: UIButton) {
         password = "kiwi123"
-        kiwi.backgroundColor = UIColor.blue
+     //   kiwi.backgroundColor = UIColor.blue
+        selectButton(sender)
+
 
     }
-    @IBAction func orangePass(_ sender: Any) {
+    @IBAction func orangePass(_ sender: UIButton) {
         password = "orange123"
-        orange.backgroundColor = UIColor.blue
+       // orange.backgroundColor = UIColor.blue
+        selectButton(sender)
+
     }
     
-    @IBAction func lemonPass(_ sender: Any) {
+    @IBAction func lemonPass(_ sender: UIButton) {
         password = "lemon123"
-        lemon.backgroundColor = UIColor.blue
+       // lemon.backgroundColor = UIColor.blue
+        selectButton(sender)
 
     }
     
-    @IBAction func strawberryPass(_ sender: Any) {
+    @IBAction func strawberryPass(_ sender: UIButton) {
         password = "strawberry123"
-        strawberry.backgroundColor = UIColor.blue
+      //  strawberry.backgroundColor = UIColor.blue
+        selectButton(sender)
 
     }
     
-    @IBAction func pineapplePass(_ sender: Any) {
+    @IBAction func pineapplePass(_ sender: UIButton) {
         password = "pineapple123"
-        pineapple.backgroundColor = UIColor.blue
+       // pineapple.backgroundColor = UIColor.blue
+        selectButton(sender)
 
     }
+    
+    func selectButton(_ sender: UIButton){
+           //deselect all buttons first
+           deselectButton()
+           //select one button seconed
+           sender.layer.borderWidth = 3.5
+           sender.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+       }
+       
+       func deselectButton(){
+           deSelectedButton.forEach({$0.layer.borderWidth = 0
+                                   $0.layer.borderColor = .none})
+       }
+    
     @IBAction func loginAction(_ sender: AnyObject) {
         
         if self.emailTextfield.text == "" || self.password == "" {
