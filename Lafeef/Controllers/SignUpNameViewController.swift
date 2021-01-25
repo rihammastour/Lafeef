@@ -26,7 +26,7 @@ class SignUpNameViewController: UIViewController {
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
         nameTextfield.clipsToBounds = true
 
-        self.setGradientBackground(redTop: 0.96, greenTop: 0.71, blueTop: 0.71, redBottom: 1, greenBottom: 1, blueBottom: 1, type: "radial")
+        self.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom:0.71 , blueBottom: 0.71, type: "radial")
     }
     
 

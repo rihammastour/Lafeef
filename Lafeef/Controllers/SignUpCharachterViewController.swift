@@ -14,7 +14,9 @@ class SignUpCharachterViewController: UIViewController {
     var month = ""
     var year = ""
     var charachter = ""
-
+    
+    @IBOutlet weak var charachterImage: UIImageView!
+    
 
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet weak var girl: UIButton!
@@ -27,8 +29,9 @@ class SignUpCharachterViewController: UIViewController {
         boy.layer.cornerRadius = 0.5 * boy.bounds.size.width
         boy.clipsToBounds = true
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
-        
-        self.setGradientBackground(redTop: 0.96, greenTop: 0.71, blueTop: 0.71, redBottom: 1, greenBottom: 1, blueBottom: 1, type: "radial")
+
+        // Do any additional setup after loading the view.
+        self.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom: 0.71, blueBottom: 0.71, type: "radial")
     }
     
 
@@ -46,5 +49,19 @@ class SignUpCharachterViewController: UIViewController {
 
     @IBAction func next(_ sender: Any) {
         self.performSegue(withIdentifier: "charachterNext", sender: self)
+    }
+    
+    @IBAction func girl(_ sender: Any) {
+        charachter = "girl"
+        self.view.backgroundColor = .gray
+        self.charachterImage.image = UIImage(named: "girl")
+        
+    }
+    
+    @IBAction func boy(_ sender: Any) {
+        charachter = "girl"
+        self.view.backgroundColor = .green
+        self.charachterImage.image = UIImage(named: "boy")
+        
     }
 }
