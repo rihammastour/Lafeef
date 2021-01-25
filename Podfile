@@ -10,6 +10,7 @@ target 'Lafeef' do
   pod 'Firebase/Auth'
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
+pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 

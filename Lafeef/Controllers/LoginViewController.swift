@@ -8,9 +8,13 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseAuth
+import SwiftValidator
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, UITextFieldDelegate{
     var password : String = ""
+    let validator = Validator()
+       var isValidated : Bool  = false
+
     @IBOutlet weak var logo: UIImageView!
       @IBOutlet weak var lemon: UIButton!
       @IBOutlet weak var strawberry: UIButton!
@@ -23,11 +27,44 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet weak var resetPass:UIButton!
     @IBOutlet var deSelectedButton: [UIButton]!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
 //        self.navigationController?.navigationBar.layer.zPosition = -1
-        emailTextfield.delegate = self as? UITextFieldDelegate
+//        validator.styleTransformers(success:{ (validationRule) -> Void in
+//                                 print("here")
+//                                 // clear error label
+//                                 validationRule.errorLabel?.isHidden = true
+//                                 validationRule.errorLabel?.text = ""
+//
+//                                 if let textField = validationRule.field as? UITextField {
+//                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+//                                     textField.layer.borderWidth = 3
+//                                 } else if let textField = validationRule.field as? UITextView {
+//                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+//                                     textField.layer.borderWidth = 3
+//                                 }
+//                             }, error:{ (validationError) -> Void in
+//                                 print("error")
+//                                 validationError.errorLabel?.isHidden = false
+//                                 validationError.errorLabel?.text = validationError.errorMessage
+//                                 if let textField = validationError.field as? UITextField {
+//                                     textField.layer.borderColor = UIColor.red.cgColor
+//                                     textField.layer.borderWidth = 3.0
+//                                 } else if let textField = validationError.field as? UITextView {
+//                                     textField.layer.borderColor = UIColor.red.cgColor
+//                                     textField.layer.borderWidth = 3.0
+//                                 }
+//                             })
+//
+//                      validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
+//                      self.navigationController?.isNavigationBarHidden = true
+//              //        self.navigationController?.navigationBar.layer.zPosition = -1
+//        emailTextfield.delegate = self
+//
+//        emailTextfield.delegate = self as? UITextFieldDelegate
     
         logo.layer.zPosition = 2
         lemon.layer.cornerRadius = 40
@@ -102,7 +139,38 @@ class LoginViewController: UIViewController{
            deSelectedButton.forEach({$0.layer.borderWidth = 0
                                    $0.layer.borderColor = .none})
        }
-    
+    //---------------------------------------- validation
+      func validationSuccessful()  {
+                  print("Validation Success!")
+          errorLabel?.isHidden = true
+          isValidated = true
+          
+                 
+              
+              }
+          func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
+            // turn the fields to red
+            for (field, error) in errors {
+              if let field = field as? UITextField {
+                field.layer.borderColor = UIColor.red.cgColor
+                field.layer.borderWidth = 1.0
+              }
+             errorLabel?.text = error.errorMessage // works if you added labels
+            errorLabel?.isHidden = false
+            }
+          }
+//    @IBAction func next(_ sender: Any) {
+//            validator.validate(self)
+//            if password != "" &&  isValidated  {
+//
+//                self.performSegue(withIdentifier: "emailNxt", sender: self)
+//            }else{
+//                passLabel.text = "لطفًا، اختر صورة "
+//            }
+//
+//        }
+//
+//    }
     @IBAction func loginAction(_ sender: AnyObject) {
         
         if self.emailTextfield.text == "" || self.password == "" {

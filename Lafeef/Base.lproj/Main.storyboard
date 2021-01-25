@@ -446,6 +446,13 @@
                                     <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-NT-MXO" userLabel="errorLabel1">
+                                <rect key="frame" x="597" y="458" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Gm-QR-jzO"/>
                         <color key="backgroundColor" red="0.97625690700000001" green="0.97304958109999995" blue="0.94117331500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -453,6 +460,7 @@
                     <connections>
                         <outlet property="berry" destination="oTF-xH-mc3" id="TdL-v6-wix"/>
                         <outlet property="emailTextfield" destination="vm6-en-5Ab" id="z5S-sS-CLK"/>
+                        <outlet property="errorLabel" destination="r8j-NT-MXO" id="qxN-bt-ZrN"/>
                         <outlet property="kiwi" destination="fu6-Jd-bzu" id="nmJ-ZX-xsA"/>
                         <outlet property="lemon" destination="WHh-q9-eaK" id="9UR-tt-Rkx"/>
                         <outlet property="logo" destination="LdT-yz-PSk" id="TZf-aQ-3bV"/>
