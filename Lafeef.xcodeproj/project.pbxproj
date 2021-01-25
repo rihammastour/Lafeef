@@ -29,6 +29,7 @@
 		4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
+		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +73,11 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4EEDE0FF25BCF4A900CA7B9A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */,
 				41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */,
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
+				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
+				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */,
