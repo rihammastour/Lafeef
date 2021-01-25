@@ -40,28 +40,52 @@ class SignUpEmailViewController: UIViewController{
     }
     
    
-    @IBAction func berryPass(_ sender: Any) {
+    @IBAction func berryPass(_ sender: UIButton) {
         password = "berry123"
+        selectButton(sender)
+
     }
     
-    @IBAction func kiwiPass(_ sender: Any) {
+    @IBAction func kiwiPass(_ sender: UIButton) {
         password = "kiwi123"
+        selectButton(sender)
+
     }
-    @IBAction func orangePass(_ sender: Any) {
+    @IBAction func orangePass(_ sender: UIButton) {
         password = "orange123"
+        selectButton(sender)
+
     }
     
-    @IBAction func lemonPass(_ sender: Any) {
+    @IBAction func lemonPass(_ sender: UIButton) {
         password = "lemon123"
+        selectButton(sender)
+
     }
     
-    @IBAction func strawberryPass(_ sender: Any) {
+    @IBAction func strawberryPass(_ sender: UIButton) {
         password = "strawberry123"
+        selectButton(sender)
+
     }
     
-    @IBAction func pineapplePass(_ sender: Any) {
+    @IBAction func pineapplePass(_ sender: UIButton) {
         password = "pineapple123"
+        selectButton(sender)
+
     }
+    func selectButton(_ sender: UIButton){
+           //deselect all buttons first
+           deselectButton()
+           //select one button seconed
+           sender.layer.borderWidth = 3.5
+           sender.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+       }
+       
+       func deselectButton(){
+           deSelectedButton.forEach({$0.layer.borderWidth = 0
+                                   $0.layer.borderColor = .none})
+       }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
          let destinationVC = segue.destination as! SignUpDOBViewController
