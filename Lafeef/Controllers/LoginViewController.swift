@@ -6,6 +6,9 @@
 //
 import UIKit
 import Foundation
+import Firebase
+import FirebaseAuth
+
 class LoginViewController: UIViewController{
     var password : String = ""
     @IBOutlet weak var logo: UIImageView!
@@ -43,8 +46,85 @@ class LoginViewController: UIViewController{
         
         
     }
+    @IBAction func berryPass(_ sender: Any) {
+        password = "berry123"
+        berry.backgroundColor = UIColor.blue
+
+    }
     
+    @IBAction func kiwiPass(_ sender: Any) {
+        password = "kiwi123"
+        kiwi.backgroundColor = UIColor.blue
+
+    }
+    @IBAction func orangePass(_ sender: Any) {
+        password = "orange123"
+        orange.backgroundColor = UIColor.blue
+    }
     
+    @IBAction func lemonPass(_ sender: Any) {
+        password = "lemon123"
+        lemon.backgroundColor = UIColor.blue
+
+    }
+    
+    @IBAction func strawberryPass(_ sender: Any) {
+        password = "strawberry123"
+        strawberry.backgroundColor = UIColor.blue
+
+    }
+    
+    @IBAction func pineapplePass(_ sender: Any) {
+        password = "pineapple123"
+        pineapple.backgroundColor = UIColor.blue
+
+    }
+    @IBAction func loginAction(_ sender: AnyObject) {
+        
+        if self.emailTextfield.text == "" || self.password == "" {
+            
+            //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
+            
+            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        
+        } else {
+           
+            Auth.auth().signIn(withEmail: self.emailTextfield.text!, password: self.password) { (user, error) in
+                
+                if error == nil {
+                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+                    
+                    //Go to the ProfileViewController if the login is sucessful
+                  //  let vc = UIViewController()
+             //       vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
+                   // self.present(vc, animated: true, completion: nil)
+                    //
+                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileScreen")
+                    //self.modalPresentationStyle = .fullScreen //or .overFullScreen
+                  //  self.modalPresentationStyle = UIModalPresentationFullScreen;
+                    self.present(vc!, animated: true, completion: nil)
+                    
+                             } else {
+                                 
+                                 //Tells the user that there is an error and then gets firebase to tell them the error
+                                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                 
+                                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                 alertController.addAction(defaultAction)
+                                 
+                                 self.present(alertController, animated: true, completion: nil)
+                             }
+                         }
+                     }
+                 }
+     
    
 }
 

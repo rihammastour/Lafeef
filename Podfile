@@ -6,6 +6,8 @@ target 'Lafeef' do
   use_frameworks!
 
   # Pods for Lafeef
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
@@ -19,5 +21,7 @@ pod 'Firebase/Analytics'
   target 'LafeefUITests' do
     # Pods for testing
   end
+
+
 
 end

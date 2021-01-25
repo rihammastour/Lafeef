@@ -331,7 +331,7 @@
         <!--Login View Controller-->
         <scene sceneID="k2w-Jy-sdg">
             <objects>
-                <viewController id="gLG-NL-pFt" customClass="LoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginScreen" storyboardIdentifier="LoginScreen" modalPresentationStyle="fullScreen" id="gLG-NL-pFt" customClass="LoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oza-z7-Wk1">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,6 +366,9 @@
                                 <state key="normal" title="تسجيل الدخول">
                                     <color key="titleColor" red="0.55250060560000003" green="0.56601083279999997" blue="0.4784191847" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="gLG-NL-pFt" eventType="touchUpInside" id="2I0-fP-7wH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="هل نسيت رمز المرور؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3S-bq-GSj">
                                 <rect key="frame" x="282" y="819" width="162" height="32"/>
@@ -385,18 +388,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="berry"/>
+                                <connections>
+                                    <action selector="berryPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="Qvy-wO-ivf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHh-q9-eaK" userLabel="lemon">
                                 <rect key="frame" x="136" y="665" width="142" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="mango"/>
+                                <connections>
+                                    <action selector="lemonPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="T3i-Cj-XLQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Jd-bzu" userLabel="kiwi">
                                 <rect key="frame" x="313" y="498" width="143" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="Kiwi-1"/>
+                                <connections>
+                                    <action selector="kiwiPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="h5p-Vx-wcw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-rJ-Da0" userLabel="strawberry">
                                 <rect key="frame" x="313" y="663" width="143" height="129"/>
@@ -404,18 +416,27 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <state key="normal" backgroundImage="strawberry"/>
+                                <connections>
+                                    <action selector="strawberryPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="ef7-te-up8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-EI-2kZ" userLabel="orange">
                                 <rect key="frame" x="490" y="500" width="136" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="Orange-1"/>
+                                <connections>
+                                    <action selector="orangePass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="JV9-hM-dAy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TP-ux-YTI" userLabel="pineapple">
                                 <rect key="frame" x="490" y="665" width="136" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="Pineapple-1"/>
+                                <connections>
+                                    <action selector="pineapplePass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="yVt-gb-l6R"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAF-Qn-bdM">
                                 <rect key="frame" x="139" y="813" width="139" height="44"/>
@@ -438,6 +459,7 @@
                         <outlet property="nextOutlet" destination="pX5-Pn-V4U" id="nyi-qM-MoO"/>
                         <outlet property="orange" destination="iI5-EI-2kZ" id="RZ4-o2-weA"/>
                         <outlet property="pineapple" destination="8TP-ux-YTI" id="dPe-PZ-Ycd"/>
+                        <outlet property="resetPass" destination="oAF-Qn-bdM" id="GAP-3I-5ac"/>
                         <outlet property="strawberry" destination="ojZ-rJ-Da0" id="EfL-Oe-hLj"/>
                     </connections>
                 </viewController>
@@ -638,6 +660,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVD-27-SZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3731" y="51"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="9lz-wE-0ft">
+            <objects>
+                <viewController restorationIdentifier="ProfileScreen" storyboardIdentifier="ProfileScreen" modalPresentationStyle="fullScreen" id="I0u-g0-2Wm" customClass="ProfileViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7uN-UX-Ehj">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTs-Nd-rlF" userLabel="logOutButton">
+                                <rect key="frame" x="133" y="859" width="503" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                <state key="normal" title="تسجيل الخروج">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutActionWithSender:" destination="I0u-g0-2Wm" eventType="touchUpInside" id="2WV-at-qJ5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Hy-g3-1ET"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="logOut" destination="MTs-Nd-rlF" id="2K0-1e-264"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Szr-w8-j3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2481.25" y="750.5859375"/>
         </scene>
     </scenes>
     <resources>
