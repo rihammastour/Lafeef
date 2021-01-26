@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FFHekaya-Light.otf">
+            <string>FFHekaya-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Sign Up Or Login View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -37,6 +42,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="تسجيل الدخول"/>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="uJ7-ui-5tc">
@@ -45,8 +51,15 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
                                         <rect key="frame" x="160" y="467" width="448" height="60"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="إنشاء حساب"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يحلو التعلم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-hx-Q1v">
+                                        <rect key="frame" x="523" y="907" width="185" height="71"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
+                                        <color key="textColor" name="blueApp"/>
+                                        <color key="highlightedColor" name="blueApp"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="bachgroundApp"/>
                                 <constraints>
@@ -59,10 +72,12 @@
                                     <constraint firstAttribute="bottom" secondItem="H0C-XV-KhS" secondAttribute="bottom" id="WDX-n1-TQc"/>
                                     <constraint firstItem="47w-x7-7QZ" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="bff-HG-p8W"/>
                                     <constraint firstItem="5wo-HG-wFx" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-70" id="cgz-u2-fVU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ea2-hx-Q1v" secondAttribute="trailing" constant="60" id="hAE-UL-AYz"/>
                                     <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="35" id="mZn-ki-ysh"/>
                                     <constraint firstAttribute="bottom" secondItem="5wo-HG-wFx" secondAttribute="bottom" constant="28" id="pT9-vN-Irm"/>
                                     <constraint firstItem="iwe-Xb-Pr5" firstAttribute="top" secondItem="tka-Bs-lB3" secondAttribute="top" constant="372" id="s6c-tk-nGh"/>
                                     <constraint firstItem="H0C-XV-KhS" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-40" id="vDL-Vv-1Sv"/>
+                                    <constraint firstAttribute="bottom" secondItem="ea2-hx-Q1v" secondAttribute="bottom" constant="46" id="wVR-IB-eOe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -91,7 +106,10 @@
         <image name="Wave" width="344.5" height="118.5"/>
         <image name="balloon" width="135" height="277"/>
         <namedColor name="bachgroundApp">
-            <color red="0.96046167609999999" green="0.95815926789999994" blue="0.90196102860000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="blueApp">
+            <color red="0.55800002813339233" green="0.7369999885559082" blue="0.73299998044967651" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

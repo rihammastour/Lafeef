@@ -24,6 +24,7 @@
 		C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D625C08F1800F64D90 /* Constants.swift */; };
 		C92CD0D925C090D600F64D90 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92CD0D825C090D600F64D90 /* Color.xcassets */; };
 		C92CD0DB25C0940600F64D90 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0DA25C0940600F64D90 /* SignUpOrLoginViewController.swift */; };
+		C9E09AA125C0B42700AEA8B1 /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C92CD0DD25C0A31A00F64D90 /* FFHekaya-Light.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C92CD0D625C08F1800F64D90 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C92CD0D825C090D600F64D90 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		C92CD0DA25C0940600F64D90 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLoginViewController.swift; sourceTree = "<group>"; };
+		C92CD0DD25C0A31A00F64D90 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = SOURCE_ROOT; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,9 +143,9 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
+				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				C92CD0D325C08E4500F64D90 /* ViewController */,
 				C92CD0D225C08E3C00F64D90 /* Helper */,
-				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
 				4E453A4525B61D5100B8363F /* Actions.sks */,
 				4E453A4725B61D5100B8363F /* GameScene.swift */,
@@ -151,6 +153,7 @@
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92CD0D825C090D600F64D90 /* Color.xcassets */,
+				C92CD0DC25C0A2E700F64D90 /* Fonts */,
 				4E453A5025B61D5400B8363F /* Info.plist */,
 				4E453A7A25B889BC00B8363F /* GoogleService-Info.plist */,
 			);
@@ -190,6 +193,14 @@
 				C92CD0DA25C0940600F64D90 /* SignUpOrLoginViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C92CD0DC25C0A2E700F64D90 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C92CD0DD25C0A31A00F64D90 /* FFHekaya-Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		E3CA613ED32609BDDAB603CE /* Frameworks */ = {
@@ -312,6 +323,7 @@
 			files = (
 				4E453A7B25B889BC00B8363F /* GoogleService-Info.plist in Resources */,
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
+				C9E09AA125C0B42700AEA8B1 /* FFHekaya-Light.otf in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,

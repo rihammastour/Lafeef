@@ -32,8 +32,17 @@ class Utilities {
         // Filled rounded corner style
         button.backgroundColor = UIColor.init(named: "whiteApp")
         button.layer.cornerRadius = 30.0
+//        button.titleLabel?.font =  UIFont(name: "FFHekaya-Light", size: 30.7)
         button.clipsToBounds = true
         button.tintColor = UIColor.init(named: "blackApp")
+        
+        //Shadow
+        // Shadow Color and Radius
+        button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 7
+        button.layer.masksToBounds = false
     }
     
     //Not updated yet
