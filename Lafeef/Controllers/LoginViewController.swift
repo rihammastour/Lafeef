@@ -32,39 +32,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.layer.zPosition = -1
-//        validator.styleTransformers(success:{ (validationRule) -> Void in
-//                                 print("here")
-//                                 // clear error label
-//                                 validationRule.errorLabel?.isHidden = true
-//                                 validationRule.errorLabel?.text = ""
-//
-//                                 if let textField = validationRule.field as? UITextField {
-//                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
-//                                     textField.layer.borderWidth = 3
-//                                 } else if let textField = validationRule.field as? UITextView {
-//                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
-//                                     textField.layer.borderWidth = 3
-//                                 }
-//                             }, error:{ (validationError) -> Void in
-//                                 print("error")
-//                                 validationError.errorLabel?.isHidden = false
-//                                 validationError.errorLabel?.text = validationError.errorMessage
-//                                 if let textField = validationError.field as? UITextField {
-//                                     textField.layer.borderColor = UIColor.red.cgColor
-//                                     textField.layer.borderWidth = 3.0
-//                                 } else if let textField = validationError.field as? UITextView {
-//                                     textField.layer.borderColor = UIColor.red.cgColor
-//                                     textField.layer.borderWidth = 3.0
-//                                 }
-//                             })
-//
-//                      validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
-//                      self.navigationController?.isNavigationBarHidden = true
-//              //        self.navigationController?.navigationBar.layer.zPosition = -1
-//        emailTextfield.delegate = self
-//
-//        emailTextfield.delegate = self as? UITextFieldDelegate
+        self.navigationController?.navigationBar.layer.zPosition = -1 // ما ندري وش فايدته
+        
+        validator.styleTransformers(success:{ (validationRule) -> Void in
+                                 print("here")
+                                 // clear error label
+                                 validationRule.errorLabel?.isHidden = true
+                                 validationRule.errorLabel?.text = ""
+
+                                 if let textField = validationRule.field as? UITextField {
+                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                                     textField.layer.borderWidth = 3
+                                 } else if let textField = validationRule.field as? UITextView {
+                                     textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                                     textField.layer.borderWidth = 3
+                                 }
+                             }, error:{ (validationError) -> Void in
+                                 print("error")
+                                 validationError.errorLabel?.isHidden = false
+                                 validationError.errorLabel?.text = validationError.errorMessage
+                                 if let textField = validationError.field as? UITextField {
+                                     textField.layer.borderColor = UIColor.red.cgColor
+                                     textField.layer.borderWidth = 3.0
+                                 } else if let textField = validationError.field as? UITextView {
+                                     textField.layer.borderColor = UIColor.red.cgColor
+                                     textField.layer.borderWidth = 3.0
+                                 }
+                             })
+
+                      validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
+                      self.navigationController?.isNavigationBarHidden = true
+              //        self.navigationController?.navigationBar.layer.zPosition = -1
+        emailTextfield.delegate = self
+
+       // emailTextfield.delegate = self as? UITextFieldDelegate
     
         logo.layer.zPosition = 2
         lemon.layer.cornerRadius = 40

@@ -38,16 +38,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-150" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-uS-l1W">
-                                <rect key="frame" x="0.0" y="-34" width="768" height="935"/>
+                                <rect key="frame" x="0.0" y="-35" width="768" height="936"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-170" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-2I-8kQ" userLabel="Logo">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="447"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="448"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uperBackgroundsvg" translatesAutoresizingMaskIntoConstraints="NO" id="juA-kE-4FD">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="219"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="JQh-Uk-vKK">
-                                                <rect key="frame" x="0.0" y="48" width="418" height="399"/>
+                                                <rect key="frame" x="0.0" y="49" width="418" height="399"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="399" id="JaZ-nP-GDQ"/>
                                                     <constraint firstAttribute="width" constant="418" id="gUf-37-9cX"/>
@@ -56,7 +56,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="kRW-cm-cqJ" userLabel="form">
-                                        <rect key="frame" x="150.5" y="297" width="467" height="638"/>
+                                        <rect key="frame" x="150.5" y="298" width="467" height="638"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إنشاء حساب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoO-o6-k1n">
                                                 <rect key="frame" x="121" y="0.0" width="225.5" height="72"/>
@@ -229,16 +229,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="axc-Ic-DO3">
-                                <rect key="frame" x="0.0" y="50" width="768" height="774"/>
+                                <rect key="frame" x="0.0" y="50" width="768" height="775"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-280" translatesAutoresizingMaskIntoConstraints="NO" id="3KI-bi-hzS">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="283"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="284"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uperBackgroundsvg" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-KS-FUF">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="219"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DOBUpperbackgrounf" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-at-HXy">
-                                                <rect key="frame" x="225" y="-62" width="318" height="345"/>
+                                                <rect key="frame" x="225" y="-61" width="318" height="345"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="345" id="Jt8-5V-Rkg"/>
                                                     <constraint firstAttribute="width" constant="318" id="gpy-aZ-wkb"/>
@@ -247,7 +247,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="122" translatesAutoresizingMaskIntoConstraints="NO" id="fos-oM-nhH" userLabel="form">
-                                        <rect key="frame" x="115.5" y="313" width="537" height="461"/>
+                                        <rect key="frame" x="115.5" y="314" width="537" height="461"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="تاريخ الميلاد" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-PI-hAj">
                                                 <rect key="frame" x="171.5" y="0.0" width="194.5" height="71"/>
@@ -396,7 +396,9 @@
                                 <rect key="frame" x="136" y="665" width="142" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" backgroundImage="mango"/>
+                                <state key="normal">
+                                    <imageReference key="backgroundImage" image="mango" symbolScale="large"/>
+                                </state>
                                 <connections>
                                     <action selector="lemonPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="T3i-Cj-XLQ"/>
                                 </connections>
@@ -447,7 +449,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-NT-MXO" userLabel="errorLabel1">
-                                <rect key="frame" x="597" y="458" width="0.0" height="0.0"/>
+                                <rect key="frame" x="245" y="458" width="394" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
