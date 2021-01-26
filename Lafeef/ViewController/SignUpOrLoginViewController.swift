@@ -24,7 +24,7 @@ class SignUpOrLoginViewController: UIViewController {
                  
                  //Styling Text Label
                 // Utilities.styleTextField(emailTextField)
-                 
+      
                  //Styling Buttons
                  Utilities.styleFilledButton(logInButton)
                  Utilities.styleFilledButton(signUpButton)

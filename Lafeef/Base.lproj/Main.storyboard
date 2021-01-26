@@ -25,18 +25,26 @@
                                             <constraint firstAttribute="height" constant="218.80000000000001" id="JhX-20-OsF"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-HG-wFx">
-                                        <rect key="frame" x="-108" y="598" width="515" height="376"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-HG-wFx">
+                                        <rect key="frame" x="-70" y="587" width="455" height="409"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwoBalloons" translatesAutoresizingMaskIntoConstraints="NO" id="KwL-X6-FtQ">
+                                        <rect key="frame" x="61" y="214" width="285" height="307"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
-                                        <rect key="frame" x="160" y="374" width="448" height="60"/>
+                                        <rect key="frame" x="160" y="372" width="448" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
                                         <state key="normal" title="تسجيل الدخول"/>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="uJ7-ui-5tc">
+                                        <rect key="frame" x="457" y="421" width="236" height="227"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
-                                        <rect key="frame" x="160" y="474" width="448" height="60"/>
+                                        <rect key="frame" x="160" y="467" width="448" height="60"/>
                                         <state key="normal" title="إنشاء حساب"/>
                                     </button>
                                 </subviews>
@@ -47,14 +55,14 @@
                                     <constraint firstItem="iwe-Xb-Pr5" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="ARP-O0-E2Z"/>
                                     <constraint firstItem="47w-x7-7QZ" firstAttribute="height" secondItem="iwe-Xb-Pr5" secondAttribute="height" id="O0D-yT-Byd"/>
                                     <constraint firstAttribute="trailing" secondItem="iwe-Xb-Pr5" secondAttribute="trailing" constant="160" id="RNm-ig-6Hg"/>
-                                    <constraint firstAttribute="bottom" secondItem="5wo-HG-wFx" secondAttribute="bottom" constant="50" id="Tjc-jK-mQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="5wo-HG-wFx" secondAttribute="trailing" constant="383" id="TeY-a3-PoP"/>
                                     <constraint firstAttribute="bottom" secondItem="H0C-XV-KhS" secondAttribute="bottom" id="WDX-n1-TQc"/>
-                                    <constraint firstAttribute="trailing" secondItem="5wo-HG-wFx" secondAttribute="trailing" constant="361" id="XG5-U5-XrM"/>
                                     <constraint firstItem="47w-x7-7QZ" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="bff-HG-p8W"/>
-                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="40" id="mZn-ki-ysh"/>
-                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="top" secondItem="tka-Bs-lB3" secondAttribute="top" constant="374" id="s6c-tk-nGh"/>
+                                    <constraint firstItem="5wo-HG-wFx" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-70" id="cgz-u2-fVU"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="35" id="mZn-ki-ysh"/>
+                                    <constraint firstAttribute="bottom" secondItem="5wo-HG-wFx" secondAttribute="bottom" constant="28" id="pT9-vN-Irm"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="top" secondItem="tka-Bs-lB3" secondAttribute="top" constant="372" id="s6c-tk-nGh"/>
                                     <constraint firstItem="H0C-XV-KhS" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-40" id="vDL-Vv-1Sv"/>
-                                    <constraint firstItem="5wo-HG-wFx" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-108" id="y49-Fg-bFs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -79,7 +87,9 @@
     </scenes>
     <resources>
         <image name="Lafeef-Logos-4" width="428" height="409"/>
+        <image name="TwoBalloons" width="239.5" height="337"/>
         <image name="Wave" width="344.5" height="118.5"/>
+        <image name="balloon" width="135" height="277"/>
         <namedColor name="bachgroundApp">
             <color red="0.96046167609999999" green="0.95815926789999994" blue="0.90196102860000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
