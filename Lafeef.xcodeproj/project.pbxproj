@@ -20,6 +20,8 @@
 		4E453A7B25B889BC00B8363F /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A7A25B889BC00B8363F /* GoogleService-Info-2.plist */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
+		C92CD0D525C08F1000F64D90 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D425C08F1000F64D90 /* Utilities.swift */; };
+		C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D625C08F1800F64D90 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E453A7A25B889BC00B8363F /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "../../../Downloads/GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92CD0D425C08F1000F64D90 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C92CD0D625C08F1800F64D90 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
+				C92CD0D325C08E4500F64D90 /* ViewController */,
+				C92CD0D225C08E3C00F64D90 /* Helper */,
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
 				4E453A4525B61D5100B8363F /* Actions.sks */,
@@ -162,6 +168,22 @@
 				4E453A6625B61D5500B8363F /* Info.plist */,
 			);
 			path = LafeefUITests;
+			sourceTree = "<group>";
+		};
+		C92CD0D225C08E3C00F64D90 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C92CD0D425C08F1000F64D90 /* Utilities.swift */,
+				C92CD0D625C08F1800F64D90 /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C92CD0D325C08E4500F64D90 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		E3CA613ED32609BDDAB603CE /* Frameworks */ = {
@@ -414,8 +436,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
+				C92CD0D525C08F1000F64D90 /* Utilities.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -569,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
