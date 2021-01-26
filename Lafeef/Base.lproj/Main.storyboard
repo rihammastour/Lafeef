@@ -3,21 +3,59 @@
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Sign Up Or Login View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="SignUpOrLoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tka-Bs-lB3">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wave" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-XV-KhS">
+                                        <rect key="frame" x="-40" y="805" width="848" height="219"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="218.80000000000001" id="JhX-20-OsF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-HG-wFx">
+                                        <rect key="frame" x="-108" y="598" width="515" height="376"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
+                                        <rect key="frame" x="160" y="374" width="448" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="awW-Hs-vaz"/>
+                                        </constraints>
+                                        <state key="normal" title="تسجيل الدخول"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
+                                        <rect key="frame" x="160" y="474" width="448" height="60"/>
+                                        <state key="normal" title="إنشاء حساب"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="bachgroundApp"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="H0C-XV-KhS" secondAttribute="trailing" constant="-40" id="924-Ra-QoS"/>
+                                    <constraint firstAttribute="trailing" secondItem="47w-x7-7QZ" secondAttribute="trailing" constant="160" id="A9b-0P-d5g"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="ARP-O0-E2Z"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="height" secondItem="iwe-Xb-Pr5" secondAttribute="height" id="O0D-yT-Byd"/>
+                                    <constraint firstAttribute="trailing" secondItem="iwe-Xb-Pr5" secondAttribute="trailing" constant="160" id="RNm-ig-6Hg"/>
+                                    <constraint firstAttribute="bottom" secondItem="5wo-HG-wFx" secondAttribute="bottom" constant="50" id="Tjc-jK-mQq"/>
+                                    <constraint firstAttribute="bottom" secondItem="H0C-XV-KhS" secondAttribute="bottom" id="WDX-n1-TQc"/>
+                                    <constraint firstAttribute="trailing" secondItem="5wo-HG-wFx" secondAttribute="trailing" constant="361" id="XG5-U5-XrM"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="bff-HG-p8W"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="40" id="mZn-ki-ysh"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="top" secondItem="tka-Bs-lB3" secondAttribute="top" constant="374" id="s6c-tk-nGh"/>
+                                    <constraint firstItem="H0C-XV-KhS" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-40" id="vDL-Vv-1Sv"/>
+                                    <constraint firstItem="5wo-HG-wFx" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-108" id="y49-Fg-bFs"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -29,10 +67,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="logInButton" destination="iwe-Xb-Pr5" id="mec-1a-ien"/>
+                        <outlet property="signUpButton" destination="47w-x7-7QZ" id="IfW-hj-afP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="117"/>
+            <point key="canvasLocation" x="138.28125" y="116.60156249999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lafeef-Logos-4" width="428" height="409"/>
+        <image name="Wave" width="344.5" height="118.5"/>
+        <namedColor name="bachgroundApp">
+            <color red="0.96046167609999999" green="0.95815926789999994" blue="0.90196102860000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
