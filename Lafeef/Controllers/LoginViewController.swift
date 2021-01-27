@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 import SwiftValidator
 
-class LoginViewController: UIViewController, UITextFieldDelegate{
+class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDelegate{
     var password : String = ""
     let validator = Validator()
        var isValidated : Bool  = false
@@ -28,12 +28,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var resetPass:UIButton!
     @IBOutlet var deSelectedButton: [UIButton]!
     @IBOutlet weak var errorLabel: UILabel!
-    
+    @IBOutlet weak var passLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.navigationBar.layer.zPosition = -1 // ما ندري وش فايدته
-        
+//        self.navigationController?.navigationBar.layer.zPosition = -1 // ما ندري وش فايدته
+//
         validator.styleTransformers(success:{ (validationRule) -> Void in
                                  print("here")
                                  // clear error label
@@ -127,6 +127,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         selectButton(sender)
 
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+  //            errorLabel.text = "ff"
+      validator.validate(self)
+          }
+  //        func textFieldShouldEndEditing(_ textField:UITextField){
+  //
+  //            validator.validate(self)
+  //        }
+//
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+              validator.validate(self)
+              return true
+      }
     
     func selectButton(_ sender: UIButton){
            //deselect all buttons first
@@ -173,7 +186,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
 //
 //    }
     @IBAction func loginAction(_ sender: AnyObject) {
-        
+        validator.validate(self)
+//        if password != "" &&  isValidated  {
+//          
+//            self.performSegue(withIdentifier: "emailNxt", sender: self)
+//        }else{
+//            passLabel.text = "لطفًا، اختر صورة "
+//        }
+//        
+//    }
+        if password == "" {
+            passLabel.text = "لطفًا، اختر صورة 🙁 "
+            
+        }
+  
         if self.emailTextfield.text == "" || self.password == "" {
             
             //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
