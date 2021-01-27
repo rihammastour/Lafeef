@@ -64,7 +64,7 @@
                                                 <color key="textColor" red="0.55686274509803924" green="0.73725490196078436" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Dw-fAR">
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mihaf@gmail.com" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HV1-Dw-fAR">
                                                 <rect key="frame" x="0.0" y="103" width="467" height="73"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="Bqy-qk-LPG"/>
@@ -237,6 +237,7 @@
                         <outlet property="nextOutlet" destination="zUt-pd-KC8" id="V2f-1Y-5nA"/>
                         <outlet property="orange" destination="VXe-kZ-t0s" id="w9r-FG-XVv"/>
                         <outlet property="passLabel" destination="u0t-hL-yEh" id="5Bh-jU-cAJ"/>
+                        <outlet property="passwordGuid" destination="cSm-Qv-3b8" id="717-k5-HFo"/>
                         <outlet property="pineapple" destination="agO-nd-2ea" id="KdQ-cm-KLX"/>
                         <outlet property="strawberry" destination="njE-2b-evO" id="lgX-4z-td8"/>
                         <outletCollection property="deSelectedButton" destination="njE-2b-evO" collectionClass="NSMutableArray" id="gFV-DE-OAk"/>
@@ -358,7 +359,8 @@
                             <constraint firstItem="yh2-KS-FUF" firstAttribute="width" secondItem="tXT-Ot-EF0" secondAttribute="width" id="imz-Ni-z5m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZeA-Iq-I31"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dayTextfield" destination="5Ud-GK-6iB" id="GyD-Bk-Mrb"/>
                         <outlet property="errorLabel" destination="vdM-bT-SMw" id="vx1-yB-nDb"/>
@@ -544,10 +546,12 @@
                             <constraint firstItem="ZDT-t8-3WE" firstAttribute="leading" secondItem="5AJ-pa-HRg" secondAttribute="leading" constant="130" id="p9g-eS-dGP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rkO-Cv-P4S"/>
+                    <navigationItem key="navigationItem" id="rkO-Cv-P4S">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kSI-bG-z9B"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="charachterImage" destination="kaq-TP-q8k" id="9Uj-rU-Ldm"/>
-                        <outlet property="errorLabel" destination="QPM-AL-XJT" id="wTq-o2-pD2"/>
+                        <outlet property="errorLabel" destination="b5C-b1-sCw" id="6aQ-bW-LiE"/>
                         <outlet property="nameTextfield" destination="U1g-qP-3Eo" id="5cj-Dl-Zj6"/>
                         <outlet property="nextOutlet" destination="QPM-AL-XJT" id="o1J-Ng-KB8"/>
                     </connections>
@@ -575,6 +579,7 @@
             <point key="canvasLocation" x="221.875" y="50.9765625"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemGrayColor"/>
     <resources>
         <image name="DOBUpperbackgrounf" width="687" height="297"/>
         <image name="Lafeef-logo-1" width="428" height="409"/>
@@ -590,6 +595,9 @@
         <image name="uperBackgroundsvg" width="768" height="218.80000305175781"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -17,6 +17,7 @@ class SignUpNameViewController: UIViewController,UITextFieldDelegate {
     var year = ""
     var charachter = ""
     var name = ""
+   
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var charachterImage: UIImageView!
@@ -25,6 +26,13 @@ class SignUpNameViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+ 
+        
+       
         CharachterType(charachter: charachter)
         nameTextfield.delegate = self
         charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
@@ -48,13 +56,14 @@ class SignUpNameViewController: UIViewController,UITextFieldDelegate {
       
        @IBAction func next(_ sender: Any) {
            let signUpManager = FirebaseAuthManager()
-         
-        signUpManager.createUser(email: email, password: pass, name:name,sex:charachter,DOB:month) {
+        let DOB = day+"-"+month+"-"+year
+        signUpManager.createUser(email: email, password: pass, name:name,sex:charachter,DOB:DOB) {
                [weak self] (success,error) in
                      guard let self = self else { return }
                     
                      if (success) {
                        self.errorLabel.text = "User was sucessfully created."
+                        //navogation
                      } else {
                        self.errorLabel.text = error
                      }

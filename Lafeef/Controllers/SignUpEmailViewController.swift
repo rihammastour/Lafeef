@@ -8,14 +8,15 @@
 import UIKit
 import FlexibleSteppedProgressBar
 import SwiftValidator
+import MaterialShowcase
 
 class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDelegate, ValidationDelegate, UITextFieldDelegate {
     var password : String = ""
     var isValidated = false
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
-    @IBOutlet weak var passLabel: UILabel!
     let validator = Validator()
-
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var passwordGuid: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var lemon: UIButton!
@@ -26,18 +27,32 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     @IBOutlet weak var berry: UIButton!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
-    
     @IBOutlet var deSelectedButton: [UIButton]!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.layer.zPosition = -1
-        emailTextfield.delegate = self
+//
+//        uiView.fadeIn(completion: {
+//            (finished: Bool) -> Void in
+//           self.uiView.fadeOut()
+//            })
+//        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+  
+       
         
+
+        emailTextfield.delegate = self
+    
+        
+        
+    //validation
         validator.styleTransformers(success:{ (validationRule) -> Void in
-                         
-                           // clear error label
                            validationRule.errorLabel?.isHidden = true
                            validationRule.errorLabel?.text = ""
                            
@@ -64,8 +79,7 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
                 
                 validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
                
-     
-                emailTextfield.delegate = self
+    
         
         //buttons shape
         logo.layer.zPosition = 2
@@ -82,6 +96,9 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
         
         setupProgressBarWithoutLastState()
+        
+
+//
     }
 
     func setupProgressBarWithoutLastState() {
@@ -183,35 +200,41 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     }
     
     @IBAction func berryPass(_ sender: UIButton) {
+        validator.validate(self)
         password = "berry123"
         selectButton(sender)
         passLabel.isHidden = true
     }
     
     @IBAction func kiwiPass(_ sender: UIButton) {
+        validator.validate(self)
         password = "kiwi123"
         selectButton(sender)
         passLabel.isHidden = true
     }
     @IBAction func orangePass(_ sender: UIButton) {
+        validator.validate(self)
         password = "orange123"
         selectButton(sender)
         passLabel.isHidden = true
     }
     
     @IBAction func lemonPass(_ sender: UIButton) {
+        validator.validate(self)
         password = "lemon123"
         selectButton(sender)
         passLabel.isHidden = true
     }
     
     @IBAction func strawberryPass(_ sender: UIButton) {
+        validator.validate(self)
         password = "strawberry123"
         selectButton(sender)
         passLabel.isHidden = true
     }
     
     @IBAction func pineapplePass(_ sender: UIButton) {
+        validator.validate(self)
         password = "pineapple123"
         selectButton(sender)
         passLabel.isHidden = true
@@ -247,5 +270,20 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         }
         
     }
-  
 }
+extension UIView {
+
+
+    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        self.alpha = 1.0
+        }, completion: completion)  }
+
+    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        self.alpha = 0.0
+        }, completion: completion)
+}
+
+}
+

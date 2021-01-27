@@ -15,16 +15,17 @@ class SignUpCharachterViewController: UIViewController {
     var year = ""
     var charachter = ""
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var charachterImage: UIImageView!
-    
-
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet weak var girl: UIButton!
-    
     @IBOutlet weak var boy: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+ 
         girl.layer.cornerRadius = 0.5 * girl.bounds.size.width
         girl.clipsToBounds = true
         boy.layer.cornerRadius = 0.5 * boy.bounds.size.width
