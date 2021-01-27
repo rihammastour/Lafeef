@@ -11,6 +11,11 @@ pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 
+pod "FlexibleSteppedProgressBar"
+
+pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+
+
   target 'LafeefTests' do
     inherit! :search_paths
     # Pods for testing
