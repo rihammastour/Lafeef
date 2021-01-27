@@ -14,15 +14,18 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
     
     @IBOutlet var charectarView: UIView!
     @IBOutlet weak var charachterImage: UIImageView!
-    
-
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet weak var girl: UIButton!
     @IBOutlet var charectarButton: [UIButton]!
-    
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var boy: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+ 
         girl.layer.cornerRadius = 0.5 * girl.bounds.size.width
         girl.clipsToBounds = true
         boy.layer.cornerRadius = 0.5 * boy.bounds.size.width
@@ -107,7 +110,12 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
     
 
     @IBAction func next(_ sender: Any) {
+        if charachter != ""{
         self.performSegue(withIdentifier: "charachterNext", sender: self)
+    }
+        else{
+            errorLabel.text = "لطفًا، اختر شخصيتك"
+        }
     }
     
     @IBAction func girl(_ sender: UIButton) {
@@ -115,11 +123,11 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
         selectButton(sender)
         self.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom: 0.71, blueBottom: 0.71, type: "radial")
         self.charachterImage.image = UIImage(named: "girl")
+        errorLabel.isHidden = true
         
     }
-    
-    @IBAction func boy(_ sender: UIButton) {
-        childInfo.charachter = "boy"
+    @IBAction func girl(_ sender: UIButton) {
+        childInfo.charachter = "girl"
         selectButton(sender)
         self.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.67, greenBottom: 0.82, blueBottom: 0.76, type: "radial")
         self.charachterImage.image =  UIImage(named: "boy")

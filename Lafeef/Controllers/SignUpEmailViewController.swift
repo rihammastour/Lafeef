@@ -8,14 +8,16 @@
 import UIKit
 import FlexibleSteppedProgressBar
 import SwiftValidator
+import MaterialShowcase
 
 class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDelegate, ValidationDelegate, UITextFieldDelegate {
-//    var password : String = ""
+    var isValidated = false
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     let validator = Validator()
     
     var childInfo = Child()
-
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var passwordGuid: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var lemon: UIButton!
@@ -28,10 +30,24 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet var deSelectedButton: [UIButton]!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.layer.zPosition = -1
+//
+//        uiView.fadeIn(completion: {
+//            (finished: Bool) -> Void in
+//           self.uiView.fadeOut()
+//            })
+//        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+  
+       
+        
+
         emailTextfield.delegate = self
         validation()
         
@@ -50,6 +66,9 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
         
         setupProgressBarWithoutLastState()
+        
+
+//
     }
 
     //---------------------------------------- progress bar
@@ -138,10 +157,8 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     
     func validationSuccessful() {
         print("Validation Success!")
-                let alert = UIAlertController(title: "Success", message: "You are validated!", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: true, completion: nil)
+errorLabel?.isHidden = true
+isValidated = true
             
     }
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
@@ -149,18 +166,18 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
           for (field, error) in errors {
             if let field = field as? UITextField {
               field.layer.borderColor = UIColor.red.cgColor
-              field.layer.borderWidth = 1.0
+              field.layer.borderWidth = 3.0
             }
-            error.errorLabel?.text = error.errorMessage // works if you added labels
-            error.errorLabel?.isHidden = false
+           errorLabel?.text = error.errorMessage // works if you added labels
+          errorLabel?.isHidden = false
           }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-            errorLabel.text = "ff"
-    }
-    //    func textFieldShouldEndEditing(_ textField:UITextField){
-    //        errorLabel.text = "aa"
+ 
+    validator.validate(self)
+        }
+
     //        validator.validate(self)
     //    }
     
@@ -170,30 +187,36 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     }
     
     @IBAction func berryPass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "berry123"
             selectButton(sender)
     }
     
     @IBAction func kiwiPass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "kiwi123"
             selectButton(sender)
     }
     @IBAction func orangePass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "orange123"
             selectButton(sender)
     }
     
     @IBAction func lemonPass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "lemon123"
             selectButton(sender)
     }
     
     @IBAction func strawberryPass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "strawberry123"
             selectButton(sender)
     }
     
     @IBAction func pineapplePass(_ sender: UIButton) {
+        validator.validate(self)
         childInfo.pass = "pineapple123"
             selectButton(sender)
     }
@@ -215,13 +238,32 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
 
          let destinationVC = segue.destination as! SignUpDOBViewController
         destinationVC.childInfo.pass =  childInfo.pass
-        destinationVC.childInfo.email = emailTextfield.text ?? ""
+        destinationVC.email = emailTextfield.text ?? ""
      }
     @IBAction func next(_ sender: Any) {
         if  childInfo.pass != "" && emailTextfield.text != ""{
-            self.performSegue(withIdentifier: "emailNxt", sender: self)
+        validator.validate(self)
+        if password != "" &&  isValidated  {
+          
+        }else{
+            passLabel.text = "لطفًا، اختر صورة "
         }
         
     }
-  
 }
+extension UIView {
+
+
+    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        self.alpha = 1.0
+        }, completion: completion)  }
+
+    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+        self.alpha = 0.0
+        }, completion: completion)
+}
+
+}
+

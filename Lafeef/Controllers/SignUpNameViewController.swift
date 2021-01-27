@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import FirebaseCore
 import FlexibleSteppedProgressBar
 
-class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDelegate {
+
+class SignUpNameViewController: UIViewController,UITextFieldDelegate,FlexibleSteppedProgressBarDelegate {
+
+   
+
+    @IBOutlet weak var errorLabel: UILabel!
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     var childInfo = Child()
 
@@ -18,7 +24,15 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextfield.delegate = self as? UITextFieldDelegate
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+ 
+        
+       
+        CharachterType(charachter: charachter)
+        nameTextfield.delegate = self
         charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
@@ -84,7 +98,31 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
     
 
    
-    @IBAction func next(_ sender: Any) {
-    }
-    
-}
+    func CharachterType(charachter : String ){
+           if (charachter == "Girl"){
+               charachterImage.image = UIImage(named: "girl")
+           } else{
+               charachterImage.image = UIImage(named: "boy")
+           }
+           
+       }
+      
+       @IBAction func next(_ sender: Any) {
+           let signUpManager = FirebaseAuthManager()
+        let DOB = day+"-"+month+"-"+year
+        signUpManager.createUser(email: email, password: pass, name:name,sex:charachter,DOB:DOB) {
+               [weak self] (success,error) in
+                     guard let self = self else { return }
+                    
+                     if (success) {
+                       self.errorLabel.text = "User was sucessfully created."
+                        //navogation
+                     } else {
+                       self.errorLabel.text = error
+                     }
+           }
+
+       }
+       
+       
+   }
