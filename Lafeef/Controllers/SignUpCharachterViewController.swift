@@ -14,6 +14,7 @@ class SignUpCharachterViewController: UIViewController {
     var month = ""
     var year = ""
     var charachter = ""
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var charachterImage: UIImageView!
     
@@ -48,20 +49,27 @@ class SignUpCharachterViewController: UIViewController {
     
 
     @IBAction func next(_ sender: Any) {
+        if charachter != ""{
         self.performSegue(withIdentifier: "charachterNext", sender: self)
+    }
+        else{
+            errorLabel.text = "لطفًا، اختر شخصيتك"
+        }
     }
     
     @IBAction func girl(_ sender: Any) {
-        charachter = "girl"
+        charachter = "Girl"
         self.view.backgroundColor = .gray
         self.charachterImage.image = UIImage(named: "girl")
+        errorLabel.isHidden = true
         
     }
     
     @IBAction func boy(_ sender: Any) {
-        charachter = "girl"
+        charachter = "Boy"
         self.view.backgroundColor = .green
         self.charachterImage.image = UIImage(named: "boy")
+        errorLabel.isHidden = true
         
     }
 }

@@ -11,7 +11,9 @@ import SwiftValidator
 
 class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDelegate, ValidationDelegate, UITextFieldDelegate {
     var password : String = ""
+    var isValidated = false
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
+    @IBOutlet weak var passLabel: UILabel!
     let validator = Validator()
 
     @IBOutlet weak var errorLabel: UILabel!
@@ -31,37 +33,38 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
 //        self.navigationController?.navigationBar.layer.zPosition = -1
-        emailTextfield.delegate = self as? UITextFieldDelegate
+        emailTextfield.delegate = self
         
         validator.styleTransformers(success:{ (validationRule) -> Void in
-                           print("here")
+                         
                            // clear error label
                            validationRule.errorLabel?.isHidden = true
                            validationRule.errorLabel?.text = ""
                            
                            if let textField = validationRule.field as? UITextField {
-                               textField.layer.borderColor = UIColor.green.cgColor
-                               textField.layer.borderWidth = 0.5
+                               textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+
+                               textField.layer.borderWidth = 3
                            } else if let textField = validationRule.field as? UITextView {
-                               textField.layer.borderColor = UIColor.green.cgColor
-                               textField.layer.borderWidth = 0.5
-                           }
+                               textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+
+                               textField.layer.borderWidth = 3                           }
                        }, error:{ (validationError) -> Void in
                            print("error")
                            validationError.errorLabel?.isHidden = false
                            validationError.errorLabel?.text = validationError.errorMessage
                            if let textField = validationError.field as? UITextField {
                                textField.layer.borderColor = UIColor.red.cgColor
-                               textField.layer.borderWidth = 1.0
+                               textField.layer.borderWidth = 3
                            } else if let textField = validationError.field as? UITextView {
                                textField.layer.borderColor = UIColor.red.cgColor
-                               textField.layer.borderWidth = 1.0
+                               textField.layer.borderWidth = 3
                            }
                        })
                 
                 validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
-                self.navigationController?.isNavigationBarHidden = true
-        //        self.navigationController?.navigationBar.layer.zPosition = -1
+               
+     
                 emailTextfield.delegate = self
         
         //buttons shape
@@ -149,12 +152,12 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     }
     
     //---------------------------------------- validation
-    func validationSuccessful() {
+    func validationSuccessful()  {
                 print("Validation Success!")
-                let alert = UIAlertController(title: "Success", message: "You are validated!", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: true, completion: nil)
+        errorLabel?.isHidden = true
+        isValidated = true
+        
+               
             
             }
         func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
@@ -162,54 +165,56 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
           for (field, error) in errors {
             if let field = field as? UITextField {
               field.layer.borderColor = UIColor.red.cgColor
-              field.layer.borderWidth = 1.0
+              field.layer.borderWidth = 3.0
             }
-            error.errorLabel?.text = error.errorMessage // works if you added labels
-            error.errorLabel?.isHidden = false
+           errorLabel?.text = error.errorMessage // works if you added labels
+          errorLabel?.isHidden = false
           }
         }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-            errorLabel.text = "ff"
-         
+    validator.validate(self)
         }
-    //    func textFieldShouldEndEditing(_ textField:UITextField){
-    //        errorLabel.text = "aa"
-    //        validator.validate(self)
-    //    }
-    //
+
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             validator.validate(self)
             return true
     }
     
     @IBAction func berryPass(_ sender: UIButton) {
-            password = "berry123"
-            selectButton(sender)
+        password = "berry123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     
     @IBAction func kiwiPass(_ sender: UIButton) {
-            password = "kiwi123"
-            selectButton(sender)
+        password = "kiwi123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     @IBAction func orangePass(_ sender: UIButton) {
-            password = "orange123"
-            selectButton(sender)
+        password = "orange123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     
     @IBAction func lemonPass(_ sender: UIButton) {
-            password = "lemon123"
-            selectButton(sender)
+        password = "lemon123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     
     @IBAction func strawberryPass(_ sender: UIButton) {
-            password = "strawberry123"
-            selectButton(sender)
+        password = "strawberry123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     
     @IBAction func pineapplePass(_ sender: UIButton) {
-            password = "pineapple123"
-            selectButton(sender)
+        password = "pineapple123"
+        selectButton(sender)
+        passLabel.isHidden = true
     }
     
     func selectButton(_ sender: UIButton){
@@ -230,10 +235,15 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
          let destinationVC = segue.destination as! SignUpDOBViewController
         destinationVC.pass = password
         destinationVC.email = emailTextfield.text ?? ""
+      
      }
     @IBAction func next(_ sender: Any) {
-        if password != "" && emailTextfield.text != ""{
+        validator.validate(self)
+        if password != "" &&  isValidated  {
+          
             self.performSegue(withIdentifier: "emailNxt", sender: self)
+        }else{
+            passLabel.text = "لطفًا، اختر صورة "
         }
         
     }

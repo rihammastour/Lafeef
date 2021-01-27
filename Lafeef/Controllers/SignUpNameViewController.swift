@@ -6,21 +6,27 @@
 //
 
 import UIKit
+import FirebaseCore
 
-class SignUpNameViewController: UIViewController {
+
+class SignUpNameViewController: UIViewController,UITextFieldDelegate {
     var email  = ""
     var pass = ""
     var day = ""
     var month = ""
     var year = ""
-     var charachter = ""
+    var charachter = ""
+    var name = ""
+
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var charachterImage: UIImageView!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextfield.delegate = self as? UITextFieldDelegate
+        CharachterType(charachter: charachter)
+        nameTextfield.delegate = self
         charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
@@ -31,7 +37,30 @@ class SignUpNameViewController: UIViewController {
     
 
    
-    @IBAction func next(_ sender: Any) {
-    }
-    
-}
+    func CharachterType(charachter : String ){
+           if (charachter == "Girl"){
+               charachterImage.image = UIImage(named: "girl")
+           } else{
+               charachterImage.image = UIImage(named: "boy")
+           }
+           
+       }
+      
+       @IBAction func next(_ sender: Any) {
+           let signUpManager = FirebaseAuthManager()
+         
+        signUpManager.createUser(email: email, password: pass, name:name,sex:charachter,DOB:month) {
+               [weak self] (success,error) in
+                     guard let self = self else { return }
+                    
+                     if (success) {
+                       self.errorLabel.text = "User was sucessfully created."
+                     } else {
+                       self.errorLabel.text = error
+                     }
+           }
+
+       }
+       
+       
+   }
