@@ -30,32 +30,33 @@
                                             <constraint firstAttribute="height" constant="218.80000000000001" id="JhX-20-OsF"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-HG-wFx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-HG-wFx">
                                         <rect key="frame" x="-70" y="587" width="455" height="409"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TwoBalloons" translatesAutoresizingMaskIntoConstraints="NO" id="KwL-X6-FtQ">
-                                        <rect key="frame" x="61" y="214" width="285" height="307"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwoBalloons" translatesAutoresizingMaskIntoConstraints="NO" id="KwL-X6-FtQ">
+                                        <rect key="frame" x="61" y="207.5" width="239" height="337"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
-                                        <rect key="frame" x="160" y="372" width="448" height="60"/>
+                                    <button verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
+                                        <rect key="frame" x="160" y="387.5" width="448" height="65"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="awW-Hs-vaz"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="تسجيل الدخول"/>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="uJ7-ui-5tc">
-                                        <rect key="frame" x="457" y="421" width="236" height="227"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="uJ7-ui-5tc">
+                                        <rect key="frame" x="558" y="421" width="135" height="227"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="227" id="BOU-ib-Oxs"/>
+                                        </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
-                                        <rect key="frame" x="160" y="467" width="448" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
+                                        <rect key="frame" x="160" y="492.5" width="448" height="65"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="إنشاء حساب"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يحلو التعلم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-hx-Q1v">
-                                        <rect key="frame" x="523" y="907" width="185" height="71"/>
+                                        <rect key="frame" x="523.5" y="907" width="184.5" height="71"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                         <color key="textColor" name="blueApp"/>
                                         <color key="highlightedColor" name="blueApp"/>
@@ -63,19 +64,27 @@
                                 </subviews>
                                 <color key="backgroundColor" name="bachgroundApp"/>
                                 <constraints>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="centerX" secondItem="tka-Bs-lB3" secondAttribute="centerX" id="5Hb-z9-4mg"/>
                                     <constraint firstAttribute="trailing" secondItem="H0C-XV-KhS" secondAttribute="trailing" constant="-40" id="924-Ra-QoS"/>
-                                    <constraint firstAttribute="trailing" secondItem="47w-x7-7QZ" secondAttribute="trailing" constant="160" id="A9b-0P-d5g"/>
-                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="ARP-O0-E2Z"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="47w-x7-7QZ" secondAttribute="trailing" priority="999" constant="160" id="A9b-0P-d5g"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tka-Bs-lB3" secondAttribute="leading" priority="999" constant="160" id="ARP-O0-E2Z"/>
+                                    <constraint firstItem="H0C-XV-KhS" firstAttribute="top" secondItem="uJ7-ui-5tc" secondAttribute="bottom" constant="157" id="B4M-Iu-G2Q"/>
+                                    <constraint firstItem="H0C-XV-KhS" firstAttribute="centerY" secondItem="KwL-X6-FtQ" secondAttribute="bottom" constant="370" id="Jo5-j5-RME"/>
+                                    <constraint firstItem="KwL-X6-FtQ" firstAttribute="width" secondItem="uJ7-ui-5tc" secondAttribute="height" multiplier="239:227" id="MHe-3E-I21"/>
                                     <constraint firstItem="47w-x7-7QZ" firstAttribute="height" secondItem="iwe-Xb-Pr5" secondAttribute="height" id="O0D-yT-Byd"/>
-                                    <constraint firstAttribute="trailing" secondItem="iwe-Xb-Pr5" secondAttribute="trailing" constant="160" id="RNm-ig-6Hg"/>
-                                    <constraint firstAttribute="trailing" secondItem="5wo-HG-wFx" secondAttribute="trailing" constant="383" id="TeY-a3-PoP"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="iwe-Xb-Pr5" secondAttribute="trailing" priority="999" constant="160" id="RNm-ig-6Hg"/>
+                                    <constraint firstItem="KwL-X6-FtQ" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="61" id="SbJ-gd-epz"/>
+                                    <constraint firstAttribute="trailing" secondItem="5wo-HG-wFx" secondAttribute="trailing" priority="999" constant="383" id="TeY-a3-PoP"/>
                                     <constraint firstAttribute="bottom" secondItem="H0C-XV-KhS" secondAttribute="bottom" id="WDX-n1-TQc"/>
-                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="160" id="bff-HG-p8W"/>
+                                    <constraint firstItem="uJ7-ui-5tc" firstAttribute="leading" secondItem="KwL-X6-FtQ" secondAttribute="trailing" constant="258" id="Xkw-OA-NCZ"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="tka-Bs-lB3" secondAttribute="leading" priority="999" constant="160" id="bff-HG-p8W"/>
                                     <constraint firstItem="5wo-HG-wFx" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-70" id="cgz-u2-fVU"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="trailing" secondItem="47w-x7-7QZ" secondAttribute="trailing" id="dJE-VL-2Ws"/>
                                     <constraint firstAttribute="trailing" secondItem="ea2-hx-Q1v" secondAttribute="trailing" constant="60" id="hAE-UL-AYz"/>
-                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="35" id="mZn-ki-ysh"/>
+                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="leading" secondItem="47w-x7-7QZ" secondAttribute="leading" id="i1T-qM-PcR"/>
+                                    <constraint firstItem="H0C-XV-KhS" firstAttribute="centerY" secondItem="47w-x7-7QZ" secondAttribute="bottom" constant="357" id="iHz-dT-UVq"/>
+                                    <constraint firstItem="47w-x7-7QZ" firstAttribute="top" secondItem="iwe-Xb-Pr5" secondAttribute="bottom" constant="40" id="mZn-ki-ysh"/>
                                     <constraint firstAttribute="bottom" secondItem="5wo-HG-wFx" secondAttribute="bottom" constant="28" id="pT9-vN-Irm"/>
-                                    <constraint firstItem="iwe-Xb-Pr5" firstAttribute="top" secondItem="tka-Bs-lB3" secondAttribute="top" constant="372" id="s6c-tk-nGh"/>
                                     <constraint firstItem="H0C-XV-KhS" firstAttribute="leading" secondItem="tka-Bs-lB3" secondAttribute="leading" constant="-40" id="vDL-Vv-1Sv"/>
                                     <constraint firstAttribute="bottom" secondItem="ea2-hx-Q1v" secondAttribute="bottom" constant="46" id="wVR-IB-eOe"/>
                                 </constraints>
