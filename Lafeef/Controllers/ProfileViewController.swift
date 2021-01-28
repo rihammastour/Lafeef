@@ -20,15 +20,27 @@ class ProfileViewController: UIViewController {
     
    
     @IBAction func logOutAction(sender: AnyObject) {
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginScreen")
-                present(vc, animated: true, completion: nil)
-                
-            } catch let error as NSError {
-                print(error.localizedDescription)
+        let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "نعم", style: .default) { (alertAction) in
+            
+            if Auth.auth().currentUser != nil {
+                do {
+                    
+                    try Auth.auth().signOut()
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginScreen")
+                    self.present(vc, animated: true, completion: nil)
+                    
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
             }
         }
+        let cancel = UIAlertAction(title: "إلغاء", style: .destructive) { (alertAction) in
+            //Do nothing?
+        }
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+        
     }
 }
