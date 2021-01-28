@@ -89,6 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func berryPass(_ sender: UIButton) {
         password = "berry123"
       //  berry.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
     }
@@ -96,6 +97,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func kiwiPass(_ sender: UIButton) {
         password = "kiwi123"
      //   kiwi.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
 
@@ -103,6 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func orangePass(_ sender: UIButton) {
         password = "orange123"
        // orange.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
     }
@@ -110,6 +113,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func lemonPass(_ sender: UIButton) {
         password = "lemon123"
        // lemon.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
     }
@@ -117,6 +121,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func strawberryPass(_ sender: UIButton) {
         password = "strawberry123"
       //  strawberry.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
     }
@@ -124,6 +129,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func pineapplePass(_ sender: UIButton) {
         password = "pineapple123"
        // pineapple.backgroundColor = UIColor.blue
+        passLabel.text = ""
         selectButton(sender)
 
     }
