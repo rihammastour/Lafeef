@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var levelNumLabel: UILabel!
     
+    //Buttons
+    @IBOutlet weak var storeButton: UIButton!
+    
 //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,17 @@ class HomeViewController: UIViewController {
                 Utilities.styleBarView(moneyBarUIView)
                 Utilities.styleBarView(scoreBarUIView)
                 Utilities.styleBarView(profileBarUIView)
+                
+                //Store Button Style
+                Utilities.styleCircleButton(storeButton)
+                  //image
+                let image = UIImage(named: "storeIcon") as UIImage?
+                storeButton.setImage(image, for: .normal)
+                  //style image
+                storeButton.contentVerticalAlignment = .fill
+                storeButton.contentHorizontalAlignment = .fill
+                storeButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+
 
                    }
 
@@ -58,7 +72,36 @@ class HomeViewController: UIViewController {
     }
     */
     @IBAction func profileBarViewTapped(_ sender: Any) {
-        print("Tapped")
+
+        profileBarUIView.showAnimation({
+            print("Anmite")
+
+        })
+    
     }
     
+    
+    
+}
+
+public extension UIView {
+    func showAnimation(_ completionBlock: @escaping () -> Void) {
+      isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: .curveLinear,
+                       animations: { [weak self] in
+                            self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
+        }) {  (done) in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0,
+                           options: .curveLinear,
+                           animations: { [weak self] in
+                                self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            }) { [weak self] (_) in
+                self?.isUserInteractionEnabled = true
+                completionBlock()
+            }
+        }
+    }
 }
