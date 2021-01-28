@@ -37,12 +37,24 @@ class Utilities {
         button.tintColor = UIColor.init(named: "blackApp")
         
         //Shadow
-        // Shadow Color and Radius
         button.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 7
         button.layer.masksToBounds = false
+    }
+    
+    static func styleBarView(_ view:UIView){
+        //Round
+        view.layer.cornerRadius = 20;
+        view.layer.masksToBounds = true;
+        
+        //Shadow
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 7
+        view.layer.masksToBounds = false
     }
     
     //Not updated yet
