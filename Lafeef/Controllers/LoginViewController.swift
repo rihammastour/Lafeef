@@ -204,9 +204,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
             
             //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
             
-            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "تنبيه", message: "لطفًا، يجب تعبئة البريد الالكتروني ورمز المرور ", preferredStyle: .alert)
             
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             
             self.present(alertController, animated: true, completion: nil)
@@ -231,11 +231,60 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     self.present(vc!, animated: true, completion: nil)
                     
                              } else {
-                                 
+                                if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                                  
+                                    switch errorCode {
+                                    case.wrongPassword:
+                                        let alertController = UIAlertController(title: "تنبيه", message: "لطفًا، تحقق من البريد الالكتروني ورمز المرور", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                        break
+
+                                    case .invalidEmail:
+                                        let alertController = UIAlertController(title: "تنبيه", message: "لطفًا، تحقق من البريد الالكتروني", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                        break
+
+                                    case .userNotFound:
+                                        let alertController = UIAlertController(title: "تنبيه", message: "هذا البريد الالكتروني غير مسجل لدى لفيف🧁", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                        break
+                                        
+                                    case .networkError:
+                                        let alertController = UIAlertController(title: "تنبيه", message: "فضلًا تحقق من اتصالك بالانترنت", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                        break
+
+
+                                    @unknown default:
+                                        let alertController = UIAlertController(title: "تنبيه", message: "يوجد خطأ بالدخول، حاول مرة اخرى", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                        break
+                                    }
+                                }
                                  //Tells the user that there is an error and then gets firebase to tell them the error
-                                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                let alertController = UIAlertController(title: "تنبيه", message: "يوجد خطأ بالدخول، حاول مرة اخرى", preferredStyle: .alert)
                                  
-                                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                 let defaultAction = UIAlertAction(title: "حسنًا", style: .cancel, handler: nil)
                                  alertController.addAction(defaultAction)
                                  
                                  self.present(alertController, animated: true, completion: nil)
