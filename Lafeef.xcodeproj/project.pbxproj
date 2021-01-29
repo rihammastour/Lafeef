@@ -23,6 +23,10 @@
 		C900FF4B25C1F2AE004D9B45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF4A25C1F2AE004D9B45 /* HomeViewController.swift */; };
 		C900FF4D25C32360004D9B45 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF4C25C32360004D9B45 /* ProfileViewController.swift */; };
 		C900FF4F25C3236D004D9B45 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF4E25C3236D004D9B45 /* StoreViewController.swift */; };
+		C900FF5125C33A2A004D9B45 /* ChallengeLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF5025C33A2A004D9B45 /* ChallengeLevelsViewController.swift */; };
+		C900FF5325C33EBC004D9B45 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF5225C33EBC004D9B45 /* Shapes.swift */; };
+		C900FF5625C45981004D9B45 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF5525C45980004D9B45 /* Child.swift */; };
+		C900FF5825C45C01004D9B45 /* FirebaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900FF5725C45C01004D9B45 /* FirebaseRequests.swift */; };
 		C92CD0D525C08F1000F64D90 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D425C08F1000F64D90 /* Utilities.swift */; };
 		C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D625C08F1800F64D90 /* Constants.swift */; };
 		C92CD0D925C090D600F64D90 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92CD0D825C090D600F64D90 /* Color.xcassets */; };
@@ -71,6 +75,10 @@
 		C900FF4A25C1F2AE004D9B45 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C900FF4C25C32360004D9B45 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C900FF4E25C3236D004D9B45 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		C900FF5025C33A2A004D9B45 /* ChallengeLevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeLevelsViewController.swift; sourceTree = "<group>"; };
+		C900FF5225C33EBC004D9B45 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		C900FF5525C45980004D9B45 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		C900FF5725C45C01004D9B45 /* FirebaseRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequests.swift; sourceTree = "<group>"; };
 		C92CD0D425C08F1000F64D90 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C92CD0D625C08F1800F64D90 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C92CD0D825C090D600F64D90 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
@@ -150,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
+				C900FF5425C458FB004D9B45 /* Model */,
 				C92CD0D325C08E4500F64D90 /* ViewController */,
 				C92CD0D225C08E3C00F64D90 /* Helper */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
@@ -184,11 +193,21 @@
 			path = LafeefUITests;
 			sourceTree = "<group>";
 		};
+		C900FF5425C458FB004D9B45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C900FF5525C45980004D9B45 /* Child.swift */,
+				C900FF5725C45C01004D9B45 /* FirebaseRequests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C92CD0D225C08E3C00F64D90 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				C92CD0D425C08F1000F64D90 /* Utilities.swift */,
 				C92CD0D625C08F1800F64D90 /* Constants.swift */,
+				C900FF5225C33EBC004D9B45 /* Shapes.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -200,6 +219,7 @@
 				C900FF4A25C1F2AE004D9B45 /* HomeViewController.swift */,
 				C900FF4C25C32360004D9B45 /* ProfileViewController.swift */,
 				C900FF4E25C3236D004D9B45 /* StoreViewController.swift */,
+				C900FF5025C33A2A004D9B45 /* ChallengeLevelsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -465,12 +485,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */,
+				C900FF5625C45981004D9B45 /* Child.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
+				C900FF5825C45C01004D9B45 /* FirebaseRequests.swift in Sources */,
+				C900FF5125C33A2A004D9B45 /* ChallengeLevelsViewController.swift in Sources */,
 				C92CD0DB25C0940600F64D90 /* SignUpOrLoginViewController.swift in Sources */,
 				C92CD0D525C08F1000F64D90 /* Utilities.swift in Sources */,
 				C900FF4F25C3236D004D9B45 /* StoreViewController.swift in Sources */,
 				C900FF4B25C1F2AE004D9B45 /* HomeViewController.swift in Sources */,
+				C900FF5325C33EBC004D9B45 /* Shapes.swift in Sources */,
 				C900FF4D25C32360004D9B45 /* ProfileViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 			);
