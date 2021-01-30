@@ -91,6 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
       //  berry.backgroundColor = UIColor.blue
         passLabel.text = ""
         selectButton(sender)
+        
 
     }
     
