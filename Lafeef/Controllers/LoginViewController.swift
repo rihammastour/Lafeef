@@ -37,8 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
         validator.styleTransformers(success:{ (validationRule) -> Void in
                                  print("here")
                                  // clear error label
-                                 validationRule.errorLabel?.isHidden = true
-                                 validationRule.errorLabel?.text = ""
+                                 validationRule.errorLabel?.isHidden = false
+                                 validationRule.errorLabel?.text = " "
 
                                  if let textField = validationRule.field as? UITextField {
                                      textField.layer.borderColor =  UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
 
        // emailTextfield.delegate = self as? UITextFieldDelegate
     
-        logo.layer.zPosition = 2
+//        logo.layer.zPosition = 2
         lemon.layer.cornerRadius = 40
         pineapple.layer.cornerRadius = 40
         strawberry.layer.cornerRadius = 40
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func berryPass(_ sender: UIButton) {
         password = "berry123"
       //  berry.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
         
 
@@ -98,7 +98,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func kiwiPass(_ sender: UIButton) {
         password = "kiwi123"
      //   kiwi.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
 
 
@@ -106,7 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func orangePass(_ sender: UIButton) {
         password = "orange123"
        // orange.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
 
     }
@@ -114,7 +114,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func lemonPass(_ sender: UIButton) {
         password = "lemon123"
        // lemon.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
 
     }
@@ -122,7 +122,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func strawberryPass(_ sender: UIButton) {
         password = "strawberry123"
       //  strawberry.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
 
     }
@@ -130,7 +130,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func pineapplePass(_ sender: UIButton) {
         password = "pineapple123"
        // pineapple.backgroundColor = UIColor.blue
-        passLabel.text = ""
+        passLabel.text = " "
         selectButton(sender)
 
     }
@@ -163,7 +163,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     //---------------------------------------- validation
       func validationSuccessful()  {
                   print("Validation Success!")
-          errorLabel?.isHidden = true
+          errorLabel?.isHidden = false
+        errorLabel?.text = " "
           isValidated = true
           
                  

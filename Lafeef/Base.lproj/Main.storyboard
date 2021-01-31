@@ -348,48 +348,35 @@
                                     <action selector="loginAction:" destination="gLG-NL-pFt" eventType="touchUpInside" id="2I0-fP-7wH"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHM-he-cfu">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHM-he-cfu">
                                 <rect key="frame" x="0.0" y="-50" width="768" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="7oq-9S-aaM"/>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="-220" translatesAutoresizingMaskIntoConstraints="NO" id="nDz-ej-JqE" userLabel="logo">
-                                <rect key="frame" x="0.0" y="-50" width="768" height="408"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uperBackgroundsvg" translatesAutoresizingMaskIntoConstraints="NO" id="Tzf-wK-okh">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="219"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-yz-PSk">
-                                        <rect key="frame" x="0.0" y="-1" width="768" height="409"/>
-                                    </imageView>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAF-Qn-bdM">
-                                <rect key="frame" x="129" y="849" width="398" height="44"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wave" translatesAutoresizingMaskIntoConstraints="NO" id="NaO-hV-TYn">
+                                <rect key="frame" x="-1" y="-50" width="768" height="352"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                <state key="normal" title="استعادة رمز المرور ">
-                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vzr-Hg-iOz">
+                                <rect key="frame" x="15" y="47" width="670" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="هل نسيت رمز المرور؟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3S-bq-GSj">
-                                <rect key="frame" x="273" y="856" width="509.5" height="31.5"/>
+                                <rect key="frame" x="283" y="857" width="161.5" height="31.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="تسجيل الدخول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-RG-JHO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="تسجيل الدخول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-RG-JHO">
                                 <rect key="frame" x="15" y="262" width="768" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="60"/>
                                 <color key="textColor" red="0.62086331839999997" green="0.78030127289999995" blue="0.78039556740000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BJH-QK-LL5" userLabel="form">
-                                <rect key="frame" x="130" y="366" width="509.5" height="449.5"/>
+                                <rect key="frame" x="130" y="366" width="509.5" height="430"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vm6-en-5Ab">
                                         <rect key="frame" x="0.0" y="0.0" width="509.5" height="62.5"/>
@@ -399,31 +386,31 @@
                                             <outlet property="delegate" destination="gLG-NL-pFt" id="0AJ-s7-uVB"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-NT-MXO" userLabel="errorLabel1">
-                                        <rect key="frame" x="0.0" y="72.5" width="509.5" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="             " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8j-NT-MXO" userLabel="errorLabel1">
+                                        <rect key="frame" x="0.0" y="72.5" width="509.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="vBV-vA-T5u" userLabel="buttons">
-                                        <rect key="frame" x="0.0" y="132.5" width="509.5" height="307"/>
+                                        <rect key="frame" x="0.0" y="114" width="509.5" height="306"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-kk-CO9">
-                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="307"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yPg-kk-CO9">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="306"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTF-xH-mc3" userLabel="berry">
-                                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTF-xH-mc3" userLabel="berry">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="berry"/>
+                                                        <state key="normal" backgroundImage="berry-1"/>
                                                         <connections>
                                                             <action selector="berryPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="Qvy-wO-ivf"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHh-q9-eaK" userLabel="lemon">
-                                                        <rect key="frame" x="0.0" y="168.5" width="142.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHh-q9-eaK" userLabel="lemon">
+                                                        <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal">
-                                                            <imageReference key="backgroundImage" image="mango" symbolScale="large"/>
+                                                            <imageReference key="backgroundImage" image="lemon" symbolScale="large"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="lemonPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="T3i-Cj-XLQ"/>
@@ -431,41 +418,41 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5ib-11-RbE">
-                                                <rect key="frame" x="182.5" y="0.0" width="143.5" height="307"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5ib-11-RbE">
+                                                <rect key="frame" x="183.5" y="0.0" width="143" height="306"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Jd-bzu" userLabel="kiwi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu6-Jd-bzu" userLabel="kiwi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" backgroundImage="Kiwi-1"/>
                                                         <connections>
                                                             <action selector="kiwiPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="h5p-Vx-wcw"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-rJ-Da0" userLabel="strawberry">
-                                                        <rect key="frame" x="0.0" y="168.5" width="143.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-rJ-Da0" userLabel="strawberry">
+                                                        <rect key="frame" x="0.0" y="168" width="143" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                        <state key="normal" backgroundImage="strawberry"/>
+                                                        <state key="normal" backgroundImage="strawberry-1"/>
                                                         <connections>
                                                             <action selector="strawberryPass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="ef7-te-up8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Jw-qUb">
-                                                <rect key="frame" x="366" y="0.0" width="143.5" height="307"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="he9-Jw-qUb">
+                                                <rect key="frame" x="366.5" y="0.0" width="143" height="306"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-EI-2kZ" userLabel="orange">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI5-EI-2kZ" userLabel="orange">
+                                                        <rect key="frame" x="0.0" y="0.0" width="143" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" backgroundImage="Orange-1"/>
                                                         <connections>
                                                             <action selector="orangePass:" destination="gLG-NL-pFt" eventType="touchUpInside" id="JV9-hM-dAy"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TP-ux-YTI" userLabel="pineapple">
-                                                        <rect key="frame" x="0.0" y="168.5" width="143.5" height="138.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TP-ux-YTI" userLabel="pineapple">
+                                                        <rect key="frame" x="0.0" y="168" width="143" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" backgroundImage="Pineapple-1"/>
                                                         <connections>
@@ -477,24 +464,35 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="cDp-r1-5Wb">
-                                        <rect key="frame" x="0.0" y="449.5" width="509.5" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="430" width="509.5" height="0.0"/>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cg-kI-dog" userLabel="passLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="           " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cg-kI-dog" userLabel="passLabel">
                                 <rect key="frame" x="129" y="805" width="509.5" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAF-Qn-bdM">
+                                <rect key="frame" x="145" y="851" width="139" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
+                                <state key="normal" title="استعادة رمز المرور ">
+                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Gm-QR-jzO"/>
                         <color key="backgroundColor" red="0.97625690700000001" green="0.97304958109999995" blue="0.94117331500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="BJH-QK-LL5" firstAttribute="top" secondItem="nDz-ej-JqE" secondAttribute="bottom" constant="-20" id="8Qr-Ki-r0c"/>
-                            <constraint firstItem="BJH-QK-LL5" firstAttribute="leading" secondItem="6Gm-QR-jzO" secondAttribute="leading" constant="130" id="RCs-jN-7Fd"/>
-                            <constraint firstItem="6Gm-QR-jzO" firstAttribute="trailing" secondItem="BJH-QK-LL5" secondAttribute="trailing" constant="128.5" id="jLD-1P-dKd"/>
+                            <constraint firstItem="6Gm-QR-jzO" firstAttribute="trailing" secondItem="BJH-QK-LL5" secondAttribute="trailing" constant="128.5" id="1HM-cB-mHY"/>
+                            <constraint firstItem="BJH-QK-LL5" firstAttribute="leading" secondItem="6Gm-QR-jzO" secondAttribute="leading" constant="130" id="2il-rS-xIh"/>
+                            <constraint firstAttribute="trailing" secondItem="Jmr-RG-JHO" secondAttribute="trailing" constant="-15" id="4Ha-8F-Oph"/>
+                            <constraint firstItem="Jmr-RG-JHO" firstAttribute="top" secondItem="QHM-he-cfu" secondAttribute="bottom" constant="215" id="TQW-Pc-PXa"/>
+                            <constraint firstItem="BJH-QK-LL5" firstAttribute="top" secondItem="Jmr-RG-JHO" secondAttribute="bottom" constant="30" id="aLc-cN-jnF"/>
+                            <constraint firstItem="Jmr-RG-JHO" firstAttribute="leading" secondItem="6Gm-QR-jzO" secondAttribute="leading" constant="15" id="bkV-6v-AOt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -503,7 +501,6 @@
                         <outlet property="errorLabel" destination="r8j-NT-MXO" id="qxN-bt-ZrN"/>
                         <outlet property="kiwi" destination="fu6-Jd-bzu" id="nmJ-ZX-xsA"/>
                         <outlet property="lemon" destination="WHh-q9-eaK" id="9UR-tt-Rkx"/>
-                        <outlet property="logo" destination="LdT-yz-PSk" id="TZf-aQ-3bV"/>
                         <outlet property="nextOutlet" destination="pX5-Pn-V4U" id="nyi-qM-MoO"/>
                         <outlet property="orange" destination="iI5-EI-2kZ" id="RZ4-o2-weA"/>
                         <outlet property="passLabel" destination="2cg-kI-dog" id="hTt-XV-HEV"/>
@@ -736,6 +733,10 @@
                                     <action selector="logOutActionWithSender:" destination="I0u-g0-2Wm" eventType="touchUpInside" id="2WV-at-qJ5"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="-220" translatesAutoresizingMaskIntoConstraints="NO" id="Kh4-VW-lDL" userLabel="Logo">
+                                <rect key="frame" x="20" y="68" width="670" height="218"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Hy-g3-1ET"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -755,16 +756,20 @@
         <image name="Lafeef-logo-1" width="428" height="409"/>
         <image name="Orange-1" width="109" height="103"/>
         <image name="Pineapple-1" width="143.29299926757812" height="137.29299926757812"/>
-        <image name="berry" width="139.29299926757812" height="138.29299926757812"/>
+        <image name="berry-1" width="139.29299926757812" height="138.29299926757812"/>
         <image name="blueberry" width="68.237998962402344" height="79.157997131347656"/>
         <image name="boy" width="1727" height="2303"/>
         <image name="girl" width="1635" height="2181"/>
         <image name="kiwi" width="143.29299926757812" height="137.29299926757812"/>
+        <image name="lemon" width="142.29299926757812" height="132.29299926757812"/>
+        <image name="logo-1" width="360" height="344"/>
         <image name="mango" width="142.29299926757812" height="132.29299926757812"/>
         <image name="orange" width="131.29299926757812" height="132.29299926757812"/>
         <image name="pineapple" width="149.29299926757812" height="131.29299926757812"/>
         <image name="strawberry" width="143.29299926757812" height="136.29299926757812"/>
+        <image name="strawberry-1" width="143.29299926757812" height="136.29299926757812"/>
         <image name="uperBackgroundsvg" width="768" height="218.80000305175781"/>
+        <image name="wave" width="670.05499267578125" height="218.802001953125"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
