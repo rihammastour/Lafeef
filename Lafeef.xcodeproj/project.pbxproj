@@ -247,6 +247,7 @@
 				4E453A3B25B61D5000B8363F /* Frameworks */,
 				4E453A3C25B61D5000B8363F /* Resources */,
 				625A64B7788748733D1E9A30 /* [CP] Embed Pods Frameworks */,
+				D5219301402CA012900445DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,6 +286,7 @@
 				4E453A5D25B61D5500B8363F /* Frameworks */,
 				4E453A5E25B61D5500B8363F /* Resources */,
 				41A035368DB95CB225B3C56E /* [CP] Embed Pods Frameworks */,
+				E745FA7A235B161B1FE44C33 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -469,6 +471,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5219301402CA012900445DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E745FA7A235B161B1FE44C33 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

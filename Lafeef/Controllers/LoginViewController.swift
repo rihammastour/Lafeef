@@ -9,8 +9,9 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import SwiftValidator
-
-class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDelegate{
+import FirebaseUI
+//import FirebaseAuthUI
+class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDelegate, FUIAuthDelegate{
     var password : String = ""
     let validator = Validator()
        var isValidated : Bool  = false
@@ -194,6 +195,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
 //
 //    }
     @IBAction func loginAction(_ sender: AnyObject) {
+        //سطرين لتجربة auto login
+//        let authViewController = authUI?.authViewController();
+//                self.present(authViewController!, animated: true, completion: nil)
+// انتهت السطرين
+        
         validator.validate(self)
 //        if password != "" &&  isValidated  {
 //          

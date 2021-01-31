@@ -8,6 +8,7 @@ target 'Lafeef' do
   # Pods for Lafeef
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'FirebaseUI', '~> 8.0'
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
 pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'

@@ -17,7 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        check()
         return true
+    }
+    //Auto Login
+    func check(){
+        if UserDefaults.standard.value(forKey: "email") != nil{
+            let vc = UIStoryboard.init(name: "ProfileScreen", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProfileScreen")
+            let navVC = UINavigationController(rootViewController: vc)
+            let share = UIApplication.shared.delegate as! AppDelegate
+            share.window?.rootViewController = navVC
+            share.window?.makeKeyAndVisible()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
