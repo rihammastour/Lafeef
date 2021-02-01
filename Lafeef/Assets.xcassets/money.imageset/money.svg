@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58.842" height="60.784" viewBox="0 0 58.842 60.784">
+  <g id="money" transform="translate(-8.177)">
+    <g id="Group_2004" data-name="Group 2004" transform="translate(8.177)">
+      <circle id="Ellipse_108" data-name="Ellipse 108" cx="7.123" cy="7.123" r="7.123" transform="translate(16.956 7.242)" fill="#fed843"/>
+      <text id="RS" transform="translate(28.101 13.408)" fill="#838383" font-size="6" font-family="FFHekaya-Light, FF Hekaya" font-weight="300"><tspan x="-4.554" y="0">RS</tspan></text>
+      <g id="Group_2002" data-name="Group 2002" transform="translate(0 14.365)">
+        <path id="Path_3520" data-name="Path 3520" d="M97.412,131.685l4.278.712H119l4.779-.712a23.024,23.024,0,0,1,5.695-7.48A1.781,1.781,0,0,0,128.4,121H92.787a1.781,1.781,0,0,0-1.07,3.205A23.023,23.023,0,0,1,97.412,131.685Z" transform="translate(-81.173 -121)" fill="#a4dad8"/>
+        <path id="Path_3521" data-name="Path 3521" d="M66.757,256.741a37.9,37.9,0,0,0-14.126-21.028L47.17,235H26.858l-4.292.712A37.9,37.9,0,0,0,8.44,256.741a8.806,8.806,0,0,0,1.633,7.593,9,9,0,0,0,7.034,3.552H58.09a9,9,0,0,0,7.034-3.552A8.806,8.806,0,0,0,66.757,256.741Z" transform="translate(-8.177 -221.466)" fill="#a4dad8"/>
+      </g>
+      <path id="Path_3522" data-name="Path 3522" d="M269.182,131.685a23.025,23.025,0,0,1,5.695-7.48,1.781,1.781,0,0,0-1.07-3.205H256v11.4h8.4Z" transform="translate(-226.579 -106.635)" fill="#96cfcd"/>
+      <path id="Path_3523" data-name="Path 3523" d="M283.525,264.333a8.806,8.806,0,0,0,1.633-7.593,37.9,37.9,0,0,0-14.126-21.028L265.572,235H256v32.885h20.491A9,9,0,0,0,283.525,264.333Z" transform="translate(-226.579 -207.101)" fill="#96cfcd"/>
+      <g id="Group_2003" data-name="Group 2003" transform="translate(31.202)">
+        <path id="Path_3524" data-name="Path 3524" d="M276.342,10.8A5.348,5.348,0,0,1,271,5.461a5.344,5.344,0,1,1,10.685,0A5.348,5.348,0,0,1,276.342,10.8Z" transform="translate(-271)" fill="#ffea7a"/>
+      </g>
+      <text id="RS-2" data-name="RS" transform="translate(37.754 5.934)" fill="#838383" font-size="4" font-family="FFHekaya-Light, FF Hekaya" font-weight="300"><tspan x="-3.036" y="0">RS</tspan></text>
+      <path id="Path_3527" data-name="Path 3527" d="M148.762,214.562h10.68c-.973-.745-1.848-1.374-2.439-1.781a8.546,8.546,0,0,1,.589-1.781H131.227a8.549,8.549,0,0,1,.589,1.781c-.591.407-1.466,1.036-2.439,1.781h10.787l-4.128,4.075a1.781,1.781,0,0,0,2.5,2.535l5.873-5.873,5.855,5.855a1.781,1.781,0,0,0,2.535-2.5Z" transform="translate(-114.988 -185.95)" fill="#ffe479"/>
+      <path id="Path_3528" data-name="Path 3528" d="M264.373,221.172a1.78,1.78,0,0,0,.017-2.518l-4.038-4.092h10.68c-.973-.745-1.848-1.374-2.439-1.781a8.55,8.55,0,0,1,.589-1.781H256v4.3l5.855,5.855A1.78,1.78,0,0,0,264.373,221.172Z" transform="translate(-226.579 -185.95)" fill="#fed843"/>
+    </g>
+  </g>
+</svg>
