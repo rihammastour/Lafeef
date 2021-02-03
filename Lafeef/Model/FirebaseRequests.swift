@@ -8,12 +8,15 @@
 import Foundation
 import Firebase
 import CodableFirebase
+import FirebaseAuth
 
 
 class FirebaseRequest{
     
     static func getUserId() -> String? {
         
+//      let userID  Auth.auth().currentUser?.uid
+//        return userID
         return "4xZTPYcDPKF3bISQl34g"
     }
     
@@ -22,8 +25,9 @@ class FirebaseRequest{
         let db = Firestore.firestore()
         
         db.collection("users").document(userID)
-            .getDocument { (shapshot, error) in
-                guard let document = shapshot else {
+            .getDocument { (response, error) in
+                                
+                guard let document = response else {
                     completion(nil,error)
                     return
                 }
@@ -41,7 +45,7 @@ class FirebaseRequest{
                     completion(nil,error)
                     
                 }
-        }
+            }
         
         
     }

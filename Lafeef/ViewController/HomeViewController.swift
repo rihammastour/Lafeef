@@ -28,26 +28,23 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Lifecycle Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        feachUserData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Additional setup after loading the view.
-        feachUserData()
         setUpElements()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        
     }
     
     //MARK: - Functions
     // - Setup UI Elements
     func setUpElements() {
         
-        //Bekary background
+        //Set Bekary background
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Bakery")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
@@ -60,12 +57,12 @@ class HomeViewController: UIViewController {
         Utilities.styleBarView(scoreBarUIView)
         Utilities.styleBarView(profileBarUIView)
         
-        //styyle Store Button
+        //Store Button style
         Utilities.styleCircleButton(storeButton)
-        //image
+            //create image
         let image = UIImage(named: "storeIcon") as UIImage?
         storeButton.setImage(image, for: .normal)
-        //style image
+            //style image
         storeButton.contentVerticalAlignment = .fill
         storeButton.contentHorizontalAlignment = .fill
         storeButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
@@ -73,6 +70,14 @@ class HomeViewController: UIViewController {
     }
     
     //MARK:- Set content for UI elemnnts
+    //Set child info
+    func setUIChildInfo(_ child:Child){
+        self.setName(child.name)
+        self.setCurrentLevel(child.curretLevel)
+        self.setMoney(child.money)
+        self.setScore(child.score)
+        self.setImage(child.sex)
+    }
     
     //Name
     func setName(_ name:String) {
@@ -95,7 +100,7 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "Girl"{
+        if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy")
         }else{
             characterUIImageView.image = UIImage(named: "girl")
@@ -104,20 +109,18 @@ class HomeViewController: UIViewController {
     //MARK:- Feach User Data
     
     func feachUserData(){
-        print("Hello")
+
         let userId = FirebaseRequest.getUserId()
         FirebaseRequest.getChildData(for: userId!) { (data, err) in
             if err != nil{
-                print("Cannot Load data")
+                print("Home View Controller",err!)
+                if err?.localizedDescription == "Failed to get document because the client is offline."{
+                    print("تأكد من اتصال الانترنيت")
+                }
                 
             }else{
                 let child = data!
-                self.setName(child.name)
-                self.setCurrentLevel(child.curretLevel)
-                self.setMoney(child.money)
-                self.setScore(child.score)
-                self.setImage(child.sex)
-                
+                self.setUIChildInfo(child)
             }
         }
         
@@ -127,7 +130,7 @@ class HomeViewController: UIViewController {
     @IBAction func profileBarViewTapped(_ sender: Any) {
         
         profileBarUIView.showAnimation({
-            print("Anmite")
+
             let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
             
             self.navigationController?.pushViewController(vc, animated: true)
@@ -136,14 +139,14 @@ class HomeViewController: UIViewController {
     }
     
     
-    @IBAction func startChallengeTapped(_ sender: Any) {
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController ) as! ChallengeLevelsViewController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-    }
+//    @IBAction func startChallengeTapped(_ sender: Any) {
+//        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController ) as! ChallengeLevelsViewController
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        
+//        
+//    }
     
     
     

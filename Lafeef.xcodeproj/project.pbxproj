@@ -31,6 +31,7 @@
 		C92CD0D725C08F1800F64D90 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0D625C08F1800F64D90 /* Constants.swift */; };
 		C92CD0D925C090D600F64D90 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92CD0D825C090D600F64D90 /* Color.xcassets */; };
 		C92CD0DB25C0940600F64D90 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CD0DA25C0940600F64D90 /* SignUpOrLoginViewController.swift */; };
+		C9B8428225C804B300FEAB34 /* TrainigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B8428125C804B300FEAB34 /* TrainigViewController.swift */; };
 		C9E09AA125C0B42700AEA8B1 /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C92CD0DD25C0A31A00F64D90 /* FFHekaya-Light.otf */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		C92CD0D825C090D600F64D90 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		C92CD0DA25C0940600F64D90 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLoginViewController.swift; sourceTree = "<group>"; };
 		C92CD0DD25C0A31A00F64D90 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = SOURCE_ROOT; };
+		C9B8428125C804B300FEAB34 /* TrainigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainigViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				C900FF4C25C32360004D9B45 /* ProfileViewController.swift */,
 				C900FF4E25C3236D004D9B45 /* StoreViewController.swift */,
 				C900FF5025C33A2A004D9B45 /* ChallengeLevelsViewController.swift */,
+				C9B8428125C804B300FEAB34 /* TrainigViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				C900FF5825C45C01004D9B45 /* FirebaseRequests.swift in Sources */,
 				C900FF5125C33A2A004D9B45 /* ChallengeLevelsViewController.swift in Sources */,
 				C92CD0DB25C0940600F64D90 /* SignUpOrLoginViewController.swift in Sources */,
+				C9B8428225C804B300FEAB34 /* TrainigViewController.swift in Sources */,
 				C92CD0D525C08F1000F64D90 /* Utilities.swift in Sources */,
 				C900FF4F25C3236D004D9B45 /* StoreViewController.swift in Sources */,
 				C900FF4B25C1F2AE004D9B45 /* HomeViewController.swift in Sources */,
