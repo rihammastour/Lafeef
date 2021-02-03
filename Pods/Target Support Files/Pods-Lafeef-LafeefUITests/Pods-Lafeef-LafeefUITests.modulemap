@@ -1,6 +1,0 @@
-framework module Pods_Lafeef_LafeefUITests {
-  umbrella header "Pods-Lafeef-LafeefUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
