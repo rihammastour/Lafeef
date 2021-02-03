@@ -101,9 +101,9 @@ class HomeViewController: UIViewController {
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
-            characterUIImageView.image = UIImage(named: "boy")
+            characterUIImageView.image = UIImage(named: "boy-icon")
         }else{
-            characterUIImageView.image = UIImage(named: "girl")
+            characterUIImageView.image = UIImage(named: "girl-icon")
         }
     }
     //MARK:- Feach User Data
@@ -138,15 +138,6 @@ class HomeViewController: UIViewController {
         })
     }
     
-    
-//    @IBAction func startChallengeTapped(_ sender: Any) {
-//        
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController ) as! ChallengeLevelsViewController
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        
-//        
-//    }
     
     
     
