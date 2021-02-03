@@ -5,15 +5,18 @@ target 'Lafeef' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Lafeef
-# add the Firebase pod for Google Analytics
-pod 'Firebase/Firestore'
-pod 'Firebase/Auth'
 
-pod 'MaterialShowcase'
+  # Pods for CustomLoginDemo
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Core'
+	pod 'Firebase/Firestore'
+	pod 'FirebaseFirestoreSwift'
+ 	pod 'CodableFirebase'
+  pod 'MaterialShowcase'
 
-# add pods for any other desired Firebase products
-# https://firebase.google.com/docs/ios/setup#available-pods
+
+
 
 pod "FlexibleSteppedProgressBar"
 

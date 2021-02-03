@@ -322,11 +322,16 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - CodableFirebase
     - Firebase
+    - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
+    - FirebaseFirestoreSwift
+    - FirebaseInstallations
+    - GoogleAppMeasurement
     - FlexibleSteppedProgressBar
+
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"

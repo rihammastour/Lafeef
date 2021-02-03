@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="426.999" height="355.577" viewBox="0 0 426.999 355.577">
+  <defs>
+    <filter id="Union_5" x="0" y="0" width="426.999" height="355.577" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#7a9694" flood-opacity="0.584"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2020" data-name="Group 2020" transform="translate(8.693 36)">
+    <g transform="matrix(1, 0, 0, 1, -8.69, -36)" filter="url(#Union_5)">
+      <path id="Union_5-2" data-name="Union 5" d="M-10471.889,1446.865c-39-7.136-45.351-63.584-88.775-83.54-43.141-19.817-71.4,34.063-137.022,37.593-42.454,2.28-79.068-15.512-106-34.057v-64.2c0-.219,0-.44,0-.659V1151a41,41,0,0,1,41-41h327a41,41,0,0,1,41,41v151c0,.315,0,.63-.011.944v101.042c-18.376,21.254-43.377,43.591-69.29,43.592A43.759,43.759,0,0,1-10471.889,1446.865Z" transform="translate(10812.69 -1106)" fill="#cadacb"/>
+    </g>
+  </g>
+</svg>

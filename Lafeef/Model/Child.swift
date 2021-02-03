@@ -1,22 +1,20 @@
 //
-//  child.swift
+//  File.swift
 //  Lafeef
 //
-//  Created by Riham Mastour on 11/06/1442 AH.
+//  Created by Renad nasser on 29/01/2021.
 //
 
 import Foundation
-import UIKit
 
 struct Child: Codable {
-    var email  = ""
-    var pass = ""
-    var DOB = ""
-    var score = 0
-    var money = 0
-    var sex = ""
-    var name = ""
-    var currentLevel = 0
-    var userID = ""
 
+    var DOB :String
+    var currentLevel :Int
+    var email :String
+    var money :Float
+    var name :String
+    var score :Int
+    var sex :String
+    var userID :String
 }
