@@ -71,12 +71,12 @@ class HomeViewController: UIViewController {
     
     //MARK:- Set content for UI elemnnts
     //Set child info
-    func setUIChildInfo(_ child:Child){
-        self.setName(child.name)
-        self.setCurrentLevel(child.curretLevel)
-        self.setMoney(child.money)
-        self.setScore(child.score)
-        self.setImage(child.sex)
+    func setUIChildInfo(){
+        self.setName(Child.name)
+        self.setCurrentLevel(Child.currentLevel)
+        self.setMoney(Child.money)
+        self.setScore(Child.score)
+        self.setImage(Child.sex)
     }
     
     //Name
@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
                 
             }else{
                 let child = data!
-                self.setUIChildInfo(child)
+                self.setUIChildInfo()
             }
         }
         

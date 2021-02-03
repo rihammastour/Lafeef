@@ -16,7 +16,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     var isValidated = false
     let alert = AlertService()
     let validator = Validator()
-    var childInfo = Child()
+    var password = ""
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
     @IBOutlet weak var charachterImage: UIImageView!
@@ -32,7 +32,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
  
         
-         CharachterType(charachter: childInfo.sex)
+         CharachterType(charachter: Child.sex)
          nameTextfield.delegate = self
         validation()
          charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
@@ -175,14 +175,16 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
            self.present(alert.Alert(body:errorLabel.text!), animated: true)
            
         } else {
+            Child.name = nameTextfield!.text! 
             let signUpManager = FirebaseAuthManager()
-            signUpManager.createUser(email: childInfo.email, password: childInfo.pass, name:childInfo.name, sex:childInfo.sex, DOB:childInfo.DOB) {
+            signUpManager.createUser(email: Child.email, password: password, name:Child.name, sex:Child.sex, DOB:Child.DOB) {
                        [weak self] (success,error) in
                              guard let self = self else { return }
                             
                              if (success) {
                                self.errorLabel.text = "User was sucessfully created."
                                 //navogation
+                                self.transition()
                              } else {
                                self.errorLabel.text = error
                     }
@@ -190,6 +192,14 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         }
      
 
+    }
+    
+    func transition(){
+        let homeViewController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+          
+          view.window?.rootViewController = homeViewController
+          
+          view.window?.makeKeyAndVisible()
     }
        
        

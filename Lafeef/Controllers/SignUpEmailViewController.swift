@@ -16,9 +16,9 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     let alert = AlertService()
     let instructionVC = instruction()
     let validator = Validator()
-    var childInfo = Child()
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     let splashAnimation = SplashAnimationView()
+    var password = ""
 
     @IBOutlet weak var passLabel: UILabel!
     @IBOutlet weak var passwordGuid: UILabel!
@@ -196,41 +196,41 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     @IBAction func berryPass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "berry123"
+        password = "berry123"
             selectButton(sender)
     }
     
     @IBAction func kiwiPass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "kiwi123"
+        password = "kiwi123"
             selectButton(sender)
     }
     @IBAction func orangePass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "orange123"
+        password = "orange123"
             selectButton(sender)
     }
     
     @IBAction func lemonPass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "lemon123"
+        password = "lemon123"
             selectButton(sender)
     }
     
     @IBAction func strawberryPass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "strawberry123"
+        password = "strawberry123"
             selectButton(sender)
     }
     
     @IBAction func pineapplePass(_ sender: UIButton) {
         validator.validate(self)
         passLabel.isHidden = true
-        childInfo.pass = "pineapple123"
+        password = "pineapple123"
             selectButton(sender)
     }
     
@@ -250,12 +250,13 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let destinationVC = segue.destination as! SignUpDOBViewController
-       destinationVC.childInfo.pass =  childInfo.pass
-       destinationVC.childInfo.email = emailTextfield.text ?? ""
+        destinationVC.password =  password
+        Child.email = emailTextfield?.text ?? ""
+
     }
     
     func alertValidation()  {
-        if childInfo.pass == "" && !isValidated{
+        if  password == "" && !isValidated{
                passLabel.text = "لطفًا، اختر صورة"
                        self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة"), animated: true)
             }else if emailTextfield.text == "" {
@@ -266,7 +267,7 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
                self.present(alert.Alert(body:errorLabel.text!), animated: true)
                
             }
-                       else if childInfo.pass == "" { // email error
+                       else if password == "" { // email error
                        passLabel.text = "لطفًا،اختر صورة"
                        self.present(alert.Alert(body: "لطفًا، اختر صورة "), animated: true)
                      

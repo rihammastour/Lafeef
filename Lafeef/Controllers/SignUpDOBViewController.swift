@@ -15,7 +15,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
     let instructionVC = instruction()
     let validator = Validator()
     let datePicker = UIDatePicker()
-    var childInfo = Child()
+    var password = ""
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
     @IBOutlet weak var monthTextfield: UITextField!
@@ -112,9 +112,8 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let destinationVC = segue.destination as! SignUpCharachterViewController
-        destinationVC.childInfo.pass = childInfo.pass
-        destinationVC.childInfo.email = childInfo.email
-        destinationVC.childInfo.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
+        destinationVC.password = password
+        Child.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
      }
     
     @IBAction func next(_ sender: Any) {

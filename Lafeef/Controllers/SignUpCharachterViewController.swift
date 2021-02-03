@@ -9,7 +9,7 @@ import UIKit
 import FlexibleSteppedProgressBar
 
 class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressBarDelegate {
-    var childInfo = Child()
+    var password = ""
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     let alert = AlertService()
     
@@ -97,7 +97,7 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
     return ""
     }
     @IBAction func girl(_ sender: UIButton) {
-        childInfo.sex = "girl"
+        Child.sex = "girl"
         selectButton(sender)
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom: 0.71, blueBottom: 0.71, type: "radial", isFirstTimeInserting: false)
         self.charachterImage.image = UIImage(named: "girl")
@@ -105,7 +105,7 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
         
     }
     @IBAction func boy(_ sender: UIButton) {
-        childInfo.sex = "boy"
+        Child.sex = "boy"
         selectButton(sender)
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.67, greenBottom: 0.82, blueBottom: 0.76, type: "radial",  isFirstTimeInserting: false)
         self.charachterImage.image =  UIImage(named: "boy")
@@ -128,15 +128,12 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let destinationVC = segue.destination as! SignUpNameViewController
-        destinationVC.childInfo.pass = childInfo.pass
-        destinationVC.childInfo.email = childInfo.email
-        destinationVC.childInfo.DOB = childInfo.DOB
-        destinationVC.childInfo.sex = childInfo.sex
+        destinationVC.password = password
     }
     
 
     @IBAction func next(_ sender: Any) {
-        if childInfo.sex != ""{
+        if Child.sex != ""{
                 self.performSegue(withIdentifier: "charachterNext", sender: self)
             }
                 else{
