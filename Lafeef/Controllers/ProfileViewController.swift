@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
    
     @IBAction func logOutAction(sender: AnyObject) {
         let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "نعم", style: .default) { (alertAction) in
+        let ok = UIAlertAction(title: "نعم", style: .destructive) { (alertAction) in
             
             if Auth.auth().currentUser != nil {
                 do {
@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
-        let cancel = UIAlertAction(title: "إلغاء", style: .destructive) { (alertAction) in
+        let cancel = UIAlertAction(title: "إلغاء", style: .default) { (alertAction) in
             //Do nothing?
         }
         alert.addAction(ok)

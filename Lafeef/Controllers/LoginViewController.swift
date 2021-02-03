@@ -184,12 +184,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
 //
 //    }
     @IBAction func loginAction(_ sender: AnyObject) {
-        //سطرين لتجربة auto login
-//        let authViewController = authUI?.authViewController();
-//                self.present(authViewController!, animated: true, completion: nil)
-// انتهت السطرين
-        
+            
         validator.validate(self)
+        //from mihaf
 //        if password != "" &&  isValidated  {
 //          
 //            self.performSegue(withIdentifier: "emailNxt", sender: self)
@@ -222,15 +219,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
-                    
                     //Go to the ProfileViewController if the login is sucessful
-                  //  let vc = UIViewController()
-             //       vc.modalPresentationStyle = .fullScreen //or .overFullScreen for transparency
-                   // self.present(vc, animated: true, completion: nil)
-                    //
+
                  let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileScreen")
-                    //self.modalPresentationStyle = .fullScreen //or .overFullScreen
-                  //  self.modalPresentationStyle = UIModalPresentationFullScreen;
+                  
                     self.present(vc!, animated: true, completion: nil)
                     
                              } else {
