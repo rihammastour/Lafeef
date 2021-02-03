@@ -24,7 +24,8 @@ open class RegexRule : Rule {
      - parameter message: String of error message.
      - returns: An initialized `RegexRule` object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(regex: String, message: String = "Invalid Regular Expression"){
+    // previous msg : Invalid Regular Expression
+    public init(regex: String, message: String = "أدخل أحرف إسمك فقط"){
         self.REGEX = regex
         self.message = message
     }

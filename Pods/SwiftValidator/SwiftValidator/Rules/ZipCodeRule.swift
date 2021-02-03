@@ -18,7 +18,7 @@ public class ZipCodeRule: RegexRule {
      - parameter message: String that holds error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public convenience init(message : String = "Enter a valid 5 digit zipcode"){
+    public convenience init(message : String = "أدخل أحرف إسمك فقط"){
         self.init(regex: "\\d{5}", message : message)
     }
 }

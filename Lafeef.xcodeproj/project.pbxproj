@@ -23,8 +23,18 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
+		4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E825CAD83800518EF9 /* instruction.swift */; };
+		4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E925CAD83900518EF9 /* AlertService.swift */; };
+		4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */; };
+		4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976F025CAD84B00518EF9 /* AlertViewController.swift */; };
+		4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
+		4EC6D37D25C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
+		4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
+		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
+		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
+		4EDCA26E25C724BA00C29464 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EDCA26D25C724B900C29464 /* splash-animation.gif */; };
 		4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE0FF25BCF4A900CA7B9A /* Child.swift */; };
-		4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */; };
+		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +61,7 @@
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
 		4144583825C0F182000EE8F0 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
-		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light .otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light .otf"; path = "../../../../Library/Fonts/FFHekaya-Light .otf"; sourceTree = "<group>"; };
+		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
@@ -72,8 +82,15 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EB976E825CAD83800518EF9 /* instruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instruction.swift; sourceTree = "<group>"; };
+		4EB976E925CAD83900518EF9 /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		4EB976F025CAD84B00518EF9 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
+		4EDCA26D25C724B900C29464 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "splash-animation.gif"; path = "../../../splash-animation.gif"; sourceTree = "<group>"; };
 		4EEDE0FF25BCF4A900CA7B9A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
-		4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +147,8 @@
 				41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */,
 				41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */,
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
+				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
+				4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,7 +158,6 @@
 			children = (
 				4E453A4025B61D5100B8363F /* Lafeef */,
 				4E53480025BC904500ACA8BC /* Fonts */,
-				4144583D25C0F3D9000EE8F0 /* FFHekaya-Light .otf */,
 				4E453A5825B61D5500B8363F /* LafeefTests */,
 				4E453A6325B61D5500B8363F /* LafeefUITests */,
 				4E453A3F25B61D5100B8363F /* Products */,
@@ -166,9 +184,11 @@
 				4E453A4525B61D5100B8363F /* Actions.sks */,
 				4E453A4725B61D5100B8363F /* GameScene.swift */,
 				4E453A4925B61D5100B8363F /* GameViewController.swift */,
+				4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */,
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
+				4EDCA1F625C6249F00C29464 /* View */,
 				41BD684225BABE7800257EA6 /* Controllers */,
 				41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */,
 				4E453A5025B61D5400B8363F /* Info.plist */,
@@ -197,9 +217,18 @@
 		4E53480025BC904500ACA8BC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */,
 			);
-			name = Fonts;
-			path = Lafeef/Fonts;
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4EDCA1F625C6249F00C29464 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EDCA26D25C724B900C29464 /* splash-animation.gif */,
+				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4EEDE0FA25BCF42600CA7B9A /* Model */ = {
@@ -207,6 +236,8 @@
 			children = (
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
 				4EEDE0FF25BCF4A900CA7B9A /* Child.swift */,
+				4EB976E925CAD83900518EF9 /* AlertService.swift */,
+				4EB976E825CAD83800518EF9 /* instruction.swift */,
 				4144583825C0F182000EE8F0 /* FirebaseAuthManager.swift */,
 			);
 			path = Model;
@@ -215,7 +246,7 @@
 		4EEDE0FB25BCF43700CA7B9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */,
+				4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,9 +370,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
+				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
+				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
+				4EDCA26E25C724BA00C29464 /* splash-animation.gif in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC6D37D25C2338400A15A9D /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,14 +507,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
+				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				4144583925C0F182000EE8F0 /* FirebaseAuthManager.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
+				4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */,
 				4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
+				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
+				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,7 +699,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -678,7 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

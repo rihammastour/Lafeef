@@ -6,16 +6,20 @@
 //
 
 import UIKit
-import FlexibleSteppedProgressBar
 import SwiftValidator
+import FlexibleSteppedProgressBar
 import MaterialShowcase
+import SwiftyGif
 
-class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDelegate, ValidationDelegate, UITextFieldDelegate {
+class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFieldDelegate, SwiftyGifDelegate, FlexibleSteppedProgressBarDelegate {
     var isValidated = false
-    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
+    let alert = AlertService()
+    let instructionVC = instruction()
     let validator = Validator()
-    
     var childInfo = Child()
+    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
+    let splashAnimation = SplashAnimationView()
+
     @IBOutlet weak var passLabel: UILabel!
     @IBOutlet weak var passwordGuid: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
@@ -31,26 +35,19 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
     @IBOutlet var deSelectedButton: [UIButton]!
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        uiView.fadeIn(completion: {
-//            (finished: Bool) -> Void in
-//           self.uiView.fadeOut()
-//            })
-//        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
-
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.layoutIfNeeded()
-  
-       
+        view.addSubview(splashAnimation)
+        splashAnimation.pinEdgesToSuperView(to: self.view)
+        splashAnimation.logoGifImageView.delegate = self
         
-
         emailTextfield.delegate = self
         validation()
         
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.tintColor = .gray
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
         //buttons shape
         logo.layer.zPosition = 2
         lemon.layer.cornerRadius = 40
@@ -63,14 +60,26 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         emailTextfield.layer.cornerRadius = emailTextfield.frame.size.height/2
         emailTextfield.clipsToBounds = true
         
-        self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
+        self.view.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial", isFirstTimeInserting: true)
         
-        setupProgressBarWithoutLastState()
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.presentInstruction), userInfo: nil, repeats: false)
+          
         
-
-//
+  
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        splashAnimation.logoGifImageView.startAnimatingGif()
+    }
+    
+    func gifDidStop(sender: UIImageView) {
+        splashAnimation.isHidden = true
+        self.setupProgressBarWithoutLastState()
+    }
+    @objc func presentInstruction(){
+         self.present( instructionVC.Instruction(), animated: true)
+     }
     //---------------------------------------- progress bar
     func setupProgressBarWithoutLastState() {
         progressBarWithoutLastState = FlexibleSteppedProgressBar()
@@ -123,44 +132,43 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
         }
     return ""
     }
-    
     //---------------------------------------- validation
     func validation(){
+        //validation
         validator.styleTransformers(success:{ (validationRule) -> Void in
-                           print("here")
-                           // clear error label
-                           validationRule.errorLabel?.isHidden = true
-                           validationRule.errorLabel?.text = ""
-                           
-                           if let textField = validationRule.field as? UITextField {
-                               textField.layer.borderColor = UIColor.green.cgColor
-                               textField.layer.borderWidth = 0.5
-                           } else if let textField = validationRule.field as? UITextView {
-                               textField.layer.borderColor = UIColor.green.cgColor
-                               textField.layer.borderWidth = 0.5
-                           }
-                       }, error:{ (validationError) -> Void in
-                           print("error")
-                           validationError.errorLabel?.isHidden = false
-                           validationError.errorLabel?.text = validationError.errorMessage
-                           if let textField = validationError.field as? UITextField {
-                               textField.layer.borderColor = UIColor.red.cgColor
-                               textField.layer.borderWidth = 1.0
-                           } else if let textField = validationError.field as? UITextView {
-                               textField.layer.borderColor = UIColor.red.cgColor
-                               textField.layer.borderWidth = 1.0
-                           }
-                       })
+            validationRule.errorLabel?.isHidden = true
+            validationRule.errorLabel?.text = ""
+                                   
+            if let textField = validationRule.field as? UITextField {
+                textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                textField.layer.borderWidth = 3
+            } else if let textField = validationRule.field as? UITextView {
+                textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                textField.layer.borderWidth = 3
                 
-                validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
+            }
+        }, error:{ (validationError) -> Void in
+            print("error")
+            validationError.errorLabel?.isHidden = false
+            validationError.errorLabel?.text = validationError.errorMessage
+            if let textField = validationError.field as? UITextField {
+                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 3
+            } else if let textField = validationError.field as? UITextView {
+                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 3
+            }
+        })
+                        
+        validator.registerField(emailTextfield, rules: [RequiredRule(), EmailRule()])
     }
     
     func validationSuccessful() {
         print("Validation Success!")
-errorLabel?.isHidden = true
-isValidated = true
-            
+        errorLabel?.isHidden = true
+        isValidated = true
     }
+    
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
           // turn the fields to red
           for (field, error) in errors {
@@ -169,17 +177,16 @@ isValidated = true
               field.layer.borderWidth = 3.0
             }
            errorLabel?.text = error.errorMessage // works if you added labels
+            
           errorLabel?.isHidden = false
           }
+        isValidated = false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
  
     validator.validate(self)
         }
-
-    //        validator.validate(self)
-    //    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             validator.validate(self)
@@ -188,35 +195,41 @@ isValidated = true
     
     @IBAction func berryPass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "berry123"
             selectButton(sender)
     }
     
     @IBAction func kiwiPass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "kiwi123"
             selectButton(sender)
     }
     @IBAction func orangePass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "orange123"
             selectButton(sender)
     }
     
     @IBAction func lemonPass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "lemon123"
             selectButton(sender)
     }
     
     @IBAction func strawberryPass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "strawberry123"
             selectButton(sender)
     }
     
     @IBAction func pineapplePass(_ sender: UIButton) {
         validator.validate(self)
+        passLabel.isHidden = true
         childInfo.pass = "pineapple123"
             selectButton(sender)
     }
@@ -236,34 +249,37 @@ isValidated = true
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-         let destinationVC = segue.destination as! SignUpDOBViewController
-        destinationVC.childInfo.pass =  childInfo.pass
-        destinationVC.email = emailTextfield.text ?? ""
-     }
-    @IBAction func next(_ sender: Any) {
-        if  childInfo.pass != "" && emailTextfield.text != ""{
-        validator.validate(self)
-        if password != "" &&  isValidated  {
-          
-        }else{
-            passLabel.text = "لطفًا، اختر صورة "
-        }
-        
+        let destinationVC = segue.destination as! SignUpDOBViewController
+       destinationVC.childInfo.pass =  childInfo.pass
+       destinationVC.childInfo.email = emailTextfield.text ?? ""
     }
+    
+    func alertValidation()  {
+        if childInfo.pass == "" && !isValidated{
+               passLabel.text = "لطفًا، اختر صورة"
+                       self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة"), animated: true)
+            }else if emailTextfield.text == "" {
+                       
+                       self.present(alert.Alert(body:"لطفًا، البريد الإلكتروني مطلوب"), animated: true)
+                       
+            }else if !isValidated{
+               self.present(alert.Alert(body:errorLabel.text!), animated: true)
+               
+            }
+                       else if childInfo.pass == "" { // email error
+                       passLabel.text = "لطفًا،اختر صورة"
+                       self.present(alert.Alert(body: "لطفًا، اختر صورة "), animated: true)
+                     
+                   }else{
+                       self.performSegue(withIdentifier: "emailNxt", sender: self)
+                   }
+    }
+    @IBAction func next(_ sender: Any) {
+        validator.validate(self)
+        alertValidation()
+
 }
-extension UIView {
-
-
-    func fadeIn(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-        self.alpha = 1.0
-        }, completion: completion)  }
-
-    func fadeOut(duration: TimeInterval = 1.0, delay: TimeInterval = 3.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-        self.alpha = 0.0
-        }, completion: completion)
-}
-
+    
+    
 }
 

@@ -9,12 +9,14 @@ import UIKit
 import SwiftValidator
 import FlexibleSteppedProgressBar
 
-class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSteppedProgressBarDelegate {
+class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSteppedProgressBarDelegate  {
     var isValidated : Bool  = false
+    let alert = AlertService()
+    let instructionVC = instruction()
     let validator = Validator()
     let datePicker = UIDatePicker()
-    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     var childInfo = Child()
+    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
     @IBOutlet weak var monthTextfield: UITextField!
     @IBOutlet weak var dayTextfield: UITextField!
@@ -28,6 +30,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         
         createDatePicker()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.tintColor = .gray
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -47,9 +50,9 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         yearTextfield.layer.cornerRadius = yearTextfield.frame.size.height/2
         yearTextfield.clipsToBounds = true
         
-        self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
+        self.view.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial", isFirstTimeInserting: true)
         
-        setupProgressBarWithoutLastState()
+        self.setupProgressBarWithoutLastState()
     }
     
     //---------------------------------------- progress bar
@@ -104,28 +107,26 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         }
     return ""
     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
          let destinationVC = segue.destination as! SignUpCharachterViewController
         destinationVC.childInfo.pass = childInfo.pass
         destinationVC.childInfo.email = childInfo.email
-        destinationVC.childInfo.day = dayTextfield.text ?? ""
-        destinationVC .childInfo.month  = monthTextfield.text ?? ""
-        destinationVC.childInfo.year = yearTextfield.text ?? ""
-   
+        destinationVC.childInfo.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
      }
     
     @IBAction func next(_ sender: Any) {
-        if isValidated{
-                     self.performSegue(withIdentifier: "DOBNext", sender: self)
-                    //
-                 }else{
-                     errorLabel .text = "لطفَا، تاريخ الميلاد مطلوب"
-                 }
-
+        
+        if isValidated {
+            self.performSegue(withIdentifier: "DOBNext", sender: self)
+        }else{
+            errorLabel .text = "لطفَا، تاريخ الميلاد مطلوب"
+            self.present(alert.Alert(body:"لطفَا، تاريخ الميلاد مطلوب" ),animated: true)
              
-             }
+        }
+    }
          @objc func datePickerValueChange(sender:UIDatePicker){
          
              let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
@@ -176,9 +177,9 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
              dayTextfield.inputView = datePicker
          
      }
-         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-             view.endEditing(true)
-         }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     @objc func doneDatePickerPressed(){
         self.view.endEditing(true)
     }
@@ -187,6 +188,8 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         yearTextfield.text = ""
         monthTextfield.text = ""
         dayTextfield.text = ""
+        isValidated = false
     }
     
      }
+
