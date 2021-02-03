@@ -111,7 +111,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-         let destinationVC = segue.destination as! SignUpCharachterViewController
+        let destinationVC = segue.destination as! SignUpCharachterViewController
         destinationVC.childInfo.pass = childInfo.pass
         destinationVC.childInfo.email = childInfo.email
         destinationVC.childInfo.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
