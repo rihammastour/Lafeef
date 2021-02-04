@@ -6,39 +6,45 @@
 //
 
 import UIKit
+import SwiftyGif
 
-class SignUpOrLoginViewController: UIViewController {
+class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
 
     //MARK:- Proprities
-    
+    let splashAnimation = SplashAnimationView()
+
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Splash view
+        view.addSubview(splashAnimation)
+        splashAnimation.pinEdgesToSuperView(to: self.view)
+        splashAnimation.logoGifImageView.delegate = self
+        
         // Additional setup after loading the view.
-            setUpElements()
+        setUpElements()
+
         }
-        func setUpElements() {
-                 
-                 //Styling Text Label
-                // Utilities.styleTextField(emailTextField)
-      
-                 //Styling Buttons
-                 Utilities.styleFilledButton(logInButton)
-                 Utilities.styleFilledButton(signUpButton)
-             }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        splashAnimation.logoGifImageView.startAnimatingGif()
     }
-    */
+    
+    func gifDidStop(sender: UIImageView) {
+        splashAnimation.isHidden = true
+    }
+    
+    func setUpElements() {
+        //Styling Text Label
+        // Utilities.styleTextField(emailTextField)
+            
+        //Styling Buttons
+        Utilities.styleFilledButton(logInButton)
+        Utilities.styleFilledButton(signUpButton)
+    }
 
 }

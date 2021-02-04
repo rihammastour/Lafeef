@@ -10,7 +10,6 @@ import FlexibleSteppedProgressBar
 
 class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressBarDelegate {
     var password = ""
-    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
     let alert = AlertService()
     
     @IBOutlet var charectarView: UIView!
@@ -20,7 +19,9 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
     @IBOutlet var charectarButton: [UIButton]!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var boy: UIButton!
-    
+//    var signUpManger = SignUpViewController(stepNum: 2)
+    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
@@ -39,11 +40,9 @@ class SignUpCharachterViewController: UIViewController, FlexibleSteppedProgressB
 
         // Do any additional setup after loading the view.
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.67, greenBottom: 0.82, blueBottom: 0.76, type: "radial", isFirstTimeInserting: true)
-        
         self.setupProgressBarWithoutLastState()
         
     }
-
     //---------------------------------------- progress bar
     func setupProgressBarWithoutLastState() {
         progressBarWithoutLastState = FlexibleSteppedProgressBar()

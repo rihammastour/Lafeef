@@ -9,13 +9,14 @@ import UIKit
 import SwiftValidator
 import FlexibleSteppedProgressBar
 
-class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSteppedProgressBarDelegate  {
+class SignUpDOBViewController: UIViewController, FlexibleSteppedProgressBarDelegate, UITextFieldDelegate  {
     var isValidated : Bool  = false
     let alert = AlertService()
     let instructionVC = instruction()
     let validator = Validator()
     let datePicker = UIDatePicker()
     var password = ""
+//    var signUpManger = SignUpViewController(stepNum: 1)
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
     @IBOutlet weak var monthTextfield: UITextField!
@@ -51,8 +52,8 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         yearTextfield.clipsToBounds = true
         
         self.view.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial", isFirstTimeInserting: true)
-        
         self.setupProgressBarWithoutLastState()
+        
     }
     
     //---------------------------------------- progress bar
@@ -107,7 +108,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate, FlexibleSt
         }
     return ""
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

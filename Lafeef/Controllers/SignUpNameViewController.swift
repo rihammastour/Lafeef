@@ -7,16 +7,17 @@
 
 import UIKit
 import FirebaseCore
-import FlexibleSteppedProgressBar
 import SwiftValidator
+import FlexibleSteppedProgressBar
 
-class SignUpNameViewController: UIViewController ,UITextFieldDelegate, ValidationDelegate, FlexibleSteppedProgressBarDelegate {
+class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDelegate ,UITextFieldDelegate, ValidationDelegate {
 
     @IBOutlet weak var errorLabel: UILabel!
     var isValidated = false
     let alert = AlertService()
     let validator = Validator()
     var password = ""
+//    var signUpManger = SignUpViewController(stepNum: 3)
     var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
     @IBOutlet weak var charachterImage: UIImageView!
@@ -44,7 +45,6 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         
         self.setupProgressBarWithoutLastState()
     }
-    
     //---------------------------------------- progress bar
     func setupProgressBarWithoutLastState() {
         progressBarWithoutLastState = FlexibleSteppedProgressBar()
@@ -97,7 +97,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         }
     return ""
     }
-    //---------------------------------------- validation
+//--------------------------------------- validation
     func validation(){
         //validation
         validator.styleTransformers(success:{ (validationRule) -> Void in

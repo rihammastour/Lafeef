@@ -20,7 +20,7 @@ class FirebaseAuthManager {
                 if let user = authResult?.user {
                     print(user)
                     // Add a new document in collection "users"
-                    db.collection("users").addDocument(data: [
+                    db.collection("users").document(authResult!.user.uid).setData([
                         "name": name,
                         "email": email,
                         "currentLevel": 0,
@@ -28,6 +28,7 @@ class FirebaseAuthManager {
                         "score":0,
                         "sex":sex,
                         "DOB":DOB,
+                        "userID":authResult!.user.uid
                     ]) { err in
                         if let err = err {
                             print("Error writing document: \(err)")

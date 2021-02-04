@@ -7,19 +7,19 @@
 
 import UIKit
 import SwiftValidator
-import FlexibleSteppedProgressBar
 import MaterialShowcase
-import SwiftyGif
+import FlexibleSteppedProgressBar
 
-class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFieldDelegate, SwiftyGifDelegate, FlexibleSteppedProgressBarDelegate {
+class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDelegate, ValidationDelegate, UITextFieldDelegate {
     var isValidated = false
     let alert = AlertService()
     let instructionVC = instruction()
     let validator = Validator()
-    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
-    let splashAnimation = SplashAnimationView()
     var password = ""
+//    var signUpManger = SignUpViewController(stepNum: 0)
+    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
 
+    
     @IBOutlet weak var passLabel: UILabel!
     @IBOutlet weak var passwordGuid: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
@@ -33,14 +33,10 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
     @IBOutlet var deSelectedButton: [UIButton]!
-    
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(splashAnimation)
-        splashAnimation.pinEdgesToSuperView(to: self.view)
-        splashAnimation.logoGifImageView.delegate = self
-        
         emailTextfield.delegate = self
         validation()
         
@@ -62,24 +58,17 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
         
         self.view.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial", isFirstTimeInserting: true)
         
+
         Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.presentInstruction), userInfo: nil, repeats: false)
-          
-        
+        self.setupProgressBarWithoutLastState()
   
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        splashAnimation.logoGifImageView.startAnimatingGif()
-    }
-    
-    func gifDidStop(sender: UIImageView) {
-        splashAnimation.isHidden = true
-        self.setupProgressBarWithoutLastState()
-    }
     @objc func presentInstruction(){
          self.present( instructionVC.Instruction(), animated: true)
      }
+ 
+    
     //---------------------------------------- progress bar
     func setupProgressBarWithoutLastState() {
         progressBarWithoutLastState = FlexibleSteppedProgressBar()
