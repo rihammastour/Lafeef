@@ -14,6 +14,8 @@
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
 		41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */; };
 		41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */; };
+		4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73225CC711000247B27 /* SignUp.storyboard */; };
+		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
 		4E453A4625B61D5100B8363F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4525B61D5100B8363F /* Actions.sks */; };
@@ -79,6 +81,8 @@
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
 		41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCharachterViewController.swift; sourceTree = "<group>"; };
 		41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
+		4E0ED73325CC711000247B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
+		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E453A4325B61D5100B8363F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
+				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
+				4E0ED73225CC711000247B27 /* SignUp.storyboard */,
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
 				4E453A4525B61D5100B8363F /* Actions.sks */,
@@ -426,8 +432,10 @@
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
+				4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
+				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
 				4EB9775825CB71E900518EF9 /* splash-animation.gif in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
@@ -621,6 +629,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4E0ED73225CC711000247B27 /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E0ED73325CC711000247B27 /* Base */,
+			);
+			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
 		4E453A4B25B61D5100B8363F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

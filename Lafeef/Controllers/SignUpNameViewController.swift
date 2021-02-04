@@ -195,9 +195,9 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
     }
     
     func transition(){
-        let homeViewController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
           
-          view.window?.rootViewController = homeViewController
+          view.window?.rootViewController = homeNavigationController
           
           view.window?.makeKeyAndVisible()
     }
