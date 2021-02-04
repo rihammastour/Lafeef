@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Te7-X2-JtU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gLG-NL-pFt">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -789,10 +789,10 @@
                                 <rect key="frame" x="666" y="29" width="82" height="80"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="34U-RT-nvv">
-                                <rect key="frame" x="96" y="514" width="576" height="207"/>
+                                <rect key="frame" x="96" y="514" width="576" height="210"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aUi-F8-BSw" userLabel="Information">
-                                        <rect key="frame" x="0.0" y="0.0" width="576" height="94"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="97"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-390" translatesAutoresizingMaskIntoConstraints="NO" id="h0j-6l-0eo">
                                                 <rect key="frame" x="0.0" y="0.0" width="576" height="47"/>
@@ -813,16 +813,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-160" translatesAutoresizingMaskIntoConstraints="NO" id="dkF-Gp-Olb">
-                                                <rect key="frame" x="0.0" y="47" width="576" height="47"/>
+                                                <rect key="frame" x="0.0" y="47" width="576" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omar@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-Rr-P6B">
-                                                        <rect key="frame" x="0.0" y="0.0" width="368" height="47"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-Rr-P6B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="368" height="50"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الالكتروني | " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-Vc-bE3">
-                                                        <rect key="frame" x="208" y="0.0" width="368" height="47"/>
+                                                        <rect key="frame" x="208" y="0.0" width="368" height="50"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -832,7 +832,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="CJu-cn-4Sf" userLabel="rectangleStack">
-                                        <rect key="frame" x="0.0" y="114" width="576" height="93"/>
+                                        <rect key="frame" x="0.0" y="117" width="576" height="93"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="pTy-dq-mCi">
                                                 <rect key="frame" x="0.0" y="0.0" width="576" height="186"/>
@@ -886,7 +886,7 @@
                                     <action selector="logOutActionWithSender:" destination="I0u-g0-2Wm" eventType="touchUpInside" id="2WV-at-qJ5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عمر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-86-r8B">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-86-r8B">
                                 <rect key="frame" x="96" y="340" width="576" height="232"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" red="0.61176470588235299" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
@@ -914,7 +914,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailLabel" destination="ryR-Rr-P6B" id="EC8-Dq-1Ns"/>
                         <outlet property="logOut" destination="MTs-Nd-rlF" id="2K0-1e-264"/>
+                        <outlet property="nameLabel" destination="aPp-86-r8B" id="EmY-Jw-MzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Szr-w8-j3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
