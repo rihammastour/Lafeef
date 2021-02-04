@@ -175,15 +175,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     @IBAction func loginAction(_ sender: AnyObject) {
             
         validator.validate(self)
-        //from mihaf
-//        if password != "" &&  isValidated  {
-//          
-//            self.performSegue(withIdentifier: "emailNxt", sender: self)
-//        }else{
-//            passLabel.text = "لطفًا، اختر صورة "
-//        }
-//        
-//    }
+
         if password == "" {
             passLabel.text = "لطفًا، اختر صورة 🙁 "
             
