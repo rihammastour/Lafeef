@@ -11,19 +11,34 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+ 
     var window: UIWindow?
 
+    var activeController: UIViewController!
+
+    var navigationController: UINavigationController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        //Auto Login
+        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+               
+               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+               
+               if user != nil {
+                //تصير هنا صفحه ابدا العمل وتدرب
+                   let controller = storyboard.instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileViewController
+                   self.window?.rootViewController = controller
+                   self.window?.makeKeyAndVisible()
+               } else {
+                   // صفحه اللي فيها تو بوتن لوق ان وانشاء الحساب 
+                   let controller = storyboard.instantiateViewController(withIdentifier: "LoginScreen") as! LoginViewController
+                   self.window?.rootViewController = controller
+                   self.window?.makeKeyAndVisible()
+               }
+           }
         return true
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        let storyboard = UIStoryboard(name: "SplashScreen", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SplashScreen")
-        self.window!.rootViewController!.present(vc, animated: true, completion: nil)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

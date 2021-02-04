@@ -51,6 +51,15 @@
 		C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */; };
 		C92A65E125CB43DB0060AA53 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65E025CB43DB0060AA53 /* Child.swift */; };
 		C92A65E925CB44050060AA53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65E825CB44050060AA53 /* Constants.swift */; };
+		4E53480725BC90B600ACA8BC /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE0CF25BC94D000CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE0D325BC94D100CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
+		4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE0FF25BCF4A900CA7B9A /* Child.swift */; };
+		4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */; };
+		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
+		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
+		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
+		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +129,12 @@
 		C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRequests.swift; sourceTree = "<group>"; };
 		C92A65E025CB43DB0060AA53 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		C92A65E825CB44050060AA53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4EEDE0FF25BCF4A900CA7B9A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +199,8 @@
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
 				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */,
+				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
+				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -332,6 +349,7 @@
 				4E453A3B25B61D5000B8363F /* Frameworks */,
 				4E453A3C25B61D5000B8363F /* Resources */,
 				625A64B7788748733D1E9A30 /* [CP] Embed Pods Frameworks */,
+				D5219301402CA012900445DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,6 +388,7 @@
 				4E453A5D25B61D5500B8363F /* Frameworks */,
 				4E453A5E25B61D5500B8363F /* Resources */,
 				41A035368DB95CB225B3C56E /* [CP] Embed Pods Frameworks */,
+				E745FA7A235B161B1FE44C33 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -561,6 +580,40 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D5219301402CA012900445DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef/Pods-Lafeef-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E745FA7A235B161B1FE44C33 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -594,6 +647,11 @@
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */,
+				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
+				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
+				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
+				4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ target 'Lafeef' do
 	pod 'FirebaseFirestoreSwift'
  	pod 'CodableFirebase'
  	pod 'MaterialShowcase'
-
+  pod 'FirebaseUI', '~> 8.0'
 
 
 
@@ -36,5 +36,7 @@ pod 'SwiftyGif'
   target 'LafeefUITests' do
     # Pods for testing
   end
+
+
 
 end

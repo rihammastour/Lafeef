@@ -1,7 +1,11 @@
 {
   "images" : [
     {
+<<<<<<< HEAD:Lafeef/Assets.xcassets/kiwi-pass.imageset/Contents.json
       "filename" : "kiwi-pass.svg",
+=======
+      "filename" : "Pineapple.svg",
+>>>>>>> Raghad2:Lafeef/Assets.xcassets/Pineapple-1.imageset/Contents.json
       "idiom" : "universal",
       "scale" : "1x"
     },
