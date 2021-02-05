@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Avd-GU-Pjt">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="FFHekaya-Light.otf">
+            <string>FFHekaya-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Trainig View Controller-->
+        <scene sceneID="yEs-Tc-hC1">
+            <objects>
+                <viewController id="Avd-GU-Pjt" customClass="TrainigViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vcp-If-CT5">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trainig Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTk-sg-lc6">
+                                <rect key="frame" x="225" y="480" width="318" height="64.5"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-mC-x5B">
+                                <rect key="frame" x="353" y="591.5" width="62" height="30"/>
+                                <state key="normal" title="Go Back!"/>
+                                <connections>
+                                    <action selector="goBackTapped:" destination="Avd-GU-Pjt" eventType="touchUpInside" id="A8G-NS-KbE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1p2-86-Sxv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Kh-mC-x5B" firstAttribute="centerX" secondItem="Vcp-If-CT5" secondAttribute="centerX" id="3C7-93-KjY"/>
+                            <constraint firstItem="QTk-sg-lc6" firstAttribute="centerY" secondItem="Vcp-If-CT5" secondAttribute="centerY" id="7Wl-xA-Qa0"/>
+                            <constraint firstItem="5Kh-mC-x5B" firstAttribute="top" secondItem="QTk-sg-lc6" secondAttribute="bottom" constant="47" id="C9O-L6-Zhk"/>
+                            <constraint firstItem="QTk-sg-lc6" firstAttribute="centerX" secondItem="Vcp-If-CT5" secondAttribute="centerX" id="yGq-PF-Z6Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Ua-Pg-8Mc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQb-3q-3ZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5966" y="555"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -22,17 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         //Auto Login
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
                
-               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
                
                if user != nil {
-                //تصير هنا صفحه ابدا العمل وتدرب
                 let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
                    self.window?.rootViewController = controller
                    self.window?.makeKeyAndVisible()
                } else {
-                   // صفحه اللي فيها تو بوتن لوق ان وانشاء الحساب 
                    let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
                    self.window?.rootViewController = controller
                    self.window?.makeKeyAndVisible()

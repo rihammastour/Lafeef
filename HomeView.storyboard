@@ -43,7 +43,7 @@
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qAL-mm-ExN" kind="show" id="h9A-dO-FpX"/>
+                                                    <segue destination="qdb-mr-i63" kind="show" id="h9A-dO-FpX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -70,7 +70,7 @@
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Avd-GU-Pjt" kind="show" id="eEU-rS-Ugs"/>
+                                                    <segue destination="aSd-Ie-oQ0" kind="show" id="eEU-rS-Ugs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -309,85 +309,198 @@
             </objects>
             <point key="canvasLocation" x="4952" y="1082"/>
         </scene>
-        <!--Trainig View Controller-->
-        <scene sceneID="yEs-Tc-hC1">
+        <!--Profile View Controller-->
+        <scene sceneID="6fA-f2-M9d">
             <objects>
-                <viewController id="Avd-GU-Pjt" customClass="TrainigViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Vcp-If-CT5">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                <viewController restorationIdentifier="ProfileScreen" storyboardIdentifier="ProfileScreen" modalPresentationStyle="fullScreen" id="QwN-kj-aVU" customClass="ProfileViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SuP-Vw-VdT">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trainig Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTk-sg-lc6">
-                                <rect key="frame" x="193" y="460" width="318" height="64.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-mC-x5B">
-                                <rect key="frame" x="321" y="571.5" width="62" height="30"/>
-                                <state key="normal" title="Go Back!"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="290" misplaced="YES" axis="vertical" spacing="-150" translatesAutoresizingMaskIntoConstraints="NO" id="4Pd-J4-MHL" userLabel="background">
+                                <rect key="frame" x="-24" y="-50" width="792" height="483"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-uX-R5h">
+                                        <rect key="frame" x="0.0" y="0.0" width="792" height="377"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="792" id="0TX-fk-HQE"/>
+                                            <constraint firstAttribute="height" constant="377" id="SHV-zI-sT1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileCircle" translatesAutoresizingMaskIntoConstraints="NO" id="g2J-SP-biW">
+                                        <rect key="frame" x="0.0" y="227" width="792" height="256"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditButton" translatesAutoresizingMaskIntoConstraints="NO" id="EKF-rT-mt5">
+                                <rect key="frame" x="666" y="29" width="82" height="80"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jbs-x2-bu9">
+                                <rect key="frame" x="96" y="514" width="576" height="210"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jvy-zc-ITg" userLabel="Information">
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="97"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-390" translatesAutoresizingMaskIntoConstraints="NO" id="42Y-h9-iss">
+                                                <rect key="frame" x="0.0" y="0.0" width="576" height="47"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ٥ سنوات " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4G-KH-2Dr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="47"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="العمر |" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aKh-KD-Kv4">
+                                                        <rect key="frame" x="93" y="0.0" width="483" height="47"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-160" translatesAutoresizingMaskIntoConstraints="NO" id="Wnd-8X-5j9">
+                                                <rect key="frame" x="0.0" y="47" width="576" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh5-v9-ANo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="368" height="50"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البريد الالكتروني | " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-BW-WSj">
+                                                        <rect key="frame" x="208" y="0.0" width="368" height="50"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="1tN-dm-4aF" userLabel="rectangleStack">
+                                        <rect key="frame" x="0.0" y="117" width="576" height="93"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="XQP-vH-7WK">
+                                                <rect key="frame" x="0.0" y="0.0" width="576" height="186"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="SuQ-9T-gap" userLabel="rectangle info">
+                                                <rect key="frame" x="0.0" y="86" width="576" height="47"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="٢٠٠ ريال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-P5-Ajr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="47"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اليوم السابع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-IN-YPd" userLabel="اليوم السابع">
+                                                        <rect key="frame" x="238" y="0.0" width="338" height="47"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                        <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="center" distribution="fillEqually" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="2TO-Ex-fgN">
+                                                <rect key="frame" x="0.0" y="33" width="576" height="60"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="N0D-nQ-hoe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="338" height="60"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="Rac-7x-JLd">
+                                                        <rect key="frame" x="238" y="0.0" width="338" height="60"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2TO-Ex-fgN" firstAttribute="top" secondItem="1tN-dm-4aF" secondAttribute="top" constant="33" id="Eh0-4U-JHt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGw-SI-OhT" userLabel="logOutButton">
+                                <rect key="frame" x="96" y="871" width="576" height="70"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="xwP-zJ-MkD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                <state key="normal" title="تسجيل الخروج">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="goBackTapped:" destination="Avd-GU-Pjt" eventType="touchUpInside" id="A8G-NS-KbE"/>
+                                    <action selector="logOutActionWithSender:" destination="QwN-kj-aVU" eventType="touchUpInside" id="bPh-1D-TdK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXx-Nl-PvK">
+                                <rect key="frame" x="96" y="340" width="576" height="232"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
+                                <color key="textColor" red="0.61176470589999998" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="1p2-86-Sxv"/>
+                        <viewLayoutGuide key="safeArea" id="2fR-38-c2Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5Kh-mC-x5B" firstAttribute="centerX" secondItem="Vcp-If-CT5" secondAttribute="centerX" id="3C7-93-KjY"/>
-                            <constraint firstItem="QTk-sg-lc6" firstAttribute="centerY" secondItem="Vcp-If-CT5" secondAttribute="centerY" id="7Wl-xA-Qa0"/>
-                            <constraint firstItem="5Kh-mC-x5B" firstAttribute="top" secondItem="QTk-sg-lc6" secondAttribute="bottom" constant="47" id="C9O-L6-Zhk"/>
-                            <constraint firstItem="QTk-sg-lc6" firstAttribute="centerX" secondItem="Vcp-If-CT5" secondAttribute="centerX" id="yGq-PF-Z6Y"/>
+                            <constraint firstItem="EKF-rT-mt5" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="29" id="87j-J8-4y2"/>
+                            <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="HXx-Nl-PvK" secondAttribute="trailing" constant="96" id="DFq-1Q-MHu"/>
+                            <constraint firstItem="Jbs-x2-bu9" firstAttribute="top" secondItem="SuP-Vw-VdT" secondAttribute="top" constant="514" id="ERO-Bw-SAc"/>
+                            <constraint firstItem="4Pd-J4-MHL" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="-70" id="GNw-6w-a1O"/>
+                            <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="EKF-rT-mt5" secondAttribute="trailing" constant="20" id="GUU-fa-9GJ"/>
+                            <constraint firstItem="HXx-Nl-PvK" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="340" id="GsY-DN-GL5"/>
+                            <constraint firstItem="2fR-38-c2Y" firstAttribute="bottom" secondItem="TGw-SI-OhT" secondAttribute="bottom" constant="83" id="UuH-f0-6z7"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="trailing" secondItem="Jbs-x2-bu9" secondAttribute="trailing" id="W6l-wM-Y8l"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="leading" secondItem="HXx-Nl-PvK" secondAttribute="leading" id="aAZ-HR-NxF"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="leading" secondItem="Jbs-x2-bu9" secondAttribute="leading" id="dqz-BJ-YTD"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="top" secondItem="HXx-Nl-PvK" secondAttribute="bottom" constant="299" id="ezn-Ka-IVd"/>
+                            <constraint firstItem="HXx-Nl-PvK" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="96" id="gDu-fW-ahi"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="trailing" secondItem="HXx-Nl-PvK" secondAttribute="trailing" id="pTf-xb-JYZ"/>
+                            <constraint firstItem="4Pd-J4-MHL" firstAttribute="centerX" secondItem="SuP-Vw-VdT" secondAttribute="centerX" id="sMG-Lg-rgB"/>
+                            <constraint firstItem="TGw-SI-OhT" firstAttribute="centerX" secondItem="4Pd-J4-MHL" secondAttribute="centerX" id="sf9-G8-sx5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Ua-Pg-8Mc"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="vh5-v9-ANo" id="lbA-Cy-Akz"/>
+                        <outlet property="logOut" destination="TGw-SI-OhT" id="Avt-EC-zqX"/>
+                        <outlet property="nameLabel" destination="HXx-Nl-PvK" id="K4e-If-uNe"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GQb-3q-3ZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2a-d7-Hey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5966" y="555"/>
+            <point key="canvasLocation" x="4130" y="305"/>
         </scene>
-        <!--Challenge Levels View Controller-->
-        <scene sceneID="Mzd-2w-Cgs">
+        <!--ChallengeVC-->
+        <scene sceneID="UI3-4d-nxn">
             <objects>
-                <viewController storyboardIdentifier="ChallengeVC" id="qAL-mm-ExN" customClass="ChallengeLevelsViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o52-Ab-7ti">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="151" y="460" width="402.5" height="64.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm8-K6-n1P">
-                                <rect key="frame" x="321" y="541.5" width="62" height="30"/>
-                                <state key="normal" title="Go Back!"/>
-                                <connections>
-                                    <action selector="goBackTapped:" destination="qAL-mm-ExN" eventType="touchUpInside" id="RiW-kd-GMT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wHu-Hx-akc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="7tS-gA-51O" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="g2N-Ly-GfZ"/>
-                            <constraint firstItem="nm8-K6-n1P" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="ma1-Jn-3i4"/>
-                            <constraint firstItem="nm8-K6-n1P" firstAttribute="top" secondItem="7tS-gA-51O" secondAttribute="bottom" constant="17" id="qGv-Fs-D0b"/>
-                            <constraint firstItem="7tS-gA-51O" firstAttribute="centerY" secondItem="o52-Ab-7ti" secondAttribute="centerY" id="ulM-0p-gyw"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="y4B-HO-i8l"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N28-fr-V56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="ChallengeVC" storyboardName="Challenge" referencedIdentifier="ChallengeVC" id="qdb-mr-i63" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lMD-8k-4eI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRw-pS-Xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5966" y="-185"/>
         </scene>
+        <!--Training-->
+        <scene sceneID="ZNI-HQ-iDs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Training" id="aSd-Ie-oQ0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JXR-eW-3Tj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFA-f8-sEt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5966" y="555"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="EditButton" width="82" height="80"/>
         <image name="Training-wave" width="403" height="287.4949951171875"/>
+        <image name="calendar" width="52.647998809814453" height="49"/>
         <image name="challenge-wave" width="403.00201416015625" height="332.72900390625"/>
+        <image name="greenBackground" width="674" height="240.00300598144531"/>
+        <image name="money" width="58.841999053955078" height="60.784000396728516"/>
         <image name="moneyBag" width="23" height="23.666666030883789"/>
+        <image name="profileCircle" width="256.70199584960938" height="256.70199584960938"/>
+        <image name="profileRectangle" width="576" height="177"/>
         <image name="scoreIcon" width="23" height="23"/>
         <namedColor name="bachgroundApp">
             <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

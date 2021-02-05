@@ -14,9 +14,7 @@
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
 		41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */; };
 		41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */; };
-		4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73225CC711000247B27 /* SignUp.storyboard */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
-		4E0ED77225CCB6EB00247B27 /* LoginAndProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
 		4E453A4625B61D5100B8363F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4525B61D5100B8363F /* Actions.sks */; };
@@ -26,11 +24,13 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
+		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
+		4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC225CDDF9600D50362 /* Challenge.storyboard */; };
+		4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC825CDDFBF00D50362 /* Training.storyboard */; };
 		4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E825CAD83800518EF9 /* instruction.swift */; };
 		4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E925CAD83900518EF9 /* AlertService.swift */; };
 		4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */; };
 		4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976F025CAD84B00518EF9 /* AlertViewController.swift */; };
-		4EB9775825CB71E900518EF9 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EB9775725CB71E900518EF9 /* splash-animation.gif */; };
 		4EB9776225CB7C7600518EF9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9776125CB7C7600518EF9 /* SignUpViewController.swift */; };
 		4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
 		4EC6D37D25C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
@@ -83,9 +83,7 @@
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
 		41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCharachterViewController.swift; sourceTree = "<group>"; };
 		41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
-		4E0ED73325CC711000247B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
-		4E0ED77125CCB6EB00247B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginAndProfile.storyboard; sourceTree = "<group>"; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E453A4325B61D5100B8363F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -101,11 +99,13 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
+		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
+		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
 		4EB976E825CAD83800518EF9 /* instruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instruction.swift; sourceTree = "<group>"; };
 		4EB976E925CAD83900518EF9 /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		4EB976F025CAD84B00518EF9 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		4EB9775725CB71E900518EF9 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4EB9776125CB7C7600518EF9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
@@ -221,9 +221,6 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
-				4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */,
-				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
-				4E0ED73225CC711000247B27 /* SignUp.storyboard */,
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
 				4E453A4525B61D5100B8363F /* Actions.sks */,
@@ -231,6 +228,9 @@
 				4E453A4925B61D5100B8363F /* GameViewController.swift */,
 				4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */,
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
+				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
+				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
+				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
@@ -271,7 +271,7 @@
 		4EDCA1F625C6249F00C29464 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4EB9775725CB71E900518EF9 /* splash-animation.gif */,
+				4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */,
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
 			);
 			path = View;
@@ -437,16 +437,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
+				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
-				4E0ED77225CCB6EB00247B27 /* LoginAndProfile.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
+				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
-				4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */,
+				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
-				4EB9775825CB71E900518EF9 /* splash-animation.gif in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,28 +675,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4E0ED73225CC711000247B27 /* SignUp.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E0ED73325CC711000247B27 /* Base */,
-			);
-			name = SignUp.storyboard;
-			sourceTree = "<group>";
-		};
-		4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E0ED77125CCB6EB00247B27 /* Base */,
-			);
-			name = LoginAndProfile.storyboard;
-			sourceTree = "<group>";
-		};
 		4E453A4B25B61D5100B8363F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4E453A4C25B61D5100B8363F /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E7DECC225CDDF9600D50362 /* Challenge.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E7DECC325CDDF9600D50362 /* Base */,
+			);
+			name = Challenge.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
