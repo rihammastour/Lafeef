@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Wave.png",
+      "filename" : "boy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Wave@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Wave@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,10 +1,7 @@
 {
   "images" : [
     {
-<<<<<<< HEAD:Lafeef/Assets.xcassets/boy-icon.imageset/Contents.json
-=======
-      "filename" : "wave.svg",
->>>>>>> Raghad2:Lafeef/Assets.xcassets/wave.imageset/Contents.json
+      "filename" : "girl.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -13,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "boy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

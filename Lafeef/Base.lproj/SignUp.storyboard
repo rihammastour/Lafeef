@@ -28,10 +28,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="ZLf-2I-8kQ" userLabel="Logo">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="387"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uperBackgroundsvg" translatesAutoresizingMaskIntoConstraints="NO" id="juA-kE-4FD">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="juA-kE-4FD">
                                                 <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="JQh-Uk-vKK">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="JQh-Uk-vKK">
                                                 <rect key="frame" x="0.0" y="18" width="388" height="369"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="369" id="JaZ-nP-GDQ"/>
@@ -116,7 +116,7 @@
                                                                     <constraint firstAttribute="width" constant="108" id="5SQ-ae-qMh"/>
                                                                     <constraint firstAttribute="height" constant="104" id="FS2-iI-Dag"/>
                                                                 </constraints>
-                                                                <state key="normal" image="kiwi-pass"/>
+                                                                <state key="normal" image="kiwi"/>
                                                                 <connections>
                                                                     <action selector="kiwiPass:" destination="Iqa-rs-tie" eventType="touchUpInside" id="g5j-Sc-LPO"/>
                                                                 </connections>
@@ -243,7 +243,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-180" translatesAutoresizingMaskIntoConstraints="NO" id="3KI-bi-hzS">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="328"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uperBackgroundsvg" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-KS-FUF">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-KS-FUF">
                                                 <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birthday-cake" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-at-HXy">
@@ -725,7 +725,6 @@
         <!--Navigation Controller-->
         <scene sceneID="lmx-Pi-aee">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sry-j5-ZoL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="kyf-sb-CQl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dRb-5j-Njc"/>
@@ -740,51 +739,44 @@
                         <segue destination="78S-0X-Zrs" kind="relationship" relationship="rootViewController" id="hQz-Y3-naf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sry-j5-ZoL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3864" y="1054"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="R0z-Hm-BIN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TcS-fc-ueq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="HomeView" referencedIdentifier="HomeVC" id="78S-0X-Zrs" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Hcs-Ot-hBf"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcS-fc-ueq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4391" y="1054"/>
-        </scene>
-        <!--ProfileVC-->
-        <scene sceneID="xOI-0b-wtq">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cWP-gQ-iv9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardIdentifier="ProfileVC" storyboardName="HomeView" referencedIdentifier="ProfileVC" id="u9g-mn-OXm" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="2648" y="1098"/>
         </scene>
         <!--ChallengeVC-->
         <scene sceneID="fum-Ez-REp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7If-Jt-ek9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="ChallengeVC" storyboardName="HomeView" referencedIdentifier="ChallengeVC" id="dkP-te-6Lg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7If-Jt-ek9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2825" y="1097"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Lafeef-logo-1" width="428" height="409"/>
+        <image name="Lafeef-Logos-4" width="428" height="409"/>
         <image name="birthday-cake" width="243" height="226"/>
         <image name="blueberry-pass" width="68.237998962402344" height="79.157997131347656"/>
         <image name="boy" width="873" height="1529"/>
         <image name="bubble" width="459" height="238.97500610351562"/>
         <image name="croped-boy" width="1029" height="1275"/>
         <image name="croped-girl" width="1029" height="1275"/>
-        <image name="kiwi-pass" width="63" height="63"/>
+        <image name="kiwi" width="128" height="128"/>
         <image name="lemon-pass" width="56.841999053955078" height="74.121002197265625"/>
         <image name="orange-pass" width="55.685001373291016" height="68.685997009277344"/>
         <image name="pass-images" width="1901" height="1084"/>
         <image name="pineapple-pass" width="47.071998596191406" height="87.152000427246094"/>
         <image name="strawberry-pass" width="51.666999816894531" height="82.495002746582031"/>
-        <image name="uperBackgroundsvg" width="768" height="218.80000305175781"/>
+        <image name="upperBackground" width="670.05499267578125" height="218.802001953125"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

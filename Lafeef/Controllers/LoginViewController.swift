@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
         emailTextfield.layer.cornerRadius = emailTextfield.frame.size.height/2
         emailTextfield.clipsToBounds = true
         
-        self.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial")
+        self.view.setGradientBackground(redTop: 0.96, greenTop: 0.96, blueTop: 0.91, redBottom: 0.98, greenBottom: 0.98, blueBottom: 0.96, type: "axial", isFirstTimeInserting: true)
         
         
         
@@ -202,7 +202,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     print("You have successfully logged in")
                     //Go to the ProfileViewController if the login is sucessful
 
-                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileScreen")
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier:Constants.Storyboard.homeViewController)
                   
                     self.present(vc!, animated: true, completion: nil)
                     

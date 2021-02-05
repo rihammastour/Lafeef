@@ -1,11 +1,7 @@
 {
   "images" : [
     {
-<<<<<<< HEAD:Lafeef/Assets.xcassets/ballons.imageset/Contents.json
-      "filename" : "ballon.svg",
-=======
-      "filename" : "lemon.svg",
->>>>>>> Raghad2:Lafeef/Assets.xcassets/lemon.imageset/Contents.json
+      "filename" : "Pineapple-3.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

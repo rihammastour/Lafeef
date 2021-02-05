@@ -28,12 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                
                if user != nil {
                 //تصير هنا صفحه ابدا العمل وتدرب
-                   let controller = storyboard.instantiateViewController(withIdentifier: "ProfileScreen") as! ProfileViewController
+                let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
                    self.window?.rootViewController = controller
                    self.window?.makeKeyAndVisible()
                } else {
                    // صفحه اللي فيها تو بوتن لوق ان وانشاء الحساب 
-                   let controller = storyboard.instantiateViewController(withIdentifier: "LoginScreen") as! LoginViewController
+                   let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
                    self.window?.rootViewController = controller
                    self.window?.makeKeyAndVisible()
                }

@@ -16,6 +16,7 @@
 		41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */; };
 		4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73225CC711000247B27 /* SignUp.storyboard */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
+		4E0ED77225CCB6EB00247B27 /* LoginAndProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
 		4E453A4625B61D5100B8363F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4525B61D5100B8363F /* Actions.sks */; };
@@ -37,11 +38,11 @@
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
+		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */; };
 		C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659425CB3F4F0060AA53 /* HomeViewController.swift */; };
-		C92A659725CB3F550060AA53 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659625CB3F550060AA53 /* ProfileViewController.swift */; };
 		C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */; };
 		C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65A025CB3F660060AA53 /* StoreViewController.swift */; };
 		C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */; };
@@ -51,14 +52,6 @@
 		C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */; };
 		C92A65E125CB43DB0060AA53 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65E025CB43DB0060AA53 /* Child.swift */; };
 		C92A65E925CB44050060AA53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65E825CB44050060AA53 /* Constants.swift */; };
-		4E53480725BC90B600ACA8BC /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
-		4EEDE0CF25BC94D000CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
-		4EEDE0D325BC94D100CA7B9A /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */; };
-		4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE0FF25BCF4A900CA7B9A /* Child.swift */; };
-		4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */; };
-		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
-		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
-		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +85,7 @@
 		41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
 		4E0ED73325CC711000247B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
+		4E0ED77125CCB6EB00247B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginAndProfile.storyboard; sourceTree = "<group>"; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E453A4325B61D5100B8363F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -116,10 +110,10 @@
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeLevelsViewController.swift; path = Lafeef/ViewController/ChallengeLevelsViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
-		C92A659625CB3F550060AA53 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Lafeef/ViewController/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOrLoginViewController.swift; path = Lafeef/ViewController/SignUpOrLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A65A025CB3F660060AA53 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreViewController.swift; path = Lafeef/ViewController/StoreViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrainigViewController.swift; path = Lafeef/ViewController/TrainigViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -129,11 +123,6 @@
 		C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRequests.swift; sourceTree = "<group>"; };
 		C92A65E025CB43DB0060AA53 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		C92A65E825CB44050060AA53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4E53480625BC90B600ACA8BC /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FFHekaya-Light.otf"; sourceTree = "<group>"; };
-		4EEDE0FF25BCF4A900CA7B9A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
-		4EEDE10A25BCFBCB00CA7B9A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,7 +178,6 @@
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C92A65A025CB3F660060AA53 /* StoreViewController.swift */,
 				C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */,
-				C92A659625CB3F550060AA53 /* ProfileViewController.swift */,
 				C92A659425CB3F4F0060AA53 /* HomeViewController.swift */,
 				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
 				4EB9776125CB7C7600518EF9 /* SignUpViewController.swift */,
@@ -233,6 +221,7 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
+				4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */,
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E0ED73225CC711000247B27 /* SignUp.storyboard */,
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
@@ -449,6 +438,7 @@
 			files = (
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
+				4E0ED77225CCB6EB00247B27 /* LoginAndProfile.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				4E0ED73425CC711000247B27 /* SignUp.storyboard in Resources */,
@@ -623,7 +613,6 @@
 			files = (
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
-				C92A659725CB3F550060AA53 /* ProfileViewController.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
@@ -647,11 +636,10 @@
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIViewController.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
-				4EEDE10025BCF4A900CA7B9A /* Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +681,14 @@
 				4E0ED73325CC711000247B27 /* Base */,
 			);
 			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
+		4E0ED77025CCB6EB00247B27 /* LoginAndProfile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E0ED77125CCB6EB00247B27 /* Base */,
+			);
+			name = LoginAndProfile.storyboard;
 			sourceTree = "<group>";
 		};
 		4E453A4B25B61D5100B8363F /* Main.storyboard */ = {
