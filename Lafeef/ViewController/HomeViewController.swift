@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
         
         //Set Bekary background
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Bakery")
+        backgroundImage.image = UIImage(named: "blank-bakery")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
         
@@ -115,26 +115,27 @@ class HomeViewController: UIViewController {
     }
     //MARK:- Get User Data
     
-    //Fetch Child info from db -No need for now-
-    //    func feachUserData(){
-    //
-    //        let userId = FirebaseRequest.getUserId()
-    //        FirebaseRequest.getChildData(for: userId!) { (data, err) in
-    //            if err != nil{
-    //                print("Home View Controller",err!)
-    //                 if err?.localizedDescription == "Failed to get document because the client is offline."{
-    //                    print("تأكد من اتصال الانترنيت")
-    //                }
-    //
-    //            }else{
-    //                let child = data!
-    //                self.setUIChildInfo()
-    //            }
-    //        }
-    //
-    //    }
+    //Fetch Child info from db 
+        func feachUserData(){
     
-    // Get child from local storage
+            let userId = FirebaseRequest.getUserId()
+            FirebaseRequest.getChildData(for: userId!) { (data, err) in
+                if err != nil{
+                    print("Home View Controller",err!)
+                     if err?.localizedDescription == "Failed to get document because the client is offline."{
+                        print("تأكد من اتصال الانترنيت")
+                        //TODO: Alert and update button and logout
+                    }
+    
+                }else{
+                    let child = data!
+                    self.setUIChildInfo(child)
+                }
+            }
+    
+        }
+    
+    // Get child object from local storage
     func getChildData(){
         let child = LocalStorageManager.getChild()
         if child != nil {
