@@ -8,11 +8,11 @@
 import Foundation
 
 struct Child: Codable {
-    static  var DOB :String = ""
-    static  var currentLevel :Int = 0
-    static  var email :String = ""
-    static  var money :Float = 0
-    static  var name :String = ""
-    static  var score :Int = 0
-    static  var sex :String = ""
+      var DOB :String = ""
+      var currentLevel :Int = 0
+      var email :String = ""
+      var money :Float = 0
+      var name :String = ""
+      var score :Int = 0
+      var sex :String = ""
 }

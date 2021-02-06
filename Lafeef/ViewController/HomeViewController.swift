@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moneyBarUIView: UIView!
     @IBOutlet weak var scoreBarUIView: UIView!
     @IBOutlet weak var profileBarUIView: UIView!
-    
     @IBOutlet weak var characterUIImageView: UIImageView!
     //Labels
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,18 +29,26 @@ class HomeViewController: UIViewController {
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        feachUserData()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Additional setup after loading the view.
+    //Additional setup after loading the view.
+        
+        //Style elemnts
         setUpElements()
+        //Get Child Data
+        getChildData()
+        //Register child obj to observe changes
+        RegisterObserver(for:"child")
     }
     
-    //MARK: - Functions
-    // - Setup UI Elements
+    
+    //MARK: Functions
+    
+    //MARK: - Setup UI Elements
     func setUpElements() {
         
         //Set Bekary background
@@ -59,10 +66,10 @@ class HomeViewController: UIViewController {
         
         //Store Button style
         Utilities.styleCircleButton(storeButton)
-            //create image
+        //create image
         let image = UIImage(named: "storeIcon") as UIImage?
         storeButton.setImage(image, for: .normal)
-            //style image
+        //style image
         storeButton.contentVerticalAlignment = .fill
         storeButton.contentHorizontalAlignment = .fill
         storeButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
@@ -71,12 +78,12 @@ class HomeViewController: UIViewController {
     
     //MARK:- Set content for UI elemnnts
     //Set child info
-    func setUIChildInfo(){
-        self.setName(Child.name)
-        self.setCurrentLevel(Child.currentLevel)
-        self.setMoney(Child.money)
-        self.setScore(Child.score)
-        self.setImage(Child.sex)
+    func setUIChildInfo(_ child:Child){
+        self.setName(child.name)
+        self.setCurrentLevel(child.currentLevel)
+        self.setMoney(child.money)
+        self.setScore(child.score)
+        self.setImage(child.sex)
     }
     
     //Name
@@ -100,46 +107,70 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
+        if sex != "Girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
         }else{
             characterUIImageView.image = UIImage(named: "girl-icon")
         }
     }
-    //MARK:- Feach User Data
+    //MARK:- Get User Data
     
-    func feachUserData(){
-
-        let userId = FirebaseRequest.getUserId()
-        FirebaseRequest.getChildData(for: userId!) { (data, err) in
-            if err != nil{
-                print("Home View Controller",err!)
-                if err?.localizedDescription == "Failed to get document because the client is offline."{
-                    print("تأكد من اتصال الانترنيت")
-                }
-                
-            }else{
-                let child = data!
-                self.setUIChildInfo()
-            }
+    //Fetch Child info from db -No need for now-
+    //    func feachUserData(){
+    //
+    //        let userId = FirebaseRequest.getUserId()
+    //        FirebaseRequest.getChildData(for: userId!) { (data, err) in
+    //            if err != nil{
+    //                print("Home View Controller",err!)
+    //                 if err?.localizedDescription == "Failed to get document because the client is offline."{
+    //                    print("تأكد من اتصال الانترنيت")
+    //                }
+    //
+    //            }else{
+    //                let child = data!
+    //                self.setUIChildInfo()
+    //            }
+    //        }
+    //
+    //    }
+    
+    // Get child from local storage
+    func getChildData(){
+        let child = LocalStorageManager.getChild()
+        if child != nil {
+            setUIChildInfo(child!)
         }
+      
+    }
+    //MARK: - Local Storage Notifications
+    
+    //Register key value to be observed
+    func RegisterObserver(for key:String){
         
+        UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
     }
     
-    //MARK: - Elements Tapped
+    //Observe Handlere
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        print("excution")
+        if keyPath == "child" {
+            getChildData()
+        }
+    }
+    
+    //MARK: - Actions, Elements Tapped
     @IBAction func profileBarViewTapped(_ sender: Any) {
         
         profileBarUIView.showAnimation({
-
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
             
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
+
             self.navigationController?.pushViewController(vc, animated: true)
+            
+//            self.performSegue(withIdentifier: "profileSegue", sender: self)
             
         })
     }
-    
-    
-    
     
 }
 
@@ -151,16 +182,16 @@ public extension UIView {
                        options: .curveLinear,
                        animations: { [weak self] in
                         self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
-        }) {  (done) in
+                       }) {  (done) in
             UIView.animate(withDuration: 0.1,
                            delay: 0,
                            options: .curveLinear,
                            animations: { [weak self] in
                             self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-            }) { [weak self] (_) in
+                           }) { [weak self] (_) in
                 self?.isUserInteractionEnabled = true
                 completionBlock()
             }
-        }
+                       }
     }
 }

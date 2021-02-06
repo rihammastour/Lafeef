@@ -240,7 +240,7 @@ class SignUpEmailViewController: UIViewController, FlexibleSteppedProgressBarDel
 
         let destinationVC = segue.destination as! SignUpDOBViewController
         destinationVC.password =  password
-        Child.email = emailTextfield?.text ?? ""
+        User.email = emailTextfield?.text ?? ""
 
     }
     

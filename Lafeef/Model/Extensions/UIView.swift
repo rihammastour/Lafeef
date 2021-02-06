@@ -10,6 +10,8 @@ import UIKit
 
 extension UIView {
 
+    //MARK: - GradientBackground
+    
     func setGradientBackground(redTop: CGFloat, greenTop: CGFloat, blueTop: CGFloat,redBottom: CGFloat, greenBottom: CGFloat, blueBottom: CGFloat, type: String, isFirstTimeInserting: Bool) {
         let colorTop =  UIColor(red: redTop, green:greenTop, blue: blueTop, alpha: 1.0).cgColor
         let colorBottom = UIColor(red: redBottom, green: greenBottom, blue: blueBottom, alpha: 1.0).cgColor
@@ -39,4 +41,7 @@ extension UIView {
                }
            }
     }
+    
+    //MARK: - Animations
+    
 }

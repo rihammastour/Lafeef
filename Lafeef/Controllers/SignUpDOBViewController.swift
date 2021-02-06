@@ -114,7 +114,7 @@ class SignUpDOBViewController: UIViewController, FlexibleSteppedProgressBarDeleg
 
         let destinationVC = segue.destination as! SignUpCharachterViewController
         destinationVC.password = password
-        Child.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
+        User.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
      }
     
     @IBAction func next(_ sender: Any) {

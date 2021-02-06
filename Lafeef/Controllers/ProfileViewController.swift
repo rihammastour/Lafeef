@@ -135,7 +135,8 @@ class ProfileViewController: UIViewController {
                 do {
                     
                     try Auth.auth().signOut()
-                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginScreen")
+                    LocalStorageManager.removeChild()
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController)
                     self.present(vc, animated: true, completion: nil)
                     
                 } catch let error as NSError {

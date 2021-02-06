@@ -189,7 +189,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqK-C2-n1b">
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="60"/>
                                                 <connections>
-                                                    <action selector="profileBarViewTapped:" destination="lXH-ms-ACN" eventType="touchUpInside" id="XxY-Z1-vAr"/>
+                                                    <action selector="profileBarViewTapped:" destination="lXH-ms-ACN" eventType="touchUpInside" id="2wp-LW-xrc"/>
+                                                    <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="bNZ-ce-79g"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLq-fc-m0Y">
@@ -257,7 +258,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="x5x-rp-r7U"/>
                     <connections>
-                        <outlet property="characterUIImageView" destination="kxp-kn-xAC" id="k7j-fH-ryD"/>
+                        <outlet property="characterUIImageView" destination="kxp-kn-xAC" id="MYn-gR-CED"/>
                         <outlet property="levelNumLabel" destination="7dn-sS-UK2" id="RWc-wd-dXF"/>
                         <outlet property="moneyBarUIView" destination="8Ye-ES-KWi" id="StZ-cd-YDb"/>
                         <outlet property="moneyLabel" destination="nzt-wb-uit" id="Kng-P7-sW5"/>
@@ -275,19 +276,19 @@
         <!--Store View Controller-->
         <scene sceneID="vwE-lV-NTq">
             <objects>
-                <viewController id="yXw-yV-vtD" customClass="StoreViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="yXw-yV-vtD" customClass="StoreViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4pI-Ss-2NN">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87x-Cd-RGL">
-                                <rect key="frame" x="192.5" y="460" width="319" height="64.5"/>
+                                <rect key="frame" x="275.5" y="479" width="217.5" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-N3-KFF">
-                                <rect key="frame" x="321" y="541.5" width="62" height="30"/>
+                                <rect key="frame" x="353" y="562" width="62" height="30"/>
                                 <state key="normal" title="Go Back!"/>
                                 <connections>
                                     <action selector="goBackTapped:" destination="yXw-yV-vtD" eventType="touchUpInside" id="Jwt-Gg-tpZ"/>
@@ -312,7 +313,7 @@
         <!--Profile View Controller-->
         <scene sceneID="6fA-f2-M9d">
             <objects>
-                <viewController restorationIdentifier="ProfileScreen" storyboardIdentifier="ProfileScreen" modalPresentationStyle="fullScreen" id="QwN-kj-aVU" customClass="ProfileViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" modalPresentationStyle="fullScreen" id="QwN-kj-aVU" customClass="ProfileViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SuP-Vw-VdT">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -460,6 +461,7 @@
                             <constraint firstItem="TGw-SI-OhT" firstAttribute="centerX" secondItem="4Pd-J4-MHL" secondAttribute="centerX" id="sf9-G8-sx5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZIt-67-Mgo"/>
                     <connections>
                         <outlet property="emailLabel" destination="vh5-v9-ANo" id="lbA-Cy-Akz"/>
                         <outlet property="logOut" destination="TGw-SI-OhT" id="Avt-EC-zqX"/>
