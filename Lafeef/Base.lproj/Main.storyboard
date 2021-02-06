@@ -145,17 +145,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-250" translatesAutoresizingMaskIntoConstraints="NO" id="zm6-xV-6fV">
-                                <rect key="frame" x="2" y="-60" width="768" height="446"/>
+                                <rect key="frame" x="206" y="-60" width="360" height="344"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GAB-Ad-7ox">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="352"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="768" id="3FG-KL-cd5"/>
-                                            <constraint firstAttribute="height" constant="352" id="g4J-mz-qnS"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mlb-3j-9JM">
-                                        <rect key="frame" x="0.0" y="102" width="768" height="344"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="344"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -176,8 +169,8 @@
                                     <navigationItem title="Title" id="22z-Cq-IaJ"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="لايوجد لديك حساب ؟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-A7-ifR">
-                                <rect key="frame" x="251" y="855" width="155" height="31.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لايوجد لديك حساب ؟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-A7-ifR">
+                                <rect key="frame" x="283" y="857" width="155" height="31.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -191,6 +184,16 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-9d-yYk">
+                                <rect key="frame" x="145" y="850.5" width="98" height="44.5"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
+                                <state key="normal" title="انشاء حساب">
+                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="SG8-tt-k7w" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="JN8-nB-1vQ"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-R4-x5z">
                                 <rect key="frame" x="-5" y="256" width="768" height="72"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="60"/>
@@ -224,7 +227,8 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="138" id="4RK-LQ-GXd"/>
+                                                            <constraint firstAttribute="width" constant="143.5" id="gXJ-2z-lee"/>
+                                                            <constraint firstAttribute="height" constant="138" id="iZq-AJ-ai6"/>
                                                         </constraints>
                                                         <state key="normal" backgroundImage="berry"/>
                                                         <connections>
@@ -234,6 +238,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-FO-R5v" userLabel="lemon">
                                                         <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="143.5" id="F42-Ow-SMH"/>
+                                                            <constraint firstAttribute="height" constant="138" id="xPD-Se-WEE"/>
+                                                        </constraints>
                                                         <state key="normal" backgroundImage="lemon-2"/>
                                                         <connections>
                                                             <action selector="lemonPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="0r2-yc-Ldw"/>
@@ -247,7 +255,11 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-jL-SMO" userLabel="kiwi">
                                                         <rect key="frame" x="0.0" y="0.0" width="142.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="kiwi"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="138" id="9tY-Bm-Z0O"/>
+                                                            <constraint firstAttribute="width" constant="142.5" id="oJu-hC-2FF"/>
+                                                        </constraints>
+                                                        <state key="normal" backgroundImage="Kiwi"/>
                                                         <connections>
                                                             <action selector="kiwiPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="maq-i0-sQJ"/>
                                                         </connections>
@@ -255,6 +267,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-L7-hoL" userLabel="strawberry">
                                                         <rect key="frame" x="0.0" y="168" width="142.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="142.5" id="MsV-B0-igd"/>
+                                                            <constraint firstAttribute="height" constant="138" id="jwR-kI-KUD"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                         <state key="normal" backgroundImage="strawberry-2"/>
                                                         <connections>
@@ -269,6 +285,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-Sk-iSY" userLabel="orange">
                                                         <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="143.5" id="REz-Wj-647"/>
+                                                            <constraint firstAttribute="height" constant="138" id="ljt-7T-aUA"/>
+                                                        </constraints>
                                                         <state key="normal" backgroundImage="Orange-1"/>
                                                         <connections>
                                                             <action selector="orangePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="wWN-fn-ZAc"/>
@@ -277,6 +297,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-qN-oHu" userLabel="pineapple">
                                                         <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="138" id="QVr-nK-Blh"/>
+                                                            <constraint firstAttribute="width" constant="143.5" id="zNj-4S-Af5"/>
+                                                        </constraints>
                                                         <state key="normal" backgroundImage="Pineapple-3"/>
                                                         <connections>
                                                             <action selector="pineapplePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="wja-7y-bLw"/>
@@ -287,6 +311,8 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="kuG-zQ-WlW" firstAttribute="leading" secondItem="o5C-6t-5YB" secondAttribute="leading" constant="183.5" id="98Q-kc-uEa"/>
+                                            <constraint firstItem="kuG-zQ-WlW" firstAttribute="leading" secondItem="v5y-aS-pq0" secondAttribute="trailing" constant="40" id="Rky-JD-gx5"/>
+                                            <constraint firstItem="M0o-Gl-j3X" firstAttribute="leading" secondItem="kuG-zQ-WlW" secondAttribute="trailing" constant="40" id="fY0-yC-cW6"/>
                                             <constraint firstItem="kuG-zQ-WlW" firstAttribute="centerX" secondItem="o5C-6t-5YB" secondAttribute="centerX" id="z1T-Y5-AkT"/>
                                         </constraints>
                                     </stackView>
@@ -295,16 +321,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-9d-yYk">
-                                <rect key="frame" x="145" y="848" width="98" height="44.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                <state key="normal" title="انشاء حساب">
-                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SG8-tt-k7w" kind="show" animates="NO" id="JN8-nB-1vQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hiu-eI-TPc"/>
                         <color key="backgroundColor" red="0.97625690700000001" green="0.97304958109999995" blue="0.94117331500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -360,24 +376,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIb-Ia-uka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2481" y="-5"/>
+            <point key="canvasLocation" x="2480.46875" y="-5.2734375"/>
         </scene>
         <!--Sign Up Email View Controller-->
         <scene sceneID="4xt-aS-4y4">
             <objects>
                 <viewController id="SG8-tt-k7w" customClass="SignUpEmailViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9kH-Sn-RkH">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="934"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-Ii-gfB">
-                                <rect key="frame" x="0.0" y="50" width="704" height="930"/>
+                                <rect key="frame" x="0.0" y="50" width="768" height="930"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="LSu-pK-VTf" userLabel="Logo">
-                                        <rect key="frame" x="0.0" y="0.0" width="704" height="387"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="387"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-Qx-Lw8">
-                                                <rect key="frame" x="0.0" y="0.0" width="704" height="218"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-Nv-8GZ">
                                                 <rect key="frame" x="0.0" y="18" width="388" height="369"/>
@@ -389,7 +405,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EZo-dI-Hsw" userLabel="form">
-                                        <rect key="frame" x="118.5" y="257" width="467" height="673"/>
+                                        <rect key="frame" x="150.5" y="257" width="467" height="673"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إنشاء حساب" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQm-sA-Ptf">
                                                 <rect key="frame" x="123" y="0.0" width="221.5" height="71"/>
@@ -1105,12 +1121,13 @@
         <segue reference="JN8-nB-1vQ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Kiwi" width="143.29299926757812" height="137.29299926757812"/>
         <image name="Lafeef-Logos-4" width="428" height="409"/>
         <image name="Orange-1" width="109" height="103"/>
         <image name="Pineapple-3" width="143.29299926757812" height="137.29299926757812"/>
         <image name="TwoBalloons" width="239.5" height="337"/>
         <image name="balloon" width="135" height="277"/>
-        <image name="berry" width="128" height="128"/>
+        <image name="berry" width="139.29299926757812" height="138.29299926757812"/>
         <image name="birthday-cake" width="243" height="226"/>
         <image name="blueberry-pass" width="68.237998962402344" height="79.157997131347656"/>
         <image name="boy" width="873" height="1529"/>
@@ -1118,7 +1135,6 @@
         <image name="cream" width="688.05499267578125" height="236.80099487304688"/>
         <image name="croped-boy" width="1029" height="1275"/>
         <image name="croped-girl" width="1029" height="1275"/>
-        <image name="kiwi" width="128" height="128"/>
         <image name="kiwi-pass" width="63" height="63"/>
         <image name="lemon-2" width="142.29299926757812" height="132.29299926757812"/>
         <image name="lemon-pass" width="56.841999053955078" height="74.121002197265625"/>
