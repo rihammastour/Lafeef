@@ -79,7 +79,7 @@ class FirebaseRequest{
     
     
     //Get User Data
-    static func getChildData(for userID:String,  completion: @escaping (Child?, Error?)->()){
+    static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
         
         let db = Firestore.firestore()
         
@@ -91,19 +91,13 @@ class FirebaseRequest{
                     return
                 }
                 guard let data = document.data() else {
-                    completion(nil,nil)
                     return
                 }
-                do{
-                    let child = try FirebaseDecoder().decode(Child.self, from: data)
-                    completion(child,nil)
-                    print("Current data: \(data)")
-                    
-                }catch{
-                    print("error thrown",error)
-                    completion(nil,error)
-                    
-                }
+                
+                //Featch changers successfully
+                print("data in fetch user data ",data)
+                completion(data,nil)
+
             }
         
         

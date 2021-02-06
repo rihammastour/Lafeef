@@ -25,11 +25,6 @@
                         <viewLayoutGuide key="safeArea" id="3UT-OC-rVL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <segue destination="BV1-FR-VrT" kind="show" identifier="SignupOrLoginSegue" id="lBv-0M-4zy"/>
-                        <segue destination="3lk-F1-NhG" kind="show" identifier="HomeSegue" id="BNg-WF-Sm0"/>
-                        <segue destination="YNH-61-KFt" kind="show" identifier="SignupSegue" id="t6x-eI-fV3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNe-Do-geG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,7 +168,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginAction:" destination="XK1-Ll-uag" eventType="touchUpInside" id="Sf4-Rd-1qk"/>
-                                    <segue destination="3lk-F1-NhG" kind="show" id="dji-pH-6hQ"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-l3-aG6">
@@ -861,7 +855,6 @@
                                         </state>
                                         <connections>
                                             <action selector="next:" destination="icf-UV-Xhx" eventType="touchUpInside" id="p6r-U7-so3"/>
-                                            <segue destination="3lk-F1-NhG" kind="show" id="ObJ-MI-eb3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1105,10 +1098,6 @@
             <point key="canvasLocation" x="4578" y="398"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="BNg-WF-Sm0"/>
-        <segue reference="t6x-eI-fV3"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Logos-4" width="428" height="409"/>
         <image name="Orange-1" width="109" height="103"/>

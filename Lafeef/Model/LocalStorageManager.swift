@@ -8,7 +8,7 @@
 import Foundation
 
 class LocalStorageManager{
-
+    
     //MARK: - Setting and Getting child
     
     static func setChild(_ child:Child){
@@ -39,16 +39,24 @@ class LocalStorageManager{
                 print("err get user")
             }
             
-            }
-
+        }
+        
         return nil
     }
     
     static func removeChild(){
-        if (UserDefaults.standard.object(forKey: "child") != nil) {
+        if checkExistChild() {
             UserDefaults.standard.removeObject(forKey: "child")
-                }
-
+        }
+        
+    }
+    
+    static func checkExistChild() -> Bool{
+        if (UserDefaults.standard.object(forKey: "child") != nil) {
+            return true
+        }
+        return false
+        
     }
     
     

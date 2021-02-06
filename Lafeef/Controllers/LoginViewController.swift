@@ -202,7 +202,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     print("You have successfully logged in")
                     //Go to the ProfileViewController if the login is sucessful
 
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier:Constants.Storyboard.homeViewController)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier:Constants.Storyboard.homeNavigationController)
                   
                     self.present(vc!, animated: true, completion: nil)
                     

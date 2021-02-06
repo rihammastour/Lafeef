@@ -138,7 +138,7 @@ class HomeViewController: UIViewController {
     
                 }else{
                     let child = data!
-                    self.setUIChildInfo(child)
+                    self.setUIChildInfo(child as! Child)
                 }
             }
     

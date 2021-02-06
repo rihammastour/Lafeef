@@ -201,7 +201,6 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
         let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
         
         view.window?.rootViewController = homeNavigationController
-        
         view.window?.makeKeyAndVisible()
     }
     
