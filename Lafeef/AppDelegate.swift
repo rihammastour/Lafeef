@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import CodableFirebase
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -22,21 +23,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
+
+            self.window?.rootViewController = animatedSplashVC
+            self.window?.makeKeyAndVisible()
+       
+        
+        
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+            
             if user != nil {
-                print(user?.uid,"Logged  in ??")
                 self.fetchUserInfo()
-                let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+                animatedSplashVC.isChild = true
+                
             } else {
-                let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+                animatedSplashVC.isChild = false
+  
+                
+                
             }
         }
         return true
@@ -60,6 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //MARK: - Functions
+    
+    
+    
+    //MARK: - Fetch Data
     func fetchUserInfo(){
         //TODO: Should check local storage before fetch
         //TODO: Fetch User Info , And check if previous two steps are needed
@@ -68,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
-        print("data in app delagate Handeler",data)
+        
         if let data = data{
             do{
                 let child = try FirebaseDecoder().decode(Child.self, from: data)

@@ -183,7 +183,9 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
                 
                 if (success) {
                     self.errorLabel.text = "User was sucessfully created."
+                    //Store in local Storage
                     LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0, sex: User.sex))
+                    
                     //navogation
                     self.transition()
                 } else {

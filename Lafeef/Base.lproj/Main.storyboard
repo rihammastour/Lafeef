@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gvi-ii-ykM">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -15,10 +15,30 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Animated Splash View Controller-->
+        <scene sceneID="fSF-7Q-7DI">
+            <objects>
+                <viewController storyboardIdentifier="animatedSplashVC" id="Gvi-ii-ykM" customClass="AnimatedSplashViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yhu-e8-Fl8">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3UT-OC-rVL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="SignupOrLoginSegue" id="lBv-0M-4zy"/>
+                        <segue destination="3lk-F1-NhG" kind="show" identifier="HomeSegue" id="BNg-WF-Sm0"/>
+                        <segue destination="YNH-61-KFt" kind="show" identifier="SignupSegue" id="t6x-eI-fV3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNe-Do-geG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1229" y="9"/>
+        </scene>
         <!--Sign Up Or Login View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="signUpOrLoginVC" id="BV1-FR-VrT" customClass="SignUpOrLoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpOrLoginVC" modalPresentationStyle="fullScreen" id="BV1-FR-VrT" customClass="SignUpOrLoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,6 +131,7 @@
                             <constraint firstItem="tka-Bs-lB3" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="zNL-tT-LEk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zcO-LO-Kcw"/>
                     <connections>
                         <outlet property="logInButton" destination="iwe-Xb-Pr5" id="mec-1a-ien"/>
                         <outlet property="signUpButton" destination="47w-x7-7QZ" id="IfW-hj-afP"/>
@@ -988,10 +1009,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="459" height="238"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6cv-P1-kyh">
-                                        <rect key="frame" x="61" y="8" width="337" height="163"/>
+                                        <rect key="frame" x="61" y="8" width="372" height="163"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="142" translatesAutoresizingMaskIntoConstraints="NO" id="PEW-Di-0fL">
-                                                <rect key="frame" x="3" y="0.0" width="331.5" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="372" height="41"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-aL-eyw">
                                                         <rect key="frame" x="0.0" y="0.0" width="17.5" height="41"/>
@@ -1004,7 +1025,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="249" text="أهلًا صديق لفيف!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-tJ-wfX">
-                                                        <rect key="frame" x="159.5" y="0.0" width="172" height="41"/>
+                                                        <rect key="frame" x="159.5" y="0.0" width="212.5" height="41"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                         <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -1012,7 +1033,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="كلمة المرور الخاصة بك عبارة عن صورة، اختر صورة لتتذكرها  لاحقًا لتسجيل الدخول لحسابك مرة أخرى" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="mAj-CX-kbr">
-                                                <rect key="frame" x="0.0" y="41" width="337" height="122"/>
+                                                <rect key="frame" x="17.5" y="41" width="337" height="122"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="337" id="pNP-N6-MC5"/>
@@ -1085,7 +1106,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dji-pH-6hQ"/>
+        <segue reference="BNg-WF-Sm0"/>
+        <segue reference="t6x-eI-fV3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Logos-4" width="428" height="409"/>

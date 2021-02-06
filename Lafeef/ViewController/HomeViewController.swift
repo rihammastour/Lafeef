@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     //Buttons
     @IBOutlet weak var storeButton: UIButton!
     
+
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
     //Additional setup after loading the view.
-        
+
         //Style elemnts
         setUpElements()
         //Get Child Data
@@ -76,6 +77,14 @@ class HomeViewController: UIViewController {
         
     }
     
+    //Activity Indcator anmation
+//     func startSpinning() {
+//        activityIndicator.startAnimating()
+//    }
+//
+//    func stopSpinning() {
+//        activityIndicator.stopAnimating()
+//    }
     //MARK:- Set content for UI elemnnts
     //Set child info
     func setUIChildInfo(_ child:Child){
@@ -107,7 +116,7 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "Girl"{
+        if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
         }else{
             characterUIImageView.image = UIImage(named: "girl-icon")
@@ -167,9 +176,7 @@ class HomeViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
 
             self.navigationController?.pushViewController(vc, animated: true)
-            
-//            self.performSegue(withIdentifier: "profileSegue", sender: self)
-            
+                        
         })
     }
     

@@ -10,7 +10,7 @@ import SwiftyGif
 
 class SplashAnimationView: UIView {
     
-    let logoGifImageView = try! UIImageView(gifImage: UIImage(gifName: "splash-animation.gif"), loopCount: 3)
+    let logoGifImageView = try! UIImageView(gifImage: UIImage(gifName: "splash-animation.gif"), loopCount: 5)
 
         override init(frame: CGRect) {
             super.init(frame: frame)

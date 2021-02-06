@@ -16,26 +16,31 @@ class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Splash view
-        view.addSubview(splashAnimation)
-        splashAnimation.pinEdgesToSuperView(to: self.view)
-        splashAnimation.logoGifImageView.delegate = self
         
         // Additional setup after loading the view.
         setUpElements()
 
         }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Splash view
+//        view.addSubview(splashAnimation)
+//        splashAnimation.pinEdgesToSuperView(to: self.view)
+//        splashAnimation.logoGifImageView.delegate = self
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        splashAnimation.logoGifImageView.startAnimatingGif()
+      //  splashAnimation.logoGifImageView.startAnimatingGif()
     }
     
     func gifDidStop(sender: UIImageView) {
-        splashAnimation.isHidden = true
+      //  splashAnimation.isHidden = true
     }
     
     func setUpElements() {

@@ -54,6 +54,7 @@
 		C92A66F925CE91160060AA53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A66F825CE91160060AA53 /* User.swift */; };
 		C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */; };
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
+		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		C92A66F825CE91160060AA53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +195,7 @@
 				4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */,
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
+				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */,
+				C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,

@@ -11,12 +11,13 @@ class LocalStorageManager{
 
     //MARK: - Setting and Getting child
     
-    static func setChild(_ user:Child){
+    static func setChild(_ child:Child){
         let defaults = UserDefaults.standard
         let encoder = JSONEncoder()
         do{
             // Encode Child
-            let data = try encoder.encode(user)
+            let data = try encoder.encode(child)
+            print("local storage manager",child)
             //Set child
             defaults.set(data, forKey: "child")
         }catch{
@@ -44,7 +45,9 @@ class LocalStorageManager{
     }
     
     static func removeChild(){
-        UserDefaults.standard.removeObject(forKey: "child")
+        if (UserDefaults.standard.object(forKey: "child") != nil) {
+            UserDefaults.standard.removeObject(forKey: "child")
+                }
 
     }
     
