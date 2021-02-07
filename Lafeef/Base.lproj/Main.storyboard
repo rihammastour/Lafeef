@@ -54,7 +54,7 @@
                                         <rect key="frame" x="61" y="207.5" width="239" height="337"/>
                                     </imageView>
                                     <button verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
-                                        <rect key="frame" x="160" y="387.5" width="448" height="65"/>
+                                        <rect key="frame" x="160" y="389.5" width="448" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
@@ -73,7 +73,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
-                                        <rect key="frame" x="160" y="492.5" width="448" height="65"/>
+                                        <rect key="frame" x="160" y="493.5" width="448" height="64"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="إنشاء حساب">
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يحلو التعلم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-hx-Q1v">
-                                        <rect key="frame" x="523.5" y="907" width="184.5" height="71"/>
+                                        <rect key="frame" x="489.5" y="909" width="218.5" height="69"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                         <color key="textColor" name="blueApp"/>
                                         <color key="highlightedColor" name="blueApp"/>
@@ -139,239 +139,239 @@
         <!--Login View Controller-->
         <scene sceneID="h3W-TR-5SB">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIb-Ia-uka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="XK1-Ll-uag" customClass="LoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="42X-AC-nFf">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-uv-iKl" colorLabel="IBBuiltInLabel-Green">
-                                <rect key="frame" x="128" y="949" width="511" height="65"/>
-                                <color key="backgroundColor" red="0.84558767079999997" green="0.89048129320000002" blue="0.56072455639999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="511" id="EZS-pk-MmX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
-                                <state key="normal" title="تسجيل الدخول">
-                                    <color key="titleColor" red="0.55250060560000003" green="0.56601083279999997" blue="0.4784191847" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAction:" destination="XK1-Ll-uag" eventType="touchUpInside" id="Sf4-Rd-1qk"/>
-                                </connections>
-                            </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-l3-aG6">
-                                <rect key="frame" x="0.0" y="-50" width="764.5" height="50"/>
-                                <items>
-                                    <navigationItem title="Title" id="22z-Cq-IaJ"/>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اريج احلى وحدة       " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw2-0t-Kw0" userLabel="passLabel">
-                                <rect key="frame" x="314" y="859" width="140.5" height="31.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-9d-yYk">
-                                <rect key="frame" x="125" y="889" width="98" height="44"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                <state key="normal" title="انشاء حساب">
-                                    <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SG8-tt-k7w" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="JN8-nB-1vQ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-R4-x5z">
-                                <rect key="frame" x="256.5" y="250" width="255" height="24"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="60"/>
-                                <color key="textColor" red="0.62086331839999997" green="0.78030127289999995" blue="0.78039556740000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-ZD-bgi" userLabel="form">
-                                <rect key="frame" x="129" y="364" width="510.5" height="488"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-PJ-fK1">
+                                <rect key="frame" x="0.0" y="47" width="768" height="960"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5O-27-vKb">
-                                        <rect key="frame" x="0.0" y="0.0" width="510.5" height="62.5"/>
-                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="XK1-Ll-uag" id="EQK-Wr-W2A"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رغد اشين وحده  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-yP-VoR" userLabel="errorLabel1">
-                                        <rect key="frame" x="0.0" y="72.5" width="510.5" height="31.5"/>
-                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورتك لتسجيل الدخول" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9c9-Di-g1B">
-                                        <rect key="frame" x="0.0" y="114" width="510.5" height="48"/>
-                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
-                                        <color key="textColor" red="0.67129725940299756" green="0.67129725940299756" blue="0.67129725940299756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="o5C-6t-5YB" userLabel="buttons">
-                                        <rect key="frame" x="0.0" y="172" width="510.5" height="306"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="JLg-CD-5VM" userLabel="Logo">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="387"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="left" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="v5y-aS-pq0" userLabel="berry and lemon">
-                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="306"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-51-cU7" userLabel="berry">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="berry"/>
-                                                        <connections>
-                                                            <action selector="berryPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="2pK-h9-6LQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdo-FO-R5v" userLabel="lemon">
-                                                        <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="lemon-2"/>
-                                                        <connections>
-                                                            <action selector="lemonPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="0r2-yc-Ldw"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kuG-zQ-WlW" userLabel="kiwi and strauberry">
-                                                <rect key="frame" x="183.5" y="0.0" width="143.5" height="306"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-jL-SMO" userLabel="kiwi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="Kiwi"/>
-                                                        <connections>
-                                                            <action selector="kiwiPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="maq-i0-sQJ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMy-L7-hoL" userLabel="strawberry">
-                                                        <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                        <state key="normal" backgroundImage="strawberry-2"/>
-                                                        <connections>
-                                                            <action selector="strawberryPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="iEP-GO-Oqu"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="right" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="M0o-Gl-j3X" userLabel="orange and pineapple">
-                                                <rect key="frame" x="367" y="0.0" width="143.5" height="306"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-Sk-iSY" userLabel="orange">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="143.5" id="REz-Wj-647"/>
-                                                            <constraint firstAttribute="height" constant="138" id="ljt-7T-aUA"/>
-                                                        </constraints>
-                                                        <state key="normal" backgroundImage="Orange-1"/>
-                                                        <connections>
-                                                            <action selector="orangePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="wWN-fn-ZAc"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPE-qN-oHu" userLabel="pineapple">
-                                                        <rect key="frame" x="0.0" y="168" width="143.5" height="138"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="138" id="QVr-nK-Blh"/>
-                                                            <constraint firstAttribute="width" constant="143.5" id="zNj-4S-Af5"/>
-                                                        </constraints>
-                                                        <state key="normal" backgroundImage="Pineapple-3"/>
-                                                        <connections>
-                                                            <action selector="pineapplePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="wja-7y-bLw"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hqJ-L3-0fP">
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="218"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-QJ-CVh">
+                                                <rect key="frame" x="0.0" y="18" width="388" height="369"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="388" id="8Tx-Ng-KZc"/>
+                                                    <constraint firstAttribute="height" constant="369" id="ea2-5i-irA"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="kuG-zQ-WlW" firstAttribute="leading" secondItem="o5C-6t-5YB" secondAttribute="leading" constant="183.5" id="98Q-kc-uEa"/>
-                                            <constraint firstItem="kuG-zQ-WlW" firstAttribute="leading" secondItem="v5y-aS-pq0" secondAttribute="trailing" constant="40" id="Rky-JD-gx5"/>
-                                            <constraint firstItem="M0o-Gl-j3X" firstAttribute="leading" secondItem="kuG-zQ-WlW" secondAttribute="trailing" constant="40" id="fY0-yC-cW6"/>
-                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="-50" translatesAutoresizingMaskIntoConstraints="NO" id="rmQ-bZ-RI9">
-                                        <rect key="frame" x="0.0" y="488" width="510.5" height="0.0"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rgQ-IR-DZ7" userLabel="form">
+                                        <rect key="frame" x="150.5" y="257" width="467" height="703"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C27-VO-nTL">
+                                                <rect key="frame" x="108" y="0.0" width="251" height="71"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
+                                                <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5c-hO-Hu4">
+                                                <rect key="frame" x="0.0" y="81" width="467" height="73"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="467" id="mfN-B2-IVz"/>
+                                                    <constraint firstAttribute="height" constant="73" id="oJf-pc-ZH5"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVX-2i-gMP">
+                                                <rect key="frame" x="227.5" y="164" width="12.5" height="36"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
+                                                <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورتك لتسجيل الدخول" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-ZC-M6h">
+                                                <rect key="frame" x="42" y="210" width="383" height="58"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
+                                                <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jLc-GT-0MD" userLabel="buttons">
+                                                <rect key="frame" x="21.5" y="278" width="424" height="238"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-tC-o37">
+                                                        <rect key="frame" x="0.0" y="0.0" width="108" height="238"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kG1-Y1-PeS" userLabel="berry">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="104" id="By7-0d-jMf" userLabel="height = 104"/>
+                                                                    <constraint firstAttribute="width" constant="108" id="iPC-cr-cSf" userLabel="width = 108"/>
+                                                                </constraints>
+                                                                <state key="normal" image="blueberry-pass"/>
+                                                                <connections>
+                                                                    <action selector="berryPass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="D1v-9v-MCg"/>
+                                                                    <action selector="berryPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="PC5-cw-jGQ"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWO-Tc-n0N" userLabel="mango">
+                                                                <rect key="frame" x="0.0" y="134" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="104" id="kh7-Z6-xg6"/>
+                                                                    <constraint firstAttribute="width" constant="108" id="qMD-oi-3x8"/>
+                                                                </constraints>
+                                                                <color key="tintColor" red="0.5568627451" green="0.73725490199999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <state key="normal" image="lemon-pass">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="1" weight="light"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="lemonPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="GRM-UX-dZc"/>
+                                                                    <action selector="lemonPass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="ZkJ-7j-AKS"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pV8-Xk-4sx">
+                                                        <rect key="frame" x="158" y="0.0" width="108" height="238"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzV-yH-adk" userLabel="kiwi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="108" id="Xq2-Bt-4ZP"/>
+                                                                    <constraint firstAttribute="height" constant="104" id="bST-yS-oZH"/>
+                                                                </constraints>
+                                                                <state key="normal" image="kiwi-pass"/>
+                                                                <connections>
+                                                                    <action selector="kiwiPass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="b63-BB-e6d"/>
+                                                                    <action selector="kiwiPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="e21-Yn-O5J"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-v0-FeN" userLabel="strawberry">
+                                                                <rect key="frame" x="0.0" y="134" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="104" id="qEP-hZ-LFF"/>
+                                                                    <constraint firstAttribute="width" constant="108" id="zAG-Cg-cmL"/>
+                                                                </constraints>
+                                                                <state key="normal" image="strawberry-pass"/>
+                                                                <connections>
+                                                                    <action selector="strawberryPass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="66F-ty-dgg"/>
+                                                                    <action selector="strawberryPass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="fU9-fM-Yas"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="s9g-ng-56K">
+                                                        <rect key="frame" x="316" y="0.0" width="108" height="238"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-vU-AgL" userLabel="orange">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="108" id="AR2-nH-1Uk"/>
+                                                                    <constraint firstAttribute="height" constant="104" id="YWq-Ym-lZ0"/>
+                                                                </constraints>
+                                                                <state key="normal" image="orange-pass"/>
+                                                                <connections>
+                                                                    <action selector="orangePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="BgZ-sJ-b2M"/>
+                                                                    <action selector="orangePass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="jQd-Id-w4i"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QX1-p7-rxZ" userLabel="pineapple">
+                                                                <rect key="frame" x="0.0" y="134" width="108" height="104"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="108" id="NVd-sP-ool"/>
+                                                                    <constraint firstAttribute="height" constant="104" id="da2-cF-rB0"/>
+                                                                </constraints>
+                                                                <state key="normal" image="pineapple-pass"/>
+                                                                <connections>
+                                                                    <action selector="pineapplePass:" destination="XK1-Ll-uag" eventType="touchUpInside" id="92b-1O-2kZ"/>
+                                                                    <action selector="pineapplePass:" destination="SG8-tt-k7w" eventType="touchUpInside" id="KfR-qc-t7j"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLr-0X-cm0">
+                                                <rect key="frame" x="225.5" y="526" width="16.5" height="36"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
+                                                <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-HE-ssl">
+                                                <rect key="frame" x="106.5" y="572" width="254" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-mv-d5d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="48"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
+                                                        <state key="normal" title="إنشاء حساب">
+                                                            <color key="titleColor" red="0.59215686274509804" green="0.73333333333333328" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="SG8-tt-k7w" kind="presentation" modalPresentationStyle="fullScreen" id="8a6-Jd-Cd4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا تملك حساب؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qu-2E-GNd">
+                                                        <rect key="frame" x="115" y="0.0" width="139" height="48"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
+                                                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tut-Op-63P">
+                                                <rect key="frame" x="0.0" y="630" width="467" height="73"/>
+                                                <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="73" id="21D-ol-iTf"/>
+                                                    <constraint firstAttribute="width" constant="467" id="ebN-jg-anX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                                <state key="normal" title="التالي">
+                                                    <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginAction:" destination="XK1-Ll-uag" eventType="touchUpInside" id="YSf-cJ-W36"/>
+                                                    <action selector="next:" destination="SG8-tt-k7w" eventType="touchUpInside" id="5rN-Rm-k7n"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لايوجد لديك حساب ؟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-A7-ifR">
-                                <rect key="frame" x="226.5" y="895" width="155" height="31.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
-                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-37-UDi">
-                                <rect key="frame" x="-32" y="-50" width="832" height="294"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Htd-eo-509">
-                                        <rect key="frame" x="0.0" y="0.0" width="832" height="294"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Htd-eo-509" firstAttribute="centerX" secondItem="Ptc-37-UDi" secondAttribute="centerX" id="kI9-TX-gaf"/>
-                                    <constraint firstItem="Htd-eo-509" firstAttribute="centerY" secondItem="Ptc-37-UDi" secondAttribute="centerY" id="tYH-SI-1rh"/>
-                                </constraints>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="SFw-qr-Dzn">
-                                <rect key="frame" x="-86" y="0.0" width="638" height="425"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="425" id="gha-74-eNe"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hiu-eI-TPc"/>
                         <color key="backgroundColor" red="0.97625690700000001" green="0.97304958109999995" blue="0.94117331500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="0w4-ZD-bgi" firstAttribute="top" secondItem="AEk-R4-x5z" secondAttribute="bottom" constant="90" id="0Bn-qB-WO6"/>
-                            <constraint firstItem="AEk-R4-x5z" firstAttribute="centerY" secondItem="42X-AC-nFf" secondAttribute="centerY" constant="-250" id="3FN-zY-X4y"/>
-                            <constraint firstItem="SFw-qr-Dzn" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leading" constant="-86" id="6cs-K8-K51"/>
-                            <constraint firstItem="ABz-uv-iKl" firstAttribute="top" secondItem="cDM-9d-yYk" secondAttribute="bottom" constant="10" id="CHh-RP-9Nd"/>
-                            <constraint firstItem="0w4-ZD-bgi" firstAttribute="top" secondItem="Ptc-37-UDi" secondAttribute="bottom" constant="120" id="Fr2-1U-zGZ"/>
-                            <constraint firstItem="xw2-0t-Kw0" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="IdP-9L-kiO"/>
-                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="42X-AC-nFf" secondAttribute="top" id="LuU-1L-ElI"/>
-                            <constraint firstItem="ABz-uv-iKl" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="PC4-LY-OOl"/>
-                            <constraint firstItem="cDM-9d-yYk" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" constant="-210" id="PTp-gA-sip"/>
-                            <constraint firstItem="XRe-A7-ifR" firstAttribute="top" secondItem="0w4-ZD-bgi" secondAttribute="bottom" constant="43" id="T1a-gP-Xzb"/>
-                            <constraint firstItem="hiu-eI-TPc" firstAttribute="trailing" secondItem="SFw-qr-Dzn" secondAttribute="trailing" constant="216" id="UAi-6A-nuU"/>
-                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="hlQ-l3-aG6" secondAttribute="top" id="UYv-2v-FQ7"/>
-                            <constraint firstItem="AEk-R4-x5z" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="YAS-YR-vwS"/>
-                            <constraint firstItem="Ptc-37-UDi" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="aZA-8p-gfq"/>
-                            <constraint firstItem="cDM-9d-yYk" firstAttribute="top" secondItem="0w4-ZD-bgi" secondAttribute="bottom" constant="37" id="cgI-hb-alI"/>
-                            <constraint firstItem="Ptc-37-UDi" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leadingMargin" constant="-52" id="fET-EG-tyc"/>
-                            <constraint firstItem="hlQ-l3-aG6" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leadingMargin" constant="-20" id="hGD-0v-4HQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Ptc-37-UDi" secondAttribute="bottom" constant="780" id="hxf-hZ-lvD"/>
-                            <constraint firstItem="xw2-0t-Kw0" firstAttribute="top" secondItem="AEk-R4-x5z" secondAttribute="bottom" constant="585" id="ktg-h4-Tql"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hlQ-l3-aG6" secondAttribute="trailing" constant="-16.5" id="mma-Sn-KbJ"/>
-                            <constraint firstItem="0w4-ZD-bgi" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="mrB-MZ-qu9"/>
-                            <constraint firstItem="SFw-qr-Dzn" firstAttribute="top" secondItem="hiu-eI-TPc" secondAttribute="top" id="ut0-9b-w9c"/>
-                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="42X-AC-nFf" secondAttribute="top" constant="-50" id="wkK-rh-2tQ"/>
-                            <constraint firstItem="XRe-A7-ifR" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" constant="-80" id="wp2-MY-33V"/>
+                            <constraint firstItem="hqJ-L3-0fP" firstAttribute="width" secondItem="42X-AC-nFf" secondAttribute="width" id="9rF-i5-3UI"/>
+                            <constraint firstItem="1l7-PJ-fK1" firstAttribute="leading" secondItem="hiu-eI-TPc" secondAttribute="leading" multiplier="0.9" id="pat-YQ-1iA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IyB-U9-Mgg"/>
                     <connections>
-                        <outlet property="berry" destination="FRk-51-cU7" id="Ral-3e-huL"/>
-                        <outlet property="emailTextfield" destination="p5O-27-vKb" id="cUD-C0-G1M"/>
-                        <outlet property="errorLabel" destination="Q7y-yP-VoR" id="TEe-er-VE0"/>
-                        <outlet property="kiwi" destination="lHK-jL-SMO" id="hsb-yB-VLQ"/>
-                        <outlet property="lemon" destination="Tdo-FO-R5v" id="lBk-0S-jUE"/>
-                        <outlet property="nextOutlet" destination="ABz-uv-iKl" id="abF-k7-cTO"/>
-                        <outlet property="orange" destination="0ds-Sk-iSY" id="1zx-59-LLh"/>
-                        <outlet property="passLabel" destination="xw2-0t-Kw0" id="5EY-ux-VbL"/>
-                        <outlet property="pineapple" destination="NPE-qN-oHu" id="nj3-LN-udh"/>
-                        <outlet property="resetPass" destination="cDM-9d-yYk" id="wov-bY-9iD"/>
-                        <outlet property="strawberry" destination="xMy-L7-hoL" id="XW1-Bg-u2V"/>
-                        <outletCollection property="deSelectedButton" destination="lHK-jL-SMO" collectionClass="NSMutableArray" id="eVa-ff-rzJ"/>
-                        <outletCollection property="deSelectedButton" destination="FRk-51-cU7" collectionClass="NSMutableArray" id="H58-Zn-QP5"/>
-                        <outletCollection property="deSelectedButton" destination="NPE-qN-oHu" collectionClass="NSMutableArray" id="v8W-8W-ida"/>
-                        <outletCollection property="deSelectedButton" destination="xMy-L7-hoL" collectionClass="NSMutableArray" id="ssf-Gb-cug"/>
-                        <outletCollection property="deSelectedButton" destination="Tdo-FO-R5v" collectionClass="NSMutableArray" id="HxT-Ee-A0a"/>
-                        <outletCollection property="deSelectedButton" destination="0ds-Sk-iSY" collectionClass="NSMutableArray" id="Y2Q-6E-mTL"/>
+                        <outlet property="berry" destination="kG1-Y1-PeS" id="kW2-xY-MUC"/>
+                        <outlet property="emailTextfield" destination="i5c-hO-Hu4" id="a52-yB-Xgj"/>
+                        <outlet property="errorLabel" destination="OVX-2i-gMP" id="NSN-bv-dHl"/>
+                        <outlet property="kiwi" destination="JzV-yH-adk" id="OBT-Sd-3f5"/>
+                        <outlet property="lemon" destination="hWO-Tc-n0N" id="Efc-g9-I3P"/>
+                        <outlet property="logo" destination="NeZ-QJ-CVh" id="UC3-me-9oA"/>
+                        <outlet property="nextOutlet" destination="tut-Op-63P" id="dQj-pI-Y1Y"/>
+                        <outlet property="orange" destination="mvi-vU-AgL" id="JUa-CG-f4R"/>
+                        <outlet property="passLabel" destination="aLr-0X-cm0" id="K8q-2v-yjL"/>
+                        <outlet property="pineapple" destination="QX1-p7-rxZ" id="faZ-jP-zUZ"/>
+                        <outlet property="resetPass" destination="fJs-mv-d5d" id="2ug-p7-w44"/>
+                        <outlet property="strawberry" destination="iNn-v0-FeN" id="h4h-Py-4xL"/>
+                        <outletCollection property="deSelectedButton" destination="kG1-Y1-PeS" collectionClass="NSMutableArray" id="dC5-oZ-9Ed"/>
+                        <outletCollection property="deSelectedButton" destination="JzV-yH-adk" collectionClass="NSMutableArray" id="QS4-a6-SvI"/>
+                        <outletCollection property="deSelectedButton" destination="mvi-vU-AgL" collectionClass="NSMutableArray" id="qs0-V5-MTQ"/>
+                        <outletCollection property="deSelectedButton" destination="QX1-p7-rxZ" collectionClass="NSMutableArray" id="3RY-qt-ftO"/>
+                        <outletCollection property="deSelectedButton" destination="iNn-v0-FeN" collectionClass="NSMutableArray" id="7HI-1q-Ftj"/>
+                        <outletCollection property="deSelectedButton" destination="hWO-Tc-n0N" collectionClass="NSMutableArray" id="hJq-M0-pHI"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hIb-Ia-uka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2440.625" y="-36.328125"/>
         </scene>
@@ -1115,16 +1115,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JN8-nB-1vQ"/>
+        <segue reference="8a6-Jd-Cd4"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Kiwi" width="143.29299926757812" height="137.29299926757812"/>
         <image name="Lafeef-Logos-4" width="428" height="409"/>
-        <image name="Orange-1" width="109" height="103"/>
-        <image name="Pineapple-3" width="143.29299926757812" height="137.29299926757812"/>
         <image name="TwoBalloons" width="239.5" height="337"/>
         <image name="balloon" width="135" height="277"/>
-        <image name="berry" width="139.29299926757812" height="138.29299926757812"/>
         <image name="birthday-cake" width="243" height="226"/>
         <image name="blueberry-pass" width="68.237998962402344" height="79.157997131347656"/>
         <image name="boy" width="873" height="1529"/>
@@ -1133,12 +1129,10 @@
         <image name="croped-boy" width="1029" height="1275"/>
         <image name="croped-girl" width="1029" height="1275"/>
         <image name="kiwi-pass" width="63" height="63"/>
-        <image name="lemon-2" width="142.29299926757812" height="132.29299926757812"/>
         <image name="lemon-pass" width="56.841999053955078" height="74.121002197265625"/>
         <image name="orange-pass" width="55.685001373291016" height="68.685997009277344"/>
         <image name="pass-images" width="1901" height="1084"/>
         <image name="pineapple-pass" width="47.071998596191406" height="87.152000427246094"/>
-        <image name="strawberry-2" width="143.29299926757812" height="136.29299926757812"/>
         <image name="strawberry-pass" width="51.666999816894531" height="82.495002746582031"/>
         <image name="upperBackground" width="670.05499267578125" height="218.802001953125"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
