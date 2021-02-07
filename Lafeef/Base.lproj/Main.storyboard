@@ -144,8 +144,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-uv-iKl" colorLabel="IBBuiltInLabel-Green">
-                                <rect key="frame" x="128.5" y="967" width="511" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABz-uv-iKl" colorLabel="IBBuiltInLabel-Green">
+                                <rect key="frame" x="128" y="949" width="511" height="65"/>
                                 <color key="backgroundColor" red="0.84558767079999997" green="0.89048129320000002" blue="0.56072455639999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="511" id="EZS-pk-MmX"/>
@@ -158,21 +158,20 @@
                                     <action selector="loginAction:" destination="XK1-Ll-uag" eventType="touchUpInside" id="Sf4-Rd-1qk"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-l3-aG6">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-l3-aG6">
                                 <rect key="frame" x="0.0" y="-50" width="764.5" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="22z-Cq-IaJ"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   اريج احلى وحدة       " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw2-0t-Kw0" userLabel="passLabel">
-                                <rect key="frame" x="314" y="883" width="140.5" height="31.5"/>
+                                <rect key="frame" x="314" y="859" width="140.5" height="31.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDM-9d-yYk">
-                                <rect key="frame" x="125" y="913" width="98" height="44"/>
+                                <rect key="frame" x="125" y="889" width="98" height="44"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <state key="normal" title="انشاء حساب">
                                     <color key="titleColor" red="0.56948858499999999" green="0.7850586772" blue="0.78625518080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -181,14 +180,14 @@
                                     <segue destination="SG8-tt-k7w" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="JN8-nB-1vQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-R4-x5z">
-                                <rect key="frame" x="256.5" y="226" width="255" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-R4-x5z">
+                                <rect key="frame" x="256.5" y="250" width="255" height="24"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="60"/>
                                 <color key="textColor" red="0.62086331839999997" green="0.78030127289999995" blue="0.78039556740000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0w4-ZD-bgi" userLabel="form">
-                                <rect key="frame" x="129" y="388" width="510.5" height="488"/>
+                                <rect key="frame" x="129" y="364" width="510.5" height="488"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5O-27-vKb">
                                         <rect key="frame" x="0.0" y="0.0" width="510.5" height="62.5"/>
@@ -298,26 +297,56 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لايوجد لديك حساب ؟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-A7-ifR">
-                                <rect key="frame" x="226.5" y="919" width="155" height="31.5"/>
+                                <rect key="frame" x="226.5" y="895" width="155" height="31.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="26"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-37-UDi">
+                                <rect key="frame" x="-32" y="-50" width="832" height="294"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upperBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Htd-eo-509">
+                                        <rect key="frame" x="0.0" y="0.0" width="832" height="294"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Htd-eo-509" firstAttribute="centerX" secondItem="Ptc-37-UDi" secondAttribute="centerX" id="kI9-TX-gaf"/>
+                                    <constraint firstItem="Htd-eo-509" firstAttribute="centerY" secondItem="Ptc-37-UDi" secondAttribute="centerY" id="tYH-SI-1rh"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Logos-4" translatesAutoresizingMaskIntoConstraints="NO" id="SFw-qr-Dzn">
+                                <rect key="frame" x="-86" y="0.0" width="638" height="425"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="425" id="gha-74-eNe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hiu-eI-TPc"/>
                         <color key="backgroundColor" red="0.97625690700000001" green="0.97304958109999995" blue="0.94117331500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="0w4-ZD-bgi" firstAttribute="top" secondItem="AEk-R4-x5z" secondAttribute="bottom" constant="90" id="0Bn-qB-WO6"/>
                             <constraint firstItem="AEk-R4-x5z" firstAttribute="centerY" secondItem="42X-AC-nFf" secondAttribute="centerY" constant="-250" id="3FN-zY-X4y"/>
+                            <constraint firstItem="SFw-qr-Dzn" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leading" constant="-86" id="6cs-K8-K51"/>
                             <constraint firstItem="ABz-uv-iKl" firstAttribute="top" secondItem="cDM-9d-yYk" secondAttribute="bottom" constant="10" id="CHh-RP-9Nd"/>
+                            <constraint firstItem="0w4-ZD-bgi" firstAttribute="top" secondItem="Ptc-37-UDi" secondAttribute="bottom" constant="120" id="Fr2-1U-zGZ"/>
                             <constraint firstItem="xw2-0t-Kw0" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="IdP-9L-kiO"/>
+                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="42X-AC-nFf" secondAttribute="top" id="LuU-1L-ElI"/>
                             <constraint firstItem="ABz-uv-iKl" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="PC4-LY-OOl"/>
                             <constraint firstItem="cDM-9d-yYk" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" constant="-210" id="PTp-gA-sip"/>
                             <constraint firstItem="XRe-A7-ifR" firstAttribute="top" secondItem="0w4-ZD-bgi" secondAttribute="bottom" constant="43" id="T1a-gP-Xzb"/>
+                            <constraint firstItem="hiu-eI-TPc" firstAttribute="trailing" secondItem="SFw-qr-Dzn" secondAttribute="trailing" constant="216" id="UAi-6A-nuU"/>
+                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="hlQ-l3-aG6" secondAttribute="top" id="UYv-2v-FQ7"/>
                             <constraint firstItem="AEk-R4-x5z" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="YAS-YR-vwS"/>
+                            <constraint firstItem="Ptc-37-UDi" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="aZA-8p-gfq"/>
                             <constraint firstItem="cDM-9d-yYk" firstAttribute="top" secondItem="0w4-ZD-bgi" secondAttribute="bottom" constant="37" id="cgI-hb-alI"/>
+                            <constraint firstItem="Ptc-37-UDi" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leadingMargin" constant="-52" id="fET-EG-tyc"/>
+                            <constraint firstItem="hlQ-l3-aG6" firstAttribute="leading" secondItem="42X-AC-nFf" secondAttribute="leadingMargin" constant="-20" id="hGD-0v-4HQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ptc-37-UDi" secondAttribute="bottom" constant="780" id="hxf-hZ-lvD"/>
                             <constraint firstItem="xw2-0t-Kw0" firstAttribute="top" secondItem="AEk-R4-x5z" secondAttribute="bottom" constant="585" id="ktg-h4-Tql"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hlQ-l3-aG6" secondAttribute="trailing" constant="-16.5" id="mma-Sn-KbJ"/>
                             <constraint firstItem="0w4-ZD-bgi" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" id="mrB-MZ-qu9"/>
+                            <constraint firstItem="SFw-qr-Dzn" firstAttribute="top" secondItem="hiu-eI-TPc" secondAttribute="top" id="ut0-9b-w9c"/>
+                            <constraint firstItem="Ptc-37-UDi" firstAttribute="top" secondItem="42X-AC-nFf" secondAttribute="top" constant="-50" id="wkK-rh-2tQ"/>
                             <constraint firstItem="XRe-A7-ifR" firstAttribute="centerX" secondItem="42X-AC-nFf" secondAttribute="centerX" constant="-80" id="wp2-MY-33V"/>
                         </constraints>
                     </view>
@@ -344,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIb-Ia-uka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472.65625" y="-5.2734375"/>
+            <point key="canvasLocation" x="2440.625" y="-36.328125"/>
         </scene>
         <!--Sign Up Email View Controller-->
         <scene sceneID="4xt-aS-4y4">
