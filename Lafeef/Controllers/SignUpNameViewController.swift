@@ -8,34 +8,42 @@
 import UIKit
 import FirebaseCore
 import SwiftValidator
-import FlexibleSteppedProgressBar
 
-class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDelegate ,UITextFieldDelegate, ValidationDelegate {
+class SignUpNameViewController: UIViewController ,UITextFieldDelegate, ValidationDelegate {
     
-    @IBOutlet weak var errorLabel: UILabel!
+    //MARK:- Proprities
+    
+    //variables
     var isValidated = false
     let alert = AlertService()
     let validator = Validator()
     var password = ""
-    //    var signUpManger = SignUpViewController(stepNum: 3)
-    var progressBarWithoutLastState: FlexibleSteppedProgressBar!
+    var progressBar = ProgressBar(stepNum: 3)
     
+    //outlets
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var charachterImage: UIImageView!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var nextOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CharachterType(charachter: User.sex)
+        nameTextfield.delegate = self
+        validation()
+        styleUI()
+    }
+    
+    //MARK:- Functions
+    
+    // Styling UI
+    func styleUI(){
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.tintColor = .gray
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        
-        CharachterType(charachter: User.sex)
-        nameTextfield.delegate = self
-        validation()
+ 
         charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
@@ -43,63 +51,11 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
         
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom:0.71 , blueBottom: 0.71, type: "radial", isFirstTimeInserting: true)
         
-        self.setupProgressBarWithoutLastState()
-    }
-    //---------------------------------------- progress bar
-    func setupProgressBarWithoutLastState() {
-        progressBarWithoutLastState = FlexibleSteppedProgressBar()
-        progressBarWithoutLastState.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(progressBarWithoutLastState)
-        
-        // iOS9+ auto layout code
-        let horizontalConstraint = progressBarWithoutLastState.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
-        let verticalConstraint = progressBarWithoutLastState.topAnchor.constraint(
-            equalTo: view.topAnchor,
-            constant: -30
-        )
-        let widthConstraint = progressBarWithoutLastState.widthAnchor.constraint(equalToConstant: 450)
-        let heightConstraint = progressBarWithoutLastState.heightAnchor.constraint(equalToConstant: 150)
-        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-        
-        // Customise the progress bar here
-        let backgroundColor = UIColor(red:0.96, green: 0.96, blue: 0.91, alpha: 1.0)
-        let progressColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00)
-        let textColorHere = UIColor(red: 153.0 / 255.0, green: 153.0 / 255.0, blue: 153.0 / 255.0, alpha: 1.0)
-        progressBarWithoutLastState.numberOfPoints = 4
-        progressBarWithoutLastState.lineHeight = 3
-        progressBarWithoutLastState.radius = 20
-        progressBarWithoutLastState.progressRadius = 25
-        progressBarWithoutLastState.progressLineHeight = 3
-        progressBarWithoutLastState.delegate = self
-        progressBarWithoutLastState.selectedBackgoundColor = progressColor
-        progressBarWithoutLastState.backgroundShapeColor = backgroundColor
-        progressBarWithoutLastState.selectedOuterCircleStrokeColor = progressColor
-        progressBarWithoutLastState.currentSelectedCenterColor = progressColor
-        progressBarWithoutLastState.stepTextColor = textColorHere
-        progressBarWithoutLastState.currentSelectedTextColor = progressColor
-        
-        progressBarWithoutLastState.currentIndex = 3
-        
+        progressBar.setupProgressBarWithoutLastState(view: self.view)
     }
     
-    func progressBar(_ progressBar: FlexibleSteppedProgressBar,
-                     textAtIndex index: Int, position: FlexibleSteppedProgressBarTextLocation) -> String {
-        if position == FlexibleSteppedProgressBarTextLocation.center {
-            switch index {
-            
-            case 0: return ""
-            case 1: return ""
-            case 2: return ""
-            case 3: return ""
-            default: return "Date"
-                
-            }
-        }
-        return ""
-    }
-    //--------------------------------------- validation
+    //Validation
     func validation(){
-        //validation
         validator.styleTransformers(success:{ (validationRule) -> Void in
             validationRule.errorLabel?.isHidden = true
             validationRule.errorLabel?.text = ""
@@ -113,7 +69,6 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
                 
             }
         }, error:{ (validationError) -> Void in
-            print("error")
             validationError.errorLabel?.isHidden = false
             validationError.errorLabel?.text = validationError.errorMessage
             if let textField = validationError.field as? UITextField {
@@ -147,16 +102,6 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
         isValidated = false
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        validator.validate(self)
-    }
-    
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        validator.validate(self)
-        return true
-    }
-    
     func CharachterType(charachter : String ){
         if (charachter == "girl"){
             self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom: 0.71, blueBottom: 0.71, type: "radial", isFirstTimeInserting: true)
@@ -169,6 +114,7 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
         
     }
     
+    //MARK:- Actions
     @IBAction func next(_ sender: Any) {
         validator.validate(self)
         if !isValidated{
@@ -204,5 +150,14 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
         view.window?.makeKeyAndVisible()
     }
     
+    //MARK:- Delegate Handling
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        validator.validate(self)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        validator.validate(self)
+        return true
+    }
     
 }
