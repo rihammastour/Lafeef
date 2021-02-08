@@ -45,7 +45,7 @@ class ChallengeViewController: UIViewController {
                 do{
                     //Convert data to type Child
                     let level = try FirebaseDecoder().decode(Level.self, from: data!)
-                    print("Level information",level)
+                    print("Level information object",level)
 
                 }catch{
                     print("error while decoding ",error.localizedDescription)

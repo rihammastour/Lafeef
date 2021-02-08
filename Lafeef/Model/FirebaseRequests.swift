@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import CodableFirebase
 import FirebaseAuth
+import FirebaseFirestoreSwift
 
 
 class FirebaseRequest{
@@ -25,34 +26,47 @@ class FirebaseRequest{
     
     //MARK: - Set Document Firestore
     
-  static func createUser(email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :String) -> Void) {
-
+    static func createUser(email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :String) -> Void) {
+        
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-                if let user = authResult?.user {
-                    print(user)
-                    // Add a new document in collection "users"
-                    db.collection("users").document(authResult!.user.uid).setData([
-                        "name": name,
-                        "email": email,
-                        "currentLevel": 1,
-                        "money":0,
-                        "score":0,
-                        "sex":sex,
-                        "DOB":DOB,
-                    ]) { err in
-                        if let err = err {
-                            print("Error writing document: \(err)")
-                            completionBlock(false,err.localizedDescription)
-                        } else {
-                            print("Document successfully written!")
-                        }
+            if let user = authResult?.user {
+                print(user)
+                // Add a new document in collection "users"
+                db.collection("users").document(authResult!.user.uid).setData([
+                    "name": name,
+                    "email": email,
+                    "currentLevel": 1,
+                    "money":0,
+                    "score":0,
+                    "sex":sex,
+                    "DOB":DOB,
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                        completionBlock(false,err.localizedDescription)
+                    } else {
+                        print("Document successfully written!")
                     }
-                    completionBlock(true,"")
-                } else {
-                    completionBlock(false,error!.localizedDescription)
                 }
+                completionBlock(true,"")
+            } else {
+                completionBlock(false,error!.localizedDescription)
             }
         }
+    }
+    
+    
+    //Set Challenge level
+    static func addLevel(levelNum: String,level:Level, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
+        
+        // Add a new document in collection "users"
+        do {
+            try db.collection("challenge").document("1").setData(from: level)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
+        }
+    }
+    
     
     //MARK: - Get Document Firestore
     
@@ -63,15 +77,15 @@ class FirebaseRequest{
             .addSnapshotListener { documentSnapshot, error in
                 print("Exceution!!")
                 
-              guard let document = documentSnapshot else {
-                //Error
-                print("Error fetching document: \(error!)")
-                completion(nil,error)
-                return
-              }
-              guard let data = document.data() else {
-                return
-              }
+                guard let document = documentSnapshot else {
+                    //Error
+                    print("Error fetching document: \(error!)")
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    return
+                }
                 //Featch changers successfully
                 print("data in seeting db listener",data)
                 completion(data,nil)
@@ -81,7 +95,7 @@ class FirebaseRequest{
     
     //Get User Data
     static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
-                
+        
         db.collection("users").document(userID)
             .getDocument { (response, error) in
                 
@@ -96,7 +110,7 @@ class FirebaseRequest{
                 //Featch changers successfully
                 print("data in fetch user data ",data)
                 completion(data,nil)
-
+                
             }
         
         
@@ -105,7 +119,7 @@ class FirebaseRequest{
     
     //Get Challenge Level Data
     static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
-                
+        
         db.collection("challenge").document(levelNum)
             .getDocument { (response, error) in
                 
@@ -121,7 +135,7 @@ class FirebaseRequest{
                 //Featch changers successfully
                 print("data in fetch user data ",data)
                 completion(data,nil)
-
+                
             }
         
         

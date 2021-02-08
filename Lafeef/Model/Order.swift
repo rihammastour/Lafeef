@@ -9,5 +9,6 @@ import Foundation
 struct Order: Codable {
     var base:String
     var size:Int
-    var toppings:[String:Int]
+    var toppings:[String:Int]?
 }
+

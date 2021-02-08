@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Level: Codable {
-    var orders:[Order]?
-    var bestTime:String?
-    var levelDuration:Int?
+public struct Level: Codable {
+    var duration:Float
+    var bestTime:Float
+    var orders:[Order]
+
 }

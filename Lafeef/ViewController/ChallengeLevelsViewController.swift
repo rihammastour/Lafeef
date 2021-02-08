@@ -17,7 +17,6 @@ class ChallengeLevelsViewController: UIViewController {
     //MARK: - Life cycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -51,8 +50,6 @@ class ChallengeLevelsViewController: UIViewController {
             
         }
     }
-    
  
-    
     
 }
