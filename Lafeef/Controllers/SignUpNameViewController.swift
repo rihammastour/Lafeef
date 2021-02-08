@@ -176,8 +176,8 @@ class SignUpNameViewController: UIViewController, FlexibleSteppedProgressBarDele
             
         } else {
             User.name = nameTextfield!.text!
-            let signUpManager = FirebaseRequest()
-            signUpManager.createUser(email: User.email, password: password, name:User.name, sex:User.sex, DOB:User.DOB) {
+            
+            FirebaseRequest.createUser(email: User.email, password: password, name:User.name, sex:User.sex, DOB:User.DOB) {
                 [weak self] (success,error) in
                 guard let self = self else { return }
                 

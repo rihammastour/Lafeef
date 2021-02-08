@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class FirebaseRequest{
     
+    //Firestore Database
     static let db = Firestore.firestore()
     
     //Get user uniqe id
@@ -24,8 +25,8 @@ class FirebaseRequest{
     
     //MARK: - Set Document Firestore
     
-    func createUser(email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :String) -> Void) {
-        let db = Firestore.firestore()
+  static func createUser(email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :String) -> Void) {
+
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
                 if let user = authResult?.user {
                     print(user)
@@ -80,9 +81,7 @@ class FirebaseRequest{
     
     //Get User Data
     static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
-        
-        let db = Firestore.firestore()
-        
+                
         db.collection("users").document(userID)
             .getDocument { (response, error) in
                 
@@ -103,6 +102,30 @@ class FirebaseRequest{
         
     }
     
+    
+    //Get Challenge Level Data
+    static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+                
+        db.collection("challenge").document(levelNum)
+            .getDocument { (response, error) in
+                
+                guard let document = response else {
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document empty")
+                    return
+                }
+                
+                //Featch changers successfully
+                print("data in fetch user data ",data)
+                completion(data,nil)
+
+            }
+        
+        
+    }
     
     
     

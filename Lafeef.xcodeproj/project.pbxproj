@@ -55,7 +55,9 @@
 		C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */; };
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
 		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
+		C987434725D14CB90075581E /* ChallengeLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* ChallengeLevel.swift */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
+		C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +123,7 @@
 		C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrainigViewController.swift; path = Lafeef/ViewController/TrainigViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A65AC25CB3FA00060AA53 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C92A65AD25CB3FA00060AA53 /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
-		C92A65B425CB3FC20060AA53 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = Lafeef/Color.xcassets; sourceTree = "<group>"; };
+		C92A65B425CB3FC20060AA53 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRequests.swift; sourceTree = "<group>"; };
 		C92A65E025CB43DB0060AA53 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		C92A65E825CB44050060AA53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -129,7 +131,9 @@
 		C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
+		C987434625D14CB90075581E /* ChallengeLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeLevel.swift; path = Lafeef/Model/ChallengeLevel.swift; sourceTree = SOURCE_ROOT; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
 		DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef_LafeefUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAA7982657CAB0C25A34B57 /* Pods-Lafeef-LafeefUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef-LafeefUITests.release.xcconfig"; path = "Target Support Files/Pods-Lafeef-LafeefUITests/Pods-Lafeef-LafeefUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,11 +185,12 @@
 		41BD684225BABE7800257EA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
+				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C92A65A025CB3F660060AA53 /* StoreViewController.swift */,
 				C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */,
 				C92A659425CB3F4F0060AA53 /* HomeViewController.swift */,
-				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
 				4EB9776125CB7C7600518EF9 /* SignUpViewController.swift */,
 				41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */,
 				41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */,
@@ -204,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				4E453A4025B61D5100B8363F /* Lafeef */,
-				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
 				4E53480025BC904500ACA8BC /* Fonts */,
 				4E453A5825B61D5500B8363F /* LafeefTests */,
 				4E453A6325B61D5500B8363F /* LafeefUITests */,
@@ -240,6 +244,7 @@
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
+				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -292,6 +297,7 @@
 				4EB976E925CAD83900518EF9 /* AlertService.swift */,
 				C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */,
 				4EB976E825CAD83800518EF9 /* instruction.swift */,
+				C987434625D14CB90075581E /* ChallengeLevel.swift */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
@@ -642,6 +648,8 @@
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
+				C987434725D14CB90075581E /* ChallengeLevel.swift in Sources */,
+				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
