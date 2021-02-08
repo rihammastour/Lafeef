@@ -61,7 +61,7 @@ class FirebaseRequest{
         
         // Add a new document in collection "users"
         do {
-            try db.collection("challenge").document("1").setData(from: level)
+            try db.collection("challenge").document(levelNum).setData(from: level)
         } catch let error {
             print("Error writing city to Firestore: \(error)")
         }

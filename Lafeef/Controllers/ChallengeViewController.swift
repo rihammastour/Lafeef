@@ -17,7 +17,6 @@ class ChallengeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Additional setup after loading the view.
-        print("in challenge")
         setUpElements()
         fetchChallengeLevel()
     }

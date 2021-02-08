@@ -78,19 +78,8 @@
                     <view key="view" contentMode="scaleToFill" id="gjU-qm-wh3">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zc6-tH-iz7">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LLA-Nv-Osf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LLA-Nv-Osf" firstAttribute="trailing" secondItem="Zc6-tH-iz7" secondAttribute="trailing" id="9N7-pn-H00"/>
-                            <constraint firstItem="Zc6-tH-iz7" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="rxr-Jh-bLv"/>
-                            <constraint firstItem="Zc6-tH-iz7" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="syZ-ah-n0l"/>
-                            <constraint firstItem="LLA-Nv-Osf" firstAttribute="bottom" secondItem="Zc6-tH-iz7" secondAttribute="bottom" id="z9N-om-8JV"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
                 </viewController>
