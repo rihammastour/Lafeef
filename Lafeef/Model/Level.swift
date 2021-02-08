@@ -9,7 +9,6 @@ import Foundation
 
 public struct Level: Codable {
     var duration:Float
-    var bestTime:Float
     var orders:[Order]
 
 }
