@@ -38,11 +38,11 @@ class HomeViewController: UIViewController {
         
     //Additional setup after loading the view.
 
-        //Style elemnts
+    //Style elemnts
         setUpElements()
-        //Get Child Data
+    //Get Child Data
         getChildData()
-        //Register child obj to observe changes
+    //Register child obj to observe changes
         RegisterObserver(for:"child")
     }
     
@@ -147,8 +147,12 @@ class HomeViewController: UIViewController {
     // Get child object from local storage
     func getChildData(){
         let child = LocalStorageManager.getChild()
-        if child != nil {
-            setUIChildInfo(child!)
+        
+        if let child = child {
+            setUIChildInfo(child)
+        }else{
+            print("No Child Found")
+            //TODO: Alert..
         }
       
     }
@@ -182,6 +186,7 @@ class HomeViewController: UIViewController {
     
 }
 
+//MARK: - Extention
 public extension UIView {
     func showAnimation(_ completionBlock: @escaping () -> Void) {
         isUserInteractionEnabled = false

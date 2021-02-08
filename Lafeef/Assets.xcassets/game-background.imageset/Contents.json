@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Bakery.png",
+      "filename" : "game-background.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Bakery@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Bakery@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

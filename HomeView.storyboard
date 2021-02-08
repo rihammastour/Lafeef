@@ -492,10 +492,10 @@
             </objects>
             <point key="canvasLocation" x="4130" y="305"/>
         </scene>
-        <!--ChallengeVC-->
+        <!--ChallengeLevelsVC-->
         <scene sceneID="UI3-4d-nxn">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ChallengeVC" storyboardName="Challenge" referencedIdentifier="ChallengeVC" id="qdb-mr-i63" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="ChallengeVC" storyboardName="Challenge" referencedIdentifier="ChallengeLevelsVC" id="qdb-mr-i63" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lMD-8k-4eI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRw-pS-Xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

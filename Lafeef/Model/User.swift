@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct User: Codable {
+struct User {
     static  var DOB :String = ""
     static  var email :String = ""
     static  var name :String = ""
