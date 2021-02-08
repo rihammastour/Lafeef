@@ -25,28 +25,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
+//
+//            self.window?.rootViewController = animatedSplashVC
+//            self.window?.makeKeyAndVisible()
+        let storyboard = UIStoryboard(name: "MihafReports", bundle: nil)
+        let ReportVC = storyboard.instantiateViewController(withIdentifier: "win") as! WinningViewController
 
-            self.window?.rootViewController = animatedSplashVC
+            self.window?.rootViewController = ReportVC
             self.window?.makeKeyAndVisible()
        
         
         
         //Auto Login
-        _ = Auth.auth().addStateDidChangeListener { auth, user in
-            
-            if user != nil {
-                self.fetchUserInfo()
-                animatedSplashVC.isChild = true
-                
-            } else {
-                animatedSplashVC.isChild = false
+//        _ = Auth.auth().addStateDidChangeListener { auth, user in
+//            
+//            if user != nil {
+//                self.fetchUserInfo()
+//                animatedSplashVC.isChild = true
+//                
+//            } else {
+//                animatedSplashVC.isChild = false
   
                 
                 
-            }
-        }
+//            }
+//        }
         return true
     }
     
