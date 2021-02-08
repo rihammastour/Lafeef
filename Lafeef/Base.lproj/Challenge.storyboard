@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
+                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,11 +79,26 @@
             </objects>
             <point key="canvasLocation" x="5965.625" y="-185.15625"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="0Mi-pI-Z9w">
+            <objects>
+                <viewController id="7Z7-Gp-6Ur" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="THS-sO-qQP">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UPD-pm-8dP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ea2-78-hXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5918" y="534"/>
+        </scene>
         <!--Timer View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
-                <viewController storyboardIdentifier="TimerVC" id="w8p-OG-6xJ" customClass="TimerViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ier-ME-Xcq">
+                <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" customClass="TimerViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="ier-ME-Xcq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="OZx-KP-wV0"/>
@@ -105,6 +120,14 @@
                             <skView contentMode="scaleToFill" sceneName="GameScene.sks" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-gI-AL5">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </skView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-x7-uSr">
+                                <rect key="frame" x="184" y="737" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="start timer"/>
+                                <connections>
+                                    <action selector="TimerTapped:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="0NQ-Ix-7ZA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LLA-Nv-Osf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

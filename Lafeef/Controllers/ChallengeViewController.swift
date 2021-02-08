@@ -21,10 +21,11 @@ class ChallengeViewController: UIViewController {
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
+    let timer2 = OrderTimer()
     // here you create your basic animation object to animate the strokeEnd
     let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
-    
-    
+    var startTheTimer = false
+   
     
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
@@ -41,13 +42,15 @@ class ChallengeViewController: UIViewController {
 //        strokeIt.fromValue = 0
 //        strokeIt.toValue = 1
 //        strokeIt.duration = timeLeft
-        startOrderTimer()
+//        if(startTheTimer){
+//            startOrderTimer()
+//        }
 //        timeLeftShapeLayer.add(strokeIt, forKey: nil)
     }
     //MARK: -Set up UI Element
     func setUpElements(){
         //Set Bekary background
-        setScene()
+//        setScene()
     }
     
     
@@ -116,9 +119,15 @@ class ChallengeViewController: UIViewController {
     
     //MARK: - Functions
     
+    @IBAction func TimerTapped(_ sender: Any) {
+        startTheTimer = true
+    }
     
     func fetchChallengeLevel(){
-     
+       
+       
+        self.present(timer2.timer(time: 18), animated: true)
+        
         guard let levelNum = levelNum else {
             print("Return number does't passed")
             //TODO: Alert..
@@ -208,15 +217,15 @@ func startOrderTimer(){
 
 //MARK
 
-
-extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
-    }
-}
-extension Int {
-    var degreesToRadians : CGFloat {
-        return CGFloat(self) * .pi / 180
-    }
-}
+//
+//extension TimeInterval {
+//    var time: String {
+//        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+//    }
+//}
+//extension Int {
+//    var degreesToRadians : CGFloat {
+//        return CGFloat(self) * .pi / 180
+//    }
+//}
 
