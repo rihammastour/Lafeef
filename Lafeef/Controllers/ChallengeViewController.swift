@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CodableFirebase
 
 class ChallengeViewController: UIViewController {
     
@@ -40,8 +41,17 @@ class ChallengeViewController: UIViewController {
                 }
 
             }else{
-                let levelData = data!
-                print("Level information",levelData)
+                
+                do{
+                    //Convert data to type Child
+                    let level = try FirebaseDecoder().decode(Level.self, from: data!)
+                    print("Level information",level)
+
+                }catch{
+                    print("error while decoding ",error.localizedDescription)
+                    //TODO:Alert..
+                }
+                
             }
         }
     }

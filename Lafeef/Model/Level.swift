@@ -1,5 +1,5 @@
 //
-//  ChallengeLevel.swift
+//  Level.swift
 //  Lafeef
 //
 //  Created by Renad nasser on 08/02/2021.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ChallengeLevel{
-    var orders:[String:Any]?
+struct Level: Codable {
+    var orders:[Order]?
     var bestTime:String?
-    var levelDuration:NSNumber?
+    var levelDuration:Int?
 }
