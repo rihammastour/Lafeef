@@ -47,6 +47,16 @@ class ChallengeViewController: UIViewController {
 //        }
 //        timeLeftShapeLayer.add(strokeIt, forKey: nil)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // move the setup of animation here
+//        strokeIt.fromValue = 0
+//        strokeIt.toValue = 1
+//        strokeIt.duration = timeLeft
+//        timeLeftShapeLayer.add(strokeIt, forKey: nil)
+        self.present(timer2.timer(time: 18), animated: true)
+       
+    }
     //MARK: -Set up UI Element
     func setUpElements(){
         //Set Bekary background

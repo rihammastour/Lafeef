@@ -13,8 +13,8 @@ import GameplayKit
 class TimerViewController: UIViewController {
     let timeLeftShapeLayer = CAShapeLayer()
     let bgShapeLayer = CAShapeLayer()
-    var timeLeft: TimeInterval = 18//change
-    let timeLeft1=18//change
+    var timeLeft: TimeInterval = 120//change
+    let timeLeft1=120//change
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
@@ -55,7 +55,7 @@ class TimerViewController: UIViewController {
     func startOrderTimer(){
         drawBgShape()
         drawTimeLeftShape()
-//        addTimeLabel()
+        addTimeLabel()
         strokeIt.fromValue = 0
         strokeIt.toValue = 1
         strokeIt.duration = timeLeft
@@ -123,6 +123,18 @@ print("ووييين التاييمر ")
 //        timeLeftShapeLayer.add(strokeIt, forKey: nil)
         startOrderTimer()
     }
+    
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        // move the setup of animation here
+////        strokeIt.fromValue = 0
+////        strokeIt.toValue = 1
+////        strokeIt.duration = timeLeft
+////        timeLeftShapeLayer.add(strokeIt, forKey: nil)
+//        startOrderTimer()
+//    }
+    
 
     @objc func updateTime() {
 //        let greenTime=timeLeft+1//18
@@ -136,6 +148,7 @@ print("ووييين التاييمر ")
         if(Int(timeLeft)>greenTime){
         timeLeft = endTime?.timeIntervalSinceNow ?? 0
         timeLabel.text = timeLeft.time
+        timeLabel.font = UIFont(name: "FF Hekaya", size: 20.0)
         //green
         timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0).cgColor
 
@@ -143,6 +156,7 @@ print("ووييين التاييمر ")
         else  if (Int(timeLeft) > yellowTime){
      timeLeft = endTime?.timeIntervalSinceNow ?? 0
      timeLabel.text = timeLeft.time
+     timeLabel.font = UIFont(name: "FF Hekaya", size: 20.0)
      //yellow
         timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1333, saturation: 0.86, brightness: 1, alpha: 1.0).cgColor
      }
@@ -150,11 +164,15 @@ print("ووييين التاييمر ")
        else  if (timeLeft > 0 ){
         timeLeft = endTime?.timeIntervalSinceNow ?? 0
         timeLabel.text = timeLeft.time
+        timeLabel.font = UIFont(name: "FF Hekaya", size: 20.0)
         //orange
         timeLeftShapeLayer.strokeColor = UIColor(hue: 0.0972, saturation: 0.55, brightness: 0.91, alpha: 1.0).cgColor
         }
     else {
         timeLabel.text = "انتهى الوقت!"
+        timeLabel.font = UIFont(name: "FF Hekaya", size: 22.0)
+        timeLabel.textColor = UIColor(hue: 0.1556, saturation: 0.06, brightness: 0.96, alpha: 1.0)
+        
         //red
             timeLeftShapeLayer.strokeColor = UIColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0).cgColor
         timer.invalidate()
