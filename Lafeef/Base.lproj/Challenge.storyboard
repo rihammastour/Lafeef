@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
+                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -79,35 +79,19 @@
             </objects>
             <point key="canvasLocation" x="5965.625" y="-185.15625"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0Mi-pI-Z9w">
-            <objects>
-                <viewController id="7Z7-Gp-6Ur" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="THS-sO-qQP">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="UPD-pm-8dP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ea2-78-hXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5918" y="534"/>
-        </scene>
         <!--Timer View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
                 <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" customClass="TimerViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="ier-ME-Xcq">
+                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="ier-ME-Xcq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="OZx-KP-wV0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdE-dr-vns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6781.25" y="-199.21875"/>
+            <point key="canvasLocation" x="6652" y="308"/>
         </scene>
         <!--Challenge View Controller-->
         <scene sceneID="RkD-vX-PLW">
@@ -142,7 +126,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7446.09375" y="-185.15625"/>
+            <point key="canvasLocation" x="6652" y="-381"/>
+        </scene>
+        <!--OrderVC-->
+        <scene sceneID="sxB-fz-aBo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="OrderVC" storyboardName="Order" referencedIdentifier="OrderVC" id="H95-Oi-AFa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5B4-A0-4zU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7305" y="-389"/>
         </scene>
     </scenes>
     <resources>

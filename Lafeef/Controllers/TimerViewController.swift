@@ -91,8 +91,6 @@ class TimerViewController: UIViewController {
 //                }
 //            }
 //        }
-
-print("ووييين التاييمر ")
       
 
 

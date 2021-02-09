@@ -20,6 +20,7 @@ struct Constants {
         static let homeNavigationController = "HomeNavigation"
         static let animatedSplashViewController = "animatedSplashVC"
         static let timerViewController = "TimerVC"
+        static let orderVirwController = "OrderVC"
     }
     
     struct Segue {
