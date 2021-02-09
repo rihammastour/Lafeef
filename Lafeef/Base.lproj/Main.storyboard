@@ -54,7 +54,7 @@
                                         <rect key="frame" x="61" y="207.5" width="239" height="337"/>
                                     </imageView>
                                     <button verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
-                                        <rect key="frame" x="160" y="387.5" width="448" height="65"/>
+                                        <rect key="frame" x="160" y="389.5" width="448" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
@@ -73,7 +73,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
-                                        <rect key="frame" x="160" y="492.5" width="448" height="65"/>
+                                        <rect key="frame" x="160" y="493.5" width="448" height="64"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="إنشاء حساب">
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يحلو التعلم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-hx-Q1v">
-                                        <rect key="frame" x="523.5" y="907" width="184.5" height="71"/>
+                                        <rect key="frame" x="489.5" y="909" width="218.5" height="69"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                         <color key="textColor" name="blueApp"/>
                                         <color key="highlightedColor" name="blueApp"/>
@@ -716,29 +716,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Cu-Yd-O0U">
-                                <rect key="frame" x="130" y="110" width="298" height="747.5"/>
+                                <rect key="frame" x="130" y="110" width="298" height="749"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختيار الشخصية " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-2i-dor">
-                                        <rect key="frame" x="13" y="0.0" width="272" height="51.5"/>
+                                        <rect key="frame" x="47" y="0.0" width="204.5" height="53"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <color key="textColor" red="0.44316887859999998" green="0.44305586810000003" blue="0.44705969099999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy" translatesAutoresizingMaskIntoConstraints="NO" id="LXb-2K-Yc8">
-                                        <rect key="frame" x="0.0" y="71.5" width="298" height="398"/>
+                                        <rect key="frame" x="0.0" y="73" width="298" height="398"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="398" id="riU-Ro-w5C"/>
                                             <constraint firstAttribute="width" constant="298" id="wMw-Ya-F4p"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8V-wS-kiS">
-                                        <rect key="frame" x="124" y="489.5" width="50" height="50"/>
+                                        <rect key="frame" x="124" y="491" width="50" height="50"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                         <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="rJp-bf-VjY">
-                                        <rect key="frame" x="27" y="559.5" width="244" height="95"/>
+                                        <rect key="frame" x="27" y="561" width="244" height="95"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7U5-tF-9x4" userLabel="girl">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="95"/>
@@ -771,7 +771,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ea-aM-5Og" userLabel="next">
-                                        <rect key="frame" x="103.5" y="674.5" width="91" height="73"/>
+                                        <rect key="frame" x="117" y="676" width="64" height="73"/>
                                         <color key="backgroundColor" red="0.84543538090000003" green="0.89103615280000004" blue="0.5607231855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="73" id="8an-nE-h8Y"/>
@@ -1015,7 +1015,7 @@
                                 <rect key="frame" x="203" y="200" width="459" height="351"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="NSO-5d-TZ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="459" height="239"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="459" height="238"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6cv-P1-kyh">
                                         <rect key="frame" x="61" y="8" width="337" height="163"/>
