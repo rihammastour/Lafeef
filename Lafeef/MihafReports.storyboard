@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FFHekaya-Light.otf">
+            <string>FFHekaya-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Winning View Controller-->
         <scene sceneID="6SB-ac-xfr">
@@ -15,13 +20,176 @@
                     <view key="view" contentMode="scaleToFill" id="31Z-4c-CBO">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fss-pp-HTm">
+                                <rect key="frame" x="153" y="164.5" width="462" height="695"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSJ-fz-L5u">
+                                        <rect key="frame" x="101" y="395" width="261" height="150"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6HY-Mz-J54">
+                                                <rect key="frame" x="16" y="87" width="229" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0p-TR-HLU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="55"/>
+                                                        <color key="backgroundColor" red="0.93333333330000001" green="0.79215686269999996" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="107" id="WPI-0D-AB2"/>
+                                                            <constraint firstAttribute="height" constant="55" id="sfi-ma-txo"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZm-YX-bnm">
+                                                        <rect key="frame" x="122" y="0.0" width="107" height="55"/>
+                                                        <color key="backgroundColor" red="0.93333333330000001" green="0.79215686269999996" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="0qX-o7-5nm"/>
+                                                            <constraint firstAttribute="width" constant="107" id="29q-Lf-meI"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-uq-G3m" userLabel="customerSaticfaction">
+                                                <rect key="frame" x="65" y="8" width="132" height="77"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dg7-eI-eHr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="sxj-bN-hjX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="5QZ-Yb-e2z"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="K8U-Fb-KXt"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgR-Zb-uia">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HnR-If-gea">
+                                                        <rect key="frame" x="51" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="x8Q-Dv-dtg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="7Tc-QA-t9G"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="EzE-ul-bfT"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5g-mj-AEu">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h1o-TO-wU5">
+                                                        <rect key="frame" x="102" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="smc-qi-M8R">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="RAL-0x-CTp"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="gN3-TP-uCJ"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmL-m6-2hK">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="HBN-uq-G3m" secondAttribute="trailing" constant="64" id="1cc-F1-txI"/>
+                                            <constraint firstAttribute="width" constant="261" id="PLg-f3-ccL"/>
+                                            <constraint firstItem="HBN-uq-G3m" firstAttribute="leading" secondItem="nSJ-fz-L5u" secondAttribute="leading" constant="65" id="QAo-WY-1Js"/>
+                                            <constraint firstItem="6HY-Mz-J54" firstAttribute="leading" secondItem="nSJ-fz-L5u" secondAttribute="leading" constant="16" id="Uyh-gE-E0A"/>
+                                            <constraint firstAttribute="height" constant="150" id="Ww0-Kj-j3k"/>
+                                            <constraint firstItem="HBN-uq-G3m" firstAttribute="top" secondItem="nSJ-fz-L5u" secondAttribute="top" constant="8" id="XvP-eA-VEE"/>
+                                            <constraint firstAttribute="bottom" secondItem="6HY-Mz-J54" secondAttribute="bottom" constant="8" id="c1n-am-hXL"/>
+                                            <constraint firstItem="6HY-Mz-J54" firstAttribute="top" secondItem="HBN-uq-G3m" secondAttribute="bottom" constant="2" id="gcA-I2-sal"/>
+                                            <constraint firstAttribute="trailing" secondItem="6HY-Mz-J54" secondAttribute="trailing" constant="16" id="iw9-RD-xiG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="695" id="gjs-Ht-brH"/>
+                                    <constraint firstAttribute="width" constant="462" id="jPM-QD-tND"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="jJb-ao-VU6">
+                                <rect key="frame" x="183" y="747" width="402" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnc-0b-bPB">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="70"/>
+                                        <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="175" id="BIl-ix-QPW"/>
+                                            <constraint firstAttribute="height" constant="70" id="FJc-fX-LYd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                        <state key="normal" title="إلغاء ">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="lz9-uV-BJV" eventType="touchUpInside" id="brf-5H-Mth"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXa-kd-zsS">
+                                        <rect key="frame" x="227" y="0.0" width="175" height="70"/>
+                                        <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="0hY-8r-1Xa"/>
+                                            <constraint firstAttribute="width" constant="175" id="2qy-wk-6pl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                        <state key="normal" title="اليوم التالي">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextDay:" destination="lz9-uV-BJV" eventType="touchUpInside" id="AY9-Mw-qKr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Bakery" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-pt-5iA">
+                                <rect key="frame" x="264" y="164" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="avh-CW-xL3"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37592169149999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fss-pp-HTm" firstAttribute="centerX" secondItem="avh-CW-xL3" secondAttribute="centerX" id="Qfb-Pv-hme"/>
+                            <constraint firstItem="Fss-pp-HTm" firstAttribute="centerY" secondItem="avh-CW-xL3" secondAttribute="centerY" id="aJg-R2-LBy"/>
+                            <constraint firstItem="1dq-pt-5iA" firstAttribute="width" secondItem="Fss-pp-HTm" secondAttribute="width" multiplier="0.519481" id="qJv-gp-0ti"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelOutlet" destination="Pnc-0b-bPB" id="MnJ-rW-OMd"/>
+                        <outlet property="happyLabel" destination="XmL-m6-2hK" id="w6e-VI-dZd"/>
+                        <outlet property="moneyView" destination="Z0p-TR-HLU" id="hGF-WB-PT4"/>
+                        <outlet property="nextDayOutlet" destination="KXa-kd-zsS" id="PwX-Qr-rOA"/>
+                        <outlet property="normalLabel" destination="N5g-mj-AEu" id="3MB-iA-OZZ"/>
+                        <outlet property="sadLabel" destination="sgR-Zb-uia" id="aRK-vr-5L7"/>
+                        <outlet property="scoreView" destination="6HY-Mz-J54" id="qUq-NP-bPL"/>
+                        <outlet property="smallBackground" destination="nSJ-fz-L5u" id="hYa-wC-cdT"/>
+                        <outlet property="winningView" destination="Fss-pp-HTm" id="Nmg-pF-3aw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAH-o3-ZcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-564" y="190"/>
+            <point key="canvasLocation" x="-563" y="180"/>
         </scene>
         <!--Lossing View Controller-->
         <scene sceneID="Lky-Sl-o6N">
@@ -30,13 +198,196 @@
                     <view key="view" contentMode="scaleToFill" id="mCX-YF-emQ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYF-CT-q7t">
+                                <rect key="frame" x="153" y="164.5" width="462" height="695"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="695" id="Z6X-Up-ey2"/>
+                                    <constraint firstAttribute="width" constant="462" id="ilJ-D1-ivU"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hEh-Fe-n7g">
+                                <rect key="frame" x="183" y="200.5" width="402" height="623"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icecream.gif" translatesAutoresizingMaskIntoConstraints="NO" id="qzJ-WD-CaH">
+                                        <rect key="frame" x="51" y="0.0" width="300" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="b9U-QT-wAJ"/>
+                                            <constraint firstAttribute="width" constant="300" id="nuk-9o-bBk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="حاول مرة أخرى.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqe-0y-iUl">
+                                        <rect key="frame" x="114" y="305" width="174.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxy-4Z-m8y">
+                                        <rect key="frame" x="70.5" y="378" width="261" height="150"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-lr-OWB">
+                                                <rect key="frame" x="16" y="87" width="229" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ac-HQ-k6v">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="55"/>
+                                                        <color key="backgroundColor" red="0.93333333333333335" green="0.792156862745098" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="XRO-6E-wBw"/>
+                                                            <constraint firstAttribute="width" constant="107" id="a7E-1E-haG"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzL-jE-vnK">
+                                                        <rect key="frame" x="122" y="0.0" width="107" height="55"/>
+                                                        <color key="backgroundColor" red="0.93333333330000001" green="0.79215686269999996" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="kGa-fN-WDh"/>
+                                                            <constraint firstAttribute="width" constant="107" id="v00-mW-Cei"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="ZNj-6e-e9O" userLabel="customerSaticfaction">
+                                                <rect key="frame" x="65" y="8" width="132" height="77"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-UT-KtM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="yPL-ER-gSu">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="6cY-wZ-rg2"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="Ks6-2H-Kk4"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5O-Gl-q6k">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bbF-ow-3ou">
+                                                        <rect key="frame" x="51" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="zmK-XT-fuZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="tGI-IT-iDM"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="xeQ-9w-K1S"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqt-Fg-hxG">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eeB-dv-f8O">
+                                                        <rect key="frame" x="102" y="0.0" width="30" height="77"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon" translatesAutoresizingMaskIntoConstraints="NO" id="z2C-FU-C71">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="1eT-PA-8hT"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="R0e-XE-lYj"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-uY-DNv">
+                                                                <rect key="frame" x="7.5" y="35" width="15" height="42"/>
+                                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="ZNj-6e-e9O" firstAttribute="top" secondItem="Qxy-4Z-m8y" secondAttribute="top" constant="8" id="3Ai-kI-JbW"/>
+                                            <constraint firstItem="6Zl-lr-OWB" firstAttribute="leading" secondItem="Qxy-4Z-m8y" secondAttribute="leading" constant="16" id="ATK-pw-dMU"/>
+                                            <constraint firstAttribute="width" constant="261" id="Kkv-kV-ZYm"/>
+                                            <constraint firstItem="ZNj-6e-e9O" firstAttribute="leading" secondItem="Qxy-4Z-m8y" secondAttribute="leading" constant="65" id="OEH-4G-4xz"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Zl-lr-OWB" secondAttribute="bottom" constant="8" id="Os9-uB-1xA"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZNj-6e-e9O" secondAttribute="trailing" constant="64" id="QsL-Mb-6un"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Zl-lr-OWB" secondAttribute="trailing" constant="16" id="Usf-b3-lGD"/>
+                                            <constraint firstAttribute="height" constant="150" id="kGJ-VI-qtH"/>
+                                            <constraint firstItem="6Zl-lr-OWB" firstAttribute="top" secondItem="ZNj-6e-e9O" secondAttribute="bottom" constant="2" id="u39-JC-kvo"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-Rz-XrW" userLabel="buttons">
+                                        <rect key="frame" x="0.0" y="553" width="402" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-LY-d3c">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="70"/>
+                                                <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="175" id="L3P-vt-Mrt"/>
+                                                    <constraint firstAttribute="height" constant="70" id="xD2-qH-XIO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                <state key="normal" title="إلغاء ">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancel:" destination="plW-eP-NFK" eventType="touchUpInside" id="vKi-nb-Jsc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy4-3w-6ev">
+                                                <rect key="frame" x="227" y="0.0" width="175" height="70"/>
+                                                <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="175" id="WjQ-IS-ovA"/>
+                                                    <constraint firstAttribute="height" constant="70" id="iCz-0b-s4j"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                <state key="normal" title="إعادة">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playAgain:" destination="plW-eP-NFK" eventType="touchUpInside" id="Hy4-GQ-ofO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Tzc-9H-GPe"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37592169149999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hEh-Fe-n7g" firstAttribute="centerY" secondItem="YYF-CT-q7t" secondAttribute="centerY" id="KJ6-We-jEo"/>
+                            <constraint firstItem="hEh-Fe-n7g" firstAttribute="centerX" secondItem="YYF-CT-q7t" secondAttribute="centerX" id="YXL-KN-Knn"/>
+                            <constraint firstItem="YYF-CT-q7t" firstAttribute="centerX" secondItem="Tzc-9H-GPe" secondAttribute="centerX" id="f5I-Zt-rt4"/>
+                            <constraint firstItem="YYF-CT-q7t" firstAttribute="centerY" secondItem="Tzc-9H-GPe" secondAttribute="centerY" id="yVe-4f-bdU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelOutlet" destination="Occ-LY-d3c" id="O2v-iq-lnL"/>
+                        <outlet property="happyLabel" destination="bdE-uY-DNv" id="Tkf-bf-lpb"/>
+                        <outlet property="icecream" destination="qzJ-WD-CaH" id="IGe-bp-mMk"/>
+                        <outlet property="lossingView" destination="YYF-CT-q7t" id="Vgy-sx-0bc"/>
+                        <outlet property="moneyView" destination="0Ac-HQ-k6v" id="YVw-Hl-xIk"/>
+                        <outlet property="normalLabel" destination="tqt-Fg-hxG" id="vXA-EP-H5D"/>
+                        <outlet property="playAgainOutlet" destination="dy4-3w-6ev" id="DkY-vt-RGF"/>
+                        <outlet property="sadLabel" destination="i5O-Gl-q6k" id="quN-pf-hQU"/>
+                        <outlet property="scoreView" destination="gzL-jE-vnK" id="68c-iV-UWY"/>
+                        <outlet property="smallbackground" destination="Qxy-4Z-m8y" id="L69-7X-Nfx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jyk-mK-LlR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="189" y="180"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bakery" width="339" height="432.5"/>
+        <image name="balloon" width="135" height="277"/>
+        <image name="icecream.gif" width="253" height="190"/>
+    </resources>
 </document>

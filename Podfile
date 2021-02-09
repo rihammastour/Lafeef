@@ -15,8 +15,7 @@ target 'Lafeef' do
  	pod 'CodableFirebase'
  	pod 'MaterialShowcase'
   pod 'FirebaseUI', '~> 8.0'
-
-
+  pod 'SwiftGifOrigin'
 
 pod "FlexibleSteppedProgressBar"
 
