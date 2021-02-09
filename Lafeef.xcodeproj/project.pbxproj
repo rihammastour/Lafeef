@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
-		410346F825D1CB4E0004C63E /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 410346F725D1CB4E0004C63E /* icecream.gif */; };
+		4180E1FC25D3276200B2ACD7 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 4180E1FB25D3276200B2ACD7 /* trophy.json */; };
+		4192B3F325D31713001BA8F5 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4192B3F225D31713001BA8F5 /* icecream.gif */; };
 		4193027325D1FEE700BACE0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4193027225D1FEE600BACE0B /* Podfile */; };
 		419EC42F25D081BD00A1B8B1 /* MihafReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
@@ -88,8 +89,9 @@
 		0012A2D5C7CABC6C1AE985E3 /* Pods-Lafeef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.debug.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.debug.xcconfig"; sourceTree = "<group>"; };
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
-		410346F725D1CB4E0004C63E /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icecream.gif; path = ../../../../Lafeefsvg/icecream.gif; sourceTree = "<group>"; };
 		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4180E1FB25D3276200B2ACD7 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trophy.json; path = ../../../../../../Downloads/trophy.json; sourceTree = "<group>"; };
+		4192B3F225D31713001BA8F5 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icecream.gif; path = ../../../../Lafeefsvg/icecream.gif; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Podfile"; sourceTree = "<group>"; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MihafReports.storyboard; sourceTree = "<group>"; };
@@ -302,9 +304,10 @@
 		4EDCA1F625C6249F00C29464 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4180E1FB25D3276200B2ACD7 /* trophy.json */,
 				41CFB12725D08754004D31F9 /* WinningReport.swift */,
-				410346F725D1CB4E0004C63E /* icecream.gif */,
 				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
+				4192B3F225D31713001BA8F5 /* icecream.gif */,
 				4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */,
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
 			);
@@ -483,9 +486,10 @@
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				419EC42F25D081BD00A1B8B1 /* MihafReports.storyboard in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
-				410346F825D1CB4E0004C63E /* icecream.gif in Resources */,
+				4192B3F325D31713001BA8F5 /* icecream.gif in Resources */,
 				4193027325D1FEE700BACE0B /* Podfile in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
+				4180E1FC25D3276200B2ACD7 /* trophy.json in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,

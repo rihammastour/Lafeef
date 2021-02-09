@@ -224,6 +224,7 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
   - CodableFirebase (0.2.1)
+  - Cosmos (23.0.0)
   - FBSDKCoreKit (5.15.1):
     - FBSDKCoreKit/Basics (= 5.15.1)
     - FBSDKCoreKit/Core (= 5.15.1)
@@ -401,6 +402,7 @@ PODS:
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.2.1)
   - MaterialShowcase (0.7.3)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -417,6 +419,7 @@ PODS:
 
 DEPENDENCIES:
   - CodableFirebase
+  - Cosmos (~> 23.0)
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -424,6 +427,7 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift
   - FirebaseUI (~> 8.0)
   - FlexibleSteppedProgressBar
+  - lottie-ios
   - MaterialShowcase
   - SwiftGifOrigin
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
@@ -435,6 +439,7 @@ SPEC REPOS:
     - AppAuth
     - BoringSSL-GRPC
     - CodableFirebase
+    - Cosmos
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -458,6 +463,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - MaterialShowcase
     - nanopb
     - PromisesObjC
@@ -480,6 +486,7 @@ SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
@@ -503,6 +510,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -511,6 +519,6 @@ SPEC CHECKSUMS:
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
 
-PODFILE CHECKSUM: 13872c3ea9b6d744bdb0f80a76d1dea6028bb8da
+PODFILE CHECKSUM: 9d8bc61ca02a53a096f08c555e030de4a2bf2f57
 
 COCOAPODS: 1.10.1
