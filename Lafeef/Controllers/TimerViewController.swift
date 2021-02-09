@@ -13,8 +13,8 @@ import GameplayKit
 class TimerViewController: UIViewController {
     let timeLeftShapeLayer = CAShapeLayer()
     let bgShapeLayer = CAShapeLayer()
-    var timeLeft: TimeInterval = 120//change
-    let timeLeft1=120//change
+    var timeLeft: TimeInterval = 18//change
+    let timeLeft1=18//change
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
@@ -147,8 +147,10 @@ print("ووييين التاييمر ")
 
         if(Int(timeLeft)>greenTime){
         timeLeft = endTime?.timeIntervalSinceNow ?? 0
-        timeLabel.text = timeLeft.time
+        timeLabel.text = "\(timeLeft.time)"
         timeLabel.font = UIFont(name: "FF Hekaya", size: 20.0)
+//            timeLabel.text = "\(NumberFormatter())"
+//            timeLabel.text.locale = NSLocale(localeIdentifier: "AR")
         //green
         timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0).cgColor
 
