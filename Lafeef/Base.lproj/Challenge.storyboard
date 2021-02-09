@@ -23,25 +23,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="183" y="480" width="402.5" height="64.5"/>
+                                <rect key="frame" x="256.5" y="479" width="255" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm8-K6-n1P">
-                                <rect key="frame" x="353" y="561.5" width="62" height="30"/>
+                                <rect key="frame" x="353" y="562" width="62" height="30"/>
                                 <state key="normal" title="Go Back!"/>
                                 <connections>
                                     <action selector="goBackTapped:" destination="qAL-mm-ExN" eventType="touchUpInside" id="RiW-kd-GMT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjz-Ya-Aad">
+                                <rect key="frame" x="334" y="753" width="84" height="30"/>
+                                <state key="normal" title="Daily Report"/>
+                                <connections>
+                                    <segue destination="d0c-PB-tDz" kind="show" id="gkn-m5-vM5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wHu-Hx-akc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wHu-Hx-akc" firstAttribute="trailing" secondItem="Gjz-Ya-Aad" secondAttribute="trailing" constant="350" id="aHI-30-9OH"/>
                             <constraint firstItem="7tS-gA-51O" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="g2N-Ly-GfZ"/>
                             <constraint firstItem="nm8-K6-n1P" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="ma1-Jn-3i4"/>
                             <constraint firstItem="nm8-K6-n1P" firstAttribute="top" secondItem="7tS-gA-51O" secondAttribute="bottom" constant="17" id="qGv-Fs-D0b"/>
+                            <constraint firstItem="Gjz-Ya-Aad" firstAttribute="top" secondItem="nm8-K6-n1P" secondAttribute="bottom" constant="161" id="u8U-xk-0gA"/>
                             <constraint firstItem="7tS-gA-51O" firstAttribute="centerY" secondItem="o52-Ab-7ti" secondAttribute="centerY" id="ulM-0p-gyw"/>
                         </constraints>
                     </view>
@@ -50,6 +59,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N28-fr-V56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5966" y="-185"/>
+        </scene>
+        <!--DailyReport-->
+        <scene sceneID="J35-6T-Mad">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="DailyReport" id="d0c-PB-tDz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5s7-rg-IiR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6625" y="109"/>
         </scene>
     </scenes>
     <resources>

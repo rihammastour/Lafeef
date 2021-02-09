@@ -27,6 +27,8 @@
 		4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC225CDDF9600D50362 /* Challenge.storyboard */; };
 		4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC825CDDFBF00D50362 /* Training.storyboard */; };
 		4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB21B7B25CF768F0076530E /* ProgressBar.swift */; };
+		4EB21B8A25D2F37D0076530E /* DailyAdvReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB21B8925D2F37D0076530E /* DailyAdvReports.storyboard */; };
+		4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB21B9425D2FC660076530E /* DailyReportViewController.swift */; };
 		4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E825CAD83800518EF9 /* instruction.swift */; };
 		4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E925CAD83900518EF9 /* AlertService.swift */; };
 		4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */; };
@@ -36,7 +38,7 @@
 		4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
-		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
+		4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
@@ -105,13 +107,15 @@
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
 		4EB21B7B25CF768F0076530E /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		4EB21B8925D2F37D0076530E /* DailyAdvReports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DailyAdvReports.storyboard; sourceTree = "<group>"; };
+		4EB21B9425D2FC660076530E /* DailyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportViewController.swift; sourceTree = "<group>"; };
 		4EB976E825CAD83800518EF9 /* instruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = instruction.swift; sourceTree = "<group>"; };
 		4EB976E925CAD83900518EF9 /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		4EB976F025CAD84B00518EF9 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
-		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+String.swift"; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeLevelsViewController.swift; path = Lafeef/ViewController/ChallengeLevelsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -195,6 +199,7 @@
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
+				4EB21B9425D2FC660076530E /* DailyReportViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
+				4EB21B8925D2F37D0076530E /* DailyAdvReports.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
@@ -302,7 +308,7 @@
 		4EEDE0FB25BCF43700CA7B9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */,
+				4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
+				4EB21B8A25D2F37D0076530E /* DailyAdvReports.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +636,7 @@
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
 				C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
@@ -640,6 +647,7 @@
 				C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
+				4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
@@ -648,7 +656,7 @@
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
