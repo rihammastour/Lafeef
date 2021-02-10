@@ -58,12 +58,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N28-fr-V56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5966" y="-185"/>
+            <point key="canvasLocation" x="5965.625" y="-185.15625"/>
         </scene>
-        <!--DailyReport-->
+        <!--AdvReport-->
         <scene sceneID="J35-6T-Mad">
             <objects>
-                <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="DailyReport" id="d0c-PB-tDz" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="AdvReport" id="d0c-PB-tDz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5s7-rg-IiR"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

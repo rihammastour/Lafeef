@@ -401,6 +401,7 @@ PODS:
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.2.1)
   - MaterialShowcase (0.7.3)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -423,6 +424,7 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift
   - FirebaseUI (~> 8.0)
   - FlexibleSteppedProgressBar
+  - lottie-ios
   - MaterialShowcase
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - SwiftyGif
@@ -456,6 +458,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - MaterialShowcase
     - nanopb
     - PromisesObjC
@@ -500,6 +503,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -507,6 +511,6 @@ SPEC CHECKSUMS:
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
 
-PODFILE CHECKSUM: 04529440c9dc243bde28be837eea9065955b9cc1
+PODFILE CHECKSUM: 3da53558f894f24ad5e7ed5a617fd5640ab1d84c
 
 COCOAPODS: 1.10.0.beta.1

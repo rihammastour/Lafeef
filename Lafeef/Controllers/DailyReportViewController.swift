@@ -11,7 +11,7 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Proprities
     //variables
-    //........
+    //.......................... Don't forget to pass attributes to this VC
     
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
@@ -19,15 +19,16 @@ class DailyReportViewController: UIViewController {
     @IBOutlet weak var ingredients: UILabel!
     @IBOutlet weak var backaging: UILabel!
     @IBOutlet weak var advAmount: UILabel!
-    @IBOutlet weak var advSide: UILabel!
     @IBOutlet weak var income: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var adv: UIStackView!
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         styleUI()
+        hideAdv()
         calcultateIncome()
         convertLabelsToArabic()
     }
@@ -39,6 +40,13 @@ class DailyReportViewController: UIViewController {
     func styleUI(){
         dailyReportView.layer.cornerRadius = 30
         Utilities.styleFilledButton(nextButton, color: "blueApp")
+    }
+    
+    func hideAdv(){
+        let advAmount = self.convertUILabelToInt(label: self.advAmount)
+        if advAmount == 0 {
+            adv.isHidden = true
+        }
     }
     
     func convertLabelsToArabic(){
@@ -64,8 +72,14 @@ class DailyReportViewController: UIViewController {
         }
         return 0
     }
-   
-    //MARK:- Actions
 
+    //MARK:- Actions
+    @IBAction func next(_ sender: Any) {
+        // if max score, display reward Screen
+        // if min score, display lose Screen
+        // display next level
+        
+    }
+    
 
 }
