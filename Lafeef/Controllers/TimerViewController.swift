@@ -45,9 +45,15 @@ class TimerViewController: UIViewController {
 
     func addTimeLabel() {
         timeLabel = UILabel(frame: CGRect(x: view.frame.midX-150 ,y: view.frame.midY-125, width: 100, height: 50))
+    
         timeLabel.textAlignment = .center
         timeLabel.text = timeLeft.time
+       
         view.addSubview(timeLabel)
+//        let toArabic=self.timeLabel.text
+//
+//        var timeLabel = Int(toArabic!)
+//        timeLabel = timeLabel?.convertedDigitsToLocale(Locale(identifier: "AR"))
 //        print(timeLeft.time)
     }
 
@@ -147,7 +153,7 @@ print("ووييين التاييمر ")
 
         if(Int(timeLeft)>greenTime){
         timeLeft = endTime?.timeIntervalSinceNow ?? 0
-        timeLabel.text = "\(timeLeft.time)"
+            timeLabel.text = timeLeft.time
         timeLabel.font = UIFont(name: "FF Hekaya", size: 20.0)
 //            timeLabel.text = "\(NumberFormatter())"
 //            timeLabel.text.locale = NSLocale(localeIdentifier: "AR")
