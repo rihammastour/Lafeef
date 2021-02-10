@@ -118,7 +118,7 @@ class ProfileViewController: UIViewController {
         if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
         }else{
-            characterUIImageView.image = UIImage(named: "girl-icon")
+            characterUIImageView.image = UIImage(named: "Girl-Profile")
         }
     }
     
