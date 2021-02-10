@@ -12,9 +12,9 @@ class Reports {
 
         return AlertVc
       }
-    func displayLossingReport() ->  LossingViewController {
+    func displayLossingReport() ->  LosingViewController {
         let storyboard = UIStoryboard(name: "MihafReports", bundle: nil)
-        let AlertVc = storyboard.instantiateViewController(identifier: "lose") as LossingViewController
+        let AlertVc = storyboard.instantiateViewController(identifier: "lose") as LosingViewController
       
         return AlertVc
       }

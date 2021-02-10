@@ -9,7 +9,7 @@ import UIKit
 import SwiftGifOrigin
 import Cosmos
 
-class LossingViewController: UIViewController {
+class LosingViewController: UIViewController {
     // customer satisfaction
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!

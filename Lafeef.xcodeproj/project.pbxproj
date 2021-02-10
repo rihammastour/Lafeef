@@ -22,7 +22,7 @@
 		41F4C23B25D0AADE000D4064 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23A25D0AADE000D4064 /* Reports.swift */; };
 		41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23F25D0AB72000D4064 /* levelInfo.swift */; };
 		41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24425D0ACF2000D4064 /* WinningViewController.swift */; };
-		41F4C24D25D0AD01000D4064 /* LossingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LossingViewController.swift */; };
+		41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LosingViewController.swift */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
@@ -105,7 +105,7 @@
 		41F4C23A25D0AADE000D4064 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		41F4C23F25D0AB72000D4064 /* levelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelInfo.swift; sourceTree = "<group>"; };
 		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
-		41F4C24C25D0AD01000D4064 /* LossingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossingViewController.swift; sourceTree = "<group>"; };
+		41F4C24C25D0AD01000D4064 /* LosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosingViewController.swift; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				41F4C24425D0ACF2000D4064 /* WinningViewController.swift */,
-				41F4C24C25D0AD01000D4064 /* LossingViewController.swift */,
+				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -685,7 +685,7 @@
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
-				41F4C24D25D0AD01000D4064 /* LossingViewController.swift in Sources */,
+				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,

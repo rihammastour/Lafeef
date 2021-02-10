@@ -54,7 +54,7 @@
                                         <rect key="frame" x="61" y="207.5" width="239" height="337"/>
                                     </imageView>
                                     <button verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwe-Xb-Pr5">
-                                        <rect key="frame" x="160" y="389.5" width="448" height="64"/>
+                                        <rect key="frame" x="160" y="387.5" width="448" height="65"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="awW-Hs-vaz"/>
                                         </constraints>
@@ -73,7 +73,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47w-x7-7QZ">
-                                        <rect key="frame" x="160" y="493.5" width="448" height="64"/>
+                                        <rect key="frame" x="160" y="492.5" width="448" height="65"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                         <state key="normal" title="إنشاء حساب">
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="يحلو التعلم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea2-hx-Q1v">
-                                        <rect key="frame" x="489.5" y="909" width="218.5" height="69"/>
+                                        <rect key="frame" x="523.5" y="907" width="184.5" height="71"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                         <color key="textColor" name="blueApp"/>
                                         <color key="highlightedColor" name="blueApp"/>
@@ -978,24 +978,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEq-Q8-TZB">
-                                <rect key="frame" x="164" y="489" width="440" height="285"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pass-images" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-Qx-Cps">
-                                        <rect key="frame" x="0.0" y="0.0" width="440" height="285"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Vdi-Qx-Cps" firstAttribute="top" secondItem="hEq-Q8-TZB" secondAttribute="top" id="ACl-DR-BGw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vdi-Qx-Cps" secondAttribute="bottom" id="BQM-OQ-7rm"/>
-                                    <constraint firstAttribute="height" constant="285" id="DzB-c1-Cb7"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vdi-Qx-Cps" secondAttribute="trailing" id="Mxy-OF-iJC"/>
-                                    <constraint firstAttribute="width" constant="440" id="VfF-hS-EwV"/>
-                                    <constraint firstItem="Vdi-Qx-Cps" firstAttribute="leading" secondItem="hEq-Q8-TZB" secondAttribute="leading" id="uuS-cx-bDl"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-CU-9Wz">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Na6-CU-9Wz" userLabel="bubble view">
                                 <rect key="frame" x="203" y="200" width="459" height="351"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bubble" translatesAutoresizingMaskIntoConstraints="NO" id="NSO-5d-TZ9">
@@ -1005,10 +988,10 @@
                                         <rect key="frame" x="61" y="8" width="337" height="163"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="142" translatesAutoresizingMaskIntoConstraints="NO" id="PEW-Di-0fL">
-                                                <rect key="frame" x="3" y="0.0" width="331.5" height="41"/>
+                                                <rect key="frame" x="3" y="0.0" width="331.5" height="22"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-aL-eyw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="17.5" height="41"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="17.5" height="22"/>
                                                         <color key="tintColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="xmark" catalog="system">
                                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1018,7 +1001,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="249" text="أهلًا صديق لفيف!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-tJ-wfX">
-                                                        <rect key="frame" x="159.5" y="0.0" width="172" height="41"/>
+                                                        <rect key="frame" x="159.5" y="0.0" width="172" height="22"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                         <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -1026,8 +1009,8 @@
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="كلمة المرور الخاصة بك عبارة عن صورة، اختر صورة لتتذكرها  لاحقًا لتسجيل الدخول لحسابك مرة أخرى" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="mAj-CX-kbr">
-                                                <rect key="frame" x="0.0" y="41" width="337" height="122"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <rect key="frame" x="0.0" y="22" width="337" height="141"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="337" id="pNP-N6-MC5"/>
                                                 </constraints>
@@ -1046,21 +1029,41 @@
                                     <constraint firstAttribute="bottom" secondItem="6cv-P1-kyh" secondAttribute="bottom" constant="180" id="f9B-Hs-21j"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OG-6u-bKa" userLabel="pass view">
+                                <rect key="frame" x="164" y="460" width="440" height="285"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pass-images" translatesAutoresizingMaskIntoConstraints="NO" id="F4y-9p-aR5">
+                                        <rect key="frame" x="183.5" y="174" width="440" height="285"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="F4y-9p-aR5" firstAttribute="width" secondItem="0OG-6u-bKa" secondAttribute="width" id="Ezb-mf-ihP"/>
+                                    <constraint firstAttribute="height" constant="285" id="Ng1-wl-ItY"/>
+                                    <constraint firstItem="F4y-9p-aR5" firstAttribute="height" secondItem="0OG-6u-bKa" secondAttribute="height" id="OVa-xF-Ool"/>
+                                    <constraint firstAttribute="width" constant="440" id="Rfj-BN-Dk6"/>
+                                    <constraint firstItem="F4y-9p-aR5" firstAttribute="centerY" secondItem="0OG-6u-bKa" secondAttribute="centerY" id="iPs-Kx-EVf"/>
+                                    <constraint firstItem="F4y-9p-aR5" firstAttribute="centerX" secondItem="0OG-6u-bKa" secondAttribute="centerX" id="vcC-fx-3SU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EJx-x8-o4U"/>
                         <color key="backgroundColor" white="0.0" alpha="0.34829837330000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EJx-x8-o4U" firstAttribute="trailing" secondItem="Na6-CU-9Wz" secondAttribute="trailing" constant="106" id="176-1Q-J8s"/>
+                            <constraint firstItem="EJx-x8-o4U" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Na6-CU-9Wz" secondAttribute="trailing" constant="106" id="176-1Q-J8s">
+                                <variation key="heightClass=regular-widthClass=regular" constant="106"/>
+                            </constraint>
                             <constraint firstItem="EJx-x8-o4U" firstAttribute="bottom" secondItem="Na6-CU-9Wz" secondAttribute="bottom" constant="473" id="3Uy-UE-c3a"/>
-                            <constraint firstItem="hEq-Q8-TZB" firstAttribute="centerX" secondItem="EJx-x8-o4U" secondAttribute="centerX" id="X0W-r7-i4c"/>
-                            <constraint firstItem="Na6-CU-9Wz" firstAttribute="leading" secondItem="EJx-x8-o4U" secondAttribute="leading" constant="203" id="nIz-fM-T4B"/>
-                            <constraint firstItem="EJx-x8-o4U" firstAttribute="bottom" secondItem="hEq-Q8-TZB" secondAttribute="bottom" constant="250" id="qaW-LF-bAB"/>
+                            <constraint firstItem="0OG-6u-bKa" firstAttribute="top" secondItem="EJx-x8-o4U" secondAttribute="top" constant="460" id="Mm1-YF-qlX"/>
+                            <constraint firstItem="0OG-6u-bKa" firstAttribute="centerX" secondItem="EJx-x8-o4U" secondAttribute="centerX" id="R0K-7C-pos"/>
+                            <constraint firstItem="Na6-CU-9Wz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EJx-x8-o4U" secondAttribute="leading" constant="300" id="nIz-fM-T4B">
+                                <variation key="widthClass=regular" constant="300"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="203"/>
+                            </constraint>
                             <constraint firstItem="Na6-CU-9Wz" firstAttribute="top" secondItem="EJx-x8-o4U" secondAttribute="top" constant="200" id="zbw-iE-dj4"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="passImages" destination="Vdi-Qx-Cps" id="Gek-QQ-g81"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVw-oF-sRL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
