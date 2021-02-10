@@ -12,8 +12,14 @@ import GameplayKit
 class ChallengeViewController: UIViewController {
     
     //MARK: - Proprites
+        //Variables
     var levelNum:String?
-    var orderNum:String?
+    var currentOrder:Int?
+    var duration:Float?
+    var orders:[Order]?
+    var alert = AlertService()
+    
+        //Outlet
        
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
@@ -30,16 +36,14 @@ class ChallengeViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-//        let order2 = Order(allTime: 120, base: "cake", size: 1, toppings:["strawberry":1])
-//        self.present(order2.showOrder(), animated: true)
-        let timer2 = OrderTimer()
-        self.present(timer2.timer(time: 18), animated: true)
+        //Start Timer
+//        let timer2 = OrderTimer()
+//        self.present(timer2.timer(time: 18), animated: true)
 
     }
     //MARK: -Set up UI Element
     func setUpElements(){
-        //Set Bekary background
-//        setScene()
+        setScene()
     }
     
     
@@ -73,16 +77,12 @@ class ChallengeViewController: UIViewController {
     
     //MARK: - Functions
     
-    @IBAction func TimerTapped(_ sender: Any) {
-        //startTheTimer = true
-    }
-    
     func fetchChallengeLevel(){
-       
         
         guard let levelNum = levelNum else {
-            print("Return number does't passed")
-            //TODO: Alert..
+            //TODO: Alert
+//            showAlert(with: "لا يوجد طلبات لهذا اليوم")
+//            self.dismiss(animated: true)
             return
         }
         
@@ -99,8 +99,8 @@ class ChallengeViewController: UIViewController {
                 do{
                     //Convert data to type Child
                     let level = try FirebaseDecoder().decode(Level.self, from: data!)
-                    print("Level information object",level)
-
+                    self.setLevelInfo(level)
+                    //self.startLevelTimer()
                 }catch{
                     print("error while decoding ",error.localizedDescription)
                     //TODO:Alert..
@@ -111,25 +111,27 @@ class ChallengeViewController: UIViewController {
         
     }
     
- 
+    //setLevelInfo
+    func setLevelInfo(_ level:Level) -> Void {
+        self.duration = level.duration
+        self.orders = level.orders
+        self.currentOrder = 0
+        showOrder(at: 3) // must be called by character
+    }
+    
+    func showOrder(at number:Int) -> Void {
+        let order = orders![number]
+        self.present(order.showOrder(), animated: true)
+    }
     
  
+    //MARK: - Actions
+    
+    //MARK: - Delegate handeler
+    func showAlert(with message:String) {
+        alert.Alert(body: message)
+    }
+ 
 
 
-}//END CLASS
-
-
-//MARK
-
-//
-//extension TimeInterval {
-//    var time: String {
-//        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
-//    }
-//}
-//extension Int {
-//    var degreesToRadians : CGFloat {
-//        return CGFloat(self) * .pi / 180
-//    }
-//}
-
+}

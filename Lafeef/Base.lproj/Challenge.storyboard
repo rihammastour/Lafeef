@@ -104,22 +104,18 @@
                             <skView contentMode="scaleToFill" sceneName="GameScene.sks" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-gI-AL5">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </skView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-x7-uSr">
-                                <rect key="frame" x="184" y="737" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="start timer"/>
-                                <connections>
-                                    <action selector="TimerTapped:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="0NQ-Ix-7ZA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LLA-Nv-Osf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LLA-Nv-Osf" firstAttribute="bottom" secondItem="vqo-gI-AL5" secondAttribute="bottom" id="Awi-99-JTj"/>
                             <constraint firstItem="LLA-Nv-Osf" firstAttribute="trailing" secondItem="vqo-gI-AL5" secondAttribute="trailing" id="EWj-uN-UeK"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="Fh3-iQ-cCA"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="LOn-Ft-nLk"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="Tcu-vY-X9u"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="edV-l1-RCy"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="hmf-vP-XD4"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="bottom" secondItem="LLA-Nv-Osf" secondAttribute="bottom" id="mGf-n8-DJy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
