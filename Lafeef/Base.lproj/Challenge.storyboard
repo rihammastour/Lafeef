@@ -79,7 +79,8 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="gz9-2M-ovs" firstAttribute="centerX" secondItem="gx7-5K-e3c" secondAttribute="centerX" id="ogB-Jh-V5J"/>
                                     <constraint firstItem="gz9-2M-ovs" firstAttribute="centerY" secondItem="gx7-5K-e3c" secondAttribute="centerY" id="r8s-um-xLc"/>
@@ -87,6 +88,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gVf-NN-hE1"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="gx7-5K-e3c" firstAttribute="centerX" secondItem="UXi-uq-vvs" secondAttribute="centerX" id="5d7-eC-Bai"/>
                             <constraint firstItem="gx7-5K-e3c" firstAttribute="centerY" secondItem="UXi-uq-vvs" secondAttribute="centerY" id="p35-Rw-Scv"/>
