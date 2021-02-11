@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,53 +22,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gz9-2M-ovs">
-                                <rect key="frame" x="152" y="342" width="400" height="300"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gx7-5K-e3c">
+                                <rect key="frame" x="103" y="177" width="499" height="589"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY7-RB-veY">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAW-c1-RQn">
-                                        <rect key="frame" x="0.0" y="51" width="400" height="73"/>
-                                        <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gz9-2M-ovs">
+                                        <rect key="frame" x="23" y="107" width="453" height="436"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mY7-RB-veY">
+                                                <rect key="frame" x="0.0" y="0.0" width="453" height="172"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAW-c1-RQn">
+                                                <rect key="frame" x="0.0" y="187" width="453" height="73"/>
+                                                <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="73" id="Jja-cl-zUf"/>
+                                                    <constraint firstAttribute="width" constant="400" id="vP9-Nt-mNO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="الإستمرار"/>
+                                                <connections>
+                                                    <action selector="gameContinue:" destination="ybP-j6-08Q" eventType="touchUpInside" id="bpc-mU-Hy2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-cu-5vW">
+                                                <rect key="frame" x="0.0" y="275" width="453" height="73"/>
+                                                <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="73" id="5Sf-2H-tG5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="عرض تعليمات اللعبة"/>
+                                                <connections>
+                                                    <action selector="viewInstruction:" destination="ybP-j6-08Q" eventType="touchUpInside" id="7s5-wz-ixd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWW-Ns-6tS">
+                                                <rect key="frame" x="0.0" y="363" width="453" height="73"/>
+                                                <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="73" id="xy7-Zh-N2Q"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="خروج"/>
+                                                <connections>
+                                                    <action selector="exitGame:" destination="ybP-j6-08Q" eventType="touchUpInside" id="X0g-51-soU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.47969191030000002" green="0.40973035229999999" blue="0.48129857510000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="73" id="Jja-cl-zUf"/>
-                                            <constraint firstAttribute="width" constant="400" id="vP9-Nt-mNO"/>
+                                            <constraint firstAttribute="width" constant="453" id="JmO-vH-mvW"/>
+                                            <constraint firstAttribute="height" constant="436" id="nUn-dy-SzB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="الإستمرار"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-cu-5vW">
-                                        <rect key="frame" x="0.0" y="139" width="400" height="73"/>
-                                        <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="73" id="5Sf-2H-tG5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="عرض تعليمات اللعبة"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWW-Ns-6tS">
-                                        <rect key="frame" x="0.0" y="227" width="400" height="73"/>
-                                        <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="73" id="xy7-Zh-N2Q"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="خروج"/>
-                                    </button>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" name="whiteApp"/>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstItem="gz9-2M-ovs" firstAttribute="centerX" secondItem="gx7-5K-e3c" secondAttribute="centerX" id="ogB-Jh-V5J"/>
+                                    <constraint firstItem="gz9-2M-ovs" firstAttribute="centerY" secondItem="gx7-5K-e3c" secondAttribute="centerY" id="r8s-um-xLc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gVf-NN-hE1"/>
                         <constraints>
-                            <constraint firstItem="gz9-2M-ovs" firstAttribute="centerY" secondItem="UXi-uq-vvs" secondAttribute="centerY" id="BRm-x9-FlV"/>
-                            <constraint firstItem="gz9-2M-ovs" firstAttribute="centerX" secondItem="UXi-uq-vvs" secondAttribute="centerX" id="q7P-45-whI"/>
+                            <constraint firstItem="gx7-5K-e3c" firstAttribute="centerX" secondItem="UXi-uq-vvs" secondAttribute="centerX" id="5d7-eC-Bai"/>
+                            <constraint firstItem="gx7-5K-e3c" firstAttribute="centerY" secondItem="UXi-uq-vvs" secondAttribute="centerY" id="p35-Rw-Scv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continueOutlet" destination="mAW-c1-RQn" id="2gB-IG-AeT"/>
+                        <outlet property="exitOutlet" destination="ZWW-Ns-6tS" id="dTs-eZ-f0v"/>
+                        <outlet property="pauseView" destination="gx7-5K-e3c" id="KwU-bq-cJU"/>
+                        <outlet property="viewInstructionOutlet" destination="nO3-cu-5vW" id="90a-LZ-Blx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLO-e6-jgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,21 +168,6 @@
             </objects>
             <point key="canvasLocation" x="5965.625" y="-185.15625"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0Mi-pI-Z9w">
-            <objects>
-                <viewController id="7Z7-Gp-6Ur" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="THS-sO-qQP">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="UPD-pm-8dP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ea2-78-hXC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5918" y="534"/>
-        </scene>
         <!--Timer View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
@@ -217,11 +230,11 @@
     </scenes>
     <resources>
         <image name="stopGame" width="46" height="46"/>
-        <namedColor name="whiteApp">
-            <color red="0.98000001907348633" green="0.97699999809265137" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
