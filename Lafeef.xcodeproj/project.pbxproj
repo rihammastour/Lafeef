@@ -56,6 +56,7 @@
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
+		C978F95125D5BF78005F2F3A /* StopGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C978F95025D5BF78005F2F3A /* StopGameViewController.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
@@ -136,6 +137,7 @@
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
+		C978F95025D5BF78005F2F3A /* StopGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopGameViewController.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
+				C978F95025D5BF78005F2F3A /* StopGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			files = (
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
+				C978F95125D5BF78005F2F3A /* StopGameViewController.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
