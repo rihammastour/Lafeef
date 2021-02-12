@@ -15,10 +15,12 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
+    internal var cameraLvl : SKCameraNode?
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
-
+        print("hello scens world")
+        
         self.lastUpdateTime = 0
         
         // Get label node from scene and store it for use later
@@ -26,6 +28,12 @@ class GameScene: SKScene {
         if let label = self.label {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
+        }
+        
+        // Get Camera node from scene and store it for use later
+        self.camera = self.childNode(withName: "camera") as? SKCameraNode
+        if let cameraLvl = self.cameraLvl {
+           print("foundهناا",cameraLvl)
         }
         
         // Create shape node to use during mouse interaction
@@ -76,7 +84,21 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        for t in touches {
+            
+            self.touchMoved(toPoint: t.location(in: self))
+            guard let touch = touches.first else {
+              return
+            }
+
+            let location = t.location(in: self)
+            let previousLocation = t.previousLocation(in: self)
+
+            self.camera?.position.x += location.x - previousLocation.x
+    //        camera?.position.y += location.y - previousLocation.y
+            
+            
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -95,6 +117,7 @@ class GameScene: SKScene {
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
+        
         
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
