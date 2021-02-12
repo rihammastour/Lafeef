@@ -18,7 +18,43 @@ class TimerViewController: UIViewController {
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
+    var choosePause=false
+    
     // here you create your basic animation object to animate the strokeEnd
+    @IBAction func PauseTime(_ sender: Any) {
+       
+//        timeLabel.text=timeLeft.time
+//        timeLeftShapeLayer.add(strokeIt, forKey: nil)
+//        endTime = Date().addingTimeInterval(timeLeft)
+        
+//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: false)
+        print(timeLeft)
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: false)
+//        timeLabel.text=timeLeft.time
+
+//        timeLeft = endTime?.timeIntervalSinceNow ?? 0
+        print("kkkkkkkkkkkkk")
+        choosePause=true
+        
+//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TimerViewController.TimerClass), userInfo: nil, repeats: true)
+
+    
+//        drawBgShape()
+//        drawTimeLeftShape()
+//        addTimeLabel()
+//        strokeIt.fromValue = 0
+//        strokeIt.toValue = 1
+//        strokeIt.duration = timeLeft
+//        timeLeftShapeLayer.add(strokeIt, forKey: nil)
+//        endTime = Date().addingTimeInterval(timeLeft)
+//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+
+       
+    }
+    func clickCount(){
+        timer.invalidate()
+    }
     let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
   
 
@@ -59,8 +95,9 @@ class TimerViewController: UIViewController {
 
 
     func startOrderTimer(){
-        drawBgShape()
-        drawTimeLeftShape()
+//        timer.invalidate()
+//        drawBgShape()
+//        drawTimeLeftShape()
         addTimeLabel()
         strokeIt.fromValue = 0
         strokeIt.toValue = 1
@@ -68,6 +105,8 @@ class TimerViewController: UIViewController {
         timeLeftShapeLayer.add(strokeIt, forKey: nil)
         endTime = Date().addingTimeInterval(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TimerViewController.TimerClass), userInfo: nil, repeats: true)
+        
     }
 
     override func viewDidLoad() {
@@ -183,7 +222,20 @@ print("ووييين التاييمر ")
         
         //red
             timeLeftShapeLayer.strokeColor = UIColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0).cgColor
+
         timer.invalidate()
+        
+        }
+    }
+    
+    
+    @objc func TimerClass(){
+        timeLeft = endTime?.timeIntervalSinceNow ?? 0
+        timeLeft-=0.1
+        timeLabel.text=timeLeft.time
+        if(timeLeft<=0){
+            timeLabel.text = "انتهى الوقت!"
+            timer.invalidate()
         }
     }
 }
