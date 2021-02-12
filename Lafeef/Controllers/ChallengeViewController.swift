@@ -59,7 +59,6 @@ class ChallengeViewController: UIViewController {
                 sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window
-
                 sceneNode.scaleMode = SKSceneScaleMode.resizeFill
                 
               //  sceneNode.scaleMode = .aspectFill
@@ -91,7 +90,7 @@ class ChallengeViewController: UIViewController {
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-    showOrder(at: 2) // must be called by character
+    //showOrder(at: 2) // must be called by character
     }
     
     //showOrder

@@ -108,14 +108,10 @@
                         <viewLayoutGuide key="safeArea" id="LLA-Nv-Osf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LLA-Nv-Osf" firstAttribute="bottom" secondItem="vqo-gI-AL5" secondAttribute="bottom" id="Awi-99-JTj"/>
-                            <constraint firstItem="LLA-Nv-Osf" firstAttribute="trailing" secondItem="vqo-gI-AL5" secondAttribute="trailing" id="EWj-uN-UeK"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="Fh3-iQ-cCA"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="LOn-Ft-nLk"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="Tcu-vY-X9u"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="edV-l1-RCy"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="hmf-vP-XD4"/>
-                            <constraint firstItem="vqo-gI-AL5" firstAttribute="bottom" secondItem="LLA-Nv-Osf" secondAttribute="bottom" id="mGf-n8-DJy"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="3Ay-X4-la6"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="C3s-Qm-ZVS"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="F8n-LH-yV1"/>
+                            <constraint firstItem="vqo-gI-AL5" firstAttribute="bottom" secondItem="LLA-Nv-Osf" secondAttribute="bottom" id="tlx-cY-AXy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>

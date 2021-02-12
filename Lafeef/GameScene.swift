@@ -15,13 +15,18 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
-    internal var cameraLvl : SKCameraNode?
     private var spinnyNode : SKShapeNode?
+    private var bakeryBackgroundNode : SKNode?
     
     override func sceneDidLoad() {
-        print("hello scens world")
         
         self.lastUpdateTime = 0
+        //Get real device size
+        
+        //1. Get the aspect ratio of the device
+        let deviceWidth = UIScreen.main.bounds.width + 1370
+        let deviceHeight = UIScreen.main.bounds.height + 790
+        let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
@@ -30,11 +35,18 @@ class GameScene: SKScene {
             label.run(SKAction.fadeIn(withDuration: 2.0))
         }
         
+        // Get Bakery backbround node scene and store it for use later
+        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+        if let bakery = self.bakeryBackgroundNode{
+            bakery.setScale(maxAspectRatio)
+        }
+        
         // Get Camera node from scene and store it for use later
         self.camera = self.childNode(withName: "camera") as? SKCameraNode
-        if let cameraLvl = self.cameraLvl {
-           print("foundهناا",cameraLvl)
+        if self.camera != nil {
+            setCameraConstraints()
         }
+
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
@@ -50,7 +62,7 @@ class GameScene: SKScene {
         }
     }
     
-    
+    //touchDown
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
@@ -59,6 +71,7 @@ class GameScene: SKScene {
         }
     }
     
+    //touchMoved
     func touchMoved(toPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
@@ -67,6 +80,7 @@ class GameScene: SKScene {
         }
     }
     
+    //touchUp
     func touchUp(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
@@ -75,6 +89,7 @@ class GameScene: SKScene {
         }
     }
     
+    //touchesBegan
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let label = self.label {
             label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
@@ -83,33 +98,31 @@ class GameScene: SKScene {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
+    //touchesMoved
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches {
             
             self.touchMoved(toPoint: t.location(in: self))
-            guard let touch = touches.first else {
-              return
-            }
-
+            
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
 
             self.camera?.position.x += location.x - previousLocation.x
-    //        camera?.position.y += location.y - previousLocation.y
-            
             
         }
     }
     
+    // override touchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
+    //override update
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -128,5 +141,61 @@ class GameScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+    }
+    
+    //setCameraConstraints
+    private func setCameraConstraints() {
+        // Don't try to set up camera constraints if we don't yet have a camera.
+        guard let camera = camera else { return }
+
+        /*
+            Also constrain the camera to avoid it moving to the very edges of the scene.
+            First, work out the scaled size of the scene. Its scaled height will always be
+            the original height of the scene, but its scaled width will vary based on
+            the window's current aspect ratio.
+        */
+        let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
+
+        /*
+            Find the root "board" node in the scene (the container node for
+            the level's background tiles).
+        */
+        guard let bekary = bakeryBackgroundNode else {
+            return
+        }
+        /*
+            Calculate the accumulated frame of this node.
+            The accumulated frame of a node is the outer bounds of all of the node's
+            child nodes, i.e. the total size of the entire contents of the node.
+            This gives us the bounding rectangle for the level's environment.
+        */
+        let boardContentRect = bekary.calculateAccumulatedFrame()
+
+        /*
+            Work out how far within this rectangle to constrain the camera.
+            We want to stop the camera when we get within 100pts of the edge of the screen,
+            unless the level is so small that this inset would be outside of the level.
+        */
+        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
+        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
+
+        // Use these insets to create a smaller inset rectangle within which the camera must stay.
+        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
+
+        // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
+        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
+        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+
+        // Constrain the camera within the inset rectangle.
+        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+        levelEdgeConstraint.referenceNode = bekary
+
+        /*
+            Add both constraints to the camera. The scene edge constraint is added
+            second, so that it takes precedence over following the `PlayerBot`.
+            The result is that the camera will follow the player, unless this would mean
+            moving too close to the edge of the level.
+        */
+        camera.constraints = [levelEdgeConstraint]
     }
 }
