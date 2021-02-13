@@ -15,9 +15,36 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
+    private var displayTime : SKLabelNode?
+    private var timerCircle : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
+    private var circle1 : SKShapeNode?
     
+    var gameTimer: Timer?
+    var fireworks = [SKNode]()
+
+    let leftEdge = -22
+    let bottomEdge = -22
+    let rightEdge = 1024 + 22
+    let timeLeftShapeLayer = CAShapeLayer()
+    let bgShapeLayer = CAShapeLayer()
+    var timeLeft: TimeInterval = 18//change
+    let timeLeft1=18//change
+    var endTime: Date?
+    var timeLabel =  UILabel()
+    var timer = Timer()
+    
+    
+    
+    // here you create your basic animation object to animate the strokeEnd
+    let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
+
+    var score = 0 {
+        didSet {
+            // your code here
+        }
+    }
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
@@ -34,6 +61,32 @@ class GameScene: SKScene {
             label.alpha = 0.0
             label.run(SKAction.fadeIn(withDuration: 2.0))
         }
+        
+        self.displayTime = self.childNode(withName: "Raghad") as? SKLabelNode
+        if self.displayTime != nil {
+           
+//            drawBgShape()
+//            drawTimeLeftShape()
+            addTimeLabel()
+            strokeIt.fromValue = 0
+            strokeIt.toValue = 1
+            strokeIt.duration = timeLeft
+            endTime = Date().addingTimeInterval(timeLeft)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            displayTime?.text=timeLeft.time
+            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+        }
+        
+        self.timerCircle = self.childNode(withName: "circle") as? SKLabelNode
+        if let label = self.timerCircle {
+            label.alpha = 0.0
+            drawBgShape()
+             drawTimeLeftShape()
+//
+//            label.run(SKAction.fadeIn(withDuration: 2.0))
+        }
+        
+        
         
         // Get Bakery backbround node scene and store it for use later
         self.bakeryBackgroundNode = self.childNode(withName: "bakery")
@@ -60,6 +113,9 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+//        drawBgShape()
+//        drawTimeLeftShape()
+        addTimeLabel()
     }
     
     //touchDown
@@ -198,4 +254,107 @@ class GameScene: SKScene {
         */
         camera.constraints = [levelEdgeConstraint]
     }
+    
+ 
+    
+    override func didMove(to view: SKView) {
+//        let background = SKSpriteNode(imageNamed: "background")
+//        background.position = CGPoint(x: 512, y: 384)
+//        background.blendMode = .replace
+//        background.zPosition = -1
+//        addChild(background)
+//        strokeIt.fromValue = 0
+//        strokeIt.toValue = 1
+//        strokeIt.duration = timeLeft
+        
+        
+//        addTimeLabel()
+//        timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        drawBgShape()
+        drawTimeLeftShape()
+//        addTimeLabel()
+        strokeIt.fromValue = 0
+        strokeIt.toValue = 1
+        strokeIt.duration = timeLeft
+        endTime = Date().addingTimeInterval(timeLeft)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
+    }
+    func drawBgShape() {
+ 
+               
+        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.midX , y: frame.midY), radius:
+            55, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+//        bgShapeLayer.strokeColor = UIColor.white.cgColor
+        bgShapeLayer.fillColor = UIColor.clear.cgColor
+        bgShapeLayer.lineWidth = 15
+        view?.layer.addSublayer(bgShapeLayer)
+        
+       
+    }
+    func drawTimeLeftShape() {
+        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: frame.midX , y: frame.midY), radius:
+            30, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
+        timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0).cgColor
+        timeLeftShapeLayer.fillColor = UIColor.clear.cgColor
+        //change the circle size
+        timeLeftShapeLayer.lineWidth = 60
+        view?.layer.addSublayer(timeLeftShapeLayer)
+    }
+    func addTimeLabel() {
+//        timeLabel = UILabel(frame: CGRect(x: (view?.frame.midX)!-150 ,y: view!.frame.midY-125, width: 100, height: 50))
+        timeLabel.textAlignment = .center
+        timeLabel.text = timeLeft.time
+        view?.addSubview(timeLabel)
+//        print(timeLeft.time)
+    }
+    
+    @objc func updateTime() {
+//        let greenTime=timeLeft+1//18
+
+        print(timeLeft1)
+        let greenTime=timeLeft1/3*2//12
+
+        let yellowTime=timeLeft1/3*1//6
+
+
+        if(Int(timeLeft)>greenTime){
+        timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+        //green
+        timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0).cgColor
+
+    }
+        else  if (Int(timeLeft) > yellowTime){
+     timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+     //yellow
+        timeLeftShapeLayer.strokeColor = UIColor(hue: 0.1333, saturation: 0.86, brightness: 1, alpha: 1.0).cgColor
+     }
+
+       else  if (timeLeft > 0 ){
+        timeLeft = endTime?.timeIntervalSinceNow ?? 0
+        displayTime?.text = timeLeft.time
+        //orange
+        timeLeftShapeLayer.strokeColor = UIColor(hue: 0.0972, saturation: 0.55, brightness: 0.91, alpha: 1.0).cgColor
+        }
+    else {
+        displayTime?.text = "انتهى الوقت!"
+        //red
+            timeLeftShapeLayer.strokeColor = UIColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0).cgColor
+        timer.invalidate()
+        }
+    }
 }
+
+extension TimeInterval {
+    var time: String {
+        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+    }
+}
+extension Int {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * .pi / 180
+    }
+}
+

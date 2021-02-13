@@ -18,7 +18,7 @@ class ChallengeViewController: UIViewController {
     var duration:Float?
     var orders:[Order]?
     var alert = AlertService()
-    
+    let timer2 = OrderTimer()
     //Outlet
     
     //MARK: - Lifecycle functions
@@ -35,9 +35,12 @@ class ChallengeViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @IBOutlet weak var timerViewHidden: UIView!
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
-        
+//        self.present(timer2.timer(time: 18), animated: true)
     }
     //MARK: -Set up UI Element
     

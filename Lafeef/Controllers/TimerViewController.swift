@@ -161,15 +161,15 @@ class TimerViewController: UIViewController {
 }
 
 
-extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
-    }
-}
-extension Int {
-    var degreesToRadians : CGFloat {
-        return CGFloat(self) * .pi / 180
-    }
-}
+//extension TimeInterval {
+//    var time: String {
+//        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+//    }
+//}
+//extension Int {
+//    var degreesToRadians : CGFloat {
+//        return CGFloat(self) * .pi / 180
+//    }
+//}
 
 
