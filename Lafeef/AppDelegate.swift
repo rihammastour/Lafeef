@@ -21,30 +21,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
+        //Firebase configuration
         FirebaseApp.configure()
         
-        
+        //Show Animated Splash Screen as intial screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let animatedSplashVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
-
-            self.window?.rootViewController = animatedSplashVC
-            self.window?.makeKeyAndVisible()
-       
         
+        self.window?.rootViewController = animatedSplashVC
+        self.window?.makeKeyAndVisible()
         
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
             
             if user != nil {
+                //Fetch user data
                 self.fetchUserInfo()
+                //Set is logged in child to true
                 animatedSplashVC.isChild = true
                 
             } else {
+                //Set is logged in child to false
                 animatedSplashVC.isChild = false
-  
-                
-                
             }
         }
         return true
@@ -71,11 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    //MARK: - Fetch Data
+    //MARK: - Fetch User Data
     func fetchUserInfo(){
-        //TODO: Should check local storage before fetch
-        //TODO: Fetch User Info , And check if previous two steps are needed
-        print("EXCUTIIIIIIII")
+        
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     
@@ -83,15 +82,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let data = data{
             do{
+                //Convert data to type Child
                 let child = try FirebaseDecoder().decode(Child.self, from: data)
-                print("child in appdalegate",child)
+                //Store child object in local storage
                 LocalStorageManager.setChild(child)
             }catch{
                 print("error while decoding ",error.localizedDescription)
+                //TODO:Alert..
             }
             
         }else{
             print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+            //TODO:Alert..
         }
     }
     
