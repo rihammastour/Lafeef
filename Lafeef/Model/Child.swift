@@ -14,5 +14,6 @@ struct Child: Codable {
       var money :Float = 0
       var name :String = ""
       var score :Int = 0
-      var sex :String = ""
+    
+    
 }

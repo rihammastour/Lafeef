@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trainig Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTk-sg-lc6">
-                                <rect key="frame" x="225" y="480" width="318" height="64.5"/>
+                                <rect key="frame" x="277.5" y="479" width="213" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-mC-x5B">
-                                <rect key="frame" x="353" y="591.5" width="62" height="30"/>
+                                <rect key="frame" x="353" y="592" width="62" height="30"/>
                                 <state key="normal" title="Go Back!"/>
                                 <connections>
                                     <action selector="goBackTapped:" destination="Avd-GU-Pjt" eventType="touchUpInside" id="A8G-NS-KbE"/>

@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
+		4180E1FC25D3276200B2ACD7 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 4180E1FB25D3276200B2ACD7 /* trophy.json */; };
+		4192B3F325D31713001BA8F5 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4192B3F225D31713001BA8F5 /* icecream.gif */; };
+		4193027325D1FEE700BACE0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4193027225D1FEE600BACE0B /* Podfile */; };
+		419EC42F25D081BD00A1B8B1 /* MihafReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
 		41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */; };
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
 		41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */; };
 		41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */; };
+		41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */ = {isa = PBXBuildFile; fileRef = 41CFB12225D084E3004D31F9 /* WinningReport.sks */; };
+		41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFB12725D08754004D31F9 /* WinningReport.swift */; };
+		41F4C23B25D0AADE000D4064 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23A25D0AADE000D4064 /* Reports.swift */; };
+		41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23F25D0AB72000D4064 /* levelInfo.swift */; };
+		41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24425D0ACF2000D4064 /* WinningViewController.swift */; };
+		41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LosingViewController.swift */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
@@ -79,12 +89,23 @@
 		0012A2D5C7CABC6C1AE985E3 /* Pods-Lafeef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.debug.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.debug.xcconfig"; sourceTree = "<group>"; };
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
-		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4180E1FB25D3276200B2ACD7 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trophy.json; path = ../../../../../../Downloads/trophy.json; sourceTree = "<group>"; };
+		4192B3F225D31713001BA8F5 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icecream.gif; path = ../../../../Lafeefsvg/icecream.gif; sourceTree = "<group>"; };
+		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Podfile"; sourceTree = "<group>"; };
+		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MihafReports.storyboard; sourceTree = "<group>"; };
 		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
 		41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCharachterViewController.swift; sourceTree = "<group>"; };
 		41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
+		41CFB12225D084E3004D31F9 /* WinningReport.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinningReport.sks; sourceTree = "<group>"; };
+		41CFB12725D08754004D31F9 /* WinningReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReport.swift; sourceTree = "<group>"; };
+		41F4C23A25D0AADE000D4064 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
+		41F4C23F25D0AB72000D4064 /* levelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelInfo.swift; sourceTree = "<group>"; };
+		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
+		41F4C24C25D0AD01000D4064 /* LosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosingViewController.swift; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +216,8 @@
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
+				41F4C24425D0ACF2000D4064 /* WinningViewController.swift */,
+				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4E453A4025B61D5100B8363F /* Lafeef */,
+				4193027725D1FEF000BACE0B /* Podfile */,
 				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
 				4E53480025BC904500ACA8BC /* Fonts */,
 				4E453A5825B61D5500B8363F /* LafeefTests */,
@@ -238,7 +262,8 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
-				5207346D25D34C9800268D72 /* Assets.xcassets */,
+				419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */,
+				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -278,6 +303,10 @@
 		4EDCA1F625C6249F00C29464 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4180E1FB25D3276200B2ACD7 /* trophy.json */,
+				41CFB12725D08754004D31F9 /* WinningReport.swift */,
+				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
+				4192B3F225D31713001BA8F5 /* icecream.gif */,
 				4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */,
 				4EB21B7B25CF768F0076530E /* ProgressBar.swift */,
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
@@ -290,10 +319,12 @@
 			children = (
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
 				4EB976E925CAD83900518EF9 /* AlertService.swift */,
+				41F4C23A25D0AADE000D4064 /* Reports.swift */,
 				C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */,
 				4EB976E825CAD83800518EF9 /* instruction.swift */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
+				41F4C23F25D0AB72000D4064 /* levelInfo.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
 			);
 			path = Model;
@@ -310,6 +341,7 @@
 		C92A658B25CB3DEA0060AA53 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				4193027225D1FEE600BACE0B /* Podfile */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -447,12 +479,18 @@
 			files = (
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
+				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
+				419EC42F25D081BD00A1B8B1 /* MihafReports.storyboard in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
+				4192B3F325D31713001BA8F5 /* icecream.gif in Resources */,
+				4193027325D1FEE700BACE0B /* Podfile in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
+				4180E1FC25D3276200B2ACD7 /* trophy.json in Resources */,
+				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
 				5207346E25D34C9800268D72 /* Assets.xcassets in Resources */,
@@ -624,11 +662,15 @@
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
+				41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
+				4EB9776225CB7C7600518EF9 /* SignUpViewController.swift in Sources */,
+				41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
 				C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */,
+				41F4C23B25D0AADE000D4064 /* Reports.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
@@ -638,11 +680,13 @@
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */,
 				C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */,
+				41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
+				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
@@ -829,7 +873,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -849,7 +893,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
