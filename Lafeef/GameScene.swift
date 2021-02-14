@@ -12,12 +12,26 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    
+    private var bear = SKSpriteNode()
+      private var bearWalkingFrames: [SKTexture] = []
+  //  let dog = SKSpriteNode(imageNamed: "boy")
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
+    override func didMove(to view: SKView) {
+     //   dog.size = CGSize(width: 200, height: 200)
+       // addChild(bear)
+       
+        
+       
+      // backgroundColor = .blue
+        buildBear()
+     //   animateBear()
+
+     }
     
+  
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
@@ -61,7 +75,38 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
     }
-    
+    func buildBear() {
+      let bearAnimatedAtlas = SKTextureAtlas(named: "WalkingWatermelon")
+      var walkFrames: [SKTexture] = []
+
+      let numImages = bearAnimatedAtlas.textureNames.count
+      for i in 1...numImages {
+        let bearTextureName = "WalkingWatermelon\(i)"
+        walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
+      }
+      bearWalkingFrames = walkFrames
+        let firstFrameTexture = bearWalkingFrames[0]
+        bear = SKSpriteNode(texture: firstFrameTexture)
+        bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
+        bear.size = CGSize(width: 200, height: 200)
+        addChild(bear)
+        animateBear()
+        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
+       bear.run(moveAction)
+        
+    }
+    func animateBear() {
+      bear.run(SKAction.repeatForever(
+        SKAction.animate(with: bearWalkingFrames,
+                         timePerFrame: 0.3,
+                         resize: false,
+                         restore: true)),
+        withKey:"walkingInPlaceBear")
+    }
+    func bearMoveEnded() {
+      bear.removeAllActions()
+    }
+
     //touchDown
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -111,12 +156,57 @@ class GameScene: SKScene {
             
         }
     }
-    
-    // override touchesEnded
+
+//
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+//      let touch = touches.first!
+//      var location = touch.location(in: self)
+//        location.y = frame.midY-58
+//      moveBear(location: location)
+//    }
+//    func moveBear(location: CGPoint) {
+//      // 1
+//      var multiplierForDirection: CGFloat
+//
+//      // 2
+//      let bearSpeed = frame.size.width / 3.0
+//
+//      // 3
+//      let moveDifference = CGPoint(x: location.x - bear.position.x, y: location.y - bear.position.y)
+//      let distanceToMove = sqrt(moveDifference.x * moveDifference.x + moveDifference.y * moveDifference.y)
+//
+//      // 4
+//      let moveDuration = distanceToMove / bearSpeed
+//
+//      // 5
+//      if moveDifference.x < 0 {
+//        multiplierForDirection = 1.0
+//      } else {
+//        multiplierForDirection = -1.0
+//      }
+//      bear.xScale = abs(bear.xScale) * multiplierForDirection
+//
+//        // 1
+//        if bear.action(forKey: "walkingInPlaceBear") == nil {
+//          // if legs are not moving, start them
+//          animateBear()
+//        }
+//
+//        // 2
+//        let moveAction = SKAction.move(to: location, duration:(TimeInterval(moveDuration)))
+//
+//        // 3
+//        let doneAction = SKAction.run({ [weak self] in
+//          self?.bearMoveEnded()
+//        })
+//
+//        // 4
+//        let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
+//        bear.run(moveActionWithDone, withKey:"bearMoving")
+//
     }
-    
+//
+
     //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }

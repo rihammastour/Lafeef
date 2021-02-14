@@ -38,6 +38,8 @@ class GameViewController: UIViewController {
                     view.showsNodeCount = true
                 }
             }
+            
+
         }
       
     }
@@ -57,4 +59,6 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+   
+
 }

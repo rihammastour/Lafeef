@@ -38,6 +38,8 @@
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
+		52A58A2225D821AA00725A08 /* Watermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52A58A2125D821AA00725A08 /* Watermelon.atlas */; };
+		52A58A2725D834DF00725A08 /* WalkingWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52A58A2625D834DF00725A08 /* WalkingWatermelon.atlas */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */; };
@@ -121,6 +123,8 @@
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		52A58A2125D821AA00725A08 /* Watermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Watermelon.atlas; path = ../../../../Downloads/Watermelon.atlas; sourceTree = "<group>"; };
+		52A58A2625D834DF00725A08 /* WalkingWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WalkingWatermelon.atlas; path = ../../../../Downloads/WalkingWatermelon.atlas; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeLevelsViewController.swift; path = Lafeef/ViewController/ChallengeLevelsViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -246,6 +250,8 @@
 		4E453A4025B61D5100B8363F /* Lafeef */ = {
 			isa = PBXGroup;
 			children = (
+				52A58A2625D834DF00725A08 /* WalkingWatermelon.atlas */,
+				52A58A2125D821AA00725A08 /* Watermelon.atlas */,
 				4E453A4125B61D5100B8363F /* AppDelegate.swift */,
 				C92A670525CEA0310060AA53 /* SceneDelegate.swift */,
 				4E453A4325B61D5100B8363F /* GameScene.sks */,
@@ -477,9 +483,11 @@
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
 				C9E4666425D2F32E0002161A /* Order.storyboard in Resources */,
+				52A58A2725D834DF00725A08 /* WalkingWatermelon.atlas in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
+				52A58A2225D821AA00725A08 /* Watermelon.atlas in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
 			);
