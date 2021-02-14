@@ -70,9 +70,10 @@ class ChallengeViewController: UIViewController {
     func showOrder(at number:Int) -> Void {
         print("show order at challenge vc invoked")
         let order = orders![number]
-        let base = PrepareOrderViewController.gatBaseName(order.base)
+        let base = Base.vanilaCupcake
+            //PrepareOrderViewController.gatBaseName(order.base)
         
-        let toppings = ["pineapple","kiwi","kiwi","kiwi"]
+        let toppings = [Topping.kiwi]
             //PrepareOrderViewController.getToppingsName(from: order.toppings)
         
         self.challengeScen?.setOrderContent(with: base, toppings)

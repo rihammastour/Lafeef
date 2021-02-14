@@ -73,7 +73,7 @@ class GameScene: SKScene {
     //MARK: - Set up Order Contents Functions
     
     //setOrderContent
-    func setOrderContent(with baseName:String,_ toppingsName:[String]?){
+    func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
         
         //unwrap order continer
         guard self.orderContiner != nil else {
@@ -85,45 +85,46 @@ class GameScene: SKScene {
         self.orderContiner?.isHidden = false
         
         //instilise base node
-        self.base = SKSpriteNode(imageNamed: baseName)
+        self.base = baseType.generateBaseNode()
         
         if let base = self.base {
-            base.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            base.position = CGPoint(x: 0, y: 15)
-            base.size = CGSize(width: 150, height: 150)
+            
             self.orderContiner?.addChild(base)
             
-            if let toppings = toppingsName{
-                for t in toppings {
-                    
-                    switch self.toopingCounter{
-                    case 0:
-                        setTopping(at: PositionTopping.topRight(t))
-                    case 1:
-                        setTopping(at: PositionTopping.topLeft(t))
-                    case 2:
-                        setTopping(at: PositionTopping.bottomRight(t))
-                    case 3:
-                        setTopping(at: PositionTopping.bottomLeft(t))
-                    default:
-                        print("cannot add more than 4")
-                    }
-                    
+            //unwrap toopings array if any
+            guard let toppings = toppings else{
+                return
+            }
+            
+            for t in toppings {
+                
+                switch self.toopingCounter{
+                case 0:
+                    setTopping(at: PositionTopping.topRight(t),for: baseType)
+                case 1:
+                    setTopping(at: PositionTopping.topLeft(t),for: baseType)
+                case 2:
+                    setTopping(at: PositionTopping.bottomLeft(t),for: baseType)
+                case 3:
+                    setTopping(at: PositionTopping.bottomRight(t),for: baseType)
+                default:
+                    print("cannot add more than 4")
                 }
                 
             }
+            
         }
+        
         
     }
     
     
-    
-    func setTopping(at position:PositionTopping){
-
+    //setTopping
+    func setTopping(at position:PositionTopping,for baseType:Base){
+        
         toopingCounter += 1
-        print("filled array",position)
-        let node = position.generateNode()
-
+        let node = position.generateNode(for: baseType)
+        
         base?.addChild(node)
         
     }
@@ -210,6 +211,7 @@ class GameScene: SKScene {
         
         self.lastUpdateTime = currentTime
     }
+    //MARK:- Constrains
     
     //setCameraConstraints
     private func setCameraConstraints() {

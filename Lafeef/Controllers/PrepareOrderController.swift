@@ -1,5 +1,5 @@
 //
-//  OrderViewController.swift
+//  PrepareOrderController.swift
 //  Lafeef
 //
 //  Created by Renad nasser on 09/02/2021.
@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import SpriteKit
 
-class PrepareOrderViewController {
+class PrepareOrderController {
     
     //MARK: - Functions
     
@@ -36,21 +36,35 @@ class PrepareOrderViewController {
     
     
     //getToppingsName
-    static func getToppingsName(from array:[String:Int]?) -> [String]?{
+    static func getToppingsName(from array:[String:Int]?) -> [Topping]?{
         
         guard let array = array else {
             return nil
         }
         
-        var toppingsName:[String] = []
+        var toppingsName:[Topping] = []
         
         for (key, value) in array{
             if toppingsName.count == 4 {
                 break }
             //Stract number of topping as repeated of its name
             for _ in 1 ... value{
-                toppingsName.append(key)
-            }
+                                
+                switch key {
+                case "strawberry":
+                    toppingsName.append(Topping.strawberry)
+                case "pineapple":
+                    toppingsName.append(Topping.pineapple)
+                case "kiwi":
+                    toppingsName.append(Topping.kiwi)
+                case "darkChocolate":
+                    toppingsName.append(Topping.darkChocolate)
+                case "whiteChocolate":
+                    toppingsName.append(Topping.whiteChocolate)
+                default:
+                    print("undefined topping")
+                }
+                            }
         }
         return toppingsName
     }
