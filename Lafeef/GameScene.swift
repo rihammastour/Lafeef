@@ -30,8 +30,8 @@ class GameScene: SKScene {
     
     let timeLeftShapeLayer = CAShapeLayer()
     let bgShapeLayer = CAShapeLayer()
-    var timeLeft: TimeInterval = 18//change
-    let timeLeft1=18//change
+    var timeLeft: TimeInterval = 120//change
+    let timeLeft1=120//change
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
@@ -308,12 +308,12 @@ class GameScene: SKScene {
         
         
         let circle = SKShapeNode(circleOfRadius: 50)
-         circle.fillColor = SKColor.blue
+         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
          circle.strokeColor = SKColor.clear
          circle.zRotation = CGFloat.pi / 2
          addChild(circle)
 
-        countdown(circle: circle, steps: 18, duration: 18) {
+        countdown(circle: circle, steps: 120, duration: 120) {
              print("done")
          }
         
@@ -337,17 +337,21 @@ class GameScene: SKScene {
             print("step here")
             print(self.timeLeft)
             print("end steps")
-            if( Int(self.timeLeft) == 12){
+            if( Int(self.timeLeft) < 120){
+                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+                
+
+
+            }
+            
+            if( Int(self.timeLeft) < 60){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
             
-            if( Int(self.timeLeft) == 6){
-                circle.fillColor = SKColor.black
+            if( Int(self.timeLeft) < 25){
+                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
-            if( Int(self.timeLeft) == 3){
-                circle.fillColor = SKColor.green
-            }
             
         }
         let wait = SKAction.wait(forDuration:timeInterval)
