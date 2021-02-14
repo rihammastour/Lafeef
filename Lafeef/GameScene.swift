@@ -348,7 +348,7 @@ class GameScene: SKScene {
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
             
-            if( Int(self.timeLeft) < 25){
+            if( Int(self.timeLeft) < 25 && Int(self.timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
