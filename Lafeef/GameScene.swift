@@ -22,9 +22,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
      //   dog.size = CGSize(width: 200, height: 200)
        // addChild(bear)
-       
-        
-       
       // backgroundColor = .blue
         buildBear()
      //   animateBear()
@@ -76,12 +73,24 @@ class GameScene: SKScene {
         }
     }
     func buildBear() {
-      let bearAnimatedAtlas = SKTextureAtlas(named: "WalkingWatermelon")
+       
+      var bearAnimatedAtlas = SKTextureAtlas(named: "WalkingWatermelon")
       var walkFrames: [SKTexture] = []
+        var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
 
+//var flag = false
       let numImages = bearAnimatedAtlas.textureNames.count
+        if (bear.position == Waitinglocation)  {
+            bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
+        }
       for i in 1...numImages {
-        let bearTextureName = "WalkingWatermelon\(i)"
+       
+       
+            var bearTextureName = "WalkingWatermelon\(i)"
+
+        if (bear.position == Waitinglocation)  {
+            bearTextureName = "HappyWatermelon\(i)"
+        }
         walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
       }
       bearWalkingFrames = walkFrames
@@ -90,21 +99,86 @@ class GameScene: SKScene {
         bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
         bear.size = CGSize(width: 200, height: 200)
         addChild(bear)
-        animateBear()
-        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
-       bear.run(moveAction)
+//        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
+//       bear.run(moveAction)
+       // if (bear.position == CGPoint(x: frame.midX+300, y: frame.midY+510) ) {
+       //            bearTextureName = "HappyWatermelon\(i)"
+         //   animateBear()
+            animateBear()
+        var location = CGPoint(x: frame.midX+20, y: frame.midY-58)
+               moveBear(location: location)
+       // var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
+        if (bear.position == Waitinglocation){
+        print("الحمدلله")
+        }
+       // if (bear.position == location){
+        print("here areej/////////////////////////")
+            print(bear.position)
+        print("done areej/////////////////////////")
+      //  }
+       //        }
         
     }
+    
+    func buildBear2() {
+       
+//      var bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
+//      var walkFrames: [SKTexture] = []
+//        var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
+//
+////var flag = false
+//      let numImages = bearAnimatedAtlas.textureNames.count
+//        if (bear.position == Waitinglocation)  {
+//            bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
+//        }
+//      for i in 1...numImages {
+//
+//
+//            var bearTextureName = "HappyWatermelon\(i)"
+//
+//        if (bear.position == Waitinglocation)  {
+//            bearTextureName = "HappyWatermelon\(i)"
+//        }
+//        walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
+//      }
+//      bearWalkingFrames = walkFrames
+//        let firstFrameTexture = bearWalkingFrames[0]
+//        bear = SKSpriteNode(texture: firstFrameTexture)
+       // bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
+        //bear.size = CGSize(width: 200, height: 200)
+       // addChild(bear)
+//        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
+//       bear.run(moveAction)
+       // if (bear.position == CGPoint(x: frame.midX+300, y: frame.midY+510) ) {
+       //            bearTextureName = "HappyWatermelon\(i)"
+         //   animateBear()
+            animateBear()
+//        var location = CGPoint(x: frame.midX+20, y: frame.midY-58)
+//               moveBear(location: location)
+       // var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
+//        if (bear.position == Waitinglocation){
+//        print("الحمدلله")
+//        }
+       // if (bear.position == location){
+        print("here jjjjjjjjjjjjjjjjjjjjjjjjj/////////////////////////")
+            print(bear.position)
+        print("done areej/////////////////////////")
+      //  }
+       //        }
+        
+    }
+ 
     func animateBear() {
-      bear.run(SKAction.repeatForever(
-        SKAction.animate(with: bearWalkingFrames,
-                         timePerFrame: 0.3,
-                         resize: false,
-                         restore: true)),
+        bear.run(SKAction.repeatForever(SKAction.animate(with: bearWalkingFrames,
+                                                         timePerFrame: 0.3,
+                                                         resize: false,
+                                                         restore: true)),
         withKey:"walkingInPlaceBear")
+        
     }
     func bearMoveEnded() {
       bear.removeAllActions()
+        buildBear2()
     }
 
     //touchDown
@@ -158,54 +232,54 @@ class GameScene: SKScene {
     }
 
 //
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 //      let touch = touches.first!
 //      var location = touch.location(in: self)
 //        location.y = frame.midY-58
 //      moveBear(location: location)
 //    }
-//    func moveBear(location: CGPoint) {
-//      // 1
-//      var multiplierForDirection: CGFloat
-//
-//      // 2
-//      let bearSpeed = frame.size.width / 3.0
-//
-//      // 3
-//      let moveDifference = CGPoint(x: location.x - bear.position.x, y: location.y - bear.position.y)
-//      let distanceToMove = sqrt(moveDifference.x * moveDifference.x + moveDifference.y * moveDifference.y)
-//
-//      // 4
-//      let moveDuration = distanceToMove / bearSpeed
-//
-//      // 5
-//      if moveDifference.x < 0 {
-//        multiplierForDirection = 1.0
-//      } else {
-//        multiplierForDirection = -1.0
-//      }
-//      bear.xScale = abs(bear.xScale) * multiplierForDirection
-//
-//        // 1
-//        if bear.action(forKey: "walkingInPlaceBear") == nil {
-//          // if legs are not moving, start them
-//          animateBear()
-//        }
-//
-//        // 2
-//        let moveAction = SKAction.move(to: location, duration:(TimeInterval(moveDuration)))
-//
-//        // 3
-//        let doneAction = SKAction.run({ [weak self] in
-//          self?.bearMoveEnded()
-//        })
-//
-//        // 4
-//        let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
-//        bear.run(moveActionWithDone, withKey:"bearMoving")
-//
+    func moveBear(location: CGPoint) {
+      // 1
+      var multiplierForDirection: CGFloat
+
+      // 2
+      let bearSpeed = frame.size.width / 3.0
+
+      // 3
+      let moveDifference = CGPoint(x: location.x - bear.position.x, y: location.y - bear.position.y)
+      let distanceToMove = sqrt(moveDifference.x * moveDifference.x + moveDifference.y * moveDifference.y)
+
+      // 4
+      let moveDuration = distanceToMove / bearSpeed
+
+      // 5
+      if moveDifference.x < 0 {
+        multiplierForDirection = 1.0
+      } else {
+        multiplierForDirection = -1.0
+      }
+      bear.xScale = abs(bear.xScale) * multiplierForDirection
+
+        // 1
+        if bear.action(forKey: "walkingInPlaceBear") == nil {
+          // if legs are not moving, start them
+          animateBear()
+        }
+
+        // 2
+        let moveAction = SKAction.move(to: location, duration:(TimeInterval(moveDuration)))
+
+        // 3
+        let doneAction = SKAction.run({ [weak self] in
+          self?.bearMoveEnded()
+        })
+
+        // 4
+        let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
+        bear.run(moveActionWithDone, withKey:"bearMoving")
+
     }
-//
+
 
     //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
