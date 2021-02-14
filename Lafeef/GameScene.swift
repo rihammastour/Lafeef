@@ -10,32 +10,38 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    //MARK: -
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    
     private var lastUpdateTime : TimeInterval = 0
+    var toopingCounter : Int = 0
+    
+    //MARK: - Nodes
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     
+    //Order Conent
+    private var orderContiner : SKSpriteNode?
+    private var base : SKSpriteNode?
+    private var toppingOne : SKSpriteNode?
+    private var toppingTwo : SKSpriteNode?
+    private var toppingThree : SKSpriteNode?
+    private var toppingFour : SKSpriteNode?
+    
+    //MARK: - Lifecycle
     override func sceneDidLoad() {
         
         self.lastUpdateTime = 0
+        
         //Get real device size
+        let deviceWidth = UIScreen.main.bounds.width
+        let deviceHeight = UIScreen.main.bounds.height
         
-        //1. Get the aspect ratio of the device
-        let deviceWidth = UIScreen.main.bounds.width + 1370
-        let deviceHeight = UIScreen.main.bounds.height + 790
-        let maxAspectRatio: CGFloat = deviceWidth / deviceHeight
+        //Get the aspect ratio
+        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Get Bakery backbround node scene and store it for use later
+        // Get Bakery background node scene and store it for use later
         self.bakeryBackgroundNode = self.childNode(withName: "bakery")
         if let bakery = self.bakeryBackgroundNode{
             bakery.setScale(maxAspectRatio)
@@ -46,7 +52,10 @@ class GameScene: SKScene {
         if self.camera != nil {
             setCameraConstraints()
         }
-
+        
+        // Get Order Continer node from scene and store it for use later
+        self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
+        self.orderContiner?.isHidden = true
         
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
@@ -61,6 +70,65 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
     }
+    //MARK: - Set up Order Contents Functions
+    
+    //setOrderContent
+    func setOrderContent(with baseName:String,_ toppingsName:[String]?){
+        
+        //unwrap order continer
+        guard self.orderContiner != nil else {
+            print("no order continer")
+            return
+        }
+        
+        //make order visible
+        self.orderContiner?.isHidden = false
+        
+        //instilise base node
+        self.base = SKSpriteNode(imageNamed: baseName)
+        
+        if let base = self.base {
+            base.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            base.position = CGPoint(x: 0, y: 15)
+            base.size = CGSize(width: 150, height: 150)
+            self.orderContiner?.addChild(base)
+            
+            if let toppings = toppingsName{
+                for t in toppings {
+                    
+                    switch self.toopingCounter{
+                    case 0:
+                        setTopping(at: PositionTopping.topRight(t))
+                    case 1:
+                        setTopping(at: PositionTopping.topLeft(t))
+                    case 2:
+                        setTopping(at: PositionTopping.bottomRight(t))
+                    case 3:
+                        setTopping(at: PositionTopping.bottomLeft(t))
+                    default:
+                        print("cannot add more than 4")
+                    }
+                    
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    func setTopping(at position:PositionTopping){
+
+        toopingCounter += 1
+        print("filled array",position)
+        let node = position.generateNode()
+
+        base?.addChild(node)
+        
+    }
+    
+    //MARK: - Actions Functions
     
     //touchDown
     func touchDown(atPoint pos : CGPoint) {
@@ -106,7 +174,7 @@ class GameScene: SKScene {
             
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
-
+            
             self.camera?.position.x += location.x - previousLocation.x
             
         }
@@ -147,55 +215,55 @@ class GameScene: SKScene {
     private func setCameraConstraints() {
         // Don't try to set up camera constraints if we don't yet have a camera.
         guard let camera = camera else { return }
-
+        
         /*
-            Also constrain the camera to avoid it moving to the very edges of the scene.
-            First, work out the scaled size of the scene. Its scaled height will always be
-            the original height of the scene, but its scaled width will vary based on
-            the window's current aspect ratio.
-        */
+         Also constrain the camera to avoid it moving to the very edges of the scene.
+         First, work out the scaled size of the scene. Its scaled height will always be
+         the original height of the scene, but its scaled width will vary based on
+         the window's current aspect ratio.
+         */
         let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
-
+        
         /*
-            Find the root "board" node in the scene (the container node for
-            the level's background tiles).
-        */
+         Find the root "board" node in the scene (the container node for
+         the level's background tiles).
+         */
         guard let bekary = bakeryBackgroundNode else {
             return
         }
         /*
-            Calculate the accumulated frame of this node.
-            The accumulated frame of a node is the outer bounds of all of the node's
-            child nodes, i.e. the total size of the entire contents of the node.
-            This gives us the bounding rectangle for the level's environment.
-        */
+         Calculate the accumulated frame of this node.
+         The accumulated frame of a node is the outer bounds of all of the node's
+         child nodes, i.e. the total size of the entire contents of the node.
+         This gives us the bounding rectangle for the level's environment.
+         */
         let boardContentRect = bekary.calculateAccumulatedFrame()
-
+        
         /*
-            Work out how far within this rectangle to constrain the camera.
-            We want to stop the camera when we get within 100pts of the edge of the screen,
-            unless the level is so small that this inset would be outside of the level.
-        */
+         Work out how far within this rectangle to constrain the camera.
+         We want to stop the camera when we get within 100pts of the edge of the screen,
+         unless the level is so small that this inset would be outside of the level.
+         */
         let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
         let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
-
+        
         // Use these insets to create a smaller inset rectangle within which the camera must stay.
         let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
-
+        
         // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
         let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
         let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-
+        
         // Constrain the camera within the inset rectangle.
         let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
         levelEdgeConstraint.referenceNode = bekary
-
+        
         /*
-            Add both constraints to the camera. The scene edge constraint is added
-            second, so that it takes precedence over following the `PlayerBot`.
-            The result is that the camera will follow the player, unless this would mean
-            moving too close to the edge of the level.
-        */
+         Add both constraints to the camera. The scene edge constraint is added
+         second, so that it takes precedence over following the `PlayerBot`.
+         The result is that the camera will follow the player, unless this would mean
+         moving too close to the edge of the level.
+         */
         camera.constraints = [levelEdgeConstraint]
     }
 }

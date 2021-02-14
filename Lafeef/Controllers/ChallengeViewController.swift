@@ -9,6 +9,7 @@ import UIKit
 import CodableFirebase
 import SpriteKit
 import GameplayKit
+
 class ChallengeViewController: UIViewController {
     
     //MARK: - Proprites
@@ -18,56 +19,28 @@ class ChallengeViewController: UIViewController {
     var duration:Float?
     var orders:[Order]?
     var alert = AlertService()
+    var challengeScen:GameScene?
     
     //Outlet
+    @IBOutlet weak var gameScen: SKView!
     
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Additional setup after loading the view.
-        setUpElements()
+        setScene()
         fetchChallengeLevel()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
     //MARK: -Set up UI Element
-    
-    //setUpElements
-    func setUpElements(){
-        setScene()
-    }
-    
     
     //setScens
     func setScene(){
-        if let scene = GKScene(fileNamed: "tryChallenge") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                
-                // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = SKSceneScaleMode.resizeFill
-                
-              //  sceneNode.scaleMode = .aspectFill
-
-                
-            }
-            
-        }
         
+        self.challengeScen = gameScen.scene as! GameScene
+
     }
     
     
@@ -90,13 +63,19 @@ class ChallengeViewController: UIViewController {
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-    //showOrder(at: 2) // must be called by character
+        showOrder(at: 3) // must be called by character
     }
     
     //showOrder
     func showOrder(at number:Int) -> Void {
+        print("show order at challenge vc invoked")
         let order = orders![number]
-        self.present(order.showOrder(), animated: true)
+        let base = PrepareOrderViewController.gatBaseName(order.base)
+        
+        let toppings = ["pineapple","kiwi","kiwi","kiwi"]
+            //PrepareOrderViewController.getToppingsName(from: order.toppings)
+        
+        self.challengeScen?.setOrderContent(with: base, toppings)
     }
     
     //nextOrder

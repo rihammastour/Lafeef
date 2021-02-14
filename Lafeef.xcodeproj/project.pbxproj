@@ -56,12 +56,12 @@
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
+		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
-		C9E4666425D2F32E0002161A /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9E4666325D2F32E0002161A /* Order.storyboard */; };
-		C9E4666C25D2F3EA0002161A /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* OrderViewController.swift */; };
+		C9E4666C25D2F3EA0002161A /* PrepareOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* PrepareOrderViewController.swift */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 		C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -138,12 +138,12 @@
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
+		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
-		C9E4666325D2F32E0002161A /* Order.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		C9E4666B25D2F3EA0002161A /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		C9E4666B25D2F3EA0002161A /* PrepareOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareOrderViewController.swift; sourceTree = "<group>"; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		41BD684225BABE7800257EA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C9E4666B25D2F3EA0002161A /* OrderViewController.swift */,
+				C9E4666B25D2F3EA0002161A /* PrepareOrderViewController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
@@ -256,7 +256,6 @@
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
-				C9E4666325D2F32E0002161A /* Order.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
@@ -319,6 +318,7 @@
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
 				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
+				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,7 +476,6 @@
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
-				C9E4666425D2F32E0002161A /* Order.storyboard in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
@@ -647,10 +646,11 @@
 			files = (
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
-				C9E4666C25D2F3EA0002161A /* OrderViewController.swift in Sources */,
+				C9E4666C25D2F3EA0002161A /* PrepareOrderViewController.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
+				C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */,
 				4EB9776225CB7C7600518EF9 /* SignUpViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,

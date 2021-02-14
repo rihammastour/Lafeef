@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
+                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,18 +115,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
+                    <connections>
+                        <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6652" y="-381"/>
-        </scene>
-        <!--OrderVC-->
-        <scene sceneID="sxB-fz-aBo">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="OrderVC" storyboardName="Order" referencedIdentifier="OrderVC" id="H95-Oi-AFa" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5B4-A0-4zU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7305" y="-389"/>
         </scene>
     </scenes>
     <resources>
