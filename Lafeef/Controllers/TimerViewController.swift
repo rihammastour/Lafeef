@@ -29,6 +29,7 @@ class TimerViewController: UIViewController {
         bgShapeLayer.fillColor = UIColor.clear.cgColor
         bgShapeLayer.lineWidth = 15
         view.layer.addSublayer(bgShapeLayer)
+        
     }
 
 
@@ -109,6 +110,7 @@ class TimerViewController: UIViewController {
            // define the future end time by adding the timeLeft to now Date()
 //           endTime = Date().addingTimeInterval(timeLeft)
 //           timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        
 
     }
 
