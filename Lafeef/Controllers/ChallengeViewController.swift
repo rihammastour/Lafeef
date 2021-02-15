@@ -40,7 +40,7 @@ class ChallengeViewController: UIViewController {
     func setScene(){
         
         self.challengeScen = gameScen.scene as! GameScene
-
+        
     }
     
     
@@ -50,7 +50,7 @@ class ChallengeViewController: UIViewController {
     func fetchChallengeLevel(){
         
         guard let levelNum = levelNum else {
-            //TODO: Alert
+            //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
@@ -68,13 +68,13 @@ class ChallengeViewController: UIViewController {
     
     //showOrder
     func showOrder(at number:Int) -> Void {
-        print("show order at challenge vc invoked")
+        
         let order = orders![number]
         let base = Base.vanilaCupcake
-            //PrepareOrderViewController.gatBaseName(order.base)
+        //PrepareOrderViewController.gatBaseName(order.base)
         
         let toppings = [Topping.kiwi]
-            //PrepareOrderViewController.getToppingsName(from: order.toppings)
+        //PrepareOrderViewController.getToppingsName(from: order.toppings)
         
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
@@ -90,13 +90,10 @@ class ChallengeViewController: UIViewController {
     }
     
     
-    //MARK: - Actions
-    
     //MARK: - Delegate handeler
     
     //showAlert
     func showAlert(with message:String) {
-        print("Invoked")
         alert.Alert(body: message)
     }
     
@@ -105,9 +102,10 @@ class ChallengeViewController: UIViewController {
         
         if err != nil{
             print("Challenge View Controller",err!)
+            
             if err?.localizedDescription == "Failed to get document because the client is offline."{
                 print("تأكد من اتصال الانترنيت")
-                //TODO: Alert and update button and logout
+                //TODO: Alert and update button and go back
             }
             
         }else{

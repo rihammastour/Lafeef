@@ -12,7 +12,9 @@ import GameplayKit
 
 class TimerViewController: UIViewController {
     
-    //MARK: - Variables
+    //MARK: - Proprites
+    
+    //MARK: Variables
     
     let timeLeftShapeLayer = CAShapeLayer()
     let bgShapeLayer = CAShapeLayer()

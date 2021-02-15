@@ -19,23 +19,27 @@ enum Base : String {
     case chocolateCupcake = "cupcake-ch"
     
     
-    func generateBaseNode() -> SKSpriteNode {
+    func getBaseSize() -> CGSize {
+        
         switch self {
         case .cake , .quarterCake , .halfCake,.threequarterCake:
-            let node = SKSpriteNode(imageNamed: self.rawValue)
-            node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            node.position = CGPoint(x: 0, y: 15)
-            node.size = CGSize(width: 150, height: 150)
-            return node
+            return CGSize(width: 150, height: 150)
+            
         case .chocolateCupcake , .vanilaCupcake:
-            let node = SKSpriteNode(imageNamed: self.rawValue)
-            node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            node.position = CGPoint(x: 0, y: 15)
-            node.size = CGSize(width: 80, height: 80)
-            return node
+            return CGSize(width: 80, height: 80)
         }
     }
     
+    func getPrice() -> Float {
+        
+        switch self {
+        case .cake : return 100
+        case .quarterCake : return 25
+        case .halfCake : return 50
+        case .threequarterCake: return 75
+        case .chocolateCupcake , .vanilaCupcake: return 15
+
+        }
     }
-
-
+    
+}

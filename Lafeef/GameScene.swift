@@ -10,49 +10,48 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    //MARK: -
+    //MARK: - Proprites
+    
+    //MARK: Variables
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
     
-    //MARK: - Nodes
+    //MARK:  Nodes Variables
+    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     
-    //Order Conent
+    //Order Conent node variables
     private var orderContiner : SKSpriteNode?
     private var base : SKSpriteNode?
-    private var toppingOne : SKSpriteNode?
-    private var toppingTwo : SKSpriteNode?
-    private var toppingThree : SKSpriteNode?
-    private var toppingFour : SKSpriteNode?
     
-    //Timer variable
+    //Timer variables
     var timeLeft: TimeInterval = 120//change
     let timeLeft1=120//change
     var timer = Timer()
     private var displayTime : SKLabelNode?
     var endTime: Date?
     
-    //MARK: - Lifecycle
+    //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
         
-        self.lastUpdateTime = 0
+        setupSceneElements()
         
-        //Get real device size
-        let deviceWidth = UIScreen.main.bounds.width
-        let deviceHeight = UIScreen.main.bounds.height
+    }
+    
+    //MARK: - Functions
+    
+    //MARK: - Set up Scene Eslements Functions
+    
+    //setupSceneElements
+    func setupSceneElements(){
         
-        //Get the aspect ratio
-        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
-        
-        // Get Bakery background node scene and store it for use later
-        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
-        if let bakery = self.bakeryBackgroundNode{
-            bakery.setScale(maxAspectRatio)
-        }
+        //Set background Bakery
+        self.setBackgroundBakary()
         
         // Get Camera node from scene and store it for use later
         self.camera = self.childNode(withName: "camera") as? SKCameraNode
@@ -64,7 +63,7 @@ class GameScene: SKScene {
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
         self.orderContiner?.isHidden = true
         
-        // Create shape node to use during mouse interaction
+        // Create shape node to use during mouse interaction ????
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
@@ -78,29 +77,40 @@ class GameScene: SKScene {
         }
         
         
-        //Creat leble to display time
+        //Creat leble to display time ????
         self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-                if self.displayTime != nil {
-                   
+        if self.displayTime != nil {
+            
+            endTime = Date().addingTimeInterval(timeLeft)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            displayTime?.text=timeLeft.time
+            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+            displayTime?.isHidden=true
+            
+        }
+        
+    }
     
-                    endTime = Date().addingTimeInterval(timeLeft)
-                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-                    displayTime?.text=timeLeft.time
-                    displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-                    displayTime?.isHidden=true
-                    
-//                    displayTime?.color=SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-                    
-                    
-                    
-                    
-                    
-                }
+    //setBackgroundBakary
+    func setBackgroundBakary(){
+        
+        //Get real device size
+        let deviceWidth = UIScreen.main.bounds.width
+        let deviceHeight = UIScreen.main.bounds.height
+        
+        //Get the aspect ratio
+        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
+        
+        // Get Bakery background node scene and store it for use later
+        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+        if let bakery = self.bakeryBackgroundNode{
+            bakery.setScale(maxAspectRatio)
+        }
     }
     
     
     
-    //MARK: - Set up Order Contents Functions
+    //MARK:  - Set up Order Contents Functions
     
     //setOrderContent
     func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
@@ -114,11 +124,12 @@ class GameScene: SKScene {
         //make order visible
         self.orderContiner?.isHidden = false
         
-        //instilise base node
-        self.base = baseType.generateBaseNode()
+        //Create base node
+        self.base = createBaseNode(with: baseType)
         
         if let base = self.base {
             
+            //add base to continerOrder
             self.orderContiner?.addChild(base)
             
             //unwrap toopings array if any
@@ -126,49 +137,177 @@ class GameScene: SKScene {
                 return
             }
             
+            //Topping
             for t in toppings {
                 
                 switch self.toopingCounter{
                 case 0:
-                    setTopping(at: PositionTopping.topRight(t),for: baseType)
+                    createTopping(at: PositionTopping.topRight(baseType),as: t)
                 case 1:
-                    setTopping(at: PositionTopping.topLeft(t),for: baseType)
+                    createTopping(at: PositionTopping.topLeft(baseType),as: t)
                 case 2:
-                    setTopping(at: PositionTopping.bottomLeft(t),for: baseType)
+                    createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
                 case 3:
-                    setTopping(at: PositionTopping.bottomRight(t),for: baseType)
+                    createTopping(at: PositionTopping.bottomRight(baseType),as: t)
                 default:
-                    print("cannot add more than 4")
+                    print("cannot add more than 4 toppings")
                 }
                 
             }
             
         }
         
-        //call the timer
-        let circle = SKShapeNode(circleOfRadius: 46)
-    circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
-         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-         circle.strokeColor = SKColor.clear
-         circle.zRotation = CGFloat.pi / 2
-         addChild(circle)
-
-        countdown(circle: circle, steps: 120, duration: 120) {
-             print("done")
-         }
-        
+        //Start the Timer
+        self.startTimer()
         
     }
     
     
     //setTopping
-    func setTopping(at position:PositionTopping,for baseType:Base){
+    func createTopping(at position:PositionTopping,as topping:Topping){
         
         toopingCounter += 1
-        let node = position.generateNode(for: baseType)
+        
+        let node = SKSpriteNode(imageNamed: topping.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = position.getPosition()
+        node.size = CGSize(width: 60, height: 60)
+        node.zRotation = position.getZRotation(for: topping)
         
         base?.addChild(node)
         
+    }
+    
+    func createBaseNode(with base:Base) -> SKSpriteNode{
+        
+        let node = SKSpriteNode(imageNamed: base.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = CGPoint(x: 0, y: 15)
+        
+        //get base size depens on base type
+        node.size = base.getBaseSize()
+        return node
+    }
+    
+    //startTimer
+    func startTimer(){
+        let circle = SKShapeNode(circleOfRadius: 46)
+        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
+        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        circle.strokeColor = SKColor.clear
+        circle.zRotation = CGFloat.pi / 2
+        addChild(circle)
+        
+        countdown(circle: circle, steps: 120, duration: 120) {
+        }
+    }
+    
+    //MARK:- Timer function
+    // Creates an animated countdown timer
+    func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
+        guard let path = circle.path else {
+            return
+        }
+        
+        
+        let radius = path.boundingBox.width/2
+        let timeInterval = duration/TimeInterval(steps)
+        let incr = 1 / CGFloat(steps)
+        var percent = CGFloat(1.0)
+        
+        let animate = SKAction.run {
+            percent -= incr
+            circle.path = self.circle(radius: radius, percent:percent)
+            
+            if( Int(self.timeLeft) < 120){
+                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+                
+                
+                
+            }
+            
+            if( Int(self.timeLeft) < 60){
+                circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
+            }
+            
+            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
+                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+            }
+            
+            
+        }
+        let wait = SKAction.wait(forDuration:timeInterval)
+        let action = SKAction.sequence([wait, animate])
+        
+        run(SKAction.repeat(action,count:steps-1)) {
+            
+            
+            if( percent == 15){
+                circle.fillColor = SKColor.red
+            }
+            self.run(SKAction.wait(forDuration:timeInterval)) {
+                circle.path = nil
+                //                circle.fillColor = SKColor.red
+                completion()
+            }
+            
+        }
+        
+        
+    }
+    
+    // Creates a CGPath in the shape of a pie with slices missing
+    func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
+        let start:CGFloat = 0
+        let end = CGFloat.pi * 2 * percent
+        let center = CGPoint.zero
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to:center)
+        bezierPath.addArc(withCenter:center, radius: radius, startAngle: start, endAngle: end, clockwise: true)
+        bezierPath.addLine(to:center)
+        return bezierPath.cgPath
+    }
+    
+    //update time
+    @objc func updateTime() {
+        
+        let greenTime=timeLeft1/3*2//12
+        
+        let yellowTime=timeLeft1/3*1//6
+        
+        
+        if(Int(timeLeft)>greenTime){
+            displayTime?.fontName =  "FF Hekaya"
+            timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+            //green
+            
+            
+        }
+        else  if (Int(timeLeft) > yellowTime){
+            displayTime?.fontName =  "FF Hekaya"
+            timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+            //yellow
+            
+        }
+        
+        else  if (timeLeft > 0 ){
+            displayTime?.fontName =  "FF Hekaya"
+            timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+            //orange
+            
+        }
+        else {
+            displayTime?.isHidden=false
+            displayTime?.fontName =  "FF Hekaya"
+            displayTime?.text = "انتهى الوقت!"
+            displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+            //red
+            
+            timer.invalidate()
+        }
     }
     
     //MARK: - Actions Functions
@@ -255,120 +394,8 @@ class GameScene: SKScene {
     }
     
     
-    //Timer function
-    // Creates an animated countdown timer
-        func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
-            guard let path = circle.path else {
-                return
-            }
-            
-          
-            let radius = path.boundingBox.width/2
-            let timeInterval = duration/TimeInterval(steps)
-            let incr = 1 / CGFloat(steps)
-            var percent = CGFloat(1.0)
-
-            let animate = SKAction.run {
-                percent -= incr
-                circle.path = self.circle(radius: radius, percent:percent)
-                print("step here")
-                print(self.timeLeft)
-                print("end steps")
-                if( Int(self.timeLeft) < 120){
-                    circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-                    
-
-
-                }
-                
-                if( Int(self.timeLeft) < 60){
-                    circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
-                }
-                
-                if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
-                    circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-                }
-                
-                
-            }
-            let wait = SKAction.wait(forDuration:timeInterval)
-            let action = SKAction.sequence([wait, animate])
-
-            run(SKAction.repeat(action,count:steps-1)) {
-               
-
-                if( percent == 15){
-                    circle.fillColor = SKColor.red
-                }
-                self.run(SKAction.wait(forDuration:timeInterval)) {
-                    circle.path = nil
-    //                circle.fillColor = SKColor.red
-                    completion()
-                }
-            
-            }
-           
-            
-        }
     
-    // Creates a CGPath in the shape of a pie with slices missing
-        func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
-            let start:CGFloat = 0
-            let end = CGFloat.pi * 2 * percent
-            let center = CGPoint.zero
-            let bezierPath = UIBezierPath()
-            bezierPath.move(to:center)
-            bezierPath.addArc(withCenter:center, radius: radius, startAngle: start, endAngle: end, clockwise: true)
-            bezierPath.addLine(to:center)
-            return bezierPath.cgPath
-        }
-    
-    //update time
-    @objc func updateTime() {
-    //        let greenTime=timeLeft+1//18
-
-            print(timeLeft1)
-            let greenTime=timeLeft1/3*2//12
-
-            let yellowTime=timeLeft1/3*1//6
-
-
-            if(Int(timeLeft)>greenTime){
-                displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-                displayTime?.text = timeLeft.time
-            //green
-        
-
-        }
-            else  if (Int(timeLeft) > yellowTime){
-                displayTime?.fontName =  "FF Hekaya"
-         timeLeft = endTime?.timeIntervalSinceNow ?? 0
-                displayTime?.text = timeLeft.time
-         //yellow
-        
-         }
-
-           else  if (timeLeft > 0 ){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
-            //orange
-         
-            }
-        else {
-            displayTime?.isHidden=false
-            displayTime?.fontName =  "FF Hekaya"
-            displayTime?.text = "انتهى الوقت!"
-            displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-            //red
-             
-            timer.invalidate()
-            }
-        }
-    
-    
-    //MARK:- Constrains
+    //MARK:- Constrains Functos
     
     //setCameraConstraints
     private func setCameraConstraints() {
