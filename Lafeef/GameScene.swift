@@ -34,6 +34,7 @@ class GameScene: SKScene {
     let timeLeft1=120//change
     var timer = Timer()
     private var displayTime : SKLabelNode?
+    var endTime: Date?
     
     //MARK: - Lifecycle
     override func sceneDidLoad() {
@@ -82,11 +83,11 @@ class GameScene: SKScene {
                 if self.displayTime != nil {
                    
     
-//                    endTime = Date().addingTimeInterval(timeLeft)
-//                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-//                    displayTime?.text=timeLeft.time
-//                    displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-                    
+                    endTime = Date().addingTimeInterval(timeLeft)
+                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+                    displayTime?.text=timeLeft.time
+                    displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+//                    displayTime?.color=SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
                     
                     
                     
@@ -99,6 +100,7 @@ class GameScene: SKScene {
 
 //            addTimeLabel()
             let circle = SKShapeNode(circleOfRadius: 50)
+        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
              circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
              circle.strokeColor = SKColor.clear
              circle.zRotation = CGFloat.pi / 2
@@ -284,7 +286,7 @@ class GameScene: SKScene {
                     circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
                 }
                 
-                if( Int(self.timeLeft) < 25 && Int(self.timeLeft)>=0){
+                if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
                     circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
                 }
                 
@@ -322,7 +324,43 @@ class GameScene: SKScene {
             return bezierPath.cgPath
         }
     
+    //update time
+    @objc func updateTime() {
+    //        let greenTime=timeLeft+1//18
 
+            print(timeLeft1)
+            let greenTime=timeLeft1/3*2//12
+
+            let yellowTime=timeLeft1/3*1//6
+
+
+            if(Int(timeLeft)>greenTime){
+            timeLeft = endTime?.timeIntervalSinceNow ?? 0
+                displayTime?.text = timeLeft.time
+            //green
+        
+
+        }
+            else  if (Int(timeLeft) > yellowTime){
+         timeLeft = endTime?.timeIntervalSinceNow ?? 0
+                displayTime?.text = timeLeft.time
+         //yellow
+        
+         }
+
+           else  if (timeLeft > 0 ){
+            timeLeft = endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = timeLeft.time
+            //orange
+         
+            }
+        else {
+            displayTime?.text = "انتهى الوقت!"
+            //red
+             
+            timer.invalidate()
+            }
+        }
     
     
     //MARK:- Constrains
@@ -381,5 +419,15 @@ class GameScene: SKScene {
          moving too close to the edge of the level.
          */
         camera.constraints = [levelEdgeConstraint]
+    }
+}
+extension TimeInterval {
+    var time: String {
+        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
+    }
+}
+extension Int {
+    var degreesToRadians : CGFloat {
+        return CGFloat(self) * .pi / 180
     }
 }
