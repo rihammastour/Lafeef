@@ -28,7 +28,7 @@ enum PositionTopping : Equatable {
                 return  CGPoint(x: 25, y: 12.5)
                 
             }else if(base == .quarterCake){
-                return CGPoint(x: 0, y: 10)
+                return CGPoint(x: -5, y: 12)
                 
             }else{ //Cupcake position
                 return CGPoint(x: 0, y: 15)

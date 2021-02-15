@@ -70,10 +70,10 @@ class ChallengeViewController: UIViewController {
     func showOrder(at number:Int) -> Void {
         
         let order = orders![number]
-        let base = Base.vanilaCupcake
+        let base = Base.quarterCake
         //PrepareOrderViewController.gatBaseName(order.base)
         
-        let toppings = [Topping.kiwi]
+        let toppings = [Topping.darkChocolate]
         //PrepareOrderViewController.getToppingsName(from: order.toppings)
         
         self.challengeScen?.setOrderContent(with: base, toppings)
@@ -119,7 +119,6 @@ class ChallengeViewController: UIViewController {
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }
-            
             
         }
     }
