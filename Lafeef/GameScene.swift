@@ -29,6 +29,12 @@ class GameScene: SKScene {
     private var toppingThree : SKSpriteNode?
     private var toppingFour : SKSpriteNode?
     
+    //Timer variable
+    var timeLeft: TimeInterval = 120//change
+    let timeLeft1=120//change
+    var timer = Timer()
+    private var displayTime : SKLabelNode?
+    
     //MARK: - Lifecycle
     override func sceneDidLoad() {
         
@@ -69,7 +75,42 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+        
+        
+        //Creat leble to display time
+        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+                if self.displayTime != nil {
+                   
+    
+//                    endTime = Date().addingTimeInterval(timeLeft)
+//                    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+//                    displayTime?.text=timeLeft.time
+//                    displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+                    
+                    
+                    
+                    
+                    
+                    
+                }
     }
+    
+    override func  didMove( to view: SKView) {
+
+//            addTimeLabel()
+            let circle = SKShapeNode(circleOfRadius: 50)
+             circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+             circle.strokeColor = SKColor.clear
+             circle.zRotation = CGFloat.pi / 2
+             addChild(circle)
+
+            countdown(circle: circle, steps: 120, duration: 120) {
+                 print("done")
+             }
+            
+        }
+    
+    
     //MARK: - Set up Order Contents Functions
     
     //setOrderContent
@@ -211,6 +252,79 @@ class GameScene: SKScene {
         
         self.lastUpdateTime = currentTime
     }
+    
+    
+    //Timer function
+    // Creates an animated countdown timer
+        func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
+            guard let path = circle.path else {
+                return
+            }
+            
+          
+            let radius = path.boundingBox.width/2
+            let timeInterval = duration/TimeInterval(steps)
+            let incr = 1 / CGFloat(steps)
+            var percent = CGFloat(1.0)
+
+            let animate = SKAction.run {
+                percent -= incr
+                circle.path = self.circle(radius: radius, percent:percent)
+                print("step here")
+                print(self.timeLeft)
+                print("end steps")
+                if( Int(self.timeLeft) < 120){
+                    circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+                    
+
+
+                }
+                
+                if( Int(self.timeLeft) < 60){
+                    circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
+                }
+                
+                if( Int(self.timeLeft) < 25 && Int(self.timeLeft)>=0){
+                    circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+                }
+                
+                
+            }
+            let wait = SKAction.wait(forDuration:timeInterval)
+            let action = SKAction.sequence([wait, animate])
+
+            run(SKAction.repeat(action,count:steps-1)) {
+               
+
+                if( percent == 15){
+                    circle.fillColor = SKColor.red
+                }
+                self.run(SKAction.wait(forDuration:timeInterval)) {
+                    circle.path = nil
+    //                circle.fillColor = SKColor.red
+                    completion()
+                }
+            
+            }
+           
+            
+        }
+    
+    // Creates a CGPath in the shape of a pie with slices missing
+        func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
+            let start:CGFloat = 0
+            let end = CGFloat.pi * 2 * percent
+            let center = CGPoint.zero
+            let bezierPath = UIBezierPath()
+            bezierPath.move(to:center)
+            bezierPath.addArc(withCenter:center, radius: radius, startAngle: start, endAngle: end, clockwise: true)
+            bezierPath.addLine(to:center)
+            return bezierPath.cgPath
+        }
+    
+
+    
+    
     //MARK:- Constrains
     
     //setCameraConstraints
