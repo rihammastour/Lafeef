@@ -14,23 +14,23 @@ class PrepareOrderController {
     //MARK: - Functions
     
     //getBase
-    static func gatBaseName(_ baseOrder:String) -> String {
+    static func gatBaseName(_ baseOrder:String) -> Base {
         
         switch baseOrder {
         case "cake":
-            return "cake"
+            return Base.cake
         case "halfCake":
-            return "half-cake"
+            return Base.halfCake
         case "quarterCake":
-            return "quarter-cake"
+            return Base.quarterCake
         case "threeQuarterCake":
-            return "threequarter-cake"
+            return Base.threequarterCake
         case "cupcakeCh":
-            return "cupcake-ch"
+            return Base.chocolateCupcake
         case "cupcakeVan":
-            return "cupcake-van"
+            return Base.vanilaCupcake
         default:
-            return "cake"
+            return Base.cake
         }
     }
     

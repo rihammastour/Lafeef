@@ -70,11 +70,9 @@ class ChallengeViewController: UIViewController {
     func showOrder(at number:Int) -> Void {
         
         let order = orders![number]
-        let base = Base.quarterCake
-        //PrepareOrderViewController.gatBaseName(order.base)
+        let base = PrepareOrderController.gatBaseName(order.base)
         
-        let toppings = [Topping.darkChocolate]
-        //PrepareOrderViewController.getToppingsName(from: order.toppings)
+        let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
         
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
