@@ -26,7 +26,7 @@
                                 <rect key="frame" x="108" y="270" width="489" height="470"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-y4-7Hv">
-                                        <rect key="frame" x="44" y="53" width="400" height="333"/>
+                                        <rect key="frame" x="44.5" y="53" width="400" height="333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-fl-Zpw">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="54"/>
@@ -45,6 +45,9 @@
                                                 <state key="normal" title="الإستمرار">
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="gameContinue:" destination="mRG-gB-WrO" eventType="touchUpInside" id="s2q-vF-6d8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-xr-u2P">
                                                 <rect key="frame" x="0.0" y="167" width="400" height="73"/>
@@ -56,6 +59,9 @@
                                                 <state key="normal" title="عرض تعليمات اللعبة">
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="viewInstruction:" destination="mRG-gB-WrO" eventType="touchUpInside" id="Vzk-ws-tRp"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-Go-ygc">
                                                 <rect key="frame" x="0.0" y="260" width="400" height="73"/>
@@ -67,6 +73,9 @@
                                                 <state key="normal" title="خروج">
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="exitGame:" destination="mRG-gB-WrO" eventType="touchUpInside" id="3SR-57-A7S"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -194,6 +203,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
+                                    <action selector="stopGame:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="FUg-Gy-gPz"/>
                                     <segue destination="mRG-gB-WrO" kind="showDetail" id="3Em-HY-Yg5"/>
                                 </connections>
                             </button>

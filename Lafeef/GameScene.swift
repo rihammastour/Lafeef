@@ -35,6 +35,7 @@ class GameScene: SKScene {
     var timer = Timer()
     private var displayTime : SKLabelNode?
     var endTime: Date?
+    private var stop : SKSpriteNode?
     
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
@@ -78,16 +79,16 @@ class GameScene: SKScene {
         
         
         //Creat leble to display time ????
-        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-        if self.displayTime != nil {
-            
-            endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=timeLeft.time
-            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-            displayTime?.isHidden=true
-            
-        }
+//        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+//        if self.displayTime != nil {
+//
+//            endTime = Date().addingTimeInterval(timeLeft)
+//            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+//            displayTime?.text=timeLeft.time
+//            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+////            displayTime?.isHidden=true
+//
+//        }
         
     }
     
@@ -191,6 +192,16 @@ class GameScene: SKScene {
     
     //startTimer
     func startTimer(){
+        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+        if self.displayTime != nil {
+            
+            endTime = Date().addingTimeInterval(timeLeft)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            displayTime?.text=timeLeft.time
+            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+//            displayTime?.isHidden=true
+            
+        }
         let circle = SKShapeNode(circleOfRadius: 46)
         circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)

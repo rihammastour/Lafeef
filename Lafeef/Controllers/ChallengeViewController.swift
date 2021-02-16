@@ -20,7 +20,7 @@ class ChallengeViewController: UIViewController {
     var orders:[Order]?
     var alert = AlertService()
     var challengeScen:GameScene?
-    
+    let timerClass = GameScene()
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
@@ -86,6 +86,11 @@ class ChallengeViewController: UIViewController {
             //TODO:End Level
         }
     }
+    
+    @IBAction func stopGame(_ sender: Any) {
+        timerClass.timer.invalidate()
+    }
+    
     
     
     //MARK: - Delegate handeler

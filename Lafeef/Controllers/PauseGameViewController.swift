@@ -11,7 +11,7 @@ import UIKit
 class PauseGameViewController: UIViewController{
     
  
-    let timerClass = TimerViewController()
+    let timerClass = GameScene()
 
     @IBOutlet weak var pauseView: UIView!
     @IBOutlet weak var viewInstructionOutlet: UIButton!
@@ -32,7 +32,7 @@ class PauseGameViewController: UIViewController{
     @IBAction func gameContinue(_ sender: Any) {
         print("[[[[[[[[[[[[[[[[")
 //        timerClass.timeLabel.text=timerClass.timeLeft.time
-//        timerClass.timer.invalidate()
+        timerClass.timer.invalidate()
 //        timerClass.PauseTime(true)
         self.dismiss(animated: true)
 //
