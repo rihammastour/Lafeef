@@ -133,32 +133,40 @@ class GameScene: SKScene {
             self.orderContiner?.addChild(base)
             
             //unwrap toopings array if any
-            guard let toppings = toppings else{
-                return
-            }
-            
-            //Topping
-            for t in toppings {
+            if let toppings = toppings {
                 
-                switch self.toopingCounter{
-                case 0:
-                    createTopping(at: PositionTopping.topRight(baseType),as: t)
-                case 1:
-                    createTopping(at: PositionTopping.topLeft(baseType),as: t)
-                case 2:
-                    createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
-                case 3:
-                    createTopping(at: PositionTopping.bottomRight(baseType),as: t)
-                default:
-                    print("cannot add more than 4 toppings")
+                //Topping
+                for t in toppings {
+                    
+                    switch self.toopingCounter{
+                    case 0:
+                        createTopping(at: PositionTopping.topRight(baseType),as: t)
+                    case 1:
+                        createTopping(at: PositionTopping.topLeft(baseType),as: t)
+                    case 2:
+                        createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
+                    case 3:
+                        createTopping(at: PositionTopping.bottomRight(baseType),as: t)
+                    default:
+                        print("cannot add more than 4 toppings")
+                    }
+                    
                 }
-                
             }
             
         }
         
         //Start the Timer
-        self.startTimer()
+        let circle = SKShapeNode(circleOfRadius: 46)
+        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
+        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        circle.strokeColor = SKColor.clear
+        circle.zRotation = CGFloat.pi / 2
+        addChild(circle)
+        
+        countdown(circle: circle, steps: 120, duration: 120) {
+        }
+        //self.startTimer()
         
     }
     
@@ -191,15 +199,7 @@ class GameScene: SKScene {
     
     //startTimer
     func startTimer(){
-        let circle = SKShapeNode(circleOfRadius: 46)
-        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
-        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-        circle.strokeColor = SKColor.clear
-        circle.zRotation = CGFloat.pi / 2
-        addChild(circle)
         
-        countdown(circle: circle, steps: 120, duration: 120) {
-        }
     }
     
     //MARK:- Timer function

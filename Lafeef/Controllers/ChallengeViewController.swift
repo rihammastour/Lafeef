@@ -63,17 +63,16 @@ class ChallengeViewController: UIViewController {
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-        showOrder(at: 3) // must be called by character
+        showOrder(at: currentOrder) // must be called by character
     }
     
     //showOrder
     func showOrder(at number:Int) -> Void {
         
         let order = orders![number]
-        let base = PrepareOrderController.gatBaseName(order.base)
+        let base = order.base
         
         let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
-        
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
     

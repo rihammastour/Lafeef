@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum Topping : String {
+enum Topping : String,Codable {
     
     //cases
     case strawberry
@@ -15,6 +15,17 @@ enum Topping : String {
     case darkChocolate = "dark-chocolate"
     case whiteChocolate = "white-chocolate"
     
+    
+    func getPrice() -> Float{
+        switch self {
+        case .kiwi , .strawberry , .pineapple:
+            return 3
+        case .whiteChocolate , .darkChocolate:
+            return 4
+        }
+    }
+    
+    //getZRotate
     func getZRotate() -> Float?{
         switch self {
         case .kiwi:
