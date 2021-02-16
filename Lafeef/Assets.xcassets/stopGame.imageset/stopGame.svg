@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="46" height="46" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_7" data-name="Repeat Grid 7" clip-path="url(#clip-path)">
+    <g transform="translate(-126 -133)">
+      <g id="Group_2017" data-name="Group 2017" transform="translate(-487 6)">
+        <circle id="Ellipse_110" data-name="Ellipse 110" cx="23" cy="23" r="23" transform="translate(613 127)" fill="#f5eee2" opacity="0.836"/>
+      </g>
+      <g id="Icon_ionic-ios-pause" data-name="Icon ionic-ios-pause" transform="translate(131 138)">
+        <path id="Path_3586" data-name="Path 3586" d="M14.055,29.25H9.57A.566.566,0,0,1,9,28.688V7.313a.566.566,0,0,1,.57-.562h4.486a.566.566,0,0,1,.57.563V28.688A.566.566,0,0,1,14.055,29.25Z" fill="#4f4b44"/>
+        <path id="Path_3587" data-name="Path 3587" d="M26.43,29.25H21.945a.566.566,0,0,1-.57-.562V7.313a.566.566,0,0,1,.57-.562H26.43a.566.566,0,0,1,.57.563V28.688A.566.566,0,0,1,26.43,29.25Z" fill="#4f4b44"/>
+      </g>
+    </g>
+  </g>
+</svg>
