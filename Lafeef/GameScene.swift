@@ -13,13 +13,25 @@ class GameScene: SKScene {
     //MARK: - Proprites
     
     //MARK: Variables
+   
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
     
+    //MARK:  Charachters  Variables
+    let orange = OrangeNode()
+    let apple = AppleNode()
+    let pineapple = PineappleNode()
+    let strawberry = StrawberryNode()
+    let pear = PearNode()
+    let watermelon = WatermelonNode()
+    
+    
     //MARK:  Nodes Variables
+    
+   
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -42,8 +54,87 @@ class GameScene: SKScene {
         setupSceneElements()
         
     }
+    override func didMove(to view: SKView) {
+    backgroundColor = .white
+        buildApple()
+        apple.animateApple(frame: apple.WaitingFrames)
+//        buildOrange()
+//
+//        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(orange.happyOrange), userInfo: nil, repeats: true)
+        
+    }
     
     //MARK: - Functions
+    
+  
+    //MARK: -  Charachters Functions
+    func buildOrange() {
+        orange.buildOrange()
+        orange.orange.position = CGPoint(x: frame.midX, y: frame.midY)
+
+        // for cashier
+        
+        orange.orange.size = CGSize(width: 300, height: 350)
+        addChild(orange.orange)
+    }
+    
+    func buildApple() {
+        apple.buildApple()
+        apple.apple.position = CGPoint(x: frame.midX, y: frame.midY)
+//        orange.orange.position = CGPoint(x: 900, y: 0)
+        // for cashier
+        
+        apple.apple.size = CGSize(width: 300, height: 350)
+        addChild(apple.apple)
+    }
+    
+    func buildPear() {
+        pear.buildPear()
+        pear.pear.position = CGPoint(x: frame.midX, y: frame.midY)
+//        orange.orange.position = CGPoint(x: 900, y: 0)
+        // for cashier
+        
+        pear.pear.size = CGSize(width: 300, height: 350)
+        addChild(pear.pear)
+    }
+    
+    func buildWatermelon() {
+        watermelon.buildWatermelon()
+        watermelon.watermelon.position = CGPoint(x: frame.midX, y: frame.midY)
+//        orange.orange.position = CGPoint(x: 900, y: 0)
+        // for cashier
+        
+        watermelon.watermelon.size = CGSize(width: 300, height: 350)
+        addChild(watermelon.watermelon)
+    }
+    
+    func buildStrawberry() {
+        strawberry.buildStrawberry()
+        strawberry.strawberry.position = CGPoint(x: frame.midX, y: frame.midY)
+//        orange.orange.position = CGPoint(x: 900, y: 0)
+        // for cashier
+        
+        strawberry.strawberry.size = CGSize(width: 300, height: 350)
+        addChild(strawberry.strawberry)
+    }
+    
+    func buildPineapple() {
+        pineapple.buildPineapple()
+        pineapple.pineapple.position = CGPoint(x: frame.midX, y: frame.midY)
+//        orange.orange.position = CGPoint(x: 900, y: 0)
+        // for cashier
+        
+        pineapple.pineapple.size = CGSize(width: 300, height: 350)
+        addChild(pineapple.pineapple)
+    }
+    
+    
+    
+  
+        
+
+   
+    
     
     //MARK: - Set up Scene Eslements Functions
     
@@ -191,6 +282,7 @@ class GameScene: SKScene {
     
     //startTimer
     func startTimer(){
+      
         let circle = SKShapeNode(circleOfRadius: 46)
         circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
@@ -208,7 +300,8 @@ class GameScene: SKScene {
         guard let path = circle.path else {
             return
         }
-        
+     
+     
         
         let radius = path.boundingBox.width/2
         let timeInterval = duration/TimeInterval(steps)
@@ -221,6 +314,7 @@ class GameScene: SKScene {
             
             if( Int(self.timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+
                 
                 
                 
@@ -228,6 +322,7 @@ class GameScene: SKScene {
             
             if( Int(self.timeLeft) < 60){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
+                
             }
             
             if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
@@ -452,6 +547,10 @@ class GameScene: SKScene {
          */
         camera.constraints = [levelEdgeConstraint]
     }
+    
+    // ----------------- charachter animation
+    
+    
 }
 extension TimeInterval {
     var time: String {
