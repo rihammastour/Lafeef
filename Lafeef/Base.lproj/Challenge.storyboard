@@ -14,77 +14,90 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Pause Game View Controller-->
         <scene sceneID="S6a-c0-3Fr">
             <objects>
-                <viewController id="mRG-gB-WrO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tJ0-cl-WsB">
+                <viewController id="mRG-gB-WrO" customClass="PauseGameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="tJ0-cl-WsB">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-Qq-2CA" userLabel="pauseView">
-                                <rect key="frame" x="135" y="197" width="434" height="590"/>
+                                <rect key="frame" x="108" y="270" width="489" height="470"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-y4-7Hv">
-                                        <rect key="frame" x="17" y="153" width="400" height="284.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-y4-7Hv">
+                                        <rect key="frame" x="44" y="53" width="400" height="333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-fl-Zpw">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="20.5"/>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="54"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="45"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-ff-eDt">
-                                                <rect key="frame" x="0.0" y="35.5" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="74" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="400" id="6yc-vD-hiQ"/>
                                                     <constraint firstAttribute="height" constant="73" id="NaT-hW-rs3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="17"/>
-                                                <state key="normal" title="الإستمرار"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                <state key="normal" title="الإستمرار">
+                                                    <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-xr-u2P">
-                                                <rect key="frame" x="0.0" y="123.5" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="167" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="DdF-f7-8V8"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="17"/>
-                                                <state key="normal" title="عرض تعليمات اللعبة"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                <state key="normal" title="عرض تعليمات اللعبة">
+                                                    <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-Go-ygc">
-                                                <rect key="frame" x="0.0" y="211.5" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="260" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="yak-wE-qhn"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="17"/>
-                                                <state key="normal" title="خروج"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                                <state key="normal" title="خروج">
+                                                    <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="eMc-y4-7Hv" firstAttribute="centerY" secondItem="1u4-Qq-2CA" secondAttribute="centerY" id="Kxa-Am-bYB"/>
-                                    <constraint firstItem="eMc-y4-7Hv" firstAttribute="centerX" secondItem="1u4-Qq-2CA" secondAttribute="centerX" id="VDE-JW-lV2"/>
+                                    <constraint firstAttribute="width" constant="489" id="E4x-Vq-GGZ"/>
+                                    <constraint firstItem="eMc-y4-7Hv" firstAttribute="centerX" secondItem="1u4-Qq-2CA" secondAttribute="centerX" id="isx-zM-AZm"/>
+                                    <constraint firstAttribute="height" constant="470" id="rEB-hb-HK7"/>
+                                    <constraint firstItem="eMc-y4-7Hv" firstAttribute="centerY" secondItem="1u4-Qq-2CA" secondAttribute="centerY" constant="-15.5" id="yxd-sI-dw4"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e7H-RS-Fkn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="leading" secondItem="e7H-RS-Fkn" secondAttribute="leading" constant="135" id="1tn-0g-3ml"/>
-                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="top" secondItem="e7H-RS-Fkn" secondAttribute="top" constant="197" id="6rc-2D-9hI"/>
-                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="centerX" secondItem="tJ0-cl-WsB" secondAttribute="centerX" id="CH8-97-3wA"/>
+                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="leading" secondItem="e7H-RS-Fkn" secondAttribute="leading" constant="108" id="1tn-0g-3ml"/>
+                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="top" secondItem="e7H-RS-Fkn" secondAttribute="top" constant="270" id="6rc-2D-9hI"/>
+                            <constraint firstItem="1u4-Qq-2CA" firstAttribute="centerX" secondItem="tJ0-cl-WsB" secondAttribute="centerX" constant="0.5" id="CH8-97-3wA"/>
                             <constraint firstItem="1u4-Qq-2CA" firstAttribute="centerY" secondItem="tJ0-cl-WsB" secondAttribute="centerY" id="l4V-Q9-jYK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="continueOutlet" destination="I6b-ff-eDt" id="kYL-if-MCp"/>
+                        <outlet property="exitOutlet" destination="KxV-Go-ygc" id="Hqy-YM-APj"/>
+                        <outlet property="pauseView" destination="1u4-Qq-2CA" id="Edt-e5-Fwe"/>
+                        <outlet property="viewInstructionOutlet" destination="tI7-xr-u2P" id="XF6-ip-S5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vun-ys-Lgl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5892" y="-862"/>
+            <point key="canvasLocation" x="5891.40625" y="-862.5"/>
         </scene>
         <!--Challenge Levels View Controller-->
         <scene sceneID="Mzd-2w-Cgs">
