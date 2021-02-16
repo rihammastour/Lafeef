@@ -204,7 +204,7 @@
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
                                     <action selector="stopGame:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="FUg-Gy-gPz"/>
-                                    <segue destination="mRG-gB-WrO" kind="showDetail" id="3Em-HY-Yg5"/>
+                                    <segue destination="mRG-gB-WrO" kind="showDetail" id="eae-0N-2AV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -220,6 +220,7 @@
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
                     <connections>
                         <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
+                        <outlet property="stopGame" destination="szD-Yu-CQr" id="QTX-JG-8OR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

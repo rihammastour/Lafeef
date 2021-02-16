@@ -12,6 +12,7 @@ import GameplayKit
 
 class ChallengeViewController: UIViewController {
     
+    @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "1"
@@ -55,7 +56,7 @@ class ChallengeViewController: UIViewController {
             return
         }
         
-        FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(::))
+        FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(_:_:))
         
     }
     

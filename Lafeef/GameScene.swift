@@ -35,7 +35,6 @@ class GameScene: SKScene {
     var timer = Timer()
     private var displayTime : SKLabelNode?
     var endTime: Date?
-    private var stop : SKSpriteNode?
     
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
@@ -78,7 +77,7 @@ class GameScene: SKScene {
         }
         
         
-        //Creat leble to display time ????
+//        //Creat leble to display time ????
 //        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
 //        if self.displayTime != nil {
 //
@@ -86,7 +85,7 @@ class GameScene: SKScene {
 //            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
 //            displayTime?.text=timeLeft.time
 //            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-////            displayTime?.isHidden=true
+//            displayTime?.isHidden=true
 //
 //        }
         
@@ -134,32 +133,51 @@ class GameScene: SKScene {
             self.orderContiner?.addChild(base)
             
             //unwrap toopings array if any
-            guard let toppings = toppings else{
-                return
-            }
-            
-            //Topping
-            for t in toppings {
+            if let toppings = toppings {
                 
-                switch self.toopingCounter{
-                case 0:
-                    createTopping(at: PositionTopping.topRight(baseType),as: t)
-                case 1:
-                    createTopping(at: PositionTopping.topLeft(baseType),as: t)
-                case 2:
-                    createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
-                case 3:
-                    createTopping(at: PositionTopping.bottomRight(baseType),as: t)
-                default:
-                    print("cannot add more than 4 toppings")
+                //Topping
+                for t in toppings {
+                    
+                    switch self.toopingCounter{
+                    case 0:
+                        createTopping(at: PositionTopping.topRight(baseType),as: t)
+                    case 1:
+                        createTopping(at: PositionTopping.topLeft(baseType),as: t)
+                    case 2:
+                        createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
+                    case 3:
+                        createTopping(at: PositionTopping.bottomRight(baseType),as: t)
+                    default:
+                        print("cannot add more than 4 toppings")
+                    }
+                    
                 }
-                
             }
             
         }
         
         //Start the Timer
-        self.startTimer()
+        //Creat leble to display time ????
+        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+        if self.displayTime != nil {
+            
+            endTime = Date().addingTimeInterval(timeLeft)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            displayTime?.text=timeLeft.time
+            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+            displayTime?.isHidden=true
+            
+        }
+        let circle = SKShapeNode(circleOfRadius: 46)
+        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
+        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        circle.strokeColor = SKColor.clear
+        circle.zRotation = CGFloat.pi / 2
+        addChild(circle)
+        
+        countdown(circle: circle, steps: 120, duration: 120) {
+        }
+        //self.startTimer()
         
     }
     
@@ -192,25 +210,7 @@ class GameScene: SKScene {
     
     //startTimer
     func startTimer(){
-        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-        if self.displayTime != nil {
-            
-            endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=timeLeft.time
-            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-//            displayTime?.isHidden=true
-            
-        }
-        let circle = SKShapeNode(circleOfRadius: 46)
-        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
-        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-        circle.strokeColor = SKColor.clear
-        circle.zRotation = CGFloat.pi / 2
-        addChild(circle)
         
-        countdown(circle: circle, steps: 120, duration: 120) {
-        }
     }
     
     //MARK:- Timer function
