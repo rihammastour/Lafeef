@@ -74,31 +74,48 @@ class GameScene: SKScene {
     }
     func buildBear() {
        
-      var bearAnimatedAtlas = SKTextureAtlas(named: "WalkingWatermelon")
-      var walkFrames: [SKTexture] = []
+        var bearAnimatedAtlas : SKTextureAtlas
         var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
+        if (bear.position == Waitinglocation)  {
+            bearAnimatedAtlas = SKTextureAtlas(named: "WaitingWatermelon2")
+            print("\\\\\\\\\\\\\\11111")
+        }
+        else {
+            bearAnimatedAtlas = SKTextureAtlas(named: "WaitingPineappleK")
+            print("\\\\\\\\\\\\\\222222")
+        }
+      var walkFrames: [SKTexture] = []
 
-//var flag = false
       let numImages = bearAnimatedAtlas.textureNames.count
-        if (bear.position == Waitinglocation)  {
-            bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
-        }
+       
       for i in 1...numImages {
-       
-       
-            var bearTextureName = "WalkingWatermelon\(i)"
-
+        var bearTextureName : String
         if (bear.position == Waitinglocation)  {
-            bearTextureName = "HappyWatermelon\(i)"
+            bearTextureName = "WaitingWatermelon\(i)"
+            print("\\\\\\\\\\\\\\333333")
         }
+        else {
+            bearTextureName = "pineapple\(i)"
+            print("\\\\\\\\\\\\\\444444")
+        }
+//
+//        if (bear.position == Waitinglocation)  {
+//            bearTextureName = "HappyWatermelon\(i)"
+//        }
         walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
+//        var rotateAction = SKAction.rotate(toAngle: .pi / 4, duration: 2)
+//        bear.run(rotateAction)
+       // rotateAction = SKAction.rotate(toAngle: .pi / -4, duration: 3)
+        //bear.run(rotateAction)
       }
       bearWalkingFrames = walkFrames
         let firstFrameTexture = bearWalkingFrames[0]
         bear = SKSpriteNode(texture: firstFrameTexture)
         bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
-        bear.size = CGSize(width: 200, height: 200)
+        bear.size = CGSize(width: 300, height: 220)
         addChild(bear)
+        //M_PI/4.0 is 45 degrees, you can make duration different from 0 if you want to show the rotation, if it is 0 it will rotate instantly
+       
 //        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
 //       bear.run(moveAction)
        // if (bear.position == CGPoint(x: frame.midX+300, y: frame.midY+510) ) {
@@ -122,31 +139,36 @@ class GameScene: SKScene {
     
     func buildBear2() {
        
-//      var bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
-//      var walkFrames: [SKTexture] = []
-//        var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
-//
-////var flag = false
-//      let numImages = bearAnimatedAtlas.textureNames.count
-//        if (bear.position == Waitinglocation)  {
-//            bearAnimatedAtlas = SKTextureAtlas(named: "Watermelon")
-//        }
-//      for i in 1...numImages {
-//
-//
-//            var bearTextureName = "HappyWatermelon\(i)"
-//
+        var bearAnimatedAtlas : SKTextureAtlas
+      //  var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
+            bearAnimatedAtlas = SKTextureAtlas(named: "WaitingWatermelon2")
+            print("\\\\\\\\\\\\\\*******")
+        
+      var walkFrames: [SKTexture] = []
+
+      let numImages = bearAnimatedAtlas.textureNames.count
+       
+      for i in 1...numImages {
+        var bearTextureName : String
+            bearTextureName = "WaitingWatermelon\(i)"
+        
 //        if (bear.position == Waitinglocation)  {
 //            bearTextureName = "HappyWatermelon\(i)"
 //        }
-//        walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
-//      }
-//      bearWalkingFrames = walkFrames
-//        let firstFrameTexture = bearWalkingFrames[0]
-//        bear = SKSpriteNode(texture: firstFrameTexture)
-       // bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
-        //bear.size = CGSize(width: 200, height: 200)
-       // addChild(bear)
+        walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
+//        var rotateAction = SKAction.rotate(toAngle: .pi / 4, duration: 2)
+//        bear.run(rotateAction)
+       // rotateAction = SKAction.rotate(toAngle: .pi / -4, duration: 3)
+        //bear.run(rotateAction)
+      }
+      bearWalkingFrames = walkFrames
+        let firstFrameTexture = bearWalkingFrames[0]
+        bear = SKSpriteNode(texture: firstFrameTexture)
+        bear.position = CGPoint(x: frame.midX, y: frame.midY)
+        bear.size = CGSize(width: 300, height: 220)
+        addChild(bear)
+        //M_PI/4.0 is 45 degrees, you can make duration different from 0 if you want to show the rotation, if it is 0 it will rotate instantly
+       
 //        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
 //       bear.run(moveAction)
        // if (bear.position == CGPoint(x: frame.midX+300, y: frame.midY+510) ) {
@@ -160,7 +182,7 @@ class GameScene: SKScene {
 //        print("الحمدلله")
 //        }
        // if (bear.position == location){
-        print("here jjjjjjjjjjjjjjjjjjjjjjjjj/////////////////////////")
+        print("here areej/////////////////////////")
             print(bear.position)
         print("done areej/////////////////////////")
       //  }
@@ -170,12 +192,21 @@ class GameScene: SKScene {
  
     func animateBear() {
         bear.run(SKAction.repeatForever(SKAction.animate(with: bearWalkingFrames,
-                                                         timePerFrame: 0.3,
+                                                         timePerFrame: 0.33,
                                                          resize: false,
                                                          restore: true)),
         withKey:"walkingInPlaceBear")
         
     }
+//
+//    func animateBear2() {
+//        bear.run(SKAction.repeatForever(SKAction.animate(with: bearWaitingFrames,
+//                                                         timePerFrame: 0.33,
+//                                                         resize: false,
+//                                                         restore: true)),
+//        withKey:"walkingInPlaceBear")
+//
+//    }
     func bearMoveEnded() {
       bear.removeAllActions()
         buildBear2()
