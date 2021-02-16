@@ -20,7 +20,7 @@ class ChallengeViewController: UIViewController {
     var orders:[Order]?
     var alert = AlertService()
     var challengeScen:GameScene?
-    let timerClass = GameScene()
+    
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
@@ -55,7 +55,7 @@ class ChallengeViewController: UIViewController {
             return
         }
         
-        FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(_:_:))
+        FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(::))
         
     }
     
@@ -63,17 +63,16 @@ class ChallengeViewController: UIViewController {
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-        showOrder(at: 3) // must be called by character
+        showOrder(at: currentOrder) // must be called by character
     }
     
     //showOrder
     func showOrder(at number:Int) -> Void {
         
         let order = orders![number]
-        let base = PrepareOrderController.gatBaseName(order.base)
+        let base = order.base
         
         let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
-        
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
     
@@ -86,11 +85,6 @@ class ChallengeViewController: UIViewController {
             //TODO:End Level
         }
     }
-    
-    @IBAction func stopGame(_ sender: Any) {
-        timerClass.timer.invalidate()
-    }
-    
     
     
     //MARK: - Delegate handeler

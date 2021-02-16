@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-enum Base : String {
+enum Base : String,Codable {
     
     //cases
     case cake
