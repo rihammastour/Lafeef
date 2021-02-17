@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 class ProfileViewController: UIViewController {
    @IBOutlet weak var logOut: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
