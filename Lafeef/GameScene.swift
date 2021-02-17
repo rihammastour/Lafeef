@@ -21,12 +21,12 @@ class GameScene: SKScene {
     var toopingCounter : Int = 0
     
     //MARK:  Charachters  Variables
-    let orange = OrangeNode()
-    let apple = AppleNode()
-    let pineapple = PineappleNode()
-    let strawberry = StrawberryNode()
-    let pear = PearNode()
-    let watermelon = WatermelonNode()
+    let orange = CustomerNode(customerName: "Orange")
+    let apple = CustomerNode(customerName: "Apple")
+    let pineapple = CustomerNode(customerName: "Pineapple")
+    let strawberry = CustomerNode(customerName: "Strawberry")
+    let pear = CustomerNode(customerName: "Pear")
+    let watermelon = CustomerNode(customerName: "Watermelon")
     
     
     //MARK:  Nodes Variables
@@ -56,9 +56,8 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
     backgroundColor = .white
-        buildStrawberry()
-        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
-//        buildOrange()
+        buildCustomer(customerNode: pear)
+        pear.animateCustomer(frame: pear.WaitingFrames)
 //
 //        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(orange.happyOrange), userInfo: nil, repeats: true)
         
@@ -68,73 +67,16 @@ class GameScene: SKScene {
     
   
     //MARK: -  Charachters Functions
-    func buildOrange() {
-        orange.buildOrange()
-        orange.orange.position = CGPoint(x: frame.midX, y: frame.midY)
+    func buildCustomer(customerNode: CustomerNode) {
+        customerNode.buildCustomer()
+        customerNode.customer.position = CGPoint(x: frame.midX, y: frame.midY)
 
         // for cashier
         
-        orange.orange.size = CGSize(width: 300, height: 350)
-        addChild(orange.orange)
+        customerNode.customer.size = CGSize(width: 300, height: 350)
+        addChild(customerNode.customer)
     }
-    
-    func buildApple() {
-        apple.buildApple()
-        apple.apple.position = CGPoint(x: frame.midX, y: frame.midY)
-//        orange.orange.position = CGPoint(x: 900, y: 0)
-        // for cashier
-        
-        apple.apple.size = CGSize(width: 300, height: 350)
-        addChild(apple.apple)
-    }
-    
-    func buildPear() {
-        pear.buildPear()
-        pear.pear.position = CGPoint(x: frame.midX, y: frame.midY)
-//        orange.orange.position = CGPoint(x: 900, y: 0)
-        // for cashier
-        
-        pear.pear.size = CGSize(width: 300, height: 350)
-        addChild(pear.pear)
-    }
-    
-    func buildWatermelon() {
-        watermelon.buildWatermelon()
-        watermelon.watermelon.position = CGPoint(x: frame.midX, y: frame.midY)
-//        orange.orange.position = CGPoint(x: 900, y: 0)
-        // for cashier
-        
-        watermelon.watermelon.size = CGSize(width: 300, height: 350)
-        addChild(watermelon.watermelon)
-    }
-    
-    func buildStrawberry() {
-        strawberry.buildStrawberry()
-        strawberry.strawberry.position = CGPoint(x: frame.midX, y: frame.midY)
-//        orange.orange.position = CGPoint(x: 900, y: 0)
-        // for cashier
-        
-        strawberry.strawberry.size = CGSize(width: 300, height: 400)
-        addChild(strawberry.strawberry)
-    }
-    
-    func buildPineapple() {
-        pineapple.buildPineapple()
-        pineapple.pineapple.position = CGPoint(x: frame.midX, y: frame.midY)
-//        orange.orange.position = CGPoint(x: 900, y: 0)
-        // for cashier
-        
-        pineapple.pineapple.size = CGSize(width: 300, height: 350)
-        addChild(pineapple.pineapple)
-    }
-    
-    
-    
-  
-        
 
-   
-    
     
     //MARK: - Set up Scene Eslements Functions
     
