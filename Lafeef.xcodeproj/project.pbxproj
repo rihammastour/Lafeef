@@ -20,7 +20,7 @@
 		4122DA6325DB932000DABB29 /* HappyApple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4B25DB931F00DABB29 /* HappyApple.atlas */; };
 		4122DA6425DB932000DABB29 /* NWWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4C25DB931F00DABB29 /* NWWatermelon.atlas */; };
 		4122DA6525DB932000DABB29 /* HappyPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4D25DB931F00DABB29 /* HappyPear.atlas */; };
-		4122DA6625DB932000DABB29 /* SadStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4E25DB931F00DABB29 /* SadStrawberry.atlas */; };
+		4122DA6625DB932000DABB29 /* SadStraberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4E25DB931F00DABB29 /* SadStraberry.atlas */; };
 		4122DA6725DB932000DABB29 /* HappyPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA4F25DB931F00DABB29 /* HappyPineapple.atlas */; };
 		4122DA6825DB932000DABB29 /* SadWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA5025DB931F00DABB29 /* SadWatermelon.atlas */; };
 		4122DA6925DB932000DABB29 /* WaitingPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4122DA5125DB931F00DABB29 /* WaitingPear.atlas */; };
@@ -119,36 +119,36 @@
 		0012A2D5C7CABC6C1AE985E3 /* Pods-Lafeef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.debug.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.debug.xcconfig"; sourceTree = "<group>"; };
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
-		4122DA3725DB926F00DABB29 /* WatermelonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WatermelonNode.swift; path = ../../../../../WatermelonNode.swift; sourceTree = "<group>"; };
-		4122DA3825DB926F00DABB29 /* PearNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PearNode.swift; path = ../../../../../PearNode.swift; sourceTree = "<group>"; };
-		4122DA3A25DB926F00DABB29 /* AppleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleNode.swift; path = ../../../../../AppleNode.swift; sourceTree = "<group>"; };
-		4122DA3B25DB926F00DABB29 /* OrangeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrangeNode.swift; path = ../../../../../OrangeNode.swift; sourceTree = "<group>"; };
-		4122DA3C25DB926F00DABB29 /* StrawberryNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StrawberryNode.swift; path = ../../../../../StrawberryNode.swift; sourceTree = "<group>"; };
-		4122DA3D25DB926F00DABB29 /* PineappleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PineappleNode.swift; path = ../../../../../PineappleNode.swift; sourceTree = "<group>"; };
-		4122DA4825DB931F00DABB29 /* HappyStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyStrawberry.atlas; path = "../../../../../Downloads/Charachters Animation/HappyStrawberry.atlas"; sourceTree = "<group>"; };
-		4122DA4925DB931F00DABB29 /* HappyWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyWatermelon.atlas; path = "../../../../../Downloads/Charachters Animation/HappyWatermelon.atlas"; sourceTree = "<group>"; };
-		4122DA4A25DB931F00DABB29 /* WaitingStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingStrawberry.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingStrawberry.atlas"; sourceTree = "<group>"; };
-		4122DA4B25DB931F00DABB29 /* HappyApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyApple.atlas; path = "../../../../../Downloads/Charachters Animation/HappyApple.atlas"; sourceTree = "<group>"; };
-		4122DA4C25DB931F00DABB29 /* NWWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWWatermelon.atlas; path = "../../../../../Downloads/Charachters Animation/NWWatermelon.atlas"; sourceTree = "<group>"; };
-		4122DA4D25DB931F00DABB29 /* HappyPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPear.atlas; path = "../../../../../Downloads/Charachters Animation/HappyPear.atlas"; sourceTree = "<group>"; };
-		4122DA4E25DB931F00DABB29 /* SadStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadStrawberry.atlas; path = "../../../../../Downloads/Charachters Animation/SadStrawberry.atlas"; sourceTree = "<group>"; };
-		4122DA4F25DB931F00DABB29 /* HappyPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPineapple.atlas; path = "../../../../../Downloads/Charachters Animation/HappyPineapple.atlas"; sourceTree = "<group>"; };
-		4122DA5025DB931F00DABB29 /* SadWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadWatermelon.atlas; path = "../../../../../Downloads/Charachters Animation/SadWatermelon.atlas"; sourceTree = "<group>"; };
-		4122DA5125DB931F00DABB29 /* WaitingPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPear.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingPear.atlas"; sourceTree = "<group>"; };
-		4122DA5225DB931F00DABB29 /* SadOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadOrange.atlas; path = "../../../../../Downloads/Charachters Animation/SadOrange.atlas"; sourceTree = "<group>"; };
-		4122DA5325DB931F00DABB29 /* NWPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPineapple.atlas; path = "../../../../../Downloads/Charachters Animation/NWPineapple.atlas"; sourceTree = "<group>"; };
-		4122DA5425DB932000DABB29 /* WaitingApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingApple.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingApple.atlas"; sourceTree = "<group>"; };
-		4122DA5525DB932000DABB29 /* WaitingOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingOrange.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingOrange.atlas"; sourceTree = "<group>"; };
-		4122DA5625DB932000DABB29 /* HappyOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyOrange.atlas; path = "../../../../../Downloads/Charachters Animation/HappyOrange.atlas"; sourceTree = "<group>"; };
-		4122DA5725DB932000DABB29 /* SadApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadApple.atlas; path = "../../../../../Downloads/Charachters Animation/SadApple.atlas"; sourceTree = "<group>"; };
-		4122DA5825DB932000DABB29 /* SadPineApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPineApple.atlas; path = "../../../../../Downloads/Charachters Animation/SadPineApple.atlas"; sourceTree = "<group>"; };
-		4122DA5925DB932000DABB29 /* SadPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPear.atlas; path = "../../../../../Downloads/Charachters Animation/SadPear.atlas"; sourceTree = "<group>"; };
-		4122DA5A25DB932000DABB29 /* NWOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWOrange.atlas; path = "../../../../../Downloads/Charachters Animation/NWOrange.atlas"; sourceTree = "<group>"; };
-		4122DA5B25DB932000DABB29 /* NWApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWApple.atlas; path = "../../../../../Downloads/Charachters Animation/NWApple.atlas"; sourceTree = "<group>"; };
-		4122DA5C25DB932000DABB29 /* NWStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWStrawberry.atlas; path = "../../../../../Downloads/Charachters Animation/NWStrawberry.atlas"; sourceTree = "<group>"; };
-		4122DA5D25DB932000DABB29 /* NWPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPear.atlas; path = "../../../../../Downloads/Charachters Animation/NWPear.atlas"; sourceTree = "<group>"; };
-		4122DA5E25DB932000DABB29 /* WaitingPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPineapple.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingPineapple.atlas"; sourceTree = "<group>"; };
-		4122DA5F25DB932000DABB29 /* WaitingWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingWatermelon.atlas; path = "../../../../../Downloads/Charachters Animation/WaitingWatermelon.atlas"; sourceTree = "<group>"; };
+		4122DA3725DB926F00DABB29 /* WatermelonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermelonNode.swift; sourceTree = "<group>"; };
+		4122DA3825DB926F00DABB29 /* PearNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PearNode.swift; sourceTree = "<group>"; };
+		4122DA3A25DB926F00DABB29 /* AppleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleNode.swift; sourceTree = "<group>"; };
+		4122DA3B25DB926F00DABB29 /* OrangeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeNode.swift; sourceTree = "<group>"; };
+		4122DA3C25DB926F00DABB29 /* StrawberryNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrawberryNode.swift; sourceTree = "<group>"; };
+		4122DA3D25DB926F00DABB29 /* PineappleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PineappleNode.swift; sourceTree = "<group>"; };
+		4122DA4825DB931F00DABB29 /* HappyStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyStrawberry.atlas; path = "../../../../Downloads/Charcter Animtion/HappyStrawberry.atlas"; sourceTree = "<group>"; };
+		4122DA4925DB931F00DABB29 /* HappyWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyWatermelon.atlas; path = "../../../../Downloads/Charcter Animtion/HappyWatermelon.atlas"; sourceTree = "<group>"; };
+		4122DA4A25DB931F00DABB29 /* WaitingStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingStrawberry.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingStrawberry.atlas"; sourceTree = "<group>"; };
+		4122DA4B25DB931F00DABB29 /* HappyApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyApple.atlas; path = "../../../../Downloads/Charcter Animtion/HappyApple.atlas"; sourceTree = "<group>"; };
+		4122DA4C25DB931F00DABB29 /* NWWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWWatermelon.atlas; path = "../../../../Downloads/Charcter Animtion/NWWatermelon.atlas"; sourceTree = "<group>"; };
+		4122DA4D25DB931F00DABB29 /* HappyPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPear.atlas; path = "../../../../Downloads/Charcter Animtion/HappyPear.atlas"; sourceTree = "<group>"; };
+		4122DA4E25DB931F00DABB29 /* SadStraberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadStraberry.atlas; path = "../../../../Downloads/Charcter Animtion/SadStraberry.atlas"; sourceTree = "<group>"; };
+		4122DA4F25DB931F00DABB29 /* HappyPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPineapple.atlas; path = "../../../../Downloads/Charcter Animtion/HappyPineapple.atlas"; sourceTree = "<group>"; };
+		4122DA5025DB931F00DABB29 /* SadWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadWatermelon.atlas; path = "../../../../Downloads/Charcter Animtion/SadWatermelon.atlas"; sourceTree = "<group>"; };
+		4122DA5125DB931F00DABB29 /* WaitingPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPear.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingPear.atlas"; sourceTree = "<group>"; };
+		4122DA5225DB931F00DABB29 /* SadOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadOrange.atlas; path = "../../../../Downloads/Charcter Animtion/SadOrange.atlas"; sourceTree = "<group>"; };
+		4122DA5325DB931F00DABB29 /* NWPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPineapple.atlas; path = "../../../../Downloads/Charcter Animtion/NWPineapple.atlas"; sourceTree = "<group>"; };
+		4122DA5425DB932000DABB29 /* WaitingApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingApple.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingApple.atlas"; sourceTree = "<group>"; };
+		4122DA5525DB932000DABB29 /* WaitingOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingOrange.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingOrange.atlas"; sourceTree = "<group>"; };
+		4122DA5625DB932000DABB29 /* HappyOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyOrange.atlas; path = "../../../../Downloads/Charcter Animtion/HappyOrange.atlas"; sourceTree = "<group>"; };
+		4122DA5725DB932000DABB29 /* SadApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadApple.atlas; path = "../../../../Downloads/Charcter Animtion/SadApple.atlas"; sourceTree = "<group>"; };
+		4122DA5825DB932000DABB29 /* SadPineApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPineApple.atlas; path = "../../../../Downloads/Charcter Animtion/SadPineApple.atlas"; sourceTree = "<group>"; };
+		4122DA5925DB932000DABB29 /* SadPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPear.atlas; path = "../../../../Downloads/Charcter Animtion/SadPear.atlas"; sourceTree = "<group>"; };
+		4122DA5A25DB932000DABB29 /* NWOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWOrange.atlas; path = "../../../../Downloads/Charcter Animtion/NWOrange.atlas"; sourceTree = "<group>"; };
+		4122DA5B25DB932000DABB29 /* NWApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWApple.atlas; path = "../../../../Downloads/Charcter Animtion/NWApple.atlas"; sourceTree = "<group>"; };
+		4122DA5C25DB932000DABB29 /* NWStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWStrawberry.atlas; path = "../../../../Downloads/Charcter Animtion/NWStrawberry.atlas"; sourceTree = "<group>"; };
+		4122DA5D25DB932000DABB29 /* NWPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPear.atlas; path = "../../../../Downloads/Charcter Animtion/NWPear.atlas"; sourceTree = "<group>"; };
+		4122DA5E25DB932000DABB29 /* WaitingPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPineapple.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingPineapple.atlas"; sourceTree = "<group>"; };
+		4122DA5F25DB932000DABB29 /* WaitingWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingWatermelon.atlas; path = "../../../../Downloads/Charcter Animtion/WaitingWatermelon.atlas"; sourceTree = "<group>"; };
 		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 				4122DA5225DB931F00DABB29 /* SadOrange.atlas */,
 				4122DA5925DB932000DABB29 /* SadPear.atlas */,
 				4122DA5825DB932000DABB29 /* SadPineApple.atlas */,
-				4122DA4E25DB931F00DABB29 /* SadStrawberry.atlas */,
+				4122DA4E25DB931F00DABB29 /* SadStraberry.atlas */,
 				4122DA5025DB931F00DABB29 /* SadWatermelon.atlas */,
 				4122DA5425DB932000DABB29 /* WaitingApple.atlas */,
 				4122DA5525DB932000DABB29 /* WaitingOrange.atlas */,
@@ -570,7 +570,7 @@
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4122DA6C25DB932000DABB29 /* WaitingApple.atlas in Resources */,
-				4122DA6625DB932000DABB29 /* SadStrawberry.atlas in Resources */,
+				4122DA6625DB932000DABB29 /* SadStraberry.atlas in Resources */,
 				4122DA6E25DB932000DABB29 /* HappyOrange.atlas in Resources */,
 				4122DA6425DB932000DABB29 /* NWWatermelon.atlas in Resources */,
 				4122DA6225DB932000DABB29 /* WaitingStrawberry.atlas in Resources */,

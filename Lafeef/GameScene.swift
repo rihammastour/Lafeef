@@ -56,8 +56,8 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
     backgroundColor = .white
-        buildApple()
-        apple.animateApple(frame: apple.WaitingFrames)
+        buildStrawberry()
+        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
 //        buildOrange()
 //
 //        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(orange.happyOrange), userInfo: nil, repeats: true)
@@ -114,7 +114,7 @@ class GameScene: SKScene {
 //        orange.orange.position = CGPoint(x: 900, y: 0)
         // for cashier
         
-        strawberry.strawberry.size = CGSize(width: 300, height: 350)
+        strawberry.strawberry.size = CGSize(width: 300, height: 400)
         addChild(strawberry.strawberry)
     }
     
