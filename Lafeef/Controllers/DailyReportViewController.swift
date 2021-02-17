@@ -12,7 +12,16 @@ class DailyReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     //.......................... Don't forget to pass attributes to this VC
-    
+    var levelNum = "1"
+    var salesAmount = 0
+    var ingredientsAmount = 0
+    var backagingAmount = 0
+    var advertismentAmount = 0
+    var collectedScore = 0
+    var collectedMoney = 0
+    var isPassed = false
+
+
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
     @IBOutlet weak var sales: UILabel!
@@ -24,15 +33,14 @@ class DailyReportViewController: UIViewController {
     @IBOutlet weak var adv: UIStackView!
     
     //MARK:- Life cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calcultateIncome()
         styleUI()
         hideAdv()
-        calcultateIncome()
-        convertLabelsToArabic()
     }
-    
     
     //MARK:- Functions
     
@@ -40,44 +48,49 @@ class DailyReportViewController: UIViewController {
     func styleUI(){
         dailyReportView.layer.cornerRadius = 30
         Utilities.styleFilledButton(nextButton, color: "blueApp")
+        convertLabelsToArabic()
     }
     
     func hideAdv(){
-        let advAmount = self.convertUILabelToInt(label: self.advAmount)
-        if advAmount == 0 {
+        // advertismentAmount passed from AdvReportVC
+        if advertismentAmount == 0 {
             adv.isHidden = true
         }
     }
-    
+
     func convertLabelsToArabic(){
-        sales.text = sales.text?.convertedDigitsToLocale(Locale(identifier: "AR"))
-        ingredients.text = ingredients.text?.convertedDigitsToLocale(Locale(identifier: "AR"))
-        backaging.text = backaging.text?.convertedDigitsToLocale(Locale(identifier: "AR"))
-        advAmount.text = advAmount.text?.convertedDigitsToLocale(Locale(identifier: "AR"))
+        sales.text = "\(salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        ingredients.text = "\(ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        backaging.text = "\(backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        advAmount.text = "\(advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     // Caluctate Income
     func calcultateIncome(){
-        let sales = self.convertUILabelToInt(label: self.sales)
-        let ingredients = self.convertUILabelToInt(label: self.ingredients)
-        let backaging = self.convertUILabelToInt(label: self.backaging)
-        let advAmount = self.convertUILabelToInt(label: self.advAmount)
-        let incomeDigit = "\(sales - ingredients - backaging + advAmount)"
-        income.text = incomeDigit.convertedDigitsToLocale(Locale(identifier: "AR"))
+        let incomeDigit = self.salesAmount - self.ingredientsAmount - self.backagingAmount + self.advertismentAmount
+        income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        
+        //................................ missing money reward!
+        self.collectedMoney = incomeDigit
     }
     
-    func convertUILabelToInt(label: UILabel) -> Int{
-        if let text = label.text, let value = Int(text) {
-            return value
+    
+    // Assert data to firestore
+    func passReportData(){
+        let levelReportData = LevelReportData(collectedScore: self.collectedScore, collectedMoney: self.collectedMoney, isPassed: self.isPassed)
+        
+        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+
+        FirebaseRequest.passCompletedLevelData(levelNum: self.levelNum, completedLevel: completedLevel) { (success, err) in
+            print(err)
         }
-        return 0
     }
 
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-        // if max score, display reward Screen
-        // if min score, display lose Screen
-        // display next level
+        passReportData()
+        
+        //.............................. don't forget to move to another scene
         
     }
     

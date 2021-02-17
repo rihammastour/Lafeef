@@ -42,8 +42,6 @@ extension UIView {
            }
     }
     
-    //MARK: - Animations
-    
 }
 
 extension String {

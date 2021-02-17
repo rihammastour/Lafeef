@@ -18,12 +18,16 @@ struct Constants {
         static let signUpOrLoginViewController = "signUpOrLoginVC"
         static let homeNavigationController = "HomeNavigation"
         static let animatedSplashViewController = "animatedSplashVC"
+        static let dailyReportViewController = "DailyReportVC"
+
     }
     
     struct Segue {
         static let signUpOrLoginSegue = "SignupOrLoginSegue"
         static let homeSegue = "HomeSegue"
         static let signupSegue = "SignupSegue"
+        static let rejectAdvSegue = "RejectAdvSegue"
+        static let acceptAdvSegue = "AcceptAdvSegue"
     }
     
 }

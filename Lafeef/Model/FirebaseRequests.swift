@@ -9,7 +9,8 @@ import Foundation
 import Firebase
 import CodableFirebase
 import FirebaseAuth
-
+import FirebaseStorage
+import FirebaseFirestoreSwift
 
 class FirebaseRequest{
     
@@ -27,31 +28,43 @@ class FirebaseRequest{
     func createUser(email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :String) -> Void) {
         let db = Firestore.firestore()
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-                if let user = authResult?.user {
-                    print(user)
-                    // Add a new document in collection "users"
-                    db.collection("users").document(authResult!.user.uid).setData([
-                        "name": name,
-                        "email": email,
-                        "currentLevel": 1,
-                        "money":0,
-                        "score":0,
-                        "sex":sex,
-                        "DOB":DOB,
-                    ]) { err in
-                        if let err = err {
-                            print("Error writing document: \(err)")
-                            completionBlock(false,err.localizedDescription)
-                        } else {
-                            print("Document successfully written!")
-                        }
+            if let user = authResult?.user {
+                print(user)
+                // Add a new document in collection "users"
+                db.collection("users").document(authResult!.user.uid).setData([
+                    "name": name,
+                    "email": email,
+                    "currentLevel": 1,
+                    "money":0,
+                    "score":0,
+                    "sex":sex,
+                    "DOB":DOB,
+                ]) { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                        completionBlock(false,err.localizedDescription)
+                    } else {
+                        print("Document successfully written!")
                     }
-                    completionBlock(true,"")
-                } else {
-                    completionBlock(false,error!.localizedDescription)
                 }
+                completionBlock(true,"")
+            } else {
+                completionBlock(false,error!.localizedDescription)
             }
         }
+    }
+    
+    static func passCompletedLevelData(levelNum: String, completedLevel: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
+        // Add a new document in collection "users"
+        
+        do {
+            try db.collection("levelReport").document(levelNum).setData(from: completedLevel)
+        } catch var err {
+            print("error while passing data", err)
+        }
+
+  
+    }
     
     //MARK: - Get Document Firestore
     
@@ -62,15 +75,15 @@ class FirebaseRequest{
             .addSnapshotListener { documentSnapshot, error in
                 print("Exceution!!")
                 
-              guard let document = documentSnapshot else {
-                //Error
-                print("Error fetching document: \(error!)")
-                completion(nil,error)
-                return
-              }
-              guard let data = document.data() else {
-                return
-              }
+                guard let document = documentSnapshot else {
+                    //Error
+                    print("Error fetching document: \(error!)")
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    return
+                }
                 //Featch changers successfully
                 print("data in seeting db listener",data)
                 completion(data,nil)
@@ -97,13 +110,35 @@ class FirebaseRequest{
                 //Featch changers successfully
                 print("data in fetch user data ",data)
                 completion(data,nil)
-
+                
             }
         
         
     }
     
     
+    //MARK:- Firebase Storage
+    
+    func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
+        let storage = Storage.storage()
+        var reference: StorageReference!
+        reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
+        print("gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
+       reference.downloadURL { (url, error) in
+            guard let data = NSData(contentsOf: url!) else{
+                completion(nil,error)
+                return
+            }
+            guard let image = UIImage(data: data as Data) else{
+                completion(nil,error)
+                return
+            }
+            //Featch image successfully
+            print("image fetched ", image)
+            completion(image, nil)
+        }
+
+    }
     
     
     
