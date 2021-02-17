@@ -57,7 +57,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
     backgroundColor = .white
         buildStrawberry()
-        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
+//        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
 //        buildOrange()
 //
 //        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(orange.happyOrange), userInfo: nil, repeats: true)
@@ -110,12 +110,17 @@ class GameScene: SKScene {
     
     func buildStrawberry() {
         strawberry.buildStrawberry()
-        strawberry.strawberry.position = CGPoint(x: frame.midX, y: frame.midY)
+        strawberry.strawberry.position = CGPoint(x: frame.midX-500, y: frame.midY)
 //        orange.orange.position = CGPoint(x: 900, y: 0)
         // for cashier
         
         strawberry.strawberry.size = CGSize(width: 300, height: 400)
         addChild(strawberry.strawberry)
+        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
+//               var location = CGPoint(x: frame.midX, y: frame.midY)
+//        moveStrawberry(location: location)
+                let moveAction = SKAction.moveBy(x: (view?.frame.midX)! , y: (view?.frame.midY)! , duration: 3)
+        strawberry.strawberry.run(moveAction)
     }
     
     func buildPineapple() {
@@ -129,8 +134,53 @@ class GameScene: SKScene {
     }
     
     
+    //Move Charcter
+    func moveStrawberry(location: CGPoint) {
+      // 1
+      var multiplierForDirection: CGFloat
+
+      // 2
+      let bearSpeed = frame.size.width / 3.0
+
+      // 3
+        let moveDifference = CGPoint(x: location.x - strawberry.strawberry.position.x, y: location.y - strawberry.strawberry.position.y)
+      let distanceToMove = sqrt(moveDifference.x * moveDifference.x + moveDifference.y * moveDifference.y)
+
+      // 4
+      let moveDuration = distanceToMove / bearSpeed
+
+      // 5
+      if moveDifference.x < 0 {
+        multiplierForDirection = 1.0
+      } else {
+        multiplierForDirection = -1.0
+      }
+        strawberry.strawberry.xScale = abs(strawberry.strawberry.xScale) * multiplierForDirection
+
+        // 1
+        if strawberry.strawberry.action(forKey: "walkingInPlaceBear") == nil {
+          // if legs are not moving, start them
+    strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
+        }
+
+        // 2
+        let moveAction = SKAction.move(to: location, duration:(TimeInterval(moveDuration)))
+
+        // 3
+        let doneAction = SKAction.run({ [weak self] in
+          self?.bearMoveEnded()
+        })
+
+        // 4
+        let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
+        strawberry.strawberry.run(moveActionWithDone, withKey:"bearMoving")
+
+    }
     
-  
+    func bearMoveEnded() {
+        strawberry.strawberry.removeAllActions()
+           
+        }
         
 
    
