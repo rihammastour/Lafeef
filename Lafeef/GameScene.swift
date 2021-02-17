@@ -14,17 +14,13 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     private var bear = SKSpriteNode()
       private var bearWalkingFrames: [SKTexture] = []
-  //  let dog = SKSpriteNode(imageNamed: "boy")
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     override func didMove(to view: SKView) {
-     //   dog.size = CGSize(width: 200, height: 200)
-       // addChild(bear)
-      // backgroundColor = .blue
+     
         buildBear()
-     //   animateBear()
 
      }
     
@@ -87,17 +83,8 @@ class GameScene: SKScene {
         var bearTextureName : String
         bearTextureName = "WalkingWatermelon\(i)"
 
-       
-       
-//
-//        if (bear.position == Waitinglocation)  {
-//            bearTextureName = "HappyWatermelon\(i)"
-//        }
         walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
-//        var rotateAction = SKAction.rotate(toAngle: .pi / 4, duration: 2)
-//        bear.run(rotateAction)
-       // rotateAction = SKAction.rotate(toAngle: .pi / -4, duration: 3)
-        //bear.run(rotateAction)
+
       }
       bearWalkingFrames = walkFrames
         let firstFrameTexture = bearWalkingFrames[0]
@@ -105,26 +92,11 @@ class GameScene: SKScene {
         bear.position = CGPoint(x: frame.midX-600, y: frame.midY-58)
         bear.size = CGSize(width: 300, height: 220)
         addChild(bear)
-        //M_PI/4.0 is 45 degrees, you can make duration different from 0 if you want to show the rotation, if it is 0 it will rotate instantly
        
-//        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+300 , y: -(view?.frame.midY)!+510 , duration: 3)
-//       bear.run(moveAction)
-       // if (bear.position == CGPoint(x: frame.midX+300, y: frame.midY+510) ) {
-       //            bearTextureName = "HappyWatermelon\(i)"
-         //   animateBear()
             animateBear()
         var location = CGPoint(x: frame.midX+20, y: frame.midY-58)
                moveBear(location: location)
-       // var Waitinglocation = CGPoint(x: -600.0, y: -58.0)
-        if (bear.position == Waitinglocation){
-        print("الحمدلله")
-        }
-       // if (bear.position == location){
-        print("here areej/////////////////////////")
-            print(bear.position)
-        print("done areej/////////////////////////")
-      //  }
-       //        }
+      
         
     }
     
@@ -137,15 +109,6 @@ class GameScene: SKScene {
         withKey:"walkingInPlaceBear")
         
     }
-//
-//    func animateBear2() {
-//        bear.run(SKAction.repeatForever(SKAction.animate(with: bearWaitingFrames,
-//                                                         timePerFrame: 0.33,
-//                                                         resize: false,
-//                                                         restore: true)),
-//        withKey:"walkingInPlaceBear")
-//
-//    }
     func bearMoveEnded() {
       bear.removeAllActions()
        
@@ -201,13 +164,7 @@ class GameScene: SKScene {
         }
     }
 
-//
-//  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//      let touch = touches.first!
-//      var location = touch.location(in: self)
-//        location.y = frame.midY-58
-//      moveBear(location: location)
-//    }
+
     func moveBear(location: CGPoint) {
       // 1
       var multiplierForDirection: CGFloat
