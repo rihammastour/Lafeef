@@ -30,11 +30,11 @@ class GameScene: SKScene {
     private var base : SKSpriteNode?
     
     //Timer variables
-    var timeLeft: TimeInterval = 120//change
+    static var timeLeft: TimeInterval = 120//change
     let timeLeft1=120//change
-    var timer = Timer()
+   static var timer = Timer()
     private var displayTime : SKLabelNode?
-    var endTime: Date?
+   static var endTime: Date?
     
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
@@ -161,11 +161,11 @@ class GameScene: SKScene {
         self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if self.displayTime != nil {
             
-            endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=timeLeft.time
+            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
+            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            displayTime?.text=GameScene.timeLeft.time
             displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-            displayTime?.isHidden=true
+//            displayTime?.isHidden=true
             
         }
         let circle = SKShapeNode(circleOfRadius: 46)
@@ -230,18 +230,18 @@ class GameScene: SKScene {
             percent -= incr
             circle.path = self.circle(radius: radius, percent:percent)
             
-            if( Int(self.timeLeft) < 120){
+            if( Int(GameScene.timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
                 
                 
                 
             }
             
-            if( Int(self.timeLeft) < 60){
+            if( Int(GameScene.timeLeft) < 60){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
             
-            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
+            if( Int(GameScene.timeLeft) < 30 && Int(GameScene.timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
@@ -287,26 +287,27 @@ class GameScene: SKScene {
         let yellowTime=timeLeft1/3*1//6
         
         
-        if(Int(timeLeft)>greenTime){
+        if(Int(GameScene.timeLeft)>greenTime){
             displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
             //green
             
             
         }
-        else  if (Int(timeLeft) > yellowTime){
+        else  if (Int(GameScene.timeLeft) > yellowTime){
             displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = GameScene.timeLeft.time
             //yellow
             
         }
         
-        else  if (timeLeft > 0 ){
+        else  if (GameScene.timeLeft > 0 ){
             displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            displayTime?.text = GameScene.timeLeft.time
             //orange
             
         }
@@ -317,7 +318,7 @@ class GameScene: SKScene {
             displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             //red
             
-            timer.invalidate()
+            GameScene.timer.invalidate()
         }
     }
     

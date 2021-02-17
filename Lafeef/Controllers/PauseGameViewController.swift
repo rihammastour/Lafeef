@@ -11,8 +11,8 @@ import UIKit
 class PauseGameViewController: UIViewController{
     
  
-//    let timerClass = GameScene()
-
+    let timerClass = GameScene()
+    var challengeScen:GameScene?
     @IBOutlet weak var pauseView: UIView!
     @IBOutlet weak var viewInstructionOutlet: UIButton!
     @IBOutlet weak var exitOutlet: UIButton!
@@ -34,7 +34,14 @@ class PauseGameViewController: UIViewController{
 //        timerClass.timeLabel.text=timerClass.timeLeft.time
 //        timerClass.timer.invalidate()
 ////        timerClass.PauseTime(true)
-//        self.dismiss(animated: true)
+      
+        print(GameScene.timeLeft.time)
+        
+        print("[[[[[[[[[[[[[[[[")
+        GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
+        GameScene.timer=Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.challengeScen?.updateTime), userInfo: nil, repeats: true)
+//        GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        self.dismiss(animated: true)
 //
         
     }
@@ -43,6 +50,7 @@ class PauseGameViewController: UIViewController{
         
     }
     @IBAction func exitGame(_ sender: Any) {
+        GameScene.timer.invalidate()
     }
 
     

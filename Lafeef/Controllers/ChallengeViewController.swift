@@ -37,6 +37,11 @@ class ChallengeViewController: UIViewController {
     
     //MARK: -Set up UI Element
     
+    @IBAction func pauseGame(_ sender: Any) {
+        GameScene.timeLeft = GameScene.timeLeft
+        
+GameScene.timer.invalidate()
+    }
     //setScens
     func setScene(){
         
