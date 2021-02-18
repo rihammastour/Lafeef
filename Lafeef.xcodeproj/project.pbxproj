@@ -37,6 +37,8 @@
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
+		4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219725DE5B4F00A765D4 /* Money.swift */; };
+		4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
@@ -122,6 +124,8 @@
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4EF5219725DE5B4F00A765D4 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionMoney.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
 				C9081C2D25D97ADE00B19998 /* Topping.swift */,
 				C9081C3525D9858400B19998 /* Base.swift */,
+				4EF5219725DE5B4F00A765D4 /* Money.swift */,
+				4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -661,6 +667,7 @@
 				4EB9776225CB7C7600518EF9 /* SignUpViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
+				4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */,
 				C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */,
 				C9081C3625D9858400B19998 /* Base.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
@@ -689,6 +696,7 @@
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
+				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,

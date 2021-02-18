@@ -18,6 +18,7 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
+    var moneyCounter : Int = 0
     
     //MARK:  Nodes Variables
     
@@ -28,6 +29,9 @@ class GameScene: SKScene {
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
     private var base : SKSpriteNode?
+    
+    //Payment node variables
+    private var paymentContainer : SKSpriteNode?
     
     //Timer variables
     var timeLeft: TimeInterval = 120//change
@@ -89,6 +93,9 @@ class GameScene: SKScene {
             
         }
         
+        // Get Payment Continer node from scene and store it for use later
+        self.paymentContainer = self.childNode(withName: "paymentContainer") as? SKSpriteNode
+        self.paymentContainer?.isHidden = false
     }
     
     //setBackgroundBakary
@@ -195,6 +202,64 @@ class GameScene: SKScene {
         //get base size depens on base type
         node.size = base.getBaseSize()
         return node
+    }
+    
+    //MARK:  - Set up Payment Contents Functions
+    func setPaymentContent(with money:[Money]?){
+
+        //unwrap payment continer
+        guard self.paymentContainer != nil else {
+            print("no payment continer")
+            return
+        }
+        
+        //make payment visible
+        self.paymentContainer?.isHidden = false
+        
+            //unwrap money array if any
+            if let money = money {
+                
+                //money
+                for m in money {
+                    
+                    switch self.moneyCounter{
+                    case 0:
+                        createMoney(at: PositionMoney.first,as: m)
+                        print(0)
+                    case 1:
+                        createMoney(at: PositionMoney.seconed,as: m)
+                    case 2:
+                        createMoney(at: PositionMoney.third,as: m)
+                    case 3:
+                        createMoney(at: PositionMoney.fourth,as: m)
+                    case 4:
+                        createMoney(at: PositionMoney.fifth,as: m)
+                    case 5:
+                        createMoney(at: PositionMoney.sixth,as: m)
+                    default:
+                        print("cannot add more")
+                    }
+                    
+                }
+
+            
+        }
+        
+
+    }
+    
+    func createMoney(at position:PositionMoney,as money:Money){
+        moneyCounter += 1
+        print(moneyCounter)
+        let node = SKSpriteNode(imageNamed: "\(money.rawValue)")
+        print(node)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = position.getPosition()
+        node.size = money.getMoneySize()
+        node.zRotation = position.getZRotation()
+        print("00000",node)
+        paymentContainer?.addChild(node)
+        
     }
     
     //startTimer

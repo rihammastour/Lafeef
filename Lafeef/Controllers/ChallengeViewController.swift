@@ -15,9 +15,10 @@ class ChallengeViewController: UIViewController {
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "1"
-    var currentOrder = 0
+    var currentOrder = 1
     var duration:Float?
     var orders:[Order]?
+    var money:[Money]?
     var alert = AlertService()
     var challengeScen:GameScene?
     
@@ -31,8 +32,7 @@ class ChallengeViewController: UIViewController {
         // Additional setup after loading the view.
         setScene()
         fetchChallengeLevel()
-        
-    }
+      }
     
     //MARK: -Set up UI Element
     
@@ -63,6 +63,7 @@ class ChallengeViewController: UIViewController {
         self.duration = level.duration
         self.orders = level.orders
         showOrder(at: currentOrder) // must be Moved to be called by character
+        showPayment(at: currentOrder)
         print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
     }
     
@@ -71,11 +72,22 @@ class ChallengeViewController: UIViewController {
         
         let order = orders![number]
         let base = order.base
-        
+
         let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
     
+    func showPayment(at number:Int) -> Void {
+        print("showPayment executed!")
+        let order = orders![number]
+        let customerPaied = order.customerPaid
+        let money = Money(rawValue: customerPaied)
+        print(customerPaied)
+        print(money)
+        let moneyArr = money?.convertToMoney(customerPaied: customerPaied)
+        print(moneyArr)
+        self.challengeScen?.setPaymentContent(with: moneyArr)
+    }
     //nextOrder
     func nextOrder(){
         if currentOrder <= 3{
