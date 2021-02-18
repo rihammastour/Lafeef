@@ -13,6 +13,7 @@ class GameScene: SKScene {
     //MARK: - Proprites
     
     //MARK: Variables
+    let alert = AlertService()
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -24,6 +25,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
+    private var progessBarContiner : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -36,12 +38,17 @@ class GameScene: SKScene {
     private var displayTime : SKLabelNode?
     var endTime: Date?
     
+    
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
         
         setupSceneElements()
-        
+  
     }
+    
+//    override func didMove(to view: SKView) {
+//        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
+//    }
     
     //MARK: - Functions
     
@@ -53,11 +60,15 @@ class GameScene: SKScene {
         //Set background Bakery
         self.setBackgroundBakary()
         
+        //Set progress bar
+        createPrograssBar()
+        
         // Get Camera node from scene and store it for use later
         self.camera = self.childNode(withName: "camera") as? SKCameraNode
         if self.camera != nil {
             setCameraConstraints()
         }
+        
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -89,6 +100,18 @@ class GameScene: SKScene {
             
         }
         
+    }
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        
+        //Create prograss bar and hide it using SKCropNode Mask
+        let bar = PrograssBar()
+        bar.configure(at: CGPoint(x: 0, y: 0))
+        progessBarContiner?.addChild(bar)
     }
     
     //setBackgroundBakary
@@ -171,7 +194,7 @@ class GameScene: SKScene {
     }
     
     
-    //setTopping
+    //create Topping
     func createTopping(at position:PositionTopping,as topping:Topping){
         
         toopingCounter += 1
@@ -186,6 +209,7 @@ class GameScene: SKScene {
         
     }
     
+    //create Base
     func createBaseNode(with base:Base) -> SKSpriteNode{
         
         let node = SKSpriteNode(imageNamed: base.rawValue)

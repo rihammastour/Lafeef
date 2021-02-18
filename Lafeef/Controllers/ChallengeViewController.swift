@@ -87,20 +87,20 @@ class ChallengeViewController: UIViewController {
     }
     
     //MARK: - Calculate Score
-
+    
     //calculateScore
     func calculateScore(for providedBase:Base?,_ providedToppings:[Topping]?,_ chenge:Float,on time:Bool){
         
         //get order score
-       let orderScore = calculateOrderScore(for: providedBase, providedToppings, on: time)
+        let orderScore = calculateOrderScore(for: providedBase, providedToppings, on: time)
         //get payment score
-       let paymentScore = calculatePaymentScore(with: chenge)
+        let paymentScore = calculatePaymentScore(with: chenge)
         
         //Sum scors
-       let totalScore = paymentScore + orderScore
+        let totalScore = paymentScore + orderScore
         print("Total score",totalScore)
     }
-
+    
     func calculatePaymentScore(with chenge:Float) -> Int{
         
         let totalBill = calculateTotalBill()
@@ -201,7 +201,7 @@ class ChallengeViewController: UIViewController {
             if providedToppings?.count == currentToppings?.count {
                 totalSocre += 1 }
             print("after check topping number TS",totalSocre)
-                
+            
             //check toppings type
             var i = 0
             for t in toppings{

@@ -13,7 +13,6 @@ class PrepareOrderController {
     
     //MARK: - Functions
     
-    
     //getToppingsName
     static func getToppingsName(from array:[Topping:Int]?) -> [Topping]?{
         
@@ -29,14 +28,10 @@ class PrepareOrderController {
             //Stract number of topping as repeated of its name
             for _ in 1 ... value{
                 toppingsName.append(key)
-                            }
+            }
         }
         return toppingsName
     }
-    
-    
-    
-    
     
 }
 
