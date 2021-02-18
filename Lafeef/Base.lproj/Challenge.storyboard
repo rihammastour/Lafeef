@@ -46,7 +46,8 @@
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="gameContinue:" destination="mRG-gB-WrO" eventType="touchUpInside" id="s2q-vF-6d8"/>
+                                                    <action selector="gameContinue:" destination="mRG-gB-WrO" eventType="touchUpInside" id="n57-SB-iJ3"/>
+                                                    <segue destination="ZnZ-4P-R8K" kind="showDetail" identifier="ContinueGame" id="fPF-r2-k4H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-xr-u2P">
@@ -99,7 +100,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="continueOutlet" destination="I6b-ff-eDt" id="kYL-if-MCp"/>
+                        <outlet property="continueOutlet" destination="I6b-ff-eDt" id="E0x-FG-j68"/>
                         <outlet property="exitOutlet" destination="KxV-Go-ygc" id="Hqy-YM-APj"/>
                         <outlet property="pauseView" destination="1u4-Qq-2CA" id="Edt-e5-Fwe"/>
                         <outlet property="viewInstructionOutlet" destination="tI7-xr-u2P" id="XF6-ip-S5k"/>
@@ -204,8 +205,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
-                                    <action selector="pauseGame:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="ysd-gt-TQK"/>
-                                    <segue destination="mRG-gB-WrO" kind="showDetail" id="D0p-39-MzD"/>
+                                    <segue destination="mRG-gB-WrO" kind="showDetail" identifier="MenuSegue" id="lh3-vD-tCs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -229,7 +229,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="D0p-39-MzD"/>
+        <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="stopGame" width="46" height="46"/>

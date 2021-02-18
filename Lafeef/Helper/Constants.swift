@@ -28,6 +28,8 @@ struct Constants {
         static let homeSegue = "HomeSegue"
         static let signupSegue = "SignupSegue"
         static let challengeSegue = "challengeSegue"
+        static let menuSegue = "MenuSegue"
+        static let continueGame = "ContinueGame"
     }
     
 }

@@ -33,7 +33,7 @@ class GameScene: SKScene {
     static var timeLeft: TimeInterval = 120//change
     let timeLeft1=120//change
    static var timer = Timer()
-    private var displayTime : SKLabelNode?
+   static var displayTime : SKLabelNode?
    static var endTime: Date?
     
     //MARK: - Lifecycle Functons
@@ -158,13 +158,13 @@ class GameScene: SKScene {
         
         //Start the Timer
         //Creat leble to display time ????
-        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-        if self.displayTime != nil {
+        GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+        if GameScene.displayTime != nil {
             
             GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
             GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=GameScene.timeLeft.time
-            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+            GameScene.displayTime?.text=GameScene.timeLeft.time
+            GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
 //            displayTime?.isHidden=true
             
         }
@@ -174,8 +174,11 @@ class GameScene: SKScene {
         circle.strokeColor = SKColor.clear
         circle.zRotation = CGFloat.pi / 2
         addChild(circle)
+        print("convert int here")
+        print(Int(GameScene.timeLeft))
+        print(TimeInterval(Int(GameScene.timeLeft)))
         
-        countdown(circle: circle, steps: 120, duration: 120) {
+        countdown(circle: circle, steps: Int(GameScene.timeLeft), duration: TimeInterval(Int(GameScene.timeLeft))) {
         }
         //self.startTimer()
         
@@ -237,11 +240,11 @@ class GameScene: SKScene {
                 
             }
             
-            if( Int(GameScene.timeLeft) < 60){
+            if( Int(GameScene.timeLeft) <= 60){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
             
-            if( Int(GameScene.timeLeft) < 30 && Int(GameScene.timeLeft)>=0){
+            if( Int(GameScene.timeLeft) <= 30 && Int(GameScene.timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
@@ -288,34 +291,38 @@ class GameScene: SKScene {
         
         
         if(Int(GameScene.timeLeft)>greenTime){
-            displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = GameScene.timeLeft.time
+            GameScene.displayTime?.text = GameScene.timeLeft.time
             print(GameScene.timeLeft.time)
+            print("raghad")
             //green
             
             
         }
         else  if (Int(GameScene.timeLeft) > yellowTime){
-            displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = GameScene.timeLeft.time
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+           
+            print(GameScene.timeLeft.time)
             //yellow
             
         }
         
         else  if (GameScene.timeLeft > 0 ){
-            displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = GameScene.timeLeft.time
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
             //orange
             
         }
         else {
-            displayTime?.isHidden=false
-            displayTime?.fontName =  "FF Hekaya"
-            displayTime?.text = "انتهى الوقت!"
-            displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+            GameScene.displayTime?.isHidden=false
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.text = "انتهى الوقت!"
+            GameScene.displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             //red
             
             GameScene.timer.invalidate()
