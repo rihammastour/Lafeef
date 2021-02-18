@@ -20,6 +20,8 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
     var button: SKNode! = nil
+    var cashierbutton: SKNode! = nil
+    
 
     //MARK:  Charachters  Variables
     let orange = CustomerNode(customerName: "Orange")
@@ -63,6 +65,11 @@ class GameScene: SKScene {
         button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
         button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
                self.addChild(button)
+    
+        cashierbutton = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
+        cashierbutton.position = CGPoint(x:600,y:0);
+               self.addChild(cashierbutton)
+        
 
     }
     
@@ -424,8 +431,16 @@ class GameScene: SKScene {
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
                // orange.happyCustomer()
-                orange.GoTOCachier(customerNode: orange, customerSatisfaction: "sad")
+                orange.movetoCashier(customerNode: orange, customerSatisfaction: "happy")
+                // will go left 
                 //move to take cake
+          
+            }
+            
+            if cashierbutton.contains(location) {
+           
+                orange.moveOut(customerNode: orange, customerSatisfaction: "sad")
+           
           
             }
         }

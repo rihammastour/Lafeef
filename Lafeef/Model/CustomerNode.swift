@@ -89,35 +89,31 @@ class CustomerNode {
         withKey:"\(customerName)")
     }
     func happyCustomer(){
-        
-       // customer.removeAction(forKey: "\(customerName)")
+
         animateCustomer(frame: HappyFrames, speed: 0.5)
      }
     
     func sadCustomer(){
-       // customer.removeAction(forKey: "\(customerName)")
+ 
         animateCustomer(frame: SadFrames , speed: 0.5)
      }
     func waitingCustomer(){
-        
-       // customer.removeAction(forKey: "\(customerName)")
+      
         animateCustomer(frame: WaitingFrames , speed: 0.5)
      }
     func walkingCustomer(){
-        
-       // customer.removeAction(forKey: "\(customerName)")
+     
         animateCustomer(frame: WalkingFrames , speed: 0.3)
      }
     func normalCustomer(){
         
-       // customer.removeAction(forKey: "\(customerName)")
         animateCustomer(frame: WalkingFrames , speed: 0.3)
      }
   //
     
     func stopCustomer(){
        customer.removeAction(forKey: "\(customerName)")
-      //  customer.removeAllActions()
+   
         
     }
     func  removeCustomer(){
@@ -125,52 +121,62 @@ class CustomerNode {
       
     }
     
-    func GoTOCachier(customerNode : CustomerNode, customerSatisfaction : String) {
-       
-        var ActuallAction = SKAction()
-        
+    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
+  
         switch customerSatisfaction {
         case "happy":
                 customerNode.happyCustomer()
-            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveToChashier2), userInfo: nil, repeats: false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+                moveCustomer(customerNode : customerNode,x: 650, y: 0)
+               }
             break
 
         case "sad":
-                customerNode.sadCustomer()
-            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveSad), userInfo: nil, repeats: false)
+            customerNode.sadCustomer()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+                moveCustomer(customerNode : customerNode,x: -600, y: 0)
+              
+               }
+         
             break
         
     
         default:
-                customerNode.normalCustomer()
-            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveToChashier2), userInfo: nil, repeats: false)
-            
-
+            customerNode.normalCustomer()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+                moveCustomer(customerNode:customerNode,x: 650, y: 0)
+                
+            }
         }
-        
-    
-        
-        
-        
     }
+
+    func moveOut(customerNode : CustomerNode, customerSatisfaction : String){
+        switch customerSatisfaction {
+        case "happy":
+                customerNode.happyCustomer()
+            break
+        case "sad":
+            customerNode.sadCustomer()
+            break
+        default:
+            customerNode.normalCustomer()
+        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+                moveCustomer(customerNode: customerNode,x: 1000, y: 0)
+                
+            }
     
-    @objc func moveToChashier2() {
-        let moveAction = SKAction.moveBy(x: 750 , y: 0 , duration: 3)
-        let WalkingAction = SKAction.run({ [weak self] in
-            self?.walkingCustomer()
+    }
+ func moveCustomer(customerNode : CustomerNode,x: CGFloat , y: CGFloat) {
+    
+    let moveAction = SKAction.moveBy(x: x , y: y , duration: 4)
+    let WalkingAction = SKAction.run({
+        customerNode.walkingCustomer()
         })
         let moveActionWithDone = SKAction.sequence([  WalkingAction, moveAction] )
-        self.customer.run(moveActionWithDone)
+    customerNode.customer.run(moveActionWithDone)
         
     }
-    
-    @objc func moveSad() {
-        let moveAction = SKAction.moveBy(x: -600 , y: 0 , duration: 3)
-        let WalkingAction = SKAction.run({ [weak self] in
-            self?.walkingCustomer()
-        })
-        let moveActionWithDone = SKAction.sequence([  WalkingAction, moveAction] )
-        self.customer.run(moveActionWithDone)
-        
+
     }
-}
+ 
