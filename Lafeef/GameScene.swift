@@ -19,7 +19,8 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
-    
+    var button: SKNode! = nil
+
     //MARK:  Charachters  Variables
     let orange = CustomerNode(customerName: "Orange")
     let apple = CustomerNode(customerName: "Apple")
@@ -55,13 +56,14 @@ class GameScene: SKScene {
         
     }
     override func didMove(to view: SKView) {
-    backgroundColor = .white
-        buildStrawberry()
-//        strawberry.animateStrawberry(frame: strawberry.WaitingFrames)
-//        buildOrange()
-//
-//        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(orange.happyOrange), userInfo: nil, repeats: true)
+        backgroundColor = .white
+        buildCustomer(customerNode: orange)
         
+        //to trash
+        button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
+               self.addChild(button)
+
     }
     
     //MARK: - Functions
@@ -70,15 +72,29 @@ class GameScene: SKScene {
     //MARK: -  Charachters Functions
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
-        customerNode.customer.position = CGPoint(x: frame.midX, y: frame.midY)
+        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY)
+        customerNode.walkingCustomer()
+        
+        //move to take cake
+        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
+     
+               let StopAction = SKAction.run({ [weak self] in
+                customerNode.stopCustomer()
+               })
+        let WaitingAction = SKAction.run({ [weak self] in
+            customerNode.waitingCustomer()
+        })
+               let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
+        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
 
+        print (customerNode.customer.position)
+        
         // for cashier
         
         customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
-
-    
+   
     //MARK: - Set up Scene Eslements Functions
     
     //setupSceneElements
@@ -402,8 +418,20 @@ class GameScene: SKScene {
     
     // override touchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
+        for t in touches {
+            self.touchUp(atPoint: t.location(in: self))
+            let location = t.location(in: self)
+            // Check if the location of the touch is within the button's bounds
+            if button.contains(location) {
+               // orange.happyCustomer()
+                orange.GoTOCachier(customerNode: orange, customerSatisfaction: "sad")
+                //move to take cake
+          
+            }
+        }
+    
+           }
+    
     
     //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

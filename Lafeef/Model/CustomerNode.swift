@@ -80,36 +80,97 @@ class CustomerNode {
         
      
     }
-    func animateCustomer(frame:[SKTexture] ) {
+    func animateCustomer(frame:[SKTexture], speed: Double ) {
         customer.run(SKAction.repeatForever(
         SKAction.animate(with: frame,
-                         timePerFrame: 0.6,
+                         timePerFrame: speed,
                          resize: false,
                          restore: true)),
         withKey:"\(customerName)")
     }
-    func happyApple(){
+    func happyCustomer(){
         
-        customer.removeAction(forKey: "\(customerName)")
-        animateCustomer(frame: HappyFrames)
+       // customer.removeAction(forKey: "\(customerName)")
+        animateCustomer(frame: HappyFrames, speed: 0.5)
      }
     
     func sadCustomer(){
-        customer.removeAction(forKey: "\(customerName)")
-        animateCustomer(frame: SadFrames)
+       // customer.removeAction(forKey: "\(customerName)")
+        animateCustomer(frame: SadFrames , speed: 0.5)
      }
     func waitingCustomer(){
         
-        customer.removeAction(forKey: "\(customerName)")
-        animateCustomer(frame: WaitingFrames)
+       // customer.removeAction(forKey: "\(customerName)")
+        animateCustomer(frame: WaitingFrames , speed: 0.5)
+     }
+    func walkingCustomer(){
+        
+       // customer.removeAction(forKey: "\(customerName)")
+        animateCustomer(frame: WalkingFrames , speed: 0.3)
+     }
+    func normalCustomer(){
+        
+       // customer.removeAction(forKey: "\(customerName)")
+        animateCustomer(frame: WalkingFrames , speed: 0.3)
      }
   //
     
     func stopCustomer(){
-        customer.removeAction(forKey: "\(customerName)")
+       customer.removeAction(forKey: "\(customerName)")
+      //  customer.removeAllActions()
+        
     }
     func  removeCustomer(){
         customer.removeFromParent()
       
+    }
+    
+    func GoTOCachier(customerNode : CustomerNode, customerSatisfaction : String) {
+       
+        var ActuallAction = SKAction()
+        
+        switch customerSatisfaction {
+        case "happy":
+                customerNode.happyCustomer()
+            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveToChashier2), userInfo: nil, repeats: false)
+            break
+
+        case "sad":
+                customerNode.sadCustomer()
+            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveSad), userInfo: nil, repeats: false)
+            break
+        
+    
+        default:
+                customerNode.normalCustomer()
+            Timer.scheduledTimer(timeInterval: 4.5, target: self, selector: #selector(moveToChashier2), userInfo: nil, repeats: false)
+            
+
+        }
+        
+    
+        
+        
+        
+    }
+    
+    @objc func moveToChashier2() {
+        let moveAction = SKAction.moveBy(x: 750 , y: 0 , duration: 3)
+        let WalkingAction = SKAction.run({ [weak self] in
+            self?.walkingCustomer()
+        })
+        let moveActionWithDone = SKAction.sequence([  WalkingAction, moveAction] )
+        self.customer.run(moveActionWithDone)
+        
+    }
+    
+    @objc func moveSad() {
+        let moveAction = SKAction.moveBy(x: -600 , y: 0 , duration: 3)
+        let WalkingAction = SKAction.run({ [weak self] in
+            self?.walkingCustomer()
+        })
+        let moveActionWithDone = SKAction.sequence([  WalkingAction, moveAction] )
+        self.customer.run(moveActionWithDone)
+        
     }
 }
