@@ -46,6 +46,7 @@ class PauseGameViewController: UIViewController{
         
         GameScene.displayTime?.fontName =  "FF Hekaya"
         GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+        GameScene.timer.fire()
 //        GameScene.displayTime?.text = GameScene.endTime?.timeIntervalSinceNow ?? 0
         print("befor start")
 //        timerClass.startTimer()

@@ -24,7 +24,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
-    
+    private var boy : SKSpriteNode?
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
     private var base : SKSpriteNode?
@@ -32,11 +32,13 @@ class GameScene: SKScene {
     //Timer variables
     static var timeLeft: TimeInterval = 120//change
     let timeLeft1=120//change
-   static var timer = Timer()
+    static var timer = Timer()
    static var displayTime : SKLabelNode?
    static var endTime: Date?
     
     //MARK: - Lifecycle Functons
+    
+
     override func sceneDidLoad() {
         
         setupSceneElements()

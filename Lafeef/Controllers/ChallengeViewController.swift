@@ -50,6 +50,7 @@ class ChallengeViewController: UIViewController {
             
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
+        
             print(GameScene.timeLeft.time)
 //            vc.levelNum = "1"
             
