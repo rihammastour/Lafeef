@@ -21,8 +21,9 @@ class GameScene: SKScene {
     var toopingCounter : Int = 0
     var button: SKNode! = nil
     var cashierbutton: SKNode! = nil
-    
-
+    let cam = SKCameraNode()
+    var flag = false
+    var flag2 = false
     //MARK:  Charachters  Variables
     let orange = CustomerNode(customerName: "Orange")
     let apple = CustomerNode(customerName: "Apple")
@@ -59,6 +60,7 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
+        self.camera = cam
         buildCustomer(customerNode: orange)
         
         //to trash
@@ -417,8 +419,8 @@ class GameScene: SKScene {
             
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
-            
-            self.camera?.position.x += location.x - previousLocation.x
+            //كود من ريناد وسويت له كومنت 
+           // self.camera?.position.x += location.x - previousLocation.x
             
         }
     }
@@ -431,15 +433,17 @@ class GameScene: SKScene {
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
                // orange.happyCustomer()
+                flag = true
                 orange.movetoCashier(customerNode: orange, customerSatisfaction: "happy")
-                // will go left 
+                // will go left
                 //move to take cake
           
             }
             
             if cashierbutton.contains(location) {
-           
+                flag = false
                 orange.moveOut(customerNode: orange, customerSatisfaction: "sad")
+                flag2=true
            
           
             }
@@ -455,6 +459,19 @@ class GameScene: SKScene {
     
     //override update
     override func update(_ currentTime: TimeInterval) {
+        if (flag){
+        cam.position = orange.customer.position
+        }
+        if (flag2){
+           // cam.position = CGPoint(x: 0, y: 0)
+            flag2=false
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+//                cam.position = CGPoint(x: 0, y: 0)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
+                self.cam.position = CGPoint(x: 0, y: 0)
+            }
+        }
         // Called before each frame is rendered
         
         // Initialize _lastUpdateTime if it has not already been
