@@ -13,7 +13,7 @@ class GameScene: SKScene {
     //MARK: - Proprites
     
     //MARK: Variables
-   
+    let alert = AlertService()
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -37,6 +37,7 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
+    private var progessBarContiner : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -48,6 +49,7 @@ class GameScene: SKScene {
     var timer = Timer()
     private var displayTime : SKLabelNode?
     var endTime: Date?
+    
     
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
@@ -72,6 +74,10 @@ class GameScene: SKScene {
         
 
     }
+    
+//    override func didMove(to view: SKView) {
+//        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
+//    }
     
     //MARK: - Functions
     
@@ -114,11 +120,15 @@ class GameScene: SKScene {
         //Set background Bakery
         self.setBackgroundBakary()
         
+        //Set progress bar
+        createPrograssBar()
+        
         // Get Camera node from scene and store it for use later
         self.camera = self.childNode(withName: "camera") as? SKCameraNode
         if self.camera != nil {
             setCameraConstraints()
         }
+        
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -150,6 +160,18 @@ class GameScene: SKScene {
             
         }
         
+    }
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        
+        //Create prograss bar and hide it using SKCropNode Mask
+        let bar = PrograssBar()
+        bar.configure(at: CGPoint(x: 0, y: 0))
+        progessBarContiner?.addChild(bar)
     }
     
     //setBackgroundBakary
@@ -194,37 +216,45 @@ class GameScene: SKScene {
             self.orderContiner?.addChild(base)
             
             //unwrap toopings array if any
-            guard let toppings = toppings else{
-                return
-            }
-            
-            //Topping
-            for t in toppings {
+            if let toppings = toppings {
                 
-                switch self.toopingCounter{
-                case 0:
-                    createTopping(at: PositionTopping.topRight(baseType),as: t)
-                case 1:
-                    createTopping(at: PositionTopping.topLeft(baseType),as: t)
-                case 2:
-                    createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
-                case 3:
-                    createTopping(at: PositionTopping.bottomRight(baseType),as: t)
-                default:
-                    print("cannot add more than 4 toppings")
+                //Topping
+                for t in toppings {
+                    
+                    switch self.toopingCounter{
+                    case 0:
+                        createTopping(at: PositionTopping.topRight(baseType),as: t)
+                    case 1:
+                        createTopping(at: PositionTopping.topLeft(baseType),as: t)
+                    case 2:
+                        createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
+                    case 3:
+                        createTopping(at: PositionTopping.bottomRight(baseType),as: t)
+                    default:
+                        print("cannot add more than 4 toppings")
+                    }
+                    
                 }
-                
             }
             
         }
         
         //Start the Timer
-        self.startTimer()
+        let circle = SKShapeNode(circleOfRadius: 46)
+        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
+        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        circle.strokeColor = SKColor.clear
+        circle.zRotation = CGFloat.pi / 2
+        addChild(circle)
+        
+        countdown(circle: circle, steps: 120, duration: 120) {
+        }
+        //self.startTimer()
         
     }
     
     
-    //setTopping
+    //create Topping
     func createTopping(at position:PositionTopping,as topping:Topping){
         
         toopingCounter += 1
@@ -239,6 +269,7 @@ class GameScene: SKScene {
         
     }
     
+    //create Base
     func createBaseNode(with base:Base) -> SKSpriteNode{
         
         let node = SKSpriteNode(imageNamed: base.rawValue)
@@ -260,8 +291,6 @@ class GameScene: SKScene {
         circle.zRotation = CGFloat.pi / 2
         addChild(circle)
         
-        countdown(circle: circle, steps: 120, duration: 120) {
-        }
     }
     
     //MARK:- Timer function
