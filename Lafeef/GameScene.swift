@@ -56,11 +56,12 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         
         setupSceneElements()
-        
+        addChild(cam)
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
         self.camera = cam
+        
         buildCustomer(customerNode: orange)
         
         //to trash
@@ -94,6 +95,7 @@ class GameScene: SKScene {
             customerNode.waitingCustomer()
         })
                let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
+        
         customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
 
         print (customerNode.customer.position)
@@ -468,8 +470,11 @@ class GameScene: SKScene {
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
 //                cam.position = CGPoint(x: 0, y: 0)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
-                self.cam.position = CGPoint(x: 0, y: 0)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [self] in
+                var newPosition = CGPoint(x: 0, y: 0)
+                let ReturnCameraToBegin = SKAction.moveBy(x: 0 , y: 0 , duration: 3)
+//                let ReturnCameraToBegin = SKAction.move(to: newPosition, duration: 5)
+                cam.run(ReturnCameraToBegin)
             }
         }
         // Called before each frame is rendered
