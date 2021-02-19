@@ -34,9 +34,6 @@ class GameScene: SKScene {
     
     
     //MARK:  Nodes Variables
-    
-   
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
@@ -87,17 +84,20 @@ class GameScene: SKScene {
         
         //move to take cake
         let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
-     
-               let StopAction = SKAction.run({ [weak self] in
-                customerNode.stopCustomer()
-               })
+//
+//               let StopAction = SKAction.run({ [weak self] in
+//                customerNode.stopCustomer()
+//               })
         let WaitingAction = SKAction.run({ [weak self] in
             customerNode.waitingCustomer()
         })
                let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
         
-        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
-
+//        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
+        customerNode.customer.run(moveActionWithDone) {
+            //make order visible
+            self.orderContiner?.isHidden = false
+        }
         print (customerNode.customer.position)
         
         // for cashier
@@ -182,8 +182,8 @@ class GameScene: SKScene {
             return
         }
         
-        //make order visible
-        self.orderContiner?.isHidden = false
+//        //make order visible
+//        self.orderContiner?.isHidden = false
         
         //Create base node
         self.base = createBaseNode(with: baseType)
