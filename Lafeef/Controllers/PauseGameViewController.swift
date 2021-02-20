@@ -24,7 +24,7 @@ class PauseGameViewController: UIViewController{
         viewInstructionOutlet.layer.cornerRadius = viewInstructionOutlet.frame.size.height/2
         exitOutlet.layer.cornerRadius = exitOutlet.frame.size.height/2
         continueOutlet.layer.cornerRadius = continueOutlet.frame.size.height/2
-        
+       
         
  
     
@@ -34,9 +34,6 @@ class PauseGameViewController: UIViewController{
     @IBAction func gameContinue(_ sender: Any) {
 
         print("[[[[[[[[[[[[[[[[")
-//        timerClass.timeLabel.text=timerClass.timeLeft.time
-//        timerClass.timer.invalidate()
-////        timerClass.PauseTime(true)
        
         print(GameScene.timeLeft.time)
 
@@ -46,18 +43,29 @@ class PauseGameViewController: UIViewController{
         
         GameScene.displayTime?.fontName =  "FF Hekaya"
         GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-        GameScene.timer.fire()
-//        GameScene.displayTime?.text = GameScene.endTime?.timeIntervalSinceNow ?? 0
         print("befor start")
 //        timerClass.startTimer()
         print(GameScene.timeLeft.time)
-    
+        GameScene.circleBool=true
         print("after start")
-      
+        GameScene.isPaused11=true
+        print(GameScene.isPaused11)
+        GameScene.displayTime?.text=GameScene.timeLeft.time
+//        GameScene.updateTime()
+        self.dismiss(animated: true, completion: nil)
         
-//        GameScene.timer=Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(challengeScen!.updateTime), userInfo: nil, repeats: true)
-//        GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        self.dismiss(animated: true)
+//        performSegue(withIdentifier: "ContinueGame", sender: self)
+        //        timerClass.timeLabel.text=timerClass.timeLeft.time
+        //        timerClass.timer.invalidate()
+        ////        timerClass.PauseTime(true)
+//        GameScene.circle?.isPaused=false
+//        GameScene.circle?.speed=1
+//        GameScene.timer.fire()
+//        GameScene.displayTime?.text = GameScene.endTime?.timeIntervalSinceNow ?? 0
+//        GameScene.displayTime?.text=GameScene.timeLeft.time+"kkkkk"
+        //        GameScene.timer=Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(challengeScen!.updateTime), userInfo: nil, repeats: true)
+        //        GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+
 //
 
     }
@@ -75,11 +83,27 @@ class PauseGameViewController: UIViewController{
     @IBAction func viewInstruction(_ sender: Any) {
         
     }
-    @IBAction func exitGame(_ sender: Any) {
-        
-        GameScene.timer.invalidate()
-        GameScene.timeLeft = 120//when exit and enter the game again the timer restart 
-    }
+//    @IBAction func exitGame(_ sender: Any) {
+//
+//        GameScene.timer.invalidate()
+//        GameScene.timeLeft = 120//when exit and enter the game again the timer restart
+////        GameScene.circleBool=true
+//        GameScene.percent=CGFloat(1.0)
+//
+//    }
+    
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "exitGame" {
+                let vc = segue.destination as! ChallengeLevelsViewController
+                            print("Segue proformed")
+    //            vc.levelNum = "1"
+                        GameScene.timer.invalidate()
+                        GameScene.timeLeft = 120//when exit and enter the game again the timer restart
+                //        GameScene.circleBool=true
+//                        GameScene.percent=CGFloat(1.0)
+            }
+        }
 
     
 }

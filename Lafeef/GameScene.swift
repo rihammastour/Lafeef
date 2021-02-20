@@ -35,7 +35,11 @@ class GameScene: SKScene {
     static var timer = Timer()
    static var displayTime : SKLabelNode?
    static var endTime: Date?
-    
+    static var isPaused11 = false
+    static var incr2 = 1
+    static var circleBool=true
+    static var stopCircle=false
+//  static var percent = CGFloat(1.0)
     //MARK: - Lifecycle Functons
     
 
@@ -165,11 +169,13 @@ class GameScene: SKScene {
             
             GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
             GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            GameScene.displayTime?.text=GameScene.timeLeft.time
+            print("first")
+//            GameScene.displayTime?.text=GameScene.timeLeft.time
             GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
 //            displayTime?.isHidden=true
             
         }
+        
         let circle = SKShapeNode(circleOfRadius: 46)
         circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
@@ -180,7 +186,7 @@ class GameScene: SKScene {
         print(Int(GameScene.timeLeft))
         print(TimeInterval(Int(GameScene.timeLeft)))
         
-        countdown(circle: circle, steps: Int(GameScene.timeLeft), duration: TimeInterval(Int(GameScene.timeLeft))) {
+        countdown(circle: circle, steps: 120, duration: 120) {
         }
         //self.startTimer()
         
@@ -224,15 +230,28 @@ class GameScene: SKScene {
         guard let path = circle.path else {
             return
         }
-        
+        if(GameScene.stopCircle){
+            self.removeAllActions()
+        }
         
         let radius = path.boundingBox.width/2
-        let timeInterval = duration/TimeInterval(steps)
+        var timeInterval = duration/TimeInterval(steps)
         let incr = 1 / CGFloat(steps)
         var percent = CGFloat(1.0)
         
         let animate = SKAction.run {
-            percent -= incr
+            //            if(stopCircle){
+            //                self.removeAllActions()
+            //            }
+            print("####")
+            print(timeInterval)
+//            timeInterval=duration/GameScene.timeLeft
+            print("*****")
+            print(percent)
+//            GameScene.circleBool
+            if(   GameScene.circleBool)
+            {percent -= incr}
+//            percent -= incr
             circle.path = self.circle(radius: radius, percent:percent)
             
             if( Int(GameScene.timeLeft) < 120){
@@ -252,22 +271,52 @@ class GameScene: SKScene {
             
             
         }
+//        timeInterval=duration/GameScene.timeLeft
         let wait = SKAction.wait(forDuration:timeInterval)
-        let action = SKAction.sequence([wait, animate])
-        
-        run(SKAction.repeat(action,count:steps-1)) {
-            
-            
-            if( percent == 15){
-                circle.fillColor = SKColor.red
+        let action1 = SKAction.sequence([wait, animate])
+        self.action(forKey: "circleDone")
+//        square.runAction(SKAction.repeatActionForever(moveSequence), withKey:"moving")
+        run(SKAction.repeatForever(action1)) {
+            if(GameScene.stopCircle){
+                self.removeAllActions()
             }
-            self.run(SKAction.wait(forDuration:timeInterval)) {
+
+         
+            self.run(SKAction.wait(forDuration:TimeInterval(Int(GameScene.timeLeft)))) {
+                if(Int(GameScene.timeLeft)==0){
+                    action1.speed = 0.0
+                    self.removeAction(forKey: "circleDone")
+                    GameScene.stopCircle=true
                 circle.path = nil
+
                 //                circle.fillColor = SKColor.red
                 completion()
+//                    circle.removeAllActions()
+
+                }
             }
-            
+
         }
+        
+//        repeat {
+//            run(SKAction.repeat(action, count: 1)) {
+//            
+//            
+//                        self.run(SKAction.wait(forDuration:TimeInterval(Int(GameScene.timeLeft)))) {
+//                            if(Int(GameScene.timeLeft)==0){
+//                            circle.path = nil
+//                                stopCircle=false
+//                            //                circle.fillColor = SKColor.red
+//                            completion()
+//                              
+//            //                    circle.removeAllActions()
+//            
+//                            }
+//                        }
+//            
+//                    }
+//        } while stopCircle
+        
         
         
     }
@@ -296,8 +345,15 @@ class GameScene: SKScene {
             GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.displayTime?.text = GameScene.timeLeft.time
+//            GameScene.displayTime?.text = GameScene.timeLeft.time+"99"
             print(GameScene.timeLeft.time)
             print("raghad")
+//            if(GameScene.isPaused11==true){
+//                print("is PAUSED IS TRUE ")
+//                print(GameScene.timeLeft.time)
+//                GameScene.displayTime?.text = "Areej"
+//            }
+            
             //green
             
             
@@ -306,7 +362,8 @@ class GameScene: SKScene {
             GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.displayTime?.text = GameScene.timeLeft.time
-           
+//            GameScene.displayTime?.text = GameScene.timeLeft.time+"88"
+        
             print(GameScene.timeLeft.time)
             //yellow
             

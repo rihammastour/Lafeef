@@ -75,8 +75,7 @@
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="exitGame:" destination="mRG-gB-WrO" eventType="touchUpInside" id="3SR-57-A7S"/>
-                                                    <segue destination="qAL-mm-ExN" kind="showDetail" id="pih-2Q-rUW"/>
+                                                    <segue destination="qAL-mm-ExN" kind="showDetail" identifier="exitGame" id="Zw9-hZ-y57"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -229,6 +228,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
