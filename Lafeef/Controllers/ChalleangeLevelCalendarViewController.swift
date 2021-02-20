@@ -9,45 +9,41 @@ import UIKit
 
 class ChalleangeLevelCalendarViewController: UIViewController {
 
-    var array : [Float]!
-  
-    var model2 :LevelReportData?
-    var array2:[LevelReportData]?
-  
-    
+    var levels = [Float]()
+    var reports = [CompletedLevel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseRequest.getChalleangeLevels {  (Level, error) in
-            guard let level = Level , error == "" else{
-             
-              print(error)
-                    
-                   return
-                    
-                }
-            self.setLevel(level:level)
-                }
-    }
-        func setLevel(level:Level){
-            array?.append(level.maxScore)
-            print(array)
+        getlevelsMaxScore()
+        getChildReports()
         }
-     
-//        FirebaseRequest.getChalleangeLevelesReports(childID: "fIK2ENltLvgqTR5NODCx4MJz5143") { (Report, error) in
-//
-//            if error == ""{
-//                self.array2?.append(Report!)
-//
-//            }else{
-//            print(error)
-//
-//                print(self.array2)
-//        }
-//
-//        }
-//
-//        }
+    
+    
+    
+    func   getlevelsMaxScore(){
+        FirebaseRequest.getChalleangeLevels { [self]  (Level, error) in
+            if error == ""{
+                levels.append(Level!.maxScore)
 
-        // Do any additional setup after loading the view.
+            }else{
+                print(error)
+
+    }
+        }
+    }
+        func getChildReports(){
+           // need child id
+                FirebaseRequest.getChalleangeLevelesReports(childID: "fIK2ENltLvgqTR5NODCx4MJz5143", completionBlock: { (CompletedLevel, error) in
+                    if (error == ""){
+                        self.reports.append(CompletedLevel!)
+                    }else{
+                        print(error)
+                    }
+                })
+                
+            }
+
+
+    
+
     }
     

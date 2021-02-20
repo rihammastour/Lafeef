@@ -148,13 +148,12 @@ class FirebaseRequest{
                         completionBlock(nil,err.localizedDescription)
                         return
                       } else {
+
                           for document in querySnapshot!.documents {
                    
                             let model = try! FirestoreDecoder().decode(Level.self, from: document.data())
-//                            array?.append(model)
-                           
-//                             print("\(document.documentID) => \(document.data())")
-                            
+    
+                        
                             completionBlock(model, "")
                           }
                       }
@@ -163,18 +162,17 @@ class FirebaseRequest{
         
         }
 
-    static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: LevelReportData?, _ error :String) -> Void) {
+    static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: CompletedLevel?, _ error :String) -> Void) {
             
-        db.collection("levelReport").whereField(childID, isEqualTo: childID).getDocuments()
+        db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
             { (querySnapshot, err) in
                       if let err = err {
-                          print("Error getting documents: \(err)")
                         completionBlock(nil,err.localizedDescription)
                       } else {
                       
                           for document in querySnapshot!.documents {
                           
-                            let model = try! FirestoreDecoder().decode(LevelReportData.self, from: document.data())
+                            let model = try! FirestoreDecoder().decode(CompletedLevel.self, from: document.data())
                        
                            
                            print("\(document.documentID) => \(document.data())")
