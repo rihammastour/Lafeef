@@ -39,19 +39,20 @@ class PauseGameViewController: UIViewController{
 
         print("[[[[[[[[[[[[[[[[")
         GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
-        GameScene.timeLeft = GameScene.timeLeft
+//        GameScene.timeLeft = GameScene.timeLeft
         
         GameScene.displayTime?.fontName =  "FF Hekaya"
         GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
         print("befor start")
 //        timerClass.startTimer()
-        print(GameScene.timeLeft.time)
+        print(GameScene.timeLeft)
         GameScene.circleBool=true
         print("after start")
         GameScene.isPaused11=true
         print(GameScene.isPaused11)
         GameScene.displayTime?.text=GameScene.timeLeft.time
 //        GameScene.updateTime()
+        
         GameScene.circle!.isPaused=false
         self.dismiss(animated: true, completion: nil)
         

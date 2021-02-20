@@ -54,7 +54,8 @@ class ChallengeViewController: UIViewController {
             GameScene.circle!.isPaused=true
 //            GameScene.circle?.speed=0
 //            GameScene.circle?.removeAllActions()
-            print(GameScene.timeLeft.time)
+            print("time when stop")
+            print(GameScene.timeLeft)
 //            vc.levelNum = "1"
             
         }
