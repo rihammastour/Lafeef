@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="5965.625" y="-185.15625"/>
         </scene>
-        <!--Timer View Controller-->
+        <!--View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
-                <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" customClass="TimerViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" sceneMemberID="viewController">
                     <view key="view" alpha="0.0" contentMode="scaleToFill" id="ier-ME-Xcq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +228,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>

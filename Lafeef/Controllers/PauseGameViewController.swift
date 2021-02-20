@@ -32,7 +32,7 @@ class PauseGameViewController: UIViewController{
     
 
     @IBAction func gameContinue(_ sender: Any) {
-
+        
         print("[[[[[[[[[[[[[[[[")
        
         print(GameScene.timeLeft.time)
@@ -52,6 +52,7 @@ class PauseGameViewController: UIViewController{
         print(GameScene.isPaused11)
         GameScene.displayTime?.text=GameScene.timeLeft.time
 //        GameScene.updateTime()
+        GameScene.circle!.isPaused=false
         self.dismiss(animated: true, completion: nil)
         
 //        performSegue(withIdentifier: "ContinueGame", sender: self)
@@ -99,7 +100,7 @@ class PauseGameViewController: UIViewController{
                             print("Segue proformed")
     //            vc.levelNum = "1"
                         GameScene.timer.invalidate()
-                        GameScene.timeLeft = 120//when exit and enter the game again the timer restart
+                        GameScene.timeLeft = 30//when exit and enter the game again the timer restart
                 //        GameScene.circleBool=true
 //                        GameScene.percent=CGFloat(1.0)
             }
