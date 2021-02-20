@@ -40,6 +40,7 @@ class ChallengeViewController: UIViewController {
     func setScene(){
         
         self.challengeScen = gameScen.scene as! GameScene
+        self.challengeScen?.viewController = self
         
     }
     

@@ -24,15 +24,16 @@ class GameScene: SKScene {
     let cam = SKCameraNode()
     var flag = false
     var flag2 = false
+    var viewController: ChallengeViewController?
     //MARK:  Charachters  Variables
-    let orange = CustomerNode(customerName: "Orange")
-    let apple = CustomerNode(customerName: "Apple")
-    let pineapple = CustomerNode(customerName: "Pineapple")
-    let strawberry = CustomerNode(customerName: "Strawberry")
-    let pear = CustomerNode(customerName: "Pear")
-    let watermelon = CustomerNode(customerName: "Watermelon")
-    
-    
+    //    let orange = CustomerNode(customerName: "Orange")
+    //    let apple = CustomerNode(customerName: "Apple")
+    //    let pineapple = CustomerNode(customerName: "Pineapple")
+    //    let strawberry = CustomerNode(customerName: "Strawberry")
+    //    let pear = CustomerNode(customerName: "Pear")
+    //    let watermelon = CustomerNode(customerName: "Watermelon")
+    var customers : [CustomerNode]=[]
+    var currentCustomer = 0
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -55,34 +56,43 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         
         setupSceneElements()
-        addChild(cam)
+        setUpCatcter()
+       // addChild(cam)
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
         self.camera = cam
         
-        buildCustomer(customerNode: orange)
+        buildCustomer(customerNode: customers[currentCustomer])
         
         //to trash
         button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
         button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
-               self.addChild(button)
-    
+        self.addChild(button)
+        
         cashierbutton = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
         cashierbutton.position = CGPoint(x:600,y:0);
-               self.addChild(cashierbutton)
+        self.addChild(cashierbutton)
         
-
+        
     }
     
-//    override func didMove(to view: SKView) {
-//        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
-//    }
+    //    override func didMove(to view: SKView) {
+    //        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
+    //    }
     
     //MARK: - Functions
     
-  
+    
     //MARK: -  Charachters Functions
+    func setUpCatcter(){
+        while customers.count <= 3  {
+            let randomInt = Int.random(in: 1..<6)
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
+            customers.append(choosenCustomer!)
+            
+        }
+    }
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
         customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY)
@@ -90,16 +100,16 @@ class GameScene: SKScene {
         
         //move to take cake
         let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
-//
-//               let StopAction = SKAction.run({ [weak self] in
-//                customerNode.stopCustomer()
-//               })
+        //
+        //               let StopAction = SKAction.run({ [weak self] in
+        //                customerNode.stopCustomer()
+        //               })
         let WaitingAction = SKAction.run({ [weak self] in
             customerNode.waitingCustomer()
         })
-               let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
+        let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
         
-//        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
+        //        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
         customerNode.customer.run(moveActionWithDone) {
             //make order visible
             self.orderContiner?.isHidden = false
@@ -111,7 +121,9 @@ class GameScene: SKScene {
         customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
-   
+    
+    
+    
     //MARK: - Set up Scene Eslements Functions
     
     //setupSceneElements
@@ -204,8 +216,8 @@ class GameScene: SKScene {
             return
         }
         
-//        //make order visible
-//        self.orderContiner?.isHidden = false
+        //        //make order visible
+        //        self.orderContiner?.isHidden = false
         
         //Create base node
         self.base = createBaseNode(with: baseType)
@@ -283,7 +295,7 @@ class GameScene: SKScene {
     
     //startTimer
     func startTimer(){
-      
+        
         let circle = SKShapeNode(circleOfRadius: 46)
         circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
         circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
@@ -299,8 +311,8 @@ class GameScene: SKScene {
         guard let path = circle.path else {
             return
         }
-     
-     
+        
+        
         
         let radius = path.boundingBox.width/2
         let timeInterval = duration/TimeInterval(steps)
@@ -313,7 +325,7 @@ class GameScene: SKScene {
             
             if( Int(self.timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-
+                
                 
                 
                 
@@ -451,7 +463,7 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
             //كود من ريناد وسويت له كومنت 
-           // self.camera?.position.x += location.x - previousLocation.x
+            // self.camera?.position.x += location.x - previousLocation.x
             
         }
     }
@@ -463,24 +475,44 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
-               // orange.happyCustomer()
+                // orange.happyCustomer()
                 flag = true
-                orange.movetoCashier(customerNode: orange, customerSatisfaction: "happy")
+                customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
+                
+                //make order invisible
+                self.orderContiner?.isHidden = true
                 // will go left
                 //move to take cake
-          
+                
             }
             
             if cashierbutton.contains(location) {
                 flag = false
-                orange.moveOut(customerNode: orange, customerSatisfaction: "sad")
-                flag2=true
-           
-          
+                
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                        
+                        self.cam.position = CGPoint(x: 0, y: 0)
+                        currentCustomer += 1
+                        if (currentCustomer<=3){
+                            buildCustomer(customerNode: customers[currentCustomer])
+                            viewController?.nextOrder()
+                        }
+                        
+                        else {
+                            print("THE LEVEL IS END")
+                        }
+                        
+                    }
+                    
+                    
+                }
+                
+                
             }
         }
-    
-           }
+        
+    }
     
     
     //override touchesCancelled
@@ -491,21 +523,21 @@ class GameScene: SKScene {
     //override update
     override func update(_ currentTime: TimeInterval) {
         if (flag){
-        cam.position = orange.customer.position
+            cam.position = customers[currentCustomer].customer.position
         }
-        if (flag2){
-           // cam.position = CGPoint(x: 0, y: 0)
-            flag2=false
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-//                cam.position = CGPoint(x: 0, y: 0)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [self] in
-                var newPosition = CGPoint(x: 0, y: 0)
-                let ReturnCameraToBegin = SKAction.moveBy(x: 0 , y: 0 , duration: 3)
-//                let ReturnCameraToBegin = SKAction.move(to: newPosition, duration: 5)
-                cam.run(ReturnCameraToBegin)
-            }
-        }
+        //        if (flag2){
+        //           // cam.position = CGPoint(x: 0, y: 0)
+        //            flag2=false
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+//                        cam.position = CGPoint(x: 0, y: 0)
+//
+//        //            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [self] in
+//        //                var newPosition = CGPoint(x: 0, y: 0)
+//        //                let ReturnCameraToBegin = SKAction.moveBy(x: 0 , y: 0 , duration: 3)
+//        ////                let ReturnCameraToBegin = SKAction.move(to: newPosition, duration: 5)
+//        //                cam.run(ReturnCameraToBegin)
+//                    }
+//                }
         // Called before each frame is rendered
         
         // Initialize _lastUpdateTime if it has not already been

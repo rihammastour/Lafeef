@@ -62,11 +62,11 @@ class CustomerNode {
             happyAppleFrames.append(HappyAppleAtlas.textureNamed(AppleTextureName))
         }
         
-        
-        for i in 1...SadImages {
-          let AppleTextureName = "Sad\(customerName)\(i)"
-            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
-        }
+//        
+//        for i in 1...SadImages {
+//          let AppleTextureName = "Sad\(customerName)\(i)"
+//            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
+//        }
         
 
         
@@ -150,7 +150,7 @@ class CustomerNode {
         }
     }
 
-    func moveOut(customerNode : CustomerNode, customerSatisfaction : String){
+    func moveOut(customerNode : CustomerNode, customerSatisfaction : String, completion: @escaping ()->()){
         switch customerSatisfaction {
         case "happy":
                 customerNode.happyCustomer()
@@ -165,7 +165,7 @@ class CustomerNode {
                 moveCustomer(customerNode: customerNode,x: 1000, y: 0)
                 
             }
-    
+        completion()
     }
  func moveCustomer(customerNode : CustomerNode,x: CGFloat , y: CGFloat) {
     
