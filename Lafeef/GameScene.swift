@@ -25,7 +25,8 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
-    private var progessBarContiner : SKSpriteNode!
+    private var progressBarContiner : SKSpriteNode!
+    private var progressBar : SKShapeNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -46,9 +47,6 @@ class GameScene: SKScene {
   
     }
     
-//    override func didMove(to view: SKView) {
-//        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
-//    }
     
     //MARK: - Functions
     
@@ -64,10 +62,7 @@ class GameScene: SKScene {
         createPrograssBar()
         
         // Get Camera node from scene and store it for use later
-        self.camera = self.childNode(withName: "camera") as? SKCameraNode
-        if self.camera != nil {
-            setCameraConstraints()
-        }
+
         
         
         // Get Order Continer node from scene and store it for use later
@@ -102,17 +97,7 @@ class GameScene: SKScene {
         
     }
     
-    //createPrograssBar
-    func createPrograssBar(){
-        
-        // Get Prograss bar Continer node from scene and store it for use later
-        self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        
-        //Create prograss bar and hide it using SKCropNode Mask
-        let bar = PrograssBar()
-        bar.configure(at: CGPoint(x: 0, y: 0))
-        progessBarContiner?.addChild(bar)
-    }
+    //MARK: - Background Bakary methods
     
     //setBackgroundBakary
     func setBackgroundBakary(){
@@ -129,6 +114,61 @@ class GameScene: SKScene {
         if let bakery = self.bakeryBackgroundNode{
             bakery.setScale(maxAspectRatio)
         }
+    }
+    
+    //MARK: - Progress bar methods
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+
+        //Create prograss bar and hide it
+        self.progressBar = SKShapeNode()
+        
+        self.progressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -10, width: 10, height: 20), cornerRadius: 10).cgPath
+        self.progressBar.name = "line"
+        self.progressBar.fillColor = UIColor(named: "GreenApp") ?? .green
+        self.progressBar.strokeColor = UIColor(named: "GreenApp") ?? .green
+        self.progressBar.lineWidth = 5
+        
+        self.progressBar.position = CGPoint(x: 86, y: 0)
+        
+        //Set position to left and size to zero
+        //        self.progressBar.size = CGSize(width: 10, height: 20)
+        //        progressBar.anchorPoint = CGPoint(x: 0, y: 0.5)
+        //        progressBar.position = CGPoint(x: 60, y: 0)
+        
+        progressBarContiner?.addChild(progressBar)
+         //scaleProgressBar(20)
+    }
+    
+    func scaleProgressBar(_ w:CGFloat){
+       // self.progressBar.lineWidth = 50
+//        let animate = SKAction.run {
+//            percent -= incr
+//            circle.path = self.circle(radius: radius, percent:percent)
+//            
+//            if( Int(self.timeLeft) < 120){
+//                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+//                
+//                
+//                
+//            }
+//            
+//            if( Int(self.timeLeft) < 60){
+//                circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
+//            }
+//            
+//            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
+//                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+//            }
+//            
+//            
+//        }
+
+        
     }
     
     
@@ -189,7 +229,6 @@ class GameScene: SKScene {
         
         countdown(circle: circle, steps: 120, duration: 120) {
         }
-        //self.startTimer()
         
     }
     
@@ -221,10 +260,6 @@ class GameScene: SKScene {
         return node
     }
     
-    //startTimer
-    func startTimer(){
-        
-    }
     
     //MARK:- Timer function
     // Creates an animated countdown timer
@@ -420,62 +455,7 @@ class GameScene: SKScene {
     
     
     //MARK:- Constrains Functos
-    
-    //setCameraConstraints
-    private func setCameraConstraints() {
-        // Don't try to set up camera constraints if we don't yet have a camera.
-        guard let camera = camera else { return }
-        
-        /*
-         Also constrain the camera to avoid it moving to the very edges of the scene.
-         First, work out the scaled size of the scene. Its scaled height will always be
-         the original height of the scene, but its scaled width will vary based on
-         the window's current aspect ratio.
-         */
-        let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
-        
-        /*
-         Find the root "board" node in the scene (the container node for
-         the level's background tiles).
-         */
-        guard let bekary = bakeryBackgroundNode else {
-            return
-        }
-        /*
-         Calculate the accumulated frame of this node.
-         The accumulated frame of a node is the outer bounds of all of the node's
-         child nodes, i.e. the total size of the entire contents of the node.
-         This gives us the bounding rectangle for the level's environment.
-         */
-        let boardContentRect = bekary.calculateAccumulatedFrame()
-        
-        /*
-         Work out how far within this rectangle to constrain the camera.
-         We want to stop the camera when we get within 100pts of the edge of the screen,
-         unless the level is so small that this inset would be outside of the level.
-         */
-        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
-        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
-        
-        // Use these insets to create a smaller inset rectangle within which the camera must stay.
-        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
-        
-        // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
-        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
-        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-        
-        // Constrain the camera within the inset rectangle.
-        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        levelEdgeConstraint.referenceNode = bekary
-        
-        /*
-         Add both constraints to the camera. The scene edge constraint is added
-         second, so that it takes precedence over following the `PlayerBot`.
-         The result is that the camera will follow the player, unless this would mean
-         moving too close to the edge of the level.
-         */
-        camera.constraints = [levelEdgeConstraint]
-    }
+
 }
 extension TimeInterval {
     var time: String {
