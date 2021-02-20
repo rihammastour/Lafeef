@@ -41,14 +41,21 @@ class GameScene: SKScene {
     private var base : SKSpriteNode?
     
     //Timer variables
-    var timeLeft: TimeInterval = 120//change
-    let timeLeft1=120//change
-    var timer = Timer()
-    private var displayTime : SKLabelNode?
-    var endTime: Date?
+    static var timeLeft: TimeInterval = 30//change
+    let timeLeft1=30//change
+    static var timer = Timer()
+   static var displayTime : SKLabelNode?
+   static var endTime: Date?
+    static var isPaused11 = false
+    static var incr2 = 1
+    static var circleBool=true
+    static var stopCircle=false
+    static var circle : SKShapeNode?
     
-    
+//  static var percent = CGFloat(1.0)
     //MARK: - Lifecycle Functons
+    
+
     override func sceneDidLoad() {
         
         setupSceneElements()
@@ -148,17 +155,17 @@ class GameScene: SKScene {
         }
         
         
-        //Creat leble to display time ????
-        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-        if self.displayTime != nil {
-            
-            endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=timeLeft.time
-            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-            displayTime?.isHidden=true
-            
-        }
+//        //Creat leble to display time ????
+//        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+//        if self.displayTime != nil {
+//
+//            endTime = Date().addingTimeInterval(timeLeft)
+//            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+//            displayTime?.text=timeLeft.time
+//            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+//            displayTime?.isHidden=true
+//
+//        }
         
     }
     
@@ -248,6 +255,32 @@ class GameScene: SKScene {
         addChild(circle)
         
         countdown(circle: circle, steps: 120, duration: 120) {
+        //Creat leble to display time ????
+        GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+        if GameScene.displayTime != nil {
+            
+            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
+            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            print("first")
+//            GameScene.displayTime?.text=GameScene.timeLeft.time
+            GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+//            displayTime?.isHidden=true
+            
+        }
+        
+       // static let circle = SKShapeNode(circleOfRadius: 46)
+        GameScene.circle = SKShapeNode(circleOfRadius: 46)
+        GameScene.circle!.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
+        GameScene.circle!.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        GameScene.circle!.strokeColor = SKColor.clear
+        GameScene.circle!.zRotation = CGFloat.pi / 2
+        addChild(GameScene.circle!)
+        print("convert int here")
+        print(Int(GameScene.timeLeft))
+        print(TimeInterval(Int(GameScene.timeLeft)))
+        
+        countdown(circle: GameScene.circle!, steps: 30, duration: 30) {
+            print("انا ما اطلع من الميثود")
         }
         //self.startTimer()
         
@@ -284,34 +317,43 @@ class GameScene: SKScene {
     //startTimer
     func startTimer(){
         
-        let circle = SKShapeNode(circleOfRadius: 46)
-        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
-        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-        circle.strokeColor = SKColor.clear
-        circle.zRotation = CGFloat.pi / 2
-        addChild(circle)
-        
     }
     
     //MARK:- Timer function
     // Creates an animated countdown timer
+    
     func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
         guard let path = circle.path else {
             return
         }
-        
+        if(GameScene.stopCircle){
+            self.removeAllActions()
+        }
         
         
         let radius = path.boundingBox.width/2
-        let timeInterval = duration/TimeInterval(steps)
+        var timeInterval = duration/TimeInterval(steps)
         let incr = 1 / CGFloat(steps)
         var percent = CGFloat(1.0)
         
-        let animate = SKAction.run {
-            percent -= incr
+        let animate = SKAction.run { [self] in
+            //            if(stopCircle){
+            //                self.removeAllActions()
+            //            }
+            print("####")
+            print(timeInterval)
+//            timeInterval=duration/GameScene.timeLeft
+            print("*****the percent******")
+           // print(percent)
+            print("******the redius*******")
+            //print(radius)
+//            GameScene.circleBool
+            if(GameScene.circleBool)
+            {percent -= incr}
+//            percent -= incr
             circle.path = self.circle(radius: radius, percent:percent)
             
-            if( Int(self.timeLeft) < 120){
+            if( Int(GameScene.timeLeft) < 30){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
                 
                 
@@ -319,33 +361,67 @@ class GameScene: SKScene {
                 
             }
             
-            if( Int(self.timeLeft) < 60){
+            if( Int(GameScene.timeLeft) <= 20){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
                 
             }
             
-            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
+            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
             
         }
+//        timeInterval=duration/GameScene.timeLeft
         let wait = SKAction.wait(forDuration:timeInterval)
-        let action = SKAction.sequence([wait, animate])
-        
-        run(SKAction.repeat(action,count:steps-1)) {
-            
-            
-            if( percent == 15){
-                circle.fillColor = SKColor.red
-            }
-            self.run(SKAction.wait(forDuration:timeInterval)) {
-                circle.path = nil
+        let action1 = SKAction.sequence([wait, animate])
+       // self.action(forKey: "circleDone")
+//        square.runAction(SKAction.repeatActionForever(moveSequence), withKey:"moving")
+//        run(SKAction.repeatForever(action1)) {
+//            if(GameScene.stopCircle){
+//                self.removeAllActions()
+//            }
+//
+        run(SKAction.repeatForever(action1), withKey: "stopTimer")
+//        self.run(SKAction.repeatForever(SKAction.action1(forKey: "timer")!)){
+         
+        self.run(SKAction.wait(forDuration:TimeInterval(5))) {
+                print("انا اتكرر ///////////////")
+                if(Int(GameScene.timeLeft)==0){
+                    //action1.speed = 0.0
+                    self.removeAction(forKey: "stopTimer")
+                    GameScene.stopCircle=true
+                    //GameScene.circle = nil
+print("امك تقول انك تدخل هنا")
                 //                circle.fillColor = SKColor.red
                 completion()
+//                    circle.removeAllActions()
+
+                }
             }
-            
-        }
+       
+
+       // }
+        
+//        repeat {
+//            run(SKAction.repeat(action, count: 1)) {
+//            
+//            
+//                        self.run(SKAction.wait(forDuration:TimeInterval(Int(GameScene.timeLeft)))) {
+//                            if(Int(GameScene.timeLeft)==0){
+//                            circle.path = nil
+//                                stopCircle=false
+//                            //                circle.fillColor = SKColor.red
+//                            completion()
+//                              
+//            //                    circle.removeAllActions()
+//            
+//                            }
+//                        }
+//            
+//                    }
+//        } while stopCircle
+        
         
         
     }
@@ -370,37 +446,50 @@ class GameScene: SKScene {
         let yellowTime=timeLeft1/3*1//6
         
         
-        if(Int(timeLeft)>greenTime){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+        if(Int(GameScene.timeLeft)>greenTime){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+//            GameScene.displayTime?.text = GameScene.timeLeft.time+"99"
+            print(GameScene.timeLeft.time)
+            print("raghad")
+//            if(GameScene.isPaused11==true){
+//                print("is PAUSED IS TRUE ")
+//                print(GameScene.timeLeft.time)
+//                GameScene.displayTime?.text = "Areej"
+//            }
+            
             //green
             
             
         }
-        else  if (Int(timeLeft) > yellowTime){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+        else  if (Int(GameScene.timeLeft) > yellowTime){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+//            GameScene.displayTime?.text = GameScene.timeLeft.time+"88"
+        
+            print(GameScene.timeLeft.time)
             //yellow
             
         }
         
-        else  if (timeLeft > 0 ){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+        else  if (GameScene.timeLeft > 0 ){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
             //orange
             
         }
         else {
-            displayTime?.isHidden=false
-            displayTime?.fontName =  "FF Hekaya"
-            displayTime?.text = "انتهى الوقت!"
-            displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+            GameScene.displayTime?.isHidden=false
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.text = "انتهى الوقت!"
+            GameScene.displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             //red
             
-            timer.invalidate()
+            GameScene.timer.invalidate()
         }
     }
     
@@ -512,6 +601,33 @@ class GameScene: SKScene {
             cam.position = customers[currentCustomer].customer.position
         }
   
+        // Called before each frame is rendered
+        
+       
+        if (Int(GameScene.timeLeft)==1){
+            print("صار الوقت واحد")
+            print(GameScene.timeLeft)
+
+        }
+        if (Int(GameScene.timeLeft)==0){
+            print("صار الوقت صفر")
+            print(GameScene.timeLeft)
+
+        }
+        if(Int(GameScene.timeLeft)==0){
+            //action1.speed = 0.0
+            //0.30000000000000016
+            
+        
+            print("صار الوقت صفر ودخلت")
+            self.removeAction(forKey: "stopTimer")
+            GameScene.stopCircle=true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            GameScene.circle?.path = self.circle(radius: 46, percent:-1)
+            }
+
+        }
+        // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }

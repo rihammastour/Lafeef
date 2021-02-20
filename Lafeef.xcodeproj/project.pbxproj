@@ -90,6 +90,7 @@
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
+		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
 		C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 		C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */; };
@@ -201,6 +202,7 @@
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
+		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
 		C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareOrderController.swift; sourceTree = "<group>"; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */,
+				C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
 				C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */,
 				C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */,
+				C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */,
 				4EB9776225CB7C7600518EF9 /* SignUpViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
