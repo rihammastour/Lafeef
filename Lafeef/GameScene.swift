@@ -23,17 +23,13 @@ class GameScene: SKScene {
     var cashierbutton: SKNode! = nil
     let cam = SKCameraNode()
     var flag = false
-    var flag2 = false
+   
     var viewController: ChallengeViewController?
+    
     //MARK:  Charachters  Variables
-    //    let orange = CustomerNode(customerName: "Orange")
-    //    let apple = CustomerNode(customerName: "Apple")
-    //    let pineapple = CustomerNode(customerName: "Pineapple")
-    //    let strawberry = CustomerNode(customerName: "Strawberry")
-    //    let pear = CustomerNode(customerName: "Pear")
-    //    let watermelon = CustomerNode(customerName: "Watermelon")
     var customers : [CustomerNode]=[]
     var currentCustomer = 0
+    
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
@@ -61,7 +57,7 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
-        self.camera = cam
+        
         
         buildCustomer(customerNode: customers[currentCustomer])
         
@@ -76,10 +72,6 @@ class GameScene: SKScene {
         
         
     }
-    
-    //    override func didMove(to view: SKView) {
-    //        view.window?.rootViewController?.present(alert.Alert(body: "here"), animated: true)
-    //    }
     
     //MARK: - Functions
     
@@ -136,11 +128,7 @@ class GameScene: SKScene {
         createPrograssBar()
         
         // Get Camera node from scene and store it for use later
-        self.camera = self.childNode(withName: "camera") as? SKCameraNode
-        if self.camera != nil {
-            setCameraConstraints()
-        }
-        
+        self.camera = cam
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -462,8 +450,6 @@ class GameScene: SKScene {
             
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
-            //كود من ريناد وسويت له كومنت 
-            // self.camera?.position.x += location.x - previousLocation.x
             
         }
     }
@@ -525,30 +511,14 @@ class GameScene: SKScene {
         if (flag){
             cam.position = customers[currentCustomer].customer.position
         }
-        //        if (flag2){
-        //           // cam.position = CGPoint(x: 0, y: 0)
-        //            flag2=false
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-//                        cam.position = CGPoint(x: 0, y: 0)
-//
-//        //            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [self] in
-//        //                var newPosition = CGPoint(x: 0, y: 0)
-//        //                let ReturnCameraToBegin = SKAction.moveBy(x: 0 , y: 0 , duration: 3)
-//        ////                let ReturnCameraToBegin = SKAction.move(to: newPosition, duration: 5)
-//        //                cam.run(ReturnCameraToBegin)
-//                    }
-//                }
-        // Called before each frame is rendered
-        
-        // Initialize _lastUpdateTime if it has not already been
+  
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
         
-        
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
-        
+    
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
@@ -561,61 +531,7 @@ class GameScene: SKScene {
     
     //MARK:- Constrains Functos
     
-    //setCameraConstraints
-    private func setCameraConstraints() {
-        // Don't try to set up camera constraints if we don't yet have a camera.
-        guard let camera = camera else { return }
-        
-        /*
-         Also constrain the camera to avoid it moving to the very edges of the scene.
-         First, work out the scaled size of the scene. Its scaled height will always be
-         the original height of the scene, but its scaled width will vary based on
-         the window's current aspect ratio.
-         */
-        let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
-        
-        /*
-         Find the root "board" node in the scene (the container node for
-         the level's background tiles).
-         */
-        guard let bekary = bakeryBackgroundNode else {
-            return
-        }
-        /*
-         Calculate the accumulated frame of this node.
-         The accumulated frame of a node is the outer bounds of all of the node's
-         child nodes, i.e. the total size of the entire contents of the node.
-         This gives us the bounding rectangle for the level's environment.
-         */
-        let boardContentRect = bekary.calculateAccumulatedFrame()
-        
-        /*
-         Work out how far within this rectangle to constrain the camera.
-         We want to stop the camera when we get within 100pts of the edge of the screen,
-         unless the level is so small that this inset would be outside of the level.
-         */
-        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
-        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
-        
-        // Use these insets to create a smaller inset rectangle within which the camera must stay.
-        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
-        
-        // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
-        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
-        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-        
-        // Constrain the camera within the inset rectangle.
-        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        levelEdgeConstraint.referenceNode = bekary
-        
-        /*
-         Add both constraints to the camera. The scene edge constraint is added
-         second, so that it takes precedence over following the `PlayerBot`.
-         The result is that the camera will follow the player, unless this would mean
-         moving too close to the edge of the level.
-         */
-        camera.constraints = [levelEdgeConstraint]
-    }
+
     
     // ----------------- charachter animation
     
