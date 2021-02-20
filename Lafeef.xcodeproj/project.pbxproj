@@ -13,6 +13,9 @@
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
 		41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */; };
 		41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */; };
+		41BE59FA25E08DDB00EA834F /* MihafChalleangelevels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */; };
+		41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */; };
+		41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE5A1525E09E2D00EA834F /* LevelReportData.swift */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
 		4E453A4425B61D5100B8363F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4325B61D5100B8363F /* GameScene.sks */; };
@@ -96,6 +99,9 @@
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
 		41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCharachterViewController.swift; sourceTree = "<group>"; };
 		41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameViewController.swift; sourceTree = "<group>"; };
+		41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MihafChalleangelevels.storyboard; sourceTree = "<group>"; };
+		41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalleangeLevelCalendarViewController.swift; sourceTree = "<group>"; };
+		41BE5A1525E09E2D00EA834F /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
+				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
 				C92A65A025CB3F660060AA53 /* StoreViewController.swift */,
@@ -264,6 +271,7 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
+				41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
@@ -325,6 +333,7 @@
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
 				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
+				41BE5A1525E09E2D00EA834F /* LevelReportData.swift */,
 				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
 				C9081C2D25D97ADE00B19998 /* Topping.swift */,
 				C9081C3525D9858400B19998 /* Base.swift */,
@@ -481,6 +490,7 @@
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
+				41BE59FA25E08DDB00EA834F /* MihafChalleangelevels.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
@@ -670,6 +680,7 @@
 				C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
+				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
@@ -692,6 +703,7 @@
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
@@ -873,13 +885,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -893,13 +905,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
