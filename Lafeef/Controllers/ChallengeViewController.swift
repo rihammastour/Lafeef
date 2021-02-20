@@ -15,7 +15,7 @@ class ChallengeViewController: UIViewController {
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "1"
-    var currentOrder = 1
+    var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
@@ -81,12 +81,11 @@ class ChallengeViewController: UIViewController {
         print("showPayment executed!")
         let order = orders![number]
         let customerPaied = order.customerPaid
-        let money = Money(rawValue: customerPaied)
+        let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
         print(customerPaied)
+
         print(money)
-        let moneyArr = money?.convertToMoney(customerPaied: customerPaied)
-        print(moneyArr)
-        self.challengeScen?.setPaymentContent(with: moneyArr)
+        self.challengeScen?.setPaymentContent(with: money)
     }
     //nextOrder
     func nextOrder(){

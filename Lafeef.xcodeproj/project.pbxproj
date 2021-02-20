@@ -39,6 +39,7 @@
 		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
 		4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219725DE5B4F00A765D4 /* Money.swift */; };
 		4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */; };
+		4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
@@ -126,6 +127,7 @@
 		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		4EF5219725DE5B4F00A765D4 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionMoney.swift; sourceTree = "<group>"; };
+		4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaied.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				C9081C3525D9858400B19998 /* Base.swift */,
 				4EF5219725DE5B4F00A765D4 /* Money.swift */,
 				4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */,
+				4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,
+				4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,

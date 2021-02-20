@@ -28,16 +28,16 @@ enum PositionMoney : Equatable {
             return CGPoint(x: 4,  y: 0)
             
         case .third:
-            return CGPoint(x: 8,  y: 0)
+            return CGPoint(x: -8,  y: 0)
             
         case .fourth:
-            return CGPoint(x: 16,  y: 0)
+            return CGPoint(x: 12,  y: 0)
             
         case .fifth:
             return CGPoint(x: 32,  y: 0)
             
         case .sixth:
-            return CGPoint(x: 64,  y: 0)
+            return CGPoint(x: 55,  y: 0)
         }
     }
     
@@ -45,22 +45,22 @@ enum PositionMoney : Equatable {
         
         switch self {
         case .first:
-            return 12
-            
-        case .seconed:
-            return 12.25
-            
-        case .third:
             return 12.5
             
-        case .fourth:
+        case .seconed:
+            return 12.75
+            
+        case .third:
             return 13
             
-        case .fifth:
+        case .fourth:
             return 13.25
             
+        case .fifth:
+            return 13.50
+            
         case .sixth:
-            return 13.5
+            return 13.75
         }
     }
     

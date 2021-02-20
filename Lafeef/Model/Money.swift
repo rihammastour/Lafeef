@@ -21,27 +21,12 @@ enum Money: Float, Codable {
         
         switch self {
         case .fiftyRiyal , .tenRiyal , .fiveRiyal:
-            return CGSize(width: 350, height: 350)
+            return CGSize(width: 250, height: 250)
             
         case .riyal , .riyalHalf, .riyalQuarter:
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 150, height: 150)
         }
     }
     
-//    func convertToMoney(customerPaied: Float) -> Float{
-//        print("convertToMoney excuted", customerPaied)
-//        switch customerPaied {
-//        case 50:
-//            return [50,]
-//        case 53:
-////            return [.fiftyRiyal, .fiftyRiyal,.riyal,.riyal,.riyal]
-////        case 100:
-////            return [.fiftyRiyal, .fiftyRiyal]
-////        case 100:
-////            return [.fiftyRiyal, .fiftyRiyal]
-//        default:
-////            return []
-//        }
-//    }
  
 }
