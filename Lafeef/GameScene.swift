@@ -26,7 +26,7 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     private var progressBarContiner : SKSpriteNode!
-    private var progressBar : SKShapeNode!
+    private var progressBar : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -63,7 +63,6 @@ class GameScene: SKScene {
         
         // Get Camera node from scene and store it for use later
 
-        
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -123,53 +122,39 @@ class GameScene: SKScene {
         
         // Get Prograss bar Continer node from scene and store it for use later
         self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-
-        //Create prograss bar and hide it
-        self.progressBar = SKShapeNode()
         
-        self.progressBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: -10, width: 10, height: 20), cornerRadius: 10).cgPath
-        self.progressBar.name = "line"
-        self.progressBar.fillColor = UIColor(named: "GreenApp") ?? .green
-        self.progressBar.strokeColor = UIColor(named: "GreenApp") ?? .green
-        self.progressBar.lineWidth = 5
+        self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
+        self.progressBar.size = CGSize(width: 10, height: 20)
+        progressBar.anchorPoint = CGPoint(x: 0, y: 1)
+        progressBar.position = CGPoint(x: 98, y: 10)
         
-        self.progressBar.position = CGPoint(x: 86, y: 0)
-        
-        //Set position to left and size to zero
-        //        self.progressBar.size = CGSize(width: 10, height: 20)
-        //        progressBar.anchorPoint = CGPoint(x: 0, y: 0.5)
-        //        progressBar.position = CGPoint(x: 60, y: 0)
         
         progressBarContiner?.addChild(progressBar)
-         //scaleProgressBar(20)
+        increaseProgressBar(by: 0.5)
     }
     
     func scaleProgressBar(_ w:CGFloat){
-       // self.progressBar.lineWidth = 50
-//        let animate = SKAction.run {
-//            percent -= incr
-//            circle.path = self.circle(radius: radius, percent:percent)
-//            
-//            if( Int(self.timeLeft) < 120){
-//                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-//                
-//                
-//                
-//            }
-//            
-//            if( Int(self.timeLeft) < 60){
-//                circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
-//            }
-//            
-//            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
-//                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-//            }
-//            
-//            
-//        }
+
 
         
     }
+    
+    func increaseProgressBar(by x:CGFloat) {
+        
+        // Offset each node with a slight delay depending on the index
+        let delayAction = SKAction.wait(forDuration: 10 * 0.2)
+        
+        // Move x position wh
+        //let moveBar =  SKAction.moveTo(x: progressBar.position.x + (10/4) , duration: 0.5)
+        // Scale up progress bar
+        let scaleUpAction = SKAction.scaleX(to:  -progressBar.size.width*x, duration: 1)
+        
+        
+        let group = SKAction.group([delayAction,scaleUpAction])
+        
+        progressBar.run(group)
+            
+        }
     
     
     
