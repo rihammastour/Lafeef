@@ -286,6 +286,7 @@ class GameScene: SKScene {
         
     }
     
+    }
     
     //create Topping
     func createTopping(at position:PositionTopping,as topping:Topping){
