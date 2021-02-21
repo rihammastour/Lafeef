@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="624" height="687.602" viewBox="0 0 624 687.602">
+  <defs>
+    <filter id="Rectangle_114" x="0" y="66" width="624" height="614" filterUnits="userSpaceOnUse">
+      <feOffset dx="-3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#eeaf85"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_2132" data-name="Group 2132" transform="translate(-101 -211)">
+    <g id="Group_2042" data-name="Group 2042" transform="translate(-8 66)">
+      <g id="Polygon_2" data-name="Polygon 2" transform="translate(226 147)" fill="none">
+        <path d="M187.5,0,375,78H0Z" stroke="none"/>
+        <path d="M 187.5 1.624626159667969 L 7.511138916015625 76.5 L 367.4888610839844 76.5 L 187.5 1.624626159667969 M 187.5 0 L 375 78 L 0 78 L 187.5 0 Z" stroke="none" fill="#6c6c6d"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 109, 145)" filter="url(#Rectangle_114)">
+        <rect id="Rectangle_114-2" data-name="Rectangle 114" width="606" height="596" transform="translate(12 72)" fill="#faf9f4"/>
+      </g>
+      <g id="Group_2000" data-name="Group 2000" transform="translate(172.566 203.99)">
+        <ellipse id="Ellipse_98" data-name="Ellipse 98" cx="4" cy="3.5" rx="4" ry="3.5" transform="translate(6.433 28.01)" fill="#717172"/>
+        <path id="Path_3516" data-name="Path 3516" d="M9362.748-3591.433s8.915,5.548,10.006-14.286-10.006-17.3-10.006-17.3-10.424,1.6-8.517,12.943" transform="translate(-9353.998 3623.12)" fill="none" stroke="#6c6c6d" stroke-width="2"/>
+      </g>
+      <g id="Group_1999" data-name="Group 1999" transform="translate(648.075 203.99)">
+        <ellipse id="Ellipse_99" data-name="Ellipse 99" cx="4" cy="3.5" rx="4" ry="3.5" transform="translate(6.925 28.01)" fill="#717172"/>
+        <path id="Path_3517" data-name="Path 3517" d="M9362.748-3591.433s8.915,5.548,10.006-14.286-10.006-17.3-10.006-17.3-10.424,1.6-8.517,12.943" transform="translate(-9353.998 3623.12)" fill="none" stroke="#6c6c6d" stroke-width="2"/>
+      </g>
+      <circle id="Ellipse_100" data-name="Ellipse 100" cx="2" cy="2" r="2" transform="translate(412 145)" fill="#717172"/>
+    </g>
+    <path id="Path_3915" data-name="Path 3915" d="M0,155.1" transform="translate(462.879 743.5)" fill="none" stroke="#707070" stroke-width="1"/>
+    <g id="Group_2131" data-name="Group 2131" transform="translate(113.787 214.524)">
+      <rect id="Rectangle_240" data-name="Rectangle 240" width="170.643" height="245.051" transform="translate(47.427 139.425)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Path_3916" data-name="Path 3916" d="M0,0H170.643V245.051H0Z" transform="translate(218.07 139.425)" fill="none" stroke="#1a1818" stroke-width="1"/>
+      <rect id="Rectangle_242" data-name="Rectangle 242" width="170.643" height="245.051" transform="translate(388.713 139.425)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <rect id="Rectangle_243" data-name="Rectangle 243" width="170.643" height="245.051" transform="translate(47.427 384.476)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <rect id="Rectangle_244" data-name="Rectangle 244" width="170.643" height="245.051" transform="translate(218.07 384.476)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <rect id="Rectangle_245" data-name="Rectangle 245" width="170.643" height="245.051" transform="translate(388.713 384.476)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <line id="Line_36" data-name="Line 36" x1="170.643" y2="245.051" transform="translate(218.07 384.476)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+      <line id="Line_37" data-name="Line 37" x1="170.643" y2="245.051" transform="translate(47.07 384.476)" fill="none" stroke="#1a1818" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

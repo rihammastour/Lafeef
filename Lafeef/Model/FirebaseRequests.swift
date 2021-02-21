@@ -138,31 +138,26 @@ class FirebaseRequest{
                 
             }
     }
-    static func getChalleangeLevels( completionBlock: @escaping ( _ data: Level?, _ error :String) -> Void) {
+    static func getChalleangeLevels( completionBlock: @escaping (_ data: Any?, _ err:Error?) -> Void)  {
+      
             
-            db.collection("challenge").getDocuments()
-            { (querySnapshot, err) in
-                      if let err = err {
-                          print("Error getting documents: \(err)")
-                        
-                        completionBlock(nil,err.localizedDescription)
-                        return
-                      } else {
-
-                          for document in querySnapshot!.documents {
-                   
-                            let model = try! FirestoreDecoder().decode(Level.self, from: document.data())
-    
-                        
-                            completionBlock(model, "")
-                          }
-                      }
-                  }
-        
-        
+        db.collection("challenge").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                
+                completionBlock(nil, err)
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    completionBlock(document.data(), nil)
+                }
+            }
         }
+     
 
-    static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: CompletedLevel?, _ error :String) -> Void) {
+    
+    }
+    static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
             
         db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
             { (querySnapshot, err) in
@@ -172,12 +167,12 @@ class FirebaseRequest{
                       
                           for document in querySnapshot!.documents {
                           
-                            let model = try! FirestoreDecoder().decode(CompletedLevel.self, from: document.data())
+//                            let model = try! FirestoreDecoder().decode(CompletedLevel.self, from: document.data())
                        
                            
                            print("\(document.documentID) => \(document.data())")
                             
-                            completionBlock(model, "")
+                            completionBlock(document.data(), "")
                           }
                       }
                   }
