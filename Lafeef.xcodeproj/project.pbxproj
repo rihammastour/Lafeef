@@ -57,6 +57,7 @@
 		C92A66F925CE91160060AA53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A66F825CE91160060AA53 /* User.swift */; };
 		C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */; };
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
+		C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
@@ -142,6 +143,7 @@
 		C92A66F825CE91160060AA53 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustmerSatisfaction.swift; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
 				C9081C2D25D97ADE00B19998 /* Topping.swift */,
 				C9081C3525D9858400B19998 /* Base.swift */,
+				C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
+				C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,

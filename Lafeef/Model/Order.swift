@@ -10,8 +10,8 @@ import UIKit
 import GameplayKit
 
 struct Order: Codable {
-    var base:Base
-    var customerPaid:Float
+    var base:Base?
+    var customerPaid:Float?
     var toppings:[Topping:Int]?
     
 }

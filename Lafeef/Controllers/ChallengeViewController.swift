@@ -40,6 +40,8 @@ class ChallengeViewController: UIViewController {
     func setScene(){
         
         self.challengeScen = gameScen.scene as! GameScene
+        self.challengeScen!.viewController = self
+        
         
     }
     
@@ -73,7 +75,7 @@ class ChallengeViewController: UIViewController {
         let base = order.base
         
         let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
-        self.challengeScen?.setOrderContent(with: base, toppings)
+        self.challengeScen?.setOrderContent(with: base!, toppings)
     }
     
     //nextOrder
@@ -89,25 +91,41 @@ class ChallengeViewController: UIViewController {
     //MARK: - Calculate Score
     
     //calculateScore
-    func calculateScore(for providedBase:Base?,_ providedToppings:[Topping]?,_ chenge:Float,on time:Bool){
+    func calculateScore(for providedOrder:Order?,_ change:Float,on time:Bool) -> Int{
+        
+        //Unwrap current order
+        guard getCurrentOrder() != nil else {
+            //Fail umwrapping
+            return 0
+        }
+        
+        guard providedOrder != nil else {
+            //No answer provided!
+            return 0
+        }
+        
+        //check time
+        if !(time){
+            return 0
+        }
         
         //get order score
-        let orderScore = calculateOrderScore(for: providedBase, providedToppings, on: time)
+        let orderScore = calculateOrderScore(for: providedOrder!)
         //get payment score
-        let paymentScore = calculatePaymentScore(with: chenge)
+        let paymentScore = calculatePaymentScore(with: change)
         
         //Sum scors
         let totalScore = paymentScore + orderScore
-        print("Total score",totalScore)
+        print("Total score", totalScore)
+        return totalScore
     }
     
+    //calculatePaymentScore
     func calculatePaymentScore(with chenge:Float) -> Int{
         
-        let totalBill = calculateTotalBill()
-        print("totalBill = ",totalBill)
-        let expectedChange = getCurrentOrder()!.customerPaid - totalBill
-        print("expectedChange = ",expectedChange)
-        
+        let totalBill = getTotalBill()
+        let expectedChange = getCurrentOrder()!.customerPaid! - totalBill
+        print("expected Change \t",expectedChange)
         //No change and child make a change
         if expectedChange == 0 && chenge != 0 {
             return 0
@@ -126,62 +144,28 @@ class ChallengeViewController: UIViewController {
             return 1
         }
         
-        
-    }
-    
-    func calculateTotalBill()->Float{
-        
-        //get Order
-        let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
-        
-        
-        guard currentOrder != nil else {
-            return 0
-        }
-        
-        var total:Float = (currentOrder?.base.getPrice())!
-        
-        guard let toppings = currentToppings else {
-            return total
-        }
-        
-        for t in toppings {
-            total += t.getPrice()
-        }
-        
-        return total
-        
     }
     
     
     //calculateOrderScore
-    func calculateOrderScore(for providedBase:Base?,_ providedToppings:[Topping]?,on time:Bool) -> Int {
+    func calculateOrderScore(for providedOrder:Order) -> Int {
         
         var totalSocre = 0
         
-        //check time
-        if !(time){
-            return totalSocre
-        }
-        
         //Declaration variabels
-        let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
+        let currentOrder = getCurrentOrder()!
+        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder.toppings)
         
-        guard currentOrder != nil else {
-            return totalSocre
-        }
-        
+        let providedToppings = PrepareOrderController.getToppingsName(from: providedOrder.toppings)
         //Check Base
         
         //check base if exist
-        if providedBase == nil {
+        if providedOrder.base == nil {
             return totalSocre
         }
         
         //check base type
-        if providedBase == currentOrder?.base{
+        if providedOrder.base == currentOrder.base{
             totalSocre += 1
         }else if currentToppings == nil {
             //Order doesn't contain toppings and wrong base
@@ -223,8 +207,34 @@ class ChallengeViewController: UIViewController {
         
     }
     
-    func getCurrentOrder() -> Order? {
-        return orders?[self.currentOrder]
+    
+    //MARK:  Calculate Score Helper functions
+    
+    func getCurrentOrder() ->  Order? {
+        return (self.orders?[self.currentOrder])
+    }
+    
+    //getTotalBill
+    func getTotalBill()->Float{
+        
+        //get Order base  and toppings
+        let currentOrder = getCurrentOrder()!
+        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder.toppings)
+        
+        var total:Float = (currentOrder.base!.getPrice())
+        
+        guard let toppings = currentToppings else {
+            //No Toppings
+            return total
+        }
+        
+        //Calculate Toppings prices
+        for t in toppings {
+            total += t.getPrice()
+        }
+        
+        return total
+        
     }
     
     //MARK: - Delegate handeler

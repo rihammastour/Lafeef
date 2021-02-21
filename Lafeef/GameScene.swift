@@ -19,6 +19,7 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
+    var viewController : ChallengeViewController!
     
     //MARK:  Nodes Variables
     
@@ -27,6 +28,7 @@ class GameScene: SKScene {
     private var bakeryBackgroundNode : SKNode?
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
+    private var button : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -44,7 +46,12 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         
         setupSceneElements()
-  
+        //Buttons TO BE REMOVED LATER
+        button = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
+             // Put it in the center of the scene
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+50);
+             self.addChild(button)
+
     }
     
     
@@ -123,23 +130,19 @@ class GameScene: SKScene {
         // Get Prograss bar Continer node from scene and store it for use later
         self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
         
+        //Create Progress bar
         self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
-        self.progressBar.size = CGSize(width: 10, height: 20)
+        self.progressBar.size = CGSize(width: 1, height: 20)
         progressBar.anchorPoint = CGPoint(x: 0, y: 1)
         progressBar.position = CGPoint(x: 98, y: 10)
         
-        
+        //Add progress bar to continer
         progressBarContiner?.addChild(progressBar)
-        increaseProgressBar(by: 0.5)
     }
     
-    func scaleProgressBar(_ w:CGFloat){
-
-
-        
-    }
-    
+    //IncreaseProgressBar by number float
     func increaseProgressBar(by x:CGFloat) {
+        print("Called heere x  ",x)
         
         // Offset each node with a slight delay depending on the index
         let delayAction = SKAction.wait(forDuration: 10 * 0.2)
@@ -147,8 +150,8 @@ class GameScene: SKScene {
         // Move x position wh
         //let moveBar =  SKAction.moveTo(x: progressBar.position.x + (10/4) , duration: 0.5)
         // Scale up progress bar
-        let scaleUpAction = SKAction.scaleX(to:  -progressBar.size.width*x, duration: 1)
-        
+        let scaleUpAction = SKAction.scaleX(to: -(progressBar.size.width+x), duration: 1)
+        print(-progressBar.size.width*x)
         
         let group = SKAction.group([delayAction,scaleUpAction])
         
@@ -408,7 +411,20 @@ class GameScene: SKScene {
     
     // override touchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        for t in touches {
+            self.touchUp(atPoint: t.location(in: self))
+            let location = t.location(in: self)
+            
+            // Check Satisfcation bar
+            if button.contains(location) {
+                print("tapped!")
+                let score = viewController.calculateScore(for: Order(base: Base.cake, customerPaid: 0, toppings: nil), 50, on: true)
+                let cusSat = CustmerSatisfaction.getCusSat(for: score)
+                print(cusSat.barIncreasedByNum())
+                increaseProgressBar(by: cusSat.barIncreasedByNum() )
+            }
+            
+        }
     }
     
     //override touchesCancelled
