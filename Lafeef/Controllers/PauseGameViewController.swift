@@ -36,7 +36,7 @@ class PauseGameViewController: UIViewController{
         print("[[[[[[[[[[[[[[[[")
        
         print(GameScene.timeLeft.time)
-
+        GameScene.TimerShouldNotDelay = true
         print("[[[[[[[[[[[[[[[[")
         GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
 //        GameScene.timeLeft = GameScene.timeLeft
@@ -54,6 +54,7 @@ class PauseGameViewController: UIViewController{
 //        GameScene.updateTime()
         
         GameScene.circle!.isPaused=false
+        GameScene.customers[GameScene.currentCustomer].customer.isPaused=false
         self.dismiss(animated: true, completion: nil)
         
 //        performSegue(withIdentifier: "ContinueGame", sender: self)
