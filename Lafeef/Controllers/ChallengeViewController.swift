@@ -12,6 +12,7 @@ import GameplayKit
 
 class ChallengeViewController: UIViewController {
     
+    @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "1"
@@ -36,6 +37,28 @@ class ChallengeViewController: UIViewController {
     
     //MARK: -Set up UI Element
     
+//    @IBAction func pauseGame(_ sender: Any) {
+//        GameScene.timeLeft = GameScene.timeLeft
+//        
+//GameScene.timer.invalidate()
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segue.menuSegue {
+            let vc = segue.destination as! PauseGameViewController
+                        print("Segue proformed")
+            
+            GameScene.timeLeft = GameScene.timeLeft
+            GameScene.timer.invalidate()
+            GameScene.circleBool=false
+            GameScene.circle!.isPaused=true
+//            GameScene.circle?.speed=0
+//            GameScene.circle?.removeAllActions()
+            print(GameScene.timeLeft.time)
+//            vc.levelNum = "1"
+            
+        }
+    }
     //setScens
     func setScene(){
         
