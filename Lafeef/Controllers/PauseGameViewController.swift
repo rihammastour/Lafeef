@@ -105,6 +105,8 @@ class PauseGameViewController: UIViewController{
     //            vc.levelNum = "1"
                         GameScene.timer.invalidate()
                         GameScene.timeLeft = 30//when exit and enter the game again the timer restart
+                
+                ChallengeViewController.isStop = true
                 //        GameScene.circleBool=true
 //                        GameScene.percent=CGFloat(1.0)
             }
