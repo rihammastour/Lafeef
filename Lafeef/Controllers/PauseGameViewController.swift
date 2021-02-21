@@ -51,9 +51,11 @@ class PauseGameViewController: UIViewController{
         GameScene.isPaused11=true
         print(GameScene.isPaused11)
         GameScene.displayTime?.text=GameScene.timeLeft.time
+        ChallengeViewController.isStop = false
+//        ChallengeViewController.setStopIcon()
 //        GameScene.updateTime()
         
-        GameScene.circle!.isPaused=false
+//        GameScene.circle!.isPaused=false
         GameScene.customers[GameScene.currentCustomer].customer.isPaused=false
         self.dismiss(animated: true, completion: nil)
         

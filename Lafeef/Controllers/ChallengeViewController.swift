@@ -21,9 +21,12 @@ class ChallengeViewController: UIViewController {
     var orders:[Order]?
     var alert = AlertService()
     var challengeScen:GameScene?
-    
+    static var isStop = false
+     var stopImg = UIImage(named: "stopGame")
+    var stopImg2 = UIImage(named: "Pause")
     //Outlet
     @IBOutlet weak var gameScen: SKView!
+//    @IBOutlet weak var stopUIImageView: UIImageView!
     
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
@@ -32,7 +35,14 @@ class ChallengeViewController: UIViewController {
         // Additional setup after loading the view.
         setScene()
         fetchChallengeLevel()
+      setStopIcon()
+        print("in view did load ")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        setStopIcon()
+        print("view will appear ")
     }
     
     //MARK: -Set up UI Element
@@ -51,6 +61,10 @@ class ChallengeViewController: UIViewController {
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
             GameScene.circleBool=false
+            ChallengeViewController.isStop = true
+           setStopIcon()
+//            GameScene.circle!.isPaused=true
+            
 //            if(GameScene.circle != nil){
 //            GameScene.circle!.isPaused=true
 //            }
@@ -73,6 +87,15 @@ class ChallengeViewController: UIViewController {
         
     }
     
+  func setStopIcon() {
+        if ChallengeViewController.isStop == true{
+            self.stopGame.setBackgroundImage(stopImg2, for: UIControl.State.normal)
+            print("in true ")
+        }else{
+            self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
+            print("in false ")
+        }
+    }
     //MARK: - Functions
     
     //fethChallengeLevel

@@ -202,7 +202,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
                                 <rect key="frame" x="41" y="24" width="51" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="stopGame"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="mRG-gB-WrO" kind="showDetail" identifier="MenuSegue" id="lh3-vD-tCs"/>
                                 </connections>
@@ -220,6 +222,7 @@
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
                     <connections>
                         <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
+                        <outlet property="stopGame" destination="szD-Yu-CQr" id="pLG-UN-8NX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,10 +231,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lh3-vD-tCs"/>
         <segue reference="Eyf-LD-2ez"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="stopGame" width="46" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

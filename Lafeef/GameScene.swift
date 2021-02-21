@@ -52,6 +52,7 @@ class GameScene: SKScene {
     static var stopCircle=false
     static var circle : SKShapeNode?
     static var TimerShouldNotDelay = false
+    
 //  static var percent = CGFloat(1.0)
     //MARK: - Lifecycle Functons
     
