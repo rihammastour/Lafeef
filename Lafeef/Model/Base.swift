@@ -33,11 +33,11 @@ enum Base : String,Codable {
     func getPrice() -> Float {
         
         switch self {
-        case .cake : return 100
-        case .quarterCake : return 25
-        case .halfCake : return 50
-        case .threequarterCake: return 75
-        case .chocolateCupcake , .vanilaCupcake: return 15
+        case .cake : return 43
+        case .quarterCake : return 10.8
+        case .halfCake : return 21.7
+        case .threequarterCake: return 32.6
+        case .chocolateCupcake , .vanilaCupcake: return 13
 
         }
     }

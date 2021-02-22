@@ -36,7 +36,7 @@
 		4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
-		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
+		4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */; };
 		4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219725DE5B4F00A765D4 /* Money.swift */; };
 		4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */; };
 		4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */; };
@@ -124,7 +124,7 @@
 		4EB9776125CB7C7600518EF9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
-		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+String.swift"; sourceTree = "<group>"; };
 		4EF5219725DE5B4F00A765D4 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionMoney.swift; sourceTree = "<group>"; };
 		4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaied.swift; sourceTree = "<group>"; };
@@ -341,7 +341,7 @@
 		4EEDE0FB25BCF43700CA7B9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */,
+				4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 				C9081C3625D9858400B19998 /* Base.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
 				C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
@@ -698,7 +698,7 @@
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
-				4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */,
+				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,

@@ -21,10 +21,10 @@ enum Money: Float, Codable {
         
         switch self {
         case .fiftyRiyal , .tenRiyal , .fiveRiyal:
-            return CGSize(width: 250, height: 250)
+            return CGSize(width: 180, height: 180)
             
         case .riyal , .riyalHalf, .riyalQuarter:
-            return CGSize(width: 150, height: 150)
+            return CGSize(width: 120, height: 120)
         }
     }
     

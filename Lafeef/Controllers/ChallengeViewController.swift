@@ -14,13 +14,14 @@ class ChallengeViewController: UIViewController {
     
     //MARK: - Proprites
     //Variables
-    var levelNum:String? = "1"
-    var currentOrder = 0
+    var levelNum:String? = "4"
+    var currentOrder = 3
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
     var challengeScen:GameScene?
+
     
     //Outlet
     @IBOutlet weak var gameScen: SKView!
@@ -63,30 +64,36 @@ class ChallengeViewController: UIViewController {
         self.duration = level.duration
         self.orders = level.orders
         showOrder(at: currentOrder) // must be Moved to be called by character
-        showPayment(at: currentOrder)
+        showCustomerPaid(at: currentOrder)
+        showBill(at: currentOrder) 
         print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
     }
     
     //showOrder
     func showOrder(at number:Int) -> Void {
-        
         let order = orders![number]
         let base = order.base
-
-        let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
+        let toppings = order.toppings
         self.challengeScen?.setOrderContent(with: base, toppings)
     }
     
-    func showPayment(at number:Int) -> Void {
-        print("showPayment executed!")
+    func showCustomerPaid(at number:Int) -> Void {
         let order = orders![number]
         let customerPaied = order.customerPaid
+        
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
-        print(customerPaied)
-
-        print(money)
         self.challengeScen?.setPaymentContent(with: money)
     }
+    
+    func showBill(at number:Int) -> Void {
+        let totalBillWithTax = calculateTotalBill().rounded()
+        let tax = findTax(totalBill: totalBillWithTax).rounded()
+        let totalBillWithoutTax = decalculateTax(totalBill: totalBillWithTax).rounded()
+
+        self.challengeScen?.setTotalBill(totalBill: totalBillWithoutTax, tax: tax)
+        self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTax)
+    }
+    
     //nextOrder
     func nextOrder(){
         if currentOrder <= 3{
@@ -144,7 +151,7 @@ class ChallengeViewController: UIViewController {
         
         //get Order
         let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
+        let currentToppings = currentOrder?.toppings
         
         
         guard currentOrder != nil else {
@@ -165,6 +172,14 @@ class ChallengeViewController: UIViewController {
         
     }
     
+    func decalculateTax(totalBill: Float) -> Float{
+        return totalBill / (1 + 0.15)
+    }
+    
+    func findTax(totalBill: Float) -> Float {
+        return  totalBill - decalculateTax(totalBill: totalBill)
+    }
+    
     
     //calculateOrderScore
     func calculateOrderScore(for providedBase:Base?,_ providedToppings:[Topping]?,on time:Bool) -> Int {
@@ -178,7 +193,7 @@ class ChallengeViewController: UIViewController {
         
         //Declaration variabels
         let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
+        let currentToppings =  currentOrder?.toppings
         
         guard currentOrder != nil else {
             return totalSocre

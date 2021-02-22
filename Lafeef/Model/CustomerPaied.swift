@@ -12,6 +12,8 @@ class CustomerPaied {
     static func convertToMoney(customerPaied: Float) -> [Money]{
         print("convertToFloatArr excuted", customerPaied)
         switch customerPaied {
+        case 100.0:
+            return mapCustomerPaied(customerPaied: [50, 50])
         case 60.0:
             return mapCustomerPaied(customerPaied: [50, 10])
         case 59.0:
@@ -26,8 +28,6 @@ class CustomerPaied {
             return mapCustomerPaied(customerPaied: [10, 10, 10, 5])
         case 20:
             return mapCustomerPaied(customerPaied: [10, 10])
-        case 20.5:
-            return mapCustomerPaied(customerPaied: [10, 10, 0.5])
         case 19:
             return mapCustomerPaied(customerPaied: [10, 5, 1, 1, 1, 1])
         case 16:
@@ -41,6 +41,8 @@ class CustomerPaied {
     static func mapCustomerPaied(customerPaied: [Float]) -> [Money]{
         print("convertToMoney excuted", customerPaied)
         switch customerPaied {
+        case [50, 50]:
+            return [.fiftyRiyal, .fiftyRiyal]
         case [50, 10]:
             return [.fiftyRiyal, .tenRiyal]
         case [50, 5, 1, 1, 1, 1]:
@@ -55,8 +57,6 @@ class CustomerPaied {
             return [.tenRiyal, .tenRiyal, .tenRiyal, .fiveRiyal]
         case [10, 10]:
             return [.tenRiyal, .tenRiyal]
-        case [10, 10, 0.5]:
-            return [.tenRiyal, .tenRiyal, .riyalHalf]
         case [10, 5, 1, 1, 1, 1]:
             return [.tenRiyal, .fiveRiyal, .riyal, .riyal, .riyal, .riyal]
         case [10, 5, 1]:

@@ -25,13 +25,18 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
+    private var tableNode : SKSpriteNode?
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
     private var base : SKSpriteNode?
     
     //Payment node variables
+    private var bill : SKSpriteNode?
     private var paymentContainer : SKSpriteNode?
+    private var totalBillLabel : SKLabelNode?
+    private var totalBillWithTaxLabel : SKLabelNode?
+
     
     //Timer variables
     var timeLeft: TimeInterval = 120//change
@@ -56,6 +61,10 @@ class GameScene: SKScene {
         
         //Set background Bakery
         self.setBackgroundBakary()
+        
+        // Get table node from scene and store it for use later
+        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
+
         
         // Get Camera node from scene and store it for use later
         self.camera = self.childNode(withName: "camera") as? SKCameraNode
@@ -94,8 +103,13 @@ class GameScene: SKScene {
         }
         
         // Get Payment Continer node from scene and store it for use later
-        self.paymentContainer = self.childNode(withName: "paymentContainer") as? SKSpriteNode
+        self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
+        //................................. Don't forget to hide it when it totally done!
         self.paymentContainer?.isHidden = false
+        
+        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
+        self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
+        self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
     }
     
     //setBackgroundBakary
@@ -110,14 +124,16 @@ class GameScene: SKScene {
         
         // Get Bakery background node scene and store it for use later
         self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+
         if let bakery = self.bakeryBackgroundNode{
             bakery.setScale(maxAspectRatio)
         }
     }
     
     
+    //MARK: - Question Functions
     
-    //MARK:  - Set up Order Contents Functions
+    //MARK: - Set up Order Contents Functions
     
     //setOrderContent
     func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
@@ -216,58 +232,68 @@ class GameScene: SKScene {
         //make payment visible
         self.paymentContainer?.isHidden = false
         
+        //positionate payment
+        self.paymentContainer?.position = CGPoint(x: 1000, y: 230)
+        
             //unwrap money array if any
             if let money = money {
                 
                 //money
                 for m in money {
                     
-                    switch self.moneyCounter{
+                    switch self.moneyCounter {
                     case 0:
-                        createMoney(at: PositionMoney.first,as: m)
-                        print(0)
+                        createMoney(at: PositionMoney.first(m), as: m)
                     case 1:
-                        createMoney(at: PositionMoney.seconed,as: m)
+                        createMoney(at: PositionMoney.seconed(m), as: m)
                     case 2:
-                        createMoney(at: PositionMoney.third,as: m)
+                        createMoney(at: PositionMoney.third(m), as: m)
                     case 3:
-                        createMoney(at: PositionMoney.fourth,as: m)
+                        createMoney(at: PositionMoney.fourth(m), as: m)
                     case 4:
-                        createMoney(at: PositionMoney.fifth,as: m)
+                        createMoney(at: PositionMoney.fifth(m), as: m)
                     case 5:
-                        createMoney(at: PositionMoney.sixth,as: m)
+                        createMoney(at: PositionMoney.sixth(m), as: m)
                     default:
                         print("cannot add more")
                     }
-                    
                 }
+            }
 
-            
         }
-        
-
-    }
     
     func createMoney(at position:PositionMoney,as money:Money){
         moneyCounter += 1
-        print(moneyCounter)
         let node = SKSpriteNode(imageNamed: "\(money.rawValue)")
-        print(node)
         node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         node.position = position.getPosition()
         node.size = money.getMoneySize()
         node.zRotation = position.getZRotation()
-        print("00000",node)
         paymentContainer?.addChild(node)
-        
     }
     
+    func setTotalBill(totalBill: Float, tax: Float){
+        totalBillLabel?.position = CGPoint(x: 20, y: -40)
+        totalBillLabel?.numberOfLines = 3
+        totalBillLabel?.fontName =  "FF Hekaya"
+        totalBillLabel?.fontSize = 25
+        totalBillLabel?.text = "المبلغ = \(totalBill) \n الضريبة (١٥٪) = \(tax) \n المجموع =".convertedDigitsToLocale(Locale(identifier: "AR"))
+    }
+    
+    func setTotalBillWithTax(totalBillWithTax: Float){
+        totalBillWithTaxLabel?.position = CGPoint(x: 30, y: -90)
+        totalBillWithTaxLabel?.fontSize = 40
+        totalBillWithTaxLabel?.fontName =  "FF Hekaya"
+        totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
+    }
+    
+    //MARK: - Answer Functions
+    
+    //MARK:- Timer function
     //startTimer
     func startTimer(){
         
     }
-    
-    //MARK:- Timer function
     // Creates an animated countdown timer
     func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
         guard let path = circle.path else {
@@ -286,8 +312,6 @@ class GameScene: SKScene {
             
             if( Int(self.timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-                
-                
                 
             }
             
