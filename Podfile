@@ -16,6 +16,7 @@ target 'Lafeef' do
  	pod 'MaterialShowcase'
   pod 'FirebaseUI', '~> 8.0'
   pod 'LayoutHelper'
+  pod 'NVActivityIndicatorView'
 
 
 pod "FlexibleSteppedProgressBar"

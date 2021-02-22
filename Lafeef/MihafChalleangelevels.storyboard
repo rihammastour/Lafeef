@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,15 +25,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8d-Zq-17z">
                                 <rect key="frame" x="81" y="168.5" width="587" height="687"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCU-Hs-pKm" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                        <rect key="frame" x="212" y="299.5" width="163" height="88"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39791900429999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar-level" translatesAutoresizingMaskIntoConstraints="NO" id="hli-5M-X7D">
                                         <rect key="frame" x="-9.5" y="0.0" width="606" height="687"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="687" id="DBL-PH-d4v"/>
                                             <constraint firstAttribute="width" constant="606" id="NzA-cf-vcg"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="VUc-J2-hXO">
-                                        <rect key="frame" x="49" y="140" width="495" height="473"/>
+                                        <rect key="frame" x="49" y="205" width="495" height="473"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fRN-K5-rx7" userLabel="first row">
                                                 <rect key="frame" x="0.0" y="0.0" width="495" height="235"/>
@@ -50,7 +54,7 @@
                                                                 <rect key="frame" x="-0.5" y="0.0" width="163" height="238"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rki-Lz-H7o">
-                                                                        <rect key="frame" x="62" y="0.0" width="39" height="120"/>
+                                                                        <rect key="frame" x="57.5" y="0.0" width="48" height="117"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
                                                                         <state key="normal" title="٣">
@@ -61,10 +65,10 @@
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7gx-WI-lJX">
-                                                                        <rect key="frame" x="26.5" y="120" width="110" height="118"/>
+                                                                        <rect key="frame" x="26.5" y="117" width="110" height="121"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uum-ZL-I0B">
-                                                                                <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="45" width="30" height="30"/>
                                                                                 <color key="tintColor" name="yellowApp"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="30" id="9jo-5s-mxU"/>
@@ -74,7 +78,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClY-Qx-TNH">
-                                                                                <rect key="frame" x="60" y="34" width="50" height="50"/>
+                                                                                <rect key="frame" x="60" y="35.5" width="50" height="50"/>
                                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
                                                                                 <color key="textColor" name="BlackApp"/>
                                                                                 <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -110,7 +114,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="163" height="238"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6d-VJ-FNd">
-                                                                        <rect key="frame" x="65" y="0.0" width="33" height="120"/>
+                                                                        <rect key="frame" x="57.5" y="0.0" width="48" height="117"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
                                                                         <state key="normal" title="٢">
@@ -121,10 +125,10 @@
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ael-iz-TRN">
-                                                                        <rect key="frame" x="26.5" y="120" width="110" height="118"/>
+                                                                        <rect key="frame" x="26.5" y="117" width="110" height="121"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SFs-7v-zRo">
-                                                                                <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="45" width="30" height="30"/>
                                                                                 <color key="tintColor" name="yellowApp"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="5lU-me-pvt"/>
@@ -132,7 +136,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4y-Eu-Nse">
-                                                                                <rect key="frame" x="60" y="34" width="50" height="50"/>
+                                                                                <rect key="frame" x="60" y="35.5" width="50" height="50"/>
                                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
                                                                                 <color key="textColor" name="BlackApp"/>
                                                                                 <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,7 +167,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="163" height="238"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qm-qh-KS2">
-                                                                        <rect key="frame" x="66.5" y="0.0" width="30" height="120"/>
+                                                                        <rect key="frame" x="57.5" y="0.0" width="48" height="117"/>
                                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
                                                                         <state key="normal" title="١">
                                                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,10 +177,10 @@
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lqO-eq-zvg">
-                                                                        <rect key="frame" x="26.5" y="120" width="110" height="118"/>
+                                                                        <rect key="frame" x="26.5" y="117" width="110" height="121"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3SR-fO-PFG">
-                                                                                <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="45" width="30" height="30"/>
                                                                                 <color key="tintColor" name="yellowApp"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="30" id="JBj-QN-CAv"/>
@@ -184,7 +188,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-q4-3Vh">
-                                                                                <rect key="frame" x="60" y="34" width="50" height="50"/>
+                                                                                <rect key="frame" x="60" y="35.5" width="50" height="50"/>
                                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
                                                                                 <color key="textColor" name="BlackApp"/>
                                                                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,7 +217,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="163" height="238"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cut-dB-7H2">
-                                                                <rect key="frame" x="65.5" y="0.0" width="32" height="120"/>
+                                                                <rect key="frame" x="57.5" y="0.0" width="48" height="117"/>
                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
                                                                 <state key="normal" title="٤">
                                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,10 +227,10 @@
                                                                 </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZvJ-54-zdt">
-                                                                <rect key="frame" x="26.5" y="120" width="110" height="118"/>
+                                                                <rect key="frame" x="26.5" y="117" width="110" height="121"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jdO-Y2-nfw">
-                                                                        <rect key="frame" x="0.0" y="43.5" width="30" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="45" width="30" height="30"/>
                                                                         <color key="tintColor" name="yellowApp"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="RS6-rI-wfc"/>
@@ -234,7 +238,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8y-lC-G9E">
-                                                                        <rect key="frame" x="60" y="34" width="50" height="50"/>
+                                                                        <rect key="frame" x="60" y="35.5" width="50" height="50"/>
                                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
                                                                         <color key="textColor" name="BlackApp"/>
                                                                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,27 +261,33 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="VUc-J2-hXO" firstAttribute="top" secondItem="Y8d-Zq-17z" secondAttribute="top" constant="140" id="Qha-d0-3sN" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                    <constraint firstItem="NCU-Hs-pKm" firstAttribute="centerY" secondItem="hli-5M-X7D" secondAttribute="centerY" id="9b4-fE-x4Z"/>
+                                    <constraint firstItem="NCU-Hs-pKm" firstAttribute="centerX" secondItem="Y8d-Zq-17z" secondAttribute="centerX" id="PDv-j1-5Pd"/>
+                                    <constraint firstItem="VUc-J2-hXO" firstAttribute="top" secondItem="Y8d-Zq-17z" secondAttribute="top" constant="205" id="Qha-d0-3sN" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadPro9_7">
                                                 <real key="value" value="140"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadMini">
-                                                <real key="value" value="160"/>
+                                                <real key="value" value="140"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
                                                 <real key="value" value="300"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadPro10_5">
-                                                <real key="value" value="150"/>
+                                                <real key="value" value="212"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
-                                                <real key="value" value="150"/>
+                                                <real key="value" value="212"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPad8thGeneration">
+                                                <integer key="value" value="189"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
+                                    <constraint firstItem="NCU-Hs-pKm" firstAttribute="leading" secondItem="Y8d-Zq-17z" secondAttribute="leading" constant="212" id="UK3-fC-R44" customClass="NSLayoutHelper" customModule="LayoutHelper"/>
                                     <constraint firstAttribute="trailing" secondItem="VUc-J2-hXO" secondAttribute="trailing" constant="43" id="V2h-T2-tUG" customClass="NSLayoutHelper" customModule="LayoutHelper"/>
                                     <constraint firstItem="VUc-J2-hXO" firstAttribute="leading" secondItem="Y8d-Zq-17z" secondAttribute="leading" constant="49" id="deG-fT-W8D" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                         <userDefinedRuntimeAttributes>
@@ -299,12 +309,22 @@
                                         </userDefinedRuntimeAttributes>
                                     </constraint>
                                     <constraint firstItem="hli-5M-X7D" firstAttribute="centerY" secondItem="Y8d-Zq-17z" secondAttribute="centerY" id="v09-xP-b5v"/>
+                                    <constraint firstItem="NCU-Hs-pKm" firstAttribute="top" secondItem="Y8d-Zq-17z" secondAttribute="top" constant="299.5" id="vIz-o2-n3F" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadMini">
+                                                <real key="value" value="320"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
+                                                <real key="value" value="400"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
                                     <constraint firstItem="hli-5M-X7D" firstAttribute="centerX" secondItem="Y8d-Zq-17z" secondAttribute="centerX" id="zb1-HE-Uwy"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ULS-lA-mBD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Y8d-Zq-17z" firstAttribute="top" secondItem="ULS-lA-mBD" secondAttribute="top" constant="168.5" id="dH0-0H-EUk" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
@@ -327,6 +347,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicaitor" destination="NCU-Hs-pKm" id="yrC-H0-3oX"/>
+                        <outlet property="calendarView" destination="Y8d-Zq-17z" id="N5d-y3-dQR"/>
                         <outlet property="leveOneView" destination="g12-B1-bsk" id="lzb-2D-qkI"/>
                         <outlet property="levelFourLabel" destination="t8y-lC-G9E" id="Asn-Cc-eja"/>
                         <outlet property="levelFourOutlet" destination="Cut-dB-7H2" id="wVT-7v-SxU"/>
@@ -362,8 +384,5 @@
         <namedColor name="yellowApp">
             <color red="0.89600002765655518" green="0.79799997806549072" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

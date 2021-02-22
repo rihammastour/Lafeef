@@ -7,6 +7,7 @@
 
 import UIKit
 import CodableFirebase
+import NVActivityIndicatorView
 
 class ChalleangeLevelCalendarViewController:UIViewController
 
@@ -36,37 +37,48 @@ class ChalleangeLevelCalendarViewController:UIViewController
     @IBOutlet weak var levelTwoView: UIView!
     @IBOutlet weak var leveOneView: UIView!
     
+    @IBOutlet weak var activityIndicaitor: NVActivityIndicatorView!
+    @IBOutlet weak var calendarView: UIView!
     let formatter = NumberFormatter()
     var completedLevels = [CompletedLevel]()
     var levelMinScore = [Float]()
     var levelMaxScore = [Float]()
-    var completed :CompletedLevel?
     var maxScoreLevels = [Float]()
     var minScoreLevels = [Float]()
-    
+    var childId = ""
+    // activity indicaitor
+    var  activityIndicatorView :NVActivityIndicatorView?
     
     // colors
-      let green = "#EBF0C4"
-      let red = "#F2E6E4"
+    let green = "#EBF0C4"
+    let red = "#F2E6E4"
+    let yellow = "#F1D582"
+    let blue = "#D2E4E2"
  
+    override func viewWillAppear(_ animated: Bool) {
    
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+   
         getlevelsScores()
         getChildReports()
+        
+        let x =  CGRect(x:  self.activityIndicaitor.center.x-80, y: self.activityIndicaitor.center.y-100 , width: 200, height: 200)
+       activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.fromHex(hexString: blue), padding: 0)
+        self.calendarView.addSubview(activityIndicatorView!)
+
+        activityIndicatorView!.startAnimating()
+       
+
         hideStars()
         disableButtons()
         formatter.locale = Locale(identifier: "ar")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            
             self.setLevelsData()
         }
-       
-   
-        }
-    
+    }
       func hideStars(){
             levelOneStar.isHidden = true
             levelTwoStar.isHidden = true
@@ -79,6 +91,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
         levelThreeOutlet.isEnabled = false
         levelFourOutlet.isEnabled = false
     }
+    
     // levels methods
     
     @IBAction func levelOne(_ sender: Any) {
@@ -93,9 +106,11 @@ class ChalleangeLevelCalendarViewController:UIViewController
     @IBAction func levelThree(_ sender: Any) {
         print("levelthree")
     }
-    
- 
+
     func setLevelsData(){
+
+       activityIndicatorView!.stopAnimating()
+        
         print(self.completedLevels)
 
       if completedLevels.count != 0 {
@@ -112,7 +127,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     }else{
                         levelOneStar.image = UIImage(systemName: "star")
                     }
-                    levelOneLabel.text = "\(maxScoreLevels[index])" + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
+                    levelOneLabel.text = formatter.string(from:NSNumber(value: maxScoreLevels[index]))! + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
                     levelOneStar.isHidden = false
                    
 
@@ -128,7 +143,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                  }else{
                     levelTwoStar.image = UIImage(systemName: "star")
                 }
-                levelTwoLabel.text =  "\(maxScoreLevels[index])" + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
+                    levelTwoLabel.text = formatter.string(from:NSNumber(value: maxScoreLevels[index]))! + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
                 levelTwoStar.isHidden = false
                
                 //inside else
@@ -143,7 +158,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                  }else{
                     levelThreeStar.image = UIImage(systemName: "star")
                 }
-                levelThreeLabel.text =  "\(maxScoreLevels[index])" + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
+                levelThreeLabel.text =  formatter.string(from:NSNumber(value: maxScoreLevels[index]))! + "/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
                 levelThreeStar.isHidden = false
                
     
@@ -183,25 +198,19 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     self.setScores(Level: level)
 
             }catch{
-             print("error while decoding ",error.localizedDescription)
+             print("error while decoding challeangeelevel ",error.localizedDescription)
                }
 
    }
-
-
-
             }
         }
-    func setScores(Level:Level){
-        minScoreLevels.append(Level.minScore)
-        maxScoreLevels.append(Level.maxScore)
-        
+    func getChildId(){
+        self.childId =  FirebaseRequest.getUserId() ?? ""
     }
-      
-           func getChildReports(){
-              // need child id
-        
-            FirebaseRequest.getChalleangeLevelesReports(childID: "fIK2ENltLvgqTR5NODCx4MJz5143") { (level, error) in
+
+    func getChildReports(){
+        FirebaseRequest.getChalleangeLevelesReports(childID: "fIK2ENltLvgqTR5NODCx4MJz5143") { (level, error) in
+//    FirebaseRequest.getChalleangeLevelesReports(childID: self.childId) { (level, error) in
                 if error != ""{
                     print(error)
            }else{
@@ -213,7 +222,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     
       
                 }catch{
-                 print("error while decoding ",error.localizedDescription)
+                 print("error while decoding child report  ",error.localizedDescription)
                    }
                    
        }
@@ -223,16 +232,16 @@ class ChalleangeLevelCalendarViewController:UIViewController
 
            }
 
-                func setLevel(_ level:CompletedLevel) -> Void {
-                    self.completed = level
-                    self.completedLevels.append(level)
-                    print("inside set")
-                 
-                
-                }
-              
-//
-//
+     func setLevel(_ level:CompletedLevel) -> Void {
+        self.completedLevels.append(level)
+                    }
+    
+    func setScores(Level:Level){
+        minScoreLevels.append(Level.minScore)
+        maxScoreLevels.append(Level.maxScore)
+        
+    }
+      
     }
 
 

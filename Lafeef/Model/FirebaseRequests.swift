@@ -166,8 +166,7 @@ class FirebaseRequest{
                       } else {
                       
                           for document in querySnapshot!.documents {
-                          
-//                            let model = try! FirestoreDecoder().decode(CompletedLevel.self, from: document.data())
+
                        
                            
                            print("\(document.documentID) => \(document.data())")
