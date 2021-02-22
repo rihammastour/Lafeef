@@ -94,7 +94,7 @@ class ChallengeViewController: UIViewController {
     //MARK: - Calculate Score Functions
     
     //calculateScore
-    func calculateScore(for providedOrder:Order?,_ change:Float,on time:Bool) -> Int{
+    func calculateScore(for answer:Answer?) -> Int{
         
         //Unwrap current order
         guard getCurrentOrder() != nil else {
@@ -102,20 +102,20 @@ class ChallengeViewController: UIViewController {
             return 0
         }
         
-        guard providedOrder != nil else {
+        guard let answer = answer else {
             //No answer provided!
             return 0
         }
         
         //check time
-        if !(time){
+        if (answer.atTime == 0){ //May changed
             return 0
         }
         
         //get order score
-        let orderScore = calculateOrderScore(for: providedOrder!)
+        let orderScore = calculateOrderScore(for: answer)
         //get payment score
-        let paymentScore = calculatePaymentScore(with: change)
+        let paymentScore = calculatePaymentScore(with: answer.cahnge)
         
         //Sum scors
         let totalScore = paymentScore + orderScore
@@ -151,7 +151,7 @@ class ChallengeViewController: UIViewController {
     }
     
     //calculateOrderScore
-    func calculateOrderScore(for providedOrder:Order) -> Int {
+    func calculateOrderScore(for answer:Answer) -> Int {
         
         var totalSocre = 0
         
@@ -159,16 +159,16 @@ class ChallengeViewController: UIViewController {
         let currentOrder = getCurrentOrder()!
         let currentToppings = currentOrder.toppings
         
-        let providedToppings = providedOrder.toppings
+        let providedToppings = answer.toppings
         //Check Base
         
         //check base if exist
-        if providedOrder.base == nil {
+        if answer.base == nil {
             return totalSocre
         }
         
         //check base type
-        if providedOrder.base == currentOrder.base{
+        if answer.base == currentOrder.base{
             totalSocre += 1
         }else if currentToppings == nil {
             //Order doesn't contain toppings and wrong base

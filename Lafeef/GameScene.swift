@@ -177,7 +177,7 @@ class GameScene: SKScene {
         self.progressBar.addChild(face)
         let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
         let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
-        let sequence  = SKAction.sequence([rotateToLeft,rotateToRight])
+        let sequence = SKAction.sequence([rotateToLeft,rotateToRight])
         
         //Run Action
         face.run(sequence)
@@ -187,7 +187,7 @@ class GameScene: SKScene {
     //TO BE DELETED
     func buttonTapped(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Order(base: Base.cake, customerPaid: 0, toppings: nil), 0, on: true)
+        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score)
         increaseProgressBar(with: cusSat)
 
@@ -195,14 +195,14 @@ class GameScene: SKScene {
     
     func buttonTappedTwo(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 0, on: true)
+        let score = viewController.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score)
         increaseProgressBar(with: cusSat)
     }
     
     func buttonTappedThree(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 10, on: true)
+        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score)
         increaseProgressBar(with: cusSat)
     }
