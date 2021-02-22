@@ -141,12 +141,12 @@ class GameScene: SKScene {
         
         // Get Prograss bar Continer node from scene and store it for use later
         self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        
+        self.progressBarContiner.anchorPoint   =   CGPoint(x: 0.5, y: -1)
         //Create Progress bar
         self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
         self.progressBar.size = CGSize(width: 1, height: 20)
-        progressBar.anchorPoint = CGPoint(x: 0, y: 1)
-        progressBar.position = CGPoint(x: 98, y: 10)
+        progressBar.anchorPoint = CGPoint(x: 0, y: 0)
+        progressBar.position = CGPoint(x: 98, y: 43)
         
         //Add progress bar to continer
         progressBarContiner?.addChild(progressBar)
@@ -171,14 +171,13 @@ class GameScene: SKScene {
         let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
         face.anchorPoint = CGPoint(x:0.5, y: 0.5)
         face.size = CGSize(width: 22, height: 23)
-        face.position = CGPoint(x: positionX+5, y: -10)
+        face.position = CGPoint(x: positionX+5, y: progressBar.size.height/2)
         face.zPosition = 3
 
         self.progressBar.addChild(face)
         let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
         let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
         let sequence  = SKAction.sequence([rotateToLeft,rotateToRight])
-        //resize(byWidth: 22, height: 23, duration: 1)
         
         //Run Action
         face.run(sequence)
