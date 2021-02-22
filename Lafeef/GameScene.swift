@@ -29,6 +29,8 @@ class GameScene: SKScene {
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
     private var button : SKSpriteNode!
+    private var buttonTwo : SKSpriteNode!
+    private var buttonThree : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -48,10 +50,20 @@ class GameScene: SKScene {
         setupSceneElements()
         //Buttons TO BE REMOVED LATER
         button = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
-             // Put it in the center of the scene
-        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+50);
-             self.addChild(button)
-
+        // Put it in the center of the scene
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
+        self.addChild(button)
+        
+        buttonTwo = SKSpriteNode(color: .yellow, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        buttonTwo.position = CGPoint(x:self.frame.midX, y:self.frame.midY+50);
+        self.addChild(buttonTwo)
+        
+        buttonThree = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        buttonThree.position = CGPoint(x:self.frame.midX, y:self.frame.midY-50);
+        self.addChild(buttonThree)
+        
     }
     
     
@@ -69,7 +81,7 @@ class GameScene: SKScene {
         createPrograssBar()
         
         // Get Camera node from scene and store it for use later
-
+        
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -140,24 +152,54 @@ class GameScene: SKScene {
         progressBarContiner?.addChild(progressBar)
     }
     
-    //IncreaseProgressBar by number float
-    func increaseProgressBar(by x:CGFloat) {
-        print("Called heere x  ",x)
+    //IncreaseProgressBar
+    func increaseProgressBar(with custSat:CustmerSatisfaction) {
         
-        // Offset each node with a slight delay depending on the index
-        let delayAction = SKAction.wait(forDuration: 10 * 0.2)
-        
-        // Move x position wh
-        //let moveBar =  SKAction.moveTo(x: progressBar.position.x + (10/4) , duration: 0.5)
+        let newWidth = (progressBar.size.width-custSat.barIncreasedByNum())
+                
         // Scale up progress bar
-        let scaleUpAction = SKAction.scaleX(to: -(progressBar.size.width+x), duration: 1)
-        print(-progressBar.size.width*x)
-        
-        let group = SKAction.group([delayAction,scaleUpAction])
-        
-        progressBar.run(group)
-            
+        let scaleUpAction = SKAction.resize(toWidth: newWidth, duration: 1)
+        //Run Action
+        progressBar.run(scaleUpAction) {
+            self.addFaceToProgressBar(on: newWidth,as: custSat)
         }
+    }
+    
+    //addFaceToProgressBar
+    func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
+        
+        let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
+        face.anchorPoint = CGPoint(x: 0.3, y: 0.9)
+        face.size = CGSize(width: 22, height: 23)
+        face.position = CGPoint(x: positionX-5, y: 0)
+        face.zPosition = 3
+
+        self.progressBar.addChild(face)
+        
+    }
+    
+    //TO BE DELETED
+    func buttonTapped(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Order(base: Base.cake, customerPaid: 0, toppings: nil), 0, on: true)
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
+
+    }
+    
+    func buttonTappedTwo(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 0, on: true)
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
+    }
+    
+    func buttonTappedThree(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 0, on: false)
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
+    }
     
     
     
@@ -256,7 +298,6 @@ class GameScene: SKScene {
             return
         }
         
-        
         let radius = path.boundingBox.width/2
         let timeInterval = duration/TimeInterval(steps)
         let incr = 1 / CGFloat(steps)
@@ -268,8 +309,6 @@ class GameScene: SKScene {
             
             if( Int(self.timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-                
-                
                 
             }
             
@@ -417,15 +456,20 @@ class GameScene: SKScene {
             
             // Check Satisfcation bar
             if button.contains(location) {
-                print("tapped!")
-                let score = viewController.calculateScore(for: Order(base: Base.cake, customerPaid: 0, toppings: nil), 50, on: true)
-                let cusSat = CustmerSatisfaction.getCusSat(for: score)
-                print(cusSat.barIncreasedByNum())
-                increaseProgressBar(by: cusSat.barIncreasedByNum() )
+                buttonTapped()
+            }
+            
+            if buttonTwo.contains(location) {
+                buttonTappedTwo()
+            }
+            
+            if buttonThree.contains(location) {
+                buttonTappedThree()
             }
             
         }
     }
+    
     
     //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -456,7 +500,7 @@ class GameScene: SKScene {
     
     
     //MARK:- Constrains Functos
-
+    
 }
 extension TimeInterval {
     var time: String {

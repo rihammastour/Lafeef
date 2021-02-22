@@ -9,11 +9,11 @@ import Foundation
 import GameplayKit
 
 
-enum CustmerSatisfaction {
+enum CustmerSatisfaction : String {
     
-    case happey
-    case normal
-    case sad
+    case happey = "happy-customer"
+    case normal = "normal-customer"
+    case sad = "sad-customer"
     
     func barIncreasedByNum()->CGFloat{
 
@@ -24,7 +24,6 @@ enum CustmerSatisfaction {
             return 30
         case .sad:
             return 10
-
         }
         
     }
