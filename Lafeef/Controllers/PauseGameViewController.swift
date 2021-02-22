@@ -56,7 +56,7 @@ class PauseGameViewController: UIViewController{
 //        GameScene.updateTime()
         
 //        GameScene.circle!.isPaused=false
-        GameScene.customers[GameScene.currentCustomer].customer.isPaused=false
+//        GameScene.customers[GameScene.currentCustomer].customer.isPaused=false
         self.dismiss(animated: true, completion: nil)
         
 //        performSegue(withIdentifier: "ContinueGame", sender: self)

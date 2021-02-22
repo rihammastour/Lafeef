@@ -70,7 +70,7 @@ class ChallengeViewController: UIViewController {
 //            if(GameScene.circle != nil){
 //            GameScene.circle!.isPaused=true
 //            }
-            GameScene.customers[GameScene.currentCustomer].customer.isPaused=true
+//            GameScene.customers[GameScene.currentCustomer].customer.isPaused=true
 //
             
 //            GameScene.circle?.speed=0
