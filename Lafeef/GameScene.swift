@@ -169,12 +169,19 @@ class GameScene: SKScene {
     func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
         
         let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
-        face.anchorPoint = CGPoint(x: 0.3, y: 0.9)
+        face.anchorPoint = CGPoint(x:0.5, y: 0.5)
         face.size = CGSize(width: 22, height: 23)
-        face.position = CGPoint(x: positionX-5, y: 0)
+        face.position = CGPoint(x: positionX+5, y: -10)
         face.zPosition = 3
 
         self.progressBar.addChild(face)
+        let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
+        let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
+        let sequence  = SKAction.sequence([rotateToLeft,rotateToRight])
+        //resize(byWidth: 22, height: 23, duration: 1)
+        
+        //Run Action
+        face.run(sequence)
         
     }
     
@@ -196,7 +203,7 @@ class GameScene: SKScene {
     
     func buttonTappedThree(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 0, on: false)
+        let score = viewController.calculateScore(for: Order(base: nil, customerPaid: 0, toppings: nil), 10, on: true)
         let cusSat = CustmerSatisfaction.getCusSat(for: score)
         increaseProgressBar(with: cusSat)
     }

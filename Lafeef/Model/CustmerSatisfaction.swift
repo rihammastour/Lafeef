@@ -23,7 +23,7 @@ enum CustmerSatisfaction : String {
         case .normal:
             return 30
         case .sad:
-            return 10
+            return 15
         }
         
     }
