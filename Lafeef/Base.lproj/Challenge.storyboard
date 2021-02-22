@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
+                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="6652" y="308"/>
         </scene>
-        <!--Challenge View Controller-->
+        <!--Object Detection View Controller-->
         <scene sceneID="RkD-vX-PLW">
             <objects>
-                <viewController storyboardIdentifier="ChallengeVC" modalPresentationStyle="fullScreen" id="ZnZ-4P-R8K" customClass="ChallengeViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChallengeVC" modalPresentationStyle="fullScreen" id="ZnZ-4P-R8K" customClass="ObjectDetectionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gjU-qm-wh3">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,6 +117,7 @@
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
                     <connections>
                         <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
+                        <outlet property="previewView" destination="gjU-qm-wh3" id="wEM-CI-yU2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

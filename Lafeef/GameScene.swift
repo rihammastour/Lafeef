@@ -47,6 +47,7 @@ class GameScene: SKScene {
     
     //MARK: - Lifecycle Functons
     override func sceneDidLoad() {
+        print("scene")
         
         setupSceneElements()
         
@@ -296,6 +297,7 @@ class GameScene: SKScene {
     }
     // Creates an animated countdown timer
     func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
+        print("dddd")
         guard let path = circle.path else {
             return
         }
