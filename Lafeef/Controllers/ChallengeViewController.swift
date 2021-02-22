@@ -129,23 +129,11 @@ class ChallengeViewController: UIViewController {
         
         let totalBill = getTotalBill()
         let expectedChange = getCurrentOrder()!.customerPaid! - totalBill
-        print("expected Change \t = ",expectedChange)
-        //No change and child make a change
-        if expectedChange == 0 && chenge != 0 {
-            return 0
-        }
-        
-        //There's a change and child did not make one
-        if expectedChange != 0 && chenge == 0 {
-            return 0
-        }
-        
+
         if expectedChange == chenge {
-            return 3
-        }else if expectedChange < chenge {
-            return 2
-        }else{
             return 1
+        }else{
+            return 0
         }
         
     }

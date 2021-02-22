@@ -30,9 +30,9 @@ enum CustmerSatisfaction : String {
     
     static func getCusSat(for value: Int) -> CustmerSatisfaction {
         switch value {
-        case 5,6:
+        case 4:
             return .happey
-        case 4,3:
+        case 3,2:
             return .normal
         default:
             return .sad
