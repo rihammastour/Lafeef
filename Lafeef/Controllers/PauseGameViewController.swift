@@ -36,7 +36,9 @@ class PauseGameViewController: UIViewController{
         print("[[[[[[[[[[[[[[[[")
        
         print(GameScene.timeLeft.time)
-
+//        GameScene.stop = false
+        GameScene.TimerShouldNotDelay = true
+       
         print("[[[[[[[[[[[[[[[[")
         GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
         GameScene.timeLeft = GameScene.timeLeft

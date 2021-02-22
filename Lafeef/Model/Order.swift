@@ -12,6 +12,6 @@ import GameplayKit
 struct Order: Codable {
     var base:Base
     var customerPaid:Float
-    var toppings:[Topping:Int]?
+    var toppings:[Topping]?
     
 }

@@ -47,7 +47,7 @@ class ChallengeViewController: UIViewController {
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
                         print("Segue proformed")
-            
+//            GameScene.stop = true
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
             GameScene.circleBool=false
@@ -91,165 +91,168 @@ class ChallengeViewController: UIViewController {
     }
     
     //showOrder
-    func showOrder(at number:Int) -> Void {
-        
-        let order = orders![number]
-        let base = order.base
-        
-        let toppings = PrepareOrderController.getToppingsName(from: order.toppings)
-        self.challengeScen?.setOrderContent(with: base, toppings)
-    }
-    
-    //nextOrder
-    func nextOrder(){
-        if currentOrder <= 3{
-            currentOrder = currentOrder + 1
-            showOrder(at: currentOrder)
-        }else{
-            //TODO:End Level
-        }
-    }
-    
-    //MARK: - Calculate Score
-    
-    //calculateScore
-    func calculateScore(for providedBase:Base?,_ providedToppings:[Topping]?,_ chenge:Float,on time:Bool){
-        
-        //get order score
-        let orderScore = calculateOrderScore(for: providedBase, providedToppings, on: time)
-        //get payment score
-        let paymentScore = calculatePaymentScore(with: chenge)
-        
-        //Sum scors
-        let totalScore = paymentScore + orderScore
-        print("Total score",totalScore)
-    }
-    
-    func calculatePaymentScore(with chenge:Float) -> Int{
-        
-        let totalBill = calculateTotalBill()
-        print("totalBill = ",totalBill)
-        let expectedChange = getCurrentOrder()!.customerPaid - totalBill
-        print("expectedChange = ",expectedChange)
-        
-        //No change and child make a change
-        if expectedChange == 0 && chenge != 0 {
-            return 0
-        }
-        
-        //There's a change and child did not make one
-        if expectedChange != 0 && chenge == 0 {
-            return 0
-        }
-        
-        if expectedChange == chenge {
-            return 3
-        }else if expectedChange < chenge {
-            return 2
-        }else{
-            return 1
-        }
-        
-        
-    }
-    
-    func calculateTotalBill()->Float{
-        
-        //get Order
-        let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
-        
-        
-        guard currentOrder != nil else {
-            return 0
-        }
-        
-        var total:Float = (currentOrder?.base.getPrice())!
-        
-        guard let toppings = currentToppings else {
-            return total
-        }
-        
-        for t in toppings {
-            total += t.getPrice()
-        }
-        
-        return total
-        
-    }
-    
-    
-    //calculateOrderScore
-    func calculateOrderScore(for providedBase:Base?,_ providedToppings:[Topping]?,on time:Bool) -> Int {
-        
-        var totalSocre = 0
-        
-        //check time
-        if !(time){
-            return totalSocre
-        }
-        
-        //Declaration variabels
-        let currentOrder = orders?[self.currentOrder]
-        let currentToppings = PrepareOrderController.getToppingsName(from: currentOrder?.toppings)
-        
-        guard currentOrder != nil else {
-            return totalSocre
-        }
-        
-        //Check Base
-        
-        //check base if exist
-        if providedBase == nil {
-            return totalSocre
-        }
-        
-        //check base type
-        if providedBase == currentOrder?.base{
-            totalSocre += 1
-        }else if currentToppings == nil {
-            //Order doesn't contain toppings and wrong base
-            return totalSocre
-        }
-        
-        print("after ceck base TS",totalSocre)
-        //Start checking the toppings
-        //check if there're toppings - nil means correct type and number
-        if providedToppings == nil && currentToppings == nil{
+            func showOrder(at number:Int) -> Void {
+                
+                let order = orders![number]
+                let base = order.base
+                
+                let toppings = order.toppings
+                self.challengeScen?.setOrderContent(with: base, toppings)
+            }
             
-            totalSocre += 2
-            print("after check nil if toppings TS",totalSocre)
-        }else if var toppings = providedToppings {
-            
-            //check toppings number
-            if providedToppings?.count == currentToppings?.count {
-                totalSocre += 1 }
-            print("after check topping number TS",totalSocre)
-            
-            //check toppings type
-            var i = 0
-            for t in toppings{
-                if ((currentToppings?.contains(t)) == true) {
-                    toppings.remove(at: i)
+            //nextOrder
+            func nextOrder(){
+                if currentOrder <= 3{
+                    currentOrder = currentOrder + 1
+                    showOrder(at: currentOrder)
                 }else{
-                    i += 1}
+                    //TODO:End Level
+                }
+            }
+    
+    //MARK: - Calculate Score Functions
+        
+        //calculateScore
+        func calculateScore(for providedOrder:Order?,_ change:Float,on time:Bool) -> Int{
+            
+            //Unwrap current order
+            guard getCurrentOrder() != nil else {
+                //Fail umwrapping
+                return 0
             }
             
-            if (toppings.isEmpty){
-                totalSocre += 1
+            guard providedOrder != nil else {
+                //No answer provided!
+                return 0
             }
-            print("after check type TS",totalSocre)
+            
+            //check time
+            if !(time){
+                return 0
+            }
+            
+            //get order score
+            let orderScore = calculateOrderScore(for: providedOrder!)
+            //get payment score
+            let paymentScore = calculatePaymentScore(with: change)
+            
+            //Sum scors
+            let totalScore = paymentScore + orderScore
+            print("Total order score :", orderScore,"\t Total order score :", paymentScore)
+            print("Total score :", totalScore)
+            return totalScore
+        }
+        
+        //calculatePaymentScore
+        func calculatePaymentScore(with chenge:Float) -> Int{
+            
+            let totalBill = getTotalBill()
+            let expectedChange = getCurrentOrder()!.customerPaid - totalBill
+            print("expected Change \t = ",expectedChange)
+            //No change and child make a change
+            if expectedChange == 0 && chenge != 0 {
+                return 0
+            }
+            
+            //There's a change and child did not make one
+            if expectedChange != 0 && chenge == 0 {
+                return 0
+            }
+            
+            if expectedChange == chenge {
+                return 3
+            }else if expectedChange < chenge {
+                return 2
+            }else{
+                return 1
+            }
             
         }
         
-        print("Total score \t",totalSocre)
-        return totalSocre
+        //calculateOrderScore
+        func calculateOrderScore(for providedOrder:Order) -> Int {
+            
+            var totalSocre = 0
+            
+            //Declaration variabels
+            let currentOrder = getCurrentOrder()!
+            let currentToppings = currentOrder.toppings
+            
+            let providedToppings = providedOrder.toppings
+            //Check Base
+            
+            //check base if exist
+            if providedOrder.base == nil {
+                return totalSocre
+            }
+            
+            //check base type
+            if providedOrder.base == currentOrder.base{
+                totalSocre += 1
+            }else if currentToppings == nil {
+                //Order doesn't contain toppings and wrong base
+                return totalSocre
+            }
+            
+            //Start checking the toppings
+            //check if there're toppings - nil means correct type and number
+            if providedToppings == nil && currentToppings == nil{
+                
+                totalSocre += 2
+            }else if var toppings = providedToppings {
+                
+                //check toppings number
+                if providedToppings?.count == currentToppings?.count {
+                    totalSocre += 1 }
+                
+                //check toppings type
+                var i = 0
+                for t in toppings{
+                    if ((currentToppings?.contains(t)) == true) {
+                        toppings.remove(at: i)
+                    }else{
+                        i += 1}
+                }
+                
+                if (toppings.isEmpty){
+                    totalSocre += 1
+                }
+                
+            }
+            
+            return totalSocre
+            
+        }
         
-    }
-    
-    func getCurrentOrder() -> Order? {
-        return orders?[self.currentOrder]
-    }
+        
+        //MARK:  Calculate Score Helper functions
+        
+        func getCurrentOrder() ->  Order? {
+            return (self.orders?[self.currentOrder])
+        }
+        
+        //getTotalBill
+        func getTotalBill()->Float{
+            
+            //get Order base  and toppings
+            let currentOrder = getCurrentOrder()!
+            let currentToppings = currentOrder.toppings
+            
+            var total:Float = (currentOrder.base.getPrice())
+            
+            guard let toppings = currentToppings else {
+                //No Toppings
+                return total
+            }
+            
+            //Calculate Toppings prices
+            for t in toppings {
+                total += t.getPrice()
+            }
+            
+            return total
+            
+        }
     
     //MARK: - Delegate handeler
     
