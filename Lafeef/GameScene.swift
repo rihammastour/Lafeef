@@ -87,7 +87,7 @@ class GameScene: SKScene {
     }
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
-        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY)
+        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
         customerNode.walkingCustomer()
         
         //move to take cake
@@ -110,7 +110,7 @@ class GameScene: SKScene {
         
         // for cashier
         
-        customerNode.customer.size = CGSize(width: 300, height: 350)
+//        customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
     
