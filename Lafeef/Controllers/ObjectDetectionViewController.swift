@@ -10,6 +10,8 @@
 import UIKit
 import AVFoundation
 import Vision
+import SpriteKit
+import GameplayKit
 
 
 class ObjectDetectionViewController: ChallengeViewController{
@@ -18,6 +20,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       
       // Vision parts
       private var requests = [VNRequest]()
+    var count = 0
       
     @discardableResult
       func setupVision() -> NSError? {
@@ -49,16 +52,19 @@ class ObjectDetectionViewController: ChallengeViewController{
       func drawVisionRequestResults(_ results: [Any]) {
           CATransaction.begin()
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        
           detectionOverlay.sublayers = nil // remove all the old recognized objects
           for observation in results where observation is VNRecognizedObjectObservation {
               guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                   continue
               }
               // Select only the label with the highest confidence.
+            
               let topLabelObservation = objectObservation.labels[0]
               let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
               
-              let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds)
+            let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,topLabelObservation.identifier)
+            print(topLabelObservation)
   //
   //            let textLayer = self.createTextSubLayerInBounds(objectBounds,
   //                                                            identifier: topLabelObservation.identifier,
@@ -149,21 +155,101 @@ class ObjectDetectionViewController: ChallengeViewController{
   //        return textLayer
   //    }
       
-      func createRoundedRectLayerWithBounds(_ bounds: CGRect) -> CALayer {
-          let shapeLayer = CALayer()
-          let image = UIImage(named: "cake")?.cgImage
-          shapeLayer.bounds = bounds
-          shapeLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+    func createRoundedRectLayerWithBounds(_ bounds: CGRect,_ classLabel :String) -> CALayer {
+        
+     
+        
+        let position = CGPoint(x: bounds.midX, y:  430)
+        let shapeLayer = CALayer()
+        shapeLayer.bounds = bounds
+//        shapeLayer.contentsGravity = .center
+        
+//
+    
+          shapeLayer.position = position
           shapeLayer.name = "Found Object"
-          shapeLayer.contents = image
-  //        shapeLayer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 0.2, 0.4])
-  //        shapeLayer.cornerRadius = 7
+          shapeLayer.contents = mappingLabelsToImage(classLabel: classLabel)
+       
           return shapeLayer
       }
       
+ 
 
    
+    func mappingLabelsToImage(classLabel : String)-> CGImage{
+        
+        var count = 0
+        let label = convertClassLabels(label: classLabel)
     
+        var image = UIImage(named: "cake")!.cgImage
+        switch label {
+        case "Cake":
+        image = UIImage(named: "cake")!.cgImage
+            return image!
+            break
+        case "WhiteCupcake":
+          image = UIImage(named: "cupcake-van")!.cgImage
+            break
+           
+        case "BrownCupcake":
+          image = UIImage(named: "cupcake-ch")!.cgImage
+            break
+//        case Topping.darkChocolate.rawValue:
+//            image = UIImage(named: "dark-chocolate")!.cgImage
+//            break
+//        case Topping.whiteChocolate.rawValue:
+//            image = UIImage(named: "white-chocolate")!.cgImage
+//            break
+//        case Topping.kiwi.rawValue:
+//            image = UIImage(named: "kiwi")!.cgImage
+//            break
+//        case Topping.strawberry.rawValue:
+//            image = UIImage(named: "strawberry")!.cgImage
+//            break
+//        case Topping.pineapple.rawValue:
+//            image = UIImage(named: "pineapple")!.cgImage
+//            break
+//        case "\(Money.riyal.rawValue)":
+//            image = UIImage(named: "1")!.cgImage
+//            break
+//        case "\(Money.fiftyRiyal.rawValue)":
+//            image = UIImage(named: "50")!.cgImage
+//            break
+//        case "\(Money.tenRiyal.rawValue)":
+//            image = UIImage(named: "10")!.cgImage
+//            break
+//        case "\(Money.riyalHalf.rawValue)":
+//            image = UIImage(named: "0.5")!.cgImage
+//            break
+//        case "\(Money.riyalQuarter.rawValue)":
+//            image = UIImage(named: "0.25")!.cgImage
+//            break
+        default:
+            image = UIImage(named: "cake")!.cgImage
+            break
+        }
+      
+        return image!
+        
+    }
 
+    func convertClassLabels(label:String)-> String{
+        
+        var Label : String?
+        switch label {
+        case "Cake":
+            Label = "cake"
+            break
+        case "BrownCupcake":
+            Label = "cupcake-ch"
+            break
+        case "WhiteCupcake":
+            Label = "cupcake-van"
+            break
+        default:
+            Label = ""
+        }
+        return Label!
+    }
 
 }

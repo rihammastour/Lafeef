@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
+		411091CE25E4986F0035FACF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411091CD25E4986F0035FACF /* Answer.swift */; };
 		4114F2D825E44AA900B229C7 /* LafeefModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4114F2D725E44AA900B229C7 /* LafeefModel.mlmodel */; };
 		4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
@@ -94,6 +95,7 @@
 		0012A2D5C7CABC6C1AE985E3 /* Pods-Lafeef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.debug.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.debug.xcconfig"; sourceTree = "<group>"; };
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
+		411091CD25E4986F0035FACF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4114F2D725E44AA900B229C7 /* LafeefModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LafeefModel.mlmodel; path = ../../../../../../Downloads/LafeefModel.mlmodel; sourceTree = "<group>"; };
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				C97A96F525D1FD770051FF53 /* OrderTimer.swift */,
 				C9E2D3F625D162D900F1CAD5 /* Order.swift */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
+				411091CD25E4986F0035FACF /* Answer.swift */,
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
 				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
@@ -704,6 +707,7 @@
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
+				411091CE25E4986F0035FACF /* Answer.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
