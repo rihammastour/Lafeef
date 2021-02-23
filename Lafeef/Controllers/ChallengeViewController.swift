@@ -21,7 +21,7 @@ class ChallengeViewController: UIViewController {
     var orders:[Order]?
     var alert = AlertService()
     var challengeScen:GameScene?
-    
+     static var stopCircleNil=false
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
@@ -48,15 +48,24 @@ class ChallengeViewController: UIViewController {
             let vc = segue.destination as! PauseGameViewController
                         print("Segue proformed")
 //            GameScene.stop = true
+            if(GameScene.circle==nil){
+                GameScene.circleBool=false
+                GameScene.timeLeft = 0
+                GameScene.timer.invalidate()
+//                ChallengeViewController.stopCircleNil=true
+//                GameScene.circle?.isHidden=true
+               
+            }else{
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
             GameScene.circleBool=false
             GameScene.circle!.isPaused=true
+        
 //            GameScene.circle?.speed=0
 //            GameScene.circle?.removeAllActions()
             print(GameScene.timeLeft.time)
 //            vc.levelNum = "1"
-            
+            }
         }
     }
     //setScens
