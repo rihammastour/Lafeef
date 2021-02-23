@@ -14,8 +14,9 @@ target 'Lafeef' do
 	pod 'FirebaseFirestoreSwift'
  	pod 'CodableFirebase'
  	pod 'MaterialShowcase'
+	
   pod 'FirebaseUI', '~> 8.0'
-
+  pod 'LayoutHelper'
 
 
 pod "FlexibleSteppedProgressBar"
