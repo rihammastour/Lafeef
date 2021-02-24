@@ -367,8 +367,8 @@
                                     <action selector="logOutActionWithSender:" destination="QwN-kj-aVU" eventType="touchUpInside" id="jae-mW-v8r"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-c7-Sax">
-                                <rect key="frame" x="199" y="458" width="166" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reejaljeraiwi@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-c7-Sax">
+                                <rect key="frame" x="55.5" y="458" width="308.5" height="48"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -454,25 +454,37 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="s21-Wa-8a4">
+                                <rect key="frame" x="-74" y="-41" width="902" height="282"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="girl-icon" translatesAutoresizingMaskIntoConstraints="NO" id="2wB-sd-IF1">
+                                <rect key="frame" x="264" y="142" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2fR-38-c2Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3Ro-Mf-k2f" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="179" id="27L-hI-phv"/>
                             <constraint firstItem="ou4-jH-T5N" firstAttribute="top" secondItem="52D-5r-hGZ" secondAttribute="bottom" constant="80" id="6Rc-YJ-SIE"/>
+                            <constraint firstItem="52D-5r-hGZ" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="372" id="DNy-60-q1P"/>
                             <constraint firstItem="ou4-jH-T5N" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="73" id="HJ8-oe-9W8"/>
+                            <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="Q0V-c7-Sax" secondAttribute="trailing" constant="404" id="NrX-gH-Bmp"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="yiF-mx-hSZ" secondAttribute="trailing" constant="137" id="Rea-Oh-84P"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="52D-5r-hGZ" secondAttribute="trailing" constant="212" id="StN-Gb-hvN"/>
-                            <constraint firstItem="Q0V-c7-Sax" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="199" id="U9S-jZ-18Y"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="3Ro-Mf-k2f" secondAttribute="trailing" constant="199" id="Ueu-MJ-YCs"/>
+                            <constraint firstItem="Q0V-c7-Sax" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="55.5" id="XGm-wU-fcx"/>
+                            <constraint firstItem="s21-Wa-8a4" firstAttribute="leading" secondItem="SuP-Vw-VdT" secondAttribute="leadingMargin" constant="-94" id="XhK-1R-wai"/>
                             <constraint firstItem="Hmg-K9-1ga" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="301" id="a3c-hg-ZO9"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="g65-ch-jll" secondAttribute="trailing" constant="120" id="aRS-mP-wA5"/>
+                            <constraint firstItem="s21-Wa-8a4" firstAttribute="height" secondItem="SuP-Vw-VdT" secondAttribute="height" multiplier="0.275391" id="as1-f1-5UZ"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="bottom" secondItem="g65-ch-jll" secondAttribute="bottom" constant="45" id="f8A-y2-UI9"/>
+                            <constraint firstItem="Hmg-K9-1ga" firstAttribute="top" secondItem="s21-Wa-8a4" secondAttribute="bottom" constant="93" id="fMY-qf-DrN"/>
                             <constraint firstItem="g65-ch-jll" firstAttribute="top" secondItem="yiF-mx-hSZ" secondAttribute="bottom" constant="177" id="gaq-HE-qTu"/>
                             <constraint firstItem="ou4-jH-T5N" firstAttribute="top" secondItem="Hmg-K9-1ga" secondAttribute="bottom" constant="28" id="ipw-hL-Euy"/>
                             <constraint firstItem="g65-ch-jll" firstAttribute="top" secondItem="3Ro-Mf-k2f" secondAttribute="bottom" constant="133" id="l6S-Dl-5DG"/>
-                            <constraint firstItem="52D-5r-hGZ" firstAttribute="leading" secondItem="Q0V-c7-Sax" secondAttribute="trailing" constant="7" id="npw-Pq-Ybr"/>
                             <constraint firstItem="g65-ch-jll" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="96" id="qxZ-uL-mSp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s21-Wa-8a4" secondAttribute="trailing" constant="-80" id="ri9-AZ-naG"/>
                             <constraint firstItem="g65-ch-jll" firstAttribute="top" secondItem="ou4-jH-T5N" secondAttribute="bottom" constant="82" id="riR-H0-Bcm"/>
                             <constraint firstItem="yiF-mx-hSZ" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="142" id="sjT-XV-4q8"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="Hmg-K9-1ga" secondAttribute="trailing" constant="325" id="utF-iU-0Ce"/>
@@ -518,6 +530,8 @@
         <image name="calendar" width="52.647998809814453" height="49"/>
         <image name="calendar-level" width="450" height="394"/>
         <image name="challenge-wave" width="403.00201416015625" height="332.72900390625"/>
+        <image name="girl-icon" width="23" height="23"/>
+        <image name="greenBackground" width="674" height="240.00300598144531"/>
         <image name="moneyBag" width="23" height="23.666666030883789"/>
         <image name="scoreIcon" width="23" height="23"/>
         <namedColor name="bachgroundApp">
