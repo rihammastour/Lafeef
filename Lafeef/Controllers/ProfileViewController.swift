@@ -15,7 +15,8 @@ class ProfileViewController: UIViewController {
    @IBOutlet weak var logOut: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-//    let id = Auth.auth().currentUser!.uid>>>الطريقه الصحيحه
+    @IBOutlet weak var rectangle: UIButton!
+    //    let id = Auth.auth().currentUser!.uid>>>الطريقه الصحيحه
     let id = Auth.auth().currentUser!.uid
 //    let id="fIK2ENltLvgqTR5NODCx4MJz5143"
     let email = Auth.auth().currentUser!.email
@@ -26,9 +27,10 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         self.navigationController?.isNavigationBarHidden = true
-       logOut.layer.cornerRadius = logOut.frame.size.height/2
         
-        
+        logOut.layer.cornerRadius = logOut.frame.size.height/2
+        rectangle.layer.cornerRadius = rectangle.frame.size.height/4
+
         self.emailLabel.text = email
 //        let ref = db.collection("users").document(id)
 //        ref.getDocument { (snapshot, err) in
