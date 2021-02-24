@@ -33,7 +33,7 @@ class PauseGameViewController: UIViewController{
 
     @IBAction func gameContinue(_ sender: Any) {
         
-        if( ChallengeViewController.stopCircleNil){
+        if( false){
             GameScene.timeLeft=30
             GameScene.circleBool=true
 //            ChallengeViewController.stopCircleNil=false
@@ -58,7 +58,7 @@ class PauseGameViewController: UIViewController{
         print("befor start")
 //        timerClass.startTimer()
         print(GameScene.timeLeft.time)
-//        GameScene.circleBool=true
+        GameScene.circleBool=true
         print("after start")
         GameScene.isPaused11=true
         print(GameScene.isPaused11)

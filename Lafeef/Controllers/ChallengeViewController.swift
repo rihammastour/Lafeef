@@ -106,7 +106,7 @@ class ChallengeViewController: UIViewController {
                 let base = order.base
                 
                 let toppings = order.toppings
-                self.challengeScen?.setOrderContent(with: base, toppings)
+                self.challengeScen?.setOrderContent(with: Base.cake, nil)
             }
             
             //nextOrder

@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         logOut.layer.cornerRadius = logOut.frame.size.height/2
-        rectangle.layer.cornerRadius = rectangle.frame.size.height/4
+        rectangle.layer.cornerRadius = rectangle.frame.size.height/9
 
         self.emailLabel.text = email
 //        let ref = db.collection("users").document(id)
