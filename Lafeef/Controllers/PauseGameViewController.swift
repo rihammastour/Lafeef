@@ -42,7 +42,8 @@ class PauseGameViewController: UIViewController{
             GameScene.circle!.isPaused=false
 //            GameScene.circle =  GameScene.circle
         }else{
-        
+//            GameScene.pausedTimer=true
+            
         print("[[[[[[[[[[[[[[[[")
        
             print(GameScene.timeLeft.time)
