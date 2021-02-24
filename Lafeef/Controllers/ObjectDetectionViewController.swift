@@ -157,9 +157,14 @@ class ObjectDetectionViewController: ChallengeViewController{
       
     func createRoundedRectLayerWithBounds(_ bounds: CGRect,_ classLabel :String) -> CALayer {
         
-     
+        var position = CGPoint()
+        if classLabel == "ChocolateBrown"{
+            position = CGPoint(x: bounds.midX, y:  330)
+        }else{
+            position = CGPoint(x: bounds.midX, y:  430)
+        }
         
-        let position = CGPoint(x: bounds.midX, y:  430)
+       
         let shapeLayer = CALayer()
         shapeLayer.bounds = bounds
 //        shapeLayer.contentsGravity = .center
@@ -179,10 +184,10 @@ class ObjectDetectionViewController: ChallengeViewController{
     func mappingLabelsToImage(classLabel : String)-> CGImage{
         
         var count = 0
-        let label = convertClassLabels(label: classLabel)
+      
     
         var image = UIImage(named: "cake")!.cgImage
-        switch label {
+        switch classLabel {
         case "Cake":
         image = UIImage(named: "cake")!.cgImage
             return image!
@@ -194,36 +199,39 @@ class ObjectDetectionViewController: ChallengeViewController{
         case "BrownCupcake":
           image = UIImage(named: "cupcake-ch")!.cgImage
             break
-//        case Topping.darkChocolate.rawValue:
-//            image = UIImage(named: "dark-chocolate")!.cgImage
-//            break
-//        case Topping.whiteChocolate.rawValue:
-//            image = UIImage(named: "white-chocolate")!.cgImage
-//            break
-//        case Topping.kiwi.rawValue:
-//            image = UIImage(named: "kiwi")!.cgImage
-//            break
-//        case Topping.strawberry.rawValue:
-//            image = UIImage(named: "strawberry")!.cgImage
-//            break
-//        case Topping.pineapple.rawValue:
-//            image = UIImage(named: "pineapple")!.cgImage
-//            break
-//        case "\(Money.riyal.rawValue)":
-//            image = UIImage(named: "1")!.cgImage
-//            break
-//        case "\(Money.fiftyRiyal.rawValue)":
-//            image = UIImage(named: "50")!.cgImage
-//            break
-//        case "\(Money.tenRiyal.rawValue)":
-//            image = UIImage(named: "10")!.cgImage
-//            break
-//        case "\(Money.riyalHalf.rawValue)":
-//            image = UIImage(named: "0.5")!.cgImage
-//            break
-//        case "\(Money.riyalQuarter.rawValue)":
-//            image = UIImage(named: "0.25")!.cgImage
-//            break
+        case "ChocolateBrown":
+            image = UIImage(named: "dark-chocolate")!.cgImage
+            break
+        case "ChocolateWhite":
+            image = UIImage(named: "white-chocolate")!.cgImage
+            break
+        case "Kiwi":
+            image = UIImage(named: "oval-kiwi")!.cgImage
+            break
+        case "Strawberry":
+            image = UIImage(named: "strawberry")!.cgImage
+            break
+        case "Pineapple":
+            image = UIImage(named: "pineapple")!.cgImage
+            break
+        case "OneRiyal":
+            image = UIImage(named: "1")!.cgImage
+            break
+        case "FiftyRiyal":
+            image = UIImage(named: "50")!.cgImage
+            break
+        case "TenRiyal":
+            image = UIImage(named: "10")!.cgImage
+            break
+        case "RiyalHalf":
+            image = UIImage(named: "0.5")!.cgImage
+            break
+        case "RiyalQuarter":
+            image = UIImage(named: "0.25")!.cgImage
+            break
+        case "FiveRiyal":
+            image = UIImage(named: "5")!.cgImage
+            break
         default:
             image = UIImage(named: "cake")!.cgImage
             break
@@ -233,23 +241,6 @@ class ObjectDetectionViewController: ChallengeViewController{
         
     }
 
-    func convertClassLabels(label:String)-> String{
-        
-        var Label : String?
-        switch label {
-        case "Cake":
-            Label = "cake"
-            break
-        case "BrownCupcake":
-            Label = "cupcake-ch"
-            break
-        case "WhiteCupcake":
-            Label = "cupcake-van"
-            break
-        default:
-            Label = ""
-        }
-        return Label!
-    }
+
 
 }
