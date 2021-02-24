@@ -53,6 +53,8 @@ class GameScene: SKScene {
     static var circle : SKShapeNode?
     static var circleCreateNill : SKShapeNode?
     static var TimerShouldDelay = false
+    let timerR = Timer(timeInterval: 0.4, repeats: true) { _ in print("Done!") }
+   
    // static var stop = false
 //  static var percent = CGFloat(1.0)
     //MARK: - Lifecycle Functons
@@ -67,7 +69,9 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = .white
         
-        
+        let timerA = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        print("this is timerA ///////////////\\\\\\\\\\\\\\\\\\\\")
+print (timerA)
         buildCustomer(customerNode: customers[currentCustomer])
         
         //to trash
@@ -89,9 +93,56 @@ class GameScene: SKScene {
             
 //            GameScene.TimerShouldDelay=false
         }
+        //Raghad Idea
+        let circleR = SKShapeNode(circleOfRadius: 50)
+            circleR.fillColor = SKColor.blue
+            circleR.strokeColor = SKColor.clear
+            circleR.zRotation = CGFloat.pi / 2
+            addChild(circleR)
+
+            countdownR(circle: circleR, steps: 20, duration: 5) {
+                print("done")
+            }
+    }
+    //raghad idea
+    // Creates an animated countdown timer
+    func countdownR(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
+        guard let path = circle.path else {
+            return
+        }
+        let radius = path.boundingBox.width/2
+        let timeInterval = duration/TimeInterval(steps)
         
+        let incr = 1 / CGFloat(steps)
+        var percent = CGFloat(1.0)
+
+        let animate = SKAction.run {
+            percent -= incr
+            circle.path = self.circleR(radius: radius, percent:percent)
+        }
+        let wait = SKAction.wait(forDuration:timeInterval)
+        let action = SKAction.sequence([wait, animate])
+
+        run(SKAction.repeat(action,count:steps-1)) {
+            self.run(SKAction.wait(forDuration:timeInterval)) {
+                circle.path = nil
+                completion()
+            }
+        }
     }
     
+    // Creates a CGPath in the shape of a pie with slices missing
+    func circleR(radius:CGFloat, percent:CGFloat) -> CGPath {
+        let start:CGFloat = 0
+        let end = CGFloat.pi * 2 * percent
+        let center = CGPoint.zero
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to:center)
+        bezierPath.addArc(withCenter:center, radius: radius, startAngle: start, endAngle: end, clockwise: true)
+        bezierPath.addLine(to:center)
+        return bezierPath.cgPath
+    }
+    //end raghad idea
     //MARK: - Functions
         //For Pause
         func pauseGame() {
