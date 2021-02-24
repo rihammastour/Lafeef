@@ -50,16 +50,17 @@ class ChallengeViewController: UIViewController {
 //            GameScene.stop = true
             if(GameScene.circle==nil){
                 GameScene.circleBool=false
-                GameScene.timeLeft = 0
+                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive 
                 GameScene.timer.invalidate()
-//                ChallengeViewController.stopCircleNil=true
-//                GameScene.circle?.isHidden=true
+                ChallengeViewController.stopCircleNil=true
+                GameScene.circle?.isHidden=true
                
             }else{
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
             GameScene.circleBool=false
             GameScene.circle!.isPaused=true
+            GameScene.countStop+=1
         
 //            GameScene.circle?.speed=0
 //            GameScene.circle?.removeAllActions()

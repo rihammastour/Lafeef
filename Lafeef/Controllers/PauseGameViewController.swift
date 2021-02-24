@@ -33,17 +33,21 @@ class PauseGameViewController: UIViewController{
 
     @IBAction func gameContinue(_ sender: Any) {
         
-        if( false){
+        if( ChallengeViewController.stopCircleNil){
             GameScene.timeLeft=30
-            GameScene.circleBool=true
+//            GameScene.circleBool=true
 //            ChallengeViewController.stopCircleNil=false
             GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.circle!.isPaused=false
-//            GameScene.circle =  GameScene.circle
+            GameScene.circle =  GameScene.circle
+            GameScene.circle?.isHidden=false
+            ChallengeViewController.stopCircleNil=false
+            GameScene.timer.invalidate()
+            GameScene.TimerShouldDelay = true
         }else{
 //            GameScene.pausedTimer=true
-            
+            GameScene.countStop+=1
         print("[[[[[[[[[[[[[[[[")
        
             print(GameScene.timeLeft.time)
@@ -59,7 +63,7 @@ class PauseGameViewController: UIViewController{
         print("befor start")
 //        timerClass.startTimer()
         print(GameScene.timeLeft.time)
-        GameScene.circleBool=true
+//        GameScene.circleBool=true
         print("after start")
         GameScene.isPaused11=true
         print(GameScene.isPaused11)

@@ -53,6 +53,7 @@ class GameScene: SKScene {
     static var circle : SKShapeNode?
     static var circleCreateNill : SKShapeNode?
     static var TimerShouldDelay = false
+    static var countStop = 0
    
    // static var stop = false
 //  static var percent = CGFloat(1.0)
@@ -79,16 +80,75 @@ class GameScene: SKScene {
         cashierbutton.position = CGPoint(x:600,y:0);
         self.addChild(cashierbutton)
         
-        
-//        if((!(GameScene.circle == nil))&&GameScene.TimerShouldDelay){
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.785){
+        print("انا بديد موووووف؟؟؟؟؟؟؟؟؟؟؟؟؟")
+
+        if((!(GameScene.circle == nil))&&GameScene.TimerShouldDelay){
+
+    
+            
+            
+            
+            switch GameScene.countStop {
+            case 0:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                    GameScene.circleBool=true
+                }
+                break
+            
+            case 1:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.7){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+                
+            case 2:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.2){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+                
+            case 3:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+                
+            case 4:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.6){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+            case 5:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+                
+            case 6:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.2){
+            GameScene.circle!.isPaused=false
+                    GameScene.circleBool=true
+                }
+                break
+            default:
+                GameScene.circle!.isPaused=false
+                        GameScene.circleBool=true
+            }
+            
+            
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 4){
 //        GameScene.circle!.isPaused=false
 //                GameScene.circleBool=true
 //            }
-//
-//            GameScene.TimerShouldDelay=false
-//        }
+
+            GameScene.TimerShouldDelay=false
+        }
         //Raghad Idea
 //        let circleR = SKShapeNode(circleOfRadius: 50)
 //            circleR.fillColor = SKColor.blue
@@ -212,7 +272,7 @@ class GameScene: SKScene {
         if GameScene.displayTime != nil {
 
         GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
-        GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
         GameScene.displayTime?.text=GameScene.timeLeft.time
         GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
                                         //            GameScene.displayTime?.isHidden=true
@@ -847,6 +907,7 @@ class GameScene: SKScene {
                 self.removeAction(forKey: "stopTimer")
                 GameScene.circle!.removeFromParent()
                 GameScene.timeLeft = 0
+                GameScene.countStop=0
                 GameScene.circle?.path = self.circle(radius: 0, percent: 0)
                 GameScene.circle=nil
                 GameScene.timer.invalidate()
