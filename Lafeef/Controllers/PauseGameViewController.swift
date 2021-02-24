@@ -24,7 +24,7 @@ class PauseGameViewController: UIViewController{
         viewInstructionOutlet.layer.cornerRadius = viewInstructionOutlet.frame.size.height/2
         exitOutlet.layer.cornerRadius = exitOutlet.frame.size.height/2
         continueOutlet.layer.cornerRadius = continueOutlet.frame.size.height/2
-       
+        
         
  
     
@@ -33,11 +33,21 @@ class PauseGameViewController: UIViewController{
 
     @IBAction func gameContinue(_ sender: Any) {
         
+        if( ChallengeViewController.stopCircleNil){
+            GameScene.timeLeft=30
+            GameScene.circleBool=true
+//            ChallengeViewController.stopCircleNil=false
+            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.circle!.isPaused=false
+//            GameScene.circle =  GameScene.circle
+        }else{
+        
         print("[[[[[[[[[[[[[[[[")
        
-        print(GameScene.timeLeft.time)
+            print(GameScene.timeLeft.time)
 //        GameScene.stop = false
-        GameScene.TimerShouldNotDelay = true
+        GameScene.TimerShouldDelay = true
        
         print("[[[[[[[[[[[[[[[[")
         GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
@@ -48,14 +58,14 @@ class PauseGameViewController: UIViewController{
         print("befor start")
 //        timerClass.startTimer()
         print(GameScene.timeLeft.time)
-        GameScene.circleBool=true
+//        GameScene.circleBool=true
         print("after start")
         GameScene.isPaused11=true
         print(GameScene.isPaused11)
         GameScene.displayTime?.text=GameScene.timeLeft.time
 //        GameScene.updateTime()
-        GameScene.circle!.isPaused=false
-        self.dismiss(animated: true, completion: nil)
+//        GameScene.circle!.isPaused=false
+       
         
 //        performSegue(withIdentifier: "ContinueGame", sender: self)
         //        timerClass.timeLabel.text=timerClass.timeLeft.time
@@ -70,7 +80,8 @@ class PauseGameViewController: UIViewController{
         //        GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
 
 //
-
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == Constants.Segue.continueGame {
