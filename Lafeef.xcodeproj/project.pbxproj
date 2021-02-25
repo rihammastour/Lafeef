@@ -316,32 +316,9 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
-				4EB254D625DCB4F100AF502E /* HappyApple.atlas */,
-				4EB254D725DCB4F100AF502E /* HappyOrange.atlas */,
-				4EB254EB25DCB4F900AF502E /* HappyPear.atlas */,
-				4EB254D925DCB4F300AF502E /* HappyPineapple.atlas */,
-				4EB254DD25DCB4F400AF502E /* HappyStrawberry.atlas */,
-				4EB254E425DCB4F700AF502E /* HappyWatermelon.atlas */,
-				4EB254ED25DCB4F900AF502E /* NWApple.atlas */,
-				4EB254EC25DCB4F900AF502E /* NWOrange.atlas */,
-				4EB254EA25DCB4F900AF502E /* NWPear.atlas */,
-				4EB254E025DCB4F500AF502E /* NWPineapple.atlas */,
-				4EB254DC25DCB4F300AF502E /* NWStrawberry.atlas */,
-				4EB254E825DCB4F700AF502E /* NWWatermelon.atlas */,
-				4EB254DE25DCB4F500AF502E /* SadApple.atlas */,
-				4EB254E225DCB4F500AF502E /* SadOrange.atlas */,
-				4EB254E625DCB4F700AF502E /* Sadpear.atlas */,
-				4EB254E125DCB4F500AF502E /* SadPineapple.atlas */,
-				4EB254E925DCB4F800AF502E /* SadStrwaberry.atlas */,
-				4EB254DF25DCB4F500AF502E /* SadWatermelon.atlas */,
-				4EB254D825DCB4F200AF502E /* WaitingApple.atlas */,
-				4EB254E325DCB4F600AF502E /* WaitingOrange.atlas */,
-				4EB254DA25DCB4F300AF502E /* WaitingPear.atlas */,
-				4EB254E525DCB4F700AF502E /* WaitingPineapple.atlas */,
-				4EB254E725DCB4F700AF502E /* WaitingStrawberry.atlas */,
-				4EB254DB25DCB4F300AF502E /* WaitingWatermelon.atlas */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
+				4EDFA1D025E838D800924569 /* Resources */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -385,6 +362,37 @@
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4EDFA1D025E838D800924569 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4EB254D625DCB4F100AF502E /* HappyApple.atlas */,
+				4EB254D725DCB4F100AF502E /* HappyOrange.atlas */,
+				4EB254EB25DCB4F900AF502E /* HappyPear.atlas */,
+				4EB254D925DCB4F300AF502E /* HappyPineapple.atlas */,
+				4EB254DD25DCB4F400AF502E /* HappyStrawberry.atlas */,
+				4EB254E425DCB4F700AF502E /* HappyWatermelon.atlas */,
+				4EB254ED25DCB4F900AF502E /* NWApple.atlas */,
+				4EB254EC25DCB4F900AF502E /* NWOrange.atlas */,
+				4EB254EA25DCB4F900AF502E /* NWPear.atlas */,
+				4EB254E025DCB4F500AF502E /* NWPineapple.atlas */,
+				4EB254DC25DCB4F300AF502E /* NWStrawberry.atlas */,
+				4EB254E825DCB4F700AF502E /* NWWatermelon.atlas */,
+				4EB254DE25DCB4F500AF502E /* SadApple.atlas */,
+				4EB254E225DCB4F500AF502E /* SadOrange.atlas */,
+				4EB254E625DCB4F700AF502E /* Sadpear.atlas */,
+				4EB254E125DCB4F500AF502E /* SadPineapple.atlas */,
+				4EB254E925DCB4F800AF502E /* SadStrwaberry.atlas */,
+				4EB254DF25DCB4F500AF502E /* SadWatermelon.atlas */,
+				4EB254D825DCB4F200AF502E /* WaitingApple.atlas */,
+				4EB254E325DCB4F600AF502E /* WaitingOrange.atlas */,
+				4EB254DA25DCB4F300AF502E /* WaitingPear.atlas */,
+				4EB254E525DCB4F700AF502E /* WaitingPineapple.atlas */,
+				4EB254E725DCB4F700AF502E /* WaitingStrawberry.atlas */,
+				4EB254DB25DCB4F300AF502E /* WaitingWatermelon.atlas */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4EEDE0FA25BCF42600CA7B9A /* Model */ = {
@@ -977,13 +985,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8D5P9YJN3N;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -997,13 +1005,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8D5P9YJN3N;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
