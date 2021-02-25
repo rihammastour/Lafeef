@@ -60,7 +60,7 @@ class ChallengeViewController: UIViewController {
             GameScene.timer.invalidate()
             GameScene.circleBool=false
             GameScene.circle!.isPaused=true
-            GameScene.countStop+=1
+           
         
 //            GameScene.circle?.speed=0
 //            GameScene.circle?.removeAllActions()

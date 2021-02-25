@@ -90,47 +90,54 @@ class GameScene: SKScene {
             
             switch GameScene.countStop {
             case 0:
+                print(" in case 0  \(GameScene.countStop)")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                     GameScene.circleBool=true
                 }
                 break
             
             case 1:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.7){
+                print(" in case 1  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.44){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
                 break
                 
             case 2:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.2){
+                print(" in case 2  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
                 break
                 
             case 3:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0){
+                print(" in case 3  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.38){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
                 break
                 
             case 4:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.6){
+                print(" in case 4  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.79){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
                 break
             case 5:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0){
+                print(" in case 5  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.90){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
                 break
                 
             case 6:
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.2){
+                print(" in case 6  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.91){
             GameScene.circle!.isPaused=false
                     GameScene.circleBool=true
                 }
@@ -665,13 +672,13 @@ class GameScene: SKScene {
             //            if(stopCircle){
             //                self.removeAllActions()
             //            }
-            print("####")
-            print(timeInterval)
+//            print("####")
+//            print(timeInterval)
 //            timeInterval=duration/GameScene.timeLeft
-            print("*****the percent******")
-           // print(percent)
-            print("******the redius*******")
-            //print(radius)
+//            print("*****the percent******")
+//           // print(percent)
+//            print("******the redius*******")
+//            //print(radius)
 //            GameScene.circleBool
 //                && !(GameScene.TimerShouldDelay)
             if(GameScene.circleBool )
