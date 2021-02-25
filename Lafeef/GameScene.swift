@@ -37,6 +37,9 @@ class GameScene: SKScene {
     private var totalBillLabel : SKLabelNode?
     private var totalBillWithTaxLabel : SKLabelNode?
 
+    //pickup order node variables
+    private var cover : SKSpriteNode?
+    private var box : SKSpriteNode?
     
     //Timer variables
     var timeLeft: TimeInterval = 120//change
@@ -111,6 +114,9 @@ class GameScene: SKScene {
         self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
         self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
         self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
+        
+        self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
+        self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
     }
     
     //setBackgroundBakary
@@ -287,6 +293,24 @@ class GameScene: SKScene {
         totalBillWithTaxLabel?.fontName =  "FF Hekaya"
         totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
+    
+    //MARK: -Pickup order functions
+    func pickUpOrder(layer:CALayer){
+        guard self.box != nil else {
+            print("no box continer")
+            return
+        }
+        
+        //make payment visible
+        self.box?.isHidden = false
+        
+        //positionate payment
+        self.box?.position = CGPoint(x: 600, y: 230)
+        
+        layer.zPosition = 2
+        layer.position = CGPoint(x: 600, y: 230)
+    }
+    
     
     //MARK: - Answer Functions
     

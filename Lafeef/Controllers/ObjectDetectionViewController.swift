@@ -65,6 +65,8 @@ class ObjectDetectionViewController: ChallengeViewController{
               
             let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,topLabelObservation.identifier)
             print(topLabelObservation)
+            
+
   //
   //            let textLayer = self.createTextSubLayerInBounds(objectBounds,
   //                                                            identifier: topLabelObservation.identifier,
@@ -170,11 +172,13 @@ class ObjectDetectionViewController: ChallengeViewController{
 //        shapeLayer.contentsGravity = .center
         
 //
+        shapeLayer.zPosition = 1
     
           shapeLayer.position = position
           shapeLayer.name = "Found Object"
-          shapeLayer.contents = mappingLabelsToImage(classLabel: classLabel)
+        shapeLayer.contents = SKSpriteNode(imageNamed: mappingClassLabelToLabel(classLabel:classLabel))
        
+        layer = shapeLayer
           return shapeLayer
       }
       
@@ -241,6 +245,62 @@ class ObjectDetectionViewController: ChallengeViewController{
         
     }
 
+    func mappingClassLabelToLabel(classLabel : String)-> String{
 
+            var count = 0
+          
+        
+            var label: String = ""
+            switch classLabel {
+            case "Cake":
+                label = "cake"
+                break
+            case "WhiteCupcake":
+                label = "cupcake-van"
+                break
+            case "BrownCupcake":
+                label = "cupcake-ch"
+                break
+            case "ChocolateBrown":
+                label = "dark-chocolate"
+                break
+            case "ChocolateWhite":
+                label = "white-chocolate"
+                break
+            case "Kiwi":
+                label = "oval-kiwi"
+                break
+            case "Strawberry":
+                label = "strawberry"
+                break
+            case "Pineapple":
+                label = "pineapple"
+                break
+            case "OneRiyal":
+                label = "1"
+                break
+            case "FiftyRiyal":
+                label = "50"
+                break
+            case "TenRiyal":
+                label = "10"
+                break
+            case "RiyalHalf":
+                label = "0.5"
+                break
+            case "RiyalQuarter":
+                label = "0.25"
+                break
+            case "FiveRiyal":
+                label = "5"
+                break
+            default:
+                label = ""
+                break
+            }
+          
+            return label
+            
+        }
 
 }

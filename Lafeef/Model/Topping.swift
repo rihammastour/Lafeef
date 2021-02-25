@@ -19,9 +19,18 @@ enum Topping : String,Codable {
     func getPrice() -> Float{
         switch self {
         case .kiwi , .strawberry , .pineapple:
-            return 3
+            return 2.55
         case .whiteChocolate , .darkChocolate:
-            return 4
+            return 3.44
+        }
+    }
+    
+    func getTax() -> Float{
+        switch self {
+        case .kiwi , .strawberry , .pineapple:
+            return 0.45
+        case .whiteChocolate , .darkChocolate:
+            return 0.6
         }
     }
     

@@ -19,13 +19,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "4"
-    var currentOrder = 3
+    var currentOrder = 1
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
     var challengeScen:GameScene?
     
+    var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
     private let session = AVCaptureSession()
@@ -208,12 +209,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func showBill(at number:Int) -> Void {
-        let totalBillWithTax = calculateTotalBill().rounded()
-        let tax = findTax(totalBill: totalBillWithTax).rounded()
-        let totalBillWithoutTax = decalculateTax(totalBill: totalBillWithTax).rounded()
+        let totalBillWithoutTax = calculateTotalBill()
+        let withoutTaxRounded = Float(round(100*totalBillWithoutTax)/100)
+        let tax = calculateTotalBillWithTax()
+        let taxRounded = Float(round(100*tax)/100)
+        let totalBillWithTax = totalBillWithoutTax + tax
+        let totalBillWithTaxRounded = Float(round(10*totalBillWithTax)/10)
 
-        self.challengeScen?.setTotalBill(totalBill: totalBillWithoutTax, tax: tax)
-        self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTax)
+        self.challengeScen?.setTotalBill(totalBill: withoutTaxRounded, tax: taxRounded)
+        self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
+    }
+    
+    func pickingUpOrder(){
+        self.challengeScen?.pickUpOrder(layer:layer)
     }
     
     //nextOrder
@@ -293,19 +301,36 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         for t in toppings {
             total += t.getPrice()
         }
-        
+
+
         return total
         
     }
     
-    func decalculateTax(totalBill: Float) -> Float{
-        return totalBill / (1 + 0.15)
+    func calculateTotalBillWithTax()->Float{
+        
+        //get Order
+        let currentOrder = orders?[self.currentOrder]
+        let currentToppings = currentOrder?.toppings
+        
+        
+        guard currentOrder != nil else {
+            return 0
+        }
+        
+        var tax:Float = (currentOrder?.base.getTax())!
+        
+        guard let toppings = currentToppings else {
+            return tax
+        }
+        
+        for t in toppings {
+            tax += t.getTax()
+        }
+        return tax
+        
     }
-    
-    func findTax(totalBill: Float) -> Float {
-        return  totalBill - decalculateTax(totalBill: totalBill)
-    }
-    
+
     
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) -> Int {
