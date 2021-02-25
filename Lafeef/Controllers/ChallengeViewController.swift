@@ -109,6 +109,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             let spriteScene = SKScene(fileNamed: "GameScene")
             previewLayer = AVCaptureVideoPreviewLayer(session: session)
             previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            //flip camera upside down
+            previewLayer.connection?.videoOrientation = .portraitUpsideDown
             rootLayer = previewView.layer
         
             if let skView = gameScen {
@@ -117,7 +119,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
              
   
             rootLayer.addSublayer(previewLayer)
-            
+//
         }
         
         func startCaptureSession() {
@@ -147,9 +149,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
                 exifOrientation = .down
             case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-                exifOrientation = .up
+                exifOrientation = .upMirrored
             default:
-                exifOrientation = .up
+                exifOrientation = .upMirrored
             }
             return exifOrientation
         }

@@ -172,11 +172,10 @@ class ObjectDetectionViewController: ChallengeViewController{
 //        shapeLayer.contentsGravity = .center
         
 //
-        shapeLayer.zPosition = 1
     
           shapeLayer.position = position
           shapeLayer.name = "Found Object"
-        shapeLayer.contents = SKSpriteNode(imageNamed: mappingClassLabelToLabel(classLabel:classLabel))
+        shapeLayer.contents = mappingLabelsToImage(classLabel:classLabel)
        
         layer = shapeLayer
           return shapeLayer
@@ -194,7 +193,6 @@ class ObjectDetectionViewController: ChallengeViewController{
         switch classLabel {
         case "Cake":
         image = UIImage(named: "cake")!.cgImage
-            return image!
             break
         case "WhiteCupcake":
           image = UIImage(named: "cupcake-van")!.cgImage
