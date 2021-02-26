@@ -68,6 +68,7 @@
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
 		C9081C3625D9858400B19998 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C3525D9858400B19998 /* Base.swift */; };
+		C90FB48425E868C500DDE84D /* timerLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90FB48325E868C500DDE84D /* timerLast.swift */; };
 		C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */; };
 		C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */; };
 		C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659425CB3F4F0060AA53 /* HomeViewController.swift */; };
@@ -180,6 +181,7 @@
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		C90FB48325E868C500DDE84D /* timerLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerLast.swift; sourceTree = "<group>"; };
 		C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeLevelsViewController.swift; path = Lafeef/ViewController/ChallengeLevelsViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -277,6 +279,7 @@
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */,
 				C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */,
+				C90FB48325E868C500DDE84D /* timerLast.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
+				C90FB48425E868C500DDE84D /* timerLast.swift in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,

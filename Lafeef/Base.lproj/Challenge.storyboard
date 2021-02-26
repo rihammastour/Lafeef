@@ -220,6 +220,7 @@
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
                     <connections>
                         <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
+                        <outlet property="stopGame" destination="szD-Yu-CQr" id="9xb-Ti-9gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -228,6 +229,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
