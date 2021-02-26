@@ -26,16 +26,16 @@
                                 <rect key="frame" x="108" y="270" width="489" height="470"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eMc-y4-7Hv">
-                                        <rect key="frame" x="44.5" y="53" width="400" height="333"/>
+                                        <rect key="frame" x="44.5" y="54" width="400" height="331.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="خيارات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-fl-Zpw">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="52.5"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="45"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-ff-eDt">
-                                                <rect key="frame" x="0.0" y="74" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="72.5" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="400" id="6yc-vD-hiQ"/>
@@ -51,7 +51,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-xr-u2P">
-                                                <rect key="frame" x="0.0" y="167" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="165.5" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="DdF-f7-8V8"/>
@@ -65,7 +65,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxV-Go-ygc">
-                                                <rect key="frame" x="0.0" y="260" width="400" height="73"/>
+                                                <rect key="frame" x="0.0" y="258.5" width="400" height="73"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="yak-wE-qhn"/>
@@ -133,7 +133,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
+                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -226,7 +226,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6651.5625" y="-381.4453125"/>
+            <point key="canvasLocation" x="6759" y="-392"/>
+        </scene>
         <!--AdvReport-->
         <scene sceneID="J35-6T-Mad">
             <objects>
@@ -235,11 +236,10 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6625" y="109"/>
+            <point key="canvasLocation" x="7088" y="-21"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
