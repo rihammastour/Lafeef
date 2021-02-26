@@ -427,6 +427,9 @@
             <point key="canvasLocation" x="673.4375" y="116.60156249999999"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="NLV-1L-Gsw"/>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="5jd-o6-VO5"/>
     </inferredMetricsTieBreakers>

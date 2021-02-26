@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,13 +107,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="55"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="bottom" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="DUV-q8-jPl">
-                                                                        <rect key="frame" x="8" y="8" width="91" height="36"/>
+                                                                        <rect key="frame" x="8" y="8" width="123.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rewards" translatesAutoresizingMaskIntoConstraints="NO" id="Em6-vs-iOG">
-                                                                                <rect key="frame" x="0.0" y="2" width="59" height="34"/>
+                                                                                <rect key="frame" x="0.0" y="1" width="59" height="34"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٢٠ ريال" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-ai-sb9">
-                                                                                <rect key="frame" x="39" y="0.0" width="52" height="36"/>
+                                                                                <rect key="frame" x="39" y="0.0" width="84.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -139,7 +140,7 @@
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </view>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="٩٠ نقطة" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcs-yU-10G">
-                                                                                <rect key="frame" x="20.5" y="15" width="68.5" height="65"/>
+                                                                                <rect key="frame" x="11" y="15" width="87.5" height="65"/>
                                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -218,7 +219,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="whiteApp"/>
                                 <constraints>
                                     <constraint firstItem="lUe-vv-ISX" firstAttribute="centerY" secondItem="Fss-pp-HTm" secondAttribute="centerY" id="2gQ-ZF-BKI"/>
                                     <constraint firstItem="lUe-vv-ISX" firstAttribute="centerX" secondItem="Fss-pp-HTm" secondAttribute="centerX" id="3gD-hl-NzA"/>
@@ -255,24 +256,24 @@
             </objects>
             <point key="canvasLocation" x="-563.28125" y="179.8828125"/>
         </scene>
-        <!--Lossing View Controller-->
+        <!--Losing View Controller-->
         <scene sceneID="Lky-Sl-o6N">
             <objects>
-                <viewController storyboardIdentifier="lose" useStoryboardIdentifierAsRestorationIdentifier="YES" id="plW-eP-NFK" customClass="LossingViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lose" useStoryboardIdentifierAsRestorationIdentifier="YES" id="plW-eP-NFK" customClass="LosingViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mCX-YF-emQ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYF-CT-q7t">
                                 <rect key="frame" x="124" y="164.5" width="520" height="695"/>
-                                <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="whiteApp"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="695" id="Z6X-Up-ey2"/>
                                     <constraint firstAttribute="width" constant="520" id="ilJ-D1-ivU"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hEh-Fe-n7g">
-                                <rect key="frame" x="183" y="185.5" width="402" height="653"/>
+                                <rect key="frame" x="183" y="186" width="402" height="652"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icecream.gif" translatesAutoresizingMaskIntoConstraints="NO" id="qzJ-WD-CaH">
                                         <rect key="frame" x="26" y="0.0" width="350" height="350"/>
@@ -282,13 +283,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="حاول مرة أخرى.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqe-0y-iUl">
-                                        <rect key="frame" x="114" y="365" width="174.5" height="48"/>
+                                        <rect key="frame" x="82" y="365" width="238" height="47"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxy-4Z-m8y">
-                                        <rect key="frame" x="51" y="428" width="300" height="150"/>
+                                        <rect key="frame" x="51" y="427" width="300" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-lr-OWB">
                                                 <rect key="frame" x="16" y="87" width="268" height="55"/>
@@ -426,7 +427,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-Rz-XrW" userLabel="buttons">
-                                        <rect key="frame" x="0.0" y="593" width="402" height="60"/>
+                                        <rect key="frame" x="0.0" y="592" width="402" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Occ-LY-d3c">
                                                 <rect key="frame" x="0.0" y="0.0" width="175" height="60"/>
@@ -493,11 +494,23 @@
             <point key="canvasLocation" x="188.28125" y="179.8828125"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ctU-1R-ko1">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="rzY-gk-cjH"/>
+        <designable name="rzc-wW-Smg">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="icecream.gif" width="1890" height="1417"/>
         <image name="normal" width="30" height="30"/>
         <image name="rewards" width="59.312999725341797" height="34.692001342773438"/>
         <image name="sad" width="30" height="30"/>
         <image name="smile" width="31.028999328613281" height="31.028999328613281"/>
+        <namedColor name="whiteApp">
+            <color red="0.98000001907348633" green="0.97699999809265137" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
