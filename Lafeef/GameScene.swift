@@ -247,7 +247,7 @@ class GameScene: SKScene {
         
         // Get table node from scene and store it for use later
         self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
-
+        tableNode?.zPosition = 2
         //Set progress bar
         createPrograssBar()
         
