@@ -128,14 +128,16 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                 guard let self = self else { return }
                 
                 if (success) {
-                    self.errorLabel.text = "User was sucessfully created."
+                   
                     //Store in local Storage
-                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0, sex: User.sex))
+//                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0, sex: User.sex))
+                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
                     
                     //navogation
                     self.transition()
                 } else {
-                    self.errorLabel.text = error
+                    self.present(self.alert.Alert(body:self.errorLabel.text!), animated: true)
+                    
                 }
             }
         }

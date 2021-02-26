@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
         self.setCurrentLevel(child.currentLevel)
         self.setMoney(child.money)
         self.setScore(child.score)
-        self.setImage(child.sex)
+//        self.setImage(child.sex)
     }
     
     //Name
