@@ -16,6 +16,7 @@ import ARKit
 class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
     
     @IBOutlet var previewView: UIView!
+    @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "4"
@@ -25,6 +26,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var money:[Money]?
     var alert = AlertService()
     var challengeScen:GameScene?
+    static var stopCircleNil=false//when stop the nil circle
+    static var stopImageBool = true
+    var stopImage = UIImage(named: "stopGame")
+    var  pauseImage = UIImage(named: "Pause")
     
     var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
@@ -36,6 +41,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
     
+    
+       
+        //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
+        
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
@@ -46,6 +55,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
        
         
         // Additional setup after loading the view.
+        print("view did load challengeرغد شوفي هنا ")
         setScene()
         fetchChallengeLevel()
       }
@@ -159,13 +169,60 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             // to be implemented in the subclass
         }
         
+//        ChallengeViewController.stopImageBool=true
+//        print("ستوب ايمج رهام")
+//        print("رهام \(ChallengeViewController.stopImageBool) ")
+//        print("البوليان وين ؟")
+//        changeStopImage(_sender:ChallengeViewController.stopImageBool)
+//
+    }
     
     //MARK: -Set up UI Element
     
+//    func changeStopImage(_sender: Bool){
+//        if(_sender){
+//            print("رهام شوفي هنا الصوره ستوب ")
+//            stopGame.setBackgroundImage(stopImage, for:.normal)
+//        }else{
+//            print("رهام شوفي هنا الصوره بوز ")
+//            stopGame.setBackgroundImage(pauseImage, for:.normal)
+//        }
+//
+//
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segue.menuSegue {
+            let vc = segue.destination as! PauseGameViewController
+                        print("Segue proformed")
+            if(GameScene.circle==nil){
+                GameScene.circleDecrement=false
+                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive 
+                GameScene.timer.invalidate()
+                ChallengeViewController.stopCircleNil=true
+                GameScene.circle?.isHidden=true
+                ChallengeViewController.stopImageBool=false
+//                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+//                changeStopImage()
+                
+            }else{
+            GameScene.timeLeft = GameScene.timeLeft
+            GameScene.timer.invalidate()
+            GameScene.circleDecrement=false
+            GameScene.circle!.isPaused=true
+            ChallengeViewController.stopImageBool=false
+            print(GameScene.timeLeft.time)
+//                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+//                changeStopImage()
+//            vc.levelNum = "1"
+            }
+        }
+    }
     //setScens
     func setScene(){
         
         self.challengeScen = gameScen.scene as! GameScene
+        self.challengeScen?.viewController = self
         
     }
     
@@ -379,8 +436,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                     i += 1}
             }
             
-            if (toppings.isEmpty){
-                totalSocre += 1
+            //Calculate Toppings prices
+            for t in toppings {
+                total += t.getPrice()
             }
             
         }

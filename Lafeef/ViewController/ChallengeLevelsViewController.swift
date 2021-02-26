@@ -37,6 +37,7 @@ class ChallengeLevelsViewController: UIViewController {
             let vc = segue.destination as! ChallengeViewController
                         print("Segue proformed")
             vc.levelNum = "1"
+            GameScene.circleDecrement=true
             
         }
     }

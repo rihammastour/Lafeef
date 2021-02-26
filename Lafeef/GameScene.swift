@@ -13,19 +13,30 @@ class GameScene: SKScene {
     //MARK: - Proprites
     
     //MARK: Variables
+    let alert = AlertService()
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
     var toopingCounter : Int = 0
     var moneyCounter : Int = 0
+    var button: SKNode! = nil
+    var cashierbutton: SKNode! = nil
+    let cam = SKCameraNode()
+    var flag = false
+   
+    var viewController: ChallengeViewController?
+    
+    //MARK:  Charachters  Variables
+    var customers : [CustomerNode]=[]
+    var currentCustomer = 0
     
     //MARK:  Nodes Variables
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     private var tableNode : SKSpriteNode?
+    private var progessBarContiner : SKSpriteNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -42,21 +53,189 @@ class GameScene: SKScene {
     private var box : SKSpriteNode?
     
     //Timer variables
-    var timeLeft: TimeInterval = 120//change
-    let timeLeft1=120//change
-    var timer = Timer()
-    private var displayTime : SKLabelNode?
-    var endTime: Date?
-    
+    static var timeLeft: TimeInterval = 30//change
+    let timeLeft1=30//change
+    static var timer = Timer()
+    static var displayTime : SKLabelNode?
+    static var endTime: Date?
+    static var circleDecrement=true
+    static var stopCircle=false
+    static var circle : SKShapeNode?
+    static var TimerShouldDelay = false
+    static var countStop = 0
+
     //MARK: - Lifecycle Functons
+    
+
     override func sceneDidLoad() {
         print("scene")
         
         setupSceneElements()
+        setUpCatcter()
         
     }
-    
+    override func didMove(to view: SKView) {
+        backgroundColor = .white
+        
+        buildCustomer(customerNode: customers[currentCustomer])
+        
+        //to trash
+        button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
+        self.addChild(button)
+        
+        cashierbutton = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
+        cashierbutton.position = CGPoint(x:600,y:0);
+        self.addChild(cashierbutton)
+        
+        ChallengeViewController.stopImageBool=true
+        circleShouldDelay()
+
+
+    }//end did move
+  
+
     //MARK: - Functions
+    
+    func generateTimer(){
+        GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
+        if GameScene.displayTime != nil {
+
+            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
+            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+            GameScene.displayTime?.text=GameScene.timeLeft.time
+            GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
+            GameScene.displayTime?.isHidden=true
+                                            }
+    }
+    
+    
+    func generateCircle(){
+        GameScene.circle = SKShapeNode(circleOfRadius: 36)
+        GameScene.circle!.position = CGPoint(x: 90, y: 95)
+        
+        GameScene.circle!.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+        GameScene.circle!.strokeColor = SKColor.clear
+        GameScene.circle!.zRotation = CGFloat.pi / 2
+        self.orderContiner!.addChild(GameScene.circle!)
+        print(TimeInterval(Int(GameScene.timeLeft)))
+        self.countdown(circle: GameScene.circle!, steps: 30, duration: 30) {
+                 print("circle is done ")
+             }
+    }
+    
+    
+    func circleShouldDelay(){
+        if((!(GameScene.circle == nil))&&GameScene.TimerShouldDelay){
+
+            switch GameScene.countStop {
+            case 0:
+                print(" in case 0  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                    GameScene.circleDecrement=true
+                }
+                break
+            
+            case 1:
+                print(" in case 1  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.6){
+                GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+                
+            case 2:
+                print(" in case 2  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.50){
+            GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+                
+            case 3:
+                print(" in case 3  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.31){
+            GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+                
+            case 4:
+                print(" in case 4  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.44){
+            GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+            case 5:
+                print(" in case 5  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.45){
+            GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+                
+            case 6:
+                print(" in case 6  \(GameScene.countStop)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.50){
+            GameScene.circle?.isPaused=false
+                    GameScene.circleDecrement=true
+                }
+                break
+            default:
+                GameScene.circle?.isPaused=false
+                        GameScene.circleDecrement=true
+            }
+ 
+            GameScene.TimerShouldDelay=false
+        }
+
+    }
+
+    
+    //MARK: -  Charachters Functions
+    func setUpCatcter(){
+        while customers.count <= 3  {
+            let randomInt = Int.random(in: 1..<6)
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
+            customers.append(choosenCustomer!)
+            
+        }
+    }
+    func buildCustomer(customerNode: CustomerNode) {
+        customerNode.buildCustomer()
+        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY)
+        customerNode.walkingCustomer()
+        
+        //move to take cake
+        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
+        //
+        //               let StopAction = SKAction.run({ [weak self] in
+        //                customerNode.stopCustomer()
+        //               })
+        let WaitingAction = SKAction.run({ [weak self] in
+            customerNode.waitingCustomer()
+        })
+        let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
+        
+        //        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
+        customerNode.customer.run(moveActionWithDone) {
+            
+            //make order visible
+            self.orderContiner?.isHidden = false
+            self.generateCircle()
+            self.generateTimer()
+
+        }
+        print (customerNode.customer.position)
+        
+        // for cashier
+        
+        customerNode.customer.size = CGSize(width: 300, height: 350)
+        addChild(customerNode.customer)
+    }
+
+    
     
     //MARK: - Set up Scene Eslements Functions
     
@@ -69,12 +248,11 @@ class GameScene: SKScene {
         // Get table node from scene and store it for use later
         self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
 
+        //Set progress bar
+        createPrograssBar()
         
         // Get Camera node from scene and store it for use later
-        self.camera = self.childNode(withName: "camera") as? SKCameraNode
-        if self.camera != nil {
-            setCameraConstraints()
-        }
+        self.camera = cam
         
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -94,17 +272,13 @@ class GameScene: SKScene {
         }
         
         
-        //Creat leble to display time ????
-        self.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
-        if self.displayTime != nil {
-            
-            endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            displayTime?.text=timeLeft.time
-            displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
-            displayTime?.isHidden=true
-            
-        }
+    }
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
         
         // Get Payment Continer node from scene and store it for use later
         self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
@@ -117,6 +291,10 @@ class GameScene: SKScene {
         
         self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
         self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
+        //Create prograss bar and hide it using SKCropNode Mask
+        let bar = PrograssBar()
+        bar.configure(at: CGPoint(x: 0, y: 0))
+        progessBarContiner?.addChild(bar)
     }
     
     //setBackgroundBakary
@@ -150,9 +328,9 @@ class GameScene: SKScene {
             print("no order continer")
             return
         }
-        
-        //make order visible
-        self.orderContiner?.isHidden = false
+    
+        //        //make order visible
+        //        self.orderContiner?.isHidden = false
         
         //Create base node
         self.base = createBaseNode(with: baseType)
@@ -185,23 +363,10 @@ class GameScene: SKScene {
             }
             
         }
-        
-        //Start the Timer
-        let circle = SKShapeNode(circleOfRadius: 46)
-        circle.position = CGPoint(x: frame.midX+310, y: frame.midY+320)
-        circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-        circle.strokeColor = SKColor.clear
-        circle.zRotation = CGFloat.pi / 2
-        addChild(circle)
-        
-        countdown(circle: circle, steps: 120, duration: 120) {
-        }
-        //self.startTimer()
-        
-    }
-    
-    
-    //setTopping
+               
+
+   }
+    //create Topping
     func createTopping(at position:PositionTopping,as topping:Topping){
         
         toopingCounter += 1
@@ -216,6 +381,7 @@ class GameScene: SKScene {
         
     }
     
+    //create Base
     func createBaseNode(with base:Base) -> SKSpriteNode{
         
         let node = SKSpriteNode(imageNamed: base.rawValue)
@@ -320,54 +486,45 @@ class GameScene: SKScene {
         
     }
     // Creates an animated countdown timer
+    
     func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
         print("dddd")
         guard let path = circle.path else {
             return
         }
-        
-        
+
         let radius = path.boundingBox.width/2
-        let timeInterval = duration/TimeInterval(steps)
+        var timeInterval = duration/TimeInterval(steps)
         let incr = 1 / CGFloat(steps)
         var percent = CGFloat(1.0)
         
-        let animate = SKAction.run {
-            percent -= incr
-            circle.path = self.circle(radius: radius, percent:percent)
+        let animate = SKAction.run { [self] in
+
+            if(GameScene.circleDecrement )
+            {percent -= incr}
+
             
-            if( Int(self.timeLeft) < 120){
-                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+            if(GameScene.timeLeft==0){
+                percent = 1
+                circle.path = nil
                 
             }
-            
-            if( Int(self.timeLeft) < 60){
+            circle.path = self.circle(radius: radius, percent:percent)
+            if( Int(GameScene.timeLeft) < 30){
+                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+            }
+            if( Int(GameScene.timeLeft) <= 20){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
-            }
-            
-            if( Int(self.timeLeft) < 30 && Int(self.timeLeft)>=0){
+                }
+            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-            }
-            
-            
+             }
+     
         }
         let wait = SKAction.wait(forDuration:timeInterval)
-        let action = SKAction.sequence([wait, animate])
-        
-        run(SKAction.repeat(action,count:steps-1)) {
-            
-            
-            if( percent == 15){
-                circle.fillColor = SKColor.red
-            }
-            self.run(SKAction.wait(forDuration:timeInterval)) {
-                circle.path = nil
-                //                circle.fillColor = SKColor.red
-                completion()
-            }
-            
-        }
-        
+        let action1 = SKAction.sequence([wait, animate])
+        run(SKAction.repeatForever(action1), withKey: "stopTimer")
+
         
     }
     
@@ -391,37 +548,39 @@ class GameScene: SKScene {
         let yellowTime=timeLeft1/3*1//6
         
         
-        if(Int(timeLeft)>greenTime){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
-            //green
+        if(Int(GameScene.timeLeft)>greenTime){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
+      
             
             
         }
-        else  if (Int(timeLeft) > yellowTime){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+        else  if (Int(GameScene.timeLeft) > yellowTime){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
             //yellow
             
         }
         
-        else  if (timeLeft > 0 ){
-            displayTime?.fontName =  "FF Hekaya"
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            displayTime?.text = timeLeft.time
+        else  if (GameScene.timeLeft > 0 ){
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = GameScene.timeLeft.time
+            print(GameScene.timeLeft.time)
             //orange
             
         }
         else {
-            displayTime?.isHidden=false
-            displayTime?.fontName =  "FF Hekaya"
-            displayTime?.text = "انتهى الوقت!"
-            displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-            //red
+//            GameScene.displayTime?.isHidden=false
+            GameScene.displayTime?.fontName =  "FF Hekaya"
+            GameScene.displayTime?.text = "انتهى الوقت!"
+            GameScene.displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             
-            timer.invalidate()
+            GameScene.timer.invalidate()
         }
     }
     
@@ -472,15 +631,69 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             let previousLocation = t.previousLocation(in: self)
             
-            self.camera?.position.x += location.x - previousLocation.x
-            
         }
     }
     
     // override touchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        for t in touches {
+            self.touchUp(atPoint: t.location(in: self))
+            let location = t.location(in: self)
+            // Check if the location of the touch is within the button's bounds
+            if button.contains(location) {
+                // orange.happyCustomer()
+                flag = true
+                customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
+                
+                //make order invisible
+                self.orderContiner?.isHidden = true
+                GameScene.circle!.isHidden = true
+
+                GameScene.circle = SKShapeNode(circleOfRadius: 0 )
+                self.removeAction(forKey: "stopTimer")
+                GameScene.circle!.removeFromParent()
+                GameScene.timeLeft = 0
+                GameScene.countStop=0
+                GameScene.circle?.path = self.circle(radius: 0, percent: 0)
+                GameScene.circle=nil
+                GameScene.timer.invalidate()
+                // will go left
+                //move to take cake
+                
+            }
+            
+            if cashierbutton.contains(location) {
+                flag = false
+                
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                        
+                        self.cam.position = CGPoint(x: 0, y: 0)
+                        currentCustomer += 1
+                        if (currentCustomer<=3){
+                            buildCustomer(customerNode: customers[currentCustomer])
+                            GameScene.timeLeft = 30
+                            GameScene.TimerShouldDelay = false
+                            viewController?.nextOrder()
+                            
+                            
+                        }
+                        
+                        else {
+                            print("THE LEVEL IS END")
+                        }
+                        
+                    }
+                    
+                    
+                }
+                
+                
+            }
+        }
+        
     }
+    
     
     //override touchesCancelled
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -489,17 +702,30 @@ class GameScene: SKScene {
     
     //override update
     override func update(_ currentTime: TimeInterval) {
+
+        if (flag){
+            cam.position = customers[currentCustomer].customer.position
+        }
+  
         // Called before each frame is rendered
-        
+      
+        if(Int(GameScene.timeLeft)<=0){
+//            print("Time left is zero ")
+            self.removeAction(forKey: "stopTimer")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                GameScene.circle?.path = self.circle(radius: 46, percent: 0)
+            }
+            GameScene.stopCircle=true
+
+        }
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
         
-        
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
-        
+    
         // Update entities
         for entity in self.entities {
             entity.update(deltaTime: dt)
@@ -512,61 +738,11 @@ class GameScene: SKScene {
     
     //MARK:- Constrains Functos
     
-    //setCameraConstraints
-    private func setCameraConstraints() {
-        // Don't try to set up camera constraints if we don't yet have a camera.
-        guard let camera = camera else { return }
-        
-        /*
-         Also constrain the camera to avoid it moving to the very edges of the scene.
-         First, work out the scaled size of the scene. Its scaled height will always be
-         the original height of the scene, but its scaled width will vary based on
-         the window's current aspect ratio.
-         */
-        let scaledSize = CGSize(width: size.width * camera.xScale, height: size.height * camera.yScale)
-        
-        /*
-         Find the root "board" node in the scene (the container node for
-         the level's background tiles).
-         */
-        guard let bekary = bakeryBackgroundNode else {
-            return
-        }
-        /*
-         Calculate the accumulated frame of this node.
-         The accumulated frame of a node is the outer bounds of all of the node's
-         child nodes, i.e. the total size of the entire contents of the node.
-         This gives us the bounding rectangle for the level's environment.
-         */
-        let boardContentRect = bekary.calculateAccumulatedFrame()
-        
-        /*
-         Work out how far within this rectangle to constrain the camera.
-         We want to stop the camera when we get within 100pts of the edge of the screen,
-         unless the level is so small that this inset would be outside of the level.
-         */
-        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
-        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
-        
-        // Use these insets to create a smaller inset rectangle within which the camera must stay.
-        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
-        
-        // Define an `SKRange` for each of the x and y axes to stay within the inset rectangle.
-        let xRange = SKRange(lowerLimit: insetContentRect.minX, upperLimit: insetContentRect.maxX)
-        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-        
-        // Constrain the camera within the inset rectangle.
-        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        levelEdgeConstraint.referenceNode = bekary
-        
-        /*
-         Add both constraints to the camera. The scene edge constraint is added
-         second, so that it takes precedence over following the `PlayerBot`.
-         The result is that the camera will follow the player, unless this would mean
-         moving too close to the edge of the level.
-         */
-        camera.constraints = [levelEdgeConstraint]
-    }
+
+    
+    // ----------------- charachter animation
+    
+    
 }
 extension TimeInterval {
     var time: String {
@@ -578,3 +754,6 @@ extension Int {
         return CGFloat(self) * .pi / 180
     }
 }
+
+
+
