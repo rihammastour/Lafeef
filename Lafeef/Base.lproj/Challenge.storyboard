@@ -133,7 +133,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
+                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -197,11 +197,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <skView contentMode="scaleToFill" sceneName="GameScene.sks" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-gI-AL5">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="998"/>
                             </skView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
-                                <rect key="frame" x="41" y="24" width="51" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bakeryWave" translatesAutoresizingMaskIntoConstraints="NO" id="Alo-Qy-G0W">
+                                <rect key="frame" x="0.0" y="-8" width="768" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
+                                <rect key="frame" x="41" y="16" width="56" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="qp9-FY-iRa"/>
+                                    <constraint firstAttribute="width" constant="56" id="xBu-wP-0EB"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
                                     <segue destination="mRG-gB-WrO" kind="showDetail" identifier="MenuSegue" id="lh3-vD-tCs"/>
@@ -212,8 +218,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="3Ay-X4-la6"/>
+                            <constraint firstItem="Alo-Qy-G0W" firstAttribute="height" secondItem="gjU-qm-wh3" secondAttribute="height" multiplier="0.125" constant="-10" id="6rq-Ax-PwF"/>
+                            <constraint firstItem="Alo-Qy-G0W" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="9c5-Fk-PoS"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="C3s-Qm-ZVS"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="F8n-LH-yV1"/>
+                            <constraint firstItem="LLA-Nv-Osf" firstAttribute="bottom" secondItem="Alo-Qy-G0W" secondAttribute="bottom" constant="906" id="XST-Lb-sOL"/>
+                            <constraint firstItem="Alo-Qy-G0W" firstAttribute="width" secondItem="gjU-qm-wh3" secondAttribute="width" id="YHH-Zc-Dhv"/>
+                            <constraint firstItem="szD-Yu-CQr" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" constant="16" id="ZYQ-JH-R3I"/>
+                            <constraint firstItem="Alo-Qy-G0W" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="r7Q-Rr-Shc"/>
+                            <constraint firstItem="Alo-Qy-G0W" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" constant="-8" id="s0r-VL-r5d"/>
+                            <constraint firstItem="szD-Yu-CQr" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" constant="41" id="s1q-HU-0RT"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="bottom" secondItem="LLA-Nv-Osf" secondAttribute="bottom" id="tlx-cY-AXy"/>
                         </constraints>
                     </view>
@@ -229,9 +243,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bakeryWave" width="688.05499267578125" height="100.64800262451172"/>
         <image name="stopGame" width="46" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
