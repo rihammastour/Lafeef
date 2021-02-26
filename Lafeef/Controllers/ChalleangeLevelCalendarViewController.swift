@@ -48,13 +48,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
     var childId = ""
     // activity indicaitor
     var  activityIndicatorView :NVActivityIndicatorView?
-    
-    // colors
-    let green = "#EBF0C4"
-    let red = "#F2E6E4"
-    let yellow = "#F1D582"
-    let blue = "#D2E4E2"
- 
+  
     override func viewWillAppear(_ animated: Bool) {
    
     }
@@ -64,9 +58,9 @@ class ChalleangeLevelCalendarViewController:UIViewController
    
         getlevelsScores()
         getChildReports()
-        
+
         let x =  CGRect(x:  self.activityIndicaitor.center.x-80, y: self.activityIndicaitor.center.y-100 , width: 200, height: 200)
-       activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.fromHex(hexString: blue), padding: 0)
+       activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.init(named: "blueApp"), padding: 0)
         self.calendarView.addSubview(activityIndicatorView!)
 
         activityIndicatorView!.startAnimating()
@@ -84,7 +78,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
             levelTwoStar.isHidden = true
             levelThreeStar.isHidden = true
             levelFourStar.isHidden = true
-        
+
             }
     func disableButtons(){
         levelTwoOutlet.isEnabled = false
@@ -119,9 +113,9 @@ class ChalleangeLevelCalendarViewController:UIViewController
                 switch index {
                 case 0:
                     if level.reportData.isPassed{
-                        leveOneView.backgroundColor = UIColor.fromHex(hexString: green)
+                        leveOneView.backgroundColor = UIColor.init(named: "passChallenge")
                         levelOneStar.image = UIImage(systemName: "star.fill")
-                        levelTwoView.backgroundColor = UIColor.fromHex(hexString: red)
+                        levelTwoView.backgroundColor = UIColor.init(named: "failChallenge")
                         levelTwoOutlet.isEnabled = true
                         levelTwoLock.isHidden = true
                     }else{
@@ -135,10 +129,10 @@ class ChalleangeLevelCalendarViewController:UIViewController
                 break
                 case 1:
                 if level.reportData.isPassed{
-                    levelTwoView.backgroundColor = UIColor.fromHex(hexString: green)
+                    levelTwoView.backgroundColor =  UIColor.init(named: "passChallenge")
                     levelTwoStar.image = UIImage(systemName: "star.fill")
                     levelTwoLock.isHidden = false
-                    levelThreeView.backgroundColor = UIColor.fromHex(hexString: red)
+                    levelThreeView.backgroundColor =  UIColor.init(named: "failChallenge")
                     levelThreeOutlet.isEnabled = true
                  }else{
                     levelTwoStar.image = UIImage(systemName: "star")
@@ -150,10 +144,10 @@ class ChalleangeLevelCalendarViewController:UIViewController
                 break
                 case 2:
                 if level.reportData.isPassed{
-                    levelThreeView.backgroundColor = UIColor.fromHex(hexString: green)
+                    levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
                     levelThreeStar.image = UIImage(systemName: "star.fill")
                     levelThreeLock.isHidden = false
-                    levelFourView.backgroundColor = UIColor.fromHex(hexString: red)
+                    levelFourView.backgroundColor = UIColor.init(named: "failChallenge")
                     levelFourOutlet.isEnabled = true
                  }else{
                     levelThreeStar.image = UIImage(systemName: "star")
@@ -167,10 +161,10 @@ class ChalleangeLevelCalendarViewController:UIViewController
                    
                 default:
                     if level.reportData.isPassed{
-                        levelThreeView.backgroundColor = UIColor.fromHex(hexString: green)
+                        levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
                         levelThreeStar.image = UIImage(systemName: "star.fill")
                         levelTwoLock.isHidden = false
-                        levelThreeView.backgroundColor = UIColor.fromHex(hexString: red)
+                        levelThreeView.backgroundColor = UIColor.init(named: "failChallenge")
                         levelThreeOutlet.isEnabled = true
                      }else{
                         levelFourStar.image = UIImage(systemName: "star")

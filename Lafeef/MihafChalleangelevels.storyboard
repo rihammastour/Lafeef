@@ -17,7 +17,7 @@
         <!--Challeange Level Calendar View Controller-->
         <scene sceneID="7Aw-vY-0IR">
             <objects>
-                <viewController storyboardIdentifier="test" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cki-GE-agn" customClass="ChalleangeLevelCalendarViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="challengeLevelsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cki-GE-agn" customClass="ChalleangeLevelCalendarViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A3L-0C-WQa">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
                                         <rect key="frame" x="212" y="299.5" width="163" height="88"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.39791900429999999" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar-level" translatesAutoresizingMaskIntoConstraints="NO" id="hli-5M-X7D">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-level" translatesAutoresizingMaskIntoConstraints="NO" id="hli-5M-X7D">
                                         <rect key="frame" x="-9.5" y="0.0" width="606" height="687"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -375,7 +375,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Calendar-level" width="624" height="687.60198974609375"/>
+        <image name="calendar-level" width="624" height="687.60198974609375"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="BlackApp">

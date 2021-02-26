@@ -77,7 +77,7 @@ class DailyReportViewController: UIViewController {
     
     // Assert data to firestore
     func passReportData(){
-        let levelReportData = LevelReportData(collectedScore: self.collectedScore, collectedMoney: self.collectedMoney, isPassed: self.isPassed)
+        let levelReportData = LevelReportData(collectedMoney: self.collectedMoney, collectedScore: self.collectedScore, isPassed: self.isPassed)
         
         let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
 

@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Show Animated Splash Screen as intial screen
         let storyboard = UIStoryboard(name: "MihafChalleangelevels", bundle: nil)
-        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:"test") as! ChalleangeLevelCalendarViewController
+        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:"challengeLevelsVC") as! ChalleangeLevelCalendarViewController
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()

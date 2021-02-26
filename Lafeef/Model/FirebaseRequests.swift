@@ -192,7 +192,7 @@ class FirebaseRequest{
         }
 
         
-    }
+
     
     //MARK:- Firebase Storage
     
@@ -217,5 +217,5 @@ class FirebaseRequest{
 
     }
     
-    
+}
     
