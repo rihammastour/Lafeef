@@ -268,7 +268,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func showBill(at number:Int) -> Void {
-        let totalBillWithoutTax = calculateTotalBill()
+        let totalBillWithoutTax = getTotalBill()
         let withoutTaxRounded = Float(round(100*totalBillWithoutTax)/100)
         let tax = calculateTotalBillWithTax()
         let taxRounded = Float(round(100*tax)/100)
@@ -340,35 +340,30 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
            
        }
     
-    func calculateTotalBill()->Float{
+    //getTotalBill
+    func getTotalBill()->Float{
         
-        //get Order
-        let currentOrder = orders?[self.currentOrder]
-        let currentToppings = currentOrder?.toppings
-        
-        
-        guard currentOrder != nil else {
-            return 0
-        }
-        
-        var total:Float = (currentOrder?.base.getPrice())!
+        //get Order base  and toppings
+        let currentOrder = getCurrentOrder()!
+        let currentToppings = currentOrder.toppings
+       
+       guard currentOrder != nil else {
+           return 0
+       }
+       var total:Float = (currentOrder.base.getPrice())
         
         guard let toppings = currentToppings else {
+            //No Toppings
             return total
         }
         
+        //Calculate Toppings prices
         for t in toppings {
             total += t.getPrice()
         }
-
-
+        
         return total
         
-        //Sum scors
-        let totalScore = paymentScore + orderScore
-        print("Total order score :", orderScore,"\t Total order score :", paymentScore)
-        print("Total score :", totalScore)
-        return totalScore
     }
     
     func calculateTotalBillWithTax()->Float{
@@ -377,13 +372,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let currentOrder = orders?[self.currentOrder]
         let currentToppings = currentOrder?.toppings
         
-        
-        let totalBill = getTotalBill()
-        let expectedChange = getCurrentOrder()!.customerPaid! - totalBill
-
-        if expectedChange == chenge {
-            return 1
-        }else{
+        guard currentOrder != nil else {
             return 0
         }
         
@@ -458,29 +447,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func getCurrentOrder() ->  Order? {
          return (self.orders?[self.currentOrder])
      }
-     
-     //getTotalBill
-     func getTotalBill()->Float{
-         
-         //get Order base  and toppings
-         let currentOrder = getCurrentOrder()!
-         let currentToppings = currentOrder.toppings
-         
-        var total:Float = (currentOrder.base.getPrice())
-         
-         guard let toppings = currentToppings else {
-             //No Toppings
-             return total
-         }
-         
-         //Calculate Toppings prices
-         for t in toppings {
-             total += t.getPrice()
-         }
-         
-         return total
-         
-     }
+  
     //MARK: - Delegate handeler
 
     //showAlert

@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         //Show Animated Splash Screen as intial screen
-        let storyboard = UIStoryboard(name: "MihafReports", bundle: nil)
-        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:"lose") as! LosingViewController
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.challengeViewController) as! ChallengeViewController
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()

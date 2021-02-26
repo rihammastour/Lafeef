@@ -38,7 +38,7 @@ class GameScene: SKScene {
     private var tableNode : SKSpriteNode?
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
-    private var button : SKSpriteNode!
+    private var buttonOne : SKSpriteNode!
     private var buttonTwo : SKSpriteNode!
     private var buttonThree : SKSpriteNode!
     
@@ -76,10 +76,10 @@ class GameScene: SKScene {
         setUpCatcter()
 
         //Buttons TO BE REMOVED LATER
-        button = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
+        buttonOne = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
         // Put it in the center of the scene
-        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
-        self.addChild(button)
+        buttonOne.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
+        self.addChild(buttonOne)
         
         buttonTwo = SKSpriteNode(color: .yellow, size: CGSize(width: 100, height: 44))
         // Put it in the center of the scene
@@ -108,7 +108,14 @@ class GameScene: SKScene {
 
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
-
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        
+        if let progressBar = self.progressBarContiner {
+            progressBar.position = CGPoint(x: cam.position.x, y: self.frame.maxY-30)
+            createPrograssBar()
+        }
 
     }//end did move
 
@@ -266,8 +273,6 @@ class GameScene: SKScene {
         // Get table node from scene and store it for use later
         self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
         tableNode?.zPosition = 2
-        //Set progress bar
-        createPrograssBar()
 
         // Get Camera node from scene and store it for use later
         self.camera = cam
@@ -288,9 +293,6 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
-
-        // Get Prograss bar Continer node from scene and store it for use later
-        self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
         
         // Get Payment Continer node from scene and store it for use later
         self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
@@ -306,7 +308,7 @@ class GameScene: SKScene {
         //Create prograss bar and hide it using SKCropNode Mask
         let bar = PrograssBar()
         bar.configure(at: CGPoint(x: 0, y: 0))
-        progessBarContiner?.addChild(bar)
+        progressBarContiner?.addChild(bar)
 
     }
 
@@ -334,14 +336,12 @@ class GameScene: SKScene {
     //createPrograssBar
     func createPrograssBar(){
         
-        // Get Prograss bar Continer node from scene and store it for use later
-        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        self.progressBarContiner.anchorPoint   =   CGPoint(x: 0.5, y: -1)
+        self.progressBarContiner.anchorPoint = CGPoint(x: 0.5, y: -1)
         //Create Progress bar
         self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
         self.progressBar.size = CGSize(width: 1, height: 20)
         progressBar.anchorPoint = CGPoint(x: 0, y: 0)
-        progressBar.position = CGPoint(x: 98, y: 43)
+        progressBar.position = CGPoint(x: 160, y: 43)
         
         //Add progress bar to continer
         progressBarContiner?.addChild(progressBar)
@@ -382,23 +382,23 @@ class GameScene: SKScene {
     //TO BE DELETED
     func buttonTapped(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
-        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
 
     }
     
     func buttonTappedTwo(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
-        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        let score = viewController?.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }
     
     func buttonTappedThree(){
         print("tapped!")
-        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
-        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }
     
@@ -785,7 +785,7 @@ class GameScene: SKScene {
             
   
         // Check Satisfcation bar
-            if button.contains(location) {
+            if buttonOne.contains(location) {
                 buttonTapped()
             }
             
@@ -810,7 +810,10 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
 
         if (flag){
-            cam.position = customers[currentCustomer].customer.position
+         
+            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
+            self.progressBarContiner.position.x = cam.position.x
+
         }
 
         // Called before each frame is rendered

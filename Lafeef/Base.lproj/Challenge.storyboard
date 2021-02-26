@@ -200,7 +200,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </skView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
-                                <rect key="frame" x="41" y="24" width="51" height="50"/>
+                                <rect key="frame" x="41" y="33" width="51" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
@@ -240,6 +240,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lh3-vD-tCs"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
