@@ -364,6 +364,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
         return total
         
+        //Sum scors
+        let totalScore = paymentScore + orderScore
+        print("Total order score :", orderScore,"\t Total order score :", paymentScore)
+        print("Total score :", totalScore)
+        return totalScore
     }
     
     func calculateTotalBillWithTax()->Float{
@@ -373,7 +378,12 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let currentToppings = currentOrder?.toppings
         
         
-        guard currentOrder != nil else {
+        let totalBill = getTotalBill()
+        let expectedChange = getCurrentOrder()!.customerPaid! - totalBill
+
+        if expectedChange == chenge {
+            return 1
+        }else{
             return 0
         }
         
@@ -436,11 +446,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                     i += 1}
             }
             
-//            //Calculate Toppings prices
-//            for t in toppings {
-//                total += t.getPrice()
-//            }
-//
+            if (toppings.isEmpty){
+                totalSocre += 1
+            }
+            
         }
         
         return totalSocre

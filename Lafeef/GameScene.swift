@@ -36,8 +36,12 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     private var bakeryBackgroundNode : SKNode?
     private var tableNode : SKSpriteNode?
-    private var progessBarContiner : SKSpriteNode!
-
+    private var progressBarContiner : SKSpriteNode!
+    private var progressBar : SKSpriteNode!
+    private var button : SKSpriteNode!
+    private var buttonTwo : SKSpriteNode!
+    private var buttonThree : SKSpriteNode!
+    
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
     private var base : SKSpriteNode?
@@ -71,6 +75,22 @@ class GameScene: SKScene {
         setupSceneElements()
         setUpCatcter()
 
+        //Buttons TO BE REMOVED LATER
+        button = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
+        self.addChild(button)
+        
+        buttonTwo = SKSpriteNode(color: .yellow, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        buttonTwo.position = CGPoint(x:self.frame.midX, y:self.frame.midY+50);
+        self.addChild(buttonTwo)
+        
+        buttonThree = SKSpriteNode(color: .red, size: CGSize(width: 100, height: 44))
+        // Put it in the center of the scene
+        buttonThree.position = CGPoint(x:self.frame.midX, y:self.frame.midY-50);
+        self.addChild(buttonThree)
+    
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
@@ -269,12 +289,6 @@ class GameScene: SKScene {
                                               SKAction.removeFromParent()]))
         }
 
-
-    }
-
-    //createPrograssBar
-    func createPrograssBar(){
-
         // Get Prograss bar Continer node from scene and store it for use later
         self.progessBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
         
@@ -293,7 +307,9 @@ class GameScene: SKScene {
         let bar = PrograssBar()
         bar.configure(at: CGPoint(x: 0, y: 0))
         progessBarContiner?.addChild(bar)
+
     }
+
 
     //setBackgroundBakary
     func setBackgroundBakary(){
@@ -312,9 +328,82 @@ class GameScene: SKScene {
             bakery.setScale(maxAspectRatio)
         }
     }
+    
+    //MARK: - Progress bar methods
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        self.progressBarContiner.anchorPoint   =   CGPoint(x: 0.5, y: -1)
+        //Create Progress bar
+        self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
+        self.progressBar.size = CGSize(width: 1, height: 20)
+        progressBar.anchorPoint = CGPoint(x: 0, y: 0)
+        progressBar.position = CGPoint(x: 98, y: 43)
+        
+        //Add progress bar to continer
+        progressBarContiner?.addChild(progressBar)
+    }
+    
+    //IncreaseProgressBar
+    func increaseProgressBar(with custSat:CustmerSatisfaction) {
+        
+        let newWidth = (progressBar.size.width-custSat.barIncreasedByNum())
+                
+        // Scale up progress bar
+        let scaleUpAction = SKAction.resize(toWidth: newWidth, duration: 1)
+        //Run Action
+        progressBar.run(scaleUpAction) {
+            self.addFaceToProgressBar(on: newWidth,as: custSat)
+        }
+    }
+    
+    //addFaceToProgressBar
+    func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
+        
+        let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
+        face.anchorPoint = CGPoint(x:0.5, y: 0.5)
+        face.size = CGSize(width: 22, height: 23)
+        face.position = CGPoint(x: positionX+5, y: progressBar.size.height/2)
+        face.zPosition = 3
 
+        self.progressBar.addChild(face)
+        let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
+        let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
+        let sequence = SKAction.sequence([rotateToLeft,rotateToRight])
+        
+        //Run Action
+        face.run(sequence)
+        
+    }
+    
+    //TO BE DELETED
+    func buttonTapped(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
 
-
+    }
+    
+    func buttonTappedTwo(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
+    }
+    
+    func buttonTappedThree(){
+        print("tapped!")
+        let score = viewController.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
+        let cusSat = CustmerSatisfaction.getCusSat(for: score)
+        increaseProgressBar(with: cusSat)
+    }
+    
+    
+    
     //MARK:  - Set up Order Contents Functions
 
     //setOrderContent
@@ -489,7 +578,6 @@ class GameScene: SKScene {
         guard let path = circle.path else {
             return
         }
-
         let radius = path.boundingBox.width/2
         var timeInterval = duration/TimeInterval(steps)
         let incr = 1 / CGFloat(steps)
@@ -693,8 +781,23 @@ class GameScene: SKScene {
 
 
             }
-        }
 
+            
+  
+        // Check Satisfcation bar
+            if button.contains(location) {
+                buttonTapped()
+            }
+            
+            if buttonTwo.contains(location) {
+                buttonTappedTwo()
+            }
+            
+            if buttonThree.contains(location) {
+                buttonTappedThree()
+            }
+            
+        }
     }
 
 
@@ -740,12 +843,7 @@ class GameScene: SKScene {
 
 
     //MARK:- Constrains Functos
-
-
-
-    // ----------------- charachter animation
-
-
+    
 }
 extension TimeInterval {
     var time: String {
