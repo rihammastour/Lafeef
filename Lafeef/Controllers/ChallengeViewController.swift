@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 
 class ChallengeViewController: UIViewController {
-    
+
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
@@ -25,18 +25,18 @@ class ChallengeViewController: UIViewController {
     static var stopImageBool = true
     var stopImage = UIImage(named: "stopGame")
     var  pauseImage = UIImage(named: "Pause")
-    
-    
-       
+
+
+
         //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
-        
+
     //Outlet
     @IBOutlet weak var gameScen: SKView!
-    
+
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Additional setup after loading the view.
         print("view did load challengeرغد شوفي هنا ")
         setScene()
@@ -48,9 +48,9 @@ class ChallengeViewController: UIViewController {
 //        changeStopImage(_sender:ChallengeViewController.stopImageBool)
 //
     }
-    
+
     //MARK: -Set up UI Element
-    
+
 //    func changeStopImage(_sender: Bool){
 //        if(_sender){
 //            print("رهام شوفي هنا الصوره ستوب ")
@@ -62,21 +62,21 @@ class ChallengeViewController: UIViewController {
 //
 //
 //    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
                         print("Segue proformed")
             if(GameScene.circle==nil){
                 GameScene.circleDecrement=false
-                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive 
+                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
                 GameScene.timer.invalidate()
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
                 ChallengeViewController.stopImageBool=false
 //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
 //                changeStopImage()
-                
+
             }else{
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
@@ -92,27 +92,27 @@ class ChallengeViewController: UIViewController {
     }
     //setScens
     func setScene(){
-        
+
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
-        
+
     }
-    
+
     //MARK: - Functions
-    
+
     //fethChallengeLevel
     func fetchChallengeLevel(){
-        
+
         guard let levelNum = levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
-        
+
         FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(_:_:))
-        
+
     }
-    
+
     //setLevelInfo
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
@@ -120,17 +120,17 @@ class ChallengeViewController: UIViewController {
         showOrder(at: currentOrder) // must be Moved to be called by character
         print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
     }
-    
+
     //showOrder
             func showOrder(at number:Int) -> Void {
-                
+
                 let order = orders![number]
                 let base = order.base
-                
+
                 let toppings = order.toppings
                 self.challengeScen?.setOrderContent(with: Base.cake, nil)
             }
-            
+
             //nextOrder
             func nextOrder(){
                 if currentOrder <= 3{
@@ -140,43 +140,43 @@ class ChallengeViewController: UIViewController {
                     //TODO:End Level
                 }
             }
-    
+
     //MARK: - Calculate Score Functions
-        
+
         //calculateScore
         func calculateScore(for providedOrder:Order?,_ change:Float,on time:Bool) -> Int{
-            
+
             //Unwrap current order
             guard getCurrentOrder() != nil else {
                 //Fail umwrapping
                 return 0
             }
-            
+
             guard providedOrder != nil else {
                 //No answer provided!
                 return 0
             }
-            
+
             //check time
             if !(time){
                 return 0
             }
-            
+
             //get order score
             let orderScore = calculateOrderScore(for: providedOrder!)
             //get payment score
             let paymentScore = calculatePaymentScore(with: change)
-            
+
             //Sum scors
             let totalScore = paymentScore + orderScore
             print("Total order score :", orderScore,"\t Total order score :", paymentScore)
             print("Total score :", totalScore)
             return totalScore
         }
-        
+
         //calculatePaymentScore
         func calculatePaymentScore(with chenge:Float) -> Int{
-            
+
             let totalBill = getTotalBill()
             let expectedChange = getCurrentOrder()!.customerPaid - totalBill
             print("expected Change \t = ",expectedChange)
@@ -184,12 +184,12 @@ class ChallengeViewController: UIViewController {
             if expectedChange == 0 && chenge != 0 {
                 return 0
             }
-            
+
             //There's a change and child did not make one
             if expectedChange != 0 && chenge == 0 {
                 return 0
             }
-            
+
             if expectedChange == chenge {
                 return 3
             }else if expectedChange < chenge {
@@ -197,26 +197,26 @@ class ChallengeViewController: UIViewController {
             }else{
                 return 1
             }
-            
+
         }
-        
+
         //calculateOrderScore
         func calculateOrderScore(for providedOrder:Order) -> Int {
-            
+
             var totalSocre = 0
-            
+
             //Declaration variabels
             let currentOrder = getCurrentOrder()!
             let currentToppings = currentOrder.toppings
-            
+
             let providedToppings = providedOrder.toppings
             //Check Base
-            
+
             //check base if exist
             if providedOrder.base == nil {
                 return totalSocre
             }
-            
+
             //check base type
             if providedOrder.base == currentOrder.base{
                 totalSocre += 1
@@ -224,18 +224,18 @@ class ChallengeViewController: UIViewController {
                 //Order doesn't contain toppings and wrong base
                 return totalSocre
             }
-            
+
             //Start checking the toppings
             //check if there're toppings - nil means correct type and number
             if providedToppings == nil && currentToppings == nil{
-                
+
                 totalSocre += 2
             }else if var toppings = providedToppings {
-                
+
                 //check toppings number
                 if providedToppings?.count == currentToppings?.count {
                     totalSocre += 1 }
-                
+
                 //check toppings type
                 var i = 0
                 for t in toppings{
@@ -244,67 +244,67 @@ class ChallengeViewController: UIViewController {
                     }else{
                         i += 1}
                 }
-                
+
                 if (toppings.isEmpty){
                     totalSocre += 1
                 }
-                
+
             }
-            
+
             return totalSocre
-            
+
         }
-        
-        
+
+
         //MARK:  Calculate Score Helper functions
-        
+
         func getCurrentOrder() ->  Order? {
             return (self.orders?[self.currentOrder])
         }
-        
+
         //getTotalBill
         func getTotalBill()->Float{
-            
+
             //get Order base  and toppings
             let currentOrder = getCurrentOrder()!
             let currentToppings = currentOrder.toppings
-            
+
             var total:Float = (currentOrder.base.getPrice())
-            
+
             guard let toppings = currentToppings else {
                 //No Toppings
                 return total
             }
-            
+
             //Calculate Toppings prices
             for t in toppings {
                 total += t.getPrice()
             }
-            
+
             return total
-            
+
         }
-    
+
     //MARK: - Delegate handeler
-    
+
     //showAlert
     func showAlert(with message:String) {
         alert.Alert(body: message)
     }
-    
+
     //feachChalengeLevelHandeler
     func feachChallengeLevelHandler(_ data:Any?,_ err:Error?) -> Void {
-        
+
         if err != nil{
             print("Challenge View Controller",err!)
-            
+
             if err?.localizedDescription == "Failed to get document because the client is offline."{
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
-            
+
         }else{
-            
+
             do{
                 //Convert data to type Child
                 let level = try FirebaseDecoder().decode(Level.self, from: data!)
@@ -314,8 +314,9 @@ class ChallengeViewController: UIViewController {
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }
-            
+
         }
     }
-    
+
 }
+
