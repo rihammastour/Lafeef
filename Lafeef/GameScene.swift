@@ -197,16 +197,16 @@ class GameScene: SKScene {
     func setUpCatcter(){
         while customers.count <= 3  {
             let randomInt = Int.random(in: 1..<6)
-            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
+            var choosenCustomer = Customers(rawValue: 6)?.createCustomerNode()
             customers.append(choosenCustomer!)
             
         }
     }
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
-        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY)
+        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
         customerNode.walkingCustomer()
-        
+
         //move to take cake
         let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
         //
@@ -231,7 +231,7 @@ class GameScene: SKScene {
         
         // for cashier
         
-        customerNode.customer.size = CGSize(width: 300, height: 350)
+//        customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
 

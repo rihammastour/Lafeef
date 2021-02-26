@@ -175,7 +175,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //        print("البوليان وين ؟")
 //        changeStopImage(_sender:ChallengeViewController.stopImageBool)
 //
-    }
+
     
     //MARK: -Set up UI Element
     
@@ -197,7 +197,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                         print("Segue proformed")
             if(GameScene.circle==nil){
                 GameScene.circleDecrement=false
-                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive 
+                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
                 GameScene.timer.invalidate()
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
@@ -247,7 +247,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.orders = level.orders
         showOrder(at: currentOrder) // must be Moved to be called by character
         showCustomerPaid(at: currentOrder)
-        showBill(at: currentOrder) 
+        showBill(at: currentOrder)
         print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
     }
     
@@ -436,11 +436,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                     i += 1}
             }
             
-            //Calculate Toppings prices
-            for t in toppings {
-                total += t.getPrice()
-            }
-            
+//            //Calculate Toppings prices
+//            for t in toppings {
+//                total += t.getPrice()
+//            }
+//
         }
         
         return totalSocre
@@ -505,6 +505,5 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
-    
-    
+ 
 }

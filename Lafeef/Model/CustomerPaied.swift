@@ -10,7 +10,6 @@ import Foundation
 class CustomerPaied {
     
     static func convertToMoney(customerPaied: Float) -> [Money]{
-        print("convertToFloatArr excuted", customerPaied)
         switch customerPaied {
         case 100.0:
             return mapCustomerPaied(customerPaied: [50, 50])
@@ -39,7 +38,6 @@ class CustomerPaied {
     
     
     static func mapCustomerPaied(customerPaied: [Float]) -> [Money]{
-        print("convertToMoney excuted", customerPaied)
         switch customerPaied {
         case [50, 50]:
             return [.fiftyRiyal, .fiftyRiyal]
