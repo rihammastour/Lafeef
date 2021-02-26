@@ -44,10 +44,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
        
         //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
-        
+
     //Outlet
     @IBOutlet weak var gameScen: SKView!
-    
+
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +178,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     
     //MARK: -Set up UI Element
-    
+
 //    func changeStopImage(_sender: Bool){
 //        if(_sender){
 //            print("رهام شوفي هنا الصوره ستوب ")
@@ -190,7 +190,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //
 //
 //    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
@@ -204,7 +204,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 ChallengeViewController.stopImageBool=false
 //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
 //                changeStopImage()
-                
+
             }else{
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
@@ -220,27 +220,27 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     //setScens
     func setScene(){
-        
+
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
-        
+
     }
-    
+
     //MARK: - Functions
-    
+
     //fethChallengeLevel
     func fetchChallengeLevel(){
-        
+
         guard let levelNum = levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
-        
+
         FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(_:_:))
-        
+
     }
-    
+
     //setLevelInfo
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
@@ -250,7 +250,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         showBill(at: currentOrder)
         print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
     }
-    
+
     //showOrder
     func showOrder(at number:Int) -> Void {
         let order = orders![number]
@@ -473,25 +473,25 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
          
      }
     //MARK: - Delegate handeler
-    
+
     //showAlert
     func showAlert(with message:String) {
         alert.Alert(body: message)
     }
-    
+
     //feachChalengeLevelHandeler
     func feachChallengeLevelHandler(_ data:Any?,_ err:Error?) -> Void {
-        
+
         if err != nil{
             print("Challenge View Controller",err!)
-            
+
             if err?.localizedDescription == "Failed to get document because the client is offline."{
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
-            
+
         }else{
-            
+
             do{
                 //Convert data to type Child
                 let level = try FirebaseDecoder().decode(Level.self, from: data!)
@@ -501,9 +501,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }
-            
+
         }
     }
     
  
 }
+

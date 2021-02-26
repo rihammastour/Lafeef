@@ -83,6 +83,7 @@ class ChallengeLevelsViewController: UIViewController {
                         print("Segue proformed")
             vc.levelNum = "1"
             GameScene.circleDecrement=true
+
             
         }
     }
