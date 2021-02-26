@@ -410,6 +410,9 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (1.2.12)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -434,6 +437,8 @@ DEPENDENCIES:
   - lottie-ios
   - MaterialShowcase
   - SwiftGifOrigin
+  - MaterialShowcase
+  - NVActivityIndicatorView
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - SwiftyGif
 
@@ -471,6 +476,7 @@ SPEC REPOS:
     - lottie-ios
     - MaterialShowcase
     - nanopb
+    - NVActivityIndicatorView
     - PromisesObjC
     - SDWebImage
     - SwiftGifOrigin
@@ -519,6 +525,7 @@ SPEC CHECKSUMS:
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145

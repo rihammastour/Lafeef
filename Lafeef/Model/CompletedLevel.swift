@@ -4,7 +4,6 @@
 //
 //  Created by Riham Mastour on 03/07/1442 AH.
 //
-
 import Foundation
 
 public struct CompletedLevel: Codable {

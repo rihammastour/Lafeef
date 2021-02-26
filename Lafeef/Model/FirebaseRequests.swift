@@ -149,7 +149,48 @@ class FirebaseRequest{
                 completion(data,nil)
                 
             }
+    }
+    static func getChalleangeLevels( completionBlock: @escaping (_ data: Any?, _ err:Error?) -> Void)  {
+      
+            
+        db.collection("challenge").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                
+                completionBlock(nil, err)
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    completionBlock(document.data(), nil)
+                }
+            }
+        }
+     
+
+    
+    }
+    static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
+            
+        db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
+            { (querySnapshot, err) in
+                      if let err = err {
+                        completionBlock(nil,err.localizedDescription)
+                      } else {
+                      
+                          for document in querySnapshot!.documents {
+
+                       
+                           
+                           print("\(document.documentID) => \(document.data())")
+                            
+                            completionBlock(document.data(), "")
+                          }
+                      }
+                  }
         
+        
+        }
+
         
     }
     
@@ -178,4 +219,3 @@ class FirebaseRequest{
     
     
     
-}

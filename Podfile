@@ -23,6 +23,7 @@ target 'Lafeef' do
 	pod "FlexibleSteppedProgressBar"
 	pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
 	pod 'LayoutHelper'
+	pod 'NVActivityIndicatorView'
 	
 	source 'https://github.com/CocoaPods/Specs.git'
 	use_frameworks!

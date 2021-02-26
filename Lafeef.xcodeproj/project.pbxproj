@@ -13,6 +13,7 @@
 		4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122DA3A25DB926F00DABB29 /* CustomerNode.swift */; };
 		4193027325D1FEE700BACE0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4193027225D1FEE600BACE0B /* Podfile */; };
 		419EC42F25D081BD00A1B8B1 /* MihafReports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */; };
+		4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129EDEF25E1978B0028C86C /* CompletedLevel.swift */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
 		41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */; };
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
@@ -23,6 +24,9 @@
 		41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23F25D0AB72000D4064 /* levelInfo.swift */; };
 		41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24425D0ACF2000D4064 /* WinningViewController.swift */; };
 		41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LosingViewController.swift */; };
+		41BE59FA25E08DDB00EA834F /* MihafChalleangelevels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */; };
+		41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */; };
+		41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE5A1525E09E2D00EA834F /* LevelReportData.swift */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E3EC75A25E7356400FBAD87 /* LafeefModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E3EC75925E7356400FBAD87 /* LafeefModel.mlmodel */; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
@@ -146,6 +150,7 @@
 		411091CD25E4986F0035FACF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
+		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 		41F4C23F25D0AB72000D4064 /* levelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelInfo.swift; sourceTree = "<group>"; };
 		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
 		41F4C24C25D0AD01000D4064 /* LosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosingViewController.swift; sourceTree = "<group>"; };
+		41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MihafChalleangelevels.storyboard; sourceTree = "<group>"; };
+		41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalleangeLevelCalendarViewController.swift; sourceTree = "<group>"; };
+		41BE5A1525E09E2D00EA834F /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E3EC75925E7356400FBAD87 /* LafeefModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LafeefModel.mlmodel; path = ../../../../Downloads/LafeefModel.mlmodel; sourceTree = "<group>"; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +323,7 @@
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				C92A658F25CB3F470060AA53 /* ChallengeLevelsViewController.swift */,
+				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
 				C92A65A025CB3F660060AA53 /* StoreViewController.swift */,
@@ -382,6 +391,7 @@
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4EB21B8925D2F37D0076530E /* DailyAdvReports.storyboard */,
 				419EC42E25D081BD00A1B8B1 /* MihafReports.storyboard */,
+				41BE59F925E08DDB00EA834F /* MihafChalleangelevels.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				4EDFA27325E95B6D00924569 /* Color.xcassets */,
 				4EDFA20A25E88D9100924569 /* Resources */,
@@ -487,7 +497,9 @@
 				41F4C23F25D0AB72000D4064 /* levelInfo.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
 				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
+				41BE5A1525E09E2D00EA834F /* LevelReportData.swift */,
 				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
+				4129EDEF25E1978B0028C86C /* CompletedLevel.swift */,
 				C9081C2D25D97ADE00B19998 /* Topping.swift */,
 				C9081C3525D9858400B19998 /* Base.swift */,
 				4EF5219725DE5B4F00A765D4 /* Money.swift */,
@@ -657,6 +669,7 @@
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
 				4EDFA27425E95B6D00924569 /* Color.xcassets in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
+				41BE59FA25E08DDB00EA834F /* MihafChalleangelevels.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4EB2550325DCB4FA00AF502E /* HappyPear.atlas in Resources */,
@@ -886,6 +899,10 @@
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */,
+				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,
+				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
+				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
+				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
@@ -914,6 +931,7 @@
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				4EE2E7F225DAC1980026F98C /* CompletedLevel.swift in Sources */,
+				41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
@@ -1101,7 +1119,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1123,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
