@@ -11,23 +11,24 @@ target 'Lafeef' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'
 	pod 'FirebaseFirestoreSwift'
  	pod 'CodableFirebase'
  	pod 'MaterialShowcase'
+ 	pod 'FirebaseUI', '~> 8.0'
+ 	pod 'FirebaseUI/Storage'
+	pod 'SwiftGifOrigin'
+ 	pod 'lottie-ios'
+ 	pod 'Cosmos', '~> 23.0'
+	pod "FlexibleSteppedProgressBar"
+	pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
+	pod 'LayoutHelper'
 	
-  pod 'FirebaseUI', '~> 8.0'
-  pod 'LayoutHelper'
+	source 'https://github.com/CocoaPods/Specs.git'
+	use_frameworks!
+	pod 'SwiftyGif'
 
-
-pod "FlexibleSteppedProgressBar"
-
-pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
-
-source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
-pod 'SwiftyGif'
-
-  pod 'CodableFirebase'
+  	pod 'CodableFirebase'
 
   target 'LafeefTests' do
     inherit! :search_paths

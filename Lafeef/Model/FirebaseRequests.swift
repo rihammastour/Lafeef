@@ -10,8 +10,8 @@ import Firebase
 import CodableFirebase
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 import FirebaseFirestoreSwift
-
 
 class FirebaseRequest{
     
@@ -68,6 +68,17 @@ class FirebaseRequest{
         }
     }
     
+    static func passCompletedLevelData(levelNum: String, completedLevel: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
+        // Add a new document in collection "users"
+        
+        do {
+            try db.collection("levelReport").document(levelNum).setData(from: completedLevel)
+        } catch var err {
+            print("error while passing data", err)
+        }
+
+  
+    }
     
     //MARK: - Get Document Firestore
     
@@ -142,6 +153,28 @@ class FirebaseRequest{
         
     }
     
+    //MARK:- Firebase Storage
+    
+    func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
+        let storage = Storage.storage()
+        var reference: StorageReference!
+        reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
+        print("gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
+       reference.downloadURL { (url, error) in
+            guard let data = NSData(contentsOf: url!) else{
+                completion(nil,error)
+                return
+            }
+            guard let image = UIImage(data: data as Data) else{
+                completion(nil,error)
+                return
+            }
+            //Featch image successfully
+            print("image fetched ", image)
+            completion(image, nil)
+        }
+
+    }
     
     
     

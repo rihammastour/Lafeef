@@ -227,6 +227,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6651.5625" y="-381.4453125"/>
+        <!--AdvReport-->
+        <scene sceneID="J35-6T-Mad">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="AdvReport" id="d0c-PB-tDz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5s7-rg-IiR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6625" y="109"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -21,6 +21,8 @@ struct Constants {
         static let animatedSplashViewController = "animatedSplashVC"
         static let timerViewController = "TimerVC"
         static let orderVirwController = "OrderVC"
+        static let dailyReportViewController = "DailyReportVC"
+
     }
     
     struct Segue {
@@ -30,6 +32,8 @@ struct Constants {
         static let challengeSegue = "challengeSegue"
         static let menuSegue = "MenuSegue"
         static let continueGame = "ContinueGame"
+        static let rejectAdvSegue = "RejectAdvSegue"
+        static let acceptAdvSegue = "AcceptAdvSegue"
     }
     
 }
