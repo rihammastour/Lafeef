@@ -22,7 +22,7 @@ struct Constants {
         static let timerViewController = "TimerVC"
         static let orderVirwController = "OrderVC"
         static let dailyReportViewController = "DailyReportVC"
-
+        static let advReportViewController = "AdvReportVC"
     }
     
     struct Segue {
@@ -34,6 +34,10 @@ struct Constants {
         static let continueGame = "ContinueGame"
         static let rejectAdvSegue = "RejectAdvSegue"
         static let acceptAdvSegue = "AcceptAdvSegue"
+        static let showDailyReport = "ShowDailyReport"
+        static let showLosingReport = "ShowLosingReport"
+        static let showRewardReport = "ShowRewardReport"
+        static let showAdvReport = "ShowAdvReport"
     }
     
 }

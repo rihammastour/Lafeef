@@ -19,12 +19,18 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
-    var levelNum:String? = "4"
+    var levelNum:String? = "2"
     var currentOrder = 1
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
+    var report = Reports()
+    
+    var levelScore = 0
+    var isRewarded = false
+    var isPassed = false
+    
     var challengeScen:GameScene?
     static var stopCircleNil=false//when stop the nil circle
     static var stopImageBool = true
@@ -58,7 +64,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         print("view did load challengeرغد شوفي هنا ")
         setScene()
         fetchChallengeLevel()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
+            self.presentAdvReport()
+        }
+        
       }
+    
+    func presentAdvReport(){
+        if levelNum == "2" {
+            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -129,7 +147,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
              
   
             rootLayer.addSublayer(previewLayer)
-//
+
+
         }
         
         func startCaptureSession() {
@@ -217,13 +236,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //            vc.levelNum = "1"
             }
         }
+   
     }
     //setScens
     func setScene(){
 
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
-
+        
     }
 
     //MARK: - Functions
@@ -320,10 +340,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
          let paymentScore = calculatePaymentScore(with: answer.cahnge)
          
          //Sum scors
-         let totalScore = paymentScore + orderScore
+        self.levelScore = paymentScore + orderScore
          print("Total order score :", orderScore,"\t Total order score :", paymentScore)
-         print("Total score :", totalScore)
-         return totalScore
+         print("Total score :", levelScore)
+         return levelScore
      }
      
 
@@ -481,6 +501,15 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
- 
+    func checkLevelCompletion(){
+ //check the last customer also
+        //نشيك على كل ليفل المين والماكس
+        if levelScore > 80 {
+            report.displayDailyReport().isPassed = true
+            report.displayDailyReport().isRewarded = true
+        }
+    }
+    
+
 }
 

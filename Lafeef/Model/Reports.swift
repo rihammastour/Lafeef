@@ -20,8 +20,15 @@ class Reports {
       }
     
     func displayDailyReport() ->  DailyReportViewController {
-        let storyboard = UIStoryboard(name: "DailyAdvReports", bundle: nil)
-        let report = storyboard.instantiateViewController(identifier: "DailyReport") as DailyReportViewController
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let report = storyboard.instantiateViewController(identifier: Constants.Storyboard.dailyReportViewController) as DailyReportViewController
+      
+        return report
+      }
+    
+    func displayAdvReport() ->  AdvReportViewController {
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let report = storyboard.instantiateViewController(identifier: Constants.Storyboard.advReportViewController) as AdvReportViewController
       
         return report
       }

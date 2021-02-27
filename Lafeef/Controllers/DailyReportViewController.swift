@@ -20,7 +20,7 @@ class DailyReportViewController: UIViewController {
     var collectedScore = 0
     var collectedMoney = 0
     var isPassed = false
-
+    var isRewarded = false
 
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
@@ -75,22 +75,27 @@ class DailyReportViewController: UIViewController {
     }
     
     
-    // Assert data to firestore
-    func passReportData(){
-        let levelReportData = LevelReportData(collectedMoney: self.collectedMoney, collectedScore: self.collectedScore, isPassed: self.isPassed)
-        
-        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
-
-        FirebaseRequest.passCompletedLevelData(levelNum: self.levelNum, completedLevel: completedLevel) { (success, err) in
-            print(err)
-        }
-    }
+//    // Assert data to firestore
+//    func passReportData(){
+//        let levelReportData = LevelReportData(collectedMoney: self.collectedMoney, collectedScore: self.collectedScore, isPassed: self.isPassed)
+//
+//        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+//
+//        FirebaseRequest.passCompletedLevelData(levelNum: self.levelNum, completedLevel: completedLevel) { (success, err) in
+//            print(err)
+//        }
+//    }
 
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-        passReportData()
-        
-        //.............................. don't forget to move to another scene
+//        passReportData()
+        if isRewarded {
+            self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
+        } else if !isPassed {
+            self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
+        } else {
+            // move to seconed level
+        }
         
     }
     

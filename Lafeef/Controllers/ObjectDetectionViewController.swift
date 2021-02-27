@@ -21,7 +21,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       // Vision parts
       private var requests = [VNRequest]()
     var count = 0
-      
+
     @discardableResult
       func setupVision() -> NSError? {
           // Setup Vision parts

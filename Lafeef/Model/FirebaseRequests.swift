@@ -202,7 +202,7 @@ class FirebaseRequest{
         reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
         print("gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
        reference.downloadURL { (url, error) in
-            guard let data = NSData(contentsOf: url!) else{
+        guard let data = NSData(contentsOf: url!) else{
                 completion(nil,error)
                 return
             }

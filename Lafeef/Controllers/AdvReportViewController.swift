@@ -88,14 +88,14 @@ class AdvReportViewController: UIViewController {
             //TODO: Add money to wallet in top bar & firestore
             child.money += Float(advAmount)
 
-            present(destinationVC, animated: true) {
-                print("successfully present daily report")
+            dismiss(animated: true) {
+                print("successfully dismiss adv report")
             }
         }
         if (segue.identifier == Constants.Segue.rejectAdvSegue) {
             destinationVC.advertismentAmount = 0
-            present(destinationVC, animated: true) {
-                print("successfully present daily report")
+            dismiss(animated: true) {
+                print("successfully dismiss adv report")
             }
         }
     }
