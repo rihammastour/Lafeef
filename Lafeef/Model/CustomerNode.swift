@@ -23,19 +23,19 @@ class CustomerNode {
     
     func buildCustomer() {
         
-        let WalkingAppleAtlas = SKTextureAtlas(named: "NWPear")
+        let WalkingAppleAtlas = SKTextureAtlas(named: "NW" + customerName)
         var walkingAppleFrames: [SKTexture] = []
         
         
-        let WaitingAppleAtlas = SKTextureAtlas(named: "WaitingPear")
+        let WaitingAppleAtlas = SKTextureAtlas(named: "Waiting" + customerName)
         var waitingAppleFrames: [SKTexture] = []
         
         
-        let HappyAppleAtlas = SKTextureAtlas(named: "HappyPear")
+        let HappyAppleAtlas = SKTextureAtlas(named: "Happy" + customerName)
         var happyAppleFrames: [SKTexture] = []
         
         
-        let SadAppleaAtlas = SKTextureAtlas(named: "SadPear")
+        let SadAppleaAtlas = SKTextureAtlas(named: "Sad" + customerName)
         var sadAppleFrames: [SKTexture] = []
         
         
@@ -46,27 +46,25 @@ class CustomerNode {
         let SadImages = SadAppleaAtlas.textureNames.count
         
         
-      for i in 1...2 {
-        print("this number is of waiting")
-        print(WaitingImages)
-        let AppleTextureName = "WaitingPear\(i)"
+      for i in 1...WaitingImages {
+        let AppleTextureName = "Waiting\(customerName)\(i)"
         waitingAppleFrames.append(WaitingAppleAtlas.textureNamed(AppleTextureName))
       }
         
         for i in 1...WalkingImages {
-          let AppleTextureName = "NWPear\(i)"
+          let AppleTextureName = "NW\(customerName)\(i)"
             walkingAppleFrames.append(WalkingAppleAtlas.textureNamed(AppleTextureName))
         }
         
         
         for i in 1...HappyImages {
-          let AppleTextureName = "HappyPear\(i)"
+          let AppleTextureName = "Happy\(customerName)\(i)"
             happyAppleFrames.append(HappyAppleAtlas.textureNamed(AppleTextureName))
         }
         
-        
+
         for i in 1...SadImages {
-          let AppleTextureName = "SadPear\(i)"
+          let AppleTextureName = "Sad\(customerName)\(i)"
             sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
         }
         
@@ -181,4 +179,3 @@ class CustomerNode {
     }
 
     }
- 
