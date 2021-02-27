@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-PJ-fK1">
-                                <rect key="frame" x="0.0" y="47" width="768" height="960"/>
+                                <rect key="frame" x="0.0" y="47" width="768" height="953"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="JLg-CD-5VM" userLabel="Logo">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="387"/>
@@ -163,16 +163,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rgQ-IR-DZ7" userLabel="form">
-                                        <rect key="frame" x="150.5" y="257" width="467" height="703"/>
+                                        <rect key="frame" x="145" y="257" width="478.5" height="696"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C27-VO-nTL">
-                                                <rect key="frame" x="108" y="0.0" width="251" height="71"/>
+                                                <rect key="frame" x="88" y="0.0" width="302" height="69"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                                 <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i5c-hO-Hu4">
-                                                <rect key="frame" x="0.0" y="81" width="467" height="73"/>
+                                                <rect key="frame" x="5.5" y="79" width="467" height="73"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="467" id="mfN-B2-IVz"/>
                                                     <constraint firstAttribute="height" constant="73" id="oJf-pc-ZH5"/>
@@ -182,19 +182,19 @@
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVX-2i-gMP">
-                                                <rect key="frame" x="227.5" y="164" width="12.5" height="36"/>
+                                                <rect key="frame" x="226.5" y="162" width="25.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورتك لتسجيل الدخول" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-ZC-M6h">
-                                                <rect key="frame" x="42" y="210" width="383" height="58"/>
+                                                <rect key="frame" x="0.0" y="207" width="478.5" height="56"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jLc-GT-0MD" userLabel="buttons">
-                                                <rect key="frame" x="21.5" y="278" width="424" height="238"/>
+                                                <rect key="frame" x="27" y="273" width="424" height="238"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-tC-o37">
                                                         <rect key="frame" x="0.0" y="0.0" width="108" height="238"/>
@@ -295,16 +295,16 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLr-0X-cm0">
-                                                <rect key="frame" x="225.5" y="526" width="16.5" height="36"/>
+                                                <rect key="frame" x="222.5" y="521" width="33.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="lDb-HE-ssl">
-                                                <rect key="frame" x="106.5" y="572" width="254" height="48"/>
+                                                <rect key="frame" x="92.5" y="566" width="293.5" height="47"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-mv-d5d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113" height="48"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="47"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                         <state key="normal" title="إنشاء حساب">
                                                             <color key="titleColor" red="0.59215686274509804" green="0.73333333333333328" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
@@ -314,7 +314,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا تملك حساب؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qu-2E-GNd">
-                                                        <rect key="frame" x="115" y="0.0" width="139" height="48"/>
+                                                        <rect key="frame" x="137" y="0.0" width="156.5" height="47"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                         <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -322,7 +322,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tut-Op-63P">
-                                                <rect key="frame" x="0.0" y="630" width="467" height="73"/>
+                                                <rect key="frame" x="5.5" y="623" width="467" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="73" id="21D-ol-iTf"/>
@@ -384,7 +384,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-Ii-gfB">
-                                <rect key="frame" x="0.0" y="50" width="768" height="930"/>
+                                <rect key="frame" x="0.0" y="50" width="768" height="926"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="-200" translatesAutoresizingMaskIntoConstraints="NO" id="LSu-pK-VTf" userLabel="Logo">
                                         <rect key="frame" x="0.0" y="0.0" width="768" height="387"/>
@@ -402,16 +402,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EZo-dI-Hsw" userLabel="form">
-                                        <rect key="frame" x="150.5" y="257" width="467" height="673"/>
+                                        <rect key="frame" x="106.5" y="257" width="555" height="669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إنشاء حساب" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQm-sA-Ptf">
-                                                <rect key="frame" x="123" y="0.0" width="221.5" height="71"/>
+                                                <rect key="frame" x="145" y="0.0" width="265.5" height="69"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                                 <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4J-IG-LaS">
-                                                <rect key="frame" x="0.0" y="81" width="467" height="73"/>
+                                                <rect key="frame" x="44" y="79" width="467" height="73"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="467" id="RST-Pc-qwp"/>
                                                     <constraint firstAttribute="height" constant="73" id="SgO-hB-eps"/>
@@ -421,19 +421,19 @@
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6q-wS-NJ1">
-                                                <rect key="frame" x="208.5" y="164" width="50" height="50"/>
+                                                <rect key="frame" x="252.5" y="162" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورة لتسجيل الدخول لاحقًا" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwe-0g-1aN">
-                                                <rect key="frame" x="18.5" y="224" width="430" height="58"/>
+                                                <rect key="frame" x="0.0" y="222" width="555" height="56"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="C82-zP-Jgf" userLabel="buttons">
-                                                <rect key="frame" x="21.5" y="292" width="424" height="238"/>
+                                                <rect key="frame" x="65.5" y="288" width="424" height="238"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7iT-xH-EMH">
                                                         <rect key="frame" x="0.0" y="0.0" width="108" height="238"/>
@@ -528,13 +528,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNm-Ac-g46">
-                                                <rect key="frame" x="208.5" y="540" width="50" height="50"/>
+                                                <rect key="frame" x="252.5" y="536" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmH-Zb-lO6">
-                                                <rect key="frame" x="0.0" y="600" width="467" height="73"/>
+                                                <rect key="frame" x="44" y="596" width="467" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="467" id="3Dh-9g-syh"/>
@@ -599,7 +599,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-SR-pPe">
-                                <rect key="frame" x="0.0" y="50" width="704" height="865"/>
+                                <rect key="frame" x="0.0" y="50" width="704" height="863"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-180" translatesAutoresizingMaskIntoConstraints="NO" id="vmk-ti-1lX">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="328"/>
@@ -617,16 +617,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="wJf-Id-AVD" userLabel="form">
-                                        <rect key="frame" x="83.5" y="358" width="537" height="507"/>
+                                        <rect key="frame" x="83.5" y="358" width="537" height="505"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="تاريخ الميلاد" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnR-Ul-DO5">
-                                                <rect key="frame" x="171.5" y="0.0" width="194.5" height="71"/>
+                                                <rect key="frame" x="149" y="0.0" width="239" height="69"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="59"/>
                                                 <color key="textColor" red="0.5568627451" green="0.73725490199999999" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Fyb-kT-jVg">
-                                                <rect key="frame" x="0.0" y="151" width="537" height="73"/>
+                                                <rect key="frame" x="0.0" y="149" width="537" height="73"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12" borderStyle="roundedRect" placeholder="السنة" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1k-4r-pl2" userLabel="year">
                                                         <rect key="frame" x="0.0" y="0.0" width="135" height="73"/>
@@ -659,13 +659,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1K-DW-Hwh">
-                                                <rect key="frame" x="243.5" y="304" width="50" height="50"/>
+                                                <rect key="frame" x="243.5" y="302" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="day-M8-WRp">
-                                                <rect key="frame" x="35" y="434" width="467" height="73"/>
+                                                <rect key="frame" x="35" y="432" width="467" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="467" id="mts-31-PxN"/>
