@@ -170,7 +170,7 @@
 		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
 		41F4C24C25D0AD01000D4064 /* LosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosingViewController.swift; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
-		4E3EC75925E7356400FBAD87 /* LafeefModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LafeefModel.mlmodel; path = ../../../../Downloads/LafeefModel.mlmodel; sourceTree = "<group>"; };
+		4E3EC75925E7356400FBAD87 /* LafeefModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LafeefModel.mlmodel; sourceTree = "<group>"; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E453A4325B61D5100B8363F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -227,8 +227,8 @@
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		4EDFA21D25E93BDA00924569 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		4EDFA27325E95B6D00924569 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = ../../../Downloads/Color.xcassets; sourceTree = "<group>"; };
-		4EDFA2AE25E9611600924569 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icecream.gif; path = ../../../../Downloads/icecream.gif; sourceTree = "<group>"; };
-		4EDFA2E325E9614B00924569 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trophy.json; path = ../../../../Downloads/trophy.json; sourceTree = "<group>"; };
+		4EDFA2AE25E9611600924569 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icecream.gif; sourceTree = "<group>"; };
+		4EDFA2E325E9614B00924569 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
 		4EE2E7F125DAC1970026F98C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		4EE2E7FE25DB50110026F98C /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+String.swift"; sourceTree = "<group>"; };
