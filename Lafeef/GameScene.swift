@@ -218,7 +218,7 @@ class GameScene: SKScene {
 
         // for cashier
 
-        customerNode.customer.size = CGSize(width: 300, height: 350)
+        //customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
 
@@ -405,6 +405,8 @@ class GameScene: SKScene {
              print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
+                customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
+
              }
 
         }
@@ -530,6 +532,7 @@ class GameScene: SKScene {
             if button.contains(location) {
                 // orange.happyCustomer()
                 flag = true
+                
                 customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
 
                 //make order invisible
@@ -552,7 +555,7 @@ class GameScene: SKScene {
             if cashierbutton.contains(location) {
                 flag = false
 
-                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "sad") { [self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
 
                         self.cam.position = CGPoint(x: 0, y: 0)
@@ -591,8 +594,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
 
         if (flag){
-            cam.position = customers[currentCustomer].customer.position
-        }
+            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)        }
 
         // Called before each frame is rendered
 

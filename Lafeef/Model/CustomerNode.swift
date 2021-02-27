@@ -23,19 +23,19 @@ class CustomerNode {
     
     func buildCustomer() {
         
-        let WalkingAppleAtlas = SKTextureAtlas(named: "NW" + customerName)
+        let WalkingAppleAtlas = SKTextureAtlas(named: "NWPear")
         var walkingAppleFrames: [SKTexture] = []
         
         
-        let WaitingAppleAtlas = SKTextureAtlas(named: "Waiting" + customerName)
+        let WaitingAppleAtlas = SKTextureAtlas(named: "WaitingPear")
         var waitingAppleFrames: [SKTexture] = []
         
         
-        let HappyAppleAtlas = SKTextureAtlas(named: "Happy" + customerName)
+        let HappyAppleAtlas = SKTextureAtlas(named: "HappyPear")
         var happyAppleFrames: [SKTexture] = []
         
         
-        let SadAppleaAtlas = SKTextureAtlas(named: "Sad" + customerName)
+        let SadAppleaAtlas = SKTextureAtlas(named: "SadPear")
         var sadAppleFrames: [SKTexture] = []
         
         
@@ -46,27 +46,29 @@ class CustomerNode {
         let SadImages = SadAppleaAtlas.textureNames.count
         
         
-      for i in 1...WaitingImages {
-        let AppleTextureName = "Waiting\(customerName)\(i)"
+      for i in 1...2 {
+        print("this number is of waiting")
+        print(WaitingImages)
+        let AppleTextureName = "WaitingPear\(i)"
         waitingAppleFrames.append(WaitingAppleAtlas.textureNamed(AppleTextureName))
       }
         
         for i in 1...WalkingImages {
-          let AppleTextureName = "NW\(customerName)\(i)"
+          let AppleTextureName = "NWPear\(i)"
             walkingAppleFrames.append(WalkingAppleAtlas.textureNamed(AppleTextureName))
         }
         
         
         for i in 1...HappyImages {
-          let AppleTextureName = "Happy\(customerName)\(i)"
+          let AppleTextureName = "HappyPear\(i)"
             happyAppleFrames.append(HappyAppleAtlas.textureNamed(AppleTextureName))
         }
         
-//        
-//        for i in 1...SadImages {
-//          let AppleTextureName = "Sad\(customerName)\(i)"
-//            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
-//        }
+        
+        for i in 1...SadImages {
+          let AppleTextureName = "SadPear\(i)"
+            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
+        }
         
 
         

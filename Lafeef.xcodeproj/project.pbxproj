@@ -38,7 +38,30 @@
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */; };
-		52396F7B25E9C56F00127C1E /* LafeefCharcters.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396F7A25E9C56F00127C1E /* LafeefCharcters.atlas */; };
+		52396FB925E9C74A00127C1E /* WaitingApple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FB825E9C74A00127C1E /* WaitingApple.atlas */; };
+		52396FBE25E9C7A600127C1E /* SadApple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FBD25E9C7A600127C1E /* SadApple.atlas */; };
+		52396FC325E9C7AD00127C1E /* NWApple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FC225E9C7AD00127C1E /* NWApple.atlas */; };
+		52396FC825E9C7B500127C1E /* HappyApple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FC725E9C7B500127C1E /* HappyApple.atlas */; };
+		52396FD025E9C7E100127C1E /* NWOrange.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FCC25E9C7E000127C1E /* NWOrange.atlas */; };
+		52396FD125E9C7E100127C1E /* SadOrange.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FCD25E9C7E000127C1E /* SadOrange.atlas */; };
+		52396FD225E9C7E100127C1E /* HappyOrange.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FCE25E9C7E100127C1E /* HappyOrange.atlas */; };
+		52396FD325E9C7E100127C1E /* WaitingOrange.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FCF25E9C7E100127C1E /* WaitingOrange.atlas */; };
+		52396FDC25E9C7ED00127C1E /* SadPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FD825E9C7ED00127C1E /* SadPear.atlas */; };
+		52396FDD25E9C7ED00127C1E /* HappyPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FD925E9C7ED00127C1E /* HappyPear.atlas */; };
+		52396FDE25E9C7ED00127C1E /* WaitingPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FDA25E9C7ED00127C1E /* WaitingPear.atlas */; };
+		52396FE625E9C7FA00127C1E /* SadPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FE225E9C7F900127C1E /* SadPineapple.atlas */; };
+		52396FE725E9C7FA00127C1E /* NWPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FE325E9C7F900127C1E /* NWPineapple.atlas */; };
+		52396FE825E9C7FA00127C1E /* WaitingPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FE425E9C7FA00127C1E /* WaitingPineapple.atlas */; };
+		52396FE925E9C7FA00127C1E /* HappyPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FE525E9C7FA00127C1E /* HappyPineapple.atlas */; };
+		52396FF125E9C81500127C1E /* HappyWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FED25E9C81500127C1E /* HappyWatermelon.atlas */; };
+		52396FF225E9C81500127C1E /* WaitingWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FEE25E9C81500127C1E /* WaitingWatermelon.atlas */; };
+		52396FF325E9C81500127C1E /* NWWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FEF25E9C81500127C1E /* NWWatermelon.atlas */; };
+		52396FF425E9C81500127C1E /* SadWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FF025E9C81500127C1E /* SadWatermelon.atlas */; };
+		52396FFC25E9C82500127C1E /* WaitingStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FF825E9C82500127C1E /* WaitingStrawberry.atlas */; };
+		52396FFD25E9C82500127C1E /* NWStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FF925E9C82500127C1E /* NWStrawberry.atlas */; };
+		52396FFE25E9C82500127C1E /* HappyStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FFA25E9C82500127C1E /* HappyStrawberry.atlas */; };
+		52396FFF25E9C82500127C1E /* SadStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52396FFB25E9C82500127C1E /* SadStrawberry.atlas */; };
+		5239700A25E9DA5A00127C1E /* NWPear.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5239700925E9DA5A00127C1E /* NWPear.atlas */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C66D525E07DBE00AE1B3B /* Customers.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
@@ -129,7 +152,30 @@
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimationView.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		52396F7A25E9C56F00127C1E /* LafeefCharcters.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = LafeefCharcters.atlas; path = ../../../../Downloads/LafeefCharcters.atlas; sourceTree = "<group>"; };
+		52396FB825E9C74A00127C1E /* WaitingApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingApple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Apple.atlas/WaitingApple.atlas; sourceTree = "<group>"; };
+		52396FBD25E9C7A600127C1E /* SadApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadApple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Apple.atlas/SadApple.atlas; sourceTree = "<group>"; };
+		52396FC225E9C7AD00127C1E /* NWApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWApple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Apple.atlas/NWApple.atlas; sourceTree = "<group>"; };
+		52396FC725E9C7B500127C1E /* HappyApple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyApple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Apple.atlas/HappyApple.atlas; sourceTree = "<group>"; };
+		52396FCC25E9C7E000127C1E /* NWOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWOrange.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Orange.atlas/NWOrange.atlas; sourceTree = "<group>"; };
+		52396FCD25E9C7E000127C1E /* SadOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadOrange.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Orange.atlas/SadOrange.atlas; sourceTree = "<group>"; };
+		52396FCE25E9C7E100127C1E /* HappyOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyOrange.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Orange.atlas/HappyOrange.atlas; sourceTree = "<group>"; };
+		52396FCF25E9C7E100127C1E /* WaitingOrange.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingOrange.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Orange.atlas/WaitingOrange.atlas; sourceTree = "<group>"; };
+		52396FD825E9C7ED00127C1E /* SadPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPear.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pear.atlas/SadPear.atlas; sourceTree = "<group>"; };
+		52396FD925E9C7ED00127C1E /* HappyPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPear.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pear.atlas/HappyPear.atlas; sourceTree = "<group>"; };
+		52396FDA25E9C7ED00127C1E /* WaitingPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPear.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pear.atlas/WaitingPear.atlas; sourceTree = "<group>"; };
+		52396FE225E9C7F900127C1E /* SadPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadPineapple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pinapple.atlas/SadPineapple.atlas; sourceTree = "<group>"; };
+		52396FE325E9C7F900127C1E /* NWPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPineapple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pinapple.atlas/NWPineapple.atlas; sourceTree = "<group>"; };
+		52396FE425E9C7FA00127C1E /* WaitingPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingPineapple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pinapple.atlas/WaitingPineapple.atlas; sourceTree = "<group>"; };
+		52396FE525E9C7FA00127C1E /* HappyPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyPineapple.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pinapple.atlas/HappyPineapple.atlas; sourceTree = "<group>"; };
+		52396FED25E9C81500127C1E /* HappyWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyWatermelon.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Watermelon.atlas/HappyWatermelon.atlas; sourceTree = "<group>"; };
+		52396FEE25E9C81500127C1E /* WaitingWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingWatermelon.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Watermelon.atlas/WaitingWatermelon.atlas; sourceTree = "<group>"; };
+		52396FEF25E9C81500127C1E /* NWWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWWatermelon.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Watermelon.atlas/NWWatermelon.atlas; sourceTree = "<group>"; };
+		52396FF025E9C81500127C1E /* SadWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadWatermelon.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Watermelon.atlas/SadWatermelon.atlas; sourceTree = "<group>"; };
+		52396FF825E9C82500127C1E /* WaitingStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WaitingStrawberry.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Strawberry.atlas/WaitingStrawberry.atlas; sourceTree = "<group>"; };
+		52396FF925E9C82500127C1E /* NWStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWStrawberry.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Strawberry.atlas/NWStrawberry.atlas; sourceTree = "<group>"; };
+		52396FFA25E9C82500127C1E /* HappyStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = HappyStrawberry.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Strawberry.atlas/HappyStrawberry.atlas; sourceTree = "<group>"; };
+		52396FFB25E9C82500127C1E /* SadStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = SadStrawberry.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Strawberry.atlas/SadStrawberry.atlas; sourceTree = "<group>"; };
+		5239700925E9DA5A00127C1E /* NWPear.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = NWPear.atlas; path = ../../../../Desktop/SWE/GP/LafeefCharcters.atlas/Pear.atlas/NWPear.atlas; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		528C66D525E07DBE00AE1B3B /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,9 +322,32 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
-				52396F7A25E9C56F00127C1E /* LafeefCharcters.atlas */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65B425CB3FC20060AA53 /* Color.xcassets */,
+				52396FB825E9C74A00127C1E /* WaitingApple.atlas */,
+				52396FBD25E9C7A600127C1E /* SadApple.atlas */,
+				52396FC225E9C7AD00127C1E /* NWApple.atlas */,
+				52396FC725E9C7B500127C1E /* HappyApple.atlas */,
+				52396FCE25E9C7E100127C1E /* HappyOrange.atlas */,
+				52396FCC25E9C7E000127C1E /* NWOrange.atlas */,
+				52396FCD25E9C7E000127C1E /* SadOrange.atlas */,
+				52396FCF25E9C7E100127C1E /* WaitingOrange.atlas */,
+				52396FD925E9C7ED00127C1E /* HappyPear.atlas */,
+				52396FD825E9C7ED00127C1E /* SadPear.atlas */,
+				52396FDA25E9C7ED00127C1E /* WaitingPear.atlas */,
+				5239700925E9DA5A00127C1E /* NWPear.atlas */,
+				52396FE525E9C7FA00127C1E /* HappyPineapple.atlas */,
+				52396FE325E9C7F900127C1E /* NWPineapple.atlas */,
+				52396FE225E9C7F900127C1E /* SadPineapple.atlas */,
+				52396FE425E9C7FA00127C1E /* WaitingPineapple.atlas */,
+				52396FED25E9C81500127C1E /* HappyWatermelon.atlas */,
+				52396FEF25E9C81500127C1E /* NWWatermelon.atlas */,
+				52396FF025E9C81500127C1E /* SadWatermelon.atlas */,
+				52396FEE25E9C81500127C1E /* WaitingWatermelon.atlas */,
+				52396FFA25E9C82500127C1E /* HappyStrawberry.atlas */,
+				52396FF925E9C82500127C1E /* NWStrawberry.atlas */,
+				52396FFB25E9C82500127C1E /* SadStrawberry.atlas */,
+				52396FF825E9C82500127C1E /* WaitingStrawberry.atlas */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -493,19 +562,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5239700A25E9DA5A00127C1E /* NWPear.atlas in Resources */,
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
+				52396FE625E9C7FA00127C1E /* SadPineapple.atlas in Resources */,
+				52396FF425E9C81500127C1E /* SadWatermelon.atlas in Resources */,
+				52396FFE25E9C82500127C1E /* HappyStrawberry.atlas in Resources */,
+				52396FDD25E9C7ED00127C1E /* HappyPear.atlas in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
+				52396FD025E9C7E100127C1E /* NWOrange.atlas in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
+				52396FDE25E9C7ED00127C1E /* WaitingPear.atlas in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
-				52396F7B25E9C56F00127C1E /* LafeefCharcters.atlas in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
+				52396FF225E9C81500127C1E /* WaitingWatermelon.atlas in Resources */,
+				52396FC825E9C7B500127C1E /* HappyApple.atlas in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
+				52396FE925E9C7FA00127C1E /* HappyPineapple.atlas in Resources */,
+				52396FD225E9C7E100127C1E /* HappyOrange.atlas in Resources */,
+				52396FFD25E9C82500127C1E /* NWStrawberry.atlas in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
+				52396FFF25E9C82500127C1E /* SadStrawberry.atlas in Resources */,
+				52396FD325E9C7E100127C1E /* WaitingOrange.atlas in Resources */,
+				52396FD125E9C7E100127C1E /* SadOrange.atlas in Resources */,
+				52396FFC25E9C82500127C1E /* WaitingStrawberry.atlas in Resources */,
+				52396FC325E9C7AD00127C1E /* NWApple.atlas in Resources */,
 				C92A65B525CB3FC20060AA53 /* Color.xcassets in Resources */,
+				52396FDC25E9C7ED00127C1E /* SadPear.atlas in Resources */,
+				52396FF125E9C81500127C1E /* HappyWatermelon.atlas in Resources */,
+				52396FE825E9C7FA00127C1E /* WaitingPineapple.atlas in Resources */,
+				52396FB925E9C74A00127C1E /* WaitingApple.atlas in Resources */,
+				52396FE725E9C7FA00127C1E /* NWPineapple.atlas in Resources */,
+				52396FF325E9C81500127C1E /* NWWatermelon.atlas in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
+				52396FBE25E9C7A600127C1E /* SadApple.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
