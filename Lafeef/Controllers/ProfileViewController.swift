@@ -14,12 +14,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var ProfileRectangle: UIButton!
-
+    let formatter: NumberFormatter = NumberFormatter()
     
     @IBOutlet weak var characterUIImageView: UIImageView!
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
+    let year = Calendar.current.component(.year, from: Date())
+    
     //    let id = Auth.auth().currentUser!.uid
 //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
@@ -32,7 +34,7 @@ class ProfileViewController: UIViewController {
         ProfileRectangle.layer.cornerRadius = ProfileRectangle.frame.size.height/8
 //        self.emailLabel.text = email
 
-        
+        print(year)
         //Get Child Data
         getChildData()
     }
@@ -124,7 +126,19 @@ class ProfileViewController: UIViewController {
     
     //Email
     func setAge(_ age:String) {
-        AgeLable.text = "عمر"
+        // Get range based on the string index.
+        let ageYearSub = age.index(age.startIndex, offsetBy: 4)..<age.endIndex
+        // Access substring from range.
+        print(year)
+        let ageYear = age[ageYearSub]
+        formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        let AgeEN = formatter.number(from: String(ageYear))
+        let convertAge = Int(AgeEN!)
+        let calculateAge = year-convertAge
+        print(calculateAge)
+
+        
+        AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
     @IBAction func logOutAction(sender: AnyObject) {
