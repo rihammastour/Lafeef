@@ -62,11 +62,11 @@ class CustomerNode {
             happyAppleFrames.append(HappyAppleAtlas.textureNamed(AppleTextureName))
         }
         
-//        
-//        for i in 1...SadImages {
-//          let AppleTextureName = "Sad\(customerName)\(i)"
-//            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
-//        }
+        
+        for i in 1...SadImages {
+          let AppleTextureName = "Sad\(customerName)\(i)"
+            sadAppleFrames.append(SadAppleaAtlas.textureNamed(AppleTextureName))
+        }
         
 
         

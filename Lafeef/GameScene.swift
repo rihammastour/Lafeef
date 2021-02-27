@@ -137,7 +137,7 @@ class GameScene: SKScene {
 
     func generateCircle(){
         GameScene.circle = SKShapeNode(circleOfRadius: 36)
-        GameScene.circle!.position = CGPoint(x: 90, y: 95)
+        GameScene.circle!.position = CGPoint(x: 70, y: 95)
 
         GameScene.circle!.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
         GameScene.circle!.strokeColor = SKColor.clear
@@ -171,7 +171,7 @@ class GameScene: SKScene {
 
             case 2:
                 print(" in case 2  \(GameScene.countStop)")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.50){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.49){
             GameScene.circle?.isPaused=false
                     GameScene.circleDecrement=true
                 }
@@ -233,7 +233,7 @@ class GameScene: SKScene {
         customerNode.walkingCustomer()
 
         //move to take cake
-        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+200 , y: (view?.frame.midY)!-510 , duration: 3)
+        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+130 , y: (view?.frame.midY)!-510 , duration: 3)
         //
         //               let StopAction = SKAction.run({ [weak self] in
         //                customerNode.stopCustomer()
@@ -415,6 +415,7 @@ class GameScene: SKScene {
             return
         }
 
+        orderContiner?.position = CGPoint(x: 150, y: 250)
         //        //make order visible
         //        self.orderContiner?.isHidden = false
 
@@ -567,12 +568,8 @@ class GameScene: SKScene {
     //MARK: - Answer Functions
     
     //MARK:- Timer function
-    //startTimer
-    func startTimer(){
-        
-    }
+  
     // Creates an animated countdown timer
-
     func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
         print("dddd")
         guard let path = circle.path else {
@@ -756,10 +753,11 @@ class GameScene: SKScene {
             if cashierbutton.contains(location) {
                 flag = false
 
-                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "sad") { [self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
 
                         self.cam.position = CGPoint(x: 0, y: 0)
+                        self.progressBarContiner.position.x = cam.position.x
                         currentCustomer += 1
                         if (currentCustomer<=3){
                             buildCustomer(customerNode: customers[currentCustomer])
@@ -813,20 +811,10 @@ class GameScene: SKScene {
          
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x
-
+//            self.progressBarContiner.physicsBody?.isDynamic = false
+            
         }
 
-        // Called before each frame is rendered
-
-//        if(Int(GameScene.timeLeft)<=0){
-//            print("Time left is zero ")
-//            self.removeAction(forKey: "stopTimer")
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                GameScene.circle?.path = self.circle(radius: 46, percent: 0)
-//            }
-//            GameScene.stopCircle=true
-//
-//        }
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime

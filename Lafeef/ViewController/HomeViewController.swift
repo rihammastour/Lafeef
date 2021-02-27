@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
         self.setCurrentLevel(child.currentLevel)
         self.setMoney(child.money)
         self.setScore(child.score)
-//        self.setImage(child.sex)
+        self.setImage(child.sex)
     }
     
     //Name
@@ -175,13 +175,15 @@ class HomeViewController: UIViewController {
     //MARK: - Actions, Elements Tapped
     @IBAction func profileBarViewTapped(_ sender: Any) {
         
-        profileBarUIView.showAnimation({
-            
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
-
-            self.navigationController?.pushViewController(vc, animated: true)
-                        
-        })
+//        profileBarUIView.showAnimation({
+//
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
+//
+//            self.navigationController?.pushViewController(vc, animated: true)
+//
+//        })
+        
+        self.performSegue(withIdentifier: Constants.Segue.showProfile, sender: self)
     }
     
 }
@@ -205,6 +207,6 @@ public extension UIView {
                 self?.isUserInteractionEnabled = true
                 completionBlock()
             }
-                       }
+        }
     }
 }

@@ -38,6 +38,7 @@ struct Constants {
         static let showLosingReport = "ShowLosingReport"
         static let showRewardReport = "ShowRewardReport"
         static let showAdvReport = "ShowAdvReport"
+        static let showProfile = "profileSegue"
     }
     
 }

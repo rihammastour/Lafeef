@@ -213,7 +213,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="60"/>
                                                 <connections>
                                                     <action selector="profileBarViewTapped:" destination="lXH-ms-ACN" eventType="touchUpInside" id="2wp-LW-xrc"/>
-                                                    <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="bNZ-ce-79g"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLq-fc-m0Y">
@@ -291,6 +290,7 @@
                         <outlet property="scoreBarUIView" destination="r0V-z3-lo9" id="Ovj-3M-Bxv"/>
                         <outlet property="scoreLabel" destination="fV9-7h-iI6" id="lTU-ef-kET"/>
                         <outlet property="storeButton" destination="qZ9-Vl-fvg" id="ktR-Eq-o9l"/>
+                        <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8sL-cd-Nm3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -504,7 +504,7 @@
         <image name="Girl-Profile" width="419" height="365"/>
         <image name="Training-wave" width="403" height="287.4949951171875"/>
         <image name="calendar" width="52.647998809814453" height="49"/>
-        <image name="calendar-level" width="450" height="394"/>
+        <image name="calendar-level" width="624" height="687.60198974609375"/>
         <image name="challenge-wave" width="403.00201416015625" height="332.72900390625"/>
         <image name="greenBackground" width="674" height="240.00300598144531"/>
         <image name="moneyBag" width="23" height="23.666666030883789"/>

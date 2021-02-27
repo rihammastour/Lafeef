@@ -20,14 +20,17 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     //Variables
     var levelNum:String? = "2"
-    var currentOrder = 1
+    var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
     var report = Reports()
+
     
     var levelScore = 0
+    var orderScore = 0
+    var paymentScore = 0
     var isRewarded = false
     var isPassed = false
     
@@ -64,10 +67,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         print("view did load challengeرغد شوفي هنا ")
         setScene()
         fetchChallengeLevel()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
-            self.presentAdvReport()
-        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
+//            self.presentAdvReport()
+//        }
         
       }
     
@@ -318,44 +321,44 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //calculateScore
     func calculateScore(for answer:Answer?) -> Int{
          
-         //Unwrap current order
-         guard getCurrentOrder() != nil else {
-             //Fail umwrapping
-             return 0
-         }
-         
-         guard let answer = answer else {
-             //No answer provided!
-             return 0
-         }
-         
-         //check time
-         if (answer.atTime == 0){ //May changed
-             return 0
-         }
-         
-         //get order score
-         let orderScore = calculateOrderScore(for: answer)
-         //get payment score
-         let paymentScore = calculatePaymentScore(with: answer.cahnge)
-         
-         //Sum scors
-        self.levelScore = paymentScore + orderScore
-         print("Total order score :", orderScore,"\t Total order score :", paymentScore)
-         print("Total score :", levelScore)
-         return levelScore
+        //Unwrap current order
+        guard getCurrentOrder() != nil else {
+            //Fail umwrapping
+            return 0
+        }
+        
+        guard let answer = answer else {
+            //No answer provided!
+            return 0
+        }
+        
+        //check time
+        if (answer.atTime == 0){ //May changed
+            return 0
+        }
+        
+        //get order score
+        calculateOrderScore(for: answer)
+        //get payment score
+        calculatePaymentScore(with: answer.cahnge)
+        
+        //Sum scors
+        self.levelScore = self.paymentScore + self.orderScore
+        print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
+        print("Total score :", levelScore)
+        return levelScore
      }
      
 
-    func calculatePaymentScore(with chenge:Float) -> Int{
+    func calculatePaymentScore(with chenge:Float){
            
            let totalBill = getTotalBill()
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
 
            if expectedChange == chenge {
-               return 1
+            self.paymentScore = 1
            }else{
-               return 0
+            self.paymentScore = 0
            }
            
        }
@@ -411,7 +414,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     
     //calculateOrderScore
-    func calculateOrderScore(for answer:Answer) -> Int {
+    func calculateOrderScore(for answer:Answer) {
         
         var totalSocre = 0
         
@@ -424,7 +427,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         //check base if exist
         if answer.base == nil {
-            return totalSocre
+            totalSocre += 0
         }
         
         //check base type
@@ -432,7 +435,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             totalSocre += 1
         }else if currentToppings == nil {
             //Order doesn't contain toppings and wrong base
-            return totalSocre
+            totalSocre += 0
         }
         
         //Start checking the toppings
@@ -461,7 +464,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             
         }
         
-        return totalSocre
+        self.orderScore = totalSocre
         
     }
     func getCurrentOrder() ->  Order? {

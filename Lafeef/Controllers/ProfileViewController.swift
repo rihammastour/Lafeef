@@ -21,10 +21,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
+    
     //    let id = Auth.auth().currentUser!.uid
 //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
-    
+    let year = Calendar.current.component(.year, from: Date())
+    let formatter: NumberFormatter = NumberFormatter()
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -44,35 +46,9 @@ class ProfileViewController: UIViewController {
          super.viewWillAppear(animated) // call super
          print("////////////////////////////////////////")
 
-//         getName { (name) in
-//             if let name = name {
-//                 self.nameLabel.text = name
-//                 print("great success")
-//             }
-//         }
      }
 
-//    func getName(completion: @escaping (_ name: String?) -> Void) {
-//        guard let uid = Auth.auth().currentUser?.uid else { // safely unwrap the uid; avoid force unwrapping with !
-//            completion(nil) // user is not logged in; return nil
-//            return
-//        }
-//        Firestore.firestore().collection("users").document(id).getDocument { (docSnapshot, error) in
-//            if let doc = docSnapshot {
-//                if let name = doc.get("name") as? String {
-//                    completion(name) // success; return name
-//                } else {
-//                    print("error getting field")
-//                    completion(nil) // error getting field; return nil
-//                }
-//            } else {
-//                if let error = error {
-//                    print(error)
-//                }
-//                completion(nil) // error getting document; return nil
-//            }
-//        }
-//    }
+
 
     
     // Get child object from local storage
@@ -125,7 +101,19 @@ class ProfileViewController: UIViewController {
     
     //Email
     func setAge(_ age:String) {
-        AgeLable.text = "عمر"
+        // Get range based on the string index.
+        let ageYearSub = age.index(age.startIndex, offsetBy: 4)..<age.endIndex
+        // Access substring from range.
+        print(year)
+        let ageYear = age[ageYearSub]
+        formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
+        let AgeEN = formatter.number(from: String(ageYear))
+        let convertAge = Int(AgeEN!)
+        let calculateAge = year-convertAge
+        print(calculateAge)
+        
+        
+        AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
     @IBAction func logOutAction(sender: AnyObject) {

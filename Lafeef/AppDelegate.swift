@@ -34,20 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()
         
-//        //Auto Login
-//        _ = Auth.auth().addStateDidChangeListener { auth, user in
-//            
-//            if user != nil {
-//                //Fetch user data
-//                self.fetchUserInfo()
-//                //Set is logged in child to true
-////                animatedSplashVC.isChild = true
-//                
-//            } else {
-//                //Set is logged in child to false
-////                animatedSplashVC.isChild = false
-//            }
-//        }
+        //Auto Login
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
+            
+            if user != nil {
+                //Fetch user data
+                self.fetchUserInfo()
+                //Set is logged in child to true
+//                animatedSplashVC.isChild = true
+                
+            } else {
+                //Set is logged in child to false
+//                animatedSplashVC.isChild = false
+            }
+        }
         return true
     }
     

@@ -166,19 +166,19 @@ class ObjectDetectionViewController: ChallengeViewController{
             position = CGPoint(x: bounds.midX, y:  430)
         }
         
-       
+        
         let shapeLayer = CALayer()
         shapeLayer.bounds = bounds
-//        shapeLayer.contentsGravity = .center
+        //        shapeLayer.contentsGravity = .center
         
-//
-    
-          shapeLayer.position = position
-          shapeLayer.name = "Found Object"
+        //
+        
+        shapeLayer.position = position
+        shapeLayer.name = "Found Object"
         shapeLayer.contents = mappingLabelsToImage(classLabel:classLabel)
-       
+        
         layer = shapeLayer
-          return shapeLayer
+        return shapeLayer
       }
       
  
