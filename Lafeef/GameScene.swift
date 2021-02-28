@@ -34,8 +34,11 @@ class GameScene: SKScene {
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    //Bakery Background
     private var bakeryBackgroundNode : SKNode?
     private var tableNode : SKSpriteNode?
+    private var wallNode : SKSpriteNode?
+
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
     private var buttonOne : SKSpriteNode!
@@ -109,15 +112,9 @@ class GameScene: SKScene {
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         
-        // Get Prograss bar Continer node from scene and store it for use later
-        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        
-        if let progressBar = self.progressBarContiner {
-            progressBar.position = CGPoint(x: cam.position.x, y: self.frame.maxY-30)
-            createPrograssBar()
-        }
 
     }//end did move
+    
 
 
     //MARK: - Functions
@@ -222,7 +219,7 @@ class GameScene: SKScene {
     func setUpCatcter(){
         while customers.count <= 3  {
             let randomInt = Int.random(in: 1..<6)
-            var choosenCustomer = Customers(rawValue: 6)?.createCustomerNode()
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
 
         }
@@ -269,10 +266,14 @@ class GameScene: SKScene {
 
         //Set background Bakery
         self.setBackgroundBakary()
-        
-        // Get table node from scene and store it for use later
-        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
-        tableNode?.zPosition = 2
+       
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        if let progressBar = self.progressBarContiner {
+            progressBar.position = CGPoint(x: cam.position.x, y: (self.wallNode?.size.height)!-264)
+            createPrograssBar()
+        }
+
 
         // Get Camera node from scene and store it for use later
         self.camera = cam
@@ -305,30 +306,20 @@ class GameScene: SKScene {
         
         self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
         self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
-        //Create prograss bar and hide it using SKCropNode Mask
-        let bar = PrograssBar()
-        bar.configure(at: CGPoint(x: 0, y: 0))
-        progressBarContiner?.addChild(bar)
 
     }
 
 
     //setBackgroundBakary
     func setBackgroundBakary(){
-
-        //Get real device size
-        let deviceWidth = UIScreen.main.bounds.width
-        let deviceHeight = UIScreen.main.bounds.height
-
-        //Get the aspect ratio
-        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
-
-        // Get Bakery background node scene and store it for use later
         self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+        // Get table node from scene and store it for use later
+        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
+        tableNode?.zPosition = 2
+        
+        // Get wall node from scene and store it for use later
+        self.wallNode = bakeryBackgroundNode?.childNode(withName: "wallNode") as? SKSpriteNode
 
-        if let bakery = self.bakeryBackgroundNode{
-            bakery.setScale(maxAspectRatio)
-        }
     }
     
     //MARK: - Progress bar methods
@@ -414,10 +405,7 @@ class GameScene: SKScene {
             print("no order continer")
             return
         }
-
-        orderContiner?.position = CGPoint(x: 150, y: 250)
-        //        //make order visible
-        //        self.orderContiner?.isHidden = false
+        print("ORDER :- base :",baseType,"toppings :",toppings)
 
         //Create base node
         self.base = createBaseNode(with: baseType)

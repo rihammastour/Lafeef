@@ -60,7 +60,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAVCapture()
+     //   setupAVCapture()
        
         
         // Additional setup after loading the view.
@@ -246,6 +246,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
+        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
         
     }
 
