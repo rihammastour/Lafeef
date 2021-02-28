@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var ProfileRectangle: UIButton!
 
+    @IBOutlet weak var back: UIButton!
     
     @IBOutlet weak var characterUIImageView: UIImageView!
     @IBOutlet weak var levelNumLabel: UILabel!
