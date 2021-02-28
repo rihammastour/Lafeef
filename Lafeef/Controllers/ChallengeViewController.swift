@@ -340,7 +340,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //get order score
         calculateOrderScore(for: answer)
         //get payment score
-        calculatePaymentScore(with: answer.cahnge)
+        calculatePaymentScore(with: answer.change)
         
         //Sum scors
         self.levelScore = self.paymentScore + self.orderScore
@@ -475,7 +475,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     //showAlert
     func showAlert(with message:String) {
-        alert.Alert(body: message)
+//        alert.Alert(body: message)
+        // need an alert
     }
 
     //feachChalengeLevelHandeler

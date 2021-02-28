@@ -9,6 +9,7 @@
 
 import UIKit
 import AVFoundation
+import Foundation
 import Vision
 import SpriteKit
 import GameplayKit
@@ -28,7 +29,7 @@ class ObjectDetectionViewController: ChallengeViewController{
           let error: NSError! = nil
         print("setupvision")
           
-          guard let modelURL = Bundle.main.url(forResource: "LafeefModel", withExtension: "mlmodelc") else {
+          guard let modelURL = Bundle.main.url(forResource: "LafeefTransModel1", withExtension: "mlmodelc") else {
               return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
           }
           do {
@@ -57,7 +58,9 @@ class ObjectDetectionViewController: ChallengeViewController{
           for observation in results where observation is VNRecognizedObjectObservation {
               guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                   continue
+                
               }
+     
               // Select only the label with the highest confidence.
             
               let topLabelObservation = objectObservation.labels[0]
@@ -161,9 +164,9 @@ class ObjectDetectionViewController: ChallengeViewController{
         
         var position = CGPoint()
         if classLabel == "ChocolateBrown"{
-            position = CGPoint(x: bounds.midX, y:  330)
+            position = CGPoint(x: round(bounds.midX), y:  330)
         }else{
-            position = CGPoint(x: bounds.midX, y:  430)
+            position = CGPoint(x: round(bounds.midX), y:  430)
         }
         
         
@@ -186,119 +189,99 @@ class ObjectDetectionViewController: ChallengeViewController{
    
     func mappingLabelsToImage(classLabel : String)-> CGImage{
         
-        var count = 0
-      
+        var providedAnswer : Answer?
+        var providedToppings = [Topping]()
+     
+        
+
     
-        var image = UIImage(named: "cake")!.cgImage
+        var image = UIImage(named: "placeholder")!.cgImage
         switch classLabel {
-        case "Cake":
+        case "CompleteCake":
         image = UIImage(named: "cake")!.cgImage
+        providedAnswer?.base = Base(rawValue: "cake")
             break
+        case "QuarterCake":
+        image = UIImage(named: "quarter-cake")!.cgImage
+        providedAnswer?.base = Base(rawValue: "quarter-cake")
+            break
+        case "HalfCake":
+        image = UIImage(named: "half-cake")!.cgImage
+        providedAnswer?.base = Base(rawValue: "half-cake")
+            break
+        case "3QuartersCake":
+        image = UIImage(named: "threequarter-cake")!.cgImage
+        providedAnswer?.base = Base(rawValue: "threequarter-cake")
+            break
+     
         case "WhiteCupcake":
-          image = UIImage(named: "cupcake-van")!.cgImage
+        image = UIImage(named: "cupcake-van")!.cgImage
+        providedAnswer?.base = Base(rawValue: "cupcake-van")
+   
+         
             break
            
         case "BrownCupcake":
-          image = UIImage(named: "cupcake-ch")!.cgImage
+        image = UIImage(named: "cupcake-ch")!.cgImage
+        providedAnswer?.base = Base(rawValue: "cupcake-ch")
             break
         case "ChocolateBrown":
             image = UIImage(named: "dark-chocolate")!.cgImage
+            providedAnswer?.toppings?.append(Topping(rawValue: "dark-chocolate")!)
             break
         case "ChocolateWhite":
             image = UIImage(named: "white-chocolate")!.cgImage
+            providedAnswer?.toppings?.append(Topping(rawValue: "white-chocolate")!)
             break
         case "Kiwi":
             image = UIImage(named: "oval-kiwi")!.cgImage
+            providedAnswer?.toppings?.append(Topping(rawValue:  "oval-kiwi")!)
             break
         case "Strawberry":
             image = UIImage(named: "strawberry")!.cgImage
+            providedAnswer?.toppings?.append(Topping(rawValue:  "strawberry")!)
             break
         case "Pineapple":
             image = UIImage(named: "pineapple")!.cgImage
+            providedAnswer?.toppings?.append(Topping(rawValue:  "pineapple")!)
             break
         case "OneRiyal":
             image = UIImage(named: "1")!.cgImage
+            providedAnswer?.change = Money.riyal.rawValue
             break
         case "FiftyRiyal":
             image = UIImage(named: "50")!.cgImage
+            providedAnswer?.change = Money.fiftyRiyal.rawValue
             break
         case "TenRiyal":
             image = UIImage(named: "10")!.cgImage
+            providedAnswer?.change = Money.tenRiyal.rawValue
             break
         case "RiyalHalf":
             image = UIImage(named: "0.5")!.cgImage
+            providedAnswer?.change = Money.riyalHalf.rawValue
             break
         case "RiyalQuarter":
             image = UIImage(named: "0.25")!.cgImage
+            providedAnswer?.change = Money.riyalQuarter.rawValue
             break
         case "FiveRiyal":
             image = UIImage(named: "5")!.cgImage
+            providedAnswer?.change = Money.fiveRiyal.rawValue
             break
         default:
-            image = UIImage(named: "cake")!.cgImage
+          print("default")
             break
         }
       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.calculateScore(for:providedAnswer)
+            print("calculate score")
+       
+        }
         return image!
         
     }
 
-    func mappingClassLabelToLabel(classLabel : String)-> String{
-
-            var count = 0
-          
-        
-            var label: String = ""
-            switch classLabel {
-            case "Cake":
-                label = "cake"
-                break
-            case "WhiteCupcake":
-                label = "cupcake-van"
-                break
-            case "BrownCupcake":
-                label = "cupcake-ch"
-                break
-            case "ChocolateBrown":
-                label = "dark-chocolate"
-                break
-            case "ChocolateWhite":
-                label = "white-chocolate"
-                break
-            case "Kiwi":
-                label = "oval-kiwi"
-                break
-            case "Strawberry":
-                label = "strawberry"
-                break
-            case "Pineapple":
-                label = "pineapple"
-                break
-            case "OneRiyal":
-                label = "1"
-                break
-            case "FiftyRiyal":
-                label = "50"
-                break
-            case "TenRiyal":
-                label = "10"
-                break
-            case "RiyalHalf":
-                label = "0.5"
-                break
-            case "RiyalQuarter":
-                label = "0.25"
-                break
-            case "FiveRiyal":
-                label = "5"
-                break
-            default:
-                label = ""
-                break
-            }
-          
-            return label
-            
-        }
-
+  
 }

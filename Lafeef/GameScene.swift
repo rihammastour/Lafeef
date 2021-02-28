@@ -382,7 +382,7 @@ class GameScene: SKScene {
     //TO BE DELETED
     func buttonTapped(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, change: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
 
@@ -390,14 +390,14 @@ class GameScene: SKScene {
     
     func buttonTappedTwo(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: nil, change: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }
     
     func buttonTappedThree(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, change: 0, atTime: 0, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }

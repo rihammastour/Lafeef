@@ -232,6 +232,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
     
     func setScores(Level:Level){
         minScoreLevels.append(Level.minScore)
+   
         maxScoreLevels.append(Level.maxScore)
         
     }
