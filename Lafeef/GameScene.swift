@@ -94,7 +94,8 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
-
+        self.camera = cam
+        addChild(cam)
         buildCustomer(customerNode: customers[currentCustomer])
 
         //to trash
@@ -221,19 +222,19 @@ class GameScene: SKScene {
     //MARK: -  Charachters Functions
     func setUpCatcter(){
         while customers.count <= 3  {
-            let randomInt = Int.random(in: 1..<6)
-            var choosenCustomer = Customers(rawValue: 6)?.createCustomerNode()
+            let randomInt = Int.random(in: 1..<7)
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
 
         }
     }
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
-        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
+        customerNode.customer.position = CGPoint(x: -550, y: -20)
         customerNode.walkingCustomer()
 
         //move to take cake
-        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+130 , y: (view?.frame.midY)!-510 , duration: 3)
+        let moveAction = SKAction.moveBy(x: 520 , y: 0 , duration: 3)
         //
         //               let StopAction = SKAction.run({ [weak self] in
         //                customerNode.stopCustomer()
@@ -275,8 +276,8 @@ class GameScene: SKScene {
         tableNode?.zPosition = 2
 
         // Get Camera node from scene and store it for use later
-        self.camera = cam
-
+    
+      
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
         self.orderContiner?.isHidden = true
@@ -606,6 +607,33 @@ class GameScene: SKScene {
              print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
+                
+                if (flag==false) {
+                    customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
+                    self.orderContiner?.isHidden = true
+                    GameScene.circle!.isHidden = true
+                    GameScene.countStop=0
+                    GameScene.timer.invalidate()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+
+                        self.cam.position = CGPoint(x: 0, y: 0)
+                        self.progressBarContiner.position.x = cam.position.x
+                        currentCustomer += 1
+                        if (currentCustomer<=3){
+                            buildCustomer(customerNode: customers[currentCustomer])
+                            GameScene.timeLeft = 30
+                            GameScene.TimerShouldDelay = false
+                            viewController?.nextOrder()
+                            
+
+                        }
+
+                        else {
+                            print("THE LEVEL IS END")
+                        }
+
+                    }
+                }
              }
 
         }
@@ -731,33 +759,31 @@ class GameScene: SKScene {
             if button.contains(location) {
                 // orange.happyCustomer()
                 flag = true
+                
                 customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
-
-                //make order invisible
+                //make order and timer invisible
                 self.orderContiner?.isHidden = true
                 GameScene.circle!.isHidden = true
                 GameScene.circle?.alpha=0
                 GameScene.timeLeft = 0
-//                GameScene.circle = SKShapeNode(circleOfRadius: 0 )
-//                self.removeAction(forKey: "stopTimer")
-//                GameScene.circle!.removeFromParent()
                 GameScene.countStop=0
-//                GameScene.circle?.path = self.circle(radius: 0, percent: 0)
-//                GameScene.circle=nil
                 GameScene.timer.invalidate()
-                // will go left
-                //move to take cake
+
 
             }
 
             if cashierbutton.contains(location) {
                 flag = false
 
-                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "sad") { [self] in
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "normal") { [self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-
-                        self.cam.position = CGPoint(x: 0, y: 0)
+                        let startPoint = CGPoint(x: 0, y: 0)
+                        let moveing = SKAction.move(to: startPoint, duration: 2)
+                        cam.run(moveing)
+                   //     self.cam.position = CGPoint(x: 0, y: 0)
                         self.progressBarContiner.position.x = cam.position.x
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
                         currentCustomer += 1
                         if (currentCustomer<=3){
                             buildCustomer(customerNode: customers[currentCustomer])
@@ -771,6 +797,8 @@ class GameScene: SKScene {
                         else {
                             print("THE LEVEL IS END")
                         }
+                        
+                    }
 
                     }
 
