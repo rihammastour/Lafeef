@@ -14,7 +14,7 @@ import Vision
 import ARKit
 
 class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
-    
+    var isOrder = true
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
@@ -56,6 +56,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     //Outlet
     @IBOutlet weak var gameScen: SKView!
+
 
     //MARK: - Lifecycle functions
     override func viewDidLoad() {

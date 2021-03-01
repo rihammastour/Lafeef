@@ -24,15 +24,14 @@ import GameplayKit
 
 class ObjectDetectionViewController: ChallengeViewController{
     
-      private var detectionOverlay: CALayer! = nil
+       var detectionOverlay: CALayer! = nil
       
       // Vision parts
       private var requests = [VNRequest]()
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
     var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
-    var isOrder = true
-    
+
  
     @discardableResult
       func setupVision() -> NSError? {
@@ -316,9 +315,9 @@ class ObjectDetectionViewController: ChallengeViewController{
             }
             setAnswer(answerLabels: answerLabels)
 
-            if isOrder{
+            if isOrder {
                 calculateOrderScore(for: providedAnswer)
-                
+              
                 // we need th check the value of the score
                 //if it is 1 or 0 call sad
                 // if it is 2 still normal walking frame **
@@ -326,7 +325,6 @@ class ObjectDetectionViewController: ChallengeViewController{
                 
             } else {
                 calculatePaymentScore(with: providedAnswer.change)
-                isOrder = true
                 // as the same
             }
           

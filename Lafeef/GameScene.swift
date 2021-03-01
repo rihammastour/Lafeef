@@ -11,7 +11,8 @@ import GameplayKit
 class GameScene: SKScene {
 
     //MARK: - Proprites
-    let objDetected = ObjectDetectionViewController()
+//    let objectDetected = self.view?.window?.rootViewController as! ChallengeViewController
+
     //MARK: Variables
     let alert = AlertService()
 
@@ -79,8 +80,8 @@ class GameScene: SKScene {
         
         OrderButton  = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
         PaymentButton = SKSpriteNode(color: .gray, size: CGSize(width: 100, height: 44))
-        OrderButton.position = CGPoint(x:self.frame.midX+100, y:self.frame.midY+200)
-        OrderButton.position = CGPoint(x:self.frame.midX+400, y:self.frame.midY+300)
+        OrderButton.position = CGPoint(x:self.frame.midX+400, y:self.frame.midY+200)
+        PaymentButton.position = CGPoint(x:self.frame.midX+400, y:self.frame.midY+300)
         
         self.addChild(OrderButton)
         self.addChild(PaymentButton)
@@ -126,10 +127,19 @@ class GameScene: SKScene {
             progressBar.position = CGPoint(x: cam.position.x, y: self.frame.maxY-30)
             createPrograssBar()
         }
+        
+       
 
     }//end did move
 
+    func startCaptureAtPaying(){
+        if customers[currentCustomer].customer.position.x == 650{
+            
+        }
+        print("startCaptureAtPaying")
+   
 
+    }
     //MARK: - Functions
 
     func generateTimer(){
@@ -415,15 +425,18 @@ class GameScene: SKScene {
     // Trigger functions
     func OrderbuttonTapped(){
         print("Order button tapped!")
-        objDetected.stopSession()
+                        (self.view?.window?.rootViewController as! ChallengeViewController).stopSession()
+
+        (self.view?.window?.rootViewController as! ChallengeViewController).isOrder = false
         // stop session
         
- 
 
     }
     func PaymentbuttonTapped(){
         print("Payment button tapped!")
-        objDetected.stopSession()
+        (self.view?.window?.rootViewController as! ChallengeViewController).stopSession()
+
+(self.view?.window?.rootViewController as! ChallengeViewController).isOrder = true
         // stop session
         
  
@@ -695,7 +708,8 @@ class GameScene: SKScene {
             GameScene.displayTime?.text = "انتهى الوقت!"
             GameScene.displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             
-            (self.view?.window?.rootViewController as! ChallengeViewController).stopSession()
+            
+            //call calculateScore
             GameScene.timer.invalidate()
 
         }

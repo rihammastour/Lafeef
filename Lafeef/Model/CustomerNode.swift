@@ -16,7 +16,8 @@ class CustomerNode {
     var HappyFrames: [SKTexture] = []
     var SadFrames: [SKTexture] = []
     var customerName = ""
-    let objectDetected = ChallengeViewController()
+    let objectDetected = ObjectDetectionViewController()
+
     init(customerName: String) {
         self.customerName = customerName
     }
@@ -122,14 +123,20 @@ class CustomerNode {
     }
     
     func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
-        // need to hide ca layer 
+        // need to hide ca layer
+        if objectDetected.detectionOverlay != nil {
+            objectDetected.detectionOverlay.isHidden = true
+            print( objectDetected.detectionOverlay, "----------------------------------------")
 
+
+        }
         switch customerSatisfaction {
         case "happy":
-           // if customer.postion == 650, 0 start capture
+
                 customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode : customerNode,x: 650, y: 0)
+                objectDetected.startCaptureSession()
                }
             break
 
@@ -137,6 +144,7 @@ class CustomerNode {
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode : customerNode,x: -600, y: 0)
+                
               
                }
          
@@ -144,13 +152,15 @@ class CustomerNode {
         
     
         default:
-            objectDetected.startCaptureSession()
+
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode:customerNode,x: 650, y: 0)
+                objectDetected.startCaptureSession()
                 
             }
         }
+
     }
 
     func moveOut(customerNode : CustomerNode, customerSatisfaction : String, completion: @escaping ()->()){
