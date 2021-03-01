@@ -451,7 +451,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditButton" translatesAutoresizingMaskIntoConstraints="NO" id="ajv-7b-4iO">
-                                <rect key="frame" x="649" y="102" width="59" height="80"/>
+                                <rect key="frame" x="649" y="25" width="84" height="80"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxw-CJ-syx">
                                 <rect key="frame" x="20" y="34" width="77" height="38"/>
@@ -487,7 +487,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="ajv-7b-4iO" secondAttribute="trailing" constant="60" id="NrD-eZ-meK"/>
+                            <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="ajv-7b-4iO" secondAttribute="trailing" constant="35" id="NrD-eZ-meK"/>
                             <constraint firstItem="2fR-38-c2Y" firstAttribute="trailing" secondItem="Q0V-c7-Sax" secondAttribute="trailing" constant="90" id="Nxz-rH-ng1"/>
                             <constraint firstItem="CPf-p0-owj" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="290" id="OD2-SG-60o"/>
                             <constraint firstItem="3Ro-Mf-k2f" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="179" id="RzR-gV-IF4"/>
@@ -530,7 +530,7 @@
                             <constraint firstItem="Q0V-c7-Sax" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="90" id="nAA-KE-xLd"/>
                             <constraint firstItem="Rxw-CJ-syx" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="34" id="pAx-Ti-yjx"/>
                             <constraint firstItem="s21-Wa-8a4" firstAttribute="top" secondItem="SuP-Vw-VdT" secondAttribute="top" constant="-41" id="peU-Id-Sfn"/>
-                            <constraint firstItem="ajv-7b-4iO" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="102" id="qXQ-bi-aSP"/>
+                            <constraint firstItem="ajv-7b-4iO" firstAttribute="top" secondItem="2fR-38-c2Y" secondAttribute="top" constant="25" id="qXQ-bi-aSP"/>
                             <constraint firstItem="g65-ch-jll" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="96" id="qxZ-uL-mSp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s21-Wa-8a4" secondAttribute="trailing" constant="-80" id="ri9-AZ-naG"/>
                             <constraint firstItem="cMI-BW-IYy" firstAttribute="leading" secondItem="2fR-38-c2Y" secondAttribute="leading" constant="304" id="sd4-Rv-dbs"/>
