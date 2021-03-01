@@ -13,6 +13,13 @@ import Foundation
 import Vision
 import SpriteKit
 import GameplayKit
+// for vibration
+// we need to print the fame size then
+// make diffrent ranges
+// the frame size = 475
+// divide it into
+// if its 9 parts it will be 53 points for each of them
+// range 1...3
 
 
 class ObjectDetectionViewController: ChallengeViewController{
@@ -106,8 +113,12 @@ class ObjectDetectionViewController: ChallengeViewController{
             answerLabels.append(objectObservation.labels[0].identifier)
             
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-            let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,objectObservation.labels[0].identifier)
+            let shapeLayer =
+            self.createRoundedRectLayerWithBounds(objectBounds,objectObservation.labels[0].identifier)
             detectionOverlay.addSublayer(shapeLayer)
+            // need to make it global variable and pass it to move to cahier function to hide it then if in location == 600 same as the detection trigger
+        // wee need to fix the postion inside the box
+             // I think its 480 x and -320 y 
 
         }
         print("AnswerLabels insideloop", answerLabels)
@@ -307,9 +318,16 @@ class ObjectDetectionViewController: ChallengeViewController{
 
             if isOrder{
                 calculateOrderScore(for: providedAnswer)
+                
+                // we need th check the value of the score
+                //if it is 1 or 0 call sad
+                // if it is 2 still normal walking frame **
+                // if it is 3 call happy
+                
             } else {
                 calculatePaymentScore(with: providedAnswer.change)
                 isOrder = true
+                // as the same
             }
           
             print("calccc")

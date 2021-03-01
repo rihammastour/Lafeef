@@ -21,6 +21,8 @@ class GameScene: SKScene {
     var toopingCounter : Int = 0
     var moneyCounter : Int = 0
     var button: SKNode! = nil
+    var OrderButton: SKNode! = nil
+    var PaymentButton: SKNode! = nil
     var cashierbutton: SKNode! = nil
     let cam = SKCameraNode()
     var flag = false
@@ -74,6 +76,14 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
         setupSceneElements()
         setUpCatcter()
+        
+        OrderButton  = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
+        PaymentButton = SKSpriteNode(color: .gray, size: CGSize(width: 100, height: 44))
+        OrderButton.position = CGPoint(x:self.frame.midX+100, y:self.frame.midY+200)
+        OrderButton.position = CGPoint(x:self.frame.midX+400, y:self.frame.midY+300)
+        
+        self.addChild(OrderButton)
+        self.addChild(PaymentButton)
 
         //Buttons TO BE REMOVED LATER
         buttonOne = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
@@ -402,6 +412,23 @@ class GameScene: SKScene {
         increaseProgressBar(with: cusSat)
     }
     
+    // Trigger functions
+    func OrderbuttonTapped(){
+        print("Order button tapped!")
+        objDetected.stopSession()
+        // stop session
+        
+ 
+
+    }
+    func PaymentbuttonTapped(){
+        print("Payment button tapped!")
+        objDetected.stopSession()
+        // stop session
+        
+ 
+
+    }
     
     
     //MARK:  - Set up Order Contents Functions
@@ -795,6 +822,13 @@ class GameScene: SKScene {
             
             if buttonThree.contains(location) {
                 buttonTappedThree()
+            }
+            
+            if OrderButton.contains(location) {
+                OrderbuttonTapped()
+            }
+            if PaymentButton.contains(location) {
+                PaymentbuttonTapped()
             }
             
         }

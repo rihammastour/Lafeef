@@ -16,7 +16,7 @@ class CustomerNode {
     var HappyFrames: [SKTexture] = []
     var SadFrames: [SKTexture] = []
     var customerName = ""
-    var objectDetected = ChallengeViewController()
+    let objectDetected = ChallengeViewController()
     init(customerName: String) {
         self.customerName = customerName
     }
@@ -122,10 +122,11 @@ class CustomerNode {
     }
     
     func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
+        // need to hide ca layer 
 
         switch customerSatisfaction {
         case "happy":
-            objectDetected.startCaptureSession()
+           // if customer.postion == 650, 0 start capture
                 customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode : customerNode,x: 650, y: 0)
