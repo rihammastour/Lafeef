@@ -25,7 +25,6 @@
 		41DEEB4725EB0B5E008F05D1 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 41DEEB4625EB0B5E008F05D1 /* icecream.gif */; };
 		41DEEB4C25EB0B82008F05D1 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DEEB4B25EB0B82008F05D1 /* trophy.json */; };
 		41F4561225EB094E00FCE148 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F4561125EB094E00FCE148 /* Color.xcassets */; };
-		41F4561A25EB099100FCE148 /* LafeefTransModel 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 41F4561925EB099100FCE148 /* LafeefTransModel 1.mlmodel */; };
 		41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23F25D0AB72000D4064 /* levelInfo.swift */; };
 		41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24425D0ACF2000D4064 /* WinningViewController.swift */; };
 		41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LosingViewController.swift */; };
@@ -162,7 +161,6 @@
 		41DEEB4625EB0B5E008F05D1 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icecream.gif; sourceTree = "<group>"; };
 		41DEEB4B25EB0B82008F05D1 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
 		41F4561125EB094E00FCE148 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		41F4561925EB099100FCE148 /* LafeefTransModel 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "LafeefTransModel 1.mlmodel"; path = "../../LafeefTransModel 1.mlmodel"; sourceTree = "<group>"; };
 		41F4C23A25D0AADE000D4064 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		41F4C23F25D0AB72000D4064 /* levelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelInfo.swift; sourceTree = "<group>"; };
 		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
@@ -471,7 +469,6 @@
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
 				528C66D525E07DBE00AE1B3B /* Customers.swift */,
 				4122DA3A25DB926F00DABB29 /* CustomerNode.swift */,
-				41F4561925EB099100FCE148 /* LafeefTransModel 1.mlmodel */,
 				4EB976E925CAD83900518EF9 /* AlertService.swift */,
 				41F4C23A25D0AADE000D4064 /* Reports.swift */,
 				C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */,
@@ -902,7 +899,6 @@
 				C987434725D14CB90075581E /* Level.swift in Sources */,
 				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
 				4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */,
-				41F4561A25EB099100FCE148 /* LafeefTransModel 1.mlmodel in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,

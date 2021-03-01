@@ -211,7 +211,7 @@ class GameScene: SKScene {
         moneyLabel.position = CGPoint(x: -13, y: -8)
         moneyLabel.fontSize = 34
         moneyLabel.fontName = "FF Hekaya"
-        moneyLabel.color = SKColor(named: "BlackApp")
+        moneyLabel.fontColor = SKColor(named: "BlackApp")
         moneyLabel.text = "0.0"
         self.moneyCountiner.addChild(moneyLabel!)
         
