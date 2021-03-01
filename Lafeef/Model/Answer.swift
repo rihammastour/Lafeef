@@ -9,7 +9,7 @@ import Foundation
 
 struct Answer: Codable {
     var base:Base?
-    var cahnge:Float
+    var change:Float
     var atTime:Float
     var toppings:[Topping]?
 }

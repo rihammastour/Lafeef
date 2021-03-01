@@ -34,13 +34,22 @@ class GameScene: SKScene {
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    //Bakery Background
     private var bakeryBackgroundNode : SKNode?
     private var tableNode : SKSpriteNode?
+    private var wallNode : SKSpriteNode?
+    
+    //Progress Bar
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
     private var buttonOne : SKSpriteNode!
     private var buttonTwo : SKSpriteNode!
     private var buttonThree : SKSpriteNode!
+    
+    //Money Continer
+    private var moneyCountiner : SKSpriteNode!
+    var diffrenceDistancePBMC : CGFloat!
+    var moneyLabel : SKLabelNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -75,7 +84,7 @@ class GameScene: SKScene {
         setupSceneElements()
         setUpCatcter()
 
-        //Buttons TO BE REMOVED LATER
+        //All The Buttons TO BE REMOVED LATER
         buttonOne = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
         // Put it in the center of the scene
         buttonOne.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
@@ -110,19 +119,117 @@ class GameScene: SKScene {
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         
-        // Get Prograss bar Continer node from scene and store it for use later
-        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        
-        if let progressBar = self.progressBarContiner {
-            progressBar.position = CGPoint(x: cam.position.x, y: self.frame.maxY-30)
-            createPrograssBar()
-        }
 
     }//end did move
+    
+    //MARK:  Functions
+
+    //MARK: - Set up Scene Eslements Functions
+
+    //setupSceneElements
+    func setupSceneElements(){
+
+        //Set background Bakery
+        self.setBackgroundBakary()
+       
+        // Get Prograss bar Continer node from scene and store it for use later
+        self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
+        if let progressBar = self.progressBarContiner {
+            progressBar.position = CGPoint(x: cam.position.x, y: (self.wallNode?.size.height)!-264)
+            createPrograssBar()
+        }
+        
+        // Get Money bar Continer node from scene and store it for use later
+        setUpMoneyContiner()
 
 
-    //MARK: - Functions
+        // Get Camera node from scene and store it for use later
+        self.camera = cam
 
+        // Get Order Continer node from scene and store it for use later
+        self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
+        self.orderContiner?.isHidden = true
+
+        // Create shape node to use during mouse interaction ????
+        let w = (self.size.width + self.size.height) * 0.05
+        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+
+        if let spinnyNode = self.spinnyNode {
+            spinnyNode.lineWidth = 2.5
+
+            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
+            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+                                              SKAction.fadeOut(withDuration: 0.5),
+                                              SKAction.removeFromParent()]))
+        }
+        
+        // Get Payment Continer node from scene and store it for use later
+        self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
+        //................................. Don't forget to hide it when it totally done!
+        self.paymentContainer?.isHidden = false
+        
+        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
+        self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
+        self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
+        
+        self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
+        self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
+
+    }
+
+
+    //setBackgroundBakary
+    func setBackgroundBakary(){
+        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+        // Get table node from scene and store it for use later
+        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
+        tableNode?.zPosition = 2
+        
+        // Get wall node from scene and store it for use later
+        self.wallNode = bakeryBackgroundNode?.childNode(withName: "wallNode") as? SKSpriteNode
+
+    }
+    
+    //MARK: - Money Continer Functions
+    func setUpMoneyContiner(){
+        ///Set Position
+        self.moneyCountiner = self.childNode(withName: "moneyContainer") as? SKSpriteNode
+        moneyCountiner.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
+        
+        ///Calculate the distance between progress bar and money continer to use latter
+        diffrenceDistancePBMC = moneyCountiner.position.x - cam.position.x
+        
+        //Set Content of Money Continer
+        ///Money Icon
+        let moneyIcon = SKSpriteNode(imageNamed:"money") as SKSpriteNode?
+        moneyIcon?.size = CGSize(width: 50, height: 50)
+        moneyIcon?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        moneyIcon?.position = CGPoint(x: 40, y: 5)
+        self.moneyCountiner.addChild(moneyIcon!)
+        
+        ///Label
+        moneyLabel = SKLabelNode()
+        moneyLabel.position = CGPoint(x: -13, y: -8)
+        moneyLabel.fontSize = 34
+        moneyLabel.fontName = "FF Hekaya"
+        moneyLabel.fontColor = SKColor(named: "BlackApp")
+        moneyLabel.text = "0.0"
+        self.moneyCountiner.addChild(moneyLabel!)
+        
+
+    }
+    
+    //updateMoneyLabel
+    func updateMoneyLabel(_ earnedMoney:Float){
+        
+        var money = Float(moneyLabel.text!)!
+        money += earnedMoney
+        moneyLabel.text = String(money)
+        
+    }
+    
+    
+    //MARK: - Timer Functions
     func generateTimer(){
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
@@ -263,74 +370,7 @@ class GameScene: SKScene {
 
 
 
-    //MARK: - Set up Scene Eslements Functions
-
-    //setupSceneElements
-    func setupSceneElements(){
-
-        //Set background Bakery
-        self.setBackgroundBakary()
-        
-        // Get table node from scene and store it for use later
-        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
-        tableNode?.zPosition = 2
-
-        // Get Camera node from scene and store it for use later
-    
-      
-        // Get Order Continer node from scene and store it for use later
-        self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
-        self.orderContiner?.isHidden = true
-
-        // Create shape node to use during mouse interaction ????
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
-        
-        // Get Payment Continer node from scene and store it for use later
-        self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
-        //................................. Don't forget to hide it when it totally done!
-        self.paymentContainer?.isHidden = false
-        
-        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
-        self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
-        self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
-        
-        self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
-        self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
-        //Create prograss bar and hide it using SKCropNode Mask
-        let bar = PrograssBar()
-        bar.configure(at: CGPoint(x: 0, y: 0))
-        progressBarContiner?.addChild(bar)
-
-    }
-
-
-    //setBackgroundBakary
-    func setBackgroundBakary(){
-
-        //Get real device size
-        let deviceWidth = UIScreen.main.bounds.width
-        let deviceHeight = UIScreen.main.bounds.height
-
-        //Get the aspect ratio
-        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
-
-        // Get Bakery background node scene and store it for use later
-        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
-
-        if let bakery = self.bakeryBackgroundNode{
-            bakery.setScale(maxAspectRatio)
-        }
-    }
+   
     
     //MARK: - Progress bar methods
     
@@ -383,22 +423,23 @@ class GameScene: SKScene {
     //TO BE DELETED
     func buttonTapped(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 1, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, change: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
+        updateMoneyLabel(20)
         increaseProgressBar(with: cusSat)
 
     }
     
     func buttonTappedTwo(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: nil, cahnge: 0, atTime: 1, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: nil, change: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }
     
     func buttonTappedThree(){
         print("tapped!")
-        let score = viewController?.calculateScore(for: Answer(base: Base.cake, cahnge: 0, atTime: 0, toppings: nil))
+        let score = viewController?.calculateScore(for: Answer(base: Base.cake, change: 0, atTime: 0, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
         increaseProgressBar(with: cusSat)
     }
@@ -415,10 +456,6 @@ class GameScene: SKScene {
             print("no order continer")
             return
         }
-
-        orderContiner?.position = CGPoint(x: 150, y: 250)
-        //        //make order visible
-        //        self.orderContiner?.isHidden = false
 
         //Create base node
         self.base = createBaseNode(with: baseType)
@@ -784,6 +821,7 @@ class GameScene: SKScene {
                         self.progressBarContiner.position.x = cam.position.x
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
+                        self.moneyCountiner.position.x = self.frame.maxX-100
                         currentCustomer += 1
                         if (currentCustomer<=3){
                             buildCustomer(customerNode: customers[currentCustomer])
@@ -839,7 +877,7 @@ class GameScene: SKScene {
          
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x
-//            self.progressBarContiner.physicsBody?.isDynamic = false
+            moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
             
         }
 

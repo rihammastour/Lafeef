@@ -11,7 +11,7 @@ import SpriteKit
 enum Base : String,Codable {
     
     //cases
-    case cake
+    case cake = "cake"
     case quarterCake = "quarter-cake"
     case halfCake = "half-cake"
     case threequarterCake = "threequarter-cake"

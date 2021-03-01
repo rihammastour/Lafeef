@@ -60,7 +60,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAVCapture()
+     //   setupAVCapture()
        
         
         // Additional setup after loading the view.
@@ -246,6 +246,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
+        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
         
     }
 
@@ -340,7 +341,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //get order score
         calculateOrderScore(for: answer)
         //get payment score
-        calculatePaymentScore(with: answer.cahnge)
+        calculatePaymentScore(with: answer.change)
         
         //Sum scors
         self.levelScore = self.paymentScore + self.orderScore
@@ -475,7 +476,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     //showAlert
     func showAlert(with message:String) {
-        alert.Alert(body: message)
+//        alert.Alert(body: message)
+        // need an alert
     }
 
     //feachChalengeLevelHandeler
