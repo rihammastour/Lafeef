@@ -48,7 +48,8 @@ class GameScene: SKScene {
     
     //Money Continer
     private var moneyCountiner : SKSpriteNode!
-    private var diffrenceDistancePBMC : CGFloat!
+    var diffrenceDistancePBMC : CGFloat!
+    var moneyLabel : SKLabelNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -188,13 +189,44 @@ class GameScene: SKScene {
 
     }
     
-    //MARK: - Timer Functions
+    //MARK: - Money Continer Functions
     func setUpMoneyContiner(){
+        ///Set Position
         self.moneyCountiner = self.childNode(withName: "moneyContainer") as? SKSpriteNode
         moneyCountiner.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
+        
+        ///Calculate the distance between progress bar and money continer to use latter
         diffrenceDistancePBMC = moneyCountiner.position.x - cam.position.x
+        
+        //Set Content of Money Continer
+        ///Money Icon
+        let moneyIcon = SKSpriteNode(imageNamed:"money") as SKSpriteNode?
+        moneyIcon?.size = CGSize(width: 50, height: 50)
+        moneyIcon?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        moneyIcon?.position = CGPoint(x: 40, y: 5)
+        self.moneyCountiner.addChild(moneyIcon!)
+        
+        ///Label
+        moneyLabel = SKLabelNode()
+        moneyLabel.position = CGPoint(x: -13, y: -8)
+        moneyLabel.fontSize = 34
+        moneyLabel.fontName = "FF Hekaya"
+        moneyLabel.color = SKColor(named: "BlackApp")
+        moneyLabel.text = "0.0"
+        self.moneyCountiner.addChild(moneyLabel!)
+        
 
     }
+    
+    //updateMoneyLabel
+    func updateMoneyLabel(_ earnedMoney:Float){
+        
+        var money = Float(moneyLabel.text!)!
+        money += earnedMoney
+        moneyLabel.text = String(money)
+        
+    }
+    
     
     //MARK: - Timer Functions
     func generateTimer(){
@@ -392,6 +424,7 @@ class GameScene: SKScene {
         print("tapped!")
         let score = viewController?.calculateScore(for: Answer(base: Base.cake, change: 0, atTime: 1, toppings: nil))
         let cusSat = CustmerSatisfaction.getCusSat(for: score!)
+        updateMoneyLabel(20)
         increaseProgressBar(with: cusSat)
 
     }
