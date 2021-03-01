@@ -22,11 +22,6 @@
 		41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BE5A1525E09E2D00EA834F /* LevelReportData.swift */; };
 		41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */ = {isa = PBXBuildFile; fileRef = 41CFB12225D084E3004D31F9 /* WinningReport.sks */; };
 		41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CFB12725D08754004D31F9 /* WinningReport.swift */; };
-		41DEEB4725EB0B5E008F05D1 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 41DEEB4625EB0B5E008F05D1 /* icecream.gif */; };
-		41DEEB4C25EB0B82008F05D1 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DEEB4B25EB0B82008F05D1 /* trophy.json */; };
-		41DEEB5125EB166D008F05D1 /* LafeefModel31.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 41DEEB5025EB166D008F05D1 /* LafeefModel31.mlmodel */; };
-		41F4561225EB094E00FCE148 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F4561125EB094E00FCE148 /* Color.xcassets */; };
-		41F4561A25EB099100FCE148 /* LafeefTransModel1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 41F4561925EB099100FCE148 /* LafeefTransModel1.mlmodel */; };
 		41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C23F25D0AB72000D4064 /* levelInfo.swift */; };
 		41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24425D0ACF2000D4064 /* WinningViewController.swift */; };
 		41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F4C24C25D0AD01000D4064 /* LosingViewController.swift */; };
@@ -82,6 +77,11 @@
 		4EDFA45125EAF46300924569 /* NWWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43925EAF46300924569 /* NWWatermelon.atlas */; };
 		4EDFA45225EAF46300924569 /* HappyPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43A25EAF46300924569 /* HappyPineapple.atlas */; };
 		4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43B25EAF46300924569 /* HappyStrawberry.atlas */; };
+		4EDFA46425EC596300924569 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA46325EC596300924569 /* Color.xcassets */; };
+		4EDFA46F25EC597F00924569 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA46E25EC597F00924569 /* icecream.gif */; };
+		4EDFA47425EC59A000924569 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA47325EC59A000924569 /* trophy.json */; };
+		4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */; };
+		4EDFA4BB25EC65C800924569 /* NewTransfer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */; };
 		4EE2E7F225DAC1980026F98C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2E7F125DAC1970026F98C /* CompletedLevel.swift */; };
 		4EE2E7FF25DB50110026F98C /* LevelReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2E7FE25DB50110026F98C /* LevelReportData.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */; };
@@ -160,11 +160,6 @@
 		41BE5A1525E09E2D00EA834F /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		41CFB12225D084E3004D31F9 /* WinningReport.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinningReport.sks; sourceTree = "<group>"; };
 		41CFB12725D08754004D31F9 /* WinningReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningReport.swift; sourceTree = "<group>"; };
-		41DEEB4625EB0B5E008F05D1 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = icecream.gif; path = ../../../../Lafeefsvg/icecream.gif; sourceTree = "<group>"; };
-		41DEEB4B25EB0B82008F05D1 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = trophy.json; path = ../../../../../../Downloads/trophy.json; sourceTree = "<group>"; };
-		41DEEB5025EB166D008F05D1 /* LafeefModel31.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LafeefModel31.mlmodel; path = ../../../../../LafeefModel31.mlmodel; sourceTree = "<group>"; };
-		41F4561125EB094E00FCE148 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = ../../../../../Downloads/Color.xcassets; sourceTree = "<group>"; };
-		41F4561925EB099100FCE148 /* LafeefTransModel1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = LafeefTransModel1.mlmodel; path = ../../../../../LafeefTransModel1.mlmodel; sourceTree = "<group>"; };
 		41F4C23A25D0AADE000D4064 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		41F4C23F25D0AB72000D4064 /* levelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelInfo.swift; sourceTree = "<group>"; };
 		41F4C24425D0ACF2000D4064 /* WinningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +219,11 @@
 		4EDFA43925EAF46300924569 /* NWWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = NWWatermelon.atlas; sourceTree = "<group>"; };
 		4EDFA43A25EAF46300924569 /* HappyPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HappyPineapple.atlas; sourceTree = "<group>"; };
 		4EDFA43B25EAF46300924569 /* HappyStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HappyStrawberry.atlas; sourceTree = "<group>"; };
+		4EDFA46325EC596300924569 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = ../../../Downloads/Color.xcassets; sourceTree = "<group>"; };
+		4EDFA46E25EC597F00924569 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icecream.gif; sourceTree = "<group>"; };
+		4EDFA47325EC59A000924569 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
+		4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LafeefModelDifferentSurfaces.mlmodel; sourceTree = "<group>"; };
+		4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = NewTransfer.mlmodel; sourceTree = "<group>"; };
 		4EE2E7F125DAC1970026F98C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		4EE2E7FE25DB50110026F98C /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+String.swift"; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
-				41F4561125EB094E00FCE148 /* Color.xcassets */,
+				4EDFA46325EC596300924569 /* Color.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -425,11 +425,11 @@
 			isa = PBXGroup;
 			children = (
 				4ED47F4C25D366C60064D86C /* StarsAnimation.json */,
-				41DEEB4B25EB0B82008F05D1 /* trophy.json */,
+				4EDFA47325EC59A000924569 /* trophy.json */,
+				4EDFA46E25EC597F00924569 /* icecream.gif */,
 				4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */,
 				41CFB12725D08754004D31F9 /* WinningReport.swift */,
 				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
-				41DEEB4625EB0B5E008F05D1 /* icecream.gif */,
 				4EB21B7B25CF768F0076530E /* ProgressBar.swift */,
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
 			);
@@ -473,8 +473,6 @@
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
 				528C66D525E07DBE00AE1B3B /* Customers.swift */,
 				4122DA3A25DB926F00DABB29 /* CustomerNode.swift */,
-				41DEEB5025EB166D008F05D1 /* LafeefModel31.mlmodel */,
-				41F4561925EB099100FCE148 /* LafeefTransModel1.mlmodel */,
 				4EB976E925CAD83900518EF9 /* AlertService.swift */,
 				41F4C23A25D0AADE000D4064 /* Reports.swift */,
 				C92A66FD25CE91FC0060AA53 /* LocalStorageManager.swift */,
@@ -482,6 +480,8 @@
 				C987434625D14CB90075581E /* Level.swift */,
 				C97A96F525D1FD770051FF53 /* OrderTimer.swift */,
 				C9E2D3F625D162D900F1CAD5 /* Order.swift */,
+				4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */,
+				4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				411091CD25E4986F0035FACF /* Answer.swift */,
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
@@ -662,15 +662,16 @@
 				4EDFA44B25EAF46300924569 /* NWPear.atlas in Resources */,
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
+				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
-				41DEEB4725EB0B5E008F05D1 /* icecream.gif in Resources */,
+				4EDFA46425EC596300924569 /* Color.xcassets in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
+				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
-				41DEEB4C25EB0B82008F05D1 /* trophy.json in Resources */,
 				4EDFA45025EAF46300924569 /* SadPineapple.atlas in Resources */,
 				4EDFA44C25EAF46300924569 /* SadStrawberry.atlas in Resources */,
 				4EDFA43D25EAF46300924569 /* HappyOrange.atlas in Resources */,
@@ -690,7 +691,6 @@
 				4EDFA44425EAF46300924569 /* WaitingPineapple.atlas in Resources */,
 				4EDFA44925EAF46300924569 /* SadApple.atlas in Resources */,
 				4EDFA44D25EAF46300924569 /* NWStrawberry.atlas in Resources */,
-				41F4561225EB094E00FCE148 /* Color.xcassets in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
@@ -873,7 +873,6 @@
 				41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
-				41DEEB5125EB166D008F05D1 /* LafeefModel31.mlmodel in Sources */,
 				4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */,
 				C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */,
 				C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */,
@@ -894,6 +893,7 @@
 				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
+				4EDFA4BB25EC65C800924569 /* NewTransfer.mlmodel in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */,
 				C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */,
@@ -906,9 +906,9 @@
 				C987434725D14CB90075581E /* Level.swift in Sources */,
 				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
 				4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */,
-				41F4561A25EB099100FCE148 /* LafeefTransModel1.mlmodel in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
+				4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
@@ -1107,13 +1107,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8D5P9YJN3N;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1129,13 +1129,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8D5P9YJN3N;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.Lafeef;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

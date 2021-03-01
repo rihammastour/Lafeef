@@ -21,15 +21,19 @@ class ObjectDetectionViewController: ChallengeViewController{
       
       // Vision parts
       private var requests = [VNRequest]()
-    var count = 0
-
+    var answerArray = [VNRecognizedObjectObservation]()
+    var answerLabels = [String]()
+    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
+    var isOrder = true
+    
+ 
     @discardableResult
       func setupVision() -> NSError? {
           // Setup Vision parts
           let error: NSError! = nil
         print("setupvision")
           
-          guard let modelURL = Bundle.main.url(forResource: "LafeefTransModel1", withExtension: "mlmodelc") else {
+          guard let modelURL = Bundle.main.url(forResource: "LafeefModelDifferentSurfaces", withExtension: "mlmodelc") else {
               return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
           }
           do {
@@ -39,6 +43,7 @@ class ObjectDetectionViewController: ChallengeViewController{
                       // perform all the UI updates on the main queue
                       if let results = request.results {
                           self.drawVisionRequestResults(results)
+              
                       }
                   })
               })
@@ -53,33 +58,69 @@ class ObjectDetectionViewController: ChallengeViewController{
       func drawVisionRequestResults(_ results: [Any]) {
           CATransaction.begin()
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        
+//
+
           detectionOverlay.sublayers = nil // remove all the old recognized objects
           for observation in results where observation is VNRecognizedObjectObservation {
               guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                   continue
                 
               }
-     
               // Select only the label with the highest confidence.
-            
-              let topLabelObservation = objectObservation.labels[0]
-              let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-              
-            let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,topLabelObservation.identifier)
-            print(topLabelObservation)
-            
+     
+//            if  objectObservation.confidence > 0.9 {
+//                let topLabelObservation = objectObservation.labels[0]
+//                let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
+//              let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,topLabelObservation.identifier)
+//              print(topLabelObservation)
+//                detectionOverlay.addSublayer(shapeLayer)
+//            }
+         
+
 
   //
   //            let textLayer = self.createTextSubLayerInBounds(objectBounds,
   //                                                            identifier: topLabelObservation.identifier,
   //                                                            confidence: topLabelObservation.confidence)
   //            shapeLayer.addSublayer(textLayer)
-              detectionOverlay.addSublayer(shapeLayer)
+     
           }
-          self.updateLayerGeometry()
+        answer(results: results as! [VNRecognizedObjectObservation])
+
+        
+//        print("AnswerLabels", answerLabels)
+//          self.updateLayerGeometry()
           CATransaction.commit()
       }
+    
+    func answer(results: [VNRecognizedObjectObservation]){
+
+        answerArray = results
+        print(answerArray,"---------------------------------")
+        detectionOverlay.sublayers = nil
+        for observation in answerArray {
+            guard let objectObservation = observation as? VNRecognizedObjectObservation else {
+                continue
+              
+            }
+            answerLabels.append(objectObservation.labels[0].identifier)
+            
+            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
+            let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,objectObservation.labels[0].identifier)
+            detectionOverlay.addSublayer(shapeLayer)
+
+        }
+        print("AnswerLabels insideloop", answerLabels)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                    self.stopSession()
+        
+                }
+        
+        answerArray = []
+        answerLabels = []
+
+        
+    }
       
       override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
           guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -94,6 +135,7 @@ class ObjectDetectionViewController: ChallengeViewController{
           } catch {
               print(error)
           }
+        
       }
       
       override func setupAVCapture() {
@@ -131,10 +173,11 @@ class ObjectDetectionViewController: ChallengeViewController{
               scale = 1.0
           }
           CATransaction.begin()
+
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
 
           // rotate the layer into screen orientation and scale and mirror
-          detectionOverlay.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 1.0)).scaledBy(x: -scale, y: -scale))
+          detectionOverlay.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 1.0)).scaledBy(x: scale, y: -scale))
           // center the layer
           detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
 
@@ -164,9 +207,9 @@ class ObjectDetectionViewController: ChallengeViewController{
         
         var position = CGPoint()
         if classLabel == "ChocolateBrown"{
-            position = CGPoint(x: round(bounds.midX), y:  330)
+            position = CGPoint(x: ceil(bounds.midX), y:  330)
         }else{
-            position = CGPoint(x: round(bounds.midX), y:  430)
+            position = CGPoint(x: ceil(bounds.midX), y:  430)
         }
         
         
@@ -188,100 +231,152 @@ class ObjectDetectionViewController: ChallengeViewController{
 
    
     func mappingLabelsToImage(classLabel : String)-> CGImage{
-        
-        var providedAnswer : Answer?
-        var providedToppings = [Topping]()
-     
-        
-
     
+        var answer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
         var image = UIImage(named: "placeholder")!.cgImage
         switch classLabel {
         case "CompleteCake":
         image = UIImage(named: "cake")!.cgImage
-        providedAnswer?.base = Base(rawValue: "cake")
             break
         case "QuarterCake":
         image = UIImage(named: "quarter-cake")!.cgImage
-        providedAnswer?.base = Base(rawValue: "quarter-cake")
             break
         case "HalfCake":
         image = UIImage(named: "half-cake")!.cgImage
-        providedAnswer?.base = Base(rawValue: "half-cake")
             break
         case "3QuartersCake":
         image = UIImage(named: "threequarter-cake")!.cgImage
-        providedAnswer?.base = Base(rawValue: "threequarter-cake")
+            
             break
-     
         case "WhiteCupcake":
         image = UIImage(named: "cupcake-van")!.cgImage
-        providedAnswer?.base = Base(rawValue: "cupcake-van")
-   
-         
             break
-           
         case "BrownCupcake":
         image = UIImage(named: "cupcake-ch")!.cgImage
-        providedAnswer?.base = Base(rawValue: "cupcake-ch")
             break
         case "ChocolateBrown":
             image = UIImage(named: "dark-chocolate")!.cgImage
-            providedAnswer?.toppings?.append(Topping(rawValue: "dark-chocolate")!)
             break
         case "ChocolateWhite":
             image = UIImage(named: "white-chocolate")!.cgImage
-            providedAnswer?.toppings?.append(Topping(rawValue: "white-chocolate")!)
             break
         case "Kiwi":
             image = UIImage(named: "oval-kiwi")!.cgImage
-            providedAnswer?.toppings?.append(Topping(rawValue:  "oval-kiwi")!)
             break
         case "Strawberry":
             image = UIImage(named: "strawberry")!.cgImage
-            providedAnswer?.toppings?.append(Topping(rawValue:  "strawberry")!)
             break
         case "Pineapple":
             image = UIImage(named: "pineapple")!.cgImage
-            providedAnswer?.toppings?.append(Topping(rawValue:  "pineapple")!)
             break
         case "OneRiyal":
             image = UIImage(named: "1")!.cgImage
-            providedAnswer?.change = Money.riyal.rawValue
             break
         case "FiftyRiyal":
             image = UIImage(named: "50")!.cgImage
-            providedAnswer?.change = Money.fiftyRiyal.rawValue
             break
         case "TenRiyal":
             image = UIImage(named: "10")!.cgImage
-            providedAnswer?.change = Money.tenRiyal.rawValue
             break
         case "RiyalHalf":
             image = UIImage(named: "0.5")!.cgImage
-            providedAnswer?.change = Money.riyalHalf.rawValue
             break
         case "RiyalQuarter":
             image = UIImage(named: "0.25")!.cgImage
-            providedAnswer?.change = Money.riyalQuarter.rawValue
             break
         case "FiveRiyal":
             image = UIImage(named: "5")!.cgImage
-            providedAnswer?.change = Money.fiveRiyal.rawValue
             break
         default:
           print("default")
             break
         }
-      
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            self.calculateScore(for:providedAnswer)
-            print("calculate score")
-       
-        }
+
+//        print(answer,"Switch statement2")
+
         return image!
         
     }
 
-  
+    override func stopSession() {
+        if session.isRunning {
+            DispatchQueue.global().async {
+                self.session.stopRunning()
+            }
+            setAnswer(answerLabels: answerLabels)
+
+            if isOrder{
+                calculateOrderScore(for: providedAnswer)
+            } else {
+                calculatePaymentScore(with: providedAnswer.change)
+                isOrder = true
+            }
+          
+            print("calccc")
+
+        }
+        
+    }
+    
+    func setAnswer(answerLabels: [String]){
+        for label in answerLabels{
+            switch label {
+            case "CompleteCake":
+                providedAnswer.base = Base.cake
+                break
+            case "QuarterCake":
+                self.providedAnswer.base = Base(rawValue: "quarter-cake")!
+                break
+            case "HalfCake":
+                providedAnswer.base = Base(rawValue: "half-cake")
+                break
+            case "3QuartersCake":
+                providedAnswer.base = Base(rawValue: "threequarter-cake")
+                break
+            case "WhiteCupcake":
+                providedAnswer.base = Base(rawValue: "cupcake-van")
+                break
+            case "BrownCupcake":
+                providedAnswer.base = Base(rawValue: "cupcake-ch")
+                break
+            case "ChocolateBrown":
+                providedAnswer.toppings?.append(Topping(rawValue: "dark-chocolate")!)
+                break
+            case "ChocolateWhite":
+                providedAnswer.toppings?.append(Topping(rawValue: "white-chocolate")!)
+                break
+            case "Kiwi":
+                providedAnswer.toppings?.append(Topping(rawValue:  "oval-kiwi")!)
+                break
+            case "Strawberry":
+                providedAnswer.toppings?.append(Topping(rawValue:  "strawberry")!)
+                break
+            case "Pineapple":
+                providedAnswer.toppings?.append(Topping.pineapple)
+                break
+            case "OneRiyal":
+                providedAnswer.change += Money.riyal.rawValue
+                break
+            case "FiftyRiyal":
+                providedAnswer.change += Money.fiftyRiyal.rawValue
+                break
+            case "TenRiyal":
+                providedAnswer.change += Money.tenRiyal.rawValue
+                break
+            case "RiyalHalf":
+                providedAnswer.change += Money.riyalHalf.rawValue
+                break
+            case "RiyalQuarter":
+                providedAnswer.change += Money.riyalQuarter.rawValue
+                break
+            case "FiveRiyal":
+                providedAnswer.change += Money.fiveRiyal.rawValue
+                break
+            default:
+              print("default")
+                break
+            }
+        }
+        print(providedAnswer,"setAnswer")
+    }
 }

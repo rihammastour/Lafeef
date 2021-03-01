@@ -19,8 +19,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
-    var levelNum:String? = "2"
-    var currentOrder = 0
+    var levelNum:String? = "1"
+    var currentOrder = 3
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
@@ -43,11 +43,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
-    private let session = AVCaptureSession()
-    private var previewLayer: AVCaptureVideoPreviewLayer! = nil
-    private let videoDataOutput = AVCaptureVideoDataOutput()
+     let session = AVCaptureSession()
+     var previewLayer: AVCaptureVideoPreviewLayer! = nil
+     let videoDataOutput = AVCaptureVideoDataOutput()
        
-    private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
+     let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
     
     
@@ -93,6 +93,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
             do {
                 deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+                
                 print("device")
             } catch {
                 print("Could not create video device input: \(error)")
@@ -141,7 +142,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             previewLayer = AVCaptureVideoPreviewLayer(session: session)
             previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             //flip camera upside down
-            previewLayer.connection?.videoOrientation = .portraitUpsideDown
+//            previewLayer.connection?.videoOrientation = .portraitUpsideDown
             rootLayer = previewView.layer
         
             if let skView = gameScen {
@@ -151,18 +152,22 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
   
             rootLayer.addSublayer(previewLayer)
 
-
         }
         
         func startCaptureSession() {
             print("startcapture")
             session.startRunning()
         }
+    
+    func stopSession(){
+        
+    }
         
         // Clean up capture setup
         func teardownAVCapture() {
             previewLayer.removeFromSuperlayer()
             previewLayer = nil
+            print("tearDownAVCapture-----------------------")
         }
         
         func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -320,23 +325,27 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     //calculateScore
     func calculateScore(for answer:Answer?) -> Int{
-         
+
         //Unwrap current order
         guard getCurrentOrder() != nil else {
             //Fail umwrapping
+
             return 0
+            
         }
         
         guard let answer = answer else {
             //No answer provided!
+  
             return 0
         }
         
         //check time
-        if (answer.atTime == 0){ //May changed
-            return 0
-        }
-        
+//        if (answer.atTime == 0){ //May changed
+//            levelScore += 0
+//
+//        }
+ 
         //get order score
         calculateOrderScore(for: answer)
         //get payment score
@@ -352,7 +361,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     func calculatePaymentScore(with chenge:Float){
            
-           let totalBill = getTotalBill()
+        let totalBill = getTotalBill()
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
 
            if expectedChange == chenge {
@@ -415,7 +424,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) {
-        
+        print(answer,"order socre=----------------")
         var totalSocre = 0
         
         //Declaration variabels
@@ -428,6 +437,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //check base if exist
         if answer.base == nil {
             totalSocre += 0
+            return
         }
         
         //check base type
@@ -436,6 +446,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }else if currentToppings == nil {
             //Order doesn't contain toppings and wrong base
             totalSocre += 0
+            return
         }
         
         //Start checking the toppings

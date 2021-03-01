@@ -16,7 +16,7 @@ class CustomerNode {
     var HappyFrames: [SKTexture] = []
     var SadFrames: [SKTexture] = []
     var customerName = ""
-    
+    var objectDetected = ChallengeViewController()
     init(customerName: String) {
         self.customerName = customerName
     }
@@ -122,9 +122,10 @@ class CustomerNode {
     }
     
     func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
-  
+
         switch customerSatisfaction {
         case "happy":
+            objectDetected.startCaptureSession()
                 customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode : customerNode,x: 650, y: 0)
@@ -142,6 +143,7 @@ class CustomerNode {
         
     
         default:
+            objectDetected.startCaptureSession()
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode:customerNode,x: 650, y: 0)

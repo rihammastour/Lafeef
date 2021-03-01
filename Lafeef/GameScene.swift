@@ -11,7 +11,7 @@ import GameplayKit
 class GameScene: SKScene {
 
     //MARK: - Proprites
-
+    let objDetected = ObjectDetectionViewController()
     //MARK: Variables
     let alert = AlertService()
 
@@ -667,8 +667,10 @@ class GameScene: SKScene {
             GameScene.displayTime?.fontName =  "FF Hekaya"
             GameScene.displayTime?.text = "انتهى الوقت!"
             GameScene.displayTime?.color=SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-
+            
+            (self.view?.window?.rootViewController as! ChallengeViewController).stopSession()
             GameScene.timer.invalidate()
+
         }
     }
 
