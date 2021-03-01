@@ -200,9 +200,12 @@
                             <skView contentMode="scaleToFill" sceneName="GameScene.sks" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-gI-AL5">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </skView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
-                                <rect key="frame" x="41" y="33" width="51" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szD-Yu-CQr">
+                                <rect key="frame" x="41" y="18" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="8mJ-Ba-kBF"/>
+                                    <constraint firstAttribute="width" constant="45" id="E2I-gS-NJp"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
                                     <segue destination="mRG-gB-WrO" kind="showDetail" identifier="MenuSegue" id="lh3-vD-tCs"/>
@@ -215,7 +218,9 @@
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" id="3Ay-X4-la6"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="trailing" secondItem="LLA-Nv-Osf" secondAttribute="trailing" id="C3s-Qm-ZVS"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" id="F8n-LH-yV1"/>
+                            <constraint firstItem="szD-Yu-CQr" firstAttribute="leading" secondItem="LLA-Nv-Osf" secondAttribute="leading" constant="41" id="O2j-BY-S3c"/>
                             <constraint firstItem="vqo-gI-AL5" firstAttribute="bottom" secondItem="LLA-Nv-Osf" secondAttribute="bottom" id="tlx-cY-AXy"/>
+                            <constraint firstItem="szD-Yu-CQr" firstAttribute="top" secondItem="LLA-Nv-Osf" secondAttribute="top" constant="18" id="xwn-2J-Ah5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Jh-f6-vn0"/>
@@ -229,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6759" y="-392"/>
+            <point key="canvasLocation" x="6758.59375" y="-392.578125"/>
         </scene>
         <!--AdvReport-->
         <scene sceneID="J35-6T-Mad">
