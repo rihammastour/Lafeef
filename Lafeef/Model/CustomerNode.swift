@@ -17,7 +17,6 @@ class CustomerNode {
     var SadFrames: [SKTexture] = []
     var customerName = ""
     let objectDetected = ObjectDetectionViewController()
-
     init(customerName: String) {
         self.customerName = customerName
     }
@@ -99,7 +98,7 @@ class CustomerNode {
         animateCustomer(frame: SadFrames , speed: 0.5)
      }
     func waitingCustomer(){
-      
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
         animateCustomer(frame: WaitingFrames , speed: 0.5)
      }
     func walkingCustomer(){
@@ -107,7 +106,8 @@ class CustomerNode {
         animateCustomer(frame: WalkingFrames , speed: 0.3)
      }
     func normalCustomer(){
-        
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        print("normalallll111")
         animateCustomer(frame: WalkingFrames , speed: 0.3)
      }
   //
@@ -124,27 +124,35 @@ class CustomerNode {
     
     func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
         // need to hide ca layer
-        if objectDetected.detectionOverlay != nil {
-            objectDetected.detectionOverlay.isHidden = true
-            print( objectDetected.detectionOverlay, "----------------------------------------")
+        print(ObjectDetectionViewController.detectionOverlay, "----------------------------------------")
+        
 
 
-        }
         switch customerSatisfaction {
         case "happy":
-
-                customerNode.happyCustomer()
+             customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+
                 moveCustomer(customerNode : customerNode,x: 650, y: 0)
-                objectDetected.startCaptureSession()
+     
+
                }
+            
+         
+            print(customerNode.customer.position.x * CGFloat.pi / 180,"Customer postion")
+//            if customerNode.customer.position.x == 600 {
+//                ObjectDetectionViewController.detectionOverlay.isHidden = false
+//                // I think its 480 x and -320 y
+//                ObjectDetectionViewController.detectionOverlay.position = CGPoint(x:600, y:230)
+//            }
+//            
             break
 
         case "sad":
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+
                 moveCustomer(customerNode : customerNode,x: -600, y: 0)
-                
               
                }
          
@@ -156,13 +164,18 @@ class CustomerNode {
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode:customerNode,x: 650, y: 0)
-                objectDetected.startCaptureSession()
-                
+
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 9.5) { [self] in
+//                ObjectDetectionViewController.detectionOverlay.isHidden = false
+
+               }
+        
+        
         }
 
     }
-
+    
     func moveOut(customerNode : CustomerNode, customerSatisfaction : String, completion: @escaping ()->()){
         switch customerSatisfaction {
         case "happy":
@@ -187,8 +200,12 @@ class CustomerNode {
         customerNode.walkingCustomer()
         })
         let moveActionWithDone = SKAction.sequence([  WalkingAction, moveAction] )
+
     customerNode.customer.run(moveActionWithDone)
-        
+
+
+
+
     }
 
     }

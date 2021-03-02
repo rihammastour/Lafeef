@@ -30,6 +30,18 @@ enum Base : String,Codable {
         }
     }
     
+    func getAnswerBaseSize() -> CGSize {
+        
+        switch self {
+        case .cake , .quarterCake , .halfCake,.threequarterCake:
+            return CGSize(width: 200, height: 200)
+            
+        case .chocolateCupcake , .vanilaCupcake:
+            return CGSize(width: 150, height: 150)
+        }
+    }
+    
+    
     func getPrice() -> Float {
         
         switch self {

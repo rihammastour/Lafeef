@@ -24,15 +24,16 @@ import GameplayKit
 
 class ObjectDetectionViewController: ChallengeViewController{
     
-       var detectionOverlay: CALayer! = nil
+      static var detectionOverlay = CALayer()
       
       // Vision parts
       private var requests = [VNRequest]()
-    var answerArray = [VNRecognizedObjectObservation]()
-    var answerLabels = [String]()
-    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
 
+    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
+    static var shapeLayer = CALayer()
  
+
+    
     @discardableResult
       func setupVision() -> NSError? {
           // Setup Vision parts
@@ -64,9 +65,8 @@ class ObjectDetectionViewController: ChallengeViewController{
       func drawVisionRequestResults(_ results: [Any]) {
           CATransaction.begin()
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-//
 
-          detectionOverlay.sublayers = nil // remove all the old recognized objects
+        ObjectDetectionViewController.detectionOverlay.sublayers = nil // remove all the old recognized objects
           for observation in results where observation is VNRecognizedObjectObservation {
               guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                   continue
@@ -83,8 +83,6 @@ class ObjectDetectionViewController: ChallengeViewController{
 //            }
          
 
-
-  //
   //            let textLayer = self.createTextSubLayerInBounds(objectBounds,
   //                                                            identifier: topLabelObservation.identifier,
   //                                                            confidence: topLabelObservation.confidence)
@@ -100,10 +98,11 @@ class ObjectDetectionViewController: ChallengeViewController{
       }
     
     func answer(results: [VNRecognizedObjectObservation]){
+        answerLabels = []
 
         answerArray = results
         print(answerArray,"---------------------------------")
-        detectionOverlay.sublayers = nil
+        ObjectDetectionViewController.detectionOverlay.sublayers = nil
         for observation in answerArray {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                 continue
@@ -112,22 +111,21 @@ class ObjectDetectionViewController: ChallengeViewController{
             answerLabels.append(objectObservation.labels[0].identifier)
             
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-            let shapeLayer =
+            ObjectDetectionViewController.shapeLayer =
             self.createRoundedRectLayerWithBounds(objectBounds,objectObservation.labels[0].identifier)
-            detectionOverlay.addSublayer(shapeLayer)
-            // need to make it global variable and pass it to move to cahier function to hide it then if in location == 600 same as the detection trigger
-        // wee need to fix the postion inside the box
+            ObjectDetectionViewController.detectionOverlay.addSublayer(ObjectDetectionViewController.shapeLayer)
+        // need to make it global variable and pass it to move to cahier function to hide it then if in location == 600 same as the detection trigger
+        // we need to fix the postion inside the box
              // I think its 480 x and -320 y 
 
         }
         print("AnswerLabels insideloop", answerLabels)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
-                    self.stopSession()
-        
-                }
-        
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+//                    self.stopSession()
+//                }
+
+
         answerArray = []
-        answerLabels = []
 
         
     }
@@ -158,17 +156,20 @@ class ObjectDetectionViewController: ChallengeViewController{
           
           // start the capture
           startCaptureSession()
+        
+        objectDetected = self
+
       }
       
       func setupLayers() {
-          detectionOverlay = CALayer() // container layer that has all the renderings of the observations
-          detectionOverlay.name = "DetectionOverlay"
-          detectionOverlay.bounds = CGRect(x: 0.0,
+        ObjectDetectionViewController.detectionOverlay = CALayer() // container layer that has all the renderings of the observations
+        ObjectDetectionViewController.detectionOverlay.name = "DetectionOverlay"
+        ObjectDetectionViewController.detectionOverlay.bounds = CGRect(x: 0.0,
                                            y: 0.0,
                                            width: bufferSize.width,
                                            height: bufferSize.height)
-          detectionOverlay.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
-          rootLayer.addSublayer(detectionOverlay)
+        ObjectDetectionViewController.detectionOverlay.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
+        rootLayer.addSublayer(ObjectDetectionViewController.detectionOverlay)
       }
       
       func updateLayerGeometry() {
@@ -187,31 +188,15 @@ class ObjectDetectionViewController: ChallengeViewController{
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
 
           // rotate the layer into screen orientation and scale and mirror
-          detectionOverlay.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 1.0)).scaledBy(x: scale, y: -scale))
+        ObjectDetectionViewController.detectionOverlay.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 1.0)).scaledBy(x: scale, y: -scale))
           // center the layer
-          detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
+        ObjectDetectionViewController.detectionOverlay.position = CGPoint(x: bounds.midX, y: bounds.midY)
 
           CATransaction.commit()
           
       }
       
-  //    func createTextSubLayerInBounds(_ bounds: CGRect, identifier: String, confidence: VNConfidence) -> CATextLayer {
-  //        let textLayer = CATextLayer()
-  //        textLayer.name = "Object Label"
-  //        let formattedString = NSMutableAttributedString(string: String(format: "\(identifier)\nConfidence:  %.2f", confidence))
-  //        let largeFont = UIFont(name: "Helvetica", size: 24.0)!
-  //        formattedString.addAttributes([NSAttributedString.Key.font: largeFont], range: NSRange(location: 0, length: identifier.count))
-  //        textLayer.string = formattedString
-  //        textLayer.bounds = CGRect(x: 0, y: 0, width: bounds.size.height - 10, height: bounds.size.width - 10)
-  //        textLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-  //        textLayer.shadowOpacity = 0.7
-  //        textLayer.shadowOffset = CGSize(width: 2, height: 2)
-  //        textLayer.foregroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.0, 0.0, 0.0, 1.0])
-  //        textLayer.contentsScale = 2.0 // retina rendering
-  //        // rotate the layer into screen orientation and scale and mirror
-  //        textLayer.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat(.pi / 2.0)).scaledBy(x: 1.0, y: -1.0))
-  //        return textLayer
-  //    }
+
       
     func createRoundedRectLayerWithBounds(_ bounds: CGRect,_ classLabel :String) -> CALayer {
         
@@ -231,7 +216,62 @@ class ObjectDetectionViewController: ChallengeViewController{
         
         shapeLayer.position = position
         shapeLayer.name = "Found Object"
-        shapeLayer.contents = mappingLabelsToImage(classLabel:classLabel)
+        switch classLabel {
+        case "CompleteCake":
+            shapeLayer.contents = UIImage(named: "cake")!.cgImage
+            break
+        case "QuarterCake":
+            shapeLayer.contents = UIImage(named: "quarter-cake")!.cgImage
+            break
+        case "HalfCake":
+            shapeLayer.contents = UIImage(named: "half-cake")!.cgImage
+            break
+        case "3QuartersCake":
+            shapeLayer.contents = UIImage(named: "threequarter-cake")!.cgImage
+            
+            break
+        case "WhiteCupcake":
+            shapeLayer.contents = UIImage(named: "cupcake-van")!.cgImage
+            break
+        case "BrownCupcake":
+            shapeLayer.contents = UIImage(named: "cupcake-ch")!.cgImage
+            break
+        case "ChocolateBrown":
+            shapeLayer.contents = UIImage(named: "dark-chocolate")!.cgImage
+            break
+        case "ChocolateWhite":
+            shapeLayer.contents = UIImage(named: "white-chocolate")!.cgImage
+            break
+        case "Kiwi":
+            shapeLayer.contents = UIImage(named: "oval-kiwi")!.cgImage
+            break
+        case "Strawberry":
+            shapeLayer.contents = UIImage(named: "strawberry")!.cgImage
+            break
+        case "Pineapple":
+            shapeLayer.contents = UIImage(named: "pineapple")!.cgImage
+            break
+        case "OneRiyal":
+            shapeLayer.contents = UIImage(named: "1Flipped")!.cgImage
+            break
+        case "FiftyRiyal":
+            shapeLayer.contents = UIImage(named: "50Flipped")!.cgImage
+            break
+        case "TenRiyal":
+            shapeLayer.contents = UIImage(named: "10Flipped")!.cgImage
+            break
+        case "RiyalHalf":
+            shapeLayer.contents = UIImage(named: "0.5Flipped")!.cgImage
+            break
+        case "RiyalQuarter":
+            shapeLayer.contents = UIImage(named: "0.25Flipped")!.cgImage
+            break
+        case "FiveRiyal":
+            shapeLayer.contents = UIImage(named: "5Flipped")!.cgImage
+            break
+        default:
+            break
+        }
         
         layer = shapeLayer
         return shapeLayer
@@ -240,153 +280,79 @@ class ObjectDetectionViewController: ChallengeViewController{
  
 
    
-    func mappingLabelsToImage(classLabel : String)-> CGImage{
-    
-        var answer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
-        var image = UIImage(named: "placeholder")!.cgImage
-        switch classLabel {
-        case "CompleteCake":
-        image = UIImage(named: "cake")!.cgImage
-            break
-        case "QuarterCake":
-        image = UIImage(named: "quarter-cake")!.cgImage
-            break
-        case "HalfCake":
-        image = UIImage(named: "half-cake")!.cgImage
-            break
-        case "3QuartersCake":
-        image = UIImage(named: "threequarter-cake")!.cgImage
-            
-            break
-        case "WhiteCupcake":
-        image = UIImage(named: "cupcake-van")!.cgImage
-            break
-        case "BrownCupcake":
-        image = UIImage(named: "cupcake-ch")!.cgImage
-            break
-        case "ChocolateBrown":
-            image = UIImage(named: "dark-chocolate")!.cgImage
-            break
-        case "ChocolateWhite":
-            image = UIImage(named: "white-chocolate")!.cgImage
-            break
-        case "Kiwi":
-            image = UIImage(named: "oval-kiwi")!.cgImage
-            break
-        case "Strawberry":
-            image = UIImage(named: "strawberry")!.cgImage
-            break
-        case "Pineapple":
-            image = UIImage(named: "pineapple")!.cgImage
-            break
-        case "OneRiyal":
-            image = UIImage(named: "1")!.cgImage
-            break
-        case "FiftyRiyal":
-            image = UIImage(named: "50")!.cgImage
-            break
-        case "TenRiyal":
-            image = UIImage(named: "10")!.cgImage
-            break
-        case "RiyalHalf":
-            image = UIImage(named: "0.5")!.cgImage
-            break
-        case "RiyalQuarter":
-            image = UIImage(named: "0.25")!.cgImage
-            break
-        case "FiveRiyal":
-            image = UIImage(named: "5")!.cgImage
-            break
-        default:
-          print("default")
-            break
-        }
-
-//        print(answer,"Switch statement2")
-
-        return image!
-        
-    }
+   
 
     override func stopSession() {
         if session.isRunning {
             DispatchQueue.global().async {
                 self.session.stopRunning()
             }
-            setAnswer(answerLabels: answerLabels)
-
-            if isOrder {
-                calculateOrderScore(for: providedAnswer)
-              
-                // we need th check the value of the score
-                //if it is 1 or 0 call sad
-                // if it is 2 still normal walking frame **
-                // if it is 3 call happy
-                
-            } else {
-                calculatePaymentScore(with: providedAnswer.change)
-                // as the same
-            }
-          
+           
             print("calccc")
 
         }
         
     }
+  
     
-    func setAnswer(answerLabels: [String]){
-        for label in answerLabels{
+    func setAnswer(){
+
+        // self.view.frame.size.width -> 834
+        // 6 -> 139
+        
+        for label in answerLabels {
             switch label {
             case "CompleteCake":
                 providedAnswer.base = Base.cake
                 break
             case "QuarterCake":
-                self.providedAnswer.base = Base(rawValue: "quarter-cake")!
+                providedAnswer.base = Base.quarterCake
+                print(providedAnswer.base, "setAnswer")
                 break
             case "HalfCake":
-                providedAnswer.base = Base(rawValue: "half-cake")
+                providedAnswer.base = Base.halfCake
                 break
             case "3QuartersCake":
-                providedAnswer.base = Base(rawValue: "threequarter-cake")
+                providedAnswer.base = Base.threequarterCake
                 break
             case "WhiteCupcake":
-                providedAnswer.base = Base(rawValue: "cupcake-van")
+                providedAnswer.base = Base.vanilaCupcake
                 break
             case "BrownCupcake":
-                providedAnswer.base = Base(rawValue: "cupcake-ch")
+                providedAnswer.base = Base.chocolateCupcake
                 break
             case "ChocolateBrown":
-                providedAnswer.toppings?.append(Topping(rawValue: "dark-chocolate")!)
+                providedAnswer.toppings?.append(Topping.darkChocolate)
                 break
             case "ChocolateWhite":
-                providedAnswer.toppings?.append(Topping(rawValue: "white-chocolate")!)
+                providedAnswer.toppings?.append(Topping.whiteChocolate)
                 break
             case "Kiwi":
-                providedAnswer.toppings?.append(Topping(rawValue:  "oval-kiwi")!)
+                providedAnswer.toppings?.append(Topping.kiwi)
                 break
             case "Strawberry":
-                providedAnswer.toppings?.append(Topping(rawValue:  "strawberry")!)
+                providedAnswer.toppings?.append(Topping.strawberry)
                 break
             case "Pineapple":
                 providedAnswer.toppings?.append(Topping.pineapple)
                 break
             case "OneRiyal":
-                providedAnswer.change += Money.riyal.rawValue
+                providedAnswer.change += 1
                 break
             case "FiftyRiyal":
-                providedAnswer.change += Money.fiftyRiyal.rawValue
+                providedAnswer.change += 50
                 break
             case "TenRiyal":
-                providedAnswer.change += Money.tenRiyal.rawValue
+                providedAnswer.change += 10
                 break
             case "RiyalHalf":
-                providedAnswer.change += Money.riyalHalf.rawValue
+                providedAnswer.change += 0.5
                 break
             case "RiyalQuarter":
-                providedAnswer.change += Money.riyalQuarter.rawValue
+                providedAnswer.change += 0.25
                 break
             case "FiveRiyal":
-                providedAnswer.change += Money.fiveRiyal.rawValue
+                providedAnswer.change += 5
                 break
             default:
               print("default")

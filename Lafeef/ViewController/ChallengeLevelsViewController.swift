@@ -79,9 +79,8 @@ class ChallengeLevelsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Segue.challengeSegue {
-            let vc = segue.destination as! ChallengeViewController
                         print("Segue proformed")
-            vc.levelNum = "1"
+            ChallengeViewController.levelNum = "1"
             GameScene.circleDecrement=true
 
             

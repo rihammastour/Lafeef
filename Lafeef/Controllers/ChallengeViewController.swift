@@ -19,8 +19,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
-    var levelNum:String? = "1"
-    var currentOrder = 3
+    static var levelNum:String? = "3"
+    static var currentOrder = 1
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
@@ -49,8 +49,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
        
      let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
-    
-    
+    var objectDetected: ObjectDetectionViewController?
+    var answerArray = [VNRecognizedObjectObservation]()
+    var answerLabels = [String]()
        
         //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
 
@@ -62,7 +63,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAVCapture()
-       
+
         
         // Additional setup after loading the view.
         print("view did load challengeرغد شوفي هنا ")
@@ -76,7 +77,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
       }
     
     func presentAdvReport(){
-        if levelNum == "2" {
+        if ChallengeViewController.levelNum == "2" {
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
         }
     }
@@ -260,7 +261,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //fethChallengeLevel
     func fetchChallengeLevel(){
 
-        guard let levelNum = levelNum else {
+        guard let levelNum = ChallengeViewController.levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
@@ -274,10 +275,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-        showOrder(at: currentOrder) // must be Moved to be called by character
-        showCustomerPaid(at: currentOrder)
-        showBill(at: currentOrder)
-        print(calculatePaymentScore(with: 0)) //must be Moved to be called after user provid the answer
+        showOrder(at: ChallengeViewController.currentOrder) // must be Moved to be called by character
+        showCustomerPaid(at: ChallengeViewController.currentOrder)
+        showBill(at: ChallengeViewController.currentOrder)
     }
 
     //showOrder
@@ -309,14 +309,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func pickingUpOrder(){
-        self.challengeScen?.pickUpOrder(layer:layer)
+        self.challengeScen?.pickUpOrder(layer:ObjectDetectionViewController.shapeLayer)
     }
     
     //nextOrder
     func nextOrder(){
-        if currentOrder <= 3{
-            currentOrder = currentOrder + 1
-            showOrder(at: currentOrder)
+        if ChallengeViewController.currentOrder <= 3{
+            ChallengeViewController.currentOrder = ChallengeViewController.currentOrder + 1
+            showOrder(at: ChallengeViewController.currentOrder)
         }else{
             //TODO:End Level
         }
@@ -402,7 +402,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func calculateTotalBillWithTax()->Float{
         
         //get Order
-        let currentOrder = orders?[self.currentOrder]
+        let currentOrder = orders?[ChallengeViewController.currentOrder]
         let currentToppings = currentOrder?.toppings
         
         guard currentOrder != nil else {
@@ -480,7 +480,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
     func getCurrentOrder() ->  Order? {
-         return (self.orders?[self.currentOrder])
+        return (self.orders?[ChallengeViewController.currentOrder])
      }
   
     //MARK: - Delegate handeler
