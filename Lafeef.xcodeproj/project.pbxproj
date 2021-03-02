@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
 		411091CE25E4986F0035FACF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411091CD25E4986F0035FACF /* Answer.swift */; };
+		41133D3B25EE1F2F00D3B568 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41133D3A25EE1F2F00D3B568 /* Color.xcassets */; };
 		4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */; };
 		4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122DA3A25DB926F00DABB29 /* CustomerNode.swift */; };
 		4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129EDEF25E1978B0028C86C /* CompletedLevel.swift */; };
@@ -78,7 +79,6 @@
 		4EDFA45125EAF46300924569 /* NWWatermelon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43925EAF46300924569 /* NWWatermelon.atlas */; };
 		4EDFA45225EAF46300924569 /* HappyPineapple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43A25EAF46300924569 /* HappyPineapple.atlas */; };
 		4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA43B25EAF46300924569 /* HappyStrawberry.atlas */; };
-		4EDFA46425EC596300924569 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA46325EC596300924569 /* Color.xcassets */; };
 		4EDFA46F25EC597F00924569 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA46E25EC597F00924569 /* icecream.gif */; };
 		4EDFA47425EC59A000924569 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA47325EC59A000924569 /* trophy.json */; };
 		4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */; };
@@ -146,6 +146,7 @@
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
 		411091CD25E4986F0035FACF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		41133D3A25EE1F2F00D3B568 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = ../../../../../Downloads/Color.xcassets; sourceTree = "<group>"; };
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
 		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
@@ -220,7 +221,6 @@
 		4EDFA43925EAF46300924569 /* NWWatermelon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = NWWatermelon.atlas; sourceTree = "<group>"; };
 		4EDFA43A25EAF46300924569 /* HappyPineapple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HappyPineapple.atlas; sourceTree = "<group>"; };
 		4EDFA43B25EAF46300924569 /* HappyStrawberry.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HappyStrawberry.atlas; sourceTree = "<group>"; };
-		4EDFA46325EC596300924569 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Color.xcassets; path = ../../../Downloads/Color.xcassets; sourceTree = "<group>"; };
 		4EDFA46E25EC597F00924569 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icecream.gif; sourceTree = "<group>"; };
 		4EDFA47325EC59A000924569 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
 		4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LafeefModelDifferentSurfaces.mlmodel; sourceTree = "<group>"; };
@@ -384,8 +384,8 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
+				41133D3A25EE1F2F00D3B568 /* Color.xcassets */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
-				4EDFA46325EC596300924569 /* Color.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
 				4EEDE0FA25BCF42600CA7B9A /* Model */,
 				4EDCA1F625C6249F00C29464 /* View */,
@@ -665,7 +665,7 @@
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
-				4EDFA46425EC596300924569 /* Color.xcassets in Resources */,
+				41133D3B25EE1F2F00D3B568 /* Color.xcassets in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
