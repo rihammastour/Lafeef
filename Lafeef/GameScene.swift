@@ -389,16 +389,11 @@ class GameScene: SKScene {
     
     // Trigger functions
     func OrderbuttonTapped(){
-        print("Order button tapped!")
        
-        print("order tapped",  (self.view?.window?.rootViewController as! ChallengeViewController).answerLabels)
         viewController?.objectDetected?.setAnswer()
-        print("order tapped2", viewController?.objectDetected?.providedAnswer)
 //        let vcChallenge = (self.view?.window?.rootViewController as! ChallengeViewController)
         viewController?.calculateOrderScore(for: (viewController?.objectDetected?.providedAnswer)!)
-        
-          print( "order tapped3", viewController?.orderScore)
-        
+                
         if viewController?.orderScore == 0 {
             setCustomerSatisfaction(satisfaction: "sad")
             
@@ -464,6 +459,7 @@ class GameScene: SKScene {
     }
     
     func setCustomerSatisfaction(satisfaction: String){
+        
         
             // orange.happyCustomer()
             flag = true
