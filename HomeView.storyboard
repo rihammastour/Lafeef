@@ -70,7 +70,7 @@
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qdb-mr-i63" kind="show" id="h9A-dO-FpX"/>
+                                                    <segue destination="qdb-mr-i63" kind="presentation" modalPresentationStyle="fullScreen" id="h9A-dO-FpX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -402,16 +402,16 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="3Ro-Mf-k2f" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="750" width="390" height="48"/>
+                                <rect key="frame" x="179" y="751" width="390" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2Y-KW-eNJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللفل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-jj-KSA" userLabel="اليوم السابع">
-                                        <rect key="frame" x="250" y="0.0" width="140" height="48"/>
+                                        <rect key="frame" x="250" y="0.0" width="140" height="47"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -563,10 +563,10 @@
             </objects>
             <point key="canvasLocation" x="4129.6875" y="304.6875"/>
         </scene>
-        <!--ChallengeLevelsVC-->
+        <!--challengeLevelsCalenderVC-->
         <scene sceneID="UI3-4d-nxn">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ChallengeVC" storyboardName="Challenge" referencedIdentifier="ChallengeLevelsVC" id="qdb-mr-i63" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="challengeLevelsCalenderVC" storyboardName="Challenge" referencedIdentifier="challengeLevelsCalenderVC" id="qdb-mr-i63" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lMD-8k-4eI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRw-pS-Xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -585,7 +585,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fBs-5G-GmW"/>
+        <segue reference="8sL-cd-Nm3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="EditButton" width="82" height="80"/>

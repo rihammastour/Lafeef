@@ -23,7 +23,7 @@ class GameScene: SKScene {
     var button: SKNode! = nil
     var cashierbutton: SKNode! = nil
     let cam = SKCameraNode()
-    var flag = false
+     static var flag = false
 
     var viewController: ChallengeViewController?
 
@@ -77,6 +77,8 @@ class GameScene: SKScene {
     static var TimerShouldDelay = false
     static var countStop = 0
 
+    
+    var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
 
 
@@ -194,10 +196,10 @@ class GameScene: SKScene {
     func setUpMoneyContiner(){
         ///Set Position
         self.moneyCountiner = self.childNode(withName: "moneyContainer") as? SKSpriteNode
-        moneyCountiner.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
+        moneyCountiner?.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
         
         ///Calculate the distance between progress bar and money continer to use latter
-        diffrenceDistancePBMC = moneyCountiner.position.x - cam.position.x
+        diffrenceDistancePBMC = moneyCountiner?.position.x ?? 0 - cam.position.x
         
         //Set Content of Money Continer
         ///Money Icon
@@ -205,7 +207,7 @@ class GameScene: SKScene {
         moneyIcon?.size = CGSize(width: 50, height: 50)
         moneyIcon?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         moneyIcon?.position = CGPoint(x: 40, y: 5)
-        self.moneyCountiner.addChild(moneyIcon!)
+        self.moneyCountiner?.addChild(moneyIcon!)
         
         ///Label
         moneyLabel = SKLabelNode()
@@ -214,7 +216,7 @@ class GameScene: SKScene {
         moneyLabel.fontName = "FF Hekaya"
         moneyLabel.fontColor = SKColor(named: "BlackApp")
         moneyLabel.text = "0.0"
-        self.moneyCountiner.addChild(moneyLabel!)
+        self.moneyCountiner?.addChild(moneyLabel!)
         
 
     }
@@ -644,8 +646,10 @@ class GameScene: SKScene {
              print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
-                
-                if (flag==false) {
+                print("flag value")
+                print(GameScene.flag)
+                if (GameScene.flag==false) {
+                    print("داخل الاف الكبيره")
                     customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
                     self.orderContiner?.isHidden = true
                     GameScene.circle!.isHidden = true
@@ -656,7 +660,9 @@ class GameScene: SKScene {
                         self.cam.position = CGPoint(x: 0, y: 0)
                         self.progressBarContiner.position.x = cam.position.x
                         currentCustomer += 1
+                        GameScene.timeLeft = 30
                         if (currentCustomer<=3){
+                            print("داخل الاف الصغيره")
                             buildCustomer(customerNode: customers[currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
@@ -666,7 +672,11 @@ class GameScene: SKScene {
                         }
 
                         else {
-                            print("THE LEVEL IS END")
+                            GameScene.timeLeft = 0
+                            GameScene.timer.invalidate()
+                            
+                            print("THE LEVEL IS END ")
+
                         }
 
                     }
@@ -681,6 +691,10 @@ class GameScene: SKScene {
 
     }
 
+    
+    
+    
+    
     // Creates a CGPath in the shape of a pie with slices missing
     func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
         let start:CGFloat = 0
@@ -795,24 +809,26 @@ class GameScene: SKScene {
             // Check if the location of the touch is within the button's bounds
             if button.contains(location) {
                 // orange.happyCustomer()
-                flag = true
-                
+                GameScene.flag = true
+                print("داخل البوتن الازرق")
                 customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
                 //make order and timer invisible
                 self.orderContiner?.isHidden = true
                 GameScene.circle!.isHidden = true
                 GameScene.circle?.alpha=0
+                GameScene.timer.invalidate()
                 GameScene.timeLeft = 0
                 GameScene.countStop=0
-                GameScene.timer.invalidate()
+               
 
 
             }
 
             if cashierbutton.contains(location) {
-                flag = false
+         
+                GameScene.flag = false
 
-                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "normal") { [self] in
+                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                         let startPoint = CGPoint(x: 0, y: 0)
                         let moveing = SKAction.move(to: startPoint, duration: 2)
@@ -823,7 +839,7 @@ class GameScene: SKScene {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
                         self.moneyCountiner.position.x = self.frame.maxX-100
                         currentCustomer += 1
-                        if (currentCustomer<=3){
+                        if (currentCustomer<=0){
                             buildCustomer(customerNode: customers[currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
@@ -834,6 +850,25 @@ class GameScene: SKScene {
 
                         else {
                             print("THE LEVEL IS END")
+//                            self.viewController2?.performSegue(withIdentifier: "DailyReportVC", sender: viewController2)
+                            
+                            
+//                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC")
+//                            self.view!.window?.viewController2?.present(vc, animated: true, completion: nil)
+                            
+                            
+//                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                            let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.loginViewController) as! LoginViewController
+                          
+//                            self.performSegueWithIdentifier( Constants.Segue.showAdvReport, sender: self)
+                            
+                            
+                            
+                            ChallengeViewController.viewReport=true
+                            
+                            viewController?.DispalyReport()
+                            
                         }
                         
                     }
@@ -873,7 +908,7 @@ class GameScene: SKScene {
     //override update
     override func update(_ currentTime: TimeInterval) {
 
-        if (flag){
+        if (GameScene.flag){
          
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x

@@ -74,11 +74,12 @@ class PauseGameViewController: UIViewController{
 
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "exitGame" {
-                let vc = segue.destination as! ChallengeLevelsViewController
+                let vc = segue.destination as! ChalleangeLevelCalendarViewController
                             print("Segue proformed")
                         GameScene.timer.invalidate()
                         GameScene.timeLeft = 30//when exit and enter the game again the
                         ChallengeViewController.stopImageBool=true
+                GameScene.circleDecrement=true
             }
         }
 

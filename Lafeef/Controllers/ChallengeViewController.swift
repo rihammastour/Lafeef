@@ -49,7 +49,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
        
     private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
-    
+    static var viewReport=false
     
        
         //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
@@ -64,7 +64,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
        
         
         // Additional setup after loading the view.
-        print("view did load challengeرغد شوفي هنا ")
+    
         setScene()
         fetchChallengeLevel()
 //
@@ -72,7 +72,18 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //            self.presentAdvReport()
 //        }
         
+ 
+        
       }
+    
+    
+    
+
+    func DispalyReport(){
+        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+    }
+    
+  
     
     func presentAdvReport(){
         if levelNum == "2" {

@@ -21,7 +21,7 @@ class DailyReportViewController: UIViewController {
     var collectedMoney = 0
     var isPassed = false
     var isRewarded = false
-
+   
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
     @IBOutlet weak var sales: UILabel!
@@ -36,7 +36,7 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         calcultateIncome()
         styleUI()
         hideAdv()
@@ -89,12 +89,14 @@ class DailyReportViewController: UIViewController {
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
 //        passReportData()
-        if isRewarded {
+        if true {
             self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
         } else if !isPassed {
             self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
         } else {
             // move to seconed level
+            self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
+
         }
         
     }

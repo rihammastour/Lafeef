@@ -72,6 +72,12 @@ class ChalleangeLevelCalendarViewController:UIViewController
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.setLevelsData()
         }
+        
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "calendarBackground")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
       func hideStars(){
             levelOneStar.isHidden = true
