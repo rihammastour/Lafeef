@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qAL-mm-ExN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HzJ-NT-MwY">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -76,7 +76,7 @@
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qAL-mm-ExN" kind="showDetail" identifier="exitGame" id="Zw9-hZ-y57"/>
+                                                    <segue destination="HzJ-NT-MwY" kind="presentation" identifier="exitGame" modalPresentationStyle="fullScreen" id="T55-4v-3qf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -839,6 +839,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="cancel:" destination="jHR-8f-pGp" eventType="touchUpInside" id="4wi-wv-3a0"/>
+                                                            <segue destination="HzJ-NT-MwY" kind="presentation" modalPresentationStyle="fullScreen" id="FCh-NQ-rQZ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-um-KQi">
@@ -854,6 +855,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="nextDay:" destination="jHR-8f-pGp" eventType="touchUpInside" id="zBt-xf-mRB"/>
+                                                            <segue destination="ZnZ-4P-R8K" kind="presentation" modalPresentationStyle="fullScreen" id="Ooz-XX-Wl6"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1084,6 +1086,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cancel:" destination="dak-4J-Ha6" eventType="touchUpInside" id="7A0-Ud-CkV"/>
+                                                    <segue destination="HzJ-NT-MwY" kind="presentation" modalPresentationStyle="fullScreen" id="U8D-cS-AGG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-y2-016">
@@ -1099,6 +1102,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="playAgain:" destination="dak-4J-Ha6" eventType="touchUpInside" id="eHN-3d-n4L"/>
+                                                    <segue destination="ZnZ-4P-R8K" kind="presentation" modalPresentationStyle="fullScreen" id="C7k-nc-mRf"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1138,7 +1142,7 @@
         <!--Challeange Level Calendar View Controller-->
         <scene sceneID="PH4-UT-obb">
             <objects>
-                <viewController storyboardIdentifier="challengeLevelsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HzJ-NT-MwY" customClass="ChalleangeLevelCalendarViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="challengeLevelsCalenderVC" storyboardIdentifier="challengeLevelsCalenderVC" id="HzJ-NT-MwY" customClass="ChalleangeLevelCalendarViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i62-DJ-A35">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1295,6 +1299,7 @@
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="levelOne:" destination="HzJ-NT-MwY" eventType="touchUpInside" id="fTK-di-KfK"/>
+                                                                            <segue destination="ZnZ-4P-R8K" kind="presentation" modalPresentationStyle="fullScreen" id="YGU-KB-bZq"/>
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-ZR-x8y">
@@ -1443,10 +1448,18 @@
                                     </constraint>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSb-bo-jN0">
+                                <rect key="frame" x="26" y="33" width="22" height="38"/>
+                                <state key="normal" image="arrow-back"/>
+                                <connections>
+                                    <segue destination="pXs-pi-cFz" kind="presentation" modalPresentationStyle="fullScreen" id="PaR-CF-qOK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="boo-pD-sZN"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GSb-bo-jN0" firstAttribute="leading" secondItem="boo-pD-sZN" secondAttribute="leading" constant="26" id="4Q9-Db-Lig"/>
                             <constraint firstItem="eyY-jE-1iu" firstAttribute="leading" secondItem="boo-pD-sZN" secondAttribute="leading" constant="81" id="AYh-QK-Ey1" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
@@ -1464,6 +1477,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="GSb-bo-jN0" firstAttribute="top" secondItem="boo-pD-sZN" secondAttribute="top" constant="33" id="M6U-kg-5V7"/>
                             <constraint firstItem="eyY-jE-1iu" firstAttribute="centerY" secondItem="boo-pD-sZN" secondAttribute="centerY" id="QTb-na-Kuf"/>
                         </constraints>
                     </view>
@@ -1495,7 +1509,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFd-z3-ATZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5988" y="598"/>
+            <point key="canvasLocation" x="5987.5" y="597.65625"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="Xd7-TN-TkE">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="HomeView" referencedIdentifier="HomeVC" id="pXs-pi-cFz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="uS2-0D-DSC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kpq-WC-hIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5584" y="331"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1503,6 +1527,7 @@
         <segue reference="gyW-qv-p23"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow-back" width="22" height="38.480998992919922"/>
         <image name="calendar-level" width="624" height="687.60198974609375"/>
         <image name="gifts" width="137.41499328613281" height="113.32900238037109"/>
         <image name="icecream.gif" width="1890" height="1417"/>

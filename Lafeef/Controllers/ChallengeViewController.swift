@@ -52,6 +52,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var objectDetected: ObjectDetectionViewController?
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
+    
        
         //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
 
@@ -66,7 +67,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
         
         // Additional setup after loading the view.
-        print("view did load challengeرغد شوفي هنا ")
+    
         setScene()
         fetchChallengeLevel()
 //
@@ -74,7 +75,18 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //            self.presentAdvReport()
 //        }
         
+ 
+        
       }
+    
+    
+    
+
+    func DispalyReport(){
+        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+    }
+    
+  
     
     func presentAdvReport(){
         if ChallengeViewController.levelNum == "2" {
@@ -253,6 +265,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
+        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
         
     }
 

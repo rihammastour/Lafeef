@@ -27,22 +27,31 @@ class GameScene: SKScene {
     var PaymentButton: SKNode! = nil
     var cashierbutton: SKNode! = nil
     let cam = SKCameraNode()
-    var flag = false
+     static var flag = false
 
     var viewController: ChallengeViewController?
 
     //MARK:  Charachters  Variables
     var customers : [CustomerNode]=[]
-    var currentCustomer = 0
+    static var currentCustomer = 0
 
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    //Bakery Background
     private var bakeryBackgroundNode : SKNode?
     private var tableNode : SKSpriteNode?
+    private var wallNode : SKSpriteNode?
+    
+    //Progress Bar
     private var progressBarContiner : SKSpriteNode!
     private var progressBar : SKSpriteNode!
  
+    
+    //Money Continer
+    private var moneyCountiner : SKSpriteNode!
+    var diffrenceDistancePBMC : CGFloat!
+    var moneyLabel : SKLabelNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -71,6 +80,8 @@ class GameScene: SKScene {
     static var TimerShouldDelay = false
     static var countStop = 0
 
+    
+    var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
 
 
@@ -82,9 +93,13 @@ class GameScene: SKScene {
     }
     override func didMove(to view: SKView) {
         backgroundColor = .white
+        self.camera = cam
+        addChild(cam)
+        setCameraConstraints()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 
-        buildCustomer(customerNode: customers[currentCustomer])
-
+            self.buildCustomer(customerNode: self.customers[GameScene.currentCustomer])
+        }
         //to trash
        // button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
       //  button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
@@ -97,27 +112,130 @@ class GameScene: SKScene {
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         
+
+    }//end did move
+    
+    //MARK:  Functions
+
+   
+    //MARK: - Set up Scene Eslements Functions
+
+    //setupSceneElements
+    func setupSceneElements(){
+
+        //Set background Bakery
+        self.setBackgroundBakary()
+        
+        // Get table node from scene and store it for use later
+        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
+        tableNode?.zPosition = 2
+
         // Get Prograss bar Continer node from scene and store it for use later
         self.progressBarContiner = self.childNode(withName: "progressbarContainer") as? SKSpriteNode
-        
         if let progressBar = self.progressBarContiner {
-            progressBar.position = CGPoint(x: cam.position.x, y: self.frame.maxY-30)
+            progressBar.position = CGPoint(x: cam.position.x, y: (self.wallNode?.size.height)!-264)
             createPrograssBar()
         }
         
-       
+        // Get Money bar Continer node from scene and store it for use later
+        setUpMoneyContiner()
+        
+        OrderButton  = SKSpriteNode(imageNamed: "served")
+        OrderButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY-20)
+        OrderButton.zPosition = 3
+        self.addChild(OrderButton)
+        
+        PaymentButton  = SKSpriteNode(imageNamed: "paid")
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y: self.frame.minY-20)
+        PaymentButton.zPosition = 3
+        self.addChild(PaymentButton)
+        // Get Camera node from scene and store it for use later
+        self.camera = cam
 
-    }//end did move
+        // Get Order Continer node from scene and store it for use later
+        self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
+        self.orderContiner?.isHidden = true
 
-    func startCaptureAtPaying(){
-        if customers[currentCustomer].customer.position.x == 650{
+        // Create shape node to use during mouse interaction ????
+        let w = (self.size.width + self.size.height) * 0.05
+        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+
+        if let spinnyNode = self.spinnyNode {
+            spinnyNode.lineWidth = 2.5
+
+            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
+            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+                                              SKAction.fadeOut(withDuration: 0.5),
+                                              SKAction.removeFromParent()]))
         }
-        print("startCaptureAtPaying")
-   
+        
+        // Get Payment Continer node from scene and store it for use later
+        self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
+        //................................. Don't forget to hide it when it totally done!
+        self.paymentContainer?.isHidden = false
+        
+        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
+        self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
+        self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
+        
+        self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
+        self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
 
     }
-    //MARK: - Functions
 
+
+    //setBackgroundBakary
+    func setBackgroundBakary(){
+        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
+        // Get table node from scene and store it for use later
+        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
+        tableNode?.zPosition = 2
+        
+        // Get wall node from scene and store it for use later
+        self.wallNode = bakeryBackgroundNode?.childNode(withName: "wallNode") as? SKSpriteNode
+
+    }
+    
+    //MARK: - Money Continer Functions
+    func setUpMoneyContiner(){
+        ///Set Position
+        self.moneyCountiner = self.childNode(withName: "moneyContainer") as? SKSpriteNode
+        moneyCountiner?.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
+        
+        ///Calculate the distance between progress bar and money continer to use latter
+        diffrenceDistancePBMC = moneyCountiner?.position.x ?? 0 - cam.position.x
+        
+        //Set Content of Money Continer
+        ///Money Icon
+        let moneyIcon = SKSpriteNode(imageNamed:"money") as SKSpriteNode?
+        moneyIcon?.size = CGSize(width: 50, height: 50)
+        moneyIcon?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        moneyIcon?.position = CGPoint(x: 40, y: 5)
+        self.moneyCountiner?.addChild(moneyIcon!)
+        
+        ///Label
+        moneyLabel = SKLabelNode()
+        moneyLabel.position = CGPoint(x: -13, y: -8)
+        moneyLabel.fontSize = 34
+        moneyLabel.fontName = "FF Hekaya"
+        moneyLabel.fontColor = SKColor(named: "BlackApp")
+        moneyLabel.text = "0.0"
+        self.moneyCountiner?.addChild(moneyLabel!)
+        
+
+    }
+    
+    //updateMoneyLabel
+    func updateMoneyLabel(_ earnedMoney:Float){
+        
+        var money = Float(moneyLabel.text!)!
+        money += earnedMoney
+        moneyLabel.text = String(money)
+        
+    }
+    
+    
+    //MARK: - Timer Functions
     func generateTimer(){
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
@@ -217,8 +335,8 @@ class GameScene: SKScene {
     //MARK: -  Charachters Functions
     func setUpCatcter(){
         while customers.count <= 3  {
-            let randomInt = Int.random(in: 1..<6)
-            var choosenCustomer = Customers(rawValue: 6)?.createCustomerNode()
+            let randomInt = Int.random(in: 1..<7)
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
 
         }
@@ -232,7 +350,7 @@ class GameScene: SKScene {
         
 
         //move to take cake
-        let moveAction = SKAction.moveBy(x: (view?.frame.midX)!+130 , y: (view?.frame.midY)!-510 , duration: 3)
+        let moveAction = SKAction.moveBy(x: 520 , y: 0 , duration: 3)
         //
         //               let StopAction = SKAction.run({ [weak self] in
         //                customerNode.stopCustomer()
@@ -261,84 +379,7 @@ class GameScene: SKScene {
 
 
 
-    //MARK: - Set up Scene Eslements Functions
 
-    //setupSceneElements
-    func setupSceneElements(){
-
-        //Set background Bakery
-        self.setBackgroundBakary()
-        
-        // Get table node from scene and store it for use later
-        self.tableNode = bakeryBackgroundNode?.childNode(withName: "tableNode") as? SKSpriteNode
-        tableNode?.zPosition = 2
-        
-        OrderButton  = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY-20)
-        OrderButton.zPosition = 3
-        self.addChild(OrderButton)
-        
-        PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y: self.frame.minY-20)
-        PaymentButton.zPosition = 3
-        self.addChild(PaymentButton)
-        // Get Camera node from scene and store it for use later
-        self.camera = cam
-
-        // Get Order Continer node from scene and store it for use later
-        self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
-        self.orderContiner?.isHidden = true
-
-        // Create shape node to use during mouse interaction ????
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
-        
-        // Get Payment Continer node from scene and store it for use later
-        self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
-        //................................. Don't forget to hide it when it totally done!
-        self.paymentContainer?.isHidden = false
-        
-        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
-        self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
-        self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
-        
-        self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
-        self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
-        //Create prograss bar and hide it using SKCropNode Mask
-        let bar = PrograssBar()
-        bar.configure(at: CGPoint(x: 0, y: 0))
-        progressBarContiner?.addChild(bar)
-
-    }
-
-
-    //setBackgroundBakary
-    func setBackgroundBakary(){
-
-        //Get real device size
-        let deviceWidth = UIScreen.main.bounds.width
-        let deviceHeight = UIScreen.main.bounds.height
-
-        //Get the aspect ratio
-        let maxAspectRatio: CGFloat = (deviceWidth + 1370) / (deviceHeight + 790)
-
-        // Get Bakery background node scene and store it for use later
-        self.bakeryBackgroundNode = self.childNode(withName: "bakery")
-
-        if let bakery = self.bakeryBackgroundNode{
-            bakery.setScale(maxAspectRatio)
-        }
-    }
-    
     //MARK: - Progress bar methods
     
     //createPrograssBar
@@ -462,7 +503,7 @@ class GameScene: SKScene {
         
         
             // orange.happyCustomer()
-            flag = true
+            GameScene.flag = true
             customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
 
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
@@ -471,18 +512,14 @@ class GameScene: SKScene {
       
             //make order invisible
             self.orderContiner?.isHidden = true
-            GameScene.circle!.isHidden = true
+            GameScene.circle?.isHidden = true
             GameScene.circle?.alpha=0
-            GameScene.timeLeft = 0
-//                GameScene.circle = SKShapeNode(circleOfRadius: 0 )
-//                self.removeAction(forKey: "stopTimer")
-//                GameScene.circle!.removeFromParent()
-            GameScene.countStop=0
-//                GameScene.circle?.path = self.circle(radius: 0, percent: 0)
-//                GameScene.circle=nil
             GameScene.timer.invalidate()
-            // will go left
-            //move to take cake
+
+            GameScene.timeLeft = 0
+
+            GameScene.countStop=0
+
     }
     
    @objc func hideDetectionOverlay(){
@@ -497,30 +534,36 @@ print("hideDetectionOverlay")
      }
     
     func cashierButton(satisfaction: String){
-        flag = false
+        GameScene.flag = false
 
         customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
 
-                self.cam.position = CGPoint(x: 0, y: 0)
+               let startPoint = CGPoint(x: 0, y: 0)
+                        let moveing = SKAction.move(to: startPoint, duration: 2)
+                        cam.run(moveing)
                 self.progressBarContiner.position.x = cam.position.x
-                currentCustomer += 1
-                ChallengeViewController.currentOrder += 1
-                if (currentCustomer<=3){
-                    buildCustomer(customerNode: customers[currentCustomer])
-                    GameScene.timeLeft = 30
-                    GameScene.TimerShouldDelay = false
-                    viewController?.nextOrder()
-                    
+               DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
+                        self.moneyCountiner.position.x = self.frame.maxX-100
+                            GameScene.currentCustomer += 1
+                            if (GameScene.currentCustomer<=3){
+                                buildCustomer(customerNode: customers[GameScene.currentCustomer])
+                            GameScene.timeLeft = 30
+                            GameScene.TimerShouldDelay = false
+                            viewController?.nextOrder()
+                            
 
-                }
+                        }
 
-                else {
-                    var levelNum =  Int(ChallengeViewController.levelNum!)
-                    levelNum = levelNum! + 1
-                    ChallengeViewController.levelNum = String(levelNum!)
-                    print("THE LEVEL IS END")
-                }
+                        else {
+                            print("THE LEVEL IS END")
+                            GameScene.timeLeft = 0
+                            GameScene.timer.invalidate()
+                            viewController?.DispalyReport()
+                            
+                        }
+                        
+                    }
                 
                 print(ChallengeViewController.levelNum, "viewDidLoad")
                 print(ChallengeViewController.currentOrder, "viewDidLoad")
@@ -540,10 +583,6 @@ print("hideDetectionOverlay")
             print("no order continer")
             return
         }
-
-        orderContiner?.position = CGPoint(x: 150, y: 250)
-        //        //make order visible
-        //        self.orderContiner?.isHidden = false
 
         //Create base node
         self.base = createBaseNode(with: baseType)
@@ -700,6 +739,24 @@ print("hideDetectionOverlay")
         totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
+    private func setCameraConstraints() {
+         
+            let scaledSize = CGSize(width: size.width * cam.xScale, height: size.height * cam.yScale)
+          
+            guard let bekary = bakeryBackgroundNode else {
+                return
+            }
+            let boardContentRect = bekary.calculateAccumulatedFrame()
+            let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
+            let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
+            let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
+            let xRange = SKRange(lowerLimit: 0, upperLimit: insetContentRect.maxX)
+            let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+            let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+            levelEdgeConstraint.referenceNode = bekary
+           
+            cam.constraints = [levelEdgeConstraint]
+        }
     //MARK: -Pickup order functions
     func pickUpOrder(layer:CALayer){
         guard self.box != nil else {
@@ -758,6 +815,41 @@ print("hideDetectionOverlay")
              print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
+                print("flag value")
+                print(GameScene.flag)
+                if (GameScene.flag==false) {
+                    print("داخل الاف الكبيره")
+                    customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: "sad")
+                    self.orderContiner?.isHidden = true
+                    GameScene.circle!.isHidden = true
+                    GameScene.countStop=0
+                    GameScene.timer.invalidate()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+
+                        self.cam.position = CGPoint(x: 0, y: 0)
+                        self.progressBarContiner.position.x = cam.position.x
+                        GameScene.currentCustomer += 1
+                        GameScene.timeLeft = 30
+                        if (GameScene.currentCustomer<=3){
+                            print("داخل الاف الصغيره")
+                            buildCustomer(customerNode: customers[GameScene.currentCustomer])
+                            GameScene.timeLeft = 30
+                            GameScene.TimerShouldDelay = false
+                            viewController?.nextOrder()
+                            
+
+                        }
+
+                        else {
+                            GameScene.timeLeft = 0
+                            GameScene.timer.invalidate()
+                            viewController?.DispalyReport()
+                            print("THE LEVEL IS END ")
+
+                        }
+
+                    }
+                }
              }
 
         }
@@ -768,6 +860,10 @@ print("hideDetectionOverlay")
 
     }
 
+    
+    
+    
+    
     // Creates a CGPath in the shape of a pie with slices missing
     func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
         let start:CGFloat = 0
@@ -902,11 +998,11 @@ print("hideDetectionOverlay")
     //override update
     override func update(_ currentTime: TimeInterval) {
 
-        if (flag){
+        if (GameScene.flag){
          
-            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[GameScene.currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x
-//            self.progressBarContiner.physicsBody?.isDynamic = false
+            moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
             
         }
 
