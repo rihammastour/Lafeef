@@ -29,7 +29,7 @@ class GameScene: SKScene {
 
     //MARK:  Charachters  Variables
     var customers : [CustomerNode]=[]
-    var currentCustomer = 0
+    static var currentCustomer = 0
 
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
@@ -84,7 +84,8 @@ class GameScene: SKScene {
 
     override func sceneDidLoad() {
         setupSceneElements()
-        setUpCatcter()
+            setUpCatcter()
+        
 
         //All The Buttons TO BE REMOVED LATER
         buttonOne = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
@@ -107,8 +108,11 @@ class GameScene: SKScene {
         backgroundColor = .white
         self.camera = cam
         addChild(cam)
-        buildCustomer(customerNode: customers[currentCustomer])
+        setCameraConstraints()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 
+            self.buildCustomer(customerNode: self.customers[GameScene.currentCustomer])
+        }
         //to trash
         button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
         button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
@@ -146,7 +150,9 @@ class GameScene: SKScene {
 
 
         // Get Camera node from scene and store it for use later
-        self.camera = cam
+//        self.camera = cam
+//        addChild(cam)
+//        setCameraConstraints()
 
         // Get Order Continer node from scene and store it for use later
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
@@ -587,6 +593,24 @@ class GameScene: SKScene {
         totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
+    private func setCameraConstraints() {
+         
+            let scaledSize = CGSize(width: size.width * cam.xScale, height: size.height * cam.yScale)
+          
+            guard let bekary = bakeryBackgroundNode else {
+                return
+            }
+            let boardContentRect = bekary.calculateAccumulatedFrame()
+            let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
+            let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
+            let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
+            let xRange = SKRange(lowerLimit: 0, upperLimit: insetContentRect.maxX)
+            let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+            let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+            levelEdgeConstraint.referenceNode = bekary
+           
+            cam.constraints = [levelEdgeConstraint]
+        }
     //MARK: -Pickup order functions
     func pickUpOrder(layer:CALayer){
         guard self.box != nil else {
@@ -650,7 +674,7 @@ class GameScene: SKScene {
                 print(GameScene.flag)
                 if (GameScene.flag==false) {
                     print("داخل الاف الكبيره")
-                    customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
+                    customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: "sad")
                     self.orderContiner?.isHidden = true
                     GameScene.circle!.isHidden = true
                     GameScene.countStop=0
@@ -659,11 +683,11 @@ class GameScene: SKScene {
 
                         self.cam.position = CGPoint(x: 0, y: 0)
                         self.progressBarContiner.position.x = cam.position.x
-                        currentCustomer += 1
+                        GameScene.currentCustomer += 1
                         GameScene.timeLeft = 30
-                        if (currentCustomer<=3){
+                        if (GameScene.currentCustomer<=3){
                             print("داخل الاف الصغيره")
-                            buildCustomer(customerNode: customers[currentCustomer])
+                            buildCustomer(customerNode: customers[GameScene.currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
                             viewController?.nextOrder()
@@ -674,7 +698,7 @@ class GameScene: SKScene {
                         else {
                             GameScene.timeLeft = 0
                             GameScene.timer.invalidate()
-                            
+                            viewController?.DispalyReport()
                             print("THE LEVEL IS END ")
 
                         }
@@ -811,10 +835,10 @@ class GameScene: SKScene {
                 // orange.happyCustomer()
                 GameScene.flag = true
                 print("داخل البوتن الازرق")
-                customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "happy")
+                customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: "happy")
                 //make order and timer invisible
                 self.orderContiner?.isHidden = true
-                GameScene.circle!.isHidden = true
+                GameScene.circle?.isHidden = true
                 GameScene.circle?.alpha=0
                 GameScene.timer.invalidate()
                 GameScene.timeLeft = 0
@@ -828,7 +852,7 @@ class GameScene: SKScene {
          
                 GameScene.flag = false
 
-                customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: "happy") { [self] in
+                customers[GameScene.currentCustomer].moveOut(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: "happy") { [self] in
                     DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                         let startPoint = CGPoint(x: 0, y: 0)
                         let moveing = SKAction.move(to: startPoint, duration: 2)
@@ -838,9 +862,9 @@ class GameScene: SKScene {
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
                         self.moneyCountiner.position.x = self.frame.maxX-100
-                        currentCustomer += 1
-                        if (currentCustomer<=0){
-                            buildCustomer(customerNode: customers[currentCustomer])
+                            GameScene.currentCustomer += 1
+                            if (GameScene.currentCustomer<=3){
+                                buildCustomer(customerNode: customers[GameScene.currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
                             viewController?.nextOrder()
@@ -850,23 +874,8 @@ class GameScene: SKScene {
 
                         else {
                             print("THE LEVEL IS END")
-//                            self.viewController2?.performSegue(withIdentifier: "DailyReportVC", sender: viewController2)
-                            
-                            
-//                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                            let vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC")
-//                            self.view!.window?.viewController2?.present(vc, animated: true, completion: nil)
-                            
-                            
-//                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                            let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.loginViewController) as! LoginViewController
-                          
-//                            self.performSegueWithIdentifier( Constants.Segue.showAdvReport, sender: self)
-                            
-                            
-                            
-                            ChallengeViewController.viewReport=true
-                            
+                            GameScene.timeLeft = 0
+                            GameScene.timer.invalidate()
                             viewController?.DispalyReport()
                             
                         }
@@ -910,7 +919,7 @@ class GameScene: SKScene {
 
         if (GameScene.flag){
          
-            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[GameScene.currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x
             moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
             

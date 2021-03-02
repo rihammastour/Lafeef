@@ -30,7 +30,7 @@ class WinningViewController: UIViewController {
    
    // to convert into Arabic
    let formatter: NumberFormatter = NumberFormatter()
-  
+    let toChangeLevel: DailyReportViewController? = nil
   
     
   
@@ -80,9 +80,14 @@ class WinningViewController: UIViewController {
     }
     
     @IBAction func nextDay(_ sender: Any) {
+        toChangeLevel?.levelNum = "2"
+        GameScene.timeLeft = 30
+        GameScene.currentCustomer = 0
+//        self.performSegue(withIdentifier: Constants.Segue.challengeSegue, sender: self)
     }
     
     @IBAction func cancel(_ sender: Any) {
+        //
     }
     func setCustomerSatisfaction(happy: Int, normal: Int,sad: Int)  {
 

@@ -89,7 +89,7 @@ class DailyReportViewController: UIViewController {
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
 //        passReportData()
-        if true {
+        if isRewarded {
             self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
         } else if !isPassed {
             self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
