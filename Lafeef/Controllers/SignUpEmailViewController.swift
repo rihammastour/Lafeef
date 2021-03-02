@@ -125,18 +125,24 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     }
     
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
-          // turn the fields to red
-          for (field, error) in errors {
-            if let field = field as? UITextField {
-              field.layer.borderColor = UIColor.red.cgColor
-              field.layer.borderWidth = 3.0
-            }
-           errorLabel?.text = error.errorMessage // works if you added labels
-            
-          errorLabel?.isHidden = false
-          }
-        isValidated = false
-    }
+           // turn the fields to red
+           for (field, error) in errors {
+             if let field = field as? UITextField {
+               field.layer.borderColor = UIColor.red.cgColor
+               field.layer.borderWidth = 1.0
+             }
+               
+               if error.errorMessage == "This field is required"{
+                                errorLabel?.text = "لطفًا، البريد الإلكتروني مطلوب "
+                            }
+                            if error.errorMessage == "Must be a valid email address"{
+                                errorLabel?.text = "لطفًا، أدخل البريد الإلكتروني بصيغة صحيحة"
+                            }
+           errorLabel?.isHidden = false
+           }
+           isValidated = false
+         }
+
     
     func alertValidation()  {
         if  password == "" && !isValidated{

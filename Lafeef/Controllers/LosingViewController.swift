@@ -58,6 +58,7 @@ class LosingViewController: UIViewController {
         starView.settings.filledColor = UIColor.yellow
         starView.settings.emptyBorderColor = UIColor.yellow
         starView.rating = 3
+        //score/5
         starView.settings.starSize = 22
         
         // set customer satisfaction
