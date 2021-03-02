@@ -80,10 +80,13 @@ class WinningViewController: UIViewController {
     }
     
     @IBAction func nextDay(_ sender: Any) {
+        
     }
     
     @IBAction func cancel(_ sender: Any) {
+        
     }
+    
     func setCustomerSatisfaction(happy: Int, normal: Int,sad: Int)  {
 
         normalLabel.text = formatter.string(from:normal as NSNumber)
