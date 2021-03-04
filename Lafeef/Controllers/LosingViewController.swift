@@ -74,7 +74,7 @@ class LosingViewController: UIViewController {
     @IBAction func playAgain(_ sender: Any) {
         // need some code
         GameScene.timeLeft = 30
-        GameScene.currentCustomer = 0
+     
     }
     
     @IBAction func cancel(_ sender: Any) {

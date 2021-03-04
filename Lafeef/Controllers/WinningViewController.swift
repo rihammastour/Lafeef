@@ -82,7 +82,7 @@ class WinningViewController: UIViewController {
     @IBAction func nextDay(_ sender: Any) {
         toChangeLevel?.levelNum = "2"
         GameScene.timeLeft = 30
-        GameScene.currentCustomer = 0
+       
 //        self.performSegue(withIdentifier: Constants.Segue.challengeSegue, sender: self)
     }
     

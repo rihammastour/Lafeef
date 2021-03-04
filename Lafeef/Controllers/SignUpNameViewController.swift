@@ -88,19 +88,24 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         errorLabel?.isHidden = true
         isValidated = true
     }
-    
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
-        // turn the fields to red
-        for (field, error) in errors {
-            if let field = field as? UITextField {
-                field.layer.borderColor = UIColor.red.cgColor
-                field.layer.borderWidth = 3.0
+            // turn the fields to red
+            for (field, error) in errors {
+                if let field = field as? UITextField {
+                    field.layer.borderColor = UIColor.red.cgColor
+                    field.layer.borderWidth = 3.0
+                }
+                if error.errorMessage == "This field is required"{
+                    errorLabel?.text = "لطفًا، الاسم مطلوب "
+                             }
+                            
+                             if error.errorMessage == "Invalid Regular Expression"{
+                                 errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
+                             }// works if you added labels
+                errorLabel?.isHidden = false
             }
-            errorLabel?.text = error.errorMessage // works if you added labels
-            errorLabel?.isHidden = false
+            isValidated = false
         }
-        isValidated = false
-    }
     
     func CharachterType(charachter : String ){
         if (charachter == "girl"){

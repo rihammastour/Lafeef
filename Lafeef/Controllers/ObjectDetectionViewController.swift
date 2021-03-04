@@ -63,6 +63,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       }
       
       func drawVisionRequestResults(_ results: [Any]) {
+        ObjectDetectionViewController.detectionOverlay.zPosition = 4
           CATransaction.begin()
           CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
 
@@ -102,7 +103,7 @@ class ObjectDetectionViewController: ChallengeViewController{
 
         answerArray = results
         print(answerArray,"---------------------------------")
-        ObjectDetectionViewController.detectionOverlay.sublayers = nil
+//        ObjectDetectionViewController.detectionOverlay.sublayers = nil
         for observation in answerArray {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
                 continue

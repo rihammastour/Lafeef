@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Show Animated Splash Screen as intial screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.loginViewController) as! LoginViewController
+        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()
@@ -40,12 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if user != nil {
                 //Fetch user data
                 self.fetchUserInfo()
-                //Set is logged in child to true
-//                animatedSplashVC.isChild = true
+//                Set is logged in child to true
+                animatedSplashVC.isChild = true
                 
             } else {
-                //Set is logged in child to false
-//                animatedSplashVC.isChild = false
+//                Set is logged in child to false
+                animatedSplashVC.isChild = false
             }
         }
         return true

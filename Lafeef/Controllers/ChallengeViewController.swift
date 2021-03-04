@@ -19,8 +19,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
-    static var levelNum:String? = "3"
-    static var currentOrder = 1
+    static var levelNum:String? = "1"
+    static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
@@ -75,7 +75,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //            self.presentAdvReport()
 //        }
         
- 
+     
         
       }
     
@@ -89,7 +89,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
   
     
     func presentAdvReport(){
-        if ChallengeViewController.levelNum == "2" {
+        if ChallengeViewController.levelNum == "1" {
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
         }
     }

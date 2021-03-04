@@ -33,7 +33,7 @@ class GameScene: SKScene {
 
     //MARK:  Charachters  Variables
     var customers : [CustomerNode]=[]
-    static var currentCustomer = 0
+    var currentCustomer = 0
 
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
@@ -98,7 +98,7 @@ class GameScene: SKScene {
         setCameraConstraints()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
 
-            self.buildCustomer(customerNode: self.customers[GameScene.currentCustomer])
+            self.buildCustomer(customerNode: self.customers[self.currentCustomer])
         }
         //to trash
        // button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
@@ -111,7 +111,8 @@ class GameScene: SKScene {
 
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
-        
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
+
 
     }//end did move
     
@@ -141,12 +142,12 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton  = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY-20)
+        OrderButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY+30)
         OrderButton.zPosition = 3
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y: self.frame.minY-20)
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y: self.frame.minY+30)
         PaymentButton.zPosition = 3
         self.addChild(PaymentButton)
         // Get Camera node from scene and store it for use later
@@ -334,7 +335,7 @@ class GameScene: SKScene {
 
     //MARK: -  Charachters Functions
     func setUpCatcter(){
-        while customers.count <= 3  {
+        while customers.count <= 1  {
             let randomInt = Int.random(in: 1..<7)
             var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
@@ -430,7 +431,7 @@ class GameScene: SKScene {
     
     // Trigger functions
     func OrderbuttonTapped(){
-       
+
         viewController?.objectDetected?.setAnswer()
 //        let vcChallenge = (self.view?.window?.rootViewController as! ChallengeViewController)
         viewController?.calculateOrderScore(for: (viewController?.objectDetected?.providedAnswer)!)
@@ -468,7 +469,6 @@ class GameScene: SKScene {
 
         }
         self.box?.addChild( self.baseAnswer! )
-        (self.view?.window?.rootViewController as! ChallengeViewController).isOrder = false
         // stop session
         
 
@@ -504,10 +504,10 @@ class GameScene: SKScene {
         
             // orange.happyCustomer()
             GameScene.flag = true
-            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
+        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
 
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showDetectionOverlay), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showDetectionOverlay), userInfo: nil, repeats: false)
 
       
             //make order invisible
@@ -545,9 +545,9 @@ print("hideDetectionOverlay")
                 self.progressBarContiner.position.x = cam.position.x
                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)      {
                         self.moneyCountiner.position.x = self.frame.maxX-100
-                            GameScene.currentCustomer += 1
-                            if (GameScene.currentCustomer<=3){
-                                buildCustomer(customerNode: customers[GameScene.currentCustomer])
+                           currentCustomer += 1
+                            if (currentCustomer<=3){
+                                buildCustomer(customerNode: customers[currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
                             viewController?.nextOrder()
@@ -819,7 +819,7 @@ print("hideDetectionOverlay")
                 print(GameScene.flag)
                 if (GameScene.flag==false) {
                     print("داخل الاف الكبيره")
-                    customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: "sad")
+                    customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
                     self.orderContiner?.isHidden = true
                     GameScene.circle!.isHidden = true
                     GameScene.countStop=0
@@ -828,11 +828,11 @@ print("hideDetectionOverlay")
 
                         self.cam.position = CGPoint(x: 0, y: 0)
                         self.progressBarContiner.position.x = cam.position.x
-                        GameScene.currentCustomer += 1
+                      currentCustomer += 1
                         GameScene.timeLeft = 30
-                        if (GameScene.currentCustomer<=3){
+                        if (currentCustomer<=3){
                             print("داخل الاف الصغيره")
-                            buildCustomer(customerNode: customers[GameScene.currentCustomer])
+                            buildCustomer(customerNode: customers[currentCustomer])
                             GameScene.timeLeft = 30
                             GameScene.TimerShouldDelay = false
                             viewController?.nextOrder()
@@ -1000,7 +1000,7 @@ print("hideDetectionOverlay")
 
         if (GameScene.flag){
          
-            cam.position = CGPoint(x: customers[GameScene.currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             self.progressBarContiner.position.x = cam.position.x
             moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
             
