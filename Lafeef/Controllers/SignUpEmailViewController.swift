@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftValidator
+import FirebaseAuth
 
 class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFieldDelegate {
     
@@ -43,7 +44,7 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
         validation()
         styleUI()
         
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.presentInstruction), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval:0.5 , target: self, selector: #selector(self.presentInstruction), userInfo: nil, repeats: false)
     }
     
     //MARK:- Functions
@@ -145,25 +146,64 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
 
     
     func alertValidation()  {
-        if  password == "" && !isValidated{
-               passLabel.text = "لطفًا، اختر صورة"
-                       self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة"), animated: true)
-            }else if emailTextfield.text == "" {
+         if  password == "" && !isValidated{
+                passLabel.text = "لطفًا، اختر صورة"
+                        self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة"), animated: true)
+             }else if emailTextfield.text == "" {
+                        
+                        self.present(alert.Alert(body:"لطفًا، البريد الإلكتروني مطلوب"), animated: true)
+                        
+             }else if !isValidated{
+                self.present(alert.Alert(body:errorLabel.text!), animated: true)
+                
+             }
+                        else if password == "" { // email error
+                        passLabel.text = "لطفًا،اختر صورة"
+                        self.present(alert.Alert(body: "لطفًا، اختر صورة "), animated: true)
+                      
+                    }else{
+                        FirebaseRequest.Register(email: emailTextfield.text!, password: password) { (sucess, error) in
+                         if error == nil{
+                         
+                         self.performSegue(withIdentifier: "emailNxt", sender: self)
+                     }else{
+                        print(error?.localizedDescription)
+                         if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                           
+                             switch errorCode {
+                             case .emailAlreadyInUse:
+                             self.present(self.alert.Alert(body: "لطفًا، البريد مستخدم من قبل"), animated: true)
+                             break
+                             
+                         
+
+                             case .invalidEmail:
+                                 self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني"), animated: true)
+                      
+                              
+                                 break
+                             case .networkError:
+                                 self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت"), animated: true)
+                                 
                        
-                       self.present(alert.Alert(body:"لطفًا، البريد الإلكتروني مطلوب"), animated: true)
-                       
-            }else if !isValidated{
-               self.present(alert.Alert(body:errorLabel.text!), animated: true)
-               
-            }
-                       else if password == "" { // email error
-                       passLabel.text = "لطفًا،اختر صورة"
-                       self.present(alert.Alert(body: "لطفًا، اختر صورة "), animated: true)
-                     
-                   }else{
-                       self.performSegue(withIdentifier: "emailNxt", sender: self)
-                   }
-    }
+                                 break
+
+
+                             @unknown default:
+                                 self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى"), animated: true)
+                                
+                                 break
+                             }
+                         }
+                          //Tells the user that there is an error and then gets firebase to tell them the error
+                         self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى"), animated: true)
+                    
+                      }
+                  }
+              }
+       
+                      
+     }
     
     //MARK:- Actions
     @IBAction func berryPass(_ sender: UIButton) {

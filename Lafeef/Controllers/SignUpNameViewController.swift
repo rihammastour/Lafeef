@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseCore
 import SwiftValidator
+import FirebaseAuth
 
 class SignUpNameViewController: UIViewController ,UITextFieldDelegate, ValidationDelegate {
     
@@ -19,6 +20,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     let validator = Validator()
     var password = ""
     var progressBar = ProgressBar(stepNum: 3)
+    var userId = ""
     
     //outlets
     @IBOutlet weak var errorLabel: UILabel!
@@ -98,8 +100,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                 if error.errorMessage == "This field is required"{
                     errorLabel?.text = "لطفًا، الاسم مطلوب "
                              }
-                            
-                             if error.errorMessage == "Invalid Regular Expression"{
+                else if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
                                  errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
                              }// works if you added labels
                 errorLabel?.isHidden = false
@@ -121,34 +122,52 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-        validator.validate(self)
-        if !isValidated{
-            self.present(alert.Alert(body:errorLabel.text!), animated: true)
-            
-        } else {
-            User.name = nameTextfield!.text!
-            
-            FirebaseRequest.createUser(email: User.email, password: password, name:User.name, sex:User.sex, DOB:User.DOB) {
-                [weak self] (success,error) in
-                guard let self = self else { return }
-                
-                if (success) {
+          validator.validate(self)
+          if !isValidated{
+              self.present(alert.Alert(body:errorLabel.text!), animated: true)
+              
+          } else {
+              
+              User.name = nameTextfield!.text!
+              self.userId =  FirebaseRequest.getUserId() ?? ""
+          
+              
+              FirebaseRequest.createUser(id: self.userId,email: User.email, password: password, name:User.name, sex:User.sex, DOB:User.DOB) {
+                  [weak self] (success,error) in
+                  guard let self = self else { return }
+                  
+                  if (success) {
+                     
+                      //Store in local Storage
+                      LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
+                      //navogation
+                      self.transition()
+                  } else {
+                      if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                        
+                          switch errorCode {
+                      
+
+                          case .invalidEmail:
+                              self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني"), animated: true)
                    
-                    //Store in local Storage
-//                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0, sex: User.sex))
-                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
-                    
-                    //navogation
-                    self.transition()
-                } else {
-                    self.present(self.alert.Alert(body:self.errorLabel.text!), animated: true)
-                    
-                }
-            }
-        }
-        
-        
-    }
+                              break
+                          case .networkError:
+                              self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت"), animated: true)
+                              break
+                          @unknown default:
+                              self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى"), animated: true)
+                             
+                              break
+                          }
+                      }
+                       //Tells the user that there is an error and then gets firebase to tell them the error
+                      self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى"), animated: true)
+                 
+                   }
+               }
+          }
+      }
     
     func transition(){
         let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
