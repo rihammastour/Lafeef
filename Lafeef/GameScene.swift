@@ -25,7 +25,6 @@ class GameScene: SKScene {
     var button: SKNode! = nil
     var OrderButton: SKNode! = nil
     var PaymentButton: SKNode! = nil
-    var cashierbutton: SKNode! = nil
     let cam = SKCameraNode()
      static var flag = false
 
@@ -100,14 +99,8 @@ class GameScene: SKScene {
 
             self.buildCustomer(customerNode: self.customers[self.currentCustomer])
         }
-        //to trash
-       // button = SKSpriteNode(color: .blue, size: CGSize(width: 100, height: 44))
-      //  button.position = CGPoint(x:self.frame.midX, y:self.frame.midY+100);
-       //s self.addChild(button)
 
-        cashierbutton = SKSpriteNode(color: .green, size: CGSize(width: 100, height: 44))
-        cashierbutton.position = CGPoint(x:600,y:0);
-        self.addChild(cashierbutton)
+
 
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
@@ -432,7 +425,9 @@ class GameScene: SKScene {
     // Trigger functions
     func OrderbuttonTapped(){
 
-        viewController?.objectDetected?.setAnswer()
+      viewController?.objectDetected?.setAnswer()
+        
+        
 //        let vcChallenge = (self.view?.window?.rootViewController as! ChallengeViewController)
         viewController?.calculateOrderScore(for: (viewController?.objectDetected?.providedAnswer)!)
                 
@@ -448,9 +443,9 @@ class GameScene: SKScene {
         
         
         self.baseAnswer = createAnswerBaseNode(with: (viewController?.objectDetected?.providedAnswer.base)!)
-  
+
         for t in (viewController?.objectDetected?.providedAnswer.toppings)! {
-          
+
 
                 switch self.toopingAnswerCounter {
                 case 0:
@@ -465,17 +460,16 @@ class GameScene: SKScene {
                     print("cannot add more than 4 toppings")
                 }
 
-            
+
 
         }
         self.box?.addChild( self.baseAnswer! )
-        // stop session
-        
+
 
     }
     func PaymentbuttonTapped(){
         print("Payment button tapped!")
-//        (self.view?.window?.rootViewController as! ChallengeViewController).stopSession()
+
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         viewController?.objectDetected?.setAnswer()
 
@@ -485,8 +479,8 @@ class GameScene: SKScene {
         if viewController?.paymentScore == 0 {
             cashierButton(satisfaction: "sad")
             
-        } else if viewController?.orderScore == 3 {
-            cashierButton(satisfaction: "happy")
+
+        
 
         } else {
             cashierButton(satisfaction: "normal")
