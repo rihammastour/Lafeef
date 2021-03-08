@@ -25,14 +25,15 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    var report = Reports()
+     static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false)
+    
 
     
-    var levelScore = 0
+//    var levelScore = 0
     var orderScore = 0
     var paymentScore = 0
-    var isRewarded = false
-    var isPassed = false
+//    var isRewarded = false
+//    var isPassed = false
     
     var challengeScen:GameScene?
     static var stopCircleNil=false//when stop the nil circle
@@ -63,6 +64,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispalyReport()
         setupAVCapture()
 
         
@@ -70,6 +72,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
         setScene()
         fetchChallengeLevel()
+  
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
 //            self.presentAdvReport()
@@ -83,7 +86,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
 
     func DispalyReport(){
-        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+     
+//        self.present(report.displayDailyReport(), animated: true)
+        
+//        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
     }
     
   
@@ -233,6 +239,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier.da
+        
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
                         print("Segue proformed")
@@ -316,6 +324,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let taxRounded = Float(round(100*tax)/100)
         let totalBillWithTax = totalBillWithoutTax + tax
         let totalBillWithTaxRounded = Float(round(10*totalBillWithTax)/10)
+        
 
         self.challengeScen?.setTotalBill(totalBill: withoutTaxRounded, tax: taxRounded)
         self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
@@ -366,10 +375,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         calculatePaymentScore(with: answer.change)
         
         //Sum scors
-        self.levelScore = self.paymentScore + self.orderScore
+        ChallengeViewController.report.collectedScore = Float(self.paymentScore + self.orderScore)
         print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
-        print("Total score :", levelScore)
-        return levelScore
+        print("Total score :",   ChallengeViewController.report.collectedScore )
+        return Int(ChallengeViewController.report.collectedScore)
      }
      
 
@@ -533,9 +542,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func checkLevelCompletion(){
  //check the last customer also
         //نشيك على كل ليفل المين والماكس
-        if levelScore > 80 {
-            report.displayDailyReport().isPassed = true
-            report.displayDailyReport().isRewarded = true
+        if ChallengeViewController.report.collectedScore  > 80 {
+            ChallengeViewController.report.collectedScore = true
+            ChallengeViewController.report.collectedScore = true
         }
     }
     

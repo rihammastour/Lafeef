@@ -12,6 +12,7 @@
 		4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */; };
 		4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122DA3A25DB926F00DABB29 /* CustomerNode.swift */; };
 		4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129EDEF25E1978B0028C86C /* CompletedLevel.swift */; };
+		41314C4525F5F6800022FA0B /* DailyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41314C4425F5F6800022FA0B /* DailyReport.swift */; };
 		4193027325D1FEE700BACE0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4193027225D1FEE600BACE0B /* Podfile */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
 		41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */; };
@@ -149,6 +150,7 @@
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
 		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
+		41314C4425F5F6800022FA0B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
 		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -502,6 +504,7 @@
 				4EE2E7FE25DB50110026F98C /* LevelReportData.swift */,
 				C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */,
 				C92CFD8225E419CB007DD3B5 /* Answer.swift */,
+				41314C4425F5F6800022FA0B /* DailyReport.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				C92A659025CB3F480060AA53 /* ChallengeLevelsViewController.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
+				41314C4525F5F6800022FA0B /* DailyReport.swift in Sources */,
 				4EB21B9D25D353050076530E /* Reports.swift in Sources */,
 				4EB21BA225D354750076530E /* AdvReportViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
