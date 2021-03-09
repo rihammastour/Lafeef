@@ -74,16 +74,19 @@ class WinningViewController: UIViewController {
         //set score
         setScore(score: Int(report.collectedScore))
         // set money
-        setMoney(money:report.collectedMoney)
+        setMoney(money:Int(report.collectedMoney))
         
     }
     
     @IBAction func nextDay(_ sender: Any) {
         var  levelnum = Int(report.levelNum!)
+        if report.levelNum != "4"{
         levelnum! += 1
         ChallengeViewController.report.levelNum = String(levelnum!)
         navigationController?.popViewController(animated: true)
-
+        }else{
+            print("last level")
+        }
     }
     @IBAction func cancel(_ sender: Any) {
         navigationController?.popViewController(animated: true)
