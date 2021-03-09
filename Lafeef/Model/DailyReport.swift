@@ -10,7 +10,7 @@ struct DailyReport: Codable {
     var levelNum:String?
     var ingredientsAmount:Float
     var salesAmount:Float
-    var backagingAmount:Int
+    var backagingAmount:Float
     var advertismentAmount:Float
 
     var collectedScore:Int

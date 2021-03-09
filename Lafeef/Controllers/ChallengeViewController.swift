@@ -409,7 +409,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
            
         let totalBill = getTotalBill()
         ChallengeViewController.report.ingredientsAmount += totalBill
-        ChallengeViewController.report.collectedMoney += totalBill
         ChallengeViewController.report.salesAmount += totalBill
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
 

@@ -72,7 +72,7 @@ class DailyReportViewController: UIViewController {
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         //................................ missing money reward!
-        self.collectedMoney = incomeDigit
+        report.collectedMoney += incomeDigit
     }
     
     
