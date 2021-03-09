@@ -76,8 +76,12 @@ class WinningViewController: UIViewController {
         // set money
         setMoney(money:Int(report.collectedMoney))
         
+        if report.levelNum == "4"{
+            nextDayOutlet.isHidden = true
+        cancelOutlet.frame.size = CGSize(width: 280, height: 60)
+        
     }
-    
+    }
     @IBAction func nextDay(_ sender: Any) {
         var  levelnum = Int(report.levelNum!)
         if report.levelNum != "4"{
@@ -86,6 +90,7 @@ class WinningViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         }else{
             print("last level")
+          
         }
     }
     @IBAction func cancel(_ sender: Any) {

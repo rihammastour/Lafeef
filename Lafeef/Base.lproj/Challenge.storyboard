@@ -1520,20 +1520,10 @@
             <point key="canvasLocation" x="5584" y="331"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="0cS-1q-7ps">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="a1P-yM-dNz"/>
-        <designable name="oxU-30-E9o"/>
-        <designable name="prC-iW-nvL">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="U8D-cS-AGG"/>
+        <segue reference="FCh-NQ-rQZ"/>
         <segue reference="YZe-8C-kOq"/>
-        <segue reference="C7k-nc-mRf"/>
+        <segue reference="Ooz-XX-Wl6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow-back" width="22" height="38.480998992919922"/>
