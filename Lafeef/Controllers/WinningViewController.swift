@@ -10,6 +10,8 @@ import Lottie
 import Cosmos
 
 class WinningViewController: UIViewController {
+    
+    var report = ChallengeViewController.report
     // customer satisfaction
     @IBOutlet weak var sadLabel: UILabel!
     @IBOutlet weak var happyLabel: UILabel!
@@ -68,25 +70,23 @@ class WinningViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction(happy: 2, normal: 3, sad: 3)
+        setCustomerSatisfaction(happy: report.happyFaces, normal: report.normalFaces, sad: report.sadFaces)
         //set score
-        setScore(score: 3)
+        setScore(score: Int(report.collectedScore))
         // set money
-        setMoney(money:4)
+        setMoney(money:report.collectedMoney)
         
-        
-
-      
     }
     
     @IBAction func nextDay(_ sender: Any) {
-        toChangeLevel?.levelNum = "2"
-        GameScene.timeLeft = 30
-       
-//        self.performSegue(withIdentifier: Constants.Segue.challengeSegue, sender: self)
+        var  levelnum = Int(report.levelNum!)
+        levelnum! += 1
+        ChallengeViewController.report.levelNum = String(levelnum!)
+        navigationController?.popViewController(animated: true)
+
     }
-    
     @IBAction func cancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
         //
     }
     
@@ -101,13 +101,14 @@ class WinningViewController: UIViewController {
     
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)
-        
-        
+        starView.rating = Double(score*100)/5
+
             }
 
    func setMoney(money:Int)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
+        
+      
 
 }

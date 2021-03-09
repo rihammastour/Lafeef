@@ -11,8 +11,9 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Proprities
     //variables
+    var report = ChallengeViewController.report
     //.......................... Don't forget to pass attributes to this VC
-    var levelNum = "1"
+  
     var salesAmount = 0
     var ingredientsAmount = 0
     var backagingAmount = 0
@@ -60,14 +61,14 @@ class DailyReportViewController: UIViewController {
 
     func convertLabelsToArabic(){
         sales.text = "\(salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        ingredients.text = "\(ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        backaging.text = "\(backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        ingredients.text = "\(report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        backaging.text = "\(report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
         advAmount.text = "\(advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = self.salesAmount - self.ingredientsAmount - self.backagingAmount + self.advertismentAmount
+        let incomeDigit = self.salesAmount - Int(report.ingredientsAmount) - Int(report.backagingAmount) + self.advertismentAmount
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         //................................ missing money reward!
@@ -89,17 +90,17 @@ class DailyReportViewController: UIViewController {
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
 //        passReportData()
-        if isRewarded {
+        if isPassed {
             self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
-        } else if !isPassed {
-            self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
-        } else {
-            // move to seconed level
-            self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
-
+        } else{
+        self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
+        
+        
         }
         
     }
     
+    
 
 }
+    

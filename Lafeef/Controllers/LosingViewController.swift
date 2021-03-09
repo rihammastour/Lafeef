@@ -15,6 +15,8 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
     
+    var report = ChallengeViewController.report
+    
     
 
  
@@ -62,23 +64,25 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction(happy: 2, normal: 3, sad: 3)
+        setCustomerSatisfaction(happy: report.happyFaces, normal:report.normalFaces, sad: report.sadFaces)
         //set score
-        setScore(score: 3)
+        setScore(score: Int(report.collectedScore))
         // set money
-        setMoney(money:4)
+        setMoney(money:Int(report.collectedScore))
     }
     
 
 
     @IBAction func playAgain(_ sender: Any) {
+        
         // need some code
         GameScene.timeLeft = 30
+        navigationController?.popViewController(animated: true)
      
     }
     
     @IBAction func cancel(_ sender: Any) {
-       // navogate to level screen 
+        navigationController?.popViewController(animated: true)
     }
     func setCustomerSatisfaction(happy: Int, normal: Int,sad: Int)  {
         
@@ -90,7 +94,7 @@ class LosingViewController: UIViewController {
     
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)
+        starView.rating = Double(score*100)/5
         
         
             }

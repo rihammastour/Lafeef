@@ -25,11 +25,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-     static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false)
+    static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false,happyFaces:0,normalFaces:0,sadFaces:0)
     
 
     
-//    var levelScore = 0
+   var levelScore = 0
     var orderScore = 0
     var paymentScore = 0
 //    var isRewarded = false
@@ -374,17 +374,41 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //get payment score
         calculatePaymentScore(with: answer.change)
         
+     
         //Sum scors
-        ChallengeViewController.report.collectedScore = Float(self.paymentScore + self.orderScore)
-        print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
-        print("Total score :",   ChallengeViewController.report.collectedScore )
-        return Int(ChallengeViewController.report.collectedScore)
+        self.levelScore = self.paymentScore + self.orderScore
+        self.calculateCustomerSatisfaction()
+        
+        ChallengeViewController.report.collectedScore += Float(self.levelScore)
+        
+        
+              print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
+              print("Total score :", levelScore)
+              return levelScore
      }
      
+    func calculateCustomerSatisfaction(){
+        switch levelScore{
+        case  4:
+            ChallengeViewController.report.happyFaces += 1
+            break
+        case 3:
+            ChallengeViewController.report.normalFaces += 1
+            break
+        case 2:
+        ChallengeViewController.report.normalFaces += 1
+            break
 
+        default:
+            ChallengeViewController.report.sadFaces += 1
+        }
+
+    }
     func calculatePaymentScore(with chenge:Float){
            
         let totalBill = getTotalBill()
+        ChallengeViewController.report.ingredientsAmount += totalBill
+        ChallengeViewController.report.collectedMoney += Int(totalBill)
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
 
            if expectedChange == chenge {
@@ -540,11 +564,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func checkLevelCompletion(){
- //check the last customer also
-        //نشيك على كل ليفل المين والماكس
-        if ChallengeViewController.report.collectedScore  > 80 {
-            ChallengeViewController.report.collectedScore = true
-            ChallengeViewController.report.collectedScore = true
+
+        if ChallengeViewController.report.collectedScore  > 50 {
+
+            ChallengeViewController.report.isPassed = true
         }
     }
     
