@@ -9,11 +9,12 @@ import Foundation
 struct DailyReport: Codable {
     var levelNum:String?
     var ingredientsAmount:Float
+    var salesAmount:Float
     var backagingAmount:Int
     var advertismentAmount:Float
 
     var collectedScore:Int
-    var collectedMoney: Int
+    var collectedMoney: Float
     var isPassed :Bool
     var isRewarded : Bool
     var happyFaces: Int

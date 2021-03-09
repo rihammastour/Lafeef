@@ -25,7 +25,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false,happyFaces:0,normalFaces:0,sadFaces:0)
+    static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, salesAmount:0,backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false,happyFaces:0,normalFaces:0,sadFaces:0)
     
 
     
@@ -379,7 +379,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.levelScore = self.paymentScore + self.orderScore
         self.calculateCustomerSatisfaction()
         
-        ChallengeViewController.report.collectedScore += Float(self.levelScore)
+        
+        ChallengeViewController.report.collectedScore += self.levelScore
         
         
               print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
@@ -408,7 +409,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
            
         let totalBill = getTotalBill()
         ChallengeViewController.report.ingredientsAmount += totalBill
-        ChallengeViewController.report.collectedMoney += Int(totalBill)
+        ChallengeViewController.report.collectedMoney += totalBill
+        ChallengeViewController.report.salesAmount += totalBill
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
 
            if expectedChange == chenge {

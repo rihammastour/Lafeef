@@ -14,13 +14,13 @@ class DailyReportViewController: UIViewController {
     var report = ChallengeViewController.report
     //.......................... Don't forget to pass attributes to this VC
   
-    var salesAmount = 0
-    var ingredientsAmount = 0
-    var backagingAmount = 0
-    var advertismentAmount = 0
-    var collectedScore = 0
-    var collectedMoney = 0
-    var isPassed = false
+//    var salesAmount = 0
+//    var ingredientsAmount = 0
+//    var backagingAmount = 0
+//    var advertismentAmount = 0
+//    var collectedScore = 0
+//    var collectedMoney = 0
+//    var isPassed = false
     var isRewarded = false
    
     //outlets
@@ -54,21 +54,21 @@ class DailyReportViewController: UIViewController {
     
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
-        if advertismentAmount == 0 {
+        if report.advertismentAmount == 0 {
             adv.isHidden = true
         }
     }
 
     func convertLabelsToArabic(){
-        sales.text = "\(salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        sales.text = "\(report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
         ingredients.text = "\(report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
         backaging.text = "\(report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        advAmount.text = "\(advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        advAmount.text = "\(report.advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = self.salesAmount - Int(report.ingredientsAmount) - Int(report.backagingAmount) + self.advertismentAmount
+        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         //................................ missing money reward!
@@ -90,7 +90,7 @@ class DailyReportViewController: UIViewController {
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
 //        passReportData()
-        if isPassed {
+        if report.isPassed {
             self.performSegue(withIdentifier: Constants.Segue.showRewardReport, sender: self)
         } else{
         self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
