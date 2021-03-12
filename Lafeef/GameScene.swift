@@ -424,9 +424,9 @@ class GameScene: SKScene {
     // OrderbuttonTapped
     func OrderbuttonTapped(){
 
+        print("Time left in orderButtonTapped .... ",GameScene.timeLeft)
       // Get answers provided
-      viewController?.objectDetected?.setAnswer()
-        let answer = (viewController?.objectDetected?.providedAnswer)!
+        let providedAnswer = viewController?.objectDetected?.getAnswer()
         
         //make order invisible
         self.orderContiner?.isHidden = true
@@ -434,14 +434,23 @@ class GameScene: SKScene {
         GameScene.circle?.alpha=0
         GameScene.timer.invalidate()
 
-        GameScene.timeLeft = 0
+        //GameScene.timeLeft = 0
         GameScene.countStop=0
         
+        guard let answer = providedAnswer else {
+            customerDone(satisfaction: CustmerSatisfaction.sad)
+            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
+            nextCustomer()
+            return
+        }
+        
+        print("Base in order tapped", answer.base )
         //check base if provided 
         if answer.base == nil {
             //walk out
             customerDone(satisfaction: CustmerSatisfaction.sad)
             customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
+            nextCustomer()
             return
         }
         
@@ -480,6 +489,7 @@ class GameScene: SKScene {
         }
     }
         self.box?.addChild( self.baseAnswer! )
+        
     }
     
     // PaymentbuttonTapped
@@ -487,10 +497,9 @@ class GameScene: SKScene {
         print("Payment button tapped!")
 
         ObjectDetectionViewController.detectionOverlay.isHidden = false
-        viewController?.objectDetected?.setAnswer()
+        let answer = viewController?.objectDetected?.getAnswer()
 
-        viewController?.calculatePaymentScore(with: (viewController?.objectDetected?.providedAnswer.change)!)
-        print( viewController?.objectDetected!.providedAnswer.change, "payment button")
+        viewController?.calculatePaymentScore(with: answer?.change ?? 0)
           
         if viewController?.paymentScore == 0 {
             cashierButton(satisfaction: "sad")
@@ -516,6 +525,32 @@ class GameScene: SKScene {
         
         //        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
         //        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showDetectionOverlay), userInfo: nil, repeats: false)
+    }
+    
+    func nextCustomer(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+
+            self.cam.position = CGPoint(x: 0, y: 0)
+            self.progressBarContiner.position.x = cam.position.x
+          currentCustomer += 1
+            GameScene.timeLeft = 30
+            if (currentCustomer<=3){
+                print("داخل الاف الصغيره")
+                buildCustomer(customerNode: customers[currentCustomer])
+                GameScene.timeLeft = 30
+                GameScene.TimerShouldDelay = false
+                viewController?.nextOrder()
+                
+
+            } else {
+//                GameScene.timeLeft = 0
+                GameScene.timer.invalidate()
+                viewController?.DispalyReport()
+                print("THE LEVEL IS END ")
+
+            }
+
+        }
     }
     
     func customerDone(satisfaction: CustmerSatisfaction){
@@ -556,10 +591,7 @@ print("hideDetectionOverlay")
                             GameScene.TimerShouldDelay = false
                             viewController?.nextOrder()
                             
-
-                        }
-
-                        else {
+                        } else {
                             print("THE LEVEL IS END")
                             GameScene.timeLeft = 0
                             GameScene.timer.invalidate()
@@ -819,40 +851,8 @@ print("hideDetectionOverlay")
              print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
-                print("flag value")
-                print(GameScene.flag)
-                if (GameScene.flag==false) {
-                    print("داخل الاف الكبيره")
-                    customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
-                    customerDone(satisfaction: CustmerSatisfaction.sad)
-                    self.orderContiner?.isHidden = true
-                    GameScene.circle!.isHidden = true
-                    GameScene.countStop=0
-                    GameScene.timer.invalidate()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                OrderbuttonTapped()
 
-                        self.cam.position = CGPoint(x: 0, y: 0)
-                        self.progressBarContiner.position.x = cam.position.x
-                      currentCustomer += 1
-                        GameScene.timeLeft = 30
-                        if (currentCustomer<=3){
-                            print("داخل الاف الصغيره")
-                            buildCustomer(customerNode: customers[currentCustomer])
-                            GameScene.timeLeft = 30
-                            GameScene.TimerShouldDelay = false
-                            viewController?.nextOrder()
-                            
-
-                        } else {
-                            GameScene.timeLeft = 0
-                            GameScene.timer.invalidate()
-                            viewController?.DispalyReport()
-                            print("THE LEVEL IS END ")
-
-                        }
-
-                    }
-                }
              }
 
         }
