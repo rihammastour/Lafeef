@@ -63,23 +63,23 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // Additional setup after loading the view.
         setupAVCapture()
         setScene()
         fetchChallengeLevel()
         
-        //
-        //        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
-        //            self.presentAdvReport()
-        //        }
-        
     }
+
+    //MARK: -Set up UI Element
     
-    func presentAdvReport(){
-        if self.levelNum == "1" {
-            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
-        }
+    //setScens
+    func setScene(){
+        
+        self.challengeScen = gameScen.scene as! GameScene
+        self.challengeScen?.viewController = self
+        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
+        
     }
     
     //MARK: -Set up Object Detection
@@ -164,7 +164,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func stopSession(){
-        
+        print("Override stopSession ")
     }
     
     // Clean up capture setup
@@ -200,17 +200,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // to be implemented in the subclass
     }
     
-    
-    //MARK: -Set up UI Element
-    
-    //setScens
-    func setScene(){
-        
-        self.challengeScen = gameScen.scene as! GameScene
-        self.challengeScen?.viewController = self
-        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
-        
-    }
     
     //MARK: - Orders Functions
     
@@ -266,9 +255,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
     }
     
-    func pickingUpOrder(){
-        self.challengeScen?.pickUpOrder(layer:ObjectDetectionViewController.shapeLayer)
-    }
     
     //nextOrder
     func nextOrder(){
@@ -296,12 +282,12 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         return orderScore
     }
     
-
+    
     func calculatePaymentScore(with chenge:Float){
         
         let totalBill = getTotalBill()
-//        ChallengeViewController.report.ingredientsAmount += totalBill
-//        ChallengeViewController.report.salesAmount += totalBill
+        //        ChallengeViewController.report.ingredientsAmount += totalBill
+        //        ChallengeViewController.report.salesAmount += totalBill
         let expectedChange = getCurrentOrder()!.customerPaid - totalBill
         
         if expectedChange == chenge {
@@ -335,7 +321,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
         
         return total
-        
     }
     
     func calculateTotalBillWithTax()->Float{
@@ -369,7 +354,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //Declaration variabels
         let currentOrder = getCurrentOrder()!
         let currentToppings = currentOrder.toppings
-    
+        
         let providedToppings = answer.toppings
         
         //Check Base
@@ -422,7 +407,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func levlEnd() {
         
         checkLevelPassed()
-
+        
         //Create Report
         let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: self.levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
         
@@ -439,11 +424,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func DispalyReport(_ report:DailyReport){
-
+        
         //        self.present(report.displayDailyReport(), animated: true)
         //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
     }
-
+    
     
     //MARK: - Delegate handeler
     
@@ -479,6 +464,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
+    //presentAdvReport
+    func presentAdvReport(){
+        if self.levelNum == "1" {
+            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+        }
+    }
+    
+    //override func prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //        if segue.identifier.da
         
@@ -509,7 +502,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
         
     }
-        
+    
     
     
 }

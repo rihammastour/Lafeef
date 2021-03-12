@@ -239,7 +239,7 @@ class GameScene: SKScene {
     
     
     //MARK: -  Charachters Functions
-
+    
     //setup Characters
     func setUpCharacters(){
         while customers.count <= 3  {
@@ -304,13 +304,13 @@ class GameScene: SKScene {
     func buildCustomer(customerNode: CustomerNode) {
         customerNode.buildCustomer()
         customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
-
+        
         customerNode.walkingCustomer()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
         //move to take cake
         let moveAction = SKAction.moveBy(x: 520 , y: 0 , duration: 3)
-
+        
         let WaitingAction = SKAction.run({ [weak self] in
             customerNode.waitingCustomer()
         })
@@ -321,7 +321,7 @@ class GameScene: SKScene {
             
             //make order visible
             self.showOrder()
-
+            
             
         }
         
@@ -346,16 +346,7 @@ class GameScene: SKScene {
         GameScene.countStop=0
     }
     
-    //MARK:- Buttons Tapped methods
-    
-    func OrderbuttonTapped(){
-        checkOrderAnswer()
-    }
-    func PaymentbuttonTapped(){
-        checkPaymentAnswer()
-    }
-    
-    //MARK: - Set Order and Payment Continers Elements
+    //MARK: - Set Order and Payment Elements
     
     //MARK: Set up Order Contents Functions
     
@@ -471,7 +462,7 @@ class GameScene: SKScene {
         }
         
     }
-    
+    //MARK: Node Creation for Payment
     func createMoney(at position:PositionMoney,as money:Money){
         moneyCounter += 1
         let node = SKSpriteNode(imageNamed: "\(money.rawValue)")
@@ -482,6 +473,7 @@ class GameScene: SKScene {
         paymentContainer?.addChild(node)
     }
     
+    //MARK: Payment Elements
     func setTotalBill(totalBill: Float, tax: Float){
         totalBillLabel?.position = CGPoint(x: 20, y: -40)
         totalBillLabel?.numberOfLines = 3
@@ -498,6 +490,33 @@ class GameScene: SKScene {
     }
     
     //MARK: Node Creation for Answer
+    
+    func packegeOrder(for answer:Answer){
+        //create base node
+        self.baseAnswer = createAnswerBaseNode(with: answer.base!)
+        
+        //create topping node if any
+        if let answerToppings = answer.toppings{
+            
+            for t in answerToppings {
+                
+                switch self.toopingAnswerCounter {
+                case 0:
+                    createAnswerTopping(at: PositionTopping.topRight(answer.base!),as: t)
+                case 1:
+                    createAnswerTopping(at: PositionTopping.topLeft(answer.base!),as: t)
+                case 2:
+                    createAnswerTopping(at: PositionTopping.bottomLeft(answer.base!),as: t)
+                case 3:
+                    createAnswerTopping(at: PositionTopping.bottomRight(answer.base!),as: t)
+                default:
+                    print("cannot add more than 4 toppings")
+                }
+            }
+        }
+        self.box?.addChild( self.baseAnswer! )
+    }
+    
     //create Answer Base
     func createAnswerBaseNode(with base:Base) -> SKSpriteNode{
         
@@ -524,33 +543,6 @@ class GameScene: SKScene {
         
         baseAnswer?.addChild(node)
         
-    }
-    
-    
-    func packegeOrder(for answer:Answer){
-        //create base node
-        self.baseAnswer = createAnswerBaseNode(with: answer.base!)
-        
-        //create topping node if any
-        if let answerToppings = answer.toppings{
-            
-            for t in answerToppings {
-                
-                switch self.toopingAnswerCounter {
-                case 0:
-                    createAnswerTopping(at: PositionTopping.topRight(answer.base!),as: t)
-                case 1:
-                    createAnswerTopping(at: PositionTopping.topLeft(answer.base!),as: t)
-                case 2:
-                    createAnswerTopping(at: PositionTopping.bottomLeft(answer.base!),as: t)
-                case 3:
-                    createAnswerTopping(at: PositionTopping.bottomRight(answer.base!),as: t)
-                default:
-                    print("cannot add more than 4 toppings")
-                }
-            }
-        }
-        self.box?.addChild( self.baseAnswer! )
     }
     
     //MARK: - Check Answers
@@ -665,7 +657,7 @@ class GameScene: SKScene {
             GameScene.timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
-                        
+            
         } else {
             //                GameScene.timeLeft = 0
             //No more Customer Level end
@@ -676,6 +668,7 @@ class GameScene: SKScene {
         }
         
     }
+    
     //MARK:- Detection Overlay
     
     
@@ -690,22 +683,6 @@ class GameScene: SKScene {
         print("showDetectionOverlay")
     }
     
-    
-    //MARK: - Pickup order functions
-    func pickUpOrder(layer:CALayer){
-        guard self.box != nil else {
-            print("no box continer")
-            return
-        }
-        
-        //make payment visible
-        self.box?.isHidden = false
-        
-        //positionate payment
-        self.box?.position = CGPoint(x: 600, y: 230)
-        layer.zPosition = 2
-        layer.position = CGPoint(x: 600, y: 230)
-    }
     
     
     
@@ -882,6 +859,14 @@ class GameScene: SKScene {
             
         }
     }
+    //MARK:- Buttons Tapped methods
+    
+    func OrderbuttonTapped(){
+        checkOrderAnswer()
+    }
+    func PaymentbuttonTapped(){
+        checkPaymentAnswer()
+    }
     
     //MARK: - Touch Actions Functions
     
@@ -1016,15 +1001,4 @@ class GameScene: SKScene {
         cam.constraints = [levelEdgeConstraint]
     }
     
-}
-
-extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
-    }
-}
-extension Int {
-    var degreesToRadians : CGFloat {
-        return CGFloat(self) * .pi / 180
-    }
 }

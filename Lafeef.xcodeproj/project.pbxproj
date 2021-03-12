@@ -116,6 +116,7 @@
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
+		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
@@ -257,6 +258,7 @@
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
+		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */,
+				C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 				4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */,
 				C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */,
 				C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */,
+				C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */,
 				C9081C3625D9858400B19998 /* Base.swift in Sources */,
 				528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
