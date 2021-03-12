@@ -11,7 +11,7 @@ import Cosmos
 
 class WinningViewController: UIViewController {
     
-    var report = ChallengeViewController.report
+    var report : DailyReport!
     // customer satisfaction
     @IBOutlet weak var sadLabel: UILabel!
     @IBOutlet weak var happyLabel: UILabel!
@@ -70,7 +70,7 @@ class WinningViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction(happy: report.happyFaces, normal: report.normalFaces, sad: report.sadFaces)
+//        setCustomerSatisfaction(happy: report.happyFaces, normal: report.normalFaces, sad: report.sadFaces)
         //set score
         setScore(score: Int(report.collectedScore))
         // set money
@@ -81,7 +81,7 @@ class WinningViewController: UIViewController {
     @IBAction func nextDay(_ sender: Any) {
         var  levelnum = Int(report.levelNum!)
         levelnum! += 1
-        ChallengeViewController.report.levelNum = String(levelnum!)
+       report.levelNum = String(levelnum!)
         navigationController?.popViewController(animated: true)
 
     }
@@ -105,7 +105,7 @@ class WinningViewController: UIViewController {
 
             }
 
-   func setMoney(money:Int)  {
+   func setMoney(money:Float)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
         

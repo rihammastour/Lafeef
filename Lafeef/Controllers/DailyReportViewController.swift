@@ -11,16 +11,16 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Proprities
     //variables
-    var report = ChallengeViewController.report
+    var report : DailyReport!
     //.......................... Don't forget to pass attributes to this VC
   
-//    var salesAmount = 0
-//    var ingredientsAmount = 0
-//    var backagingAmount = 0
-//    var advertismentAmount = 0
-//    var collectedScore = 0
-//    var collectedMoney = 0
-//    var isPassed = false
+    var salesAmount = 0
+    var ingredientsAmount = 0
+    var backagingAmount = 0
+    var advertismentAmount = 0
+    var collectedScore = 0
+    var collectedMoney = 0
+    var isPassed = false
     var isRewarded = false
    
     //outlets

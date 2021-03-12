@@ -18,6 +18,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
+    
     //Variables
     static var levelNum:String? = "1"
     static var currentOrder = 0
@@ -25,15 +26,13 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    static var report = DailyReport(levelNum: "1", ingredientsAmount: 0, salesAmount:0,backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false,happyFaces:0,normalFaces:0,sadFaces:0)
     
-
-    
-   var levelScore = 0
+    //Scores and Report Variables
+    var levelScore = 0
     var orderScore = 0
     var paymentScore = 0
-//    var isRewarded = false
-//    var isPassed = false
+    var isPassed = false
+    var customersSatisfaction : [CustmerSatisfaction] = []
     
     var challengeScen:GameScene?
     static var stopCircleNil=false//when stop the nil circle
@@ -44,55 +43,52 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
-     let session = AVCaptureSession()
-     var previewLayer: AVCaptureVideoPreviewLayer! = nil
-     let videoDataOutput = AVCaptureVideoDataOutput()
-       
-     let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
-
+    let session = AVCaptureSession()
+    var previewLayer: AVCaptureVideoPreviewLayer! = nil
+    let videoDataOutput = AVCaptureVideoDataOutput()
+    
+    let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
+    
     var objectDetected: ObjectDetectionViewController?
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
     
-       
-        //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
-
+    
+    //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
+    
     //Outlet
     @IBOutlet weak var gameScen: SKView!
-
-
+    
+    
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         DispalyReport()
         setupAVCapture()
-
+        
         
         // Additional setup after loading the view.
-    
+        
         setScene()
         fetchChallengeLevel()
-  
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
-//            self.presentAdvReport()
-//        }
         
-     
+        //
+        //        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
+        //            self.presentAdvReport()
+        //        }
         
-      }
-    
-    
-    
-
-    func DispalyReport(){
-     
-//        self.present(report.displayDailyReport(), animated: true)
-        
-//        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
     }
     
-  
+    
+    
+    
+    func DispalyReport(){
+        
+        //        self.present(report.displayDailyReport(), animated: true)
+        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+    }
+    
+    
     
     func presentAdvReport(){
         if ChallengeViewController.levelNum == "1" {
@@ -101,149 +97,149 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func setupAVCapture() {
+        print("setup without override")
+        var deviceInput: AVCaptureDeviceInput!
+        
+        // Select a video device, make an input
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
+        do {
+            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+            
+            print("device")
+        } catch {
+            print("Could not create video device input: \(error)")
+            return
         }
         
-        func setupAVCapture() {
-            print("setup without override")
-            var deviceInput: AVCaptureDeviceInput!
-            
-            // Select a video device, make an input
-            let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
-            do {
-                deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
-                
-                print("device")
-            } catch {
-                print("Could not create video device input: \(error)")
-                return
-            }
-            
-            session.beginConfiguration()
-            session.sessionPreset = .vga640x480 // Model image size is smaller.
-            
-            // Add a video input
-            guard session.canAddInput(deviceInput) else {
-                print("Could not add video device input to the session")
-                session.commitConfiguration()
-                return
-            }
-            session.addInput(deviceInput)
-            if session.canAddOutput(videoDataOutput) {
-                session.addOutput(videoDataOutput)
-                print("device22")
-                // Add a video data output
-                videoDataOutput.alwaysDiscardsLateVideoFrames = true
-                videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
-                videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-            } else {
-                print("Could not add video data output to the session")
-                session.commitConfiguration()
-                return
-            }
-            let captureConnection = videoDataOutput.connection(with: .video)
-            // Always process the frames
-            captureConnection?.isEnabled = true
-            print("before do ")
-            do {
-                try  videoDevice!.lockForConfiguration()
-                let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
-                bufferSize.width = CGFloat(dimensions.width)
-                bufferSize.height = CGFloat(dimensions.height)
-                videoDevice!.unlockForConfiguration()
-                print("inside do ")
-            } catch {
-                print(error)
-            }
+        session.beginConfiguration()
+        session.sessionPreset = .vga640x480 // Model image size is smaller.
+        
+        // Add a video input
+        guard session.canAddInput(deviceInput) else {
+            print("Could not add video device input to the session")
             session.commitConfiguration()
-            print("111")
-            let spriteScene = SKScene(fileNamed: "GameScene")
-            previewLayer = AVCaptureVideoPreviewLayer(session: session)
-            previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            //flip camera upside down
-//            previewLayer.connection?.videoOrientation = .portraitUpsideDown
-            rootLayer = previewView.layer
+            return
+        }
+        session.addInput(deviceInput)
+        if session.canAddOutput(videoDataOutput) {
+            session.addOutput(videoDataOutput)
+            print("device22")
+            // Add a video data output
+            videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
+            videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        } else {
+            print("Could not add video data output to the session")
+            session.commitConfiguration()
+            return
+        }
+        let captureConnection = videoDataOutput.connection(with: .video)
+        // Always process the frames
+        captureConnection?.isEnabled = true
+        print("before do ")
+        do {
+            try  videoDevice!.lockForConfiguration()
+            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            bufferSize.width = CGFloat(dimensions.width)
+            bufferSize.height = CGFloat(dimensions.height)
+            videoDevice!.unlockForConfiguration()
+            print("inside do ")
+        } catch {
+            print(error)
+        }
+        session.commitConfiguration()
+        print("111")
+        let spriteScene = SKScene(fileNamed: "GameScene")
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        //flip camera upside down
+        //            previewLayer.connection?.videoOrientation = .portraitUpsideDown
+        rootLayer = previewView.layer
         
-            if let skView = gameScen {
-                      skView.presentScene(spriteScene)
-                  }
-             
-  
-            rootLayer.addSublayer(previewLayer)
-
+        if let skView = gameScen {
+            skView.presentScene(spriteScene)
         }
         
-        func startCaptureSession() {
-            print("startcapture")
-            session.startRunning()
-        }
+        
+        rootLayer.addSublayer(previewLayer)
+        
+    }
+    
+    func startCaptureSession() {
+        print("startcapture")
+        session.startRunning()
+    }
     
     func stopSession(){
         
     }
+    
+    // Clean up capture setup
+    func teardownAVCapture() {
+        previewLayer.removeFromSuperlayer()
+        previewLayer = nil
+        print("tearDownAVCapture-----------------------")
+    }
+    
+    func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // print("frame dropped")
+    }
+    
+    public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
+        let curDeviceOrientation = UIDevice.current.orientation
+        let exifOrientation: CGImagePropertyOrientation
         
-        // Clean up capture setup
-        func teardownAVCapture() {
-            previewLayer.removeFromSuperlayer()
-            previewLayer = nil
-            print("tearDownAVCapture-----------------------")
+        switch curDeviceOrientation {
+        case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
+            exifOrientation = .left
+        case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
+            exifOrientation = .upMirrored
+        case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
+            exifOrientation = .down
+        case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
+            exifOrientation = .upMirrored
+        default:
+            exifOrientation = .upMirrored
         }
-        
-        func captureOutput(_ captureOutput: AVCaptureOutput, didDrop didDropSampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-            // print("frame dropped")
-        }
-        
-        public func exifOrientationFromDeviceOrientation() -> CGImagePropertyOrientation {
-            let curDeviceOrientation = UIDevice.current.orientation
-            let exifOrientation: CGImagePropertyOrientation
-            
-            switch curDeviceOrientation {
-            case UIDeviceOrientation.portraitUpsideDown:  // Device oriented vertically, home button on the top
-                exifOrientation = .left
-            case UIDeviceOrientation.landscapeLeft:       // Device oriented horizontally, home button on the right
-                exifOrientation = .upMirrored
-            case UIDeviceOrientation.landscapeRight:      // Device oriented horizontally, home button on the left
-                exifOrientation = .down
-            case UIDeviceOrientation.portrait:            // Device oriented vertically, home button on the bottom
-                exifOrientation = .upMirrored
-            default:
-                exifOrientation = .upMirrored
-            }
-            return exifOrientation
-        }
+        return exifOrientation
+    }
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-            // to be implemented in the subclass
-        }
-        
-//        ChallengeViewController.stopImageBool=true
-//        print("ستوب ايمج رهام")
-//        print("رهام \(ChallengeViewController.stopImageBool) ")
-//        print("البوليان وين ؟")
-//        changeStopImage(_sender:ChallengeViewController.stopImageBool)
-//
-
+        // to be implemented in the subclass
+    }
+    
+    //        ChallengeViewController.stopImageBool=true
+    //        print("ستوب ايمج رهام")
+    //        print("رهام \(ChallengeViewController.stopImageBool) ")
+    //        print("البوليان وين ؟")
+    //        changeStopImage(_sender:ChallengeViewController.stopImageBool)
+    //
+    
     
     //MARK: -Set up UI Element
-
-//    func changeStopImage(_sender: Bool){
-//        if(_sender){
-//            print("رهام شوفي هنا الصوره ستوب ")
-//            stopGame.setBackgroundImage(stopImage, for:.normal)
-//        }else{
-//            print("رهام شوفي هنا الصوره بوز ")
-//            stopGame.setBackgroundImage(pauseImage, for:.normal)
-//        }
-//
-//
-//    }
-
+    
+    //    func changeStopImage(_sender: Bool){
+    //        if(_sender){
+    //            print("رهام شوفي هنا الصوره ستوب ")
+    //            stopGame.setBackgroundImage(stopImage, for:.normal)
+    //        }else{
+    //            print("رهام شوفي هنا الصوره بوز ")
+    //            stopGame.setBackgroundImage(pauseImage, for:.normal)
+    //        }
+    //
+    //
+    //    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier.da
+        //        if segue.identifier.da
         
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
-                        print("Segue proformed")
+            print("Segue proformed")
             if(GameScene.circle==nil){
                 GameScene.circleDecrement=false
                 GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
@@ -251,56 +247,58 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
                 ChallengeViewController.stopImageBool=false
-//                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-//                changeStopImage()
-
+                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //                changeStopImage()
+                
             }else{
-            GameScene.timeLeft = GameScene.timeLeft
-            GameScene.timer.invalidate()
-            GameScene.circleDecrement=false
-            GameScene.circle!.isPaused=true
-            ChallengeViewController.stopImageBool=false
-            print(GameScene.timeLeft.time)
-//                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-//                changeStopImage()
-//            vc.levelNum = "1"
+                GameScene.timeLeft = GameScene.timeLeft
+                GameScene.timer.invalidate()
+                GameScene.circleDecrement=false
+                GameScene.circle!.isPaused=true
+                ChallengeViewController.stopImageBool=false
+                print(GameScene.timeLeft.time)
+                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //                changeStopImage()
+                //            vc.levelNum = "1"
             }
         }
-   
+        
     }
     //setScens
     func setScene(){
-
+        
         self.challengeScen = gameScen.scene as! GameScene
         self.challengeScen?.viewController = self
         self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
         
     }
-
+    
     //MARK: - Functions
-
+    
     //fethChallengeLevel
     func fetchChallengeLevel(){
-
+        
         guard let levelNum = ChallengeViewController.levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
-
+        
         FirebaseRequest.getChallengeLvelData(for: levelNum, completion:feachChallengeLevelHandler(_:_:))
-
+        
     }
-
+    
     //setLevelInfo
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
         self.orders = level.orders
-        showOrder(at: ChallengeViewController.currentOrder) // must be Moved to be called by character
+        //Show First Order
+        showOrder(at: ChallengeViewController.currentOrder)
+        
         showCustomerPaid(at: ChallengeViewController.currentOrder)
         showBill(at: ChallengeViewController.currentOrder)
     }
-
+    
     //showOrder
     func showOrder(at number:Int) -> Void {
         let order = orders![number]
@@ -325,7 +323,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let totalBillWithTax = totalBillWithoutTax + tax
         let totalBillWithTaxRounded = Float(round(10*totalBillWithTax)/10)
         
-
+        
         self.challengeScen?.setTotalBill(totalBill: withoutTaxRounded, tax: taxRounded)
         self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
     }
@@ -345,80 +343,58 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     //MARK: - Calculate Score
-
+    
     //calculateScore
-    func calculateScore(for answer:Answer?) -> Int{
-
-        //Unwrap current order
-        guard getCurrentOrder() != nil else {
-            //Fail umwrapping
-
-            return 0
-            
-        }
+    func calculateTotalScore(){
         
-        guard let answer = answer else {
-            //No answer provided!
-  
-            return 0
-        }
-        
-        //check time
-//        if (answer.atTime == 0){ //May changed
-//            levelScore += 0
-//
-//        }
- 
-        //get order score
-        calculateOrderScore(for: answer)
-        //get payment score
-        calculatePaymentScore(with: answer.change)
-        
-     
         //Sum scors
         self.levelScore = self.paymentScore + self.orderScore
-        self.calculateCustomerSatisfaction()
         
-        
-        ChallengeViewController.report.collectedScore += self.levelScore
-        
-        
-              print("Total order score :", self.orderScore,"\t Total order score :", self.paymentScore)
-              print("Total score :", levelScore)
-              return levelScore
-     }
-     
-    func calculateCustomerSatisfaction(){
-        switch levelScore{
-        case  4:
-            ChallengeViewController.report.happyFaces += 1
-            break
-        case 3:
-            ChallengeViewController.report.normalFaces += 1
-            break
-        case 2:
-        ChallengeViewController.report.normalFaces += 1
-            break
+        //Reset to zero
+        self.paymentScore = 0
+        self.orderScore = 0 
 
-        default:
-            ChallengeViewController.report.sadFaces += 1
-        }
+        //for answer:Answer? -> Int
+//        //Unwrap current order
+//        guard getCurrentOrder() != nil else {
+//            //Fail umwrapping
+//            return 0
+//
+//        }
+//
+//        guard let answer = answer else {
+//            //No answer provided!
+//            return 0
+//        }
+        
+        //check time
+        //        if (answer.atTime == 0){ //May changed
+        //            levelScore += 0
+        //
+        //        }
+        //get order score
+        //calculateOrderScore(for: answer)
+        //get payment score
+        //calculatePaymentScore(with: answer.change)
+        //ChallengeViewController.report.collectedScore += self.levelScore
 
     }
-    func calculatePaymentScore(with chenge:Float){
-           
-        let totalBill = getTotalBill()
-        ChallengeViewController.report.ingredientsAmount += totalBill
-        ChallengeViewController.report.salesAmount += totalBill
-        let expectedChange = getCurrentOrder()!.customerPaid - totalBill
+    
 
-           if expectedChange == chenge {
+    func calculatePaymentScore(with chenge:Float){
+        
+        let totalBill = getTotalBill()
+//        ChallengeViewController.report.ingredientsAmount += totalBill
+//        ChallengeViewController.report.salesAmount += totalBill
+        let expectedChange = getCurrentOrder()!.customerPaid - totalBill
+        
+        if expectedChange == chenge {
             self.paymentScore = 1
-           }else{
+        }else{
             self.paymentScore = 0
-           }
-           
-       }
+        }
+        
+    }
     
     //getTotalBill
     func getTotalBill()->Float{
@@ -426,11 +402,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //get Order base  and toppings
         let currentOrder = getCurrentOrder()!
         let currentToppings = currentOrder.toppings
-       
-       guard currentOrder != nil else {
-           return 0
-       }
-       var total:Float = (currentOrder.base.getPrice())
+        
+        guard currentOrder != nil else {
+            return 0
+        }
+        var total:Float = (currentOrder.base.getPrice())
         
         guard let toppings = currentToppings else {
             //No Toppings
@@ -468,25 +444,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         return tax
         
     }
-
+    
     
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) {
-        print(answer,"order socre=----------------")
         var totalSocre = 0
         
         //Declaration variabels
         let currentOrder = getCurrentOrder()!
         let currentToppings = currentOrder.toppings
-        
+    
         let providedToppings = answer.toppings
-        //Check Base
         
-        //check base if exist
-        if answer.base == nil {
-            totalSocre += 0
-            return
-        }
+        //Check Base
         
         //check base type
         if answer.base == currentOrder.base{
@@ -497,7 +467,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             return
         }
         
-        //Start checking the toppings
+        //Checking Topping
         //check if there're toppings - nil means correct type and number
         if providedToppings == nil && currentToppings == nil{
             
@@ -524,33 +494,34 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
         
         self.orderScore = totalSocre
-        
     }
+    
+    //getCurrentOrder
     func getCurrentOrder() ->  Order? {
         return (self.orders?[ChallengeViewController.currentOrder])
-     }
-  
+    }
+    
     //MARK: - Delegate handeler
-
+    
     //showAlert
     func showAlert(with message:String) {
-//        alert.Alert(body: message)
+        //        alert.Alert(body: message)
         // need an alert
     }
-
+    
     //feachChalengeLevelHandeler
     func feachChallengeLevelHandler(_ data:Any?,_ err:Error?) -> Void {
-
+        
         if err != nil{
             print("Challenge View Controller",err!)
-
+            
             if err?.localizedDescription == "Failed to get document because the client is offline."{
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
-
+            
         }else{
-
+            
             do{
                 //Convert data to type Child
                 let level = try FirebaseDecoder().decode(Level.self, from: data!)
@@ -560,18 +531,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }
-
+            
         }
     }
     
-    func checkLevelCompletion(){
-
-        if ChallengeViewController.report.collectedScore  > 50 {
-
-            ChallengeViewController.report.isPassed = true
+    //check if child pass the level
+    func checkLevelPassed(){
+        if levelScore  > 50 {
+            isPassed = true
+        }else{
+            isPassed = false
         }
     }
     
-
+    
 }
 

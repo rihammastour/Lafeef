@@ -15,7 +15,7 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
     
-    var report = ChallengeViewController.report
+    var report : DailyReport!
     
     
 
@@ -64,7 +64,7 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction(happy: report.happyFaces, normal:report.normalFaces, sad: report.sadFaces)
+//        setCustomerSatisfaction(happy: report.happyFaces, normal:report.normalFaces, sad: report.sadFaces)
         //set score
         setScore(score: Int(report.collectedScore))
         // set money

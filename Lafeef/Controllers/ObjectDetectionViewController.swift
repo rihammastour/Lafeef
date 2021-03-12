@@ -29,7 +29,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       // Vision parts
       private var requests = [VNRequest]()
 
-    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
+    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: nil)
     static var shapeLayer = CALayer()
  
 
@@ -102,7 +102,6 @@ class ObjectDetectionViewController: ChallengeViewController{
         answerLabels = []
 
         answerArray = results
-        print(answerArray,"---------------------------------")
 //        ObjectDetectionViewController.detectionOverlay.sublayers = nil
         for observation in answerArray {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
@@ -120,7 +119,6 @@ class ObjectDetectionViewController: ChallengeViewController{
              // I think its 480 x and -320 y 
 
         }
-        print("AnswerLabels insideloop", answerLabels)
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
 //                    self.stopSession()
 //                }
