@@ -553,7 +553,7 @@ print("hideDetectionOverlay")
                             print("THE LEVEL IS END")
                             GameScene.timeLeft = 0
                             GameScene.timer.invalidate()
-                            checkLevelCompletion?.checkLevelCompletion()
+//                            checkLevelCompletion?.checkLevelCompletion()
 //                            viewController?.DispalyReport()
                             
                         }

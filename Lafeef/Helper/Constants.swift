@@ -23,6 +23,8 @@ struct Constants {
         static let orderVirwController = "OrderVC"
         static let dailyReportViewController = "DailyReportVC"
         static let advReportViewController = "AdvReportVC"
+        static let NormalViewController = "NormalReport"
+        static let WinningViewController  = "WinningReport"
     }
     
     struct Segue {
@@ -36,13 +38,14 @@ struct Constants {
         static let acceptAdvSegue = "AcceptAdvSegue"
         static let showDailyReport = "ShowDailyReport"
         static let showLosingReport = "ShowLosingReport"
-        static let showRewardReport = "ShowRewardReport"
+        static let showNormalReport = "showNormalReport"
         static let showAdvReport = "ShowAdvReport"
         static let showProfile = "profileSegue"
         static let showLevelOne = "showLevelOne"
         static let showLevelTwo = "showLevelTwo"
         static let showLevelThree = "showLevelThree"
         static let showLevelFour = "showLevelFour"
+        static let showWinningReport = "showWinningReport"
         
     }
     

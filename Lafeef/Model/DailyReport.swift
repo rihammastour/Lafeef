@@ -6,20 +6,16 @@
 //
 
 import Foundation
-struct DailyReport: Codable {
-    var levelNum:String?
+struct DailyReport {
+    var levelNum:String
     var ingredientsAmount:Float
     var salesAmount:Float
     var backagingAmount:Float
     var advertismentAmount:Float
-
     var collectedScore:Int
     var collectedMoney: Float
     var isPassed :Bool
     var isRewarded : Bool
-    var happyFaces: Int
-    var normalFaces: Int
-    var sadFaces:Int 
-    
-    
+    var reward: Int
+    var customerSatisfaction: [CustmerSatisfaction]
 }

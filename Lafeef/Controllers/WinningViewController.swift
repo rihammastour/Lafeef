@@ -11,8 +11,12 @@ import Cosmos
 
 class WinningViewController: UIViewController {
     
-    var report = ChallengeViewController.report
+    var challeangeReport = ChallengeViewController()
+ 
+    @IBOutlet weak var Winning: UIView!
+    
     // customer satisfaction
+    @IBOutlet weak var rewardView: UIView!
     @IBOutlet weak var sadLabel: UILabel!
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
@@ -41,10 +45,12 @@ class WinningViewController: UIViewController {
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-        winningView.layer.cornerRadius = 30
+       winningView.layer.cornerRadius = 30
+       Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
         scoreView.layer.cornerRadius = 20
+        rewardView.layer.cornerRadius = 20
         moneyView.layer.cornerRadius = 20
         smallBackground.layer.shadowColor = UIColor.black.cgColor
         smallBackground.layer.shadowOpacity = 0.2
@@ -58,7 +64,7 @@ class WinningViewController: UIViewController {
         trophyView!.animationSpeed = 0.5
         trophyView!.play()
         
-        
+
         // star rates
         starView.settings.updateOnTouch = false
         starView.settings.fillMode = .full
@@ -70,23 +76,23 @@ class WinningViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction(happy: report.happyFaces, normal: report.normalFaces, sad: report.sadFaces)
+        setCustomerSatisfaction()
         //set score
-        setScore(score: Int(report.collectedScore))
+        setScore(score: Int(challeangeReport.report.collectedScore))
         // set money
-        setMoney(money:Int(report.collectedMoney))
+        setMoney(money:Int(challeangeReport.report.collectedMoney))
         
-        if report.levelNum == "4"{
+        if challeangeReport.report.levelNum == "4"{
             nextDayOutlet.isHidden = true
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
     }
     @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(report.levelNum!)
-        if report.levelNum != "4"{
+        var  levelnum = Int(challeangeReport.report.levelNum)
+        if challeangeReport.report.levelNum != "4"{
         levelnum! += 1
-        ChallengeViewController.report.levelNum = String(levelnum!)
+            challeangeReport.report.levelNum = String(levelnum!)
         navigationController?.popViewController(animated: true)
         }else{
             print("last level")
@@ -98,15 +104,28 @@ class WinningViewController: UIViewController {
         //
     }
     
-    func setCustomerSatisfaction(happy: Int, normal: Int,sad: Int)  {
-
+    func setCustomerSatisfaction()  {
+        var happy = 0
+        var sad = 0
+        var normal = 0
+        
+        for sat in  challeangeReport.report.customerSatisfaction{
+            switch sat{
+            case .happey:
+                happy += 1
+                break
+            case .sad:
+                sad += 1
+                break
+            default:
+                normal += 1
+            }
+        }
         normalLabel.text = formatter.string(from:normal as NSNumber)
         happyLabel.text = formatter.string(from:happy as NSNumber)
         sadLabel.text = formatter.string(from:sad as NSNumber)
 
-        
     }
-    
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
         starView.rating = Double(score*100)/5
