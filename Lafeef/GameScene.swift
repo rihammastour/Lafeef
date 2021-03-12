@@ -84,7 +84,7 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         setupSceneElements()
-        setUpCatcter()
+        setUpCharacters()
     }
     
     
@@ -103,9 +103,6 @@ class GameScene: SKScene {
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
     }
-    
-    //MARK:  Functions
-    
     
     //MARK: - Set up Scene Eslements Functions
     
@@ -146,23 +143,10 @@ class GameScene: SKScene {
         self.orderContiner = self.childNode(withName: "orderContiner") as? SKSpriteNode
         self.orderContiner?.isHidden = true
         
-        // Create shape node to use during mouse interaction ????
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
         
         // Get Payment Continer node from scene and store it for use later
         self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
-        //................................. Don't forget to hide it when it totally done!
-        self.paymentContainer?.isHidden = false
+        self.paymentContainer?.isHidden = true
         
         self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
         self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
@@ -173,6 +157,7 @@ class GameScene: SKScene {
         
     }
     
+    //MARK: - Set Bakary Enviroment Function
     
     //setBackgroundBakary
     func setBackgroundBakary(){
@@ -212,7 +197,6 @@ class GameScene: SKScene {
         moneyLabel.text = "0.0"
         self.moneyCountiner?.addChild(moneyLabel!)
         
-        
     }
     
     //updateMoneyLabel
@@ -225,7 +209,7 @@ class GameScene: SKScene {
     }
     
     
-    //MARK: - Timer Functions
+    //MARK: - Timer Continer Functions
     func generateTimer(){
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
@@ -252,6 +236,529 @@ class GameScene: SKScene {
         }
     }
     
+    
+    
+    //MARK: -  Charachters Functions
+
+    //setup Characters
+    func setUpCharacters(){
+        while customers.count <= 3  {
+            let randomInt = Int.random(in: 1..<7)
+            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
+            customers.append(choosenCustomer!)
+        }
+    }
+    
+    //MARK: - Progress bar methods
+    
+    //createPrograssBar
+    func createPrograssBar(){
+        
+        self.progressBarContiner.anchorPoint = CGPoint(x: 0.5, y: -1)
+        //Create Progress bar
+        self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
+        self.progressBar.size = CGSize(width: 1, height: 20)
+        progressBar.anchorPoint = CGPoint(x: 0, y: 0)
+        progressBar.position = CGPoint(x: 160, y: 43)
+        
+        //Add progress bar to continer
+        progressBarContiner?.addChild(progressBar)
+    }
+    
+    //IncreaseProgressBar
+    func increaseProgressBar(with custSat:CustmerSatisfaction) {
+        
+        let newWidth = (progressBar.size.width-custSat.barIncreasedByNum())
+        
+        // Scale up progress bar
+        let scaleUpAction = SKAction.resize(toWidth: newWidth, duration: 1)
+        //Run Action
+        progressBar.run(scaleUpAction) {
+            self.addFaceToProgressBar(on: newWidth,as: custSat)
+        }
+    }
+    
+    //addFaceToProgressBar
+    func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
+        
+        let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
+        face.anchorPoint = CGPoint(x:0.5, y: 0.5)
+        face.size = CGSize(width: 22, height: 23)
+        face.position = CGPoint(x: positionX+5, y: progressBar.size.height/2)
+        face.zPosition = 3
+        
+        self.progressBar.addChild(face)
+        let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
+        let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
+        let sequence = SKAction.sequence([rotateToLeft,rotateToRight])
+        
+        //Run Action
+        face.run(sequence)
+        
+    }
+    
+    
+    //MARK: - Game Start Functions
+    
+    //buildCustomer
+    func buildCustomer(customerNode: CustomerNode) {
+        customerNode.buildCustomer()
+        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
+
+        customerNode.walkingCustomer()
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        
+        //move to take cake
+        let moveAction = SKAction.moveBy(x: 520 , y: 0 , duration: 3)
+
+        let WaitingAction = SKAction.run({ [weak self] in
+            customerNode.waitingCustomer()
+        })
+        let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
+        
+        //        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
+        customerNode.customer.run(moveActionWithDone) {
+            
+            //make order visible
+            self.showOrder()
+
+            
+        }
+        
+        // for cashier
+        
+        //        customerNode.customer.size = CGSize(width: 300, height: 350)
+        addChild(customerNode.customer)
+    }
+    
+    func showOrder(){
+        self.orderContiner?.isHidden = false
+        self.generateCircle()
+        self.generateTimer()
+    }
+    
+    func hideOrder(){
+        self.orderContiner?.isHidden = true
+        GameScene.circle?.isHidden = true
+        GameScene.circle?.alpha=0
+        GameScene.timer.invalidate()
+        //GameScene.timeLeft = 0
+        GameScene.countStop=0
+    }
+    
+    //MARK:- Buttons Tapped methods
+    
+    func OrderbuttonTapped(){
+        checkOrderAnswer()
+    }
+    func PaymentbuttonTapped(){
+        checkPaymentAnswer()
+    }
+    
+    //MARK: - Set Order and Payment Continers Elements
+    
+    //MARK: Set up Order Contents Functions
+    
+    //setOrderContent
+    func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
+        
+        //unwrap order continer
+        guard self.orderContiner != nil else {
+            print("no order continer")
+            return
+        }
+        
+        //Create base node
+        self.base = createBaseNode(with: baseType)
+        
+        if let base = self.base {
+            
+            //add base to continerOrder
+            self.orderContiner?.addChild(base)
+            
+            //unwrap toopings array if any
+            if let toppings = toppings {
+                
+                //Topping
+                for t in toppings {
+                    
+                    switch self.toopingCounter{
+                    case 0:
+                        createTopping(at: PositionTopping.topRight(baseType),as: t)
+                    case 1:
+                        createTopping(at: PositionTopping.topLeft(baseType),as: t)
+                    case 2:
+                        createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
+                    case 3:
+                        createTopping(at: PositionTopping.bottomRight(baseType),as: t)
+                    default:
+                        print("cannot add more than 4 toppings")
+                    }
+                    
+                }
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    //MARK: Node Creation for Order
+    
+    //create Topping
+    func createTopping(at position:PositionTopping,as topping:Topping){
+        
+        toopingCounter += 1
+        
+        let node = SKSpriteNode(imageNamed: topping.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = position.getPosition()
+        node.size = CGSize(width: 60, height: 60)
+        node.zRotation = position.getZRotation(for: topping)
+        
+        base?.addChild(node)
+        
+    }
+    
+    //create Base
+    func createBaseNode(with base:Base) -> SKSpriteNode{
+        
+        let node = SKSpriteNode(imageNamed: base.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = CGPoint(x: 0, y: 15)
+        
+        //get base size depens on base type
+        node.size = base.getBaseSize()
+        return node
+    }
+    
+    //MARK:  Set up Payment Contents Functions
+    func setPaymentContent(with money:[Money]?){
+        
+        //unwrap payment continer
+        guard self.paymentContainer != nil else {
+            print("no payment continer")
+            return
+        }
+        
+        //positionate payment
+        self.paymentContainer?.position = CGPoint(x: 1000, y: 230)
+        
+        //unwrap money array if any
+        if let money = money {
+            
+            //money
+            for m in money {
+                
+                switch self.moneyCounter {
+                case 0:
+                    createMoney(at: PositionMoney.first(m), as: m)
+                case 1:
+                    createMoney(at: PositionMoney.seconed(m), as: m)
+                case 2:
+                    createMoney(at: PositionMoney.third(m), as: m)
+                case 3:
+                    createMoney(at: PositionMoney.fourth(m), as: m)
+                case 4:
+                    createMoney(at: PositionMoney.fifth(m), as: m)
+                case 5:
+                    createMoney(at: PositionMoney.sixth(m), as: m)
+                default:
+                    print("cannot add more")
+                }
+            }
+        }
+        
+    }
+    
+    func createMoney(at position:PositionMoney,as money:Money){
+        moneyCounter += 1
+        let node = SKSpriteNode(imageNamed: "\(money.rawValue)")
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = position.getPosition()
+        node.size = money.getMoneySize()
+        node.zRotation = position.getZRotation()
+        paymentContainer?.addChild(node)
+    }
+    
+    func setTotalBill(totalBill: Float, tax: Float){
+        totalBillLabel?.position = CGPoint(x: 20, y: -40)
+        totalBillLabel?.numberOfLines = 3
+        totalBillLabel?.fontName =  "FF Hekaya"
+        totalBillLabel?.fontSize = 25
+        totalBillLabel?.text = "المبلغ = \(totalBill) \n الضريبة (١٥٪) = \(tax) \n المجموع =".convertedDigitsToLocale(Locale(identifier: "AR"))
+    }
+    
+    func setTotalBillWithTax(totalBillWithTax: Float){
+        totalBillWithTaxLabel?.position = CGPoint(x: 30, y: -90)
+        totalBillWithTaxLabel?.fontSize = 40
+        totalBillWithTaxLabel?.fontName =  "FF Hekaya"
+        totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
+    }
+    
+    //MARK: Node Creation for Answer
+    //create Answer Base
+    func createAnswerBaseNode(with base:Base) -> SKSpriteNode{
+        
+        let node = SKSpriteNode(imageNamed: base.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = CGPoint(x: 0, y: -30)
+        
+        
+        //get base size depens on base type
+        node.size = base.getAnswerBaseSize()
+        return node
+    }
+    
+    //create Answer Topping
+    func createAnswerTopping(at position:PositionTopping,as topping:Topping){
+        
+        toopingAnswerCounter += 1
+        
+        let node = SKSpriteNode(imageNamed: topping.rawValue)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        node.position = position.getPosition()
+        node.size = CGSize(width: 60, height: 60)
+        node.zRotation = position.getZRotation(for: topping)
+        
+        baseAnswer?.addChild(node)
+        
+    }
+    
+    
+    func packegeOrder(for answer:Answer){
+        //create base node
+        self.baseAnswer = createAnswerBaseNode(with: answer.base!)
+        
+        //create topping node if any
+        if let answerToppings = answer.toppings{
+            
+            for t in answerToppings {
+                
+                switch self.toopingAnswerCounter {
+                case 0:
+                    createAnswerTopping(at: PositionTopping.topRight(answer.base!),as: t)
+                case 1:
+                    createAnswerTopping(at: PositionTopping.topLeft(answer.base!),as: t)
+                case 2:
+                    createAnswerTopping(at: PositionTopping.bottomLeft(answer.base!),as: t)
+                case 3:
+                    createAnswerTopping(at: PositionTopping.bottomRight(answer.base!),as: t)
+                default:
+                    print("cannot add more than 4 toppings")
+                }
+            }
+        }
+        self.box?.addChild( self.baseAnswer! )
+    }
+    
+    //MARK: - Check Answers
+    
+    // OrderbuttonTapped
+    func checkOrderAnswer(){
+        
+        // Get answers provided
+        let providedAnswer = viewController?.objectDetected?.getAnswer()
+        
+        //make order invisible
+        hideOrder()
+        
+        guard let answer = providedAnswer else {
+            let cusSat = CustmerSatisfaction.sad
+            customerDone(satisfaction: cusSat)
+            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: cusSat)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                nextCustomer()}
+            return
+        }
+        
+        //check base if provided
+        if answer.base == nil {
+            let cusSat = CustmerSatisfaction.sad
+            customerDone(satisfaction: cusSat)
+            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: cusSat)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                nextCustomer()}
+            return
+        }
+        
+        //Calculate the Scores
+        viewController?.calculateOrderScore(for: answer)
+        let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
+        
+        //Walk to cashire and react
+        walkToCashir(satisfaction: custSat)
+        
+        //Packege the order
+        packegeOrder(for: answer)
+        
+    }
+    
+    
+    // checkPaymentAnswer
+    func checkPaymentAnswer(){
+        print("Payment button tapped!")
+        
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        
+        //get Answer payment
+        let answer = viewController?.objectDetected?.getAnswer()
+        
+        //Calculate payment score
+        viewController?.calculatePaymentScore(with: answer?.change ?? 0)
+        
+        //Calculate total score
+        viewController?.calculateTotalScore()
+        
+        //Get payment score for castumer satisfaction
+        let customerSatisfaction = CustmerSatisfaction.getPeymentCusSat(for: viewController!.paymentScore)
+        customerLeave(satisfaction: customerSatisfaction)
+        
+    }
+    
+    
+    //MARK: - Customer movments
+    func walkToCashir(satisfaction: CustmerSatisfaction){
+        
+        GameScene.flag = true
+        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
+    }
+    
+    func customerLeave(satisfaction: CustmerSatisfaction){
+        GameScene.flag = false
+        //Add money earned
+        let moneEarned = (viewController?.getTotalBill())!
+        updateMoneyLabel(moneEarned)
+        
+        //Customer Satsfaction bar
+        customerDone(satisfaction: satisfaction)
+        customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+                
+                let startPoint = CGPoint(x: 0, y: 0)
+                let moveing = SKAction.move(to: startPoint, duration: 1)
+                cam.run(moveing){
+                    //                self.progressBarContiner.position.x = cam.position.x
+                    self.nextCustomer()
+                }
+                
+            }
+            
+        }
+    }
+    
+    //MARK: - Customer handling
+    
+    func customerDone(satisfaction: CustmerSatisfaction){
+        increaseProgressBar(with: satisfaction)
+        viewController?.customersSatisfaction.append(satisfaction)
+        print(viewController?.customersSatisfaction)
+    }
+    
+    func nextCustomer(){
+        currentCustomer += 1
+        GameScene.timeLeft = 30
+        if (currentCustomer<=3){
+            print("داخل الاف الصغيره")
+            buildCustomer(customerNode: customers[currentCustomer])
+            GameScene.timeLeft = 30
+            GameScene.TimerShouldDelay = false
+            viewController?.nextOrder()
+                        
+        } else {
+            //                GameScene.timeLeft = 0
+            //No more Customer Level end
+            print("THE LEVEL IS END ")
+            GameScene.timer.invalidate()
+            viewController?.levlEnd()
+            
+        }
+        
+    }
+    //MARK:- Detection Overlay
+    
+    
+    @objc func hideDetectionOverlay(){
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        print("hideDetectionOverlay")
+    }
+    
+    
+    @objc func showDetectionOverlay(){
+        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        print("showDetectionOverlay")
+    }
+    
+    
+    //MARK: - Pickup order functions
+    func pickUpOrder(layer:CALayer){
+        guard self.box != nil else {
+            print("no box continer")
+            return
+        }
+        
+        //make payment visible
+        self.box?.isHidden = false
+        
+        //positionate payment
+        self.box?.position = CGPoint(x: 600, y: 230)
+        layer.zPosition = 2
+        layer.position = CGPoint(x: 600, y: 230)
+    }
+    
+    
+    
+    //MARK: - Timer function
+    
+    // Creates an animated countdown timer
+    func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
+        print("dddd")
+        guard let path = circle.path else {
+            return
+        }
+        let radius = path.boundingBox.width/2
+        var timeInterval = duration/TimeInterval(steps)
+        let incr = 1 / CGFloat(steps)
+        var percent = CGFloat(1.0)
+        
+        let animate = SKAction.run { [self] in
+            
+            if(GameScene.circleDecrement )
+            {percent -= incr}
+            
+            
+            if(GameScene.timeLeft==0){
+                percent = 1
+                circle.path = nil
+                
+            }
+            circle.path = self.circle(radius: radius, percent:percent)
+            if( Int(GameScene.timeLeft) < 30){
+                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
+            }
+            if( Int(GameScene.timeLeft) <= 20){
+                circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
+            }
+            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
+                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
+            }
+            
+            if( Int(GameScene.timeLeft)==0){
+                print("اريج")
+                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
+                self.removeAction(forKey: "stopTimer")
+                checkOrderAnswer()
+                
+            }
+            
+        }
+        let wait = SKAction.wait(forDuration:timeInterval)
+        let action1 = SKAction.sequence([wait, animate])
+        run(SKAction.repeatForever(action1), withKey: "stopTimer")
+        
+        
+    }
     
     func circleShouldDelay(){
         if((!(GameScene.circle == nil))&&GameScene.TimerShouldDelay){
@@ -320,533 +827,6 @@ class GameScene: SKScene {
         
     }
     
-    
-    //MARK: -  Charachters Functions
-    func setUpCatcter(){
-        while customers.count <= 3  {
-            let randomInt = Int.random(in: 1..<7)
-            var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
-            customers.append(choosenCustomer!)
-        }
-    }
-    
-    func buildCustomer(customerNode: CustomerNode) {
-        customerNode.buildCustomer()
-        customerNode.customer.position = CGPoint(x: frame.midX-550, y: frame.midY-20)
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
-        
-        customerNode.walkingCustomer()
-        
-        
-        //move to take cake
-        let moveAction = SKAction.moveBy(x: 520 , y: 0 , duration: 3)
-        //
-        //               let StopAction = SKAction.run({ [weak self] in
-        //                customerNode.stopCustomer()
-        //               })
-        let WaitingAction = SKAction.run({ [weak self] in
-            customerNode.waitingCustomer()
-        })
-        let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
-        
-        //        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
-        customerNode.customer.run(moveActionWithDone) {
-            
-            //make order visible
-            self.orderContiner?.isHidden = false
-            self.generateCircle()
-            self.generateTimer()
-            
-        }
-        
-        // for cashier
-        
-        //        customerNode.customer.size = CGSize(width: 300, height: 350)
-        addChild(customerNode.customer)
-    }
-    
-    
-    
-    
-    //MARK: - Progress bar methods
-    
-    //createPrograssBar
-    func createPrograssBar(){
-        
-        self.progressBarContiner.anchorPoint = CGPoint(x: 0.5, y: -1)
-        //Create Progress bar
-        self.progressBar = SKSpriteNode(imageNamed: "progress-bar")
-        self.progressBar.size = CGSize(width: 1, height: 20)
-        progressBar.anchorPoint = CGPoint(x: 0, y: 0)
-        progressBar.position = CGPoint(x: 160, y: 43)
-        
-        //Add progress bar to continer
-        progressBarContiner?.addChild(progressBar)
-    }
-    
-    //IncreaseProgressBar
-    func increaseProgressBar(with custSat:CustmerSatisfaction) {
-        
-        let newWidth = (progressBar.size.width-custSat.barIncreasedByNum())
-        
-        // Scale up progress bar
-        let scaleUpAction = SKAction.resize(toWidth: newWidth, duration: 1)
-        //Run Action
-        progressBar.run(scaleUpAction) {
-            self.addFaceToProgressBar(on: newWidth,as: custSat)
-        }
-    }
-    
-    //addFaceToProgressBar
-    func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
-        
-        let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
-        face.anchorPoint = CGPoint(x:0.5, y: 0.5)
-        face.size = CGSize(width: 22, height: 23)
-        face.position = CGPoint(x: positionX+5, y: progressBar.size.height/2)
-        face.zPosition = 3
-        
-        self.progressBar.addChild(face)
-        let rotateToLeft = SKAction.rotate(byAngle: 1, duration: 0.5)
-        let rotateToRight = SKAction.rotate(byAngle: -1, duration: 0.5)
-        let sequence = SKAction.sequence([rotateToLeft,rotateToRight])
-        
-        //Run Action
-        face.run(sequence)
-        
-    }
-    //MARK:- Buttons Tapped methods
-    
-    // OrderbuttonTapped
-    func OrderbuttonTapped(){
-        
-        print("Time left in orderButtonTapped .... ",GameScene.timeLeft)
-        // Get answers provided
-        let providedAnswer = viewController?.objectDetected?.getAnswer()
-        
-        //make order invisible
-        self.orderContiner?.isHidden = true
-        GameScene.circle?.isHidden = true
-        GameScene.circle?.alpha=0
-        GameScene.timer.invalidate()
-        
-        //GameScene.timeLeft = 0
-        GameScene.countStop=0
-        
-        guard let answer = providedAnswer else {
-            customerDone(satisfaction: CustmerSatisfaction.sad)
-            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
-            return
-        }
-        
-        print("Base in order tapped", answer.base )
-        //check base if provided 
-        if answer.base == nil {
-            //walk out
-            customerDone(satisfaction: CustmerSatisfaction.sad)
-            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: "sad")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
-            return
-        }
-        
-        //Calculate the Scores
-        viewController?.calculateOrderScore(for: answer)
-        
-        //Walk to cashire and react
-        if viewController?.orderScore == 0 {
-            walkToCashir(satisfaction: "sad")
-        } else if viewController?.orderScore == 3 {
-            walkToCashir(satisfaction: "happy")
-        } else {
-            walkToCashir(satisfaction: "normal")
-        }
-        
-        //create base node
-        self.baseAnswer = createAnswerBaseNode(with: answer.base!)
-        
-        //create topping node if any
-        if let answerToppings = answer.toppings{
-            
-            for t in answerToppings {
-                
-                switch self.toopingAnswerCounter {
-                case 0:
-                    createAnswerTopping(at: PositionTopping.topRight(answer.base!),as: t)
-                case 1:
-                    createAnswerTopping(at: PositionTopping.topLeft(answer.base!),as: t)
-                case 2:
-                    createAnswerTopping(at: PositionTopping.bottomLeft(answer.base!),as: t)
-                case 3:
-                    createAnswerTopping(at: PositionTopping.bottomRight(answer.base!),as: t)
-                default:
-                    print("cannot add more than 4 toppings")
-                }
-            }
-        }
-        self.box?.addChild( self.baseAnswer! )
-        
-    }
-    
-    // PaymentbuttonTapped
-    func PaymentbuttonTapped(){
-        print("Payment button tapped!")
-        
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
-        
-        //get Answer payment
-        let answer = viewController?.objectDetected?.getAnswer()
-        
-        //Calculate payment score
-        viewController?.calculatePaymentScore(with: answer?.change ?? 0)
-        
-        //Calculate total score
-        var totalScore = (viewController?.calculateTotalScore())!
-        
-        cashierButton(satisfaction: CustmerSatisfaction.getCusSat(for: totalScore))
-        
-        (self.view?.window?.rootViewController as! ChallengeViewController).isOrder = true
-        // stop session
-    }
-    
-    
-    func walkToCashir(satisfaction: String){
-        
-        
-        GameScene.flag = true
-        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
-        
-        //        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
-        //        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showDetectionOverlay), userInfo: nil, repeats: false)
-    }
-    
-    func nextCustomer(){
-        
-        
-        currentCustomer += 1
-        GameScene.timeLeft = 30
-        if (currentCustomer<=3){
-            print("داخل الاف الصغيره")
-            buildCustomer(customerNode: customers[currentCustomer])
-            GameScene.timeLeft = 30
-            GameScene.TimerShouldDelay = false
-            viewController?.nextOrder()
-            
-            
-        } else {
-            //                GameScene.timeLeft = 0
-            //No more Customer Level end
-            print("THE LEVEL IS END ")
-            GameScene.timer.invalidate()
-            viewController?.levlEnd()
-            
-        }
-        
-    }
-    
-    func customerDone(satisfaction: CustmerSatisfaction){
-        increaseProgressBar(with: satisfaction)
-        viewController?.customersSatisfaction.append(satisfaction)
-        print(viewController?.customersSatisfaction)
-    }
-    //MARK:- @Obj
-    
-    
-    @objc func hideDetectionOverlay(){
-        ObjectDetectionViewController.detectionOverlay.isHidden = true
-        print("hideDetectionOverlay")
-    }
-    
-    
-    @objc func showDetectionOverlay(){
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
-        print("showDetectionOverlay")
-    }
-    
-    func cashierButton(satisfaction: CustmerSatisfaction){
-        GameScene.flag = false
-        //Add money earned
-        let moneEarned = (viewController?.getTotalBill())!
-        updateMoneyLabel(moneEarned)
-        
-        //Customer Satsfaction bar
-        customerDone(satisfaction: satisfaction)
-        customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                
-                let startPoint = CGPoint(x: 0, y: 0)
-                let moveing = SKAction.move(to: startPoint, duration: 1)
-                cam.run(moveing){
-                    //                self.progressBarContiner.position.x = cam.position.x
-                    self.nextCustomer()
-                }
-                
-            }
-            
-            
-            
-        }
-    }
-    //MARK:  - Set up Order Contents Functions
-    
-    //setOrderContent
-    func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
-        
-        //unwrap order continer
-        guard self.orderContiner != nil else {
-            print("no order continer")
-            return
-        }
-        
-        //Create base node
-        self.base = createBaseNode(with: baseType)
-        
-        if let base = self.base {
-            
-            //add base to continerOrder
-            self.orderContiner?.addChild(base)
-            
-            //unwrap toopings array if any
-            if let toppings = toppings {
-                
-                //Topping
-                for t in toppings {
-                    
-                    switch self.toopingCounter{
-                    case 0:
-                        createTopping(at: PositionTopping.topRight(baseType),as: t)
-                    case 1:
-                        createTopping(at: PositionTopping.topLeft(baseType),as: t)
-                    case 2:
-                        createTopping(at: PositionTopping.bottomLeft(baseType),as: t)
-                    case 3:
-                        createTopping(at: PositionTopping.bottomRight(baseType),as: t)
-                    default:
-                        print("cannot add more than 4 toppings")
-                    }
-                    
-                }
-            }
-            
-        }
-        
-        
-    }
-    //create Topping
-    func createTopping(at position:PositionTopping,as topping:Topping){
-        
-        toopingCounter += 1
-        
-        let node = SKSpriteNode(imageNamed: topping.rawValue)
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.position = position.getPosition()
-        node.size = CGSize(width: 60, height: 60)
-        node.zRotation = position.getZRotation(for: topping)
-        
-        base?.addChild(node)
-        
-    }
-    
-    //create Base
-    func createBaseNode(with base:Base) -> SKSpriteNode{
-        
-        let node = SKSpriteNode(imageNamed: base.rawValue)
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.position = CGPoint(x: 0, y: 15)
-        
-        //get base size depens on base type
-        node.size = base.getBaseSize()
-        return node
-    }
-    
-    //create Answer Base
-    func createAnswerBaseNode(with base:Base) -> SKSpriteNode{
-        
-        let node = SKSpriteNode(imageNamed: base.rawValue)
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.position = CGPoint(x: 0, y: -30)
-        
-        
-        //get base size depens on base type
-        node.size = base.getAnswerBaseSize()
-        return node
-    }
-    
-    //create Answer Topping
-    func createAnswerTopping(at position:PositionTopping,as topping:Topping){
-        
-        toopingAnswerCounter += 1
-        
-        let node = SKSpriteNode(imageNamed: topping.rawValue)
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.position = position.getPosition()
-        node.size = CGSize(width: 60, height: 60)
-        node.zRotation = position.getZRotation(for: topping)
-        
-        baseAnswer?.addChild(node)
-        
-    }
-    
-    //MARK:  - Set up Payment Contents Functions
-    func setPaymentContent(with money:[Money]?){
-        
-        //unwrap payment continer
-        guard self.paymentContainer != nil else {
-            print("no payment continer")
-            return
-        }
-        
-        //make payment visible
-        self.paymentContainer?.isHidden = false
-        
-        //positionate payment
-        self.paymentContainer?.position = CGPoint(x: 1000, y: 230)
-        
-        //unwrap money array if any
-        if let money = money {
-            
-            //money
-            for m in money {
-                
-                switch self.moneyCounter {
-                case 0:
-                    createMoney(at: PositionMoney.first(m), as: m)
-                case 1:
-                    createMoney(at: PositionMoney.seconed(m), as: m)
-                case 2:
-                    createMoney(at: PositionMoney.third(m), as: m)
-                case 3:
-                    createMoney(at: PositionMoney.fourth(m), as: m)
-                case 4:
-                    createMoney(at: PositionMoney.fifth(m), as: m)
-                case 5:
-                    createMoney(at: PositionMoney.sixth(m), as: m)
-                default:
-                    print("cannot add more")
-                }
-            }
-        }
-        
-    }
-    
-    func createMoney(at position:PositionMoney,as money:Money){
-        moneyCounter += 1
-        let node = SKSpriteNode(imageNamed: "\(money.rawValue)")
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.position = position.getPosition()
-        node.size = money.getMoneySize()
-        node.zRotation = position.getZRotation()
-        paymentContainer?.addChild(node)
-    }
-    
-    func setTotalBill(totalBill: Float, tax: Float){
-        totalBillLabel?.position = CGPoint(x: 20, y: -40)
-        totalBillLabel?.numberOfLines = 3
-        totalBillLabel?.fontName =  "FF Hekaya"
-        totalBillLabel?.fontSize = 25
-        totalBillLabel?.text = "المبلغ = \(totalBill) \n الضريبة (١٥٪) = \(tax) \n المجموع =".convertedDigitsToLocale(Locale(identifier: "AR"))
-    }
-    
-    func setTotalBillWithTax(totalBillWithTax: Float){
-        totalBillWithTaxLabel?.position = CGPoint(x: 30, y: -90)
-        totalBillWithTaxLabel?.fontSize = 40
-        totalBillWithTaxLabel?.fontName =  "FF Hekaya"
-        totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
-    }
-    
-    private func setCameraConstraints() {
-        
-        let scaledSize = CGSize(width: size.width * cam.xScale, height: size.height * cam.yScale)
-        
-        guard let bekary = bakeryBackgroundNode else {
-            return
-        }
-        let boardContentRect = bekary.calculateAccumulatedFrame()
-        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
-        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
-        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
-        let xRange = SKRange(lowerLimit: 0, upperLimit: insetContentRect.maxX)
-        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
-        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
-        levelEdgeConstraint.referenceNode = bekary
-        
-        cam.constraints = [levelEdgeConstraint]
-    }
-    //MARK: - Pickup order functions
-    func pickUpOrder(layer:CALayer){
-        guard self.box != nil else {
-            print("no box continer")
-            return
-        }
-        
-        //make payment visible
-        self.box?.isHidden = false
-        
-        //positionate payment
-        self.box?.position = CGPoint(x: 600, y: 230)
-        layer.zPosition = 2
-        layer.position = CGPoint(x: 600, y: 230)
-    }
-    
-    
-    
-    //MARK: - Timer function
-    
-    // Creates an animated countdown timer
-    func countdown(circle:SKShapeNode, steps:Int, duration:TimeInterval, completion:@escaping ()->Void) {
-        print("dddd")
-        guard let path = circle.path else {
-            return
-        }
-        let radius = path.boundingBox.width/2
-        var timeInterval = duration/TimeInterval(steps)
-        let incr = 1 / CGFloat(steps)
-        var percent = CGFloat(1.0)
-        
-        let animate = SKAction.run { [self] in
-            
-            if(GameScene.circleDecrement )
-            {percent -= incr}
-            
-            
-            if(GameScene.timeLeft==0){
-                percent = 1
-                circle.path = nil
-                
-            }
-            circle.path = self.circle(radius: radius, percent:percent)
-            if( Int(GameScene.timeLeft) < 30){
-                circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
-            }
-            if( Int(GameScene.timeLeft) <= 20){
-                circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
-            }
-            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
-                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
-            }
-            
-            if( Int(GameScene.timeLeft)==0){
-                print("اريج")
-                circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
-                self.removeAction(forKey: "stopTimer")
-                OrderbuttonTapped()
-                
-            }
-            
-        }
-        let wait = SKAction.wait(forDuration:timeInterval)
-        let action1 = SKAction.sequence([wait, animate])
-        run(SKAction.repeatForever(action1), withKey: "stopTimer")
-        
-        
-    }
-    
-    
-    
-    
-    
     // Creates a CGPath in the shape of a pie with slices missing
     func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
         let start:CGFloat = 0
@@ -903,7 +883,7 @@ class GameScene: SKScene {
         }
     }
     
-    //MARK: - Actions Functions
+    //MARK: - Touch Actions Functions
     
     //touchDown
     func touchDown(atPoint pos : CGPoint) {
@@ -975,6 +955,7 @@ class GameScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    //MARK:- override Update Function
     //override update
     override func update(_ currentTime: TimeInterval) {
         
@@ -1016,8 +997,27 @@ class GameScene: SKScene {
     
     
     //MARK:- Constrains Functos
+    private func setCameraConstraints() {
+        
+        let scaledSize = CGSize(width: size.width * cam.xScale, height: size.height * cam.yScale)
+        
+        guard let bekary = bakeryBackgroundNode else {
+            return
+        }
+        let boardContentRect = bekary.calculateAccumulatedFrame()
+        let xInset = min((scaledSize.width / 2) + 100, (boardContentRect.width / 2.5)  )
+        let yInset = min((scaledSize.height / 2) - 100.0, boardContentRect.height / 2)
+        let insetContentRect = boardContentRect.insetBy(dx: xInset, dy: yInset)
+        let xRange = SKRange(lowerLimit: 0, upperLimit: insetContentRect.maxX)
+        let yRange = SKRange(lowerLimit: insetContentRect.minY, upperLimit: insetContentRect.maxY)
+        let levelEdgeConstraint = SKConstraint.positionX(xRange, y: yRange)
+        levelEdgeConstraint.referenceNode = bekary
+        
+        cam.constraints = [levelEdgeConstraint]
+    }
     
 }
+
 extension TimeInterval {
     var time: String {
         return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
@@ -1028,10 +1028,3 @@ extension Int {
         return CGFloat(self) * .pi / 180
     }
 }
-
-
-
-
-
-
-

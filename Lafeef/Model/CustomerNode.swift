@@ -122,14 +122,14 @@ class CustomerNode {
       
     }
     
-    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
+    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction) {
         // need to hide ca layer
         print(ObjectDetectionViewController.detectionOverlay, "----------------------------------------")
         
 
 
         switch customerSatisfaction {
-        case "happy":
+        case .happey:
              customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
 
@@ -148,7 +148,7 @@ class CustomerNode {
 //            
             break
 
-        case "sad":
+        case .sad:
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
 
@@ -159,7 +159,7 @@ class CustomerNode {
             break
         
     
-        default:
+        case .normal:
 
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in

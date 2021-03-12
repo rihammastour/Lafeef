@@ -20,7 +20,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     
     //Variables
-    var levelNum:String! = "1"
+    var levelNum:String! = "1" //Must be dynamic
     static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
@@ -63,9 +63,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAVCapture()
     
         // Additional setup after loading the view.
+        setupAVCapture()
         setScene()
         fetchChallengeLevel()
         
@@ -81,6 +81,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
         }
     }
+    
+    //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -201,36 +203,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //MARK: -Set up UI Element
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier.da
-        
-        if segue.identifier == Constants.Segue.menuSegue {
-            let vc = segue.destination as! PauseGameViewController
-            print("Segue proformed")
-            if(GameScene.circle==nil){
-                GameScene.circleDecrement=false
-                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
-                GameScene.timer.invalidate()
-                ChallengeViewController.stopCircleNil=true
-                GameScene.circle?.isHidden=true
-                ChallengeViewController.stopImageBool=false
-                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //                changeStopImage()
-                
-            }else{
-                GameScene.timeLeft = GameScene.timeLeft
-                GameScene.timer.invalidate()
-                GameScene.circleDecrement=false
-                GameScene.circle!.isPaused=true
-                ChallengeViewController.stopImageBool=false
-                print(GameScene.timeLeft.time)
-                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //                changeStopImage()
-                //            vc.levelNum = "1"
-            }
-        }
-        
-    }
     //setScens
     func setScene(){
         
@@ -240,7 +212,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
     
-    //MARK: - Functions
+    //MARK: - Orders Functions
     
     //fethChallengeLevel
     func fetchChallengeLevel(){
@@ -261,9 +233,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.orders = level.orders
         //Show First Order
         showOrder(at: ChallengeViewController.currentOrder)
-        
-        showCustomerPaid(at: ChallengeViewController.currentOrder)
-        showBill(at: ChallengeViewController.currentOrder)
     }
     
     //showOrder
@@ -272,6 +241,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let base = order.base
         let toppings = order.toppings
         self.challengeScen?.setOrderContent(with: base, toppings)
+        showCustomerPaid(at: ChallengeViewController.currentOrder)
+        showBill(at: ChallengeViewController.currentOrder)
     }
     
     func showCustomerPaid(at number:Int) -> Void {
@@ -446,6 +417,34 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         return (self.orders?[ChallengeViewController.currentOrder])
     }
     
+    //MARK: - Level Ends
+    
+    func levlEnd() {
+        
+        checkLevelPassed()
+
+        //Create Report
+        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: self.levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
+        
+        DispalyReport(report)
+    }
+    
+    //check if child pass the level
+    func checkLevelPassed(){
+        if levelScore  > 50 {
+            isPassed = true
+        }else{
+            isPassed = false
+        }
+    }
+    
+    func DispalyReport(_ report:DailyReport){
+
+        //        self.present(report.displayDailyReport(), animated: true)
+        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+    }
+
+    
     //MARK: - Delegate handeler
     
     //showAlert
@@ -480,33 +479,37 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
-    //MARK: - Level Ends
-    
-    func levlEnd() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        if segue.identifier.da
         
-        checkLevelPassed()
-
-        //Create Report
-        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: self.levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
-        
-        DispalyReport(report)
-    }
-    
-    //check if child pass the level
-    func checkLevelPassed(){
-        if levelScore  > 50 {
-            isPassed = true
-        }else{
-            isPassed = false
+        if segue.identifier == Constants.Segue.menuSegue {
+            let vc = segue.destination as! PauseGameViewController
+            print("Segue proformed")
+            if(GameScene.circle==nil){
+                GameScene.circleDecrement=false
+                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
+                GameScene.timer.invalidate()
+                ChallengeViewController.stopCircleNil=true
+                GameScene.circle?.isHidden=true
+                ChallengeViewController.stopImageBool=false
+                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //                changeStopImage()
+                
+            }else{
+                GameScene.timeLeft = GameScene.timeLeft
+                GameScene.timer.invalidate()
+                GameScene.circleDecrement=false
+                GameScene.circle!.isPaused=true
+                ChallengeViewController.stopImageBool=false
+                print(GameScene.timeLeft.time)
+                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //                changeStopImage()
+                //            vc.levelNum = "1"
+            }
         }
+        
     }
-    
-    func DispalyReport(_ report:DailyReport){
-
-        //        self.present(report.displayDailyReport(), animated: true)
-        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
-    }
-    
+        
     
     
 }
