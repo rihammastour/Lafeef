@@ -96,18 +96,18 @@ class ChalleangeLevelCalendarViewController:UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ChallengeViewController
         if segue.identifier == Constants.Segue.showLevelOne{
-            ChallengeViewController.levelNum = "1"
+            vc.levelNum = "1"
             
         }else if segue.identifier == Constants.Segue.showLevelTwo{
-            ChallengeViewController.levelNum = "2"
+            vc.levelNum = "2"
             
         }
         else if segue.identifier == Constants.Segue.showLevelThree{
-            ChallengeViewController.levelNum = "3"
+            vc.levelNum = "3"
             
         }
         else if segue.identifier == Constants.Segue.showLevelFour{
-            ChallengeViewController.levelNum = "4"
+            vc.levelNum = "4"
             
         }
     }

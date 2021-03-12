@@ -20,7 +20,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     
     //Variables
-    static var levelNum:String? = "1"
+    var levelNum:String! = "1"
     static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
@@ -63,12 +63,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispalyReport()
         setupAVCapture()
-        
-        
+    
         // Additional setup after loading the view.
-        
         setScene()
         fetchChallengeLevel()
         
@@ -79,19 +76,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
     
-    
-    
-    
-    func DispalyReport(){
-        
-        //        self.present(report.displayDailyReport(), animated: true)
-        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
-    }
-    
-    
-    
     func presentAdvReport(){
-        if ChallengeViewController.levelNum == "1" {
+        if self.levelNum == "1" {
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
         }
     }
@@ -212,27 +198,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // to be implemented in the subclass
     }
     
-    //        ChallengeViewController.stopImageBool=true
-    //        print("ستوب ايمج رهام")
-    //        print("رهام \(ChallengeViewController.stopImageBool) ")
-    //        print("البوليان وين ؟")
-    //        changeStopImage(_sender:ChallengeViewController.stopImageBool)
-    //
-    
     
     //MARK: -Set up UI Element
-    
-    //    func changeStopImage(_sender: Bool){
-    //        if(_sender){
-    //            print("رهام شوفي هنا الصوره ستوب ")
-    //            stopGame.setBackgroundImage(stopImage, for:.normal)
-    //        }else{
-    //            print("رهام شوفي هنا الصوره بوز ")
-    //            stopGame.setBackgroundImage(pauseImage, for:.normal)
-    //        }
-    //
-    //
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //        if segue.identifier.da
@@ -278,7 +245,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //fethChallengeLevel
     func fetchChallengeLevel(){
         
-        guard let levelNum = ChallengeViewController.levelNum else {
+        guard let levelNum = self.levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
@@ -345,39 +312,17 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Calculate Score
     
     //calculateScore
-    func calculateTotalScore(){
+    func calculateTotalScore() -> Int {
         
-        //Sum scors
-        self.levelScore = self.paymentScore + self.orderScore
-        
+        //Sum customer scors
+        let orderScore = self.paymentScore + self.orderScore
+        //Add it to level Score
+        self.levelScore += orderScore
         //Reset to zero
         self.paymentScore = 0
-        self.orderScore = 0 
-
-        //for answer:Answer? -> Int
-//        //Unwrap current order
-//        guard getCurrentOrder() != nil else {
-//            //Fail umwrapping
-//            return 0
-//
-//        }
-//
-//        guard let answer = answer else {
-//            //No answer provided!
-//            return 0
-//        }
+        self.orderScore = 0
         
-        //check time
-        //        if (answer.atTime == 0){ //May changed
-        //            levelScore += 0
-        //
-        //        }
-        //get order score
-        //calculateOrderScore(for: answer)
-        //get payment score
-        //calculatePaymentScore(with: answer.change)
-        //ChallengeViewController.report.collectedScore += self.levelScore
-
+        return orderScore
     }
     
 
@@ -535,6 +480,18 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
+    //MARK: - Level Ends
+    
+    func levlEnd() {
+        
+        checkLevelPassed()
+
+        //Create Report
+        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: self.levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
+        
+        DispalyReport(report)
+    }
+    
     //check if child pass the level
     func checkLevelPassed(){
         if levelScore  > 50 {
@@ -543,6 +500,13 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             isPassed = false
         }
     }
+    
+    func DispalyReport(_ report:DailyReport){
+
+        //        self.present(report.displayDailyReport(), animated: true)
+        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+    }
+    
     
     
 }
