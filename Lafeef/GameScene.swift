@@ -82,13 +82,12 @@ class GameScene: SKScene {
     var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
     
-    
     override func sceneDidLoad() {
         setupSceneElements()
         setUpCatcter()
-        
-        
     }
+    
+    
     override func didMove(to view: SKView) {
         backgroundColor = .white
         self.camera = cam
@@ -99,14 +98,11 @@ class GameScene: SKScene {
             self.buildCustomer(customerNode: self.customers[self.currentCustomer])
         }
         
-        
-        
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
-        
-    }//end did move
+    }
     
     //MARK:  Functions
     
@@ -133,15 +129,16 @@ class GameScene: SKScene {
         // Get Money bar Continer node from scene and store it for use later
         setUpMoneyContiner()
         
-        OrderButton  = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y: self.frame.minY+30)
+        OrderButton = SKSpriteNode(imageNamed: "served")
+        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY)!+(50))
         OrderButton.zPosition = 3
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y: self.frame.minY+30)
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY)!+(50))
         PaymentButton.zPosition = 3
         self.addChild(PaymentButton)
+        
         // Get Camera node from scene and store it for use later
         self.camera = cam
         
