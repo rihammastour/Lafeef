@@ -295,6 +295,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }else{
             self.paymentScore = 0
         }
+        print("Payment Scoren : ",self.paymentScore)
         
     }
     
@@ -395,6 +396,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
         
         self.orderScore = totalSocre
+        print("Order Score :  ",self.orderScore)
     }
     
     //getCurrentOrder

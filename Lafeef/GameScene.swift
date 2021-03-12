@@ -551,25 +551,16 @@ class GameScene: SKScene {
     func checkOrderAnswer(){
         
         // Get answers provided
-        let providedAnswer = viewController?.objectDetected?.getAnswer()
+        let answer = (viewController?.objectDetected?.getAnswer())!
         
         //make order invisible
         hideOrder()
-        
-        guard let answer = providedAnswer else {
-            let cusSat = CustmerSatisfaction.sad
-            customerDone(satisfaction: cusSat)
-            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: cusSat)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
-            return
-        }
         
         //check base if provided
         if answer.base == nil {
             let cusSat = CustmerSatisfaction.sad
             customerDone(satisfaction: cusSat)
-            customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: cusSat)
+            customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                 nextCustomer()}
             return
@@ -600,9 +591,6 @@ class GameScene: SKScene {
         //Calculate payment score
         viewController?.calculatePaymentScore(with: answer?.change ?? 0)
         
-        //Calculate total score
-        viewController?.calculateTotalScore()
-        
         //Get payment score for castumer satisfaction
         let customerSatisfaction = CustmerSatisfaction.getPeymentCusSat(for: viewController!.paymentScore)
         customerLeave(satisfaction: customerSatisfaction)
@@ -624,7 +612,11 @@ class GameScene: SKScene {
         updateMoneyLabel(moneEarned)
         
         //Customer Satsfaction bar
-        customerDone(satisfaction: satisfaction)
+        let totalScores = (viewController?.calculateTotalScore())!
+        print("Total Score: ",totalScores)
+        customerDone(satisfaction: CustmerSatisfaction.getTotalCusSat(for: totalScores))
+        
+        //Move Customer
         customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                 

@@ -122,6 +122,15 @@ class CustomerNode {
       
     }
     
+    func moveOutSadly(customerNode : CustomerNode){
+        customerNode.sadCustomer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
+
+            moveCustomer(customerNode : customerNode,x: -600, y: 0)
+          
+           }
+    }
+    
     func movetoCashier(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction) {
         // need to hide ca layer
         print(ObjectDetectionViewController.detectionOverlay, "----------------------------------------")
@@ -151,8 +160,7 @@ class CustomerNode {
         case .sad:
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-
-                moveCustomer(customerNode : customerNode,x: -600, y: 0)
+                moveCustomer(customerNode:customerNode,x: 650, y: 0)
               
                }
          
