@@ -16,7 +16,6 @@ class ChalleangeLevelCalendarViewController:UIViewController
     @IBOutlet weak var levelTwoLock: UIImageView!
     @IBOutlet weak var levelThreeLock: UIImageView!
     @IBOutlet weak var leveloneOutlet: UIButton!
-
     @IBOutlet weak var levelFourView: UIView!
     @IBOutlet weak var levelThreeOutlet: UIButton!
     @IBOutlet weak var levelFourOutlet: UIButton!
@@ -98,26 +97,26 @@ class ChalleangeLevelCalendarViewController:UIViewController
     @IBAction func levelOne(_ sender: Any) {
         print("level one")
         challengeVC.report.levelNum = "1"
-        self.performSegue(withIdentifier:  Constants.Segue.challengeSegue, sender: self)
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelTwo(_ sender: Any) {
         print("leveltwo")
         challengeVC.report.levelNum = "2"
-        self.performSegue(withIdentifier:  Constants.Segue.challengeSegue, sender: self)
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     
     @IBAction func levelThree(_ sender: Any) {
         print("levelthree")
         challengeVC.report.levelNum = "3"
-        self.performSegue(withIdentifier:  Constants.Segue.challengeSegue, sender: self)
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelFour(_ sender: Any) {
         print("levelFour")
         challengeVC.report.levelNum = "4"
-        self.performSegue(withIdentifier:  Constants.Segue.challengeSegue, sender: self)
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
 

@@ -47,6 +47,7 @@ struct Constants {
         static let showWinningReport = "showWinningReport"
         static let showLevelGoal = "showLevelGoal"
         static let challengeLevelsCalenderVC = "challeange"
+        static let challenge = "challenge"
         
     }
     
