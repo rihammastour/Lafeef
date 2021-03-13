@@ -42,6 +42,7 @@ class DailyReportViewController: UIViewController {
         styleUI()
         hideAdv()
         calculateReward()
+        passReportData()
     }
     
     //MARK:- Functions
@@ -106,17 +107,8 @@ class DailyReportViewController: UIViewController {
         }
      
     }
-//    // Assert data to firestore
-//    func passReportData(){
-//        let levelReportData = LevelReportData(collectedMoney: self.collectedMoney, collectedScore: self.collectedScore, isPassed: self.isPassed)
-//
-//        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
-//
-//        FirebaseRequest.passCompletedLevelData(levelNum: self.levelNum, completedLevel: completedLevel) { (success, err) in
-//            print(err)
-//        }
-//    }
     
+
     
     // insert the data to database
 
@@ -132,6 +124,16 @@ class DailyReportViewController: UIViewController {
                 
             }
         }
+    // Assert data to firestore
+    func passReportData(){
+        let levelReportData = LevelReportData(collectedMoney: Int(challeangeVC.report.collectedMoney + challeangeVC.report.advertismentAmount + Float(challeangeVC.report.reward) + challeangeVC.report.collectedMoney), collectedScore: challeangeVC.report.collectedScore, isPassed: challeangeVC.report.isPassed)
 
+        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+
+        FirebaseRequest.passCompletedLevelData(levelNum: challeangeVC.report.levelNum, completedLevel: completedLevel) { (success, err) in
+            print(err)
+        }
+    }
+    
 }
     

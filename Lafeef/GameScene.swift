@@ -518,13 +518,13 @@ class GameScene: SKScene {
     
    @objc func hideDetectionOverlay(){
         ObjectDetectionViewController.detectionOverlay.isHidden = true
-print("hideDetectionOverlay")
+        print("hideDetectionOverlay")
     }
     
     
     @objc func showDetectionOverlay(){
          ObjectDetectionViewController.detectionOverlay.isHidden = false
- print("showDetectionOverlay")
+        print("showDetectionOverlay")
      }
     
     func cashierButton(satisfaction: String){
@@ -839,6 +839,7 @@ print("hideDetectionOverlay")
                             GameScene.timeLeft = 0
                             GameScene.timer.invalidate()
                             viewController?.DispalyReport()
+                            
                             print("THE LEVEL IS END ")
 
                         }

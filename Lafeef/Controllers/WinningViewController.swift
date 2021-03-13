@@ -100,8 +100,7 @@ class WinningViewController: UIViewController {
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        //
+        dismiss(animated: true)
     }
     
     func setCustomerSatisfaction()  {
@@ -128,7 +127,7 @@ class WinningViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score*100)/5
+        starView.rating = Double(score)/5
 
             }
 

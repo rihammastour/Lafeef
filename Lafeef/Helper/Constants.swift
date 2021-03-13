@@ -25,6 +25,9 @@ struct Constants {
         static let advReportViewController = "AdvReportVC"
         static let NormalViewController = "NormalReport"
         static let WinningViewController  = "WinningReport"
+        static let LevelGoalViewController = "LevelGoalViewController"
+        static let  GoalViewController = "GoalViewController"
+        static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
     }
     
     struct Segue {
@@ -41,11 +44,9 @@ struct Constants {
         static let showNormalReport = "showNormalReport"
         static let showAdvReport = "ShowAdvReport"
         static let showProfile = "profileSegue"
-        static let showLevelOne = "showLevelOne"
-        static let showLevelTwo = "showLevelTwo"
-        static let showLevelThree = "showLevelThree"
-        static let showLevelFour = "showLevelFour"
         static let showWinningReport = "showWinningReport"
+        static let showLevelGoal = "showLevelGoal"
+        static let challengeLevelsCalenderVC = "challeange"
         
     }
     

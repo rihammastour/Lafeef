@@ -69,9 +69,6 @@
                                                 <state key="normal" title="إبدأ العمل">
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="ePr-7S-su6" kind="presentation" modalPresentationStyle="fullScreen" id="bdN-Dh-g3j"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -572,16 +569,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFA-f8-sEt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5966" y="561"/>
-        </scene>
-        <!--ChallengeVC-->
-        <scene sceneID="9Ve-9y-Rwr">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="challengeLevelsCalenderVC" storyboardName="Challenge" referencedIdentifier="ChallengeVC" id="ePr-7S-su6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="MMg-Ne-IHY"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-qk-PQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5966" y="320"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

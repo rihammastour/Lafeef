@@ -82,7 +82,7 @@ class LosingViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     func setCustomerSatisfaction()  {

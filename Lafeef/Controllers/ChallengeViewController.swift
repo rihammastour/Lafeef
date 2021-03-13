@@ -19,13 +19,13 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     //Variables
-    static var levelNum:String? = "1"
+    static var levelNum:String? = "2"
     static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    var report = DailyReport(levelNum: "1", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
+    var report = DailyReport(levelNum: "2", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
     
    var levelScore = 0
     var orderScore = 0
@@ -62,27 +62,30 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispalyReport()
+       
+    
         setupAVCapture()
 
         
         // Additional setup after loading the view.
-    
+   
         setScene()
-        fetchChallengeLevel()
-  
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+4) {
-//            self.presentAdvReport()
-//        }
         
-     
-        
-      }
-    
-    
-    
+        displayLevelGoal()
+       
+       
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.displayLevelGoal()
 
+        }
+        fetchChallengeLevel()
+
+    }
+
+    func displayLevelGoal(){
+        print("display")
+        self.performSegue(withIdentifier: Constants.Segue.showLevelGoal, sender: self)
+    }
     func DispalyReport(){
      
 //        self.present(report.displayDailyReport(), animated: true)
@@ -252,6 +255,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
 //                changeStopImage()
 
+            }else if segue.identifier == Constants.Segue.showLevelGoal{
+                print("goal")
+                
             }else{
             GameScene.timeLeft = GameScene.timeLeft
             GameScene.timer.invalidate()
