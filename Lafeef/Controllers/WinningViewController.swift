@@ -93,14 +93,16 @@ class WinningViewController: UIViewController {
         if challeangeReport.report.levelNum != "4"{
         levelnum! += 1
             challeangeReport.report.levelNum = String(levelnum!)
-        navigationController?.popViewController(animated: true)
+       
+            self.performSegue(withIdentifier: " showChalleange", sender: self)
         }else{
             print("last level")
           
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true)
+        self.performSegue(withIdentifier: " showCalendar", sender: self)
+   
     }
     
     func setCustomerSatisfaction()  {

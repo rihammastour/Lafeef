@@ -128,11 +128,11 @@ class DailyReportViewController: UIViewController {
     func passReportData(){
         let levelReportData = LevelReportData(collectedMoney: Int(challeangeVC.report.collectedMoney + challeangeVC.report.advertismentAmount + Float(challeangeVC.report.reward) + challeangeVC.report.collectedMoney), collectedScore: challeangeVC.report.collectedScore, isPassed: challeangeVC.report.isPassed)
 
-        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+//        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
 
-        FirebaseRequest.passCompletedLevelData(levelNum: challeangeVC.report.levelNum, completedLevel: completedLevel) { (success, err) in
-            print(err)
-        }
+//        FirebaseRequest.passCompletedLevelData(levelNum: challeangeVC.report.levelNum, completedLevel: completedLevel) { (success, err) in
+//            print(err)
+//        }
     }
     
 }

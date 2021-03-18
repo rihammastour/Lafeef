@@ -13,6 +13,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
 
 {
     
+    @IBOutlet weak var levelFourLock: UIImageView!
     @IBOutlet weak var levelTwoLock: UIImageView!
     @IBOutlet weak var levelThreeLock: UIImageView!
     @IBOutlet weak var leveloneOutlet: UIButton!
@@ -140,7 +141,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     }else{
                         levelOneStar.image = UIImage(systemName: "star")
                     }
-                    levelOneLabel.text = "١٠٠ /" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
+                    levelOneLabel.text =   formatter.string(from: NSNumber(value: level.reportData.collectedScore))!+"/١٠٠"
                     levelOneStar.isHidden = false
                    
 
@@ -165,7 +166,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                 if level.reportData.isPassed{
                     levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
                     levelThreeStar.image = UIImage(systemName: "star.fill")
-                    levelThreeLock.isHidden = false
+                    levelFourLock.isHidden = false
                     levelFourView.backgroundColor = UIColor.init(named: "failChallenge")
                     levelFourOutlet.isEnabled = true
                  }else{
@@ -180,9 +181,9 @@ class ChalleangeLevelCalendarViewController:UIViewController
                    
                 default:
                     if level.reportData.isPassed{
-                        levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
-                        levelThreeStar.image = UIImage(systemName: "star.fill")
-                        levelTwoLock.isHidden = false
+                        levelFourView.backgroundColor = UIColor.init(named: "passChallenge")
+                        levelFourStar.image = UIImage(systemName: "star.fill")
+                    
                         levelThreeView.backgroundColor = UIColor.init(named: "failChallenge")
                         levelThreeOutlet.isEnabled = true
                      }else{
@@ -190,6 +191,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     }
                     levelFourLabel.text  = "١٠٠/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
                     levelFourStar.isHidden = false
+    
                 break
                 }
 

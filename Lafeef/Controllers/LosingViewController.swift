@@ -77,12 +77,14 @@ class LosingViewController: UIViewController {
         
         // need some code
         GameScene.timeLeft = 30
-        navigationController?.popViewController(animated: true)
+     
      
     }
     
     @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true)
+        self.performSegue(withIdentifier: "showCalendar", sender: self)
+
+        
     }
     
     func setCustomerSatisfaction()  {
