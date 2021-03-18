@@ -28,6 +28,7 @@ struct Constants {
         static let LevelGoalViewController = "LevelGoalViewController"
         static let  GoalViewController = "GoalViewController"
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
+        static let StoreViewController = "StoreViewController"
     }
     
     struct Segue {

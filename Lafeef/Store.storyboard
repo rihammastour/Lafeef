@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Store View Controller-->
+        <scene sceneID="1GE-fY-cNZ">
+            <objects>
+                <viewController storyboardIdentifier="StoreViewController" id="jrQ-Ba-WH8" customClass="StoreViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="567-NF-TjQ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hyg-ec-7fi">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I1y-kD-wqC"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="Hyg-ec-7fi" firstAttribute="leading" secondItem="I1y-kD-wqC" secondAttribute="leading" id="Jhi-am-XR4"/>
+                            <constraint firstItem="Hyg-ec-7fi" firstAttribute="top" secondItem="I1y-kD-wqC" secondAttribute="top" id="KrW-OJ-OLc"/>
+                            <constraint firstItem="I1y-kD-wqC" firstAttribute="trailing" secondItem="Hyg-ec-7fi" secondAttribute="trailing" id="SXv-oP-a8h"/>
+                            <constraint firstItem="I1y-kD-wqC" firstAttribute="bottom" secondItem="Hyg-ec-7fi" secondAttribute="bottom" id="daC-Tg-58F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="Hyg-ec-7fi" id="IrU-Wr-EKb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ns8-zG-UUh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

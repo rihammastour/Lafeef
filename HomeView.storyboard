@@ -256,9 +256,6 @@
                                 <state key="normal">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                 </state>
-                                <connections>
-                                    <segue destination="yXw-yV-vtD" kind="show" id="M6P-e2-7w8"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NDV-bo-kYe"/>
@@ -296,43 +293,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4952" y="305"/>
-        </scene>
-        <!--Store View Controller-->
-        <scene sceneID="vwE-lV-NTq">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yXw-yV-vtD" customClass="StoreViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4pI-Ss-2NN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87x-Cd-RGL">
-                                <rect key="frame" x="275.5" y="479" width="217.5" height="66"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-N3-KFF">
-                                <rect key="frame" x="353" y="562" width="62" height="30"/>
-                                <state key="normal" title="Go Back!"/>
-                                <connections>
-                                    <action selector="goBackTapped:" destination="yXw-yV-vtD" eventType="touchUpInside" id="Jwt-Gg-tpZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Rxb-ol-933"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="3Fp-N3-KFF" firstAttribute="top" secondItem="87x-Cd-RGL" secondAttribute="bottom" constant="17" id="Iyh-Wh-wUn"/>
-                            <constraint firstItem="87x-Cd-RGL" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="cDN-ux-IX6"/>
-                            <constraint firstItem="87x-Cd-RGL" firstAttribute="centerY" secondItem="4pI-Ss-2NN" secondAttribute="centerY" id="cDj-wc-G9r"/>
-                            <constraint firstItem="3Fp-N3-KFF" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="wuX-Op-hzX"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="KX7-do-Hil"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4952" y="1082"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="6fA-f2-M9d">
