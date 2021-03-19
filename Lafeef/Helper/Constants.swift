@@ -23,6 +23,7 @@ struct Constants {
         static let orderVirwController = "OrderVC"
         static let dailyReportViewController = "DailyReportVC"
         static let advReportViewController = "AdvReportVC"
+        static let guidanceInstructionViewController = "GuidanceInstructiontVC"
     }
     
     struct Segue {
