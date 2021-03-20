@@ -14,7 +14,7 @@ import Vision
 import ARKit
 
 class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
-    var isOrder = true
+
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
@@ -28,7 +28,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var alert = AlertService()
     
     //Scores and Report Variables
-    var levelScore = 0
+    var levelScore: Float = 0.0
     var orderScore = 0
     var paymentScore = 0
     var isPassed = false
@@ -53,6 +53,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
     
+    var totalBill:Float = 0.0
+    var tax:Float = 0.0
     
     //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
     
@@ -94,7 +96,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
             
@@ -230,8 +232,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let base = order.base
         let toppings = order.toppings
         self.challengeScen?.setOrderContent(with: base, toppings)
-        showCustomerPaid(at: ChallengeViewController.currentOrder)
-        showBill(at: ChallengeViewController.currentOrder)
+        showCustomerPaid(at: number)
+
     }
     
     func showCustomerPaid(at number:Int) -> Void {
@@ -239,20 +241,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let customerPaied = order.customerPaid
         
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
+        print("money", money)
         self.challengeScen?.setPaymentContent(with: money)
     }
     
-    func showBill(at number:Int) -> Void {
-        let totalBillWithoutTax = getTotalBill()
-        let withoutTaxRounded = Float(round(100*totalBillWithoutTax)/100)
-        let tax = calculateTotalBillWithTax()
-        let taxRounded = Float(round(100*tax)/100)
-        let totalBillWithTax = totalBillWithoutTax + tax
-        let totalBillWithTaxRounded = Float(round(10*totalBillWithTax)/10)
+    func showBill() -> Void {
+        let totalBillRounded = Float(round(100*getTotalBill())/100)
+        let taxRounded = Float(round(100*getTotalTax())/100)
         
+        let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10)
         
-        self.challengeScen?.setTotalBill(totalBill: withoutTaxRounded, tax: taxRounded)
+        self.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
         self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
+        
     }
     
     
@@ -274,22 +275,20 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //Sum customer scors
         let orderScore = self.paymentScore + self.orderScore
         //Add it to level Score
-        self.levelScore += orderScore
+        self.levelScore += Float(orderScore)
         //Reset to zero
         self.paymentScore = 0
         self.orderScore = 0
-        
+           
         return orderScore
     }
     
     
     func calculatePaymentScore(with chenge:Float){
-        
-        let totalBill = getTotalBill()
         //        ChallengeViewController.report.ingredientsAmount += totalBill
         //        ChallengeViewController.report.salesAmount += totalBill
-        let expectedChange = getCurrentOrder()!.customerPaid - totalBill
-        
+        let expectedChange = getCurrentOrder()!.customerPaid - getTotalBillWithTax()
+        print("expectedChange", expectedChange)
         if expectedChange == chenge {
             self.paymentScore = 1
         }else{
@@ -299,55 +298,81 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
     
-    //getTotalBill
-    func getTotalBill()->Float{
+    func scaleLevelScore() ->Float {
+        //to scale score to 100
+        let scaleFactor: Float = 6.25
+        let scaledLevelscore = self.levelScore * scaleFactor
+        
+        return scaledLevelscore
+    }
+    
+
+    func calculateTotalBill(for providedAnswer: Answer) {
+        //reset totalBill
+        self.totalBill = 0
         
         //get Order base  and toppings
-        let currentOrder = getCurrentOrder()!
-        let currentToppings = currentOrder.toppings
+        let providedBase = providedAnswer.base
+        let providedToppings = providedAnswer.toppings
         
-        guard currentOrder != nil else {
-            return 0
+        guard providedBase != nil else {
+            self.totalBill = 0
+            return
         }
-        var total:Float = (currentOrder.base.getPrice())
         
-        guard let toppings = currentToppings else {
+        self.totalBill = (providedBase!.getPrice())
+        
+        guard let toppings = providedToppings else {
             //No Toppings
-            return total
+            return
         }
         
         //Calculate Toppings prices
         for t in toppings {
-            total += t.getPrice()
+            self.totalBill += t.getPrice()
         }
         
-        return total
+   
     }
     
-    func calculateTotalBillWithTax()->Float{
+    func calculateTotalBillWithTax(for providedAnswer: Answer){
+        //reset tax
+        self.tax = 0
         
         //get Order
-        let currentOrder = orders?[ChallengeViewController.currentOrder]
-        let currentToppings = currentOrder?.toppings
+        let providedBase = providedAnswer.base
+        let providedToppings = providedAnswer.toppings
         
-        guard currentOrder != nil else {
-            return 0
+        guard providedBase != nil else {
+            self.tax = 0
+            return
         }
         
-        var tax:Float = (currentOrder?.base.getTax())!
+        self.tax = providedBase!.getTax()
         
-        guard let toppings = currentToppings else {
-            return tax
+        guard let toppings = providedToppings else {
+            //No Toppings
+            return
         }
         
         for t in toppings {
             tax += t.getTax()
         }
-        return tax
         
     }
     
+    func getTotalBill() -> Float{
+        return self.totalBill
+    }
     
+    func getTotalTax() -> Float{
+        return self.tax
+    }
+    
+    func getTotalBillWithTax() -> Float{
+        return self.totalBill + self.tax
+    }
+
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) {
         var totalSocre = 0
@@ -410,15 +435,17 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         checkLevelPassed()
         
+        let levelScore = scaleLevelScore()
+        print("levelEnd", levelScore)
         //Create Report
-        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: self.levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
+        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
         
         DispalyReport(report)
     }
     
     //check if child pass the level
     func checkLevelPassed(){
-        if levelScore  > 50 {
+        if scaleLevelScore() > 50.0 {
             isPassed = true
         }else{
             isPassed = false

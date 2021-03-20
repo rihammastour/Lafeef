@@ -426,13 +426,13 @@ class GameScene: SKScene {
     
     //MARK:  Set up Payment Contents Functions
     func setPaymentContent(with money:[Money]?){
+        self.paymentContainer?.removeAllChildren()
         
         //unwrap payment continer
         guard self.paymentContainer != nil else {
             print("no payment continer")
             return
         }
-        
         //positionate payment
         self.paymentContainer?.position = CGPoint(x: 1000, y: 230)
         
@@ -461,7 +461,10 @@ class GameScene: SKScene {
             }
         }
         
+        moneyCounter = 0
+        
     }
+  
     //MARK: Node Creation for Payment
     func createMoney(at position:PositionMoney,as money:Money){
         moneyCounter += 1
@@ -492,6 +495,7 @@ class GameScene: SKScene {
     //MARK: Node Creation for Answer
     
     func packegeOrder(for answer:Answer){
+        self.box?.removeAllChildren()
         //create base node
         self.baseAnswer = createAnswerBaseNode(with: answer.base!)
         
@@ -515,6 +519,8 @@ class GameScene: SKScene {
             }
         }
         self.box?.addChild( self.baseAnswer! )
+        self.box?.addChild( self.cover! )
+        self.cover?.zPosition = 2
     }
     
     //create Answer Base
@@ -553,13 +559,16 @@ class GameScene: SKScene {
         // Get answers provided
         let answer = (viewController?.objectDetected?.getAnswer())!
         
+        //Handling detection overlay
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
+        
         //make order invisible
         hideOrder()
         
         //check base if provided
         if answer.base == nil {
-            let cusSat = CustmerSatisfaction.sad
-            customerDone(satisfaction: cusSat)
+            customerDone()
             customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                 nextCustomer()}
@@ -570,12 +579,19 @@ class GameScene: SKScene {
         viewController?.calculateOrderScore(for: answer)
         let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
         
+        //Bill calculation
+        viewController?.calculateTotalBill(for: answer)
+        viewController?.calculateTotalBillWithTax(for: answer)
+        viewController?.showBill()
+        self.paymentContainer?.isHidden = false
+
+        
         //Walk to cashire and react
         walkToCashir(satisfaction: custSat)
         
         //Packege the order
         packegeOrder(for: answer)
-        
+
     }
     
     
@@ -594,7 +610,7 @@ class GameScene: SKScene {
         //Get payment score for castumer satisfaction
         let customerSatisfaction = CustmerSatisfaction.getPeymentCusSat(for: viewController!.paymentScore)
         customerLeave(satisfaction: customerSatisfaction)
-        
+  
     }
     
     
@@ -608,13 +624,11 @@ class GameScene: SKScene {
     func customerLeave(satisfaction: CustmerSatisfaction){
         GameScene.flag = false
         //Add money earned
-        let moneEarned = (viewController?.getTotalBill())!
+        let moneEarned = (viewController?.getTotalBillWithTax())!
         updateMoneyLabel(moneEarned)
         
         //Customer Satsfaction bar
-        let totalScores = (viewController?.calculateTotalScore())!
-        print("Total Score: ",totalScores)
-        customerDone(satisfaction: CustmerSatisfaction.getTotalCusSat(for: totalScores))
+        customerDone()
         
         //Move Customer
         customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
@@ -634,10 +648,16 @@ class GameScene: SKScene {
     
     //MARK: - Customer handling
     
-    func customerDone(satisfaction: CustmerSatisfaction){
+    func customerDone(){
+        
+        let totalScores = (viewController?.calculateTotalScore())!
+        print("Total Score: ",totalScores)
+        
+        let satisfaction = CustmerSatisfaction.getTotalCusSat(for: totalScores)
         increaseProgressBar(with: satisfaction)
         viewController?.customersSatisfaction.append(satisfaction)
         print(viewController?.customersSatisfaction)
+
     }
     
     func nextCustomer(){
@@ -675,6 +695,12 @@ class GameScene: SKScene {
         print("showDetectionOverlay")
     }
     
+    @objc func showObjectsAfterCustomerArrive(){
+        showDetectionOverlay()
+        
+        //show customer paid
+        self.paymentContainer?.isHidden = false
+    }
     
     
     

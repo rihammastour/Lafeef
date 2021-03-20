@@ -296,12 +296,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         layer = shapeLayer
         return shapeLayer
       }
-      
- 
-
    
-   
-
     override func stopSession() {
         if session.isRunning {
             DispatchQueue.global().async {

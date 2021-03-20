@@ -13,7 +13,7 @@ struct DailyReport {
     var backagingAmount:Float
     var advertismentAmount:Float
 
-    var collectedScore:Int
+    var collectedScore:Float
     var collectedMoney: Float
     var isPassed :Bool
     var isRewarded : Bool
