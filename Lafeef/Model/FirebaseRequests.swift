@@ -86,7 +86,7 @@ class FirebaseRequest{
 
   
     }
-    static func addStoreEquipment(StorType: String,StoreEquipment:StoreEquipment, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
+    static func addStoreEquipment(StorType: String,StoreEquipment:StoreEquipmens, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
         
         // Add a new document in collection "users"
         do {

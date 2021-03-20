@@ -9,7 +9,10 @@ import UIKit
 import FirebaseStorage
 
 class StoreViewController: UIViewController {
+    var alert = AlertService()
+    var userPrefrence =  ChildPrefrences(childId: "", equipment: [])
     @IBOutlet weak var image: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,20 @@ class StoreViewController: UIViewController {
         }
         })
 
+    }
+    
+    func addPrefrence(){
+        let equipment = StoreEquipment(type: "", name: "", cost: 0, label: "")
+        userPrefrence.childId = ""
+        userPrefrence.equipment.append(equipment)
+    }
+    
+    
+    func alert(message :String){
+        // if child money less than cost
+        alert.Alert(body: message)
+        
+        
     }
 }
 

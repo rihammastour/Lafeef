@@ -9,10 +9,18 @@ import Foundation
 
 enum CharachtersStore:String, Codable{
     
-case cupcakeFrame
-case loliPopFrame
-case LavendarFrame
-case Lamp
-case wall
-case floor
+case blueBoy
+case grayBoy
+case yellowBoy
+case pinkGirl
+case blueGirl
+case orangeGirl
+case blueglassess
+case redGlassess
+
+
+    
+    
+
+
 }

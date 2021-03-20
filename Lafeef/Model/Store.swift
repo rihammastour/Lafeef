@@ -16,3 +16,8 @@ enum Store : String,Codable {
     case Characherts 
     
 }
+struct StoreEquipmens:Codable{
+    var type: String
+    var eqippments:[StoreEquipment]
+    
+}

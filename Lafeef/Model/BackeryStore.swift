@@ -9,9 +9,9 @@ import Foundation
 enum BackeryStore: String, Codable {
     case cupcakeFrame
     case loliPopFrame
-    case LavendarFrame
-    case Lamp
-    // colors wall 
-    case wall
-    case floor
+    case lavendarFrame
+    case lamp
+
+ 
+
 }

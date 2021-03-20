@@ -10,4 +10,5 @@ struct StoreEquipment: Codable{
     var type : String
     var name:String
     var cost: Float
+    var label:String
 } 
