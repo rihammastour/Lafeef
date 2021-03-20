@@ -226,7 +226,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //fethChallengeLevel
     func fetchChallengeLevel(){
         
-        guard let levelNum = self.levelNum else {
+        guard let levelNum = ChallengeViewController.levelNum else {
             //TODO: Alert and go back
             showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
@@ -456,7 +456,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let levelScore = scaleLevelScore()
         print("levelEnd", levelScore)
         //Create Report
-        let report = DailyReport(levelNum: self.levelNum, ingredientsAmount: 0, salesAmount: 0, backagingAmount: 0, advertismentAmount: 0, collectedScore: levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, customerSatisfaction: customersSatisfaction)
+        let report = DailyReport(levelNum: ChallengeViewController.levelNum!, ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, reward: 0, customerSatisfaction: customersSatisfaction)
         
         DispalyReport(report)
     }

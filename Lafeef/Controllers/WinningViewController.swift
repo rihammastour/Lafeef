@@ -80,7 +80,7 @@ class WinningViewController: UIViewController {
         //set score
         setScore(score: Int(challeangeReport.report.collectedScore))
         // set money
-        setMoney(money:Int(challeangeReport.report.collectedMoney))
+        setMoney(money:challeangeReport.report.collectedMoney)
         
         if challeangeReport.report.levelNum == "4"{
             nextDayOutlet.isHidden = true

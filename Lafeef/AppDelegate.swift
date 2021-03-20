@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         //Show Animated Splash Screen as intial screen
-        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.dailyReportViewController) as! DailyReportViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()
@@ -41,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Fetch user data
                 self.fetchUserInfo()
 //                Set is logged in child to true
-//                animatedSplashVC.isChild = true
+                animatedSplashVC.isChild = true
                 
             } else {
 //                Set is logged in child to false
-//                animatedSplashVC.isChild = false
+                animatedSplashVC.isChild = false
             }
         }
         return true
