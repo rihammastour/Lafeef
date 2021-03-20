@@ -676,7 +676,8 @@ class GameScene: SKScene {
             print("THE LEVEL IS END ")
             GameScene.timer.invalidate()
             viewController?.levlEnd()
-            
+             heckLevelCompletion?.checkLevelCompletion()
+            viewController?.DispalyReport()
         }
         
     }

@@ -13,32 +13,29 @@ class ChalleangeLevelCalendarViewController:UIViewController
 
 {
     
+    @IBOutlet weak var levelFourLock: UIImageView!
     @IBOutlet weak var levelTwoLock: UIImageView!
     @IBOutlet weak var levelThreeLock: UIImageView!
     @IBOutlet weak var leveloneOutlet: UIButton!
-
     @IBOutlet weak var levelFourView: UIView!
     @IBOutlet weak var levelThreeOutlet: UIButton!
     @IBOutlet weak var levelFourOutlet: UIButton!
     @IBOutlet weak var levelTwoOutlet: UIButton!
     @IBOutlet weak var levelFourStar: UIImageView!
-    
     @IBOutlet weak var levelFourLabel: UILabel!
     @IBOutlet weak var levelTwoLabel: UILabel!
     @IBOutlet weak var levelOneLabel: UILabel!
     @IBOutlet weak var levelThreeLabel: UILabel!
-    
     @IBOutlet weak var levelOneStar: UIImageView!
-    
     @IBOutlet weak var levelThreeStar: UIImageView!
     @IBOutlet weak var levelTwoStar: UIImageView!
-    
     @IBOutlet weak var levelThreeView: UIView!
     @IBOutlet weak var levelTwoView: UIView!
     @IBOutlet weak var leveOneView: UIView!
-    
     @IBOutlet weak var activityIndicaitor: NVActivityIndicatorView!
     @IBOutlet weak var calendarView: UIView!
+    
+    
     let formatter = NumberFormatter()
     var completedLevels = [CompletedLevel]()
     var levelMinScore = [Float]()
@@ -46,6 +43,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
     var maxScoreLevels = [Float]()
     var minScoreLevels = [Float]()
     var childId = ""
+    var challengeVC = ChallengeViewController()
     // activity indicaitor
     var  activityIndicatorView :NVActivityIndicatorView?
   
@@ -93,44 +91,33 @@ class ChalleangeLevelCalendarViewController:UIViewController
     }
     
     // levels methods
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ChallengeViewController
-        if segue.identifier == Constants.Segue.showLevelOne{
-            vc.levelNum = "1"
-            
-        }else if segue.identifier == Constants.Segue.showLevelTwo{
-            vc.levelNum = "2"
-            
-        }
-        else if segue.identifier == Constants.Segue.showLevelThree{
-            vc.levelNum = "3"
-            
-        }
-        else if segue.identifier == Constants.Segue.showLevelFour{
-            vc.levelNum = "4"
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
     
     @IBAction func levelOne(_ sender: Any) {
         print("level one")
-        self.performSegue(withIdentifier:  Constants.Segue.showLevelOne, sender: self)
+        challengeVC.report.levelNum = "1"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelTwo(_ sender: Any) {
         print("leveltwo")
-        self.performSegue(withIdentifier:  Constants.Segue.showLevelTwo, sender: self)
+        challengeVC.report.levelNum = "2"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     
     @IBAction func levelThree(_ sender: Any) {
         print("levelthree")
-        self.performSegue(withIdentifier:  Constants.Segue.showLevelThree, sender: self)
+        challengeVC.report.levelNum = "3"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelFour(_ sender: Any) {
         print("levelFour")
-        self.performSegue(withIdentifier:  Constants.Segue.showLevelFour, sender: self)
+        challengeVC.report.levelNum = "4"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
 
@@ -154,7 +141,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     }else{
                         levelOneStar.image = UIImage(systemName: "star")
                     }
-                    levelOneLabel.text = "١٠٠ /" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
+                    levelOneLabel.text =   formatter.string(from: NSNumber(value: level.reportData.collectedScore))!+"/١٠٠"
                     levelOneStar.isHidden = false
                    
 
@@ -179,7 +166,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                 if level.reportData.isPassed{
                     levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
                     levelThreeStar.image = UIImage(systemName: "star.fill")
-                    levelThreeLock.isHidden = false
+                    levelFourLock.isHidden = false
                     levelFourView.backgroundColor = UIColor.init(named: "failChallenge")
                     levelFourOutlet.isEnabled = true
                  }else{
@@ -194,9 +181,9 @@ class ChalleangeLevelCalendarViewController:UIViewController
                    
                 default:
                     if level.reportData.isPassed{
-                        levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
-                        levelThreeStar.image = UIImage(systemName: "star.fill")
-                        levelTwoLock.isHidden = false
+                        levelFourView.backgroundColor = UIColor.init(named: "passChallenge")
+                        levelFourStar.image = UIImage(systemName: "star.fill")
+                    
                         levelThreeView.backgroundColor = UIColor.init(named: "failChallenge")
                         levelThreeOutlet.isEnabled = true
                      }else{
@@ -204,6 +191,7 @@ class ChalleangeLevelCalendarViewController:UIViewController
                     }
                     levelFourLabel.text  = "١٠٠/" + formatter.string(from: NSNumber(value: level.reportData.collectedScore))!
                     levelFourStar.isHidden = false
+    
                 break
                 }
 

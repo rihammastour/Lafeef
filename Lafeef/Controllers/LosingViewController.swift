@@ -14,8 +14,8 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
+    var challeangeReport = ChallengeViewController()
     
-    var report : DailyReport!
     
     
 
@@ -64,11 +64,11 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-//        setCustomerSatisfaction(happy: report.happyFaces, normal:report.normalFaces, sad: report.sadFaces)
+        setCustomerSatisfaction()
         //set score
-        setScore(score: Int(report.collectedScore))
+        setScore(score: Int( challeangeReport.report.collectedScore))
         // set money
-        setMoney(money:Int(report.collectedScore))
+        setMoney(money:Int( challeangeReport.report.collectedScore))
     }
     
 
@@ -77,15 +77,33 @@ class LosingViewController: UIViewController {
         
         // need some code
         GameScene.timeLeft = 30
-        navigationController?.popViewController(animated: true)
+     
      
     }
     
     @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    func setCustomerSatisfaction(happy: Int, normal: Int,sad: Int)  {
+        self.performSegue(withIdentifier: "showCalendar", sender: self)
+
         
+    }
+    
+    func setCustomerSatisfaction()  {
+        var happy = 0
+        var sad = 0
+        var normal = 0
+        
+        for sat in  challeangeReport.report.customerSatisfaction{
+            switch sat{
+            case .happey:
+                happy += 1
+                break
+            case .sad:
+                sad += 1
+                break
+            default:
+                normal += 1
+            }
+        }
         normalLabel.text = formatter.string(from:normal as NSNumber)
         happyLabel.text = formatter.string(from:happy as NSNumber)
         sadLabel.text = formatter.string(from:sad as NSNumber)

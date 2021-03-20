@@ -70,7 +70,7 @@
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="ePr-7S-su6" kind="presentation" modalPresentationStyle="fullScreen" id="bdN-Dh-g3j"/>
+                                                    <segue destination="r3Z-wc-CCP" kind="show" id="p1u-aj-k6N"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -563,6 +563,16 @@
             </objects>
             <point key="canvasLocation" x="4129.6875" y="304.6875"/>
         </scene>
+        <!--Challenge-->
+        <scene sceneID="WaC-DI-s28">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Challenge" storyboardName="Challenge" id="r3Z-wc-CCP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MUE-br-GGh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YbS-3w-Iql" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6112" y="236"/>
+        </scene>
         <!--Training-->
         <scene sceneID="ZNI-HQ-iDs">
             <objects>
@@ -572,16 +582,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFA-f8-sEt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5966" y="561"/>
-        </scene>
-        <!--ChallengeVC-->
-        <scene sceneID="9Ve-9y-Rwr">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="challengeLevelsCalenderVC" storyboardName="Challenge" referencedIdentifier="ChallengeVC" id="ePr-7S-su6" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="MMg-Ne-IHY"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-qk-PQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5966" y="320"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

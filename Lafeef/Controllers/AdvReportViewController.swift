@@ -15,6 +15,7 @@ class AdvReportViewController: UIViewController {
     let storageManger = FirebaseRequest()
     var advType: String = ""
     var child = Child()
+    var challeangeVC = ChallengeViewController()
     
     //outlets
     @IBOutlet weak var advReportView: UIView!    
@@ -83,17 +84,18 @@ class AdvReportViewController: UIViewController {
             let advAmountStr = self.advAmount.text!.convertedDigitsToLocale(Locale(identifier: "EN"))
             let advAmount  = self.convertStringToInt(str: advAmountStr)
            
-            destinationVC.advertismentAmount = advAmount
+//            destinationVC.advertismentAmount = advAmount
             
             //TODO: Add money to wallet in top bar & firestore
             child.money += Float(advAmount)
+            challeangeVC.report.advertismentAmount = Float(advAmount)
 
             dismiss(animated: true) {
                 print("successfully dismiss adv report")
             }
         }
         if (segue.identifier == Constants.Segue.rejectAdvSegue) {
-            destinationVC.advertismentAmount = 0
+//            destinationVC.advertismentAmount = 0
             dismiss(animated: true) {
                 print("successfully dismiss adv report")
             }

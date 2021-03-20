@@ -1,29 +1,26 @@
 //
-//  WinningViewController.swift
+//  NormalViewController.swift
 //  Lafeef
 //
-//  Created by Mihaf on 26/06/1442 AH.
+//  Created by Mihaf on 28/07/1442 AH.
 //
 
 import UIKit
 import Lottie
 import Cosmos
+class NormalViewController: UIViewController {
 
-class WinningViewController: UIViewController {
-    
     var challeangeReport = ChallengeViewController()
  
-    @IBOutlet weak var Winning: UIView!
-    
     // customer satisfaction
-    @IBOutlet weak var rewardView: UIView!
     @IBOutlet weak var sadLabel: UILabel!
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     // animation trophy
-    @IBOutlet weak var trophyView: AnimationView!
+
     // star rate
     @IBOutlet weak var starView: CosmosView!
+    @IBOutlet weak var bigStar: AnimationView!
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var winningView: UIView!
@@ -45,12 +42,10 @@ class WinningViewController: UIViewController {
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-       winningView.layer.cornerRadius = 30
-       Winning.layer.cornerRadius = 30
+        winningView.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
         scoreView.layer.cornerRadius = 20
-        rewardView.layer.cornerRadius = 20
         moneyView.layer.cornerRadius = 20
         smallBackground.layer.shadowColor = UIColor.black.cgColor
         smallBackground.layer.shadowOpacity = 0.2
@@ -58,11 +53,11 @@ class WinningViewController: UIViewController {
         smallBackground.layer.shadowRadius = 5
         
         // trophy animation
-        trophyView!.frame = view.bounds
-        trophyView!.contentMode = .scaleAspectFit
-        trophyView!.loopMode = .loop
-        trophyView!.animationSpeed = 0.5
-        trophyView!.play()
+        bigStar!.frame = view.bounds
+        bigStar!.contentMode = .scaleAspectFit
+        bigStar!.loopMode = .loop
+        bigStar!.animationSpeed = 0.5
+        bigStar!.play()
         
 
         // star rates
@@ -93,8 +88,8 @@ class WinningViewController: UIViewController {
         if challeangeReport.report.levelNum != "4"{
         levelnum! += 1
             challeangeReport.report.levelNum = String(levelnum!)
-       
             self.performSegue(withIdentifier: " showChalleange", sender: self)
+      
         }else{
             print("last level")
           
@@ -102,7 +97,7 @@ class WinningViewController: UIViewController {
     }
     @IBAction func cancel(_ sender: Any) {
         self.performSegue(withIdentifier: " showCalendar", sender: self)
-   
+        //
     }
     
     func setCustomerSatisfaction()  {
@@ -133,10 +128,11 @@ class WinningViewController: UIViewController {
 
             }
 
-   func setMoney(money:Float)  {
+   func setMoney(money:Int)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
         
       
 
 }
+

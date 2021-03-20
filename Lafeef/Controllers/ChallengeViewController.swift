@@ -20,12 +20,13 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     
     //Variables
-    var levelNum:String! = "1" //Must be dynamic
+    static var levelNum:String? = "2"
     static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
+    var report = DailyReport(levelNum: "2", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
     
     //Scores and Report Variables
     var levelScore: Float = 0.0
@@ -67,8 +68,15 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         super.viewDidLoad()
         
         // Additional setup after loading the view.
-        setupAVCapture()
-        setScene()
+        setupAVCapture()   
+        setScene() 
+        displayLevelGoal()
+       
+       
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.displayLevelGoal()
+
+        }
         fetchChallengeLevel()
         
     }
@@ -83,12 +91,22 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
         
     }
-    
+
+    func displayLevelGoal(){
+        print("display")
+        self.performSegue(withIdentifier: Constants.Segue.showLevelGoal, sender: self)
+    }
     //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func presentAdvReport(){
+        if ChallengeViewController.levelNum == "2"||ChallengeViewController.levelNum == "4" {
+            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+        }
     }
     
     func setupAVCapture() {
@@ -493,10 +511,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
-    //presentAdvReport
-    func presentAdvReport(){
-        if self.levelNum == "1" {
-            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+    func checkLevelCompletion(){
+
+        if report.collectedScore  > 50 {
+           report.isPassed = true
         }
     }
     
