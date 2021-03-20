@@ -22,14 +22,24 @@ class AddStoreEquipment {
         let storeEquipment11 = StoreEquipment(type: Store.Characherts.rawValue, name: CharachtersStore.redGlassess.rawValue, cost: 30, label: "نظارة حمراء")
         let storeEquipment12 = StoreEquipment(type: Store.Characherts.rawValue, name: CharachtersStore.blueglassess.rawValue, cost: 40, label: "نظارة زرقاء")
         
-        let array = [storeEqipment1,storeEqipment2,storeEqipment3,storeEqipment4,storeEquipment5,storeEquipment6,storeEquipment7,storeEquipment8,storeEquipment9,storeEquipment10,storeEquipment11,storeEquipment12]
-        let store = StoreEquipmens(type: Store.backery.rawValue,eqippments: array)
+        let backeryarray = [storeEqipment1,storeEqipment2,storeEqipment3,storeEqipment4]
+        let charachterarray = [storeEquipment5,storeEquipment6,storeEquipment7,storeEquipment8,storeEquipment9,storeEquipment10,storeEquipment11,storeEquipment12]
+        let backerystore = StoreEquipmens(type: Store.backery.rawValue,eqippments: backeryarray)
+        let charachterstore = StoreEquipmens(type: Store.Characherts.rawValue,eqippments: charachterarray)
         
         
         
         
         
-        FirebaseRequest.addStoreEquipment(StorType: Store.backery.rawValue, StoreEquipment: store) { (bool, error) in
+        FirebaseRequest.addStoreEquipment(StorType: Store.backery.rawValue, StoreEquipment: backerystore) { (bool, error) in
+            if error == ""{
+                print(" store eqipment added")
+            }else{
+                print(" store eqipment error ")
+            }
+          
+        }
+        FirebaseRequest.addStoreEquipment(StorType: Store.Characherts.rawValue, StoreEquipment: charachterstore) { (bool, error) in
             if error == ""{
                 print(" store eqipment added")
             }else{
