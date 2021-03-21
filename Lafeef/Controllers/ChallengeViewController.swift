@@ -20,13 +20,13 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Proprites
     
     //Variables
-    static var levelNum:String? = "2"
+    static var levelNum:String? = "1"
     static var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    var report = DailyReport(levelNum: "2", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
+    var report = DailyReport(levelNum: "1", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
     
     //Scores and Report Variables
     var levelScore: Float = 0.0
@@ -68,7 +68,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene() 

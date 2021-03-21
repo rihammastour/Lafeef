@@ -12,6 +12,7 @@ class DailyReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     var challeangeVC = ChallengeViewController()
+    
     //.......................... Don't forget to pass attributes to this VC
   
 //    var salesAmount = 0

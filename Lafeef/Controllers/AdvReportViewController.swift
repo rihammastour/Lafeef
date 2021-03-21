@@ -105,6 +105,7 @@ class AdvReportViewController: UIViewController {
 //            destinationVC.advertismentAmount = 0
             dismiss(animated: true) {
                 self.scene.startGame()
+                
             }
         }
     }

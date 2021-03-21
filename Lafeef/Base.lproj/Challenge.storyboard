@@ -344,7 +344,7 @@
                                                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ingrediant" translatesAutoresizingMaskIntoConstraints="NO" id="OwS-tD-vpK">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LafeefToppings" translatesAutoresizingMaskIntoConstraints="NO" id="OwS-tD-vpK">
                                                                                 <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="a8H-sM-QXK"/>
@@ -387,7 +387,7 @@
                                                                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="packging" translatesAutoresizingMaskIntoConstraints="NO" id="aKz-Df-fDj">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxWithCover" translatesAutoresizingMaskIntoConstraints="NO" id="aKz-Df-fDj">
                                                                                 <rect key="frame" x="185" y="0.0" width="50" height="50"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="Nkq-mh-7jm"/>
@@ -1951,23 +1951,36 @@
             <point key="canvasLocation" x="5584" y="331"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="0cS-1q-7ps">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="a1P-yM-dNz"/>
+        <designable name="bc4-5G-xck"/>
+        <designable name="oxU-30-E9o"/>
+        <designable name="prC-iW-nvL">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tlW-4g-FSH">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="lh3-vD-tCs"/>
         <segue reference="T55-4v-3qf"/>
         <segue reference="XA5-kf-7ss"/>
         <segue reference="fPF-r2-k4H"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>
+        <image name="LafeefToppings" width="4656" height="4656"/>
         <image name="arrow-back" width="22" height="38.480998992919922"/>
+        <image name="boxWithCover" width="716" height="796"/>
         <image name="calendar-level" width="624" height="687.60198974609375"/>
         <image name="gifts" width="137.41499328613281" height="113.32900238037109"/>
         <image name="icecream.gif" width="1890" height="1417"/>
-        <image name="ingrediant" width="1280" height="1280"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="money-report" width="103" height="83"/>
         <image name="normal" width="30" height="30"/>
-        <image name="packging" width="716" height="796"/>
         <image name="placeholder" width="1600" height="900"/>
         <image name="points" width="36" height="36"/>
         <image name="rewards" width="59.312999725341797" height="34.692001342773438"/>
