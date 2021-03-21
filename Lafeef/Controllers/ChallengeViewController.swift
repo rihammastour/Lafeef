@@ -36,6 +36,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var customersSatisfaction : [CustmerSatisfaction] = []
     
     var challengeScen:GameScene?
+
+
     static var stopCircleNil=false//when stop the nil circle
     static var stopImageBool = true
     var stopImage = UIImage(named: "stopGame")
@@ -62,7 +64,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
-    
+
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,15 +72,26 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene() 
-        displayLevelGoal()
-       
-       
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            self.displayLevelGoal()
-
-        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+//            self.displayLevelGoal()
+//        }
+        
         fetchChallengeLevel()
         
+        if ChallengeViewController.levelNum == "2" || ChallengeViewController.levelNum == "4" {
+            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                self.presentAdvReport()
+                
+            }
+        }else{
+            challengeScen?.startGame()
+        }
+        
+        
+        
+
     }
 
     //MARK: -Set up UI Element
@@ -94,7 +107,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 
     func displayLevelGoal(){
         print("display")
-        self.performSegue(withIdentifier: Constants.Segue.showLevelGoal, sender: self)
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.LevelGoalViewController) as! LevelGoalViewController
+        goalVC.scene = self.challengeScen
+        self.present(goalVC, animated: true)
+        
     }
     //MARK: -Set up Object Detection
     
@@ -104,8 +121,25 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func presentAdvReport(){
-        if ChallengeViewController.levelNum == "2"||ChallengeViewController.levelNum == "4" {
-            self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let advVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.advReportViewController) as! AdvReportViewController
+        advVC.scene = self.challengeScen
+
+        self.present(advVC, animated: true) {
+          //  GameScene.startGame()
+        }
+//        self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
+
+    }
+    
+    func showAdvOnBakery(){
+        if AdvReportViewController.randomNum == 1 {
+            GameScene.presentAdvertisment(at: 1)
+
+            print("inside adv")
+        } else if AdvReportViewController.randomNum == 2 {
+            GameScene.presentAdvertisment(at: 2)
+            print("inside adv2")
         }
     }
     
@@ -472,8 +506,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func DispalyReport(_ report:DailyReport){
         
-        //        self.present(report.displayDailyReport(), animated: true)
-        //        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
+//                self.present(report.displayDailyReport(), animated: true)
+                self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
     }
     
     
@@ -495,6 +529,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
+            print("No  Orders  ")
             
         }else{
             

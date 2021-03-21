@@ -16,6 +16,8 @@ class LevelGoalViewController: UIViewController {
     @IBOutlet weak var goalView: UIView!
     @IBOutlet weak var points: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    var  scene : GameScene!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         goalView.layer.cornerRadius = 30
@@ -52,6 +54,17 @@ class LevelGoalViewController: UIViewController {
     @IBAction func ok(_ sender: Any) {
       
         dismiss(animated: true)
+        challeangeVC.presentAdvReport()
+        if ChallengeViewController.levelNum == "2" || ChallengeViewController.levelNum == "4" {
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                self.challeangeVC.presentAdvReport()
+                
+            }
+        } else{
+            scene?.startGame()
+        }
+
+
              
     }
 }

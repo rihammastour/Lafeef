@@ -49,7 +49,7 @@ class GameScene: SKScene {
     //Money Continer
     private var moneyCountiner : SKSpriteNode!
     var diffrenceDistancePBMC : CGFloat!
-    var moneyLabel : SKLabelNode!
+    static var moneyLabel : SKLabelNode!
     
     //Order Conent node variables
     private var orderContiner : SKSpriteNode?
@@ -78,6 +78,9 @@ class GameScene: SKScene {
     static var TimerShouldDelay = false
     static var countStop = 0
     
+    //advertisment node variables
+    static var firstAdv : SKSpriteNode?
+    static var secondAdv : SKSpriteNode?
     
     var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
@@ -95,13 +98,17 @@ class GameScene: SKScene {
         setCameraConstraints()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             
-            self.buildCustomer(customerNode: self.customers[self.currentCustomer])
+            
         }
         
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
+    }
+    
+     func startGame(){
+        self.buildCustomer(customerNode: self.customers[self.currentCustomer])
     }
     
     //MARK: - Set up Scene Eslements Functions
@@ -155,6 +162,12 @@ class GameScene: SKScene {
         self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
         self.cover = box?.childNode(withName: "cover") as? SKSpriteNode
         
+        GameScene.firstAdv = self.childNode(withName: "adv1") as? SKSpriteNode
+        GameScene.firstAdv?.isHidden = true
+        
+        GameScene.secondAdv = self.childNode(withName: "adv2") as? SKSpriteNode
+        GameScene.secondAdv?.isHidden = true
+        
     }
     
     //MARK: - Set Bakary Enviroment Function
@@ -169,6 +182,20 @@ class GameScene: SKScene {
         // Get wall node from scene and store it for use later
         self.wallNode = bakeryBackgroundNode?.childNode(withName: "wallNode") as? SKSpriteNode
         
+    }
+    
+    static func presentAdvertisment(at random: Int){
+        print("adv presented success")
+        if random == 1 {
+            print("adv1 presented success")
+            GameScene.firstAdv?.isHidden = false
+            updateMoneyLabel(200)
+            
+        } else if  random == 2 {
+            print("adv2b presented success")
+            GameScene.secondAdv?.isHidden = false
+            updateMoneyLabel(250)
+        }
     }
     
     //MARK: - Money Continer Functions
@@ -189,22 +216,22 @@ class GameScene: SKScene {
         self.moneyCountiner?.addChild(moneyIcon!)
         
         ///Label
-        moneyLabel = SKLabelNode()
-        moneyLabel.position = CGPoint(x: -13, y: -8)
-        moneyLabel.fontSize = 34
-        moneyLabel.fontName = "FF Hekaya"
-        moneyLabel.fontColor = SKColor(named: "BlackApp")
-        moneyLabel.text = "0.0"
-        self.moneyCountiner?.addChild(moneyLabel!)
+        GameScene.moneyLabel = SKLabelNode()
+        GameScene.moneyLabel.position = CGPoint(x: -13, y: -8)
+        GameScene.moneyLabel.fontSize = 34
+        GameScene.moneyLabel.fontName = "FF Hekaya"
+        GameScene.moneyLabel.fontColor = SKColor(named: "BlackApp")
+        GameScene.moneyLabel.text = "0.0"
+        self.moneyCountiner?.addChild(GameScene.moneyLabel!)
         
     }
     
     //updateMoneyLabel
-    func updateMoneyLabel(_ earnedMoney:Float){
+    static func updateMoneyLabel(_ earnedMoney:Float){
         
-        var money = Float(moneyLabel.text!)!
+        var money = Float(GameScene.moneyLabel.text!)!
         money += earnedMoney
-        moneyLabel.text = String(money)
+        GameScene.moneyLabel.text = String(money)
         
     }
     
@@ -625,7 +652,7 @@ class GameScene: SKScene {
         GameScene.flag = false
         //Add money earned
         let moneEarned = (viewController?.getTotalBillWithTax())!
-        updateMoneyLabel(moneEarned)
+        GameScene.updateMoneyLabel(moneEarned)
         
         //Customer Satsfaction bar
         customerDone()

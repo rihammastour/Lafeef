@@ -13,6 +13,7 @@ class AdvReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     let storageManger = FirebaseRequest()
+    static var randomNum = 0
     var advType: String = ""
     var child = Child()
     var challeangeVC = ChallengeViewController()
@@ -24,6 +25,7 @@ class AdvReportViewController: UIViewController {
     @IBOutlet weak var accept: UIButton!
     @IBOutlet weak var reject: UIButton!
     @IBOutlet weak var advAmount: UILabel!
+    var  scene : GameScene!
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class AdvReportViewController: UIViewController {
         styleUI()
         animateStars()
         setUpAdv()
+        
     }
     
     //MARK:- Functions
@@ -55,10 +58,10 @@ class AdvReportViewController: UIViewController {
     // Setup Advertisment
     func setUpAdv(){
         // 0 to (param - 1)
-        let randomNum = Int(arc4random_uniform(_:2)) + 1
-        storageManger.downloadImage(randPath: randomNum) {(image, err) in
+        AdvReportViewController.randomNum = Int(arc4random_uniform(_:2)) + 1
+        storageManger.downloadImage(randPath: AdvReportViewController.randomNum) {(image, err) in
             self.advImage.image = image
-            if randomNum == 1 {
+            if AdvReportViewController.randomNum == 1 {
                 self.advAmount.text = "٢٠٠"
                 self.advType = "ice-cream"
             } else {
@@ -89,15 +92,19 @@ class AdvReportViewController: UIViewController {
             //TODO: Add money to wallet in top bar & firestore
             child.money += Float(advAmount)
             challeangeVC.report.advertismentAmount = Float(advAmount)
+            
+            //Present Adv in bakery env
+            challeangeVC.showAdvOnBakery()
 
             dismiss(animated: true) {
-                print("successfully dismiss adv report")
+                self.scene.startGame()
+                
             }
         }
         if (segue.identifier == Constants.Segue.rejectAdvSegue) {
 //            destinationVC.advertismentAmount = 0
             dismiss(animated: true) {
-                print("successfully dismiss adv report")
+                self.scene.startGame()
             }
         }
     }
