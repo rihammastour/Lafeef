@@ -19,6 +19,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBOutlet weak var stopGame: UIButton!
     //MARK: - Proprites
     
+  
     //Variables
     static var levelNum:String? = "1"
     static var currentOrder = 0
@@ -26,7 +27,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
-    var report = DailyReport(levelNum: "1", ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction:[])
+
     
     //Scores and Report Variables
     var levelScore: Float = 0.0
@@ -68,17 +69,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        ChallengeViewController.levelNum = LevelGoalViewController.report.levelNum
+        print( ChallengeViewController.levelNum!)
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene() 
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-//            self.displayLevelGoal()
+//            self.displayLevelGoalViewController()
 //        }
         
         fetchChallengeLevel()
         
-        if ChallengeViewController.levelNum == "2" || ChallengeViewController.levelNum == "4" {
+        if LevelGoalViewController.report.levelNum == "2" || LevelGoalViewController.report.levelNum == "4" {
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                 self.presentAdvReport()
@@ -104,14 +107,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
 
-    func displayLevelGoal(){
-        print("display")
-        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.LevelGoalViewController) as! LevelGoalViewController
-        goalVC.scene = self.challengeScen
-        self.present(goalVC, animated: true)
-        
-    }
+//    func displayLevelGoalViewController(){
+//        print("display")
+//        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+//        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.LevelGoalViewControllerViewController) as! LevelGoalViewControllerViewController
+//
+//        self.present(goalVC, animated: true)
+//
+//    }
     //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
@@ -147,7 +150,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
             
@@ -304,7 +307,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         self.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
         self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
-        
+        LevelGoalViewController.report.salesAmount = totalBillWithTaxRounded
     }
     
     
@@ -484,22 +487,28 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func levlEnd() {
         
-        checkLevelPassed()
+      
         
         let levelScore = scaleLevelScore()
         print("levelEnd", levelScore)
+        LevelGoalViewController.report.collectedScore = levelScore
+        checkLevelPassed()
         //Create Report
-        let report = DailyReport(levelNum: ChallengeViewController.levelNum!, ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, reward: 0, customerSatisfaction: customersSatisfaction)
+//        let report = DailyReport(levelNum: ChallengeViewController.levelNum!, ingredientsAmount: 50, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: levelScore, collectedMoney: 0, isPassed: self.isPassed, isRewarded: true, reward: 0, customerSatisfaction: customersSatisfaction)
+      
+        LevelGoalViewController.report.customerSatisfaction = customersSatisfaction
+        print(  LevelGoalViewController.report.customerSatisfaction ,"level report")
+        print( customersSatisfaction ," satisfaction")
         
-        DispalyReport(report)
+        DispalyReport(LevelGoalViewController.report)
     }
     
     //check if child pass the level
     func checkLevelPassed(){
-        if scaleLevelScore() > 50.0 {
-            isPassed = true
+        if LevelGoalViewController.report.collectedScore > 20.0 {
+            LevelGoalViewController.report.isPassed = true
         }else{
-            isPassed = false
+            LevelGoalViewController.report.isPassed  = false
         }
     }
     
@@ -547,8 +556,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func checkLevelCompletion(){
 
-        if report.collectedScore  > 50 {
-           report.isPassed = true
+        if LevelGoalViewController.report.collectedScore  > 20 {
+            LevelGoalViewController.report.isPassed = true
         }
     }
     

@@ -41,11 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Fetch user data
                 self.fetchUserInfo()
 //                Set is logged in child to true
-                animatedSplashVC.isChild = true
+           animatedSplashVC.isChild = true
                 
             } else {
 //                Set is logged in child to false
-                animatedSplashVC.isChild = false
+              animatedSplashVC.isChild = false
             }
         }
         return true

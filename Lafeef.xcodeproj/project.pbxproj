@@ -16,6 +16,8 @@
 		41314C4525F5F6800022FA0B /* DailyReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41314C4425F5F6800022FA0B /* DailyReport.swift */; };
 		4193027325D1FEE700BACE0B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4193027225D1FEE600BACE0B /* Podfile */; };
 		419B1BD825FBF55F0024F011 /* NormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419B1BD725FBF55F0024F011 /* NormalViewController.swift */; };
+		41AA7469260ADA66002F11AC /* BackeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA7468260ADA66002F11AC /* BackeryViewController.swift */; };
+		41AA7473260ADBD6002F11AC /* GoalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA7472260ADBD6002F11AC /* GoalService.swift */; };
 		41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */; };
 		41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */; };
 		41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */; };
@@ -155,10 +157,12 @@
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
 		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		41314C4425F5F6800022FA0B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
-		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../../FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		419B1BD725FBF55F0024F011 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
+		41AA7468260ADA66002F11AC /* BackeryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackeryViewController.swift; sourceTree = "<group>"; };
+		41AA7472260ADBD6002F11AC /* GoalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalService.swift; sourceTree = "<group>"; };
 		41BD683D25BABD3B00257EA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41BD684625BABF0800257EA6 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDOBViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +192,7 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E6242A526065A0100FA6377 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../Downloads/star.json; sourceTree = "<group>"; };
+		4E6242A526065A0100FA6377 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../../../Downloads/star.json; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
@@ -325,6 +329,7 @@
 			children = (
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
+				41AA7468260ADA66002F11AC /* BackeryViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
@@ -483,6 +488,7 @@
 			children = (
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
 				528C66D525E07DBE00AE1B3B /* Customers.swift */,
+				41AA7472260ADBD6002F11AC /* GoalService.swift */,
 				4122DA3A25DB926F00DABB29 /* CustomerNode.swift */,
 				4EB976E925CAD83900518EF9 /* AlertService.swift */,
 				41F4C23A25D0AADE000D4064 /* Reports.swift */,
@@ -880,6 +886,7 @@
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
+				41AA7473260ADBD6002F11AC /* GoalService.swift in Sources */,
 				C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */,
 				4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */,
 				C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */,
@@ -888,6 +895,7 @@
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,
 				4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */,
+				41AA7469260ADA66002F11AC /* BackeryViewController.swift in Sources */,
 				C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */,
 				C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */,
 				C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */,
@@ -1125,13 +1133,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1153,7 +1161,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

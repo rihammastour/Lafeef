@@ -17,6 +17,7 @@ class AdvReportViewController: UIViewController {
     var advType: String = ""
     var child = Child()
     var challeangeVC = ChallengeViewController()
+    let levelGoal = LevelGoalViewController()
     
     //outlets
     @IBOutlet weak var advReportView: UIView!    
@@ -91,7 +92,7 @@ class AdvReportViewController: UIViewController {
             
             //TODO: Add money to wallet in top bar & firestore
             child.money += Float(advAmount)
-            challeangeVC.report.advertismentAmount = Float(advAmount)
+            LevelGoalViewController.report.advertismentAmount = Float(advAmount)
             
             //Present Adv in bakery env
             challeangeVC.showAdvOnBakery()

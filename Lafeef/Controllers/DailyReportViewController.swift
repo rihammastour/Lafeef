@@ -12,6 +12,7 @@ class DailyReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     var challeangeVC = ChallengeViewController()
+   
     
     //.......................... Don't forget to pass attributes to this VC
   
@@ -57,52 +58,52 @@ class DailyReportViewController: UIViewController {
     
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
-        if challeangeVC.report.advertismentAmount == 0 {
+        if LevelGoalViewController.report.advertismentAmount == 0 {
             adv.isHidden = true
         }
     }
 
     func convertLabelsToArabic(){
-        sales.text = "\(challeangeVC.report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        ingredients.text = "\(challeangeVC.report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        backaging.text = "\(challeangeVC.report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        advAmount.text = "\(challeangeVC.report.advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        sales.text = "\(LevelGoalViewController.report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        ingredients.text = "\(LevelGoalViewController.report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        backaging.text = "\(LevelGoalViewController.report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        advAmount.text = "\(LevelGoalViewController.report.advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = challeangeVC.report.salesAmount - challeangeVC.report.ingredientsAmount - challeangeVC.report.backagingAmount + challeangeVC.report.advertismentAmount
+        let incomeDigit = LevelGoalViewController.report.salesAmount - LevelGoalViewController.report.ingredientsAmount - LevelGoalViewController.report.backagingAmount + LevelGoalViewController.report.advertismentAmount
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         //................................ missing money reward!
-        challeangeVC.report.collectedMoney += incomeDigit
+        LevelGoalViewController.report.collectedMoney += incomeDigit
     }
     
     func calculateReward(){
-        switch challeangeVC.report.levelNum {
+        switch LevelGoalViewController.report.levelNum {
         case "1":
-            if challeangeVC.report.collectedScore>=50{
-            challeangeVC.report.reward = 5
-            challeangeVC.report.isRewarded = true
+            if LevelGoalViewController.report.collectedScore>=50{
+                LevelGoalViewController.report.reward = 5
+                LevelGoalViewController.report.isRewarded = true
             }
             break
         case "2":
-            if challeangeVC.report.collectedScore>=60{
-            challeangeVC.report.reward = 10
-            challeangeVC.report.isRewarded = true
+            if LevelGoalViewController.report.collectedScore>=60{
+                LevelGoalViewController.report.reward = 10
+                LevelGoalViewController.report.isRewarded = true
             }
             break
         case "3":
-            if challeangeVC.report.collectedScore>=70{
-            challeangeVC.report.reward = 15
-            challeangeVC.report.isRewarded = true
+            if LevelGoalViewController.report.collectedScore>=70{
+                LevelGoalViewController.report.reward = 15
+                LevelGoalViewController.report.isRewarded = true
             }
    
             break
         default:
-            if challeangeVC.report.collectedScore>=80{
-            challeangeVC.report.reward = 20
-            challeangeVC.report.isRewarded = true
+            if LevelGoalViewController.report.collectedScore>=80{
+                LevelGoalViewController.report.reward = 20
+                LevelGoalViewController.report.isRewarded = true
             }
             break
         }
@@ -116,9 +117,9 @@ class DailyReportViewController: UIViewController {
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
 //        passReportData()
-        if challeangeVC.report.isRewarded {
+        if LevelGoalViewController.report.isRewarded {
             self.performSegue(withIdentifier: Constants.Segue.showWinningReport, sender: self)
-        } else if  challeangeVC.report.isPassed{
+        } else if  LevelGoalViewController.report.isPassed{
             self.performSegue(withIdentifier: Constants.Segue.showNormalReport, sender: self)
         } else{
                 self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
@@ -127,14 +128,15 @@ class DailyReportViewController: UIViewController {
         }
     // Assert data to firestore
     func passReportData(){
-        let levelReportData = LevelReportData(collectedMoney: Int(challeangeVC.report.collectedMoney + challeangeVC.report.advertismentAmount + Float(challeangeVC.report.reward) + challeangeVC.report.collectedMoney), collectedScore: challeangeVC.report.collectedScore, isPassed: challeangeVC.report.isPassed)
+        let levelReportData = LevelReportData(collectedMoney: Int(LevelGoalViewController.report.collectedMoney + LevelGoalViewController.report.advertismentAmount + Float(LevelGoalViewController.report.reward)), collectedScore: LevelGoalViewController.report.collectedScore, isPassed: LevelGoalViewController.report.isPassed)
 
-//        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
 
-//        FirebaseRequest.passCompletedLevelData(levelNum: challeangeVC.report.levelNum, completedLevel: completedLevel) { (success, err) in
-//            print(err)
-//        }
+        FirebaseRequest.passCompletedLevelData(levelNum: LevelGoalViewController.report.levelNum, completedLevel: completedLevel) { (success, err) in
+            print(err)
+        }
     }
     
 }
     
+
