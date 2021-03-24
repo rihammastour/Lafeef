@@ -127,7 +127,7 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY)!+(50))
+        OrderButton.position=CGPoint(x: self.frame.midX, y:((self.tableNode?.frame.minY)!)+(50))
         OrderButton.zPosition = 3
         self.addChild(OrderButton)
         

@@ -23,7 +23,7 @@ struct Constants {
         static let orderVirwController = "OrderVC"
         static let dailyReportViewController = "DailyReportVC"
         static let advReportViewController = "AdvReportVC"
-        static let guidanceInstructionViewController = "GuidanceInstructiontVC"
+        static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
     }
     
     struct Segue {
@@ -44,6 +44,7 @@ struct Constants {
         static let showLevelTwo = "showLevelTwo"
         static let showLevelThree = "showLevelThree"
         static let showLevelFour = "showLevelFour"
+        static let instruction1 = "instruction1"
         
     }
     
