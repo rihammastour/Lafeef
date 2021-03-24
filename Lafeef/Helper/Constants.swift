@@ -23,7 +23,10 @@ struct Constants {
         static let orderVirwController = "OrderVC"
         static let dailyReportViewController = "DailyReportVC"
         static let advReportViewController = "AdvReportVC"
+<<<<<<< HEAD
         static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
+=======
+>>>>>>> parent of 4168fa3... #1
     }
     
     struct Segue {
