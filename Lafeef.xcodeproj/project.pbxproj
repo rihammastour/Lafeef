@@ -90,8 +90,10 @@
 		4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */; };
 		4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */; };
 		4EFA24B225EE208500A17868 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFA24B125EE208500A17868 /* Color.xcassets */; };
+		520B49DE2605A62100123F1F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B49DD2605A60900123F1F /* EditProfileViewController.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C66D525E07DBE00AE1B3B /* Customers.swift */; };
+		52A92E98260BFE72009D58DD /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A92E97260BFE72009D58DD /* EditProfile.storyboard */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
@@ -236,8 +238,10 @@
 		4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionMoney.swift; sourceTree = "<group>"; };
 		4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaied.swift; sourceTree = "<group>"; };
 		4EFA24B125EE208500A17868 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		520B49DD2605A60900123F1F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		528C66D525E07DBE00AE1B3B /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
+		52A92E97260BFE72009D58DD /* EditProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = SOURCE_ROOT; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 		41BD684225BABE7800257EA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				520B49DD2605A60900123F1F /* EditProfileViewController.swift */,
+				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
@@ -337,7 +343,6 @@
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
 				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */,
-				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */,
@@ -391,6 +396,7 @@
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				C9AB67D5260ACD57005E373E /* instructions.storyboard */,
+				52A92E97260BFE72009D58DD /* EditProfile.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4EFA24B125EE208500A17868 /* Color.xcassets */,
@@ -684,6 +690,7 @@
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
 				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
+				52A92E98260BFE72009D58DD /* EditProfile.storyboard in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				4EDFA45025EAF46300924569 /* SadPineapple.atlas in Resources */,
 				4EDFA44C25EAF46300924569 /* SadStrawberry.atlas in Resources */,
@@ -881,6 +888,7 @@
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */,
 				4E453A4825B61D5100B8363F /* GameScene.swift in Sources */,
+				520B49DE2605A62100123F1F /* EditProfileViewController.swift in Sources */,
 				C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */,
 				4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */,
 				C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */,
@@ -1125,13 +1133,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
+				DEVELOPMENT_TEAM = ZAQUFW2PZC;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.a.a.h.j.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1147,13 +1155,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
+				DEVELOPMENT_TEAM = ZAQUFW2PZC;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.a.a.h.j.Lafeef;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
