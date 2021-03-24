@@ -118,11 +118,8 @@
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
-<<<<<<< HEAD
 		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
 		C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */; };
-=======
->>>>>>> parent of 4168fa3... #1
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
@@ -266,11 +263,8 @@
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
 		C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceInstructionsViewController.swift; sourceTree = "<group>"; };
-=======
->>>>>>> parent of 4168fa3... #1
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +347,7 @@
 				4EB21BA125D354750076530E /* AdvReportViewController.swift */,
 				41F4C24425D0ACF2000D4064 /* WinningViewController.swift */,
 				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
+				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -944,6 +939,7 @@
 				41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
+				C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
@@ -1129,13 +1125,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.Lafeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1151,13 +1147,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.Lafeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
