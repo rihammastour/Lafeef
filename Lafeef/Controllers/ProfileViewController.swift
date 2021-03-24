@@ -18,13 +18,11 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var back: UIButton!
     
-    
+    @IBOutlet weak var characterUIImageView: UIImageView!
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
     
-    
-    @IBOutlet weak var ProfilePic: UIImageView!
     //    let id = Auth.auth().currentUser!.uid
 //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
@@ -68,7 +66,7 @@ class ProfileViewController: UIViewController {
         self.setName(child.name)
         self.setCurrentLevel(child.currentLevel)
         self.setMoney(child.money)
-       self.setImage(child.sex)
+        self.setImage(child.sex)
         self.setEmail(child.email)
         self.setAge(child.DOB)
 
@@ -96,9 +94,10 @@ class ProfileViewController: UIViewController {
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
-            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
+            characterUIImageView.image = UIImage(named: "boy-icon")
         }else{
-            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
+            characterUIImageView.image = UIImage(named: "Girl-Profile")
+        }
     }
     
     //Email
