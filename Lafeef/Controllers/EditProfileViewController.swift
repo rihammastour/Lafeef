@@ -155,6 +155,28 @@ class EditProfileViewConroller: UIViewController {
     @IBAction func changePic(_ sender: Any) {
         
         }
+     
+        
+        //MARK:- Functions
+        
+        func getChildMoney(){
+            
+            let child = LocalStorageManager.getChild()
+            if let child = child {
+                setMoney(child.money)
+            }else{
+                
+                print("No Child Found")
+                //TODO: Alert and back button..
+            }
+            
+        }
+    
+    func buyItem(_ cost:Float){
+        
+        FirebaseRequest.updateMoney(4.6)
+        
+    }
     //اه
 }
 extension String {
