@@ -9,24 +9,85 @@ import UIKit
 
 class StoreViewController: UIViewController {
     
+    @IBOutlet weak var moneyBarUIView: UIView!
     
     @IBOutlet weak var testLabel: UILabel!
+    var money:Float!
     
-    
+    @IBOutlet weak var moneyUILabel: UILabel!
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-    }
-    //MARK: - Functions
-
-
-    //MARK: - @IBAcation
-    @IBAction func goBackTapped(_ sender: Any) {
-           self.navigationController?.popViewController(animated: true)
+        setUIElements()
+        getChildMoney()
+        
     }
     
+    
+    //MARK: - Set UI Elements
+    func setUIElements(){
+        Utilities.styleBarView(moneyBarUIView)
+    }
+    
+    //MARK: - Set Content for UI Elements
+    
+    func setMoney(){
+        moneyUILabel.text = String(self.money)
+    }
+    
+    //MARK:- Functions
+    
+    func getChildMoney(){
+        
+        let child = LocalStorageManager.getChild()
+        if let child = child {
+            self.money = child.money
+            setMoney()
+        }else{
+            self.money = 0
+            print("No Child Found")
+            //TODO: Alert and back button..
+        }
+        
+    }
+    
+    //Buy Item
+    func buyItem(_ cost:Float){
+        
+        let leftMoney = self.money - cost
+        
+        if leftMoney >= 0 {
+            FirebaseRequest.updateMoney(leftMoney) { (success, errore) in
+                if !success{
+                    //Purches won't complated
+                    //TODO: Alert with ok button
+                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    
+                }else{
+                    self.money = leftMoney
+                    self.setMoney()
+                }
+                
+            }
+        }else{
+            print("Not enghue money")
+            //TODO: Alert and ok button..
+            self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء")
+        }
+        
+    }
+    
+    
+    //MARK: - @IBAcation
+    @IBAction func goBackTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func buyWithMoney(_ sender: Any) {
+        buyItem(40)
+    }
     @IBAction func didChangeSegment(_ sender:UISegmentedControl){
         
         if sender.selectedSegmentIndex == 0{
@@ -36,4 +97,16 @@ class StoreViewController: UIViewController {
         }
     }
     
+    //MARK: - Dalegate
+    
+    func showAlert(with message:String){
+        let alert = AlertService()
+        let alertVC = alert.Alert(body: message)
+        
+        self.present(alertVC, animated: true)
+    }
+    
 }
+
+
+
