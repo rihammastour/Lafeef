@@ -15,11 +15,14 @@ class StoreViewController: UIViewController {
     var money:Float!
     
     @IBOutlet weak var moneyUILabel: UILabel!
+    
+    @IBOutlet weak var segmentedControlUI: UISegmentedControl!
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        // Additional setup after loading the view.
         setUIElements()
         getChildMoney()
         
@@ -28,7 +31,13 @@ class StoreViewController: UIViewController {
     
     //MARK: - Set UI Elements
     func setUIElements(){
+        
+        //Style money bar
         Utilities.styleBarView(moneyBarUIView)
+        
+        //Style segmented control
+        Utilities.styleSegmentedControl(segmentedControlUI)
+ 
     }
     
     //MARK: - Set Content for UI Elements
