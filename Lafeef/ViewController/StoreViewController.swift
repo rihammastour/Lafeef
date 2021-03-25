@@ -37,7 +37,7 @@ class StoreViewController: UIViewController {
         
         //Style segmented control
         Utilities.styleSegmentedControl(segmentedControlUI)
- 
+        
     }
     
     //MARK: - Set Content for UI Elements
