@@ -33,7 +33,8 @@ class StoreViewController: UIViewController {
     
     //MARK: - Set Content for UI Elements
     
-    func setMoney(){
+    func updateMoney(_ money:Float){
+        self.money = money
         moneyUILabel.text = String(self.money)
     }
     
@@ -43,8 +44,7 @@ class StoreViewController: UIViewController {
         
         let child = LocalStorageManager.getChild()
         if let child = child {
-            self.money = child.money
-            setMoney()
+            updateMoney(child.money)
         }else{
             self.money = 0
             print("No Child Found")
@@ -62,18 +62,14 @@ class StoreViewController: UIViewController {
             FirebaseRequest.updateMoney(leftMoney) { (success, errore) in
                 if !success{
                     //Purches won't complated
-                    //TODO: Alert with ok button
                     self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
                     
                 }else{
-                    self.money = leftMoney
-                    self.setMoney()
+                    self.updateMoney(leftMoney)
                 }
-                
             }
         }else{
-            print("Not enghue money")
-            //TODO: Alert and ok button..
+            //Not enughe money to buy
             self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء")
         }
         
