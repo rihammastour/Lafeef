@@ -21,7 +21,7 @@ class GuidanceInstructionsViewController: UIViewController {
         skiplOutlet?.layer.cornerRadius =  skiplOutlet.frame.size.height/2
         
         instructionView.layer.cornerRadius = 30
-        icecream.image = UIImage.gif(name: "instruction")
+        icecream.image = UIImage.gif(name: "icecream")
     }
     
     

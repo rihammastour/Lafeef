@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var back: UIButton!
     
-    @IBOutlet weak var characterUIImageView: UIImageView!
+    @IBOutlet weak var ProfilePic: UIImageView!
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
@@ -94,9 +94,9 @@ class ProfileViewController: UIViewController {
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
-            characterUIImageView.image = UIImage(named: "boy-icon")
+            ProfilePic.image = UIImage(named: "BoyWithCircle")
         }else{
-            characterUIImageView.image = UIImage(named: "Girl-Profile")
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
         }
     }
     
