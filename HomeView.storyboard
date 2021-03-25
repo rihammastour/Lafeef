@@ -306,33 +306,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87x-Cd-RGL">
-                                <rect key="frame" x="275.5" y="479" width="217.5" height="66"/>
+                                <rect key="frame" x="224.5" y="480" width="319" height="64.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-N3-KFF">
-                                <rect key="frame" x="353" y="562" width="62" height="30"/>
+                                <rect key="frame" x="353" y="561.5" width="62" height="30"/>
                                 <state key="normal" title="Go Back!"/>
                                 <connections>
                                     <action selector="goBackTapped:" destination="yXw-yV-vtD" eventType="touchUpInside" id="Jwt-Gg-tpZ"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qSN-ks-2ZV">
+                                <rect key="frame" x="60" y="100" width="648" height="32"/>
+                                <color key="backgroundColor" name="bachgroundApp"/>
+                                <segments>
+                                    <segment title="الشخصية"/>
+                                    <segment title="المتجر"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="GreenApp"/>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="yXw-yV-vtD" eventType="valueChanged" id="Yjc-l6-7z3"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rxb-ol-933"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qSN-ks-2ZV" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="60" id="GUt-f7-FEm"/>
                             <constraint firstItem="3Fp-N3-KFF" firstAttribute="top" secondItem="87x-Cd-RGL" secondAttribute="bottom" constant="17" id="Iyh-Wh-wUn"/>
+                            <constraint firstItem="qSN-ks-2ZV" firstAttribute="top" secondItem="Rxb-ol-933" secondAttribute="top" constant="100" id="T8J-vn-IY3"/>
                             <constraint firstItem="87x-Cd-RGL" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="cDN-ux-IX6"/>
                             <constraint firstItem="87x-Cd-RGL" firstAttribute="centerY" secondItem="4pI-Ss-2NN" secondAttribute="centerY" id="cDj-wc-G9r"/>
+                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="qSN-ks-2ZV" secondAttribute="trailing" constant="60" id="ojJ-Cq-MM4"/>
                             <constraint firstItem="3Fp-N3-KFF" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="wuX-Op-hzX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KX7-do-Hil"/>
+                    <connections>
+                        <outlet property="testLabel" destination="87x-Cd-RGL" id="bGf-tV-ctg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4952" y="1082"/>
+            <point key="canvasLocation" x="4971.875" y="1079.8828125"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="6fA-f2-M9d">
@@ -599,6 +617,9 @@
         <image name="moneyBag" width="23" height="23.666666030883789"/>
         <image name="profileCircle" width="256.70199584960938" height="256.70199584960938"/>
         <image name="scoreIcon" width="23" height="23"/>
+        <namedColor name="GreenApp">
+            <color red="0.84600001573562622" green="0.89200001955032349" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="bachgroundApp">
             <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

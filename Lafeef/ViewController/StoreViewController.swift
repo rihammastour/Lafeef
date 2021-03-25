@@ -8,25 +8,32 @@
 import UIKit
 
 class StoreViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var testLabel: UILabel!
+    
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+    //MARK: - Functions
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK: - @IBAcation
     @IBAction func goBackTapped(_ sender: Any) {
            self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func didChangeSegment(_ sender:UISegmentedControl){
+        
+        if sender.selectedSegmentIndex == 0{
+            testLabel.text = "Store Screen"
+        } else if sender.selectedSegmentIndex == 1{
+            testLabel.text = "Store Screen - Store"
+        }
     }
     
 }

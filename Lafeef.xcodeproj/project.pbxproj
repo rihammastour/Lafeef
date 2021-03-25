@@ -157,7 +157,7 @@
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
 		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		41314C4425F5F6800022FA0B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
-		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../../FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../Lafeef/Fonts/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		419B1BD725FBF55F0024F011 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E6242A526065A0100FA6377 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../../../Downloads/star.json; sourceTree = "<group>"; };
+		4E6242A526065A0100FA6377 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = star.json; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
