@@ -139,7 +139,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
             self.performSegue(withIdentifier: "DOBNext", sender: self)
         }else{
             errorLabel .text = "لطفَا، تاريخ الميلاد مطلوب"
-            self.present(alert.Alert(body:"لطفَا، تاريخ الميلاد مطلوب" ),animated: true)
+            self.present(alert.Alert(body:"لطفَا، تاريخ الميلاد مطلوب" , isSuccess: false),animated: true)
              
         }
     }

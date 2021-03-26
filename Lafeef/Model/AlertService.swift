@@ -7,11 +7,12 @@
 
 import UIKit
 class AlertService {
-    func Alert(body:String) ->  AlertViewController {
+    func Alert(body:String, isSuccess:Bool) ->  AlertViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let AlertVc = storyboard.instantiateViewController(identifier: "alert") as AlertViewController
       print(AlertVc)
         AlertVc.body = body
+        AlertVc.isSuccess = isSuccess
         return AlertVc
       }
   

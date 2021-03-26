@@ -205,18 +205,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
         
         if  password == "" && !isValidated{
                passLabel.text = "لطفًا، اختر صورة"
-                       self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة"), animated: true)
+            self.present(alert.Alert(body: "لطفًا، جميع الحقول مطلوبة", isSuccess:false), animated: true)
             }else if emailTextfield.text == "" {
                        
-                       self.present(alert.Alert(body:"لطفًا، البريد الإلكتروني مطلوب"), animated: true)
+                self.present(alert.Alert(body:"لطفًا، البريد الإلكتروني مطلوب", isSuccess: false), animated: true)
                        
             }else if !isValidated{
-               self.present(alert.Alert(body:errorLabel.text!), animated: true)
+                self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
                
             }
                        else if password == "" { // email error
                        passLabel.text = "لطفًا،اختر صورة"
-                       self.present(alert.Alert(body: "لطفًا، اختر صورة "), animated: true)
+                       self.present(alert.Alert(body: "لطفًا، اختر صورة ", isSuccess: false), animated: true)
                      
         
         } else {
@@ -240,28 +240,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                                 
 
                                     case .invalidEmail:
-                                        self.present(alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني"), animated: true)
+                                        self.present(alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني", isSuccess: false), animated: true)
                              
                                         break
 
                                     case .userNotFound:
-                                        self.present(alert.Alert(body: "هذا البريد الالكتروني غير مسجل لدى لفيف🧁"), animated: true)
+                                        self.present(alert.Alert(body: "هذا البريد الالكتروني غير مسجل لدى لفيف🧁",isSuccess: false), animated: true)
                                         break
                                     case .networkError:
-                                        self.present(alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت"), animated: true)
+                                        self.present(alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت", isSuccess: false), animated: true)
                                         
                               
                                         break
 
 
                                     @unknown default:
-                                        self.present(alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى"), animated: true)
+                                        self.present(alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى", isSuccess: false), animated: true)
                                        
                                         break
                                     }
                                 }
                                  //Tells the user that there is an error and then gets firebase to tell them the error
-                                self.present(alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى"), animated: true)
+                                self.present(alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى", isSuccess: false), animated: true)
                            
                              }
                          }

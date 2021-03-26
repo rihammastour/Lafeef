@@ -93,6 +93,8 @@
 		4EF5219D25DE6EB400A765D4 /* PositionMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */; };
 		4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */; };
 		4EFA24B225EE208500A17868 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFA24B125EE208500A17868 /* Color.xcassets */; };
+		4EFFE55E2608DFDA00BE2B8F /* UpdatePassowrd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFE55D2608DFDA00BE2B8F /* UpdatePassowrd.storyboard */; };
+		4EFFE56626097AF600BE2B8F /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C66D525E07DBE00AE1B3B /* Customers.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
@@ -239,6 +241,8 @@
 		4EF5219C25DE6EB400A765D4 /* PositionMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionMoney.swift; sourceTree = "<group>"; };
 		4EF5224F25E06B7000A765D4 /* CustomerPaied.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPaied.swift; sourceTree = "<group>"; };
 		4EFA24B125EE208500A17868 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		4EFFE55D2608DFDA00BE2B8F /* UpdatePassowrd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdatePassowrd.storyboard; sourceTree = "<group>"; };
+		4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		528C66D525E07DBE00AE1B3B /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -349,6 +353,7 @@
 				41F4C24425D0ACF2000D4064 /* WinningViewController.swift */,
 				419B1BD725FBF55F0024F011 /* NormalViewController.swift */,
 				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
+				4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
+				4EFFE55D2608DFDA00BE2B8F /* UpdatePassowrd.storyboard */,
 				4EFA24B125EE208500A17868 /* Color.xcassets */,
 				4E453A4E25B61D5400B8363F /* Assets.xcassets */,
 				C92A65AA25CB3FA00060AA53 /* Helper */,
@@ -696,6 +702,7 @@
 				4EDFA44325EAF46300924569 /* WaitingOrange.atlas in Resources */,
 				4EDFA44A25EAF46300924569 /* WaitingStrawberry.atlas in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
+				4EFFE55E2608DFDA00BE2B8F /* UpdatePassowrd.storyboard in Resources */,
 				4EDFA44025EAF46300924569 /* NWApple.atlas in Resources */,
 				4193027325D1FEE700BACE0B /* Podfile in Resources */,
 				41BD683E25BABD3B00257EA6 /* GoogleService-Info.plist in Resources */,
@@ -872,6 +879,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFFE56626097AF600BE2B8F /* UpdatePasswordViewController.swift in Sources */,
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,

@@ -124,7 +124,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     @IBAction func next(_ sender: Any) {
           validator.validate(self)
           if !isValidated{
-              self.present(alert.Alert(body:errorLabel.text!), animated: true)
+              self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
               
           } else {
               
@@ -149,20 +149,20 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                       
 
                           case .invalidEmail:
-                              self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني"), animated: true)
+                              self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني", isSuccess: false), animated: true)
                    
                               break
                           case .networkError:
-                              self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت"), animated: true)
+                              self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت",isSuccess: false), animated: true)
                               break
                           @unknown default:
-                              self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى"), animated: true)
+                              self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى",isSuccess: false), animated: true)
                              
                               break
                           }
                       }
                        //Tells the user that there is an error and then gets firebase to tell them the error
-                      self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى"), animated: true)
+                      self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى", isSuccess: false), animated: true)
                  
                    }
                }

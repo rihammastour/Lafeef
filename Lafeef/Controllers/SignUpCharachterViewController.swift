@@ -98,7 +98,7 @@ class SignUpCharachterViewController: UIViewController {
             }
                 else{
                     errorLabel.text = "لطفًا، اختر شخصيتك"
-                    self.present(alert.Alert(body:"لطفًا، اختر شخصيتك"),animated: true)
+                    self.present(alert.Alert(body:"لطفًا، اختر شخصيتك", isSuccess: false),animated: true)
         }
     }
 }

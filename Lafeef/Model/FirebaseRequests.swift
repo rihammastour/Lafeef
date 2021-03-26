@@ -198,7 +198,33 @@ class FirebaseRequest{
         
         }
 
+    //MARK: -Firebase Update
+    
+    static func updatePassword(oldPassword: String, newPassword: String,completion: @escaping (_ success: Bool, _ error :String) -> Void){
+        let user = Auth.auth().currentUser
+        var credential: AuthCredential
+
+        // Prompt the user to re-provide their sign-in credentials
+        credential = EmailAuthProvider.credential(withEmail: (user?.email)!, password: oldPassword)
         
+        if user != nil {
+            user?.reauthenticate(with: credential) { success ,error in
+              if let error = error {
+                //error happend
+                completion(false, "لم أنجح بتغيير كلمة مرورك، هل تستطيع المحاولة مرة أخرى؟")
+              } else {
+                // User re-authenticated.
+                Auth.auth().currentUser?.updatePassword(to: newPassword) { (error) in
+                  completion(true, "تم تغيير كلمة مرورك بنجاح!🧁")
+                }
+              }
+            }
+        } else {
+          // No user is signed in.
+            completion(false, "تحقق من تسجيل دخولك!")
+        }
+       
+    }
 
     
     //MARK:- Firebase Storage
