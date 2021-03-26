@@ -89,7 +89,7 @@ class NormalViewController: UIViewController {
         if LevelGoalViewController.report.levelNum != "4"{
         levelnum! += 1
             LevelGoalViewController.report.levelNum = String(levelnum!)
-            self.performSegue(withIdentifier: " showChalleange", sender: self)
+            self.performSegue(withIdentifier: "normalshowChalleange", sender: self)
       
         }else{
             print("last level")
@@ -97,7 +97,7 @@ class NormalViewController: UIViewController {
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: " showCalendar", sender: self)
+        self.performSegue(withIdentifier: "showCalendar", sender: self)
         //
     }
     
@@ -125,7 +125,7 @@ class NormalViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = round(Double(score/5))
+        starView.rating = Double(round(LevelGoalViewController.report.collectedScore/5))
 
             }
 

@@ -25,6 +25,9 @@ class HomeViewController: UIViewController {
     //Buttons
     @IBOutlet weak var storeButton: UIButton!
     
+    
+    let formatter = NumberFormatter()
+    
 
     
     //MARK: - Lifecycle Functions
@@ -35,6 +38,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
     //Additional setup after loading the view.
 
@@ -101,7 +105,8 @@ class HomeViewController: UIViewController {
     }
     //Level
     func setCurrentLevel(_ level:Int) {
-        levelNumLabel.text = String(level)
+       
+        levelNumLabel.text = formatter.string(from:level as NSNumber)
     }
     
     //Score

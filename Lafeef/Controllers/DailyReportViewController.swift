@@ -6,23 +6,19 @@
 //
 
 import UIKit
+import CodableFirebase
 
 class DailyReportViewController: UIViewController {
     
     //MARK:- Proprities
     //variables
     var challeangeVC = ChallengeViewController()
+    var completedLevel  =  CompletedLevel(reportData: [])
+    var  childId :String?
    
     
-    //.......................... Don't forget to pass attributes to this VC
-  
-//    var salesAmount = 0
-//    var ingredientsAmount = 0
-//    var backagingAmount = 0
-//    var advertismentAmount = 0
-//    var collectedScore = 0
-//    var collectedMoney = 0
-//    var isPassed = false
+
+
  
    
     //outlets
@@ -39,12 +35,14 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
        
         calcultateIncome()
         styleUI()
         hideAdv()
         calculateReward()
         passReportData()
+        getChildId()
     }
     
     //MARK:- Functions
@@ -54,6 +52,11 @@ class DailyReportViewController: UIViewController {
         dailyReportView.layer.cornerRadius = 30
         Utilities.styleFilledButton(nextButton, color: "blueApp")
         convertLabelsToArabic()
+    }
+    func updatemoneyLabel(){
+        GameScene.setMoneyLabel(LevelGoalViewController.report.collectedMoney)
+
+        
     }
     
     func hideAdv(){
@@ -77,6 +80,7 @@ class DailyReportViewController: UIViewController {
         
         //................................ missing money reward!
         LevelGoalViewController.report.collectedMoney += incomeDigit
+        updatemoneyLabel()
     }
     
     func calculateReward(){
@@ -128,15 +132,70 @@ class DailyReportViewController: UIViewController {
         }
     // Assert data to firestore
     func passReportData(){
-        let levelReportData = LevelReportData(collectedMoney: Int(LevelGoalViewController.report.collectedMoney + LevelGoalViewController.report.advertismentAmount + Float(LevelGoalViewController.report.reward)), collectedScore: LevelGoalViewController.report.collectedScore, isPassed: LevelGoalViewController.report.isPassed)
+        print(FirebaseRequest.getUserId(),"idd")
+        let ReportData = LevelReportData(levelNum:LevelGoalViewController.report.levelNum, collectedMoney: Int(LevelGoalViewController.report.collectedMoney + LevelGoalViewController.report.advertismentAmount + Float(LevelGoalViewController.report.reward)), collectedScore: LevelGoalViewController.report.collectedScore, isPassed: LevelGoalViewController.report.isPassed)
 
-        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
+      
+        FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
+            if error == ""{
+                do{
+           let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
+                    self.setCompletedLevel(completed: level)
+                    print("completedlevel")
+                    print(completedLevel.reportData.count,"count")
+                    
+                    let levelnum = LevelGoalViewController.report.levelNum
+                    print(levelnum)
+                    print(self.completedLevel.reportData.count ,"count")
+                    if completedLevel.reportData.count == 1 &&
+                        completedLevel.reportData.first?.isPassed == false{
+                        let array = [ReportData]
+                        self.completedLevel = CompletedLevel(reportData: array)
+                        print("first if ")
+                    }else if (completedLevel.reportData.count == Int(levelnum)){
+                        print("second if ")
+                        for var report in completedLevel.reportData{
+                            if report.levelNum == levelnum{
+                           report = ReportData
+                            }
+                        }
+                    }else{
+                        self.completedLevel.reportData.append(ReportData)
+                        }
 
-        FirebaseRequest.passCompletedLevelData(levelNum: LevelGoalViewController.report.levelNum, completedLevel: completedLevel) { (success, err) in
-            print(err)
+                    FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
+                    if (err != nil){
+                    print("success")
+                    } else{
+                        print("error")
+                        }
+
+
+                    }
+
+
+            }catch{
+             print("error while decoding child report ",error)
+               }
+
+
+            }else{
+                print("error")
+
+            }
         }
+ 
+
     }
-    
+    func getChildId(){
+        self.childId =  FirebaseRequest.getUserId() ?? ""
+    }
+
+
+    func setCompletedLevel(completed:CompletedLevel){
+        print("inside set")
+    self.completedLevel = completed
 }
-    
+}
+
 

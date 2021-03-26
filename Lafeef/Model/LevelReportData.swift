@@ -7,6 +7,7 @@
 import Foundation
 
 struct LevelReportData: Codable {
+    var levelNum: String
     var collectedMoney: Int
     var collectedScore: Float
     var isPassed: Bool

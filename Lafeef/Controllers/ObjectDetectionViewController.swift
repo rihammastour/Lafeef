@@ -202,31 +202,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         var position = CGPoint()
             position = CGPoint(x: ceil(bounds.midX), y:  430)
         
-        // ranges
-//        switch round(bounds.midX) {
-//        case 0...139:
-//            position = CGPoint(x:70, y:  430)
-//            break
-//        case 140...278:
-//            position = CGPoint(x:209, y:  430)
-//            break
-//        case 279...417:
-//            position = CGPoint(x:348, y:  430)
-//            break
-//        case 418...557:
-//            position = CGPoint(x:488, y:  430)
-//            break
-//        case 558...697:
-//            position = CGPoint(x:628, y:  430)
-//            break
-//        case 698...837:
-//            position = CGPoint(x:768, y:  430)
-//          
-//            break
-//            default:
-//           print("range")
-//        }
-    
+
         
         let shapeLayer = CALayer()
         shapeLayer.bounds = bounds

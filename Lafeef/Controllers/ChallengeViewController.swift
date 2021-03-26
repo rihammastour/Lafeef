@@ -107,14 +107,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
 
-//    func displayLevelGoalViewController(){
-//        print("display")
-//        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-//        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.LevelGoalViewControllerViewController) as! LevelGoalViewControllerViewController
-//
-//        self.present(goalVC, animated: true)
-//
-//    }
+
     //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
@@ -128,9 +121,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         advVC.scene = self.challengeScen
 
         self.present(advVC, animated: true) {
-          //  GameScene.startGame()
+        
         }
-//        self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
 
     }
     

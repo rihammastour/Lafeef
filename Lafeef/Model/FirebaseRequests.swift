@@ -75,12 +75,12 @@ class FirebaseRequest{
         }
     }
     
-    static func passCompletedLevelData(levelNum: String, completedLevel: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
+    static func passCompletedLevelData(childID:String, reports: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
         // Add a new document in collection "users"
         
         do {
-            try db.collection("levelReport").document(levelNum).setData(from: completedLevel)
-        } catch var err {
+            try db.collection("levelReport").document(childID).setData(from: reports)
+        } catch let err {
             print("error while passing data", err)
         }
 
@@ -178,23 +178,23 @@ class FirebaseRequest{
     }
     static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
             
-        db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
-            { (querySnapshot, err) in
-                      if let err = err {
-                        completionBlock(nil,err.localizedDescription)
-                      } else {
-                      
-                          for document in querySnapshot!.documents {
-
-                       
-                           
-                           print("\(document.documentID) => \(document.data())")
-                            
-                            completionBlock(document.data(), "")
-                          }
-                      }
-                  }
-        
+        db.collection("levelReport").document(childID)
+            .getDocument { (response, error) in
+                
+                guard let document = response else {
+                    completionBlock(nil,error!.localizedDescription)
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document empty")
+                    return
+                }
+                
+              
+                print("data in fetch user data ",data)
+                completionBlock(data,"")
+                
+            }
         
         }
 

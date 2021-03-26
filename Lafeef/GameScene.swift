@@ -14,6 +14,7 @@ class GameScene: SKScene {
     
     //MARK: Variables
     let alert = AlertService()
+    let formatter = NumberFormatter()
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -86,6 +87,8 @@ class GameScene: SKScene {
     //MARK: - Lifecycle Functons
     
     override func sceneDidLoad() {
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        
         setupSceneElements()
         setUpCharacters()
     }
@@ -221,18 +224,31 @@ class GameScene: SKScene {
         GameScene.moneyLabel.fontSize = 34
         GameScene.moneyLabel.fontName = "FF Hekaya"
         GameScene.moneyLabel.fontColor = SKColor(named: "BlackApp")
-        GameScene.moneyLabel.text = "0.0"
+        GameScene.moneyLabel.text = "٠"
         self.moneyCountiner?.addChild(GameScene.moneyLabel!)
         
     }
     
     //updateMoneyLabel
     static func updateMoneyLabel(_ earnedMoney:Float){
+        let arabicFormatter: NumberFormatter = NumberFormatter()
+        let EnglishFormatter: NumberFormatter = NumberFormatter()
+        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        EnglishFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         
-        var money = Float(GameScene.moneyLabel.text!)!
+        var money = Float(EnglishFormatter.number(from: GameScene.moneyLabel.text!)!)
         money += earnedMoney
-        GameScene.moneyLabel.text = String(money)
+        GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
+    }
+    static func setMoneyLabel(_ earnedMoney:Float){
+        let arabicFormatter: NumberFormatter = NumberFormatter()
+
+        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+     
         
+      
+       
+        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
     }
     
     
@@ -582,6 +598,7 @@ class GameScene: SKScene {
     
     // OrderbuttonTapped
     func checkOrderAnswer(){
+        OrderButton.isHidden = true
         
         // Get answers provided
         let answer = (viewController?.objectDetected?.getAnswer())!
@@ -688,6 +705,8 @@ class GameScene: SKScene {
     }
     
     func nextCustomer(){
+        OrderButton.isHidden = false
+        PaymentButton.isHidden = false
         currentCustomer += 1
         GameScene.timeLeft = 30
         if (currentCustomer<=0){
@@ -909,6 +928,7 @@ class GameScene: SKScene {
         checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
+        PaymentButton.isHidden = true
         checkPaymentAnswer()
     }
     
