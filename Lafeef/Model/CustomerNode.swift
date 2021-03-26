@@ -122,23 +122,14 @@ class CustomerNode {
       
     }
     
-    func moveOutSadly(customerNode : CustomerNode){
-        customerNode.sadCustomer()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-
-            moveCustomer(customerNode : customerNode,x: -600, y: 0)
-          
-           }
-    }
-    
-    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction) {
+    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : String) {
         // need to hide ca layer
         print(ObjectDetectionViewController.detectionOverlay, "----------------------------------------")
         
 
 
         switch customerSatisfaction {
-        case .happey:
+        case "happy":
              customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
 
@@ -157,17 +148,18 @@ class CustomerNode {
 //            
             break
 
-        case .sad:
+        case "sad":
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-                moveCustomer(customerNode:customerNode,x: 650, y: 0)
+
+                moveCustomer(customerNode : customerNode,x: -600, y: 0)
               
                }
          
             break
         
     
-        case .normal:
+        default:
 
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
@@ -184,24 +176,23 @@ class CustomerNode {
 
     }
     
-    func moveOut(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction, completion: @escaping ()->()){
+    func moveOut(customerNode : CustomerNode, customerSatisfaction : String, completion: @escaping ()->()){
         switch customerSatisfaction {
-        case .happey:
+        case "happy":
                 customerNode.happyCustomer()
             break
-        case .sad:
+        case "sad":
             customerNode.sadCustomer()
             break
-        case .normal:
+        default:
             customerNode.normalCustomer()
         }
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
                 moveCustomer(customerNode: customerNode,x: 1000, y: 0)
+                
             }
         completion()
     }
-    
-    
  func moveCustomer(customerNode : CustomerNode,x: CGFloat , y: CGFloat) {
     
     let moveAction = SKAction.moveBy(x: x , y: y , duration: 4)

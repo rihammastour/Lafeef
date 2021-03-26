@@ -28,32 +28,12 @@ enum CustmerSatisfaction : String {
         
     }
     
-    static func getTotalCusSat(for value: Int) -> CustmerSatisfaction {
+    static func getCusSat(for value: Int) -> CustmerSatisfaction {
         switch value {
         case 4:
             return .happey
-        case 2,3:
+        case 3,2:
             return .normal
-        default:
-            return .sad
-        }
-    }
-    
-    static func getOrderCusSat(for value: Int) -> CustmerSatisfaction {
-        switch value {
-        case 3:
-            return .happey
-        case 2:
-            return .normal
-        default:
-            return .sad
-        }
-    }
-    
-    static func getPeymentCusSat(for value: Int) -> CustmerSatisfaction {
-        switch value {
-        case 1:
-            return .happey
         default:
             return .sad
         }

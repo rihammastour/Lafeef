@@ -37,7 +37,6 @@ class ChalleangeLevelCalendarViewController:UIViewController
     
     
     let formatter = NumberFormatter()
-    let goalService  = GoalService()
     var completedLevels = [CompletedLevel]()
     var levelMinScore = [Float]()
     var levelMaxScore = [Float]()
@@ -98,25 +97,27 @@ class ChalleangeLevelCalendarViewController:UIViewController
     
     @IBAction func levelOne(_ sender: Any) {
         print("level one")
-        self.present(goalService.goal(levelNum: "1"),animated:true)
-       
-      
+        challengeVC.report.levelNum = "1"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelTwo(_ sender: Any) {
         print("leveltwo")
-        self.present(goalService.goal(levelNum: "2"),animated:true)
+        challengeVC.report.levelNum = "2"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     
     @IBAction func levelThree(_ sender: Any) {
         print("levelthree")
-        self.present(goalService.goal(levelNum: "3"),animated:true)
+        challengeVC.report.levelNum = "3"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
     @IBAction func levelFour(_ sender: Any) {
         print("levelFour")
-        self.present(goalService.goal(levelNum: "4"),animated:true)
+        challengeVC.report.levelNum = "4"
+        self.performSegue(withIdentifier:  Constants.Segue.challenge, sender: self)
     }
     
 

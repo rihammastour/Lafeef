@@ -11,7 +11,6 @@ import Cosmos
 class NormalViewController: UIViewController {
 
     var challeangeReport = ChallengeViewController()
-
  
     // customer satisfaction
     @IBOutlet weak var sadLabel: UILabel!
@@ -74,21 +73,21 @@ class NormalViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(LevelGoalViewController.report.collectedScore))
+        setScore(score: Int(challeangeReport.report.collectedScore))
         // set money
-        setMoney(money:Int(LevelGoalViewController.report.collectedMoney))
+        setMoney(money:Int(challeangeReport.report.collectedMoney))
         
-        if LevelGoalViewController.report.levelNum == "4"{
+        if challeangeReport.report.levelNum == "4"{
             nextDayOutlet.isHidden = true
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
     }
     @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(LevelGoalViewController.report.levelNum)
-        if LevelGoalViewController.report.levelNum != "4"{
+        var  levelnum = Int(challeangeReport.report.levelNum)
+        if challeangeReport.report.levelNum != "4"{
         levelnum! += 1
-            LevelGoalViewController.report.levelNum = String(levelnum!)
+            challeangeReport.report.levelNum = String(levelnum!)
             self.performSegue(withIdentifier: " showChalleange", sender: self)
       
         }else{
@@ -106,7 +105,7 @@ class NormalViewController: UIViewController {
         var sad = 0
         var normal = 0
         
-        for sat in  LevelGoalViewController.report.customerSatisfaction{
+        for sat in  challeangeReport.report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -125,7 +124,7 @@ class NormalViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = round(Double(score/5))
+        starView.rating = Double(score)/5
 
             }
 

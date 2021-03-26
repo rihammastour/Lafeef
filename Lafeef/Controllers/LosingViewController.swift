@@ -15,7 +15,6 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
     var challeangeReport = ChallengeViewController()
-
     
     
     
@@ -65,16 +64,11 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-   
-            
-            self.setCustomerSatisfaction()
-            //set score
-            self.setScore(score: Int( LevelGoalViewController.report.collectedScore))
-            // set money
-            self.setMoney(money:Int( LevelGoalViewController.report.collectedMoney))
-      
-        
-       
+        setCustomerSatisfaction()
+        //set score
+        setScore(score: Int( challeangeReport.report.collectedScore))
+        // set money
+        setMoney(money:Int( challeangeReport.report.collectedScore))
     }
     
 
@@ -94,14 +88,11 @@ class LosingViewController: UIViewController {
     }
     
     func setCustomerSatisfaction()  {
-        
-        print("inside customer")
-        print(LevelGoalViewController.report.customerSatisfaction)
         var happy = 0
         var sad = 0
         var normal = 0
         
-        for sat in  LevelGoalViewController.report.customerSatisfaction{
+        for sat in  challeangeReport.report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1

@@ -75,13 +75,12 @@ class FirebaseRequest{
         }
     }
     
-    //Pass Completed Level Data
     static func passCompletedLevelData(levelNum: String, completedLevel: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
         // Add a new document in collection "users"
         
         do {
             try db.collection("levelReport").document(levelNum).setData(from: completedLevel)
-        } catch let err {
+        } catch var err {
             print("error while passing data", err)
         }
 
@@ -95,24 +94,6 @@ class FirebaseRequest{
         } catch let error {
             print("Error writing city to Firestore: \(error)")
         }
-    }
-    
-    //Set Money
-    static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
-        
-        let id = getUserId()!
-        
-        db.collection("users").document(id).updateData([
-            "money":money
-        ]){ err in
-            if let err = err {
-                print("Error writing document: \(err)")
-                completion(false,err)
-            } else {
-                print("Document successfully written!")
-            }
-        }
-        completion(true,nil)
     }
     
     //MARK: - Get Document Firestore
@@ -200,9 +181,10 @@ class FirebaseRequest{
                 }
             }
         }
+     
+
+    
     }
-    
-    
     static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
             
         db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
@@ -224,8 +206,6 @@ class FirebaseRequest{
         
         
         }
-    
-    
 
         
 

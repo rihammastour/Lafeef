@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
+                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -293,119 +293,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4952" y="305"/>
-        </scene>
-        <!--Store View Controller-->
-        <scene sceneID="vwE-lV-NTq">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yXw-yV-vtD" customClass="StoreViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4pI-Ss-2NN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87x-Cd-RGL">
-                                <rect key="frame" x="224.5" y="480" width="319" height="64.5"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fp-N3-KFF">
-                                <rect key="frame" x="353" y="562" width="62" height="30"/>
-                                <state key="normal" title="Go Back!"/>
-                                <connections>
-                                    <action selector="goBackTapped:" destination="yXw-yV-vtD" eventType="touchUpInside" id="ixq-FE-B5Z"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="qSN-ks-2ZV">
-                                <rect key="frame" x="60" y="90" width="648" height="41"/>
-                                <color key="backgroundColor" name="bachgroundApp"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="qLK-k1-QQU"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="الشخصية"/>
-                                    <segment title="المتجر"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" name="GreenApp"/>
-                                <connections>
-                                    <action selector="didChangeSegment:" destination="yXw-yV-vtD" eventType="valueChanged" id="Yjc-l6-7z3"/>
-                                </connections>
-                            </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94e-cz-Een">
-                                <rect key="frame" x="40" y="20" width="150" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWy-mL-VCk">
-                                        <rect key="frame" x="5" y="5" width="140" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-qZ-zcf">
-                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneyBag" translatesAutoresizingMaskIntoConstraints="NO" id="AgY-0I-2Gb">
-                                                <rect key="frame" x="103.5" y="-5" width="50" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="651-pp-RWz"/>
-                                                    <constraint firstAttribute="height" constant="45" id="AjD-BY-CvK"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="bachgroundApp"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="AgY-0I-2Gb" secondAttribute="trailing" constant="-13.5" id="DNO-Cs-0nw"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="F5N-Qe-SVJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="r0b-qZ-zcf" secondAttribute="trailing" id="IGN-Kb-s2r"/>
-                                            <constraint firstAttribute="bottom" secondItem="AgY-0I-2Gb" secondAttribute="bottom" id="RaY-ji-k4W"/>
-                                            <constraint firstAttribute="height" constant="40" id="Rmp-b7-YTF"/>
-                                            <constraint firstItem="r0b-qZ-zcf" firstAttribute="leading" secondItem="hWy-mL-VCk" secondAttribute="leading" id="c7W-go-eN1"/>
-                                            <constraint firstItem="r0b-qZ-zcf" firstAttribute="centerY" secondItem="hWy-mL-VCk" secondAttribute="centerY" id="ifm-kR-oQJ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="hWy-mL-VCk" firstAttribute="leading" secondItem="94e-cz-Een" secondAttribute="leading" constant="5" id="Q4G-mK-ol2"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZmD-0Q-Iua"/>
-                                    <constraint firstAttribute="width" constant="150" id="b3F-lz-k3h"/>
-                                    <constraint firstAttribute="trailing" secondItem="hWy-mL-VCk" secondAttribute="trailing" constant="5" id="bOh-1X-DhH"/>
-                                    <constraint firstItem="hWy-mL-VCk" firstAttribute="centerY" secondItem="94e-cz-Een" secondAttribute="centerY" id="gAR-k5-53m"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgv-ZI-KvV">
-                                <rect key="frame" x="321" y="633" width="86" height="30"/>
-                                <state key="normal" title="Buy with 40 "/>
-                                <connections>
-                                    <action selector="buyWithMoney:" destination="yXw-yV-vtD" eventType="touchUpInside" id="xuE-Co-bZM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Rxb-ol-933"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hgv-ZI-KvV" firstAttribute="top" secondItem="3Fp-N3-KFF" secondAttribute="bottom" constant="41" id="6lr-SV-PkM"/>
-                            <constraint firstItem="94e-cz-Een" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="40" id="6oz-zM-qpu"/>
-                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="hgv-ZI-KvV" secondAttribute="trailing" constant="361" id="EcU-w7-Yco"/>
-                            <constraint firstItem="qSN-ks-2ZV" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="60" id="GUt-f7-FEm"/>
-                            <constraint firstItem="94e-cz-Een" firstAttribute="top" secondItem="Rxb-ol-933" secondAttribute="top" constant="20" id="IpJ-ce-Pms"/>
-                            <constraint firstItem="3Fp-N3-KFF" firstAttribute="top" secondItem="87x-Cd-RGL" secondAttribute="bottom" constant="17" id="Iyh-Wh-wUn"/>
-                            <constraint firstItem="qSN-ks-2ZV" firstAttribute="top" secondItem="Rxb-ol-933" secondAttribute="top" constant="90" id="T8J-vn-IY3"/>
-                            <constraint firstItem="87x-Cd-RGL" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="cDN-ux-IX6"/>
-                            <constraint firstItem="87x-Cd-RGL" firstAttribute="centerY" secondItem="4pI-Ss-2NN" secondAttribute="centerY" id="cDj-wc-G9r"/>
-                            <constraint firstItem="Rxb-ol-933" firstAttribute="bottom" secondItem="hgv-ZI-KvV" secondAttribute="bottom" constant="361" id="l0e-3I-hGU"/>
-                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="qSN-ks-2ZV" secondAttribute="trailing" constant="60" id="ojJ-Cq-MM4"/>
-                            <constraint firstItem="3Fp-N3-KFF" firstAttribute="centerX" secondItem="4pI-Ss-2NN" secondAttribute="centerX" id="wuX-Op-hzX"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="KX7-do-Hil"/>
-                    <connections>
-                        <outlet property="moneyBarUIView" destination="hWy-mL-VCk" id="gvz-9Q-qfJ"/>
-                        <outlet property="moneyUILabel" destination="r0b-qZ-zcf" id="JaV-Oy-LAX"/>
-                        <outlet property="segmentedControlUI" destination="qSN-ks-2ZV" id="wRp-ug-TBQ"/>
-                        <outlet property="testLabel" destination="87x-Cd-RGL" id="bGf-tV-ctg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4971.875" y="1079.8828125"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="6fA-f2-M9d">
@@ -672,9 +559,6 @@
         <image name="moneyBag" width="23" height="23.666666030883789"/>
         <image name="profileCircle" width="256.70199584960938" height="256.70199584960938"/>
         <image name="scoreIcon" width="23" height="23"/>
-        <namedColor name="GreenApp">
-            <color red="0.84600001573562622" green="0.89200001955032349" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="bachgroundApp">
             <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

@@ -29,6 +29,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       // Vision parts
       private var requests = [VNRequest]()
 
+    var providedAnswer = Answer(base:  nil, change: 0 , atTime: 0, toppings: [])
     static var shapeLayer = CALayer()
  
 
@@ -101,6 +102,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         answerLabels = []
 
         answerArray = results
+        print(answerArray,"---------------------------------")
 //        ObjectDetectionViewController.detectionOverlay.sublayers = nil
         for observation in answerArray {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else {
@@ -118,6 +120,7 @@ class ObjectDetectionViewController: ChallengeViewController{
              // I think its 480 x and -320 y 
 
         }
+        print("AnswerLabels insideloop", answerLabels)
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
 //                    self.stopSession()
 //                }
@@ -296,7 +299,12 @@ class ObjectDetectionViewController: ChallengeViewController{
         layer = shapeLayer
         return shapeLayer
       }
+      
+ 
+
    
+   
+
     override func stopSession() {
         if session.isRunning {
             DispatchQueue.global().async {
@@ -310,80 +318,70 @@ class ObjectDetectionViewController: ChallengeViewController{
     }
   
     
-    func getAnswer() -> Answer {
+    func setAnswer(){
 
         // self.view.frame.size.width -> 834
         // 6 -> 139
         
-        var base : Base? = nil
-        var toppings : [Topping]? = nil
-        var change : Float = 0
-        
         for label in answerLabels {
             switch label {
             case "CompleteCake":
-                base = Base.cake
+                providedAnswer.base = Base.cake
                 break
             case "QuarterCake":
-                base = Base.quarterCake
+                providedAnswer.base = Base.quarterCake
+                print(providedAnswer.base, "setAnswer")
                 break
             case "HalfCake":
-                base = Base.halfCake
+                providedAnswer.base = Base.halfCake
                 break
             case "3QuartersCake":
-                base = Base.threequarterCake
+                providedAnswer.base = Base.threequarterCake
                 break
             case "WhiteCupcake":
-                base = Base.vanilaCupcake
+                providedAnswer.base = Base.vanilaCupcake
                 break
             case "BrownCupcake":
-                base = Base.chocolateCupcake
+                providedAnswer.base = Base.chocolateCupcake
                 break
             case "ChocolateBrown":
-                toppings?.append(Topping.darkChocolate)
+                providedAnswer.toppings?.append(Topping.darkChocolate)
                 break
             case "ChocolateWhite":
-                toppings?.append(Topping.whiteChocolate)
+                providedAnswer.toppings?.append(Topping.whiteChocolate)
                 break
             case "Kiwi":
-                toppings?.append(Topping.kiwi)
+                providedAnswer.toppings?.append(Topping.kiwi)
                 break
             case "Strawberry":
-                toppings?.append(Topping.strawberry)
+                providedAnswer.toppings?.append(Topping.strawberry)
                 break
             case "Pineapple":
-                toppings?.append(Topping.pineapple)
+                providedAnswer.toppings?.append(Topping.pineapple)
                 break
             case "OneRiyal":
-                change += 1
+                providedAnswer.change += 1
                 break
             case "FiftyRiyal":
-                change += 50
+                providedAnswer.change += 50
                 break
             case "TenRiyal":
-                change += 10
+                providedAnswer.change += 10
                 break
             case "RiyalHalf":
-                change += 0.5
+                providedAnswer.change += 0.5
                 break
             case "RiyalQuarter":
-                change += 0.25
+                providedAnswer.change += 0.25
                 break
             case "FiveRiyal":
-                change += 5
+                providedAnswer.change += 5
                 break
             default:
-              print("No label match")
+              print("default")
                 break
             }
         }
-        
-        
-        
-        
-        let answer = Answer(base: base, change: change, atTime: 0, toppings: toppings)
-        print("Answer provided by child",answer)
-        
-        return answer
+        print(providedAnswer,"setAnswer")
     }
 }

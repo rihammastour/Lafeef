@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-
+    
     struct Storyboard {
         static let profileViewController = "ProfileVC"
         static let challengeLevelsViewController = "ChallengeLevelsVC"
@@ -25,11 +25,12 @@ struct Constants {
         static let advReportViewController = "AdvReportVC"
         static let NormalViewController = "NormalReport"
         static let WinningViewController  = "WinningReport"
+        static let LevelGoalViewController = "LevelGoalViewController"
+        static let  GoalViewController = "GoalViewController"
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let StoreViewController = "StoreViewController"
-        static let backery = "backery"
     }
-
+    
     struct Segue {
         static let signUpOrLoginSegue = "SignupOrLoginSegue"
         static let homeSegue = "HomeSegue"
@@ -45,13 +46,10 @@ struct Constants {
         static let showAdvReport = "ShowAdvReport"
         static let showProfile = "profileSegue"
         static let showWinningReport = "showWinningReport"
-        static let levelGoal = "levelGoal"
+        static let showLevelGoal = "showLevelGoal"
         static let challengeLevelsCalenderVC = "challeange"
-        static let challeange = "challeange"
-        static let showBackery = "showBackery"
-        static let showChalleange = "showChalleange"
-
-
+        static let challenge = "challenge"
+        
     }
-
+    
 }

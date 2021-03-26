@@ -24,7 +24,7 @@ class AddLevels {
     }
     //add level two
     static func two(){
-        let order1 = Order(base: Base.chocolateCupcake, customerPaid: 20,toppings:[Topping.kiwi])
+        let order1 = Order(base: Base.chocolateCupcake, customerPaid: 20,toppings:[Topping.strawberry])
         let order2 = Order(base: Base.vanilaCupcake, customerPaid: 19, toppings:[Topping.kiwi])
         let order3 = Order(base:  Base.cake, customerPaid: 60,toppings:[Topping.darkChocolate,Topping.darkChocolate])
         let order4 = Order( base: Base.cake, customerPaid: 60,toppings:[Topping.strawberry,Topping.whiteChocolate])
