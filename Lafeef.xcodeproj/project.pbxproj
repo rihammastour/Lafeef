@@ -102,6 +102,12 @@
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
 		C9081C3625D9858400B19998 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C3525D9858400B19998 /* Base.swift */; };
 		C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */; };
+		C9241FBA260E9E4F003635E8 /* AddStoreEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB4260E9E4E003635E8 /* AddStoreEquipment.swift */; };
+		C9241FBB260E9E4F003635E8 /* CharachtersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */; };
+		C9241FBC260E9E4F003635E8 /* ChildPrefrences .swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB6260E9E4E003635E8 /* ChildPrefrences .swift */; };
+		C9241FBD260E9E4F003635E8 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB7260E9E4F003635E8 /* Store.swift */; };
+		C9241FBE260E9E4F003635E8 /* BackeryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB8260E9E4F003635E8 /* BackeryStore.swift */; };
+		C9241FBF260E9E4F003635E8 /* StoreEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */; };
 		C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659425CB3F4F0060AA53 /* HomeViewController.swift */; };
 		C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */; };
 		C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A65A025CB3F660060AA53 /* StoreViewController.swift */; };
@@ -249,6 +255,12 @@
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
+		C9241FB4260E9E4E003635E8 /* AddStoreEquipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStoreEquipment.swift; sourceTree = "<group>"; };
+		C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharachtersStore.swift; sourceTree = "<group>"; };
+		C9241FB6260E9E4E003635E8 /* ChildPrefrences .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChildPrefrences .swift"; sourceTree = "<group>"; };
+		C9241FB7260E9E4F003635E8 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		C9241FB8260E9E4F003635E8 /* BackeryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackeryStore.swift; sourceTree = "<group>"; };
+		C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreEquipment.swift; sourceTree = "<group>"; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOrLoginViewController.swift; path = Lafeef/ViewController/SignUpOrLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A65A025CB3F660060AA53 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreViewController.swift; path = Lafeef/ViewController/StoreViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -519,6 +531,12 @@
 				C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */,
 				C92CFD8225E419CB007DD3B5 /* Answer.swift */,
 				41314C4425F5F6800022FA0B /* DailyReport.swift */,
+				C9241FB4260E9E4E003635E8 /* AddStoreEquipment.swift */,
+				C9241FB8260E9E4F003635E8 /* BackeryStore.swift */,
+				C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */,
+				C9241FB6260E9E4E003635E8 /* ChildPrefrences .swift */,
+				C9241FB7260E9E4F003635E8 /* Store.swift */,
+				C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -903,8 +921,10 @@
 				528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */,
 				C92A66F925CE91160060AA53 /* User.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
+				C9241FBF260E9E4F003635E8 /* StoreEquipment.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
 				41314C4525F5F6800022FA0B /* DailyReport.swift in Sources */,
+				C9241FBE260E9E4F003635E8 /* BackeryStore.swift in Sources */,
 				4EB21B9D25D353050076530E /* Reports.swift in Sources */,
 				4EB21BA225D354750076530E /* AdvReportViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
@@ -934,12 +954,15 @@
 				4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
+				C9241FBA260E9E4F003635E8 /* AddStoreEquipment.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,
 				4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */,
+				C9241FBB260E9E4F003635E8 /* CharachtersStore.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				411091CE25E4986F0035FACF /* Answer.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
+				C9241FBC260E9E4F003635E8 /* ChildPrefrences .swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,
 				419B1BD825FBF55F0024F011 /* NormalViewController.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
@@ -948,6 +971,7 @@
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
+				C9241FBD260E9E4F003635E8 /* Store.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4E3EC75A25E7356400FBAD87 /* (null) in Sources */,
