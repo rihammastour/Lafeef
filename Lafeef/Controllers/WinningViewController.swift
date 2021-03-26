@@ -13,6 +13,7 @@ class WinningViewController: UIViewController {
     
     var challeangeReport = ChallengeViewController()
  
+  
     @IBOutlet weak var Winning: UIView!
     
     // customer satisfaction
@@ -78,23 +79,23 @@ class WinningViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(challeangeReport.report.collectedScore))
+        setScore(score: Int(LevelGoalViewController.report.collectedScore))
         // set money
-        setMoney(money:Int(challeangeReport.report.collectedMoney))
+        setMoney(money:LevelGoalViewController.report.collectedMoney)
         
-        if challeangeReport.report.levelNum == "4"{
+        if LevelGoalViewController.report.levelNum == "4"{
             nextDayOutlet.isHidden = true
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
     }
     @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(challeangeReport.report.levelNum)
-        if challeangeReport.report.levelNum != "4"{
+        var  levelnum = Int(LevelGoalViewController.report.levelNum)
+        if LevelGoalViewController.report.levelNum != "4"{
         levelnum! += 1
-            challeangeReport.report.levelNum = String(levelnum!)
+            LevelGoalViewController.report.levelNum = String(levelnum!)
        
-            self.performSegue(withIdentifier: " showChalleange", sender: self)
+            self.performSegue(withIdentifier:Constants.Segue.showChalleange, sender: self)
         }else{
             print("last level")
           
@@ -110,7 +111,7 @@ class WinningViewController: UIViewController {
         var sad = 0
         var normal = 0
         
-        for sat in  challeangeReport.report.customerSatisfaction{
+        for sat in  LevelGoalViewController.report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -133,7 +134,7 @@ class WinningViewController: UIViewController {
 
             }
 
-   func setMoney(money:Int)  {
+   func setMoney(money:Float)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
         

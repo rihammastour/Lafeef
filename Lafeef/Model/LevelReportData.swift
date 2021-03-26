@@ -8,6 +8,6 @@ import Foundation
 
 struct LevelReportData: Codable {
     var collectedMoney: Int
-    var collectedScore: Int
+    var collectedScore: Float
     var isPassed: Bool
 }
