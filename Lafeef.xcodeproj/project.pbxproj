@@ -97,6 +97,7 @@
 		4EFFE56626097AF600BE2B8F /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */; };
 		523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A362525BF56B40059C0BC /* ProfileViewController.swift */; };
 		528C66D625E07DBE00AE1B3B /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C66D525E07DBE00AE1B3B /* Customers.swift */; };
+		52A92EF6260C0CEB009D58DD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A92EF5260C0CE1009D58DD /* EditProfileViewController.swift */; };
 		8561D8E2E6CFFD799CD68CC7 /* Pods_LafeefTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */; };
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
@@ -122,6 +123,8 @@
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
+		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
+		C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
@@ -245,6 +248,7 @@
 		4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		523A362525BF56B40059C0BC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		528C66D525E07DBE00AE1B3B /* Customers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
+		52A92EF5260C0CE1009D58DD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
+		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
+		C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceInstructionsViewController.swift; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 		41BD684225BABE7800257EA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				52A92EF5260C0CE1009D58DD /* EditProfileViewController.swift */,
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
@@ -354,6 +361,7 @@
 				419B1BD725FBF55F0024F011 /* NormalViewController.swift */,
 				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
 				4EFFE56526097AF500BE2B8F /* UpdatePasswordViewController.swift */,
+				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -396,6 +404,7 @@
 				4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */,
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
+				C9AB67D5260ACD57005E373E /* instructions.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4EFFE55D2608DFDA00BE2B8F /* UpdatePassowrd.storyboard */,
@@ -714,6 +723,7 @@
 				4EDFA44D25EAF46300924569 /* NWStrawberry.atlas in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */,
+				C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
 				4EDFA45225EAF46300924569 /* HappyPineapple.atlas in Resources */,
 			);
@@ -916,6 +926,7 @@
 				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
+				52A92EF6260C0CEB009D58DD /* EditProfileViewController.swift in Sources */,
 				4EDFA4BB25EC65C800924569 /* NewTransfer.mlmodel in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */,
@@ -947,6 +958,7 @@
 				41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
+				C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,

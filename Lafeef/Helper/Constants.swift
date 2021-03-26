@@ -30,6 +30,7 @@ struct Constants {
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let updatePasswordViewController = "UpdatePasswordVC"
 
+        static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
     }
     
     struct Segue {

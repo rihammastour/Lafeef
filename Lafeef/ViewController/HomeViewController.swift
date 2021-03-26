@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var moneyBarUIView: UIView!
     @IBOutlet weak var scoreBarUIView: UIView!
     @IBOutlet weak var profileBarUIView: UIView!
+    
+    @IBOutlet weak var instructionBarUIView: UIView!
     @IBOutlet weak var characterUIImageView: UIImageView!
     //Labels
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,6 +26,7 @@ class HomeViewController: UIViewController {
     
     //Buttons
     @IBOutlet weak var storeButton: UIButton!
+    @IBOutlet weak var instructionButton: UIButton!
     
 
     
@@ -53,6 +56,7 @@ class HomeViewController: UIViewController {
     func setUpElements() {
         
         //Set Bekary background
+        instructionBarUIView.layer.cornerRadius = instructionBarUIView.frame.size.height/2
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "blank-bakery")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
@@ -64,7 +68,8 @@ class HomeViewController: UIViewController {
         Utilities.styleBarView(moneyBarUIView)
         Utilities.styleBarView(scoreBarUIView)
         Utilities.styleBarView(profileBarUIView)
-        
+        Utilities.styleBarView(instructionBarUIView)
+      
         //Store Button style
         Utilities.styleCircleButton(storeButton)
         //create image
@@ -75,6 +80,9 @@ class HomeViewController: UIViewController {
         storeButton.contentHorizontalAlignment = .fill
         storeButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
+      
+        instructionButton.layer.cornerRadius =  instructionButton.frame.size.height/2
+       
     }
     
     //Activity Indcator anmation
@@ -184,6 +192,20 @@ class HomeViewController: UIViewController {
 //        })
         
         self.performSegue(withIdentifier: Constants.Segue.showProfile, sender: self)
+    }
+    
+    
+    @IBAction func instructionBarViewTapped(_ sender: Any) {
+        
+//        profileBarUIView.showAnimation({
+//
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
+//
+//            self.navigationController?.pushViewController(vc, animated: true)
+//
+//        })
+        
+        self.performSegue(withIdentifier: Constants.Segue.instruction1, sender: self)
     }
     
 }

@@ -402,7 +402,7 @@ PODS:
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
   - LayoutHelper (1.0.0)
-  - leveldb-library (1.22)
+  - leveldb-library (1.22.1)
   - lottie-ios (3.2.1)
   - MaterialShowcase (0.7.3)
   - nanopb (1.30906.0):
@@ -520,7 +520,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   LayoutHelper: fd809f52e0ae583f7576bf5d2af8248b5c3ec4d0
-  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
