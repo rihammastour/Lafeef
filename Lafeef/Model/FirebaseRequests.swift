@@ -87,6 +87,60 @@ class FirebaseRequest{
   
     }
     
+    //Update name 
+    static func updateName(_ name:String, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+        
+        let id = getUserId()!
+        
+        db.collection("users").document(id).updateData([
+            "name":name
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false,err)
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        completion(true,nil)
+    }
+
+    //Update DOB
+    static func updateDOB(_ DOB:String, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+        
+        let id = getUserId()!
+        
+        db.collection("users").document(id).updateData([
+            "DOB":DOB
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false,err)
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        completion(true,nil)
+    }
+    
+    //Update sex
+    static func updateSex(_ Sex:String, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+        
+        let id = getUserId()!
+        
+        db.collection("users").document(id).updateData([
+            "sex":Sex
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false,err)
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        completion(true,nil)
+    }
+    
     //MARK: - Get Document Firestore
     
     // Listen to Real Time update

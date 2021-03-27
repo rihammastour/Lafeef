@@ -131,7 +131,16 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! SignUpCharachterViewController
         destinationVC.password = password
-        User.DOB = dayTextfield.text!+"-"+monthTextfield.text!+"-"+yearTextfield.text!
+        var month = ""
+        var day = ""
+        if (dayTextfield.text!.count<2){
+            day = "٠"+dayTextfield.text!
+        }
+        if (monthTextfield.text!.count<2){
+            month = "٠"+monthTextfield.text!
+        }
+        
+        User.DOB = day+"-"+month+"-"+yearTextfield.text!
      }
     
     @IBAction func next(_ sender: Any) {
