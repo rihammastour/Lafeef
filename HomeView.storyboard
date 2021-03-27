@@ -407,14 +407,6 @@
             </objects>
             <point key="canvasLocation" x="6982" y="-328"/>
         </scene>
-        <!--GuidanceInstructiont2VC-->
-        <scene sceneID="Wrf-K5-KJt">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="GuidanceInstructiont2VC" storyboardName="instructions" referencedIdentifier="GuidanceInstructiont2VC" id="0AC-cV-NYr" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ee-MD-rcT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6302" y="-328"/>
-        </scene>
         <!--Edit Profile View Conroller-->
         <scene sceneID="ZeQ-Sj-X23">
             <objects>
@@ -773,16 +765,16 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="iCH-ho-yWO" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="750" width="390" height="48"/>
+                                <rect key="frame" x="179" y="751" width="390" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ML-eF-W6I">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللفل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sq0-5G-RPl" userLabel="اليوم السابع">
-                                        <rect key="frame" x="250" y="0.0" width="140" height="48"/>
+                                        <rect key="frame" x="250" y="0.0" width="140" height="47"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

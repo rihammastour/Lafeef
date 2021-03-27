@@ -119,6 +119,10 @@
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
+		C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */; };
+		C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */; };
+		C9B6CDA9260ED69C0079D0A1 /* Stand.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CDA8260ED69C0079D0A1 /* Stand.gif */; };
+		C9B6CDAE260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */; };
 		C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
@@ -264,6 +268,10 @@
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
+		C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-reflector.gif"; sourceTree = "<group>"; };
+		C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-Stand.gif"; sourceTree = "<group>"; };
+		C9B6CDA8260ED69C0079D0A1 /* Stand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Stand.gif; sourceTree = "<group>"; };
+		C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceInstructionsViewController2.swift; sourceTree = "<group>"; };
 		C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidanceInstructionsViewController.swift; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
@@ -349,6 +357,7 @@
 				41F4C24425D0ACF2000D4064 /* WinningViewController.swift */,
 				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
 				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
+				C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -442,6 +451,9 @@
 				41CFB12725D08754004D31F9 /* WinningReport.swift */,
 				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
 				4EB21B7B25CF768F0076530E /* ProgressBar.swift */,
+				C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */,
+				C9B6CDA8260ED69C0079D0A1 /* Stand.gif */,
+				C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */,
 				4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */,
 			);
 			path = View;
@@ -672,12 +684,14 @@
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EDFA44625EAF46300924569 /* NWOrange.atlas in Resources */,
+				C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */,
 				4EDFA44B25EAF46300924569 /* NWPear.atlas in Resources */,
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
 				4EFA24B225EE208500A17868 /* Color.xcassets in Resources */,
+				C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
 				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
@@ -685,6 +699,7 @@
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
 				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
+				C9B6CDA9260ED69C0079D0A1 /* Stand.gif in Resources */,
 				4EDFA45025EAF46300924569 /* SadPineapple.atlas in Resources */,
 				4EDFA44C25EAF46300924569 /* SadStrawberry.atlas in Resources */,
 				4EDFA43D25EAF46300924569 /* HappyOrange.atlas in Resources */,
@@ -904,6 +919,7 @@
 				C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */,
 				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
+				C9B6CDAE260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,

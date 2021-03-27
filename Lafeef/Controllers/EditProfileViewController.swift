@@ -252,7 +252,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         
         var month = monthTextfield.text!
         var day = dayTextfield.text!
-        if(!(day=="")){
+        if(!(day==""&&month=="")){
           
             if (dayTextfield.text!.count<2){
                 day = "٠"+dayTextfield.text!
