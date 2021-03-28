@@ -12,8 +12,10 @@ class AlertViewController: UIViewController {
     @IBOutlet weak var alertButtonOutlet: UIButton!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var alertBody: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
     var body : String = ""
     var isSuccess: Bool = false
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class AlertViewController: UIViewController {
         
         if isSuccess {
             alertBody.textColor =  UIColor.init(named: "GreenApp")
+            nextButton.isHidden = true
         }
     }
     

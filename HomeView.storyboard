@@ -69,9 +69,6 @@
                                                 <state key="normal" title="إبدأ العمل">
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="r3Z-wc-CCP" kind="show" id="p1u-aj-k6N"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -423,17 +420,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLN-Ow-NFR" userLabel="logOut">
-                                <rect key="frame" x="96" y="898" width="552" height="81"/>
-                                <color key="backgroundColor" name="GreenApp"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="LaR-9k-mky"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
-                                <state key="normal" title="حفظ التغييرات">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="nP7-ul-QMW">
                                 <rect key="frame" x="-74" y="-41" width="902" height="282"/>
                             </imageView>
@@ -447,13 +433,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvS-pu-z3h">
-                                <rect key="frame" x="90" y="557" width="588" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvS-pu-z3h">
+                                <rect key="frame" x="90" y="556" width="588" height="48"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmy-8i-k64" userLabel="rectangle">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmy-8i-k64" userLabel="rectangle">
                                 <rect key="frame" x="96" y="619" width="552" height="220"/>
                                 <color key="backgroundColor" red="0.98044949770000001" green="0.97687536480000003" blue="0.95588201279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -464,8 +450,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-RQ-mUv" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="751" width="390" height="47"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-RQ-mUv" userLabel="rectangle info">
+                                <rect key="frame" x="179" y="750" width="390" height="47"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-y9-DmL">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
@@ -485,7 +471,7 @@
                                     <constraint firstItem="r5o-y9-DmL" firstAttribute="top" secondItem="Vlb-RQ-mUv" secondAttribute="top" id="obi-Sf-01M"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-WU-CGJ" userLabel="money and calender icon">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-WU-CGJ" userLabel="money and calender icon">
                                 <rect key="frame" x="180" y="666" width="409" height="86"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneyBag" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-f8-szg">
@@ -524,7 +510,7 @@
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="OXp-iF-pUy">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="OXp-iF-pUy">
                                 <rect key="frame" x="144" y="477" width="466" height="65"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KVh-Dn-8lL" userLabel="year">
@@ -566,6 +552,37 @@
                                 </constraints>
                                 <state key="normal" image="BoyWithCircle"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="UaJ-ye-Gla">
+                                <rect key="frame" x="108" y="847" width="552" height="173"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ec-lG-Ryv" userLabel="change password">
+                                        <rect key="frame" x="0.0" y="0.0" width="552" height="81"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="552" id="WGm-HY-vD1"/>
+                                            <constraint firstAttribute="height" constant="81" id="ojn-T0-Bwr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                        <state key="normal" title="تغيير رمز المرور">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logOutActionWithSender:" destination="EJH-aT-6MK" eventType="touchUpInside" id="2vE-bD-kBA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLN-Ow-NFR" userLabel="logOut">
+                                        <rect key="frame" x="0.0" y="92" width="552" height="81"/>
+                                        <color key="backgroundColor" name="GreenApp"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="81" id="LaR-9k-mky"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
+                                        <state key="normal" title="حفظ التغييرات">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dmn-JJ-XTf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -597,10 +614,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="Dmn-JJ-XTf" firstAttribute="bottom" secondItem="gLN-Ow-NFR" secondAttribute="bottom" constant="45" id="HEz-mb-chF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nP7-ul-QMW" secondAttribute="trailing" constant="-80" id="IxP-wD-BBd"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="XvS-pu-z3h" secondAttribute="trailing" constant="90" id="JL3-eE-bJk"/>
-                            <constraint firstItem="gLN-Ow-NFR" firstAttribute="top" secondItem="v5q-WU-CGJ" secondAttribute="bottom" constant="146" id="KUG-3T-T4L"/>
+                            <constraint firstItem="UaJ-ye-Gla" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="108" id="KYh-US-yMc"/>
                             <constraint firstItem="v5q-WU-CGJ" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="180" id="Kte-af-DNi" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -611,6 +627,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
+                            <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="UaJ-ye-Gla" secondAttribute="trailing" constant="108" id="LZQ-oF-6VM"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="v5q-WU-CGJ" secondAttribute="trailing" constant="179" id="LlA-ti-eja" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -627,6 +644,7 @@
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="mmy-8i-k64" secondAttribute="trailing" constant="120" id="VsV-V7-hPs"/>
                             <constraint firstItem="rSd-e5-5xp" firstAttribute="top" secondItem="Dmn-JJ-XTf" secondAttribute="top" constant="107" id="Ykr-6B-fcs"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="Vlb-RQ-mUv" secondAttribute="trailing" constant="199" id="ZXY-bO-SRe"/>
+                            <constraint firstItem="Dmn-JJ-XTf" firstAttribute="bottom" secondItem="UaJ-ye-Gla" secondAttribute="bottom" constant="4" id="aLg-wN-DkM"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="Vlb-RQ-mUv" secondAttribute="trailing" constant="199" id="amq-fw-sWb"/>
                             <constraint firstItem="xvr-YL-tgL" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="144" id="bcM-Ai-QeF"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="rSd-e5-5xp" secondAttribute="trailing" constant="264" id="crW-tT-Cnt" customClass="NSLayoutHelper" customModule="LayoutHelper">
@@ -636,8 +654,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="gLN-Ow-NFR" secondAttribute="trailing" constant="120" id="ev2-tV-mmC"/>
-                            <constraint firstItem="gLN-Ow-NFR" firstAttribute="top" secondItem="Vlb-RQ-mUv" secondAttribute="bottom" constant="100" id="gEv-UQ-Xer"/>
                             <constraint firstItem="nP7-ul-QMW" firstAttribute="leading" secondItem="Cqg-yz-xOF" secondAttribute="leadingMargin" constant="-94" id="iha-2X-rwr"/>
                             <constraint firstItem="mmy-8i-k64" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="96" id="jIU-9H-kxR"/>
                             <constraint firstItem="mmy-8i-k64" firstAttribute="top" secondItem="OXp-iF-pUy" secondAttribute="bottom" constant="77" id="k7V-7u-Pba" customClass="NSLayoutHelper" customModule="LayoutHelper">
@@ -663,8 +679,6 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="nP7-ul-QMW" firstAttribute="height" secondItem="Cqg-yz-xOF" secondAttribute="height" multiplier="0.275391" id="rpU-PP-c6I"/>
-                            <constraint firstItem="gLN-Ow-NFR" firstAttribute="top" secondItem="mmy-8i-k64" secondAttribute="bottom" constant="59" id="u2Z-Vf-dpC"/>
-                            <constraint firstItem="gLN-Ow-NFR" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="96" id="uH9-De-4hh"/>
                             <constraint firstItem="XvS-pu-z3h" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="90" id="xIt-vH-YOV"/>
                             <constraint firstItem="Vlb-RQ-mUv" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="179" id="zci-6l-f7x"/>
                         </constraints>
@@ -687,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqo-sk-4Mv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="55"/>
+            <point key="canvasLocation" x="3367" y="305"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="8Yt-UW-nmy">
@@ -924,8 +938,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b15-2i-adS"/>
-        <segue reference="1Ya-P7-cWV"/>
+        <segue reference="2oT-UX-ras"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BoyWithCircle" width="416" height="352"/>

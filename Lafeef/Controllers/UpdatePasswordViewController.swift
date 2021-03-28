@@ -171,13 +171,35 @@ class UpdatePasswordViewController: UIViewController {
     }
     
     @IBAction func updatePassword(_ sender: Any) {
-        FirebaseRequest.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { (success, err) in
-            if success {
-                self.present(self.alert.Alert(body:"تم تغيير كلمة مرورك بنجاح 🎉", isSuccess: true), animated: true)
+        if oldPassword != ""  {
+            if newPassword != ""{
+                if newPassword != oldPassword {
+                    FirebaseRequest.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { (success, err) in
+                        if success {
+                                self.present(self.alert.Alert(body:"تم تغيير رمز مرورك بنجاح 🎉", isSuccess: true ), animated: true){
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    self.performSegue(withIdentifier: "showEditProfile", sender: sender)
+                                }
+                            }
+
+                        } else {
+                            //error happend while perform update password
+                            self.present(self.alert.Alert(body:err, isSuccess: false), animated: true)
+                        }
+                    }
+                } else{
+                    // new password as old password
+                    self.present(self.alert.Alert(body:"اختر رمز مرور جديد", isSuccess: false), animated: true)
+                }
             } else {
-                self.present(self.alert.Alert(body:err, isSuccess: false), animated: true)
+                // new password nil
+                self.present(self.alert.Alert(body:"هلّا أدخلت رمز مرورك الجديد؟", isSuccess: false), animated: true)
             }
+        } else {
+            // old password nil
+            self.present(self.alert.Alert(body:"هلّا أدخلت رمز مرورك السابق؟", isSuccess: false), animated: true)
         }
+   
     }
     
 }

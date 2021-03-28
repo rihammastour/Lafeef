@@ -1003,6 +1003,7 @@
                         <outlet property="alertBody" destination="crF-Vc-17V" id="wH8-wH-eId"/>
                         <outlet property="alertButtonOutlet" destination="2DS-dY-uwU" id="y1b-Nv-Jgw"/>
                         <outlet property="alertView" destination="En4-A2-N5E" id="NfB-KL-uq9"/>
+                        <outlet property="nextButton" destination="2DS-dY-uwU" id="NMe-Lx-SSu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDu-me-0GQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

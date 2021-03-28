@@ -205,7 +205,7 @@ class HomeViewController: UIViewController {
 //
 //        })
         
-        self.performSegue(withIdentifier: Constants.Segue.instruction1, sender: self)
+//        self.performSegue(withIdentifier: Constants.Segue.instruction1, sender: self)
     }
     
 }

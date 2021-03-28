@@ -14,133 +14,132 @@
     </customFonts>
     <scenes>
         <!--Update Password View Controller-->
-        <scene sceneID="Ocw-zL-ixU">
+        <scene sceneID="ydh-1p-K3K">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OJc-9v-k5a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController restorationIdentifier="UpdatePasswordVC" storyboardIdentifier="UpdatePasswordVC" modalPresentationStyle="overFullScreen" id="Q3c-g5-K7a" customClass="UpdatePasswordViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cQL-xN-uak">
+                <viewController restorationIdentifier="UpdatePasswordVC" storyboardIdentifier="UpdatePasswordVC" modalPresentationStyle="overFullScreen" id="peD-2m-9bB" customClass="UpdatePasswordViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Guu-ZK-lIz">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cream" translatesAutoresizingMaskIntoConstraints="NO" id="u6J-gY-L7b">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cream" translatesAutoresizingMaskIntoConstraints="NO" id="pa1-gb-7nZ">
                                 <rect key="frame" x="-10" y="725" width="788" height="259"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="259" id="xQ6-Hi-cFJ"/>
+                                    <constraint firstAttribute="height" constant="259" id="4js-Vv-Qhi"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-ap-QGc" userLabel="form">
-                                <rect key="frame" x="150.5" y="20" width="467" height="923"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="a7M-uz-Llh" userLabel="form">
+                                <rect key="frame" x="150.5" y="25.5" width="467" height="923"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تغيير كلمة المرور" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ID-Ve-PK6">
-                                        <rect key="frame" x="70.5" y="0.0" width="326.5" height="84"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تغيير رمز المرور" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuT-l5-NKw">
+                                        <rect key="frame" x="89" y="0.0" width="289" height="84"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="70"/>
                                         <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="v8t-o3-yuE">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="RjO-Mr-o8a">
                                         <rect key="frame" x="0.0" y="114" width="467" height="809"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="enr-mW-4hw">
-                                                <rect key="frame" x="38.5" y="0.0" width="390.5" height="636"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lbw-OD-St4">
+                                                <rect key="frame" x="48.5" y="0.0" width="370" height="636"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="5vI-Do-MMg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="390.5" height="293"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1rY-ew-7C1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="293"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورة مرورك السابقة" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7S-Qq-An7">
-                                                                <rect key="frame" x="22" y="0.0" width="346.5" height="58"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر رمز مرورك السابق" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btl-FM-1ZU">
+                                                                <rect key="frame" x="35" y="0.0" width="300.5" height="58"/>
                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ir1-zN-rot" userLabel="buttons">
-                                                                <rect key="frame" x="10" y="83" width="370" height="210"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="LRw-fj-0Uo" userLabel="buttons">
+                                                                <rect key="frame" x="0.0" y="83" width="370" height="210"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Sx8-vJ-UKa">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yps-qK-Q87">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="697-YX-tq4" userLabel="berry">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GyE-lE-gsk" userLabel="berry">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="90" id="qjo-na-Yuh" userLabel="width = 108"/>
-                                                                                    <constraint firstAttribute="height" constant="90" id="vNP-Cq-3ii" userLabel="height = 104"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="UfT-GK-XnV" userLabel="width = 108"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="sLm-fF-BL1" userLabel="height = 104"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="blueberry-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="oldBerryPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="duR-HO-bTh"/>
+                                                                                    <action selector="oldBerryPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="qbh-RG-ibe"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjx-5v-Mbo" userLabel="mango">
+                                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-lQ-PsK" userLabel="mango">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="3CN-Gq-agf"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="zR2-9u-aex"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="Chf-wq-aTV"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="ghu-DO-Tnh"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" red="0.5568627451" green="0.73725490199999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <state key="normal" image="lemon-pass">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="1" weight="light"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="oldLemonPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="tNd-61-d4u"/>
+                                                                                    <action selector="oldLemonPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="qJU-eW-cBH"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="AuM-kv-5UF">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lSf-Dw-PSg">
                                                                         <rect key="frame" x="140" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ro-lY-fAR" userLabel="kiwi">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-pU-1HE" userLabel="kiwi">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="90" id="1oT-pf-kiV"/>
-                                                                                    <constraint firstAttribute="height" constant="90" id="q2h-mn-bCB"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="4l0-yP-8Bv"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="6DT-Rp-rkP"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="kiwi-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="oldKiwiPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="TuE-vf-7ft"/>
+                                                                                    <action selector="oldKiwiPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="MfS-ff-bCs"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swl-sy-eCO" userLabel="strawberry">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snA-fj-UK2" userLabel="strawberry">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="01c-dk-fyb"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="Fpy-Yi-uYO"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="B68-ta-3UH"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="ckB-9O-iRZ"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="strawberry-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="oldStrawberryPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="Ts0-21-Bsl"/>
+                                                                                    <action selector="oldStrawberryPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="8vs-Gm-BuC"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8XE-JA-jRf">
+                                                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mta-tq-40f">
                                                                         <rect key="frame" x="280" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hG-T6-38A" userLabel="orange">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIJ-HX-WNp" userLabel="orange">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="Gx0-zI-Huj"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="Mp1-jx-3LI"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="53o-Yi-yE8"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="PI4-pq-lft"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="orange-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="oldOrangePass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="fBJ-Z2-onu"/>
+                                                                                    <action selector="oldOrangePass:" destination="peD-2m-9bB" eventType="touchUpInside" id="mLF-Jf-CDY"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wL-dJ-0tu" userLabel="pineapple">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NgB-Lp-LLJ" userLabel="pineapple">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="U3u-w7-NGn"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="psv-iv-BzI"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="ZR4-j2-cSs"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="qVa-S3-a8T"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="pineapple-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="oldPineapplePass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="YSf-9u-SAk"/>
+                                                                                    <action selector="oldPineapplePass:" destination="peD-2m-9bB" eventType="touchUpInside" id="rUe-U7-cNG"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -149,104 +148,104 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Pgq-cY-CT4">
-                                                        <rect key="frame" x="0.0" y="343" width="390.5" height="293"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FxZ-rY-c1m">
+                                                        <rect key="frame" x="0.0" y="343" width="370" height="293"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورة لتغيير كلمة مرورك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM3-bS-Vrr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="390.5" height="58"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورة لتغيير رمز مرورك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2s-ih-YcW">
+                                                                <rect key="frame" x="2.5" y="0.0" width="365" height="58"/>
                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Hnn-Hm-xQw" userLabel="buttons">
-                                                                <rect key="frame" x="10" y="83" width="370" height="210"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eod-O7-N5I" userLabel="buttons">
+                                                                <rect key="frame" x="0.0" y="83" width="370" height="210"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cL6-mT-2al">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="i9W-kX-cYV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3S-wV-YCx" userLabel="berry">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khS-3N-zfv" userLabel="berry">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="LD5-XJ-sIf" userLabel="height = 104"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="w8p-a8-C2V" userLabel="width = 108"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="3An-G7-NBe" userLabel="height = 104"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="gDH-f1-u2x" userLabel="width = 108"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="blueberry-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="newBerryPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="DFx-pc-ZXT"/>
+                                                                                    <action selector="newBerryPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="L4m-C4-zfg"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FdJ-2V-fUx" userLabel="mango">
+                                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEi-FV-v1O" userLabel="mango">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="90" id="1f9-Xe-rbm"/>
-                                                                                    <constraint firstAttribute="height" constant="90" id="Xwe-E0-li3"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="6VA-kG-Lkf"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="ci4-mO-Yxz"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" red="0.5568627451" green="0.73725490199999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <state key="normal" image="lemon-pass">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="1" weight="light"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="newLemonPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="jAD-5J-GXz"/>
+                                                                                    <action selector="newLemonPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="hLE-I1-jCU"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-Kr-vIU">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="1El-EL-HFC">
                                                                         <rect key="frame" x="140" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn7-XQ-Y9K" userLabel="kiwi">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jm-S8-RrO" userLabel="kiwi">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="90" id="auH-0o-slq"/>
-                                                                                    <constraint firstAttribute="height" constant="90" id="q0S-Yy-Q2D"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="1gr-ci-dYK"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="jzI-2u-k8d"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="kiwi-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="newKiwiPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="vmD-BW-RvG"/>
+                                                                                    <action selector="newKiwiPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="XBS-mI-oNC"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-oG-3Ze" userLabel="strawberry">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-tO-Avf" userLabel="strawberry">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="2h3-L1-Evb"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="o3C-8b-5uZ"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="91r-Nq-dk1"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="jwA-xK-N3T"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="strawberry-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="newStrawberryPass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="3Cl-Hy-aXN"/>
+                                                                                    <action selector="newStrawberryPass:" destination="peD-2m-9bB" eventType="touchUpInside" id="Ebg-zD-lh8"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qdo-Lf-sEI">
+                                                                    <stackView opaque="NO" contentMode="center" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xHg-Nk-vl0">
                                                                         <rect key="frame" x="280" y="0.0" width="90" height="210"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O53-SN-z5Z" userLabel="orange">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydP-lG-mzh" userLabel="orange">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="90" id="oFC-G2-rP1"/>
-                                                                                    <constraint firstAttribute="height" constant="90" id="xGK-e5-ers"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="JBo-ZE-ywW"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="rOd-xi-mpS"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="orange-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="newOrangePass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="nUq-ND-H6I"/>
+                                                                                    <action selector="newOrangePass:" destination="peD-2m-9bB" eventType="touchUpInside" id="E0s-gw-DP8"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-Df-HBO" userLabel="pineapple">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVP-Q8-z7X" userLabel="pineapple">
                                                                                 <rect key="frame" x="0.0" y="120" width="90" height="90"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" constant="90" id="SKE-oF-THB"/>
-                                                                                    <constraint firstAttribute="width" constant="90" id="aA9-iv-vhf"/>
+                                                                                    <constraint firstAttribute="width" constant="90" id="BJL-ev-0P2"/>
+                                                                                    <constraint firstAttribute="height" constant="90" id="mck-En-ueI"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="pineapple-pass"/>
                                                                                 <connections>
-                                                                                    <action selector="newPineapplePass:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="PTH-7H-pYa"/>
+                                                                                    <action selector="newPineapplePass:" destination="peD-2m-9bB" eventType="touchUpInside" id="ikS-EP-0wU"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -257,103 +256,105 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-f5-Z3F">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fu-fD-XK0">
                                                 <rect key="frame" x="208.5" y="661" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s3-jd-gsJ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wol-uq-SJy">
                                                 <rect key="frame" x="0.0" y="736" width="467" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="73" id="Hsp-eP-twI"/>
-                                                    <constraint firstAttribute="width" constant="467" id="q2L-YP-hjN"/>
+                                                    <constraint firstAttribute="width" constant="467" id="1Fl-cU-lBa"/>
+                                                    <constraint firstAttribute="height" constant="73" id="5rL-FM-JdR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="44"/>
                                                 <state key="normal" title="حفظ">
                                                     <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="updatePassword:" destination="Q3c-g5-K7a" eventType="touchUpInside" id="KFh-BU-WkQ"/>
+                                                    <action selector="updatePassword:" destination="peD-2m-9bB" eventType="touchUpInside" id="Z4M-IQ-BEN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LafeefwithLock" translatesAutoresizingMaskIntoConstraints="NO" id="Dbs-jO-gqE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LafeefwithLock" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-bZ-CnJ">
                                 <rect key="frame" x="412" y="662" width="406" height="292"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="406" id="IuV-Py-3jn"/>
-                                    <constraint firstAttribute="height" constant="292" id="KPS-y1-UEf"/>
+                                    <constraint firstAttribute="width" constant="406" id="ADX-Vh-iXo"/>
+                                    <constraint firstAttribute="height" constant="292" id="mXG-l3-c37"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJf-fF-WnS">
-                                <rect key="frame" x="55" y="43" width="22" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60n-Ye-Qod">
+                                <rect key="frame" x="46.5" y="46.5" width="22" height="38"/>
                                 <state key="normal" image="arrow-back"/>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="7Yn-XP-aZD"/>
+                        <viewLayoutGuide key="safeArea" id="gPw-HV-euM"/>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97254901959999995" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="7Yn-XP-aZD" firstAttribute="bottom" secondItem="Dbs-jO-gqE" secondAttribute="bottom" constant="20" id="7BE-cV-9wi"/>
-                            <constraint firstItem="aJf-fF-WnS" firstAttribute="top" secondItem="7Yn-XP-aZD" secondAttribute="top" constant="43" id="7j9-fe-Pxd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="u6J-gY-L7b" secondAttribute="trailing" constant="-30" id="Bgl-q5-Z2A"/>
-                            <constraint firstItem="wnp-ap-QGc" firstAttribute="leading" secondItem="aJf-fF-WnS" secondAttribute="trailing" constant="73.5" id="FvA-S1-y0E"/>
-                            <constraint firstAttribute="trailing" secondItem="Dbs-jO-gqE" secondAttribute="trailing" constant="-50" id="Hch-Xi-eGO"/>
-                            <constraint firstAttribute="trailing" secondItem="u6J-gY-L7b" secondAttribute="trailing" constant="-10" id="OtM-dk-rzn"/>
-                            <constraint firstItem="u6J-gY-L7b" firstAttribute="leading" secondItem="7Yn-XP-aZD" secondAttribute="leading" constant="-10" id="VW9-9R-NFb"/>
-                            <constraint firstItem="7Yn-XP-aZD" firstAttribute="trailing" secondItem="wnp-ap-QGc" secondAttribute="trailing" constant="150.5" id="Yh2-Dr-xwk"/>
-                            <constraint firstItem="wnp-ap-QGc" firstAttribute="top" secondItem="7Yn-XP-aZD" secondAttribute="top" constant="20" id="e46-MY-kFR"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="u6J-gY-L7b" secondAttribute="bottom" constant="-10" id="gD9-2Q-7uE"/>
-                            <constraint firstItem="Dbs-jO-gqE" firstAttribute="leading" secondItem="7Yn-XP-aZD" secondAttribute="leading" constant="412" id="wxw-fM-wLP"/>
+                            <constraint firstItem="60n-Ye-Qod" firstAttribute="leading" secondItem="gPw-HV-euM" secondAttribute="leading" constant="46.5" id="0Gr-lM-oKl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pa1-gb-7nZ" secondAttribute="trailing" constant="-30" id="EGd-6t-w6u"/>
+                            <constraint firstAttribute="trailing" secondItem="gXO-bZ-CnJ" secondAttribute="trailing" constant="-50" id="LKc-er-PgM"/>
+                            <constraint firstItem="60n-Ye-Qod" firstAttribute="top" secondItem="gPw-HV-euM" secondAttribute="top" constant="46.5" id="Sde-fL-Al1"/>
+                            <constraint firstAttribute="trailing" secondItem="pa1-gb-7nZ" secondAttribute="trailing" constant="-10" id="Z24-zR-s9Z"/>
+                            <constraint firstItem="pa1-gb-7nZ" firstAttribute="leading" secondItem="gPw-HV-euM" secondAttribute="leading" constant="-10" id="bAH-Fo-KpZ"/>
+                            <constraint firstItem="gXO-bZ-CnJ" firstAttribute="leading" secondItem="gPw-HV-euM" secondAttribute="leading" constant="412" id="fDi-ea-k2f"/>
+                            <constraint firstItem="a7M-uz-Llh" firstAttribute="top" secondItem="gPw-HV-euM" secondAttribute="top" constant="25.5" id="fXk-xm-5dD"/>
+                            <constraint firstItem="gPw-HV-euM" firstAttribute="trailing" secondItem="a7M-uz-Llh" secondAttribute="trailing" constant="150.5" id="fqz-jM-J6t"/>
+                            <constraint firstItem="gPw-HV-euM" firstAttribute="bottom" secondItem="gXO-bZ-CnJ" secondAttribute="bottom" constant="20" id="k7h-2k-YCz"/>
+                            <constraint firstItem="a7M-uz-Llh" firstAttribute="leading" secondItem="60n-Ye-Qod" secondAttribute="trailing" constant="82" id="kGe-h7-1rO"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="pa1-gb-7nZ" secondAttribute="bottom" constant="-10" id="sho-Df-5FL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gdF-Ek-IGn">
-                        <barButtonItem key="leftBarButtonItem" image="barButtonItem:prZ-9l-vTP:image" id="prZ-9l-vTP">
+                    <navigationItem key="navigationItem" id="CgU-fW-1kW">
+                        <barButtonItem key="leftBarButtonItem" image="barButtonItem:ioA-v2-4sY:image" id="ioA-v2-4sY">
                             <color key="tintColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
-                        <outlet property="newBerry" destination="L3S-wV-YCx" id="Ru2-yN-rSc"/>
-                        <outlet property="newKiwi" destination="Pn7-XQ-Y9K" id="ifA-gH-et0"/>
-                        <outlet property="newLemon" destination="FdJ-2V-fUx" id="u3O-zE-WQv"/>
-                        <outlet property="newOrange" destination="O53-SN-z5Z" id="Ksd-5C-hOq"/>
-                        <outlet property="newPineapple" destination="5ke-Df-HBO" id="qIq-oC-rTK"/>
-                        <outlet property="newStrawberry" destination="PYh-oG-3Ze" id="4Qj-uj-2eS"/>
-                        <outlet property="oldBerry" destination="697-YX-tq4" id="Etp-oR-G5Y"/>
-                        <outlet property="oldKiwi" destination="8Ro-lY-fAR" id="Poy-4V-xEx"/>
-                        <outlet property="oldLemon" destination="Vjx-5v-Mbo" id="Jjs-aW-v17"/>
-                        <outlet property="oldOrange" destination="2hG-T6-38A" id="nn9-N7-hXn"/>
-                        <outlet property="oldPineapple" destination="7wL-dJ-0tu" id="q8t-q1-e2a"/>
-                        <outlet property="oldStrawberry" destination="Swl-sy-eCO" id="peQ-48-GVe"/>
-                        <outlet property="passLabel" destination="W4e-f5-Z3F" id="DIy-60-LEI"/>
-                        <outlet property="passwordGuid" destination="t7S-Qq-An7" id="of1-gC-GlO"/>
-                        <outlet property="updateOutlet" destination="3s3-jd-gsJ" id="xYd-nW-vb8"/>
-                        <outletCollection property="deSelectedNewButton" destination="L3S-wV-YCx" collectionClass="NSMutableArray" id="rMk-Yd-G2z"/>
-                        <outletCollection property="deSelectedNewButton" destination="FdJ-2V-fUx" collectionClass="NSMutableArray" id="MGn-hy-2Pn"/>
-                        <outletCollection property="deSelectedNewButton" destination="Pn7-XQ-Y9K" collectionClass="NSMutableArray" id="GeE-U2-jUt"/>
-                        <outletCollection property="deSelectedNewButton" destination="PYh-oG-3Ze" collectionClass="NSMutableArray" id="fpN-S0-fPa"/>
-                        <outletCollection property="deSelectedNewButton" destination="O53-SN-z5Z" collectionClass="NSMutableArray" id="38D-Mc-SKo"/>
-                        <outletCollection property="deSelectedNewButton" destination="5ke-Df-HBO" collectionClass="NSMutableArray" id="4vZ-U2-oFv"/>
-                        <outletCollection property="deSelectedOldButton" destination="Vjx-5v-Mbo" collectionClass="NSMutableArray" id="jq9-ch-7CX"/>
-                        <outletCollection property="deSelectedOldButton" destination="697-YX-tq4" collectionClass="NSMutableArray" id="lsn-H7-Evf"/>
-                        <outletCollection property="deSelectedOldButton" destination="8Ro-lY-fAR" collectionClass="NSMutableArray" id="9dA-ua-V80"/>
-                        <outletCollection property="deSelectedOldButton" destination="Swl-sy-eCO" collectionClass="NSMutableArray" id="B1l-N3-9b0"/>
-                        <outletCollection property="deSelectedOldButton" destination="2hG-T6-38A" collectionClass="NSMutableArray" id="koR-5x-ZTW"/>
-                        <outletCollection property="deSelectedOldButton" destination="7wL-dJ-0tu" collectionClass="NSMutableArray" id="L3y-hi-cfa"/>
+                        <outlet property="newBerry" destination="khS-3N-zfv" id="vWm-RU-jrf"/>
+                        <outlet property="newKiwi" destination="0Jm-S8-RrO" id="W2u-RD-Lco"/>
+                        <outlet property="newLemon" destination="gEi-FV-v1O" id="Efr-Hj-rjT"/>
+                        <outlet property="newOrange" destination="ydP-lG-mzh" id="2b1-gN-93J"/>
+                        <outlet property="newPineapple" destination="AVP-Q8-z7X" id="aNf-xh-1Nd"/>
+                        <outlet property="newStrawberry" destination="sYM-tO-Avf" id="3Pe-Gc-hVq"/>
+                        <outlet property="oldBerry" destination="GyE-lE-gsk" id="6Wb-nD-ODh"/>
+                        <outlet property="oldKiwi" destination="0ON-pU-1HE" id="HAE-WN-F20"/>
+                        <outlet property="oldLemon" destination="EPt-lQ-PsK" id="1FM-9u-dLY"/>
+                        <outlet property="oldOrange" destination="uIJ-HX-WNp" id="67S-CF-Obs"/>
+                        <outlet property="oldPineapple" destination="NgB-Lp-LLJ" id="maq-5v-lTU"/>
+                        <outlet property="oldStrawberry" destination="snA-fj-UK2" id="y5Z-dd-uxc"/>
+                        <outlet property="passLabel" destination="1fu-fD-XK0" id="NhN-Th-I4F"/>
+                        <outlet property="passwordGuid" destination="btl-FM-1ZU" id="1I4-XN-tWO"/>
+                        <outlet property="updateOutlet" destination="Wol-uq-SJy" id="5P0-kl-TgV"/>
+                        <outletCollection property="deSelectedNewButton" destination="khS-3N-zfv" collectionClass="NSMutableArray" id="qOR-A2-TJF"/>
+                        <outletCollection property="deSelectedNewButton" destination="gEi-FV-v1O" collectionClass="NSMutableArray" id="fn9-ve-945"/>
+                        <outletCollection property="deSelectedNewButton" destination="0Jm-S8-RrO" collectionClass="NSMutableArray" id="jXe-D4-LtX"/>
+                        <outletCollection property="deSelectedNewButton" destination="sYM-tO-Avf" collectionClass="NSMutableArray" id="mfz-a5-f4p"/>
+                        <outletCollection property="deSelectedNewButton" destination="ydP-lG-mzh" collectionClass="NSMutableArray" id="G8m-12-hex"/>
+                        <outletCollection property="deSelectedNewButton" destination="AVP-Q8-z7X" collectionClass="NSMutableArray" id="e4p-iw-vq7"/>
+                        <outletCollection property="deSelectedOldButton" destination="EPt-lQ-PsK" collectionClass="NSMutableArray" id="NPe-W7-nV9"/>
+                        <outletCollection property="deSelectedOldButton" destination="GyE-lE-gsk" collectionClass="NSMutableArray" id="Kw4-fc-g6r"/>
+                        <outletCollection property="deSelectedOldButton" destination="0ON-pU-1HE" collectionClass="NSMutableArray" id="o5v-kB-hdI"/>
+                        <outletCollection property="deSelectedOldButton" destination="snA-fj-UK2" collectionClass="NSMutableArray" id="udn-zb-kix"/>
+                        <outletCollection property="deSelectedOldButton" destination="uIJ-HX-WNp" collectionClass="NSMutableArray" id="Pkf-Kz-r1g"/>
+                        <outletCollection property="deSelectedOldButton" destination="NgB-Lp-LLJ" collectionClass="NSMutableArray" id="6rt-g6-ict"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAa-OU-ezV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4032" y="1082"/>
+            <point key="canvasLocation" x="3366" y="1022"/>
         </scene>
     </scenes>
     <resources>
         <image name="LafeefwithLock" width="387" height="391"/>
         <image name="arrow-back" width="22" height="38.480998992919922"/>
-        <image name="barButtonItem:prZ-9l-vTP:image" width="96" height="128">
+        <image name="barButtonItem:ioA-v2-4sY:image" width="96" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKywzNjlDS0xQU1UkbnVsbNcNDg8QERITFBUW

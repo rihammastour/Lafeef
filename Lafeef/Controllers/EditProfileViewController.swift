@@ -174,7 +174,7 @@ class EditProfileViewConroller: UIViewController {
     
     func buyItem(_ cost:Float){
         
-        FirebaseRequest.updateMoney(4.6)
+//        FirebaseRequest.updateMoney(4.6)
         
     }
     //اه

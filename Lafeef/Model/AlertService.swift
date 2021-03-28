@@ -13,6 +13,7 @@ class AlertService {
       print(AlertVc)
         AlertVc.body = body
         AlertVc.isSuccess = isSuccess
+        
         return AlertVc
       }
   
