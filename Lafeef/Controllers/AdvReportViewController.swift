@@ -82,6 +82,7 @@ class AdvReportViewController: UIViewController {
     //MARK:- Actions
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
         let destinationVC = segue.destination as! DailyReportViewController
         if (segue.identifier == Constants.Segue.acceptAdvSegue) {
             // Text processing
@@ -109,5 +110,25 @@ class AdvReportViewController: UIViewController {
                 
             }
         }
+        UpdateAdvCounter()
+       
+
+        }
+
+
+func UpdateAdvCounter(){
+    let defaults = UserDefaults.standard
+    var levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+    var levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
+
+    
+    if LevelGoalViewController.report.levelNum == "2"{
+        levelTwoCount = 1
+    }else  if LevelGoalViewController.report.levelNum == "4"{
+        levelFourCount = 1
     }
+    defaults.set(levelTwoCount, forKey: "levelTwoCount")
+    defaults.set(levelFourCount, forKey: "levelFourCount")
+}
+   
 }

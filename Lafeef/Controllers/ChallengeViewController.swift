@@ -80,8 +80,20 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //        }
         
         fetchChallengeLevel()
+        displayAdvReport()
+ 
         
-        if LevelGoalViewController.report.levelNum == "2" || LevelGoalViewController.report.levelNum == "4" {
+        
+        
+
+    }
+    func displayAdvReport(){
+        let defaults = UserDefaults.standard
+         let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+        let levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
+       
+   
+        if LevelGoalViewController.report.levelNum == "2" && levelTwoCount < 1  || LevelGoalViewController.report.levelNum == "4"  && levelFourCount < 1{
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                 self.presentAdvReport()
@@ -91,9 +103,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             challengeScen?.startGame()
         }
         
-        
-        
-
     }
 
     //MARK: -Set up UI Element
@@ -256,7 +265,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         guard let levelNum = ChallengeViewController.levelNum else {
             //TODO: Alert and go back
-            showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
+           showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
         
@@ -506,6 +515,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func DispalyReport(_ report:DailyReport){
         
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        
 //                self.present(report.displayDailyReport(), animated: true)
                 self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
     }
@@ -515,8 +526,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //showAlert
     func showAlert(with message:String) {
-        //        alert.Alert(body: message)
-        // need an alert
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        self.present(alert.Alert(body: message), animated: true)
+      
     }
     
     //feachChalengeLevelHandeler
@@ -526,6 +538,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             print("Challenge View Controller",err!)
             
             if err?.localizedDescription == "Failed to get document because the client is offline."{
+                self.present(alert.Alert(body: "لطفًا، تأكد من اتصالك بالإنترنت"), animated: true)
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
@@ -539,6 +552,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 self.setLevelInfo(level)
                 //self.startLevelTimer()
             }catch{
+                
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }

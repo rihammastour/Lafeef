@@ -189,6 +189,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     
     func adddefaultReport(){
         
+        
         let ReportData = LevelReportData(levelNum:"1", collectedMoney: 0, collectedScore: 0, isPassed:false)
         var array = [LevelReportData]()
       
@@ -204,6 +205,13 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                 print("error")
             }
         }
+        var  levelTwocount = 0
+        var  levelFourCount = 0
+        let defaults = UserDefaults.standard
+        defaults.set(levelTwocount, forKey: "levelTwoCount")
+        defaults.set(levelFourCount, forKey: "levelFourCount")
     }
+    
+    
     
 }

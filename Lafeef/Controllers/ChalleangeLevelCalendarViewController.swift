@@ -64,6 +64,7 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
         self.calendarView.addSubview(activityIndicatorView!)
 
         activityIndicatorView!.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
        
 
         hideStars()
@@ -234,6 +235,7 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                     self.setLevel(level)
                     
                     activityIndicatorView!.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
                   
                  
 

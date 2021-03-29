@@ -7,15 +7,14 @@
 
 import UIKit
 import SwiftyGif
-import SwiftySound
-import AVFoundation
 
-class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate, AVAudioPlayerDelegate {
+
+class SignUpOrLoginViewController: UIViewController {
 
     //MARK:- Proprities
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    var player = AVAudioPlayer()
+ 
 
     
     override func viewDidLoad() {
@@ -33,14 +32,7 @@ class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate, AVAudioP
     
     func setUpElements() {
     
-        let path = Bundle.main.path(forResource: "q", ofType : "mp3")
-        let url = URL(fileURLWithPath : path!)
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player.play()
-        } catch {
-            print ("There is an issue with this code!")
-        }
+     
     
         //Styling Text Label
         // Utilities.styleTextField(emailTextField)

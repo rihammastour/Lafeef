@@ -130,7 +130,15 @@ class WinningViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)/5
+        if (score >= 0 && score <= 20){
+            starView.rating = 1
+        }else if  (score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
 
             }
 

@@ -285,7 +285,7 @@ class GameScene: SKScene {
     
     //setup Characters
     func setUpCharacters(){
-        while customers.count <= 0  {
+        while customers.count <= 3  {
             let randomInt = Int.random(in: 1..<7)
             var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
@@ -709,7 +709,7 @@ class GameScene: SKScene {
         PaymentButton.isHidden = false
         currentCustomer += 1
         GameScene.timeLeft = 30
-        if (currentCustomer<=0){
+        if (currentCustomer<=3){
             print("داخل الاف الصغيره")
             buildCustomer(customerNode: customers[currentCustomer])
             GameScene.timeLeft = 30

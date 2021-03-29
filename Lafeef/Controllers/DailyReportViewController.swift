@@ -15,6 +15,7 @@ class DailyReportViewController: UIViewController {
     var challeangeVC = ChallengeViewController()
     var completedLevel  =  CompletedLevel(reportData: [])
     var  childId :String?
+    var home = HomeViewController()
    
     
 
@@ -55,10 +56,19 @@ class DailyReportViewController: UIViewController {
     }
     func updatemoneyLabel(){
         GameScene.setMoneyLabel(LevelGoalViewController.report.collectedMoney)
+        home.setScore(Int(LevelGoalViewController.report.collectedScore))
+        home.setMoney(LevelGoalViewController.report.collectedMoney)
+        if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
+            var levelnum = Int(LevelGoalViewController.report.levelNum)
+            levelnum = levelnum!+1
+            home.setCurrentLevel(levelnum!)
+        }else{
+        
+            home.setCurrentLevel(Int(LevelGoalViewController.report.levelNum)!)
 
         
     }
-    
+    }
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
         if LevelGoalViewController.report.advertismentAmount == 0 {
