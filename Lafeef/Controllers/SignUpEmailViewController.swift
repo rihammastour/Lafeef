@@ -15,13 +15,14 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     //MARK:- Proprities
     
     //variables
-    var player: AVAudioPlayer?
+   
     var isValidated = false
     let alert = AlertService()
     let instructionVC = instruction()
     let validator = Validator()
     var password = ""
     var progressBar = ProgressBar(stepNum: 0)
+    
     
     //outlets
     @IBOutlet weak var passLabel: UILabel!
@@ -209,33 +210,13 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     
     //MARK:- Actions
     @IBAction func berryPass(_ sender: UIButton) {
-        playSound()
+      
         validator.validate(self)
         passLabel.isHidden = true
         password = "berry123"
             selectButton(sender)
     }
-    func playSound() {
-        guard let url = Bundle.main.url(forResource: "excellent", withExtension: "mp3") else { return }
-
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            /* iOS 10 and earlier require the following line:
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
-
-            guard let player = player else { return }
-
-            player.play()
-
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
+   
     
     @IBAction func kiwiPass(_ sender: UIButton) {
         validator.validate(self)

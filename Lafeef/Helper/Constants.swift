@@ -49,8 +49,17 @@ struct Constants {
         static let challeange = "challeange"
         static let showBackery = "showBackery"
         static let showChalleange = "showChalleange"
+        static let goToChalleange =  "goToChalleange"
+        static let goToTraining = "goToTraining"
         
         
+    }
+    struct Sounds {
+        static let excellent = "excellent"
+        static let firstDay = "firstDay"
+        static let secondDay = "secondDay"
+        static let thirdDay = "thirdDay"
+        static let fourthDay = "fourthDay"
     }
     
 }

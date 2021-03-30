@@ -66,11 +66,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYB-Yt-rfU">
                                                 <rect key="frame" x="0.0" y="0.0" width="403" height="317"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
-                                                <state key="normal" title="إبدأ العمل">
+                                                <state key="normal" title="ابدأ العمل">
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="r3Z-wc-CCP" kind="show" id="p1u-aj-k6N"/>
+                                                    <action selector="challeange:" destination="lXH-ms-ACN" eventType="touchUpInside" id="EMk-We-uFd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -97,7 +97,7 @@
                                                     <color key="titleColor" name="blackApp"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="aSd-Ie-oQ0" kind="show" id="eEU-rS-Ugs"/>
+                                                    <action selector="train:" destination="lXH-ms-ACN" eventType="touchUpInside" id="i5f-bo-cUs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -291,6 +291,8 @@
                         <outlet property="scoreLabel" destination="fV9-7h-iI6" id="lTU-ef-kET"/>
                         <outlet property="storeButton" destination="qZ9-Vl-fvg" id="ktR-Eq-o9l"/>
                         <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8sL-cd-Nm3"/>
+                        <segue destination="r3Z-wc-CCP" kind="show" identifier="goToChalleange" id="0Uc-fX-jXA"/>
+                        <segue destination="aSd-Ie-oQ0" kind="show" identifier="goToTraining" id="T41-ik-vXx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

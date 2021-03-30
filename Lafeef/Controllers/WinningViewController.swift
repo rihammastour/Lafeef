@@ -38,11 +38,13 @@ class WinningViewController: UIViewController {
    // to convert into Arabic
    let formatter: NumberFormatter = NumberFormatter()
     let toChangeLevel: DailyReportViewController? = nil
+    let  sound = SoundManager()
   
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
+//        sound.playSound(sound: Constants.Sounds.present)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20

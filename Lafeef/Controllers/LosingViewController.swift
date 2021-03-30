@@ -31,12 +31,15 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var moneyView: UIView!
     @IBOutlet weak var cancelOutlet: UIButton!
     @IBOutlet weak var playAgainOutlet: UIButton!
+    let  sound = SoundManager()
+    
     
     // to convert into Arabic
     let formatter: NumberFormatter = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        sound.playSound(sound: Constants.Sounds.tryAgain)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         smallbackground.layer.cornerRadius = 20 
@@ -49,6 +52,7 @@ class LosingViewController: UIViewController {
         smallbackground.layer.shadowOpacity = 0.2
         smallbackground.layer.shadowOffset = .zero
         smallbackground.layer.shadowRadius = 5
+        
 
         icecream.image = UIImage.gif(name: "icecream")
         
@@ -69,9 +73,9 @@ class LosingViewController: UIViewController {
             
             self.setCustomerSatisfaction()
             //set score
-            self.setScore(score: Int( LevelGoalViewController.report.collectedScore))
+            self.setScore(score:( LevelGoalViewController.report.collectedScore))
             // set money
-            self.setMoney(money:Int( LevelGoalViewController.report.collectedMoney))
+        self.setMoney(money:( LevelGoalViewController.report.collectedMoney))
       
         
        
@@ -83,6 +87,10 @@ class LosingViewController: UIViewController {
         
         // need some code
         GameScene.timeLeft = 30
+        
+        self.performSegue(withIdentifier: "playAgain", sender: self)
+
+  
      
      
     }
@@ -119,11 +127,13 @@ class LosingViewController: UIViewController {
 
     }
     
-    func setScore(score:Int)  {
+    func setScore(score:Float)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        if (score >= 0 && score <= 20){
+        if( score == 0){
+            starView.rating = 0
+        }else if (score > 0 && score <= 20){
             starView.rating = 1
-        }else if  (score >= 21 && score <= 40){
+        }else if(score >= 21 && score <= 40){
             starView.rating = 2
         }else if  (score >= 41 && score <= 60){
             starView.rating = 3
@@ -134,7 +144,7 @@ class LosingViewController: UIViewController {
         
             }
 
-   func setMoney(money:Int)  {
+   func setMoney(money:Float)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
     

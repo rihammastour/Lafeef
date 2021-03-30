@@ -18,6 +18,7 @@ class AdvReportViewController: UIViewController {
     var child = Child()
     var challeangeVC = ChallengeViewController()
     let levelGoal = LevelGoalViewController()
+    let  sound = SoundManager()
     
     //outlets
     @IBOutlet weak var advReportView: UIView!    
@@ -31,6 +32,7 @@ class AdvReportViewController: UIViewController {
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        //        sound.playSound(sound: Constants.Sounds.advertisment)
         
         // Do any additional setup after loading the view.
         styleUI()

@@ -99,10 +99,10 @@ class GameScene: SKScene {
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            
-            
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            
+//            
+//        }
         
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
@@ -137,13 +137,13 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY)!+(50))
-        OrderButton.zPosition = 3
+        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY ?? 0)+(50))
+        OrderButton.zPosition = 50
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY)!+(50))
-        PaymentButton.zPosition = 3
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY ??  20) + (50))
+        PaymentButton.zPosition = 50
         self.addChild(PaymentButton)
         
         // Get Camera node from scene and store it for use later
@@ -471,6 +471,7 @@ class GameScene: SKScene {
     func setPaymentContent(with money:[Money]?){
         self.paymentContainer?.removeAllChildren()
         
+        
         //unwrap payment continer
         guard self.paymentContainer != nil else {
             print("no payment continer")
@@ -643,7 +644,7 @@ class GameScene: SKScene {
     func checkPaymentAnswer(){
         print("Payment button tapped!")
         
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
         
         //get Answer payment
         let answer = viewController?.objectDetected?.getAnswer()
@@ -928,6 +929,7 @@ class GameScene: SKScene {
         checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
+//        hideDetectionOverlay()
         PaymentButton.isHidden = true
         checkPaymentAnswer()
     }

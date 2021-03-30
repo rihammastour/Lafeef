@@ -134,7 +134,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="175" y="386.5" width="418" height="64.5"/>
+                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1975,10 +1975,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="bCk-M7-Byq"/>
-        <segue reference="UZh-yq-F3f"/>
+        <segue reference="U8D-cS-AGG"/>
         <segue reference="YZe-8C-kOq"/>
-        <segue reference="STr-bk-c7n"/>
+        <segue reference="C7k-nc-mRf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>

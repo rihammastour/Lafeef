@@ -40,10 +40,12 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     let formatter = NumberFormatter()
     let goalService  = GoalService()
     var completedLevels = CompletedLevel(reportData: [])
+    var  sound = SoundManager()
     var levelMinScore = [Float]()
     var levelMaxScore = [Float]()
     var maxScoreLevels = [Float]()
     var minScoreLevels = [Float]()
+    let alert = AlertService()
     var childId = ""
     var challengeVC = ChallengeViewController()
     // activity indicaitor
@@ -96,36 +98,40 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
 
     
     @IBAction func levelOne(_ sender: Any) {
-        print("level one")
-    
-        let path = Bundle.main.path(forResource: "a", ofType : "mp3")
-        let url = URL(fileURLWithPath : path!)
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer.play()
-        } catch {
-            print ("There is an issue with this code!")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
+            
+            print("level one")
+            self.present(self.goalService.goal(levelNum: "1"),animated:true)
         }
-           
-//        self.present(goalService.goal(levelNum: "1"),animated:true)
-       
-      
+        sound.playSound(sound: Constants.Sounds.firstDay)
+            
+               
+    
     }
     
     @IBAction func levelTwo(_ sender: Any) {
         print("leveltwo")
-        self.present(goalService.goal(levelNum: "2"),animated:true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.54) {
+            self.present(self.goalService.goal(levelNum: "2"),animated:true)
     }
-    
+        sound.playSound(sound: Constants.Sounds.secondDay)
+    }
     
     @IBAction func levelThree(_ sender: Any) {
         print("levelthree")
-        self.present(goalService.goal(levelNum: "3"),animated:true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
+            self.present(self.goalService.goal(levelNum: "3"),animated:true)
     }
+        sound.playSound(sound: Constants.Sounds.thirdDay)
+    }
+
     
     @IBAction func levelFour(_ sender: Any) {
-        print("levelFour")
-        self.present(goalService.goal(levelNum: "4"),animated:true)
+        print("levelfour")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.64) {
+            self.present(self.goalService.goal(levelNum: "4"),animated:true)
+    }
+        sound.playSound(sound: Constants.Sounds.fourthDay)
     }
     
 
@@ -240,12 +246,16 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                  
 
             }catch{
+                
              print("error while decoding child report ",error)
+                self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
+
                }
 
 
             }else{
                 print("error")
+                self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
 
             }
         }

@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
     
     
     let formatter = NumberFormatter()
+    let  sound = SoundManager()
+    let alertservice = AlertService()
     
 
     
@@ -38,8 +40,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
-        
+        formatter.locale = Locale(identifier: "ar")
+        //  sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.
 
     //Style elemnts
@@ -106,17 +108,17 @@ class HomeViewController: UIViewController {
     //Level
     func setCurrentLevel(_ level:Int) {
        
-        levelNumLabel.text = formatter.string(from:level as NSNumber)
+        levelNumLabel.text = formatter.string(from: NSNumber(value: level))!
     }
     
     //Score
     func setScore(_ score:Int) {
-        scoreLabel.text = String(score)
+        scoreLabel.text = formatter.string(from: NSNumber(value: score))!
     }
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money)
+        moneyLabel.text = formatter.string(from: NSNumber(value: money))!
     }
     
     //Image
@@ -138,6 +140,7 @@ class HomeViewController: UIViewController {
                     print("Home View Controller",err!)
                      if err?.localizedDescription == "Failed to get document because the client is offline."{
                         print("تأكد من اتصال الانترنيت")
+                        self.present(self.alertservice.Alert(body: "تأكد من اتصالك بالإنترنت"),animated:true)
                         //TODO: Alert and update button and logout
                     }
     
@@ -157,7 +160,9 @@ class HomeViewController: UIViewController {
             setUIChildInfo(child)
         }else{
             print("No Child Found")
+            self.present(self.alertservice.Alert(body: "لايوجد مستخدم"),animated:true)
             //TODO: Alert..
+            
         }
       
     }
@@ -191,6 +196,26 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: Constants.Segue.showProfile, sender: self)
     }
     
+    @IBAction func challeange(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+  self.performSegue(withIdentifier: Constants.Segue.goToChalleange, sender: self)
+//
+      }
+
+    
+//        sound.playSound(sound: Constants.Sounds.Challeange)
+}
+    @IBAction func train(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+  self.performSegue(withIdentifier: Constants.Segue.goToTraining, sender: self)
+//
+      }
+
+    
+//        sound.playSound(sound: Constants.Sounds.Training)
+}
+
 }
 
 //MARK: - Extention
