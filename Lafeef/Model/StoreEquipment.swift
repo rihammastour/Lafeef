@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 struct StoreEquipment: Codable{
     var type : String
     var name:String

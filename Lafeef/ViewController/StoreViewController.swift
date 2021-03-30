@@ -9,6 +9,8 @@ import UIKit
 
 class StoreViewController: UIViewController {
     
+    //MARK:- Variabels
+    
     @IBOutlet weak var moneyBarUIView: UIView!
     
     @IBOutlet weak var testLabel: UILabel!
@@ -17,6 +19,8 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var moneyUILabel: UILabel!
     
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
+    
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -49,6 +53,16 @@ class StoreViewController: UIViewController {
     
     //MARK:- Functions
     
+    func fechStoreEquipment(){
+        
+        //Get bakery Equibments
+        FirebaseRequest.getBakeryEquipment(completion: getBakeryEquipmentHandeler(_:_:))
+        //Get Character Equibments
+        FirebaseRequest.getCharacterEquipment(completion: getCharacterEquipmentHandeler(_:_:))
+    }
+    
+    
+    //get child money
     func getChildMoney(){
         
         let child = LocalStorageManager.getChild()
@@ -109,6 +123,26 @@ class StoreViewController: UIViewController {
         let alertVC = alert.Alert(body: message)
         
         self.present(alertVC, animated: true)
+    }
+    
+    ///fech image
+    func fechImage(of name:String) -> UIImage?{
+        
+        var image:UIImage?
+        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
+            if err == nil{
+                image =  data
+            }
+        })
+        return image
+    }
+    
+    func getCharacterEquipmentHandeler(_ data: Any?, _ error :Error?){
+        
+    }
+    
+    func getBakeryEquipmentHandeler(_ data: Any?, _ error :Error?){
+        
     }
     
 }

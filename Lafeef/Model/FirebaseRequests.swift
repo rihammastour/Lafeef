@@ -222,18 +222,57 @@ class FirebaseRequest{
                           }
                       }
                   }
-        
-        
         }
+
+    /// Get Character Equipment
+    static func getCharacterEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
+        
+        db.collection("store").document("Characherts")
+            .getDocument { (response, error) in
+                
+                guard let document = response else {
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    ///Ducoment is empty
+                    completion(nil,error)
+                    return
+                }
+                ///Featch date successfully
+                completion(data,nil)
+                
+            }
+    }
     
     
+    /// Get Bakery Equipment
+    static func getBakeryEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
+        
+        db.collection("store").document("backery")
+            .getDocument { (response, error) in
+                
+                guard let document = response else {
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    ///Ducoment is empty
+                    completion(nil,error)
+                    return
+                }
+                ///Featch date successfully
+                completion(data,nil)
+                
+            }
+    }
 
         
 
     
     //MARK:- Firebase Storage
     
-    func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
+   static func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
         let storage = Storage.storage()
         var reference: StorageReference!
         reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
