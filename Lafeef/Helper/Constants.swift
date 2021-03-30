@@ -27,6 +27,7 @@ struct Constants {
         static let WinningViewController  = "WinningReport"
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let backery = "backery"
+        static let storeViewController = "storeVC"
     }
     
     struct Segue {

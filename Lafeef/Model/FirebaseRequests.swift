@@ -227,7 +227,7 @@ class FirebaseRequest{
     /// Get Character Equipment
     static func getCharacterEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
         
-        db.collection("store").document("Characherts")
+        db.collection("Store").document("Characherts")
             .getDocument { (response, error) in
                 
                 guard let document = response else {
@@ -249,7 +249,7 @@ class FirebaseRequest{
     /// Get Bakery Equipment
     static func getBakeryEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
         
-        db.collection("store").document("backery")
+        db.collection("Store").document("backery")
             .getDocument { (response, error) in
                 
                 guard let document = response else {
@@ -272,7 +272,7 @@ class FirebaseRequest{
     
     //MARK:- Firebase Storage
     
-   static func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
+    func downloadImage(randPath: Int, completion: @escaping (_ data: UIImage?, _ err:Error?)->()){
         let storage = Storage.storage()
         var reference: StorageReference!
         reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")

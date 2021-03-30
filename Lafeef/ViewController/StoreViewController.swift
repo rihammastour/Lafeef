@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import CodableFirebase
+
 
 class StoreViewController: UIViewController {
     
     //MARK:- Variabels
     
+    //@IBOustlet
     @IBOutlet weak var moneyBarUIView: UIView!
-    
     @IBOutlet weak var testLabel: UILabel!
-    var money:Float!
-    
     @IBOutlet weak var moneyUILabel: UILabel!
-    
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
     
-    
+    //Variables
+    var money:Float!
+    var bakeryEquipments:[StoreEquipment]?
+    var characterEquipments:[StoreEquipment]?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class StoreViewController: UIViewController {
         // Additional setup after loading the view.
         setUIElements()
         getChildMoney()
+        fechStoreEquipment()
         
     }
     
@@ -125,9 +128,8 @@ class StoreViewController: UIViewController {
         self.present(alertVC, animated: true)
     }
     
-    ///fech image
-    func fechImage(of name:String) -> UIImage?{
-        
+    ///fetch image
+    func fetchImage(of name:String) -> UIImage?{
         var image:UIImage?
         FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
             if err == nil{
@@ -137,12 +139,41 @@ class StoreViewController: UIViewController {
         return image
     }
     
-    func getCharacterEquipmentHandeler(_ data: Any?, _ error :Error?){
-        
-    }
-    
+
+    //Get Bakery Handeler
     func getBakeryEquipmentHandeler(_ data: Any?, _ error :Error?){
         
+        if let data = data{
+            do{
+                //Convert data to type StoreEquipmens
+                let equipmens = try FirebaseDecoder().decode(StoreEquipmens.self, from: data)
+                self.bakeryEquipments = equipmens.eqippments
+            }catch{
+                print("error while decoding ",error.localizedDescription)
+                //TODO:Alert..
+            }
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+            //TODO:Alert..
+        }
+    }
+    
+    //Get Character Handeler
+    func getCharacterEquipmentHandeler(_ data: Any?, _ error :Error?){
+        
+        if let data = data{
+            do{
+                //Convert data to type StoreEquipmens
+                let equipmens = try FirebaseDecoder().decode(StoreEquipmens.self, from: data)
+                self.characterEquipments = equipmens.eqippments
+            }catch{
+                print("error while decoding ",error.localizedDescription)
+                //TODO:Alert..
+            }
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+            //TODO:Alert..
+        }
     }
     
 }
