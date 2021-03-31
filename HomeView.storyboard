@@ -361,25 +361,25 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-OB-KfM">
-                                <rect key="frame" x="40" y="170" width="688" height="814"/>
+                                <rect key="frame" x="60" y="170" width="648" height="814"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreCell" id="4ML-pp-NHK" customClass="StoreCell" customModule="Lafeef" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="688" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="648" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ML-pp-NHK" id="zj0-24-wLF">
-                                            <rect key="frame" x="0.0" y="0.0" width="688" height="30.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="648" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Zi-Q6-37P">
-                                                    <rect key="frame" x="608" y="0.0" width="80" height="80.5"/>
+                                                    <rect key="frame" x="468" y="-68.5" width="180" height="180.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="IFk-OU-vyb"/>
-                                                        <constraint firstAttribute="height" constant="80" id="pPx-no-Qzv"/>
+                                                        <constraint firstAttribute="width" constant="180" id="IFk-OU-vyb"/>
+                                                        <constraint firstAttribute="height" constant="180" id="pPx-no-Qzv"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-lo-8MO">
-                                                    <rect key="frame" x="558" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="418" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -390,11 +390,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="1Zi-Q6-37P" firstAttribute="centerY" secondItem="zj0-24-wLF" secondAttribute="centerY" id="7C1-Ex-hyp"/>
                                                 <constraint firstItem="1Zi-Q6-37P" firstAttribute="leading" secondItem="xO8-lo-8MO" secondAttribute="trailing" constant="8" id="8MM-xf-aG0"/>
-                                                <constraint firstItem="1Zi-Q6-37P" firstAttribute="top" secondItem="zj0-24-wLF" secondAttribute="top" id="DHB-ri-d3C"/>
                                                 <constraint firstItem="OoX-Hf-8uL" firstAttribute="top" secondItem="zj0-24-wLF" secondAttribute="top" id="X4L-Py-LwD"/>
                                                 <constraint firstItem="xO8-lo-8MO" firstAttribute="top" secondItem="zj0-24-wLF" secondAttribute="topMargin" id="dEM-3r-kGe"/>
-                                                <constraint firstAttribute="bottom" secondItem="1Zi-Q6-37P" secondAttribute="bottom" constant="-50" id="elR-E6-NMr"/>
                                                 <constraint firstItem="OoX-Hf-8uL" firstAttribute="leading" secondItem="zj0-24-wLF" secondAttribute="leading" constant="8" id="kYy-H7-ZBE"/>
                                                 <constraint firstAttribute="trailing" secondItem="1Zi-Q6-37P" secondAttribute="trailing" id="ymi-Zd-Bxi"/>
                                             </constraints>
@@ -419,10 +418,10 @@
                             <constraint firstItem="Rxb-ol-933" firstAttribute="bottom" secondItem="s2d-OB-KfM" secondAttribute="bottom" constant="40" id="GC9-oI-beB"/>
                             <constraint firstItem="qSN-ks-2ZV" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="60" id="GUt-f7-FEm"/>
                             <constraint firstItem="94e-cz-Een" firstAttribute="top" secondItem="Rxb-ol-933" secondAttribute="top" constant="20" id="IpJ-ce-Pms"/>
-                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="s2d-OB-KfM" secondAttribute="trailing" constant="40" id="Oc1-3z-yx6"/>
+                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="s2d-OB-KfM" secondAttribute="trailing" constant="60" id="Oc1-3z-yx6"/>
                             <constraint firstItem="qSN-ks-2ZV" firstAttribute="top" secondItem="Rxb-ol-933" secondAttribute="top" constant="90" id="T8J-vn-IY3"/>
                             <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="qSN-ks-2ZV" secondAttribute="trailing" constant="60" id="ojJ-Cq-MM4"/>
-                            <constraint firstItem="s2d-OB-KfM" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="40" id="tDU-sh-yXR"/>
+                            <constraint firstItem="s2d-OB-KfM" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="60" id="tDU-sh-yXR"/>
                             <constraint firstItem="s2d-OB-KfM" firstAttribute="top" secondItem="qSN-ks-2ZV" secondAttribute="bottom" constant="40" id="up8-Zc-ifd"/>
                         </constraints>
                     </view>
@@ -558,7 +557,7 @@
                                 <rect key="frame" x="649" y="25" width="84" height="80"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rxw-CJ-syx">
-                                <rect key="frame" x="20" y="34" width="77" height="38"/>
+                                <rect key="frame" x="20" y="34" width="77" height="38.5"/>
                                 <state key="normal" image="arrow-back"/>
                                 <connections>
                                     <segue destination="lXH-ms-ACN" kind="presentation" modalPresentationStyle="fullScreen" id="fBs-5G-GmW"/>

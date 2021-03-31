@@ -57,7 +57,7 @@ class StoreViewController: UIViewController {
         //Style segmented control
         Utilities.styleSegmentedControl(segmentedControlUI)
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 200
         
     }
     
