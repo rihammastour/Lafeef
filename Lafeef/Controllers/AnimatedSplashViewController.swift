@@ -45,15 +45,15 @@ class AnimatedSplashViewController: UIViewController, SwiftyGifDelegate {
     
     func NextViewController() {
 
-        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        
         if isChild! {
-
+            let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
             view.window?.rootViewController = controller
             view.window?.makeKeyAndVisible()
 
         } else {
-            print("First launch, setting UserDefault.")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
             view.window?.rootViewController = controller
             view.window?.makeKeyAndVisible()

@@ -28,40 +28,40 @@ class FirebaseRequest{
     //MARK: - Set Document Firestore
     
     static func createUser(id:String, email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :Error?) -> Void) {
-          
-
-                  db.collection("users").document(id).setData([
-                      "name": name,
-                      "email": email,
-                      "currentLevel": 1,
-                      "money":0,
-                      "score":0,
-                      "sex":sex,
-                      "DOB":DOB,
-                  ]) { err in
-                      if let err = err {
-                          print("Error writing document: \(err)")
-                          completionBlock(false,err)
-                      } else {
-                          print("Document successfully written!")
-                      }
-                  }
-                  completionBlock(true,nil)
-           
-      }
-      static func Register(email: String, password: String, completionBlock: @escaping (_ success: Bool, _ error :Error?) -> Void) {
-          
-          Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-              if let user = authResult?.user {
-                  print(user)
-                  completionBlock(true, nil)
-           
-              } else {
-                  completionBlock(false,error!)
-              }
-          }
-      }
-      
+        
+        
+        db.collection("users").document(id).setData([
+            "name": name,
+            "email": email,
+            "currentLevel": 1,
+            "money":0,
+            "score":0,
+            "sex":sex,
+            "DOB":DOB,
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completionBlock(false,err)
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        completionBlock(true,nil)
+        
+    }
+    static func Register(email: String, password: String, completionBlock: @escaping (_ success: Bool, _ error :Error?) -> Void) {
+        
+        Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
+            if let user = authResult?.user {
+                print(user)
+                completionBlock(true, nil)
+                
+            } else {
+                completionBlock(false,error!)
+            }
+        }
+    }
+    
     
     
     //Set Challenge level
@@ -84,8 +84,8 @@ class FirebaseRequest{
         } catch let err {
             print("error while passing data", err)
         }
-
-  
+        
+        
     }
     
     //Set Money
@@ -107,14 +107,14 @@ class FirebaseRequest{
     }
     
     static func addStoreEquipment(StorType: String,StoreEquipment:StoreEquipmens, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
-            
-            // Add a new document in collection "users"
-            do {
-                try db.collection("Store").document(StorType).setData(from:StoreEquipment)
-            } catch let error {
-                print("Error writing city to Firestore: \(error)")
-            }
+        
+        // Add a new document in collection "users"
+        do {
+            try db.collection("Store").document(StorType).setData(from:StoreEquipment)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
         }
+    }
     
     //MARK: - Get Document Firestore
     
@@ -187,8 +187,8 @@ class FirebaseRequest{
             }
     }
     static func getChalleangeLevels( completionBlock: @escaping (_ data: Any?, _ err:Error?) -> Void)  {
-      
-            
+        
+        
         db.collection("challenge").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -205,25 +205,25 @@ class FirebaseRequest{
     
     
     static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
-            
+        
         db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
-            { (querySnapshot, err) in
-                      if let err = err {
-                        completionBlock(nil,err.localizedDescription)
-                      } else {
-                      
-                          for document in querySnapshot!.documents {
-
-                       
-                           
-                           print("\(document.documentID) => \(document.data())")
-                            
-                            completionBlock(document.data(), "")
-                          }
-                      }
-                  }
+        { (querySnapshot, err) in
+            if let err = err {
+                completionBlock(nil,err.localizedDescription)
+            } else {
+                
+                for document in querySnapshot!.documents {
+                    
+                    
+                    
+                    print("\(document.documentID) => \(document.data())")
+                    
+                    completionBlock(document.data(), "")
+                }
+            }
         }
-
+    }
+    
     /// Get Character Equipment
     static func getCharacterEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
         
@@ -266,9 +266,9 @@ class FirebaseRequest{
                 
             }
     }
-
-        
-
+    
+    
+    
     
     //MARK:- Firebase Storage
     
@@ -277,8 +277,8 @@ class FirebaseRequest{
         var reference: StorageReference!
         reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
         print("gs://lafeef-7ce60.appspot.com/Lafeef-adv\(randPath).png")
-       reference.downloadURL { (url, error) in
-        guard let data = NSData(contentsOf: url!) else{
+        reference.downloadURL { (url, error) in
+            guard let data = NSData(contentsOf: url!) else{
                 completion(nil,error)
                 return
             }
@@ -290,30 +290,26 @@ class FirebaseRequest{
             print("image fetched ", image)
             completion(image, nil)
         }
-
+        
     }
     
-    static  func downloadStoreEquipmentImage(type: String, completion: @escaping(_ data: UIImage?, _ err:Error?)->())
-        {
+    static  func downloadStoreEquipmentImage(type: String, completion: @escaping(_ data: NSData?, _ err:Error?)->())
+    {
         let storage = Storage.storage()
         var reference: StorageReference!
         reference = storage.reference(forURL: "gs://lafeef-7ce60.appspot.com/\(type).png")
-       
-       reference.downloadURL { (url, error) in
-        guard let data = NSData(contentsOf: url!) else{
-                completion(nil,error)
-                return
+        
+        reference.downloadURL { (url, error) in
+            if let url = url{
+                guard let data = NSData(contentsOf: url) else{
+                    completion(nil,error)
+                    return
+                }
+                //Featch image successfully
+                completion(data, nil)
             }
-            guard let image = UIImage(data: data as Data) else{
-                completion(nil,error)
-                return
-            }
-            //Featch image successfully
-            print("image fetched ", image)
-            completion(image, nil)
         }
-
-         }
+    }
     
 }
-    
+

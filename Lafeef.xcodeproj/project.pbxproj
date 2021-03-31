@@ -127,6 +127,7 @@
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
+		C9908C932613760800B4F394 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9908C922613760800B4F394 /* StoreCell.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
@@ -280,6 +281,7 @@
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
+		C9908C922613760800B4F394 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		4EDCA1F625C6249F00C29464 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9908C91261375E300B4F394 /* Cell */,
 				4ED47F4C25D366C60064D86C /* StarsAnimation.json */,
 				4EDFA46E25EC597F00924569 /* icecream.gif */,
 				4E6242A526065A0100FA6377 /* star.json */,
@@ -568,6 +571,14 @@
 			name = Helper;
 			path = Lafeef/Helper;
 			sourceTree = SOURCE_ROOT;
+		};
+		C9908C91261375E300B4F394 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C9908C922613760800B4F394 /* StoreCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
 		};
 		E3CA613ED32609BDDAB603CE /* Frameworks */ = {
 			isa = PBXGroup;
@@ -909,6 +920,7 @@
 				4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */,
 				C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */,
 				C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */,
+				C9908C932613760800B4F394 /* StoreCell.swift in Sources */,
 				41F4C24525D0ACF2000D4064 /* WinningViewController.swift in Sources */,
 				4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */,
 				4E453A4A25B61D5100B8363F /* GameViewController.swift in Sources */,

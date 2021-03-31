@@ -15,14 +15,17 @@ class StoreViewController: UIViewController {
     
     //@IBOustlet
     @IBOutlet weak var moneyBarUIView: UIView!
-    @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var moneyUILabel: UILabel!
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     //Variables
     var money:Float!
     var bakeryEquipments:[StoreEquipment]?
     var characterEquipments:[StoreEquipment]?
+    
+    var tableData:[StoreEquipment]?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -32,9 +35,18 @@ class StoreViewController: UIViewController {
         setUIElements()
         getChildMoney()
         fechStoreEquipment()
+
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: false)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        tableView.reloadData()
+    }
     
     //MARK: - Set UI Elements
     func setUIElements(){
@@ -44,6 +56,8 @@ class StoreViewController: UIViewController {
         
         //Style segmented control
         Utilities.styleSegmentedControl(segmentedControlUI)
+        
+        tableView.rowHeight = 100
         
     }
     
@@ -59,9 +73,10 @@ class StoreViewController: UIViewController {
     func fechStoreEquipment(){
         
         //Get bakery Equibments
-        FirebaseRequest.getBakeryEquipment(completion: getBakeryEquipmentHandeler(_:_:))
+        FirebaseRequest.getBakeryEquipment(completion: getBakeryEquipmentHandler(_:_:))
         //Get Character Equibments
-        FirebaseRequest.getCharacterEquipment(completion: getCharacterEquipmentHandeler(_:_:))
+        FirebaseRequest.getCharacterEquipment(completion: getCharacterEquipmentHandler(_:_:))
+        
     }
     
     
@@ -103,19 +118,14 @@ class StoreViewController: UIViewController {
     
     
     //MARK: - @IBAcation
-    @IBAction func goBackTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    @IBAction func buyWithMoney(_ sender: Any) {
-        buyItem(40)
-    }
     @IBAction func didChangeSegment(_ sender:UISegmentedControl){
         
         if sender.selectedSegmentIndex == 0{
-            testLabel.text = "Store Screen"
+            tableData = self.characterEquipments
+            tableView.reloadData()
         } else if sender.selectedSegmentIndex == 1{
-            testLabel.text = "Store Screen - Store"
+            tableData = self.bakeryEquipments
+            tableView.reloadData()
         }
     }
     
@@ -129,25 +139,29 @@ class StoreViewController: UIViewController {
     }
     
     ///fetch image
-    func fetchImage(of name:String) -> UIImage?{
-        var image:UIImage?
-        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
-            if err == nil{
-                image =  data
-            }
-        })
-        return image
-    }
+//    func fetchImage(of name:String) -> NSData?{
+//        var data =
+//        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
+//            if err == nil{
+//                return nil
+//            }else{
+//                return data
+//            }
+//        })
+//    }
     
-
+    
     //Get Bakery Handeler
-    func getBakeryEquipmentHandeler(_ data: Any?, _ error :Error?){
+    func getBakeryEquipmentHandler(_ data: Any?, _ error :Error?){
         
         if let data = data{
             do{
                 //Convert data to type StoreEquipmens
                 let equipmens = try FirebaseDecoder().decode(StoreEquipmens.self, from: data)
+                
                 self.bakeryEquipments = equipmens.eqippments
+                self.tableData = equipmens.eqippments
+                tableView.reloadData()
             }catch{
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
@@ -159,13 +173,14 @@ class StoreViewController: UIViewController {
     }
     
     //Get Character Handeler
-    func getCharacterEquipmentHandeler(_ data: Any?, _ error :Error?){
+    func getCharacterEquipmentHandler(_ data: Any?, _ error :Error?){
         
         if let data = data{
             do{
                 //Convert data to type StoreEquipmens
                 let equipmens = try FirebaseDecoder().decode(StoreEquipmens.self, from: data)
                 self.characterEquipments = equipmens.eqippments
+                tableView.reloadData()
             }catch{
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
@@ -179,4 +194,43 @@ class StoreViewController: UIViewController {
 }
 
 
+// MARK: - Table view data source
 
+extension StoreViewController : UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return  1
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let aEquipment = tableData?[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! StoreCell
+        
+        // Configure cell
+        if let aEquipment = aEquipment{
+            cell.label.text = aEquipment.label
+            cell.equipmentImage.image = UIImage(named: "imagePlaceholder")
+
+            FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
+                guard let data = data else{
+                    return
+                }
+                
+                let image = UIImage(data: data as Data)
+                cell.equipmentImage?.image = image
+                cell.setNeedsLayout()
+            }
+            
+        }
+        return cell
+        
+        
+    }
+    
+}
