@@ -171,16 +171,14 @@ class DailyReportViewController: UIViewController {
                     }else if (completedLevel.reportData.count == Int(levelnum)){
                         print("second if ")
                         for var report in completedLevel.reportData{
-                            if report.levelNum == levelnum && report.isPassed == false {
+                            if report.levelNum == levelnum{
                            report = ReportData
-                            }else  if report.levelNum == levelnum && report.collectedScore < ReportData.collectedScore {
-                                report = ReportData
-            
+                            }
+                        }
                     }else{
-                         self.completedLevel.reportData.append(ReportData)
-                         }
-                    }
-                }
+                        self.completedLevel.reportData.append(ReportData)
+                        }
+
                     FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
                     if (err != nil){
                     print("success")

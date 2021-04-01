@@ -257,7 +257,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                 </state>
                                 <connections>
-                                    <action selector="store:" destination="lXH-ms-ACN" eventType="touchUpInside" id="XN4-nF-M60"/>
+                                    <segue destination="yXw-yV-vtD" kind="show" id="M6P-e2-7w8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -293,12 +293,11 @@
                         <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8sL-cd-Nm3"/>
                         <segue destination="r3Z-wc-CCP" kind="show" identifier="goToChalleange" id="0Uc-fX-jXA"/>
                         <segue destination="aSd-Ie-oQ0" kind="show" identifier="goToTraining" id="T41-ik-vXx"/>
-                        <segue destination="yXw-yV-vtD" kind="show" identifier="store" id="BGo-j7-cTo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4951.5625" y="304.6875"/>
+            <point key="canvasLocation" x="4952" y="305"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="vwE-lV-NTq">

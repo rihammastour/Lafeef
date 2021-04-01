@@ -51,7 +51,6 @@ struct Constants {
         static let showChalleange = "showChalleange"
         static let goToChalleange =  "goToChalleange"
         static let goToTraining = "goToTraining"
-        static let store = "store"
         
         
     }
@@ -61,30 +60,6 @@ struct Constants {
         static let secondDay = "secondDay"
         static let thirdDay = "thirdDay"
         static let fourthDay = "fourthDay"
-        static let advertisment = "advertisment"
-        static let  challeange = "challeange"
-        static let  happyCustomer = "happyCustomer"
-        static let  bye = "bye"
-        static let  hello = "hello"
-        static let  learnColors = "learncolors"
-        static let learnShapes = "learnShapes"
-        static let learnMath = "learnMath"
-        static let reward = "reward"
-        static let train = "train"
-        static let sadCustomer = "sadCustomer"
-        static let store = "store"
-        static let tryAgain = "tryAgain"
-        
-        
-        
-       
-
-        
-        
-        
-        
-        
-        
     }
     
 }

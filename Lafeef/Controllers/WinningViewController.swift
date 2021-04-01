@@ -45,7 +45,7 @@ class WinningViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        sound.playSound(sound: Constants.Sounds.reward)
+//        sound.playSound(sound: Constants.Sounds.present)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20

@@ -120,7 +120,7 @@ class ProfileViewController: UIViewController {
     @IBAction func logOutAction(sender: AnyObject) {
         let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
         let ok = UIAlertAction(title: "نعم", style: .destructive) { (alertAction) in
-            self.sound.playSound(sound: Constants.Sounds.bye)
+            //        sound.playSound(sound: Constants.Sounds.bye)
             if Auth.auth().currentUser != nil {
                 do {
                     

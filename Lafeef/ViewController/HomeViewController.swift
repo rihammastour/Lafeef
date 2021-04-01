@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.locale = Locale(identifier: "ar")
-       sound.playSound(sound: Constants.Sounds.hello)
+        //  sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.
 
     //Style elemnts
@@ -203,7 +203,7 @@ class HomeViewController: UIViewController {
       }
 
     
-      sound.playSound(sound: Constants.Sounds.challeange)
+//        sound.playSound(sound: Constants.Sounds.Challeange)
 }
     @IBAction func train(_ sender: Any) {
         
@@ -213,16 +213,9 @@ class HomeViewController: UIViewController {
       }
 
     
-      sound.playSound(sound: Constants.Sounds.train)
+//        sound.playSound(sound: Constants.Sounds.Training)
 }
 
-    @IBAction func store(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.56) {
-  self.performSegue(withIdentifier: Constants.Segue.store, sender: self)
-//
-      }
-
-    }
 }
 
 //MARK: - Extention
