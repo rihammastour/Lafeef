@@ -17,6 +17,7 @@ class CustomerNode {
     var SadFrames: [SKTexture] = []
     var customerName = ""
     let objectDetected = ObjectDetectionViewController()
+    let sound = SoundManager()
     init(customerName: String) {
         self.customerName = customerName
     }
@@ -89,11 +90,13 @@ class CustomerNode {
         withKey:"\(customerName)")
     }
     func happyCustomer(){
+        sound.playSound(sound: Constants.Sounds.happyCustomer)
 
         animateCustomer(frame: HappyFrames, speed: 0.5)
      }
     
     func sadCustomer(){
+        sound.playSound(sound: Constants.Sounds.sadCustomer)
  
         animateCustomer(frame: SadFrames , speed: 0.5)
      }

@@ -39,7 +39,7 @@ class LosingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        sound.playSound(sound: Constants.Sounds.tryAgain)
+        sound.playSound(sound: Constants.Sounds.tryAgain)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         smallbackground.layer.cornerRadius = 20 
