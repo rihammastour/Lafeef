@@ -38,6 +38,7 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        GameScene.currentCustomer = 0
       
        
         calcultateIncome()
@@ -73,6 +74,7 @@ class DailyReportViewController: UIViewController {
         
     }
 
+    
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
         if LevelGoalViewController.report.advertismentAmount == 0 {

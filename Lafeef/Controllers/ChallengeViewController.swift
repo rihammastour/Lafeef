@@ -12,8 +12,9 @@ import GameplayKit
 import AVFoundation
 import Vision
 import ARKit
+import Speech
 
-class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
+class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,SFSpeechRecognizerDelegate {
 
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var stopGame: UIButton!
@@ -27,6 +28,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
+    let Game = GameScene()
 
     
     //Scores and Report Variables
@@ -59,6 +61,12 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     var totalBill:Float = 0.0
     var tax:Float = 0.0
+    let audioEngine = AVAudioEngine()
+    let speechRecognizer =  SFSpeechRecognizer(locale: Locale(identifier: "ar_SA"))
+    let request = SFSpeechAudioBufferRecognitionRequest()
+    var recognitionTask: SFSpeechRecognitionTask?
+    var isRecording = false
+    var authorized  = false
     
     //self.stopGame.setBackgroundImage(stopImg, for: UIControl.State.normal)
     
@@ -69,24 +77,132 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ChallengeViewController.levelNum = LevelGoalViewController.report.levelNum
         print( ChallengeViewController.levelNum!)
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene() 
-//
+        requestSpeechAuthorization()
+        startButtonTapped()
 //        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
 //            self.displayLevelGoalViewController()
 //        }
         
         fetchChallengeLevel()
         displayAdvReport()
- 
-        
-        
-        
 
     }
+    
+    func startButtonTapped() {
+        if isRecording == true {
+            cancelRecording()
+            isRecording = false
+        
+        } else {
+            self.recordAndRecognizeSpeech()
+            isRecording = true
+          
+        }
+    }
+    func cancelRecording() {
+        recognitionTask?.finish()
+        recognitionTask = nil
+        
+        // stop audio
+        request.endAudio()
+        audioEngine.stop()
+        audioEngine.inputNode.removeTap(onBus: 0)
+    }
+    
+    func recordAndRecognizeSpeech()-> String {
+        var text = ""
+        let node = audioEngine.inputNode
+        let recordingFormat = node.outputFormat(forBus: 0)
+        node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+            self.request.append(buffer)
+        }
+        audioEngine.prepare()
+        do {
+            try audioEngine.start()
+        } catch {
+//            self.sendAlert(title: "Speech Recognizer Error", message: "There has been an audio engine error.")
+            print(error.localizedDescription)
+            return error.localizedDescription
+             
+        }
+        guard let myRecognizer = SFSpeechRecognizer() else {
+//            self.sendAlert(title: "Speech Recognizer Error", message: "Speech recognition is not supported for your current locale.")
+            print("errr")
+            text = "errror"
+            return text
+        }
+//        if !myRecognizer.isAvailable {
+//            self.sendAlert(title: "Speech Recognizer Error", message: "Speech recognition is not currently available. Check back at a later time.")
+//            // Recognizer is not available right now
+//            return errro.localizedDescription
+//        }
+        recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
+            if let result = result {
+                
+                let bestString = result.bestTranscription.formattedString
+                var lastString: String = ""
+                for segment in result.bestTranscription.segments {
+                    let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
+                    lastString = String(bestString[indexTo...])
+                }
+               text = lastString
+                
+                print(lastString)
+                self.callButton(resultString: lastString)
+            } else if let error = error {
+//                self.sendAlert(title: "Speech Recognizer Error", message: "There has been a speech recognition error.")
+                print(error)
+                text = " error"
+               
+            }
+        })
+        return text
+    }
+    func callButton(resultString: String){
+        switch resultString {
+        case Button.orderButton.rawValue:
+            Game.OrderbuttonTapped()
+            
+            break
+        case Button.paymentButton.rawValue:
+            Game.PaymentbuttonTapped()
+            break
+        default:
+            print("word not found")
+            
+            
+        }
+        
+    }
+    func requestSpeechAuthorization() {
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            OperationQueue.main.addOperation { [self] in
+                switch authStatus {
+                case .authorized:
+                   authorized = true
+                    isRecording = true
+                case .denied:
+                    authorized = false
+                   
+                case .restricted:
+                   authorized = false
+                  
+                case .notDetermined:
+                 authorized = false
+                   
+                @unknown default:
+                    return
+                }
+            }
+        }
+    }
+     
     func displayAdvReport(){
         let defaults = UserDefaults.standard
          let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
