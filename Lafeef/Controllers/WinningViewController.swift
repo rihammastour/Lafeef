@@ -12,7 +12,6 @@ import Cosmos
 class WinningViewController: UIViewController {
     
     var challeangeReport = ChallengeViewController()
-    
  
   
     @IBOutlet weak var Winning: UIView!
@@ -49,7 +48,7 @@ class WinningViewController: UIViewController {
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-        winningView.layer.cornerRadius = 30
+       winningView.layer.cornerRadius = 30
        Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
@@ -91,7 +90,6 @@ class WinningViewController: UIViewController {
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
-   
     }
     @IBAction func nextDay(_ sender: Any) {
         var  levelnum = Int(LevelGoalViewController.report.levelNum)
