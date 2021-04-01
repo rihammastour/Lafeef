@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 struct StoreEquipment: Codable{
-    var type : String
+    var sex : String
     var name:String
     var cost: Float
     var label:String

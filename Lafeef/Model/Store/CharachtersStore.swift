@@ -18,9 +18,4 @@ case orangeGirl
 case blueglassess
 case redGlassess
 
-
-    
-    
-
-
 }

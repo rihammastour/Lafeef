@@ -22,8 +22,9 @@ class StoreViewController: UIViewController {
     
     //Variables
     var money:Float!
-    var bakeryEquipments:[StoreEquipment]?
-    var characterEquipments:[StoreEquipment]?
+    var sex:String!
+    var bakeryEquipments:[StoreEquipment]? = []
+    var characterEquipments:[StoreEquipment]? = []
     
     var tableData:[StoreEquipment]?
     
@@ -33,10 +34,11 @@ class StoreViewController: UIViewController {
         
         // Additional setup after loading the view.
         setUIElements()
-        getChildMoney()
-        fechStoreEquipment()
-
+        getChildData()
         
+        fechStoreEquipment {
+            tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +59,9 @@ class StoreViewController: UIViewController {
         //Style segmented control
         Utilities.styleSegmentedControl(segmentedControlUI)
         
-        tableView.rowHeight = 200
+       // tableView
+        tableView.rowHeight = 180
+        tableView.separatorStyle = .none
         
     }
     
@@ -70,7 +74,7 @@ class StoreViewController: UIViewController {
     
     //MARK:- Functions
     
-    func fechStoreEquipment(){
+    func fechStoreEquipment(completion:()->Void){
         
         //Get bakery Equibments
         FirebaseRequest.getBakeryEquipment(completion: getBakeryEquipmentHandler(_:_:))
@@ -80,14 +84,16 @@ class StoreViewController: UIViewController {
     }
     
     
-    //get child money
-    func getChildMoney(){
+    //get child data
+    func getChildData(){
         
         let child = LocalStorageManager.getChild()
         if let child = child {
             updateMoney(child.money)
+            self.sex = child.sex
         }else{
             self.money = 0
+            self.sex = "unisex"
             print("No Child Found")
             //TODO: Alert and back button..
         }
@@ -139,16 +145,16 @@ class StoreViewController: UIViewController {
     }
     
     ///fetch image
-//    func fetchImage(of name:String) -> NSData?{
-//        var data =
-//        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
-//            if err == nil{
-//                return nil
-//            }else{
-//                return data
-//            }
-//        })
-//    }
+    //    func fetchImage(of name:String) -> NSData?{
+    //        var data =
+    //        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
+    //            if err == nil{
+    //                return nil
+    //            }else{
+    //                return data
+    //            }
+    //        })
+    //    }
     
     
     //Get Bakery Handeler
@@ -179,8 +185,12 @@ class StoreViewController: UIViewController {
             do{
                 //Convert data to type StoreEquipmens
                 let equipmens = try FirebaseDecoder().decode(StoreEquipmens.self, from: data)
-                self.characterEquipments = equipmens.eqippments
-                tableView.reloadData()
+                
+                for eq in equipmens.eqippments{
+                    if sex == eq.sex || eq.sex == "unisex"{
+                        self.characterEquipments?.append(eq)}
+                }
+                
             }catch{
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
@@ -211,12 +221,15 @@ extension StoreViewController : UITableViewDataSource{
         
         let aEquipment = tableData?[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! StoreCell
+
+        cell.contentView.backgroundColor =  UIColor(named: "bachgroundApp")
+        cell.backgroundColor = .none
         
         // Configure cell
         if let aEquipment = aEquipment{
             cell.label.text = aEquipment.label
             cell.equipmentImage.image = UIImage(named: "imagePlaceholder")
-
+            
             FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
                 guard let data = data else{
                     return
@@ -229,8 +242,8 @@ extension StoreViewController : UITableViewDataSource{
             
         }
         return cell
-        
-        
     }
+    
+    
     
 }

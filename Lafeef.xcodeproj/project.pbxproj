@@ -502,6 +502,8 @@
 			isa = PBXGroup;
 			children = (
 				4EEDE0FB25BCF43700CA7B9A /* Extensions */,
+				C9EBE94E261616D100A1A93E /* Contetn Maneger */,
+				C9EBE94D2616168500A1A93E /* Store */,
 				528C66D525E07DBE00AE1B3B /* Customers.swift */,
 				41AA7472260ADBD6002F11AC /* GoalService.swift */,
 				4122DA3A25DB926F00DABB29 /* CustomerNode.swift */,
@@ -519,7 +521,6 @@
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
 				41F4C23F25D0AB72000D4064 /* levelInfo.swift */,
 				C92A66F825CE91160060AA53 /* User.swift */,
-				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
 				41BE5A1525E09E2D00EA834F /* LevelReportData.swift */,
 				C96B65FF25D83C3F00A9043E /* PositionTopping.swift */,
 				4129EDEF25E1978B0028C86C /* CompletedLevel.swift */,
@@ -534,12 +535,7 @@
 				C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */,
 				C92CFD8225E419CB007DD3B5 /* Answer.swift */,
 				41314C4425F5F6800022FA0B /* DailyReport.swift */,
-				C9241FB4260E9E4E003635E8 /* AddStoreEquipment.swift */,
-				C9241FB8260E9E4F003635E8 /* BackeryStore.swift */,
-				C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */,
 				C9241FB6260E9E4E003635E8 /* ChildPrefrences .swift */,
-				C9241FB7260E9E4F003635E8 /* Store.swift */,
-				C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -578,6 +574,26 @@
 				C9908C922613760800B4F394 /* StoreCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C9EBE94D2616168500A1A93E /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C9241FB7260E9E4F003635E8 /* Store.swift */,
+				C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */,
+				C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */,
+				C9241FB8260E9E4F003635E8 /* BackeryStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		C9EBE94E261616D100A1A93E /* Contetn Maneger */ = {
+			isa = PBXGroup;
+			children = (
+				C9241FB4260E9E4E003635E8 /* AddStoreEquipment.swift */,
+				C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */,
+			);
+			path = "Contetn Maneger";
 			sourceTree = "<group>";
 		};
 		E3CA613ED32609BDDAB603CE /* Frameworks */ = {
