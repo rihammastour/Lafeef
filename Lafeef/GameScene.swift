@@ -95,6 +95,8 @@ class GameScene: SKScene {
     
     
     override func sceneDidLoad() {
+    
+        
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         setupSceneElements()
@@ -938,10 +940,13 @@ class GameScene: SKScene {
     //MARK:- Buttons Tapped methods
     
     func OrderbuttonTapped(button:String){
+        Voice2ViewController.flag = true
         print("inside order")
+
     checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
+        Voice2ViewController.flag = true 
 //        hideDetectionOverlay()
         PaymentButton.isHidden = true
         checkPaymentAnswer()
