@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     let formatter = NumberFormatter()
     let  sound = SoundManager()
     let alertservice = AlertService()
+    let voice = VoiceViewController()
     
 
     
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        voice.startButtonTapped()
         formatter.locale = Locale(identifier: "ar")
         //  sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.

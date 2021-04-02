@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import Speech
 
 class GameScene: SKScene {
     
@@ -15,6 +16,10 @@ class GameScene: SKScene {
     //MARK: Variables
     let alert = AlertService()
     let formatter = NumberFormatter()
+    let voice2 = Voice2ViewController()
+
+    var text = ""
+ 
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -84,15 +89,22 @@ class GameScene: SKScene {
     static var secondAdv : SKSpriteNode?
     
     var viewController2: UIViewController?
+    
+   
     //MARK: - Lifecycle Functons
+    
     
     override func sceneDidLoad() {
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         setupSceneElements()
         setUpCharacters()
+     
+        
+    
     }
     
+
     
     override func didMove(to view: SKView) {
         backgroundColor = .white
@@ -599,36 +611,36 @@ class GameScene: SKScene {
     
     // OrderbuttonTapped
     func checkOrderAnswer(){
-        OrderButton.isHidden = true
+    OrderButton.isHidden = true
         
         // Get answers provided
-        let answer = (viewController?.objectDetected?.getAnswer())!
+    let answer = (viewController?.objectDetected?.getAnswer())!
         
         //Handling detection overlay
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
         Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         
         //make order invisible
-        hideOrder()
+    self.hideOrder()
         
         //check base if provided
         if answer.base == nil {
-            customerDone()
+         customerDone()
             customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
+             nextCustomer()}
             return
         }
         
         //Calculate the Scores
         viewController?.calculateOrderScore(for: answer)
-        let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
+    let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
         
         //Bill calculation
         viewController?.calculateTotalBill(for: answer)
         viewController?.calculateTotalBillWithTax(for: answer)
-        viewController?.showBill()
-        self.paymentContainer?.isHidden = false
+    viewController?.showBill()
+    paymentContainer?.isHidden = false
 
         
         //Walk to cashire and react
@@ -925,8 +937,9 @@ class GameScene: SKScene {
     }
     //MARK:- Buttons Tapped methods
     
-    func OrderbuttonTapped(){
-        checkOrderAnswer()
+    func OrderbuttonTapped(button:String){
+        print("inside order")
+    checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
 //        hideDetectionOverlay()
@@ -991,7 +1004,7 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             
             if OrderButton.contains(location) {
-                OrderbuttonTapped()
+                OrderbuttonTapped(button: "x")
             }
             if PaymentButton.contains(location) {
                 PaymentbuttonTapped()

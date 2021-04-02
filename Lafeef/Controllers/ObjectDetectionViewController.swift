@@ -30,7 +30,7 @@ class ObjectDetectionViewController: ChallengeViewController{
       private var requests = [VNRequest]()
 
     static var shapeLayer = CALayer()
- 
+// var voice = VoiceViewController()
 
     
     @discardableResult
@@ -145,7 +145,9 @@ class ObjectDetectionViewController: ChallengeViewController{
       }
       
       override func setupAVCapture() {
+     
           super.setupAVCapture()
+        
           
           // setup Vision parts
           setupLayers()
