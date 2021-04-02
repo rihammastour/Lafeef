@@ -39,6 +39,8 @@ class ProfileViewController: UIViewController {
         
         //Get Child Data
         getChildData()
+        
+        RegisterObserver(for:"child")
     }
     
     
@@ -103,7 +105,7 @@ class ProfileViewController: UIViewController {
     //Email
     func setAge(_ age:String) {
         // Get range based on the string index.
-        let ageYearSub = age.index(age.startIndex, offsetBy: 4)..<age.endIndex
+        let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
         // Access substring from range.
         print(year)
         let ageYear = age[ageYearSub]
@@ -115,6 +117,40 @@ class ProfileViewController: UIViewController {
         
         
         AgeLable.text = "العمر |\(String(calculateAge))"
+    }
+    
+    //Fetch Child info from db
+        func feachUserData(){
+    
+            let userId = FirebaseRequest.getUserId()
+            FirebaseRequest.getChildData(for: userId!) { (data, err) in
+                if err != nil{
+                    print("Home View Controller",err!)
+                     if err?.localizedDescription == "Failed to get document because the client is offline."{
+                        print("تأكد من اتصال الانترنيت")
+                        //TODO: Alert and update button and logout
+                    }
+    
+                }else{
+                    let child = data!
+                    self.setUIChildInfo(child as! Child)
+                }
+            }
+    
+        }
+    
+    //Register key value to be observed
+    func RegisterObserver(for key:String){
+        
+        UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
+    }
+    
+    //Observe Handlere
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "child" {
+            getChildData()
+        }
     }
     
     @IBAction func logOutAction(sender: AnyObject) {

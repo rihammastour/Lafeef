@@ -10,7 +10,9 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
-class EditProfileViewConroller: UIViewController {
+class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
+    
+    let datePicker = UIDatePicker()
     
     @IBOutlet weak var NameTextField: UITextField!
     
@@ -33,6 +35,9 @@ class EditProfileViewConroller: UIViewController {
     @IBOutlet weak var back: UIButton!
     
     @IBOutlet weak var ProfilePic: UIImageView!
+    
+    
+    @IBOutlet weak var ChangePasword: UIButton!
     var db: Firestore!
     let year = Calendar.current.component(.year, from: Date())
     let formatter: NumberFormatter = NumberFormatter()
@@ -52,8 +57,17 @@ class EditProfileViewConroller: UIViewController {
         yearTextfield.layer.cornerRadius = yearTextfield.frame.size.height/2
         yearTextfield.clipsToBounds = true
         
+        
+        ChangePasword.layer.cornerRadius = ChangePasword.frame.size.height/2
         //Get Child Data
         getChildData()
+        
+        monthTextfield.delegate = self
+        dayTextfield.delegate = self
+        yearTextfield.delegate = self
+        
+        createDatePicker()
+        
         
 
     }
@@ -121,9 +135,12 @@ class EditProfileViewConroller: UIViewController {
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
-            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
+            ProfilePic.image = UIImage(named: "BoyWithCircle")
+            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
         }else{
-            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
+            ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
+        }
     }
     
 //    func setImageToChange(_ sex:String){
@@ -137,7 +154,7 @@ class EditProfileViewConroller: UIViewController {
     //set birthday
     func setAge(_ age:String) {
         // Get range based on the string index.
-        let ageYearSub = age.index(age.startIndex, offsetBy: 4)..<age.endIndex
+        let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
         // Access substring from range.
         print(year)
         let ageYear = age[ageYearSub]
@@ -147,13 +164,117 @@ class EditProfileViewConroller: UIViewController {
         let calculateAge = year-convertAge
         print(calculateAge)
         
-        yearTextfield.placeholder = age.substring(with: 4..<8)
-        monthTextfield.placeholder = age.substring(with: 2..<3)
-        dayTextfield.placeholder = age.substring(with: 0..<1)
+        yearTextfield.placeholder = age.substring(with: 6..<10)
+        monthTextfield.placeholder = age.substring(with: 3..<5)
+        dayTextfield.placeholder = age.substring(with: 0..<2)
        // AgeLable.text = "العمر |\(String(calculateAge))"
+    }
+    
+    
+    //Datepicker
+    @objc func datePickerValueChange(sender:UIDatePicker){
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        yearTextfield.text =  formatter.string(from: components.year! as NSNumber)
+        monthTextfield.text = formatter.string(from: components.month! as NSNumber)
+        dayTextfield.text = formatter.string(from: components.day! as NSNumber)
+//        errorLabel.isHidden = true
+//        isValidated = true
+    }
+    
+    func createDatePicker(){
+       datePicker.locale = Locale(identifier: "ar")
+       datePicker.preferredDatePickerStyle = .wheels
+       datePicker.datePickerMode = .date
+       datePicker.semanticContentAttribute = .forceRightToLeft
+       datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
+       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -20, to: Date())
+       datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
+       datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.barStyle = UIBarStyle.default
+           toolBar.isTranslucent = true
+           toolBar.tintColor = UIColor.black
+           toolBar.sizeToFit()
+       
+       let doneButton = UIBarButtonItem(title: "تم", style: UIBarButtonItem.Style.done, target: self, action: #selector(doneDatePickerPressed))
+       let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+       
+       let cancelButton = UIBarButtonItem(title: "إلغاء", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelDatePickerPressed))
+
+       toolBar.setItems([ cancelButton, spaceButton,doneButton], animated: false)
+       toolBar.isUserInteractionEnabled = true
+   
+        yearTextfield.inputAccessoryView = toolBar
+        monthTextfield.inputAccessoryView = toolBar
+        dayTextfield.inputAccessoryView = toolBar
+        yearTextfield.inputView = datePicker
+        monthTextfield.inputView = datePicker
+        dayTextfield.inputView = datePicker
+    }
+    
+    @objc func doneDatePickerPressed(){
+       self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePickerPressed(){
+       self.view.endEditing(true)
+        
+       yearTextfield.text = ""
+       monthTextfield.text = ""
+       dayTextfield.text = ""
+      // isValidated = false
     }
     @IBAction func changePic(_ sender: Any) {
         
+        if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
+    
+            ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
+
+
+           // ProfilePic.image = UIImage(named: "GirlWithCircle")
+            
+        }else{
+            ProfilePic.image = UIImage(named: "BoyWithCircle")
+            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
+        }
+        
+        
+        }
+    @IBAction func changeInfo(_ sender: Any) {
+        var newName = NameTextField!.text!
+        if(!(newName=="")){
+        updateName(newName)
+        }
+        
+        var month = monthTextfield.text!
+        var day = dayTextfield.text!
+        if(!(day==""&&month=="")){
+          
+            if (dayTextfield.text!.count<2){
+                day = "٠"+dayTextfield.text!
+            }
+            if (monthTextfield.text!.count<2){
+                month = "٠"+monthTextfield.text!
+            }
+            var newBOD = day+"-"+month+"-"+yearTextfield.text!
+            updateBOD(newBOD)
+            
+        }
+       
+        var sex = ""
+        if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
+            sex="boy"
+        }else{
+            sex="girl"
+        }
+        updateSex(sex)
+        
+//        var newImage = NameTextField!.text!
+//        updateName(newName)
         }
      
         
@@ -172,13 +293,51 @@ class EditProfileViewConroller: UIViewController {
             
         }
     
-    func buyItem(_ cost:Float){
+    func updateName(_ newName:String){
+            FirebaseRequest.updateName(newName) { (success, errore) in
+                if !success{
+                    //Purches won't complated
+                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    
+                }else{
+                    self.setName(newName)
+                }
+            }
+        }
+    
+    func updateBOD(_ newDOB:String){
+     
         
-//        FirebaseRequest.updateMoney(4.6)
+            FirebaseRequest.updateDOB(newDOB) { (success, errore) in
+                if !success{
+                    //Purches won't complated
+                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    
+                }else{
+                    self.setAge(newDOB)
+                }
+            }
+        }
+    func updateSex(_ newSex:String){
+     
         
-    }
+            FirebaseRequest.updateSex(newSex) { (success, errore) in
+                if !success{
+                    //Purches won't complated
+                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    
+                }else{
+                    self.setImage(newSex)
+                }
+            }
+        }
+        
+    
+       
+  
+
     //اه
-}
+}//end class
 extension String {
     func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)

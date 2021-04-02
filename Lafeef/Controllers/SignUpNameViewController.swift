@@ -169,9 +169,10 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
           }
       }
     
+    
     func transition(){
-        let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
-        
+        let storyboard = UIStoryboard(name: "instructions", bundle: nil)
+        let homeNavigationController =   storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.guidanceInstructionViewController) as!GuidanceInstructionsViewController
         view.window?.rootViewController = homeNavigationController
         view.window?.makeKeyAndVisible()
     }
