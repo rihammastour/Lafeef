@@ -71,7 +71,7 @@ class FirebaseRequest{
         do {
             try db.collection("challenge").document(levelNum).setData(from: level)
         } catch let error {
-            print("Error writing city to Firestore: \(error)")
+            print("Error writing level to Firestore: \(error)")
         }
     }
     
@@ -83,8 +83,18 @@ class FirebaseRequest{
         } catch var err {
             print("error while passing data", err)
         }
-
-  
+    }
+    
+    
+    //Set Challenge level
+    static func addQuestion(section: TrainingSections, questions:Questions, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
+        
+        // Add a new document in collection "training"
+        do {
+            try db.collection("training").document(section.rawValue).setData(from: questions)
+        } catch let error {
+            print("Error writing training question to Firestore: \(error)")
+        }
     }
     
     //MARK: - Get Document Firestore
@@ -194,9 +204,30 @@ class FirebaseRequest{
                           }
                       }
                   }
-        
-        
         }
+    
+    
+    //Get Training Questions Data
+    static func getTrainingQuestionsData(for section:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+        
+        db.collection("training").document(section)
+            .getDocument { (response, error) in
+                
+                guard let document = response else {
+                    completion(nil,error)
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document empty")
+                    return
+                }
+                
+                //Featch changers successfully
+                print("data in fetch user data ",data)
+                completion(data,nil)
+                
+            }
+    }
 
     //MARK: -Firebase Update
     

@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyGif
+import CodableFirebase
 
 class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
 
@@ -17,7 +18,6 @@ class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Additional setup after loading the view.
         setUpElements()
 
@@ -30,6 +30,7 @@ class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
         //Styling Buttons
         Utilities.styleFilledButton(logInButton, color: "whiteApp")
         Utilities.styleFilledButton(signUpButton, color: "whiteApp")
+        
     }
 
 }
