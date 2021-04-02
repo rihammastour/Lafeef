@@ -404,7 +404,7 @@ PODS:
   - LayoutHelper (1.0.0)
   - leveldb-library (1.22)
   - lottie-ios (3.2.1)
-  - MaterialShowcase (0.8.0)
+  - MaterialShowcase (0.7.3)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -522,7 +522,7 @@ SPEC CHECKSUMS:
   LayoutHelper: fd809f52e0ae583f7576bf5d2af8248b5c3ec4d0
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
-  MaterialShowcase: 0c0cef713a6504cd2a76a5d047bcb2787944a318
+  MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
