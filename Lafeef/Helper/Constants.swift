@@ -24,6 +24,7 @@ struct Constants {
         static let dailyReportViewController = "DailyReportVC"
         static let advReportViewController = "AdvReportVC"
         static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
+        static let TrainingBoardViewController = "TrainingBoard2VC"
     }
     
     struct Segue {

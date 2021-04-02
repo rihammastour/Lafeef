@@ -114,6 +114,7 @@
 		C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD8225E419CB007DD3B5 /* Answer.swift */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C961FA7B25CEEC5800D5A473 /* AnimatedSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */; };
+		C9646E582616BD01008FB6C7 /* TrainingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */; };
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
@@ -263,6 +264,7 @@
 		C92CFD8225E419CB007DD3B5 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSplashViewController.swift; sourceTree = "<group>"; };
+		C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoardViewController.swift; sourceTree = "<group>"; };
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
@@ -358,6 +360,7 @@
 				41F4C24C25D0AD01000D4064 /* LosingViewController.swift */,
 				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
 				C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */,
+				C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
 				4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
+				C9646E582616BD01008FB6C7 /* TrainingBoardViewController.swift in Sources */,
 				C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */,
 				4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
