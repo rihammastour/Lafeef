@@ -51,6 +51,10 @@ struct Constants {
         static let showChalleange = "showChalleange"
         static let goToChalleange =  "goToChalleange"
         static let goToTraining = "goToTraining"
+        static let goToStore = "goToStore"
+        static let goToHome = "goToHome"
+      
+        
         
         
     }

@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
+                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -256,6 +256,9 @@
                                 <state key="normal">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                 </state>
+                                <connections>
+                                    <action selector="store:" destination="lXH-ms-ACN" eventType="touchUpInside" id="4Ib-1T-2ab"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NDV-bo-kYe"/>
@@ -290,6 +293,7 @@
                         <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8sL-cd-Nm3"/>
                         <segue destination="r3Z-wc-CCP" kind="show" identifier="goToChalleange" id="0Uc-fX-jXA"/>
                         <segue destination="aSd-Ie-oQ0" kind="show" identifier="goToTraining" id="T41-ik-vXx"/>
+                        <segue destination="yXw-yV-vtD" kind="show" identifier="goToStore" id="qjQ-3C-Vup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -584,7 +588,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fBs-5G-GmW"/>
+        <segue reference="8sL-cd-Nm3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="EditButton" width="82" height="80"/>

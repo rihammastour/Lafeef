@@ -1891,7 +1891,7 @@
                                 <rect key="frame" x="26" y="33" width="22" height="38"/>
                                 <state key="normal" image="arrow-back"/>
                                 <connections>
-                                    <segue destination="pXs-pi-cFz" kind="presentation" modalPresentationStyle="fullScreen" id="PaR-CF-qOK"/>
+                                    <action selector="Home:" destination="HzJ-NT-MwY" eventType="touchUpInside" id="SJl-Kf-NdA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1942,6 +1942,7 @@
                         <outlet property="levelTwoStar" destination="Spz-PF-FjN" id="KVE-Y2-mFZ"/>
                         <outlet property="levelTwoView" destination="S5u-tG-DbZ" id="asY-mc-jQn"/>
                         <outlet property="leveloneOutlet" destination="12m-Og-spc" id="cfD-pr-07K"/>
+                        <segue destination="pXs-pi-cFz" kind="show" identifier="goToHome" id="Yd2-pL-jnW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFd-z3-ATZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1959,20 +1960,6 @@
             <point key="canvasLocation" x="5584" y="331"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="a1P-yM-dNz"/>
-        <designable name="bc4-5G-xck"/>
-        <designable name="oxU-30-E9o"/>
-        <designable name="prC-iW-nvL">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="tlW-4g-FSH">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="uGp-mX-XVM">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="n6i-xY-u6l"/>
         <segue reference="YZe-8C-kOq"/>

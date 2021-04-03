@@ -265,7 +265,11 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
           super.didReceiveMemoryWarning()
           //...
       }
+    
+    @IBAction func Home(_ sender: Any) {
+        self.performSegue(withIdentifier: Constants.Segue.goToHome, sender: self)
     }
+}
 
 
 

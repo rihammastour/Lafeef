@@ -22,7 +22,9 @@ class SoundManager{
             /* iOS 10 and earlier require the following line:
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
 
-            guard let player = player else { return }
+            guard let player = player else {
+                print("eror in sounds")
+                return }
 
             player.play()
        

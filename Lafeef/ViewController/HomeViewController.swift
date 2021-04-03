@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     let formatter = NumberFormatter()
     let  sound = SoundManager()
     let alertservice = AlertService()
-    let voice = VoiceViewController()
+
     
 
     
@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        voice.startButtonTapped()
+//
         formatter.locale = Locale(identifier: "ar")
         sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.
@@ -219,7 +219,18 @@ class HomeViewController: UIViewController {
       sound.playSound(sound: Constants.Sounds.train)
 }
 
+    @IBAction func store(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.56) {
+  self.performSegue(withIdentifier: Constants.Segue.goToStore, sender: self)
+//
+      }
+
+    
+      sound.playSound(sound: Constants.Sounds.store)
 }
+}
+
 
 //MARK: - Extention
 public extension UIView {
