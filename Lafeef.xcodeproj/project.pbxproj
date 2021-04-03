@@ -97,6 +97,7 @@
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
 		C9081C3625D9858400B19998 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C3525D9858400B19998 /* Base.swift */; };
+		C916EC5D2618D0F40076CE1C /* TrainingSection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */; };
 		C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */; };
 		C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659425CB3F4F0060AA53 /* HomeViewController.swift */; };
 		C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */; };
@@ -248,6 +249,7 @@
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingSection.storyboard; sourceTree = "<group>"; };
 		C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOrLoginViewController.swift; path = Lafeef/ViewController/SignUpOrLoginViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -407,6 +409,7 @@
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				4E0ED73825CC71E500247B27 /* HomeView.storyboard */,
 				C9AB67D5260ACD57005E373E /* instructions.storyboard */,
+				C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4EFA24B125EE208500A17868 /* Color.xcassets */,
@@ -690,6 +693,7 @@
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EDFA44625EAF46300924569 /* NWOrange.atlas in Resources */,
+				C916EC5D2618D0F40076CE1C /* TrainingSection.storyboard in Resources */,
 				C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */,
 				4EDFA44B25EAF46300924569 /* NWPear.atlas in Resources */,
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
