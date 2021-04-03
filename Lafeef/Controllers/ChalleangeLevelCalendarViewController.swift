@@ -200,10 +200,6 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                 }
                 levelThreeLabel.text = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
                 levelThreeStar.isHidden = false
-               
-                    
-
-
                 break
 
 

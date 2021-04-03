@@ -17,6 +17,9 @@ class DailyReportViewController: UIViewController {
     var  childId :String?
     var home = HomeViewController()
     let  sound = SoundManager()
+    var alertService = AlertService()
+    var childInfo : Child?
+    var flag = false
  
    
     
@@ -38,6 +41,7 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GameScene.currentCustomer = 0
       
        
         calcultateIncome()
@@ -59,8 +63,8 @@ class DailyReportViewController: UIViewController {
     func updatemoneyLabel(){
         GameScene.setMoneyLabel(LevelGoalViewController.report.collectedMoney)
         var child = LocalStorageManager.getChild()
-        child?.money = LevelGoalViewController.report.collectedMoney
-        child?.score = Int(LevelGoalViewController.report.collectedScore)
+        child?.money += LevelGoalViewController.report.collectedMoney 
+        child?.score += Int(LevelGoalViewController.report.collectedScore)
         var levelnum = Int(LevelGoalViewController.report.levelNum)
         if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
            
@@ -69,10 +73,32 @@ class DailyReportViewController: UIViewController {
         }else{
               child?.currentLevel = levelnum!
         }
-        LocalStorageManager.setChild(child!)
+        getChildData()
+       
+        
+//        LocalStorageManager.setChild(child!)
         
     }
-
+    func getChildData(){
+        let child = LocalStorageManager.getChild()
+        
+        if let child = child {
+            childInfo = child
+            
+        }else{
+            print("No Child Found")
+            self.present(self.alertService.Alert(body: "لايوجد مستخدم"),animated:true)
+           
+            //TODO: Alert..
+            updateChildInfo()
+            // need to complete
+            
+        }
+    }
+    func updateChildInfo(){
+        
+        
+    }
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
         if LevelGoalViewController.report.advertismentAmount == 0 {
@@ -146,8 +172,8 @@ class DailyReportViewController: UIViewController {
         }
     // Assert data to firestore
     func passReportData(){
-        print(FirebaseRequest.getUserId(),"idd")
-        let ReportData = LevelReportData(levelNum:LevelGoalViewController.report.levelNum, collectedMoney: Int(LevelGoalViewController.report.collectedMoney + LevelGoalViewController.report.advertismentAmount + Float(LevelGoalViewController.report.reward)), collectedScore: LevelGoalViewController.report.collectedScore, isPassed: LevelGoalViewController.report.isPassed)
+    
+        let ReportData = LevelReportData(levelNum:LevelGoalViewController.report.levelNum, collectedMoney: Float(LevelGoalViewController.report.collectedMoney + LevelGoalViewController.report.advertismentAmount + Float(LevelGoalViewController.report.reward)), collectedScore: LevelGoalViewController.report.collectedScore, isPassed: LevelGoalViewController.report.isPassed)
 
       
         FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
@@ -155,27 +181,30 @@ class DailyReportViewController: UIViewController {
                 do{
            let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
                     self.setCompletedLevel(completed: level)
-                    print("completedlevel")
-                    print(completedLevel.reportData.count,"count")
+                 
                     
                     let levelnum = LevelGoalViewController.report.levelNum
                     print(levelnum)
-                    print(self.completedLevel.reportData.count ,"count")
+                  
                     if completedLevel.reportData.count == 1 &&
                         completedLevel.reportData.first?.isPassed == false{
                         let array = [ReportData]
                         self.completedLevel = CompletedLevel(reportData: array)
                         print("first if ")
-                    }else if (completedLevel.reportData.count == Int(levelnum)){
-                        print("second if ")
+                         // the first time
+                        // overrite
+                    }else {
                         for var report in completedLevel.reportData{
                             if report.levelNum == levelnum{
-                           report = ReportData
+                                report = ReportData
+                                flag = true
+                              
                             }
                         }
-                    }else{
+                    }
+                        if !flag{
                         self.completedLevel.reportData.append(ReportData)
-                        }
+                    }
 
                     FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
                     if (err != nil){
@@ -197,9 +226,16 @@ class DailyReportViewController: UIViewController {
                 print("error")
 
             }
+            
+     
         }
+    
  
 
+    }
+   
+    func updateScoreSum(){
+        
     }
     func getChildId(){
         self.childId =  FirebaseRequest.getUserId() ?? ""

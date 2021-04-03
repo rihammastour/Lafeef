@@ -44,12 +44,12 @@ class WinningViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-//        sound.playSound(sound: Constants.Sounds.present)
+        sound.playSound(sound: Constants.Sounds.reward)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-       winningView.layer.cornerRadius = 30
-       Winning.layer.cornerRadius = 30
+        winningView.layer.cornerRadius = 30
+        Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
         scoreView.layer.cornerRadius = 20

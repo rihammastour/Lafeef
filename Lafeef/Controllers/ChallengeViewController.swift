@@ -30,7 +30,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var money:[Money]?
     var alert = AlertService()
     var voice = Voice2ViewController()
-
+    let sound = SoundManager()
   
 
     
@@ -82,7 +82,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene()
-      voice.recordButtonTapped()
+//      voice.recordButtonTapped()
 
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
@@ -171,6 +171,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func presentAdvReport(){
+        sound.playSound(sound: Constants.Sounds.advertisment)
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
         let advVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.advReportViewController) as! AdvReportViewController
         advVC.scene = ChallengeViewController.challengeScen
@@ -201,7 +202,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
+        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
         do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
             
@@ -369,6 +370,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             ChallengeViewController.currentOrder = ChallengeViewController.currentOrder + 1
             showOrder(at: ChallengeViewController.currentOrder)
         }else{
+            levlEnd()
             //TODO:End Level
         }
     }
@@ -557,7 +559,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //check if child pass the level
     func checkLevelPassed(){
-        if LevelGoalViewController.report.collectedScore > 20.0 {
+        if LevelGoalViewController.report.collectedScore >= 50.0 {
             LevelGoalViewController.report.isPassed = true
         }else{
             LevelGoalViewController.report.isPassed  = false

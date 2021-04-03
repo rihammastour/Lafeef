@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         voice.startButtonTapped()
         formatter.locale = Locale(identifier: "ar")
-        //  sound.playSound(sound: Constants.Sounds.hello)
+        sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.
 
     //Style elemnts
@@ -163,6 +163,7 @@ class HomeViewController: UIViewController {
         }else{
             print("No Child Found")
             self.present(self.alertservice.Alert(body: "لايوجد مستخدم"),animated:true)
+           
             //TODO: Alert..
             
         }
@@ -205,7 +206,7 @@ class HomeViewController: UIViewController {
       }
 
     
-//        sound.playSound(sound: Constants.Sounds.Challeange)
+      sound.playSound(sound: Constants.Sounds.challeange)
 }
     @IBAction func train(_ sender: Any) {
         
@@ -215,7 +216,7 @@ class HomeViewController: UIViewController {
       }
 
     
-//        sound.playSound(sound: Constants.Sounds.Training)
+      sound.playSound(sound: Constants.Sounds.train)
 }
 
 }
