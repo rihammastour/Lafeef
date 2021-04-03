@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,43 +15,39 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-Qx-TDH">
-                    <rect key="frame" x="87" y="333" width="594" height="446"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-2y-wfM">
+                    <rect key="frame" x="87" y="275.5" width="594" height="473.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2JG-5Z-Bh8">
-                            <rect key="frame" x="0.0" y="0.0" width="594" height="183"/>
+                            <rect key="frame" x="0.0" y="0.0" width="594" height="399"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNj-V7-Z77">
-                            <rect key="frame" x="99.5" y="263" width="395" height="183"/>
+                            <rect key="frame" x="276.5" y="453" width="41.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="SNj-V7-Z77" firstAttribute="leading" secondItem="7Hx-Qx-TDH" secondAttribute="leading" constant="99.5" id="LX2-lg-jdi"/>
-                        <constraint firstItem="2JG-5Z-Bh8" firstAttribute="leading" secondItem="7Hx-Qx-TDH" secondAttribute="leadingMargin" id="fR4-fP-HJm"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="bachgroundApp"/>
             <constraints>
-                <constraint firstItem="7Hx-Qx-TDH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="87" id="2NQ-Zo-Fd7"/>
-                <constraint firstItem="7Hx-Qx-TDH" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9Lo-Zz-ImE"/>
-                <constraint firstItem="7Hx-Qx-TDH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="289" id="AQD-wW-haN"/>
-                <constraint firstItem="7Hx-Qx-TDH" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="VQ7-gH-mtX"/>
+                <constraint firstItem="9qa-2y-wfM" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.773438" id="5Yc-l8-uRX"/>
+                <constraint firstItem="9qa-2y-wfM" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.462402" id="Uxw-xL-bdK"/>
+                <constraint firstItem="9qa-2y-wfM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ejA-IL-NYe"/>
+                <constraint firstItem="9qa-2y-wfM" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="lZL-PE-J1p"/>
             </constraints>
             <connections>
                 <outlet property="slideImage" destination="2JG-5Z-Bh8" id="38r-no-bCI"/>
                 <outlet property="slideLabel" destination="SNj-V7-Z77" id="bga-Iy-pvv"/>
             </connections>
-            <point key="canvasLocation" x="-130" y="74"/>
+            <point key="canvasLocation" x="-130.46875" y="73.828125"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="bachgroundApp">
+            <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>
