@@ -133,6 +133,7 @@
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
 		C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */; };
+		C9EBE9572618E29700A1A93E /* ChildEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EBE9562618E29600A1A93E /* ChildEquipment.swift */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 		C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -287,6 +288,7 @@
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
 		C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareOrderController.swift; sourceTree = "<group>"; };
+		C9EBE9562618E29600A1A93E /* ChildEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildEquipment.swift; sourceTree = "<group>"; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 				C9241FB9260E9E4F003635E8 /* StoreEquipment.swift */,
 				C9241FB5260E9E4E003635E8 /* CharachtersStore.swift */,
 				C9241FB8260E9E4F003635E8 /* BackeryStore.swift */,
+				C9EBE9562618E29600A1A93E /* ChildEquipment.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -989,6 +992,7 @@
 				C9241FBB260E9E4F003635E8 /* CharachtersStore.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
 				411091CE25E4986F0035FACF /* Answer.swift in Sources */,
+				C9EBE9572618E29700A1A93E /* ChildEquipment.swift in Sources */,
 				C92A65AF25CB3FA00060AA53 /* Utilities.swift in Sources */,
 				C9241FBC260E9E4F003635E8 /* ChildPrefrences .swift in Sources */,
 				C92A65E925CB44050060AA53 /* Constants.swift in Sources */,

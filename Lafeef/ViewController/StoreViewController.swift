@@ -21,8 +21,9 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //Variables
-    var money:Float!
-    var sex:String!
+    var money:Float! = 0
+    var sex:String! = "unisex"
+    var childEquipment:[ChildEquipment]? = nil
     var bakeryEquipments:[StoreEquipment]? = []
     var characterEquipments:[StoreEquipment]? = []
     
@@ -31,7 +32,7 @@ class StoreViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Additional setup after loading the view.
         setUIElements()
         getChildData()
@@ -59,9 +60,10 @@ class StoreViewController: UIViewController {
         //Style segmented control
         Utilities.styleSegmentedControl(segmentedControlUI)
         
-       // tableView
+        //Style tableView
         tableView.rowHeight = 180
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         
     }
     
@@ -88,32 +90,54 @@ class StoreViewController: UIViewController {
     func getChildData(){
         
         let child = LocalStorageManager.getChild()
+        
         if let child = child {
             updateMoney(child.money)
             self.sex = child.sex
         }else{
-            self.money = 0
-            self.sex = "unisex"
-            print("No Child Found")
-            //TODO: Alert and back button..
+            //TODO : Alert and back
         }
+        
+        //Get Child Prefrences
+        FirebaseRequest.getChildEquipments { (data, err) in
+            if data != nil {
+                print("Data     ",data)
+                do{
+                    let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
+                    self.childEquipment = equipments
+                }catch{
+                    print("Incorrect Format")
+                }
+            }else{
+                print("error")
+            }
+        }
+        print("dddddddd ",self.childEquipment)
         
     }
     
-    //Buy Item
-    func buyItem(_ cost:Float){
+    ///Buy Item
+    func buyItem(_ aEquipment:StoreEquipment){
         
-        let leftMoney = self.money - cost
+        let leftMoney = self.money - aEquipment.cost
         
-        if leftMoney >= 0 {
+        if leftMoney >= 0{
+            FirebaseRequest.addEquipment(aEquipment) { (success, errore) in
+                if !success{
+                    //Purches won't complated
+                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    return
+                }
+            }
+            
             FirebaseRequest.updateMoney(leftMoney) { (success, errore) in
                 if !success{
                     //Purches won't complated
                     self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
-                    
                 }else{
                     self.updateMoney(leftMoney)
                 }
+                
             }
         }else{
             //Not enughe money to buy
@@ -122,8 +146,43 @@ class StoreViewController: UIViewController {
         
     }
     
+//    func isPurched(_ item:StoreEquipment) -> Bool{
+//
+//        if let equipments = self.purchesedEquipment  {
+//            if equipments.index(forKey: item.name) != nil{
+//                return true
+//            }
+//        }
+//        return false
+//    }
+//
+//    func isInUse(_ item:StoreEquipment)->Bool{
+//
+//        if let equipments = self.purchesedEquipment  {
+//            guard let inUse = equipments[item.name] else {
+//                return false
+//            }
+//            if inUse == 1 {
+//                return true
+//            }else{
+//                return false
+//            }
+//        }
+//        return false
+//    }
     
+   
+//    guard let index = equipments.firstIndex(of: item.name) else {
+//        return false }
+//
+//    return equipments[index].inUse
     //MARK: - @IBAcation
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
     @IBAction func didChangeSegment(_ sender:UISegmentedControl){
         
         if sender.selectedSegmentIndex == 0{
@@ -133,6 +192,15 @@ class StoreViewController: UIViewController {
             tableData = self.bakeryEquipments
             tableView.reloadData()
         }
+    }
+    
+    @objc func itemTapped(_ sender: UIButton){
+        
+      // use the tag of button as index
+        let aEquipment = tableData?[sender.tag]
+        buyItem(aEquipment!)
+//        if(!isPurched(aEquipment!)){
+//            buyItem(aEquipment!)}
     }
     
     //MARK: - Dalegate
@@ -221,15 +289,21 @@ extension StoreViewController : UITableViewDataSource{
         
         let aEquipment = tableData?[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! StoreCell
-
+        
         cell.contentView.backgroundColor =  UIColor(named: "bachgroundApp")
-        cell.backgroundColor = .none
+        cell.backgroundColor = .clear
         
         // Configure cell
         if let aEquipment = aEquipment{
+            
             cell.label.text = aEquipment.label
             cell.equipmentImage.image = UIImage(named: "imagePlaceholder")
+
+            ///Register Button to handelr
+            cell.button.tag = indexPath.row
+            cell.button.addTarget(self, action: #selector(itemTapped(_:)), for: .touchUpInside)
             
+            ///Get Image
             FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
                 guard let data = data else{
                     return

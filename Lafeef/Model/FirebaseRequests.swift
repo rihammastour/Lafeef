@@ -28,16 +28,15 @@ class FirebaseRequest{
     //MARK: - Set Document Firestore
     
     static func createUser(id:String, email: String, password: String, name:String, sex:String, DOB:String, completionBlock: @escaping (_ success: Bool, _ error :Error?) -> Void) {
-        
-        
+                
         db.collection("users").document(id).setData([
             "name": name,
             "email": email,
             "currentLevel": 1,
-            "money":0,
+            "money":20000,
             "score":0,
             "sex":sex,
-            "DOB":DOB,
+            "DOB":DOB
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -88,7 +87,21 @@ class FirebaseRequest{
         
     }
     
-    //Set Money
+    //Add Equipment
+    static func addEquipment(_ equipment:StoreEquipment, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+        
+        let id = getUserId()!
+        let eq = ChildEquipment(name: equipment.name, inUse: equipment.inUse)
+        do{
+            //try  db.collection("ChildEquipments").document(id).setData(from: eq)
+            try  db.collection("ChildEquipments/\(id)/equipments").document().setData(from: eq)
+        }catch let err{
+            completion(false,err)
+        }
+        completion(true,nil)
+    }
+    
+    //Update Money
     static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
         
         let id = getUserId()!
@@ -144,22 +157,19 @@ class FirebaseRequest{
     //Get User Data
     static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
         
-        db.collection("users").document(userID)
-            .getDocument { (response, error) in
-                
-                guard let document = response else {
-                    completion(nil,error)
-                    return
-                }
-                guard let data = document.data() else {
-                    return
-                }
-                
-                //Featch changers successfully
-                print("data in fetch user data ",data)
-                completion(data,nil)
+        let id = getUserId()!
+        
+        db.collection("ChildEquipments/\(id)/equipments")
+            .getDocuments() { (data, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil,err)
+            } else {
+
+                    completion(data!.documents,nil)
                 
             }
+        }
         
         
     }
@@ -186,6 +196,7 @@ class FirebaseRequest{
                 
             }
     }
+    
     static func getChalleangeLevels( completionBlock: @escaping (_ data: Any?, _ err:Error?) -> Void)  {
         
         
@@ -265,6 +276,25 @@ class FirebaseRequest{
                 completion(data,nil)
                 
             }
+    }
+    
+    
+    //Get Child Equipment
+    static func getChildEquipments(completion: @escaping (_ data: Any?, _ err:Error?)->()){
+        
+        let id = getUserId()!
+        db.collection("ChildEquipments/\(id)/equipments").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion(nil,err)
+            } else {
+                var array : [Any] = []
+                for document in querySnapshot!.documents {
+                    array.append(document.data())
+                }
+                completion(array,nil)
+            }
+        }
     }
     
     

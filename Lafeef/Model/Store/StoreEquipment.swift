@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
-struct StoreEquipment: Codable{
+struct StoreEquipment: Codable,Equatable{
     var sex : String
     var name:String
     var cost: Float
     var label:String
+    var inUse:Bool = false
+    
 } 
