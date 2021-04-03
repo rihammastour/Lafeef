@@ -53,6 +53,9 @@
 		41F78DF8261896B00048C968 /* learnMath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DF7261896B00048C968 /* learnMath.mp3 */; };
 		41F78E00261896C30048C968 /* bye.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DFF261896C30048C968 /* bye.mp3 */; };
 		41F78E05261898F80048C968 /* firstDay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78E04261898F80048C968 /* firstDay.mp3 */; };
+		41F78E632618A9F60048C968 /* GameInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F78E622618A9F60048C968 /* GameInstructionViewController.swift */; };
+		41F78E682618AA8D0048C968 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F78E672618AA8C0048C968 /* Slide.swift */; };
+		41F78E702618AAAB0048C968 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F78E6F2618AAAB0048C968 /* Slide.xib */; };
 		4E0ED73925CC71E500247B27 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ED73825CC71E500247B27 /* HomeView.storyboard */; };
 		4E3EC75A25E7356400FBAD87 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A4125B61D5100B8363F /* AppDelegate.swift */; };
@@ -222,6 +225,9 @@
 		41F78DF7261896B00048C968 /* learnMath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = learnMath.mp3; path = ../../../../../Downloads/learnMath.mp3; sourceTree = "<group>"; };
 		41F78DFF261896C30048C968 /* bye.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bye.mp3; path = ../../../../../Downloads/bye.mp3; sourceTree = "<group>"; };
 		41F78E04261898F80048C968 /* firstDay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = firstDay.mp3; path = ../../../../../Downloads/firstDay.mp3; sourceTree = "<group>"; };
+		41F78E622618A9F60048C968 /* GameInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructionViewController.swift; sourceTree = "<group>"; };
+		41F78E672618AA8C0048C968 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		41F78E6F2618AAAB0048C968 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		4E0ED73825CC71E500247B27 /* HomeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = SOURCE_ROOT; };
 		4E453A3E25B61D5100B8363F /* Lafeef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lafeef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A4125B61D5100B8363F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -376,9 +382,12 @@
 			children = (
 				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				412258502616F266005B19C6 /* VoiceViewController.swift */,
+				41F78E6F2618AAAB0048C968 /* Slide.xib */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
+				41F78E672618AA8C0048C968 /* Slide.swift */,
 				412258552616F846005B19C6 /* Voice2ViewController.swift */,
 				41AA7468260ADA66002F11AC /* BackeryViewController.swift */,
+				41F78E622618A9F60048C968 /* GameInstructionViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
@@ -797,6 +806,7 @@
 				41F78DAA261895690048C968 /* excellent.mp3 in Resources */,
 				41F78DD0261895F20048C968 /* tryAgain.mp3 in Resources */,
 				4EDFA44E25EAF46300924569 /* WaitingWatermelon.atlas in Resources */,
+				41F78E702618AAAB0048C968 /* Slide.xib in Resources */,
 				41F78DB4261895950048C968 /* secondDay.mp3 in Resources */,
 				4EDFA45125EAF46300924569 /* NWWatermelon.atlas in Resources */,
 				41F78E05261898F80048C968 /* firstDay.mp3 in Resources */,
@@ -1007,6 +1017,7 @@
 				4EB21B9D25D353050076530E /* Reports.swift in Sources */,
 				4EB21BA225D354750076530E /* AdvReportViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
+				41F78E632618A9F60048C968 /* GameInstructionViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */,
 				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,
@@ -1024,6 +1035,7 @@
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
 				4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
+				41F78E682618AA8D0048C968 /* Slide.swift in Sources */,
 				C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */,
 				C987434725D14CB90075581E /* Level.swift in Sources */,
 				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
