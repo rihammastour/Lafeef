@@ -117,6 +117,7 @@
 		C9646E582616BD01008FB6C7 /* TrainingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */; };
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
+		C98635E9261810D600A94CCF /* TrainingSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
@@ -267,6 +268,7 @@
 		C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoardViewController.swift; sourceTree = "<group>"; };
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
+		C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionViewController.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
@@ -361,6 +363,7 @@
 				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
 				C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */,
 				C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */,
+				C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
+				C98635E9261810D600A94CCF /* TrainingSectionViewController.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,
 				4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */,
 				C92A65B025CB3FA00060AA53 /* Shapes.swift in Sources */,
