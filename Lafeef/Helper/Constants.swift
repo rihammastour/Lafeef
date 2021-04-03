@@ -31,6 +31,7 @@ struct Constants {
         static let updatePasswordViewController = "UpdatePasswordVC"
 
         static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
+        static let TrainingBoardViewController = "TrainingBoard2VC"
     }
     
     struct Segue {
