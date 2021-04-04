@@ -86,6 +86,57 @@ class FirebaseRequest{
 
   
     }
+    static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "money":money
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    static func updateChildInfo(_ Score:Float,Money:Float,_ currentLevel: Int, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "score":Score,
+                "money":Money,
+                "currentLevel":currentLevel
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    static func updateCurrentLevek(_ CurrentLevek:Int, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "currentLevek":CurrentLevek
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    
     
     //MARK: - Get Document Firestore
     

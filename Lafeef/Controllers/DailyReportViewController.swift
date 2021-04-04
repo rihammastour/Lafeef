@@ -20,6 +20,7 @@ class DailyReportViewController: UIViewController {
     var alertService = AlertService()
     var childInfo : Child?
     var flag = false
+    var levelnum : Int?
  
    
     
@@ -50,6 +51,7 @@ class DailyReportViewController: UIViewController {
         calculateReward()
         passReportData()
         getChildId()
+        updatelevelNum()
     }
     
     //MARK:- Functions
@@ -65,14 +67,7 @@ class DailyReportViewController: UIViewController {
         var child = LocalStorageManager.getChild()
         child?.money += LevelGoalViewController.report.collectedMoney 
         child?.score += Int(LevelGoalViewController.report.collectedScore)
-        var levelnum = Int(LevelGoalViewController.report.levelNum)
-        if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
-           
-            levelnum = levelnum!+1
-            child?.currentLevel = levelnum!
-        }else{
-              child?.currentLevel = levelnum!
-        }
+        
         getChildData()
        
         
@@ -84,18 +79,40 @@ class DailyReportViewController: UIViewController {
         
         if let child = child {
             childInfo = child
+            updateChildInfo()
             
         }else{
             print("No Child Found")
             self.present(self.alertService.Alert(body: "لايوجد مستخدم"),animated:true)
            
             //TODO: Alert..
-            updateChildInfo()
+           
             // need to complete
             
         }
     }
+    func updatelevelNum(){
+     levelnum = Int(LevelGoalViewController.report.levelNum)
+        if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
+           
+            levelnum = levelnum!+1
+            childInfo?.currentLevel = levelnum!
+        }else{
+            childInfo?.currentLevel = levelnum!
+        }
+
+        
+    }
     func updateChildInfo(){
+        FirebaseRequest.updateChildInfo(LevelGoalViewController.report.collectedScore+childInfo!.score, Money: LevelGoalViewController.report.collectedMoney+childInfo?.money, levelnum!) { (complete, error) in
+            
+            if error == nil {
+                print("successfuly update child info ")
+                
+            }else{
+                print("error in update child info")
+            }
+        }
         
         
     }
@@ -235,6 +252,9 @@ class DailyReportViewController: UIViewController {
     }
    
     func updateScoreSum(){
+        
+        
+        
         
     }
     func getChildId(){
