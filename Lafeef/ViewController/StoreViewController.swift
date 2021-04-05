@@ -108,7 +108,8 @@ class StoreViewController: UIViewController {
                 do{
                     let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
                     self.childEquipments = equipments
-                    print()
+                    print("Child Prefrnces",self.childEquipments)
+                    self.tableView.reloadData()
                 }catch{
                     print("Incorrect Format")
                 }
@@ -143,7 +144,7 @@ class StoreViewController: UIViewController {
                 
             }
         }else{
-            //Not enughe money to buy
+            //No enughe money to buy
             self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء")
         }
         
@@ -175,10 +176,6 @@ class StoreViewController: UIViewController {
     }
     
    
-//    guard let index = equipments.firstIndex(of: item.name) else {
-//        return false }
-//
-//    return equipments[index].inUse
     //MARK: - @IBAcation
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -312,23 +309,26 @@ extension StoreViewController : UITableViewDataSource{
             ///Register Button to handelr
             cell.button.tag = indexPath.row
             
-            ///Check Diffrent cases
+            ///Check Different cases
             if(isPurched(aEquipment)){
                 if(isInUse(aEquipment)){
                     cell.button.isEnabled = false
+                    cell.button.setBackgroundImage(UIImage(named: "item-used-icon"), for: UIControl.State.normal)
                 }else{
+                    cell.button.setBackgroundImage(UIImage(named: "use-item-icon"), for: UIControl.State.normal)
+                    
                     cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)
                 }
             }else{
                 cell.button.addTarget(self, action: #selector(buyItemTapped(_:)), for: .touchUpInside)
             }
             
-          
             
-            // cell.button.imageView?.image = //Depends on 3 casses
-            
-            ///Get Image
-            if let data = fetchImage(of: aEquipment.name){
+            ///Get Item Image
+            FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
+                guard let data = data else{
+                    return
+                }
                 let image = UIImage(data: data as Data)
                 cell.equipmentImage?.image = image
                 cell.setNeedsLayout()
