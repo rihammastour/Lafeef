@@ -23,7 +23,7 @@ class StoreViewController: UIViewController {
     //Variables
     var money:Float! = 0
     var sex:String! = "unisex"
-    var childEquipment:[ChildEquipment]? = nil
+    var childEquipments:[ChildEquipment]? = nil
     var bakeryEquipments:[StoreEquipment]? = []
     var characterEquipments:[StoreEquipment]? = []
     
@@ -86,7 +86,7 @@ class StoreViewController: UIViewController {
     }
     
     
-    //get child data
+    //Get Child Data
     func getChildData(){
         
         let child = LocalStorageManager.getChild()
@@ -94,26 +94,29 @@ class StoreViewController: UIViewController {
         if let child = child {
             updateMoney(child.money)
             self.sex = child.sex
+            getChildPrefrnces()
         }else{
             //TODO : Alert and back
         }
-        
+    }
+    
+    ///get Child Prefrnces
+    func getChildPrefrnces(){
         //Get Child Prefrences
         FirebaseRequest.getChildEquipments { (data, err) in
-            if data != nil {
-                print("Data     ",data)
+            if let data = data {
                 do{
                     let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
-                    self.childEquipment = equipments
+                    self.childEquipments = equipments
+                    print()
                 }catch{
                     print("Incorrect Format")
                 }
             }else{
-                print("error")
+                ///No Child Prefrences Found
+                print("No child Prefrences Found")
             }
         }
-        print("dddddddd ",self.childEquipment)
-        
     }
     
     ///Buy Item
@@ -146,30 +149,30 @@ class StoreViewController: UIViewController {
         
     }
     
-//    func isPurched(_ item:StoreEquipment) -> Bool{
-//
-//        if let equipments = self.purchesedEquipment  {
-//            if equipments.index(forKey: item.name) != nil{
-//                return true
-//            }
-//        }
-//        return false
-//    }
-//
-//    func isInUse(_ item:StoreEquipment)->Bool{
-//
-//        if let equipments = self.purchesedEquipment  {
-//            guard let inUse = equipments[item.name] else {
-//                return false
-//            }
-//            if inUse == 1 {
-//                return true
-//            }else{
-//                return false
-//            }
-//        }
-//        return false
-//    }
+    /// is Equipment purchesed
+    func isPurched(_ item:StoreEquipment) -> Bool{
+        
+        if let equipments = self.childEquipments  {
+            for e in equipments{
+                if e.name == item.name{
+                    return true
+                }
+            }  }
+        return false
+    }
+
+    /// is Equipment use
+    func isInUse(_ item:StoreEquipment)->Bool{
+
+        if let equipments = self.childEquipments  {
+            for e in equipments{
+                if e.name == item.name{
+                    return e.inUse
+                }
+            }
+        }
+        return false
+    }
     
    
 //    guard let index = equipments.firstIndex(of: item.name) else {
@@ -194,13 +197,18 @@ class StoreViewController: UIViewController {
         }
     }
     
-    @objc func itemTapped(_ sender: UIButton){
-        
+    //Buy Item button Tapped
+    @objc func buyItemTapped(_ sender: UIButton){
+      // use the tag of button as index
+        if let aEquipment = tableData?[sender.tag]{
+            buyItem(aEquipment)}
+    }
+    
+    //Use Item button Tapped
+    @objc func useItemTapped(_ sender: UIButton){
       // use the tag of button as index
         let aEquipment = tableData?[sender.tag]
-        buyItem(aEquipment!)
-//        if(!isPurched(aEquipment!)){
-//            buyItem(aEquipment!)}
+        print("use item tapped")
     }
     
     //MARK: - Dalegate
@@ -213,16 +221,17 @@ class StoreViewController: UIViewController {
     }
     
     ///fetch image
-    //    func fetchImage(of name:String) -> NSData?{
-    //        var data =
-    //        FirebaseRequest.downloadStoreEquipmentImage(type: name, completion: {(data, err)  in
-    //            if err == nil{
-    //                return nil
-    //            }else{
-    //                return data
-    //            }
-    //        })
-    //    }
+        func fetchImage(of name:String) -> NSData?{
+            
+            var imageData:NSData?
+            FirebaseRequest.downloadStoreEquipmentImage(type: name) { (data, error) in
+                guard let data = data else{
+                    return
+                }
+                imageData = data
+            }
+            return imageData
+        }
     
     
     //Get Bakery Handeler
@@ -290,6 +299,7 @@ extension StoreViewController : UITableViewDataSource{
         let aEquipment = tableData?[(indexPath as NSIndexPath).row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell", for: indexPath) as! StoreCell
         
+        //Set cell background //May be moved to StoreCell
         cell.contentView.backgroundColor =  UIColor(named: "bachgroundApp")
         cell.backgroundColor = .clear
         
@@ -301,14 +311,24 @@ extension StoreViewController : UITableViewDataSource{
 
             ///Register Button to handelr
             cell.button.tag = indexPath.row
-            cell.button.addTarget(self, action: #selector(itemTapped(_:)), for: .touchUpInside)
+            
+            ///Check Diffrent cases
+            if(isPurched(aEquipment)){
+                if(isInUse(aEquipment)){
+                    cell.button.isEnabled = false
+                }else{
+                    cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)
+                }
+            }else{
+                cell.button.addTarget(self, action: #selector(buyItemTapped(_:)), for: .touchUpInside)
+            }
+            
+          
+            
+            // cell.button.imageView?.image = //Depends on 3 casses
             
             ///Get Image
-            FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
-                guard let data = data else{
-                    return
-                }
-                
+            if let data = fetchImage(of: aEquipment.name){
                 let image = UIImage(data: data as Data)
                 cell.equipmentImage?.image = image
                 cell.setNeedsLayout()
