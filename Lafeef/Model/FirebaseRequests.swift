@@ -100,8 +100,6 @@ class FirebaseRequest{
         }
         completion(true,nil)
     }
-   
-    
     
     //Update Money
     static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
@@ -120,35 +118,7 @@ class FirebaseRequest{
         }
         completion(true,nil)
     }
-    static func updateUserEquipment(equipmentName:String,completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
-        
-        let id = "n4e5AESxMbhYcRmUmZP4BsYyTsa2"
-        
-        db.collection("ChildEquipments").document(id).collection("equipments").whereField("name", isEqualTo:equipmentName).getDocuments() { (querySnapshot, err) in
-            if err != nil {
-                print("eror")
-                // Some error occured
-           
-                
-                // Perhaps this is an error for you?
-            } else {
-                let document = querySnapshot!.documents.first
-                document!.reference.updateData([
-                    "inUse": true
-                ])
-            { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-                completion(false,err)
-            } else {
-                print("Document successfully written!")
-                completion(true,nil)
-            }
-        }
-       
-        }
-    }
-}
+    
     static func addStoreEquipment(StorType: String,StoreEquipment:StoreEquipmens, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
         
         // Add a new document in collection "users"
@@ -312,7 +282,7 @@ class FirebaseRequest{
     //Get Child Equipment
     static func getChildEquipments(completion: @escaping (_ data: Any?, _ err:Error?)->()){
         
-        let id = "n4e5AESxMbhYcRmUmZP4BsYyTsa2"
+        let id = getUserId()!
         db.collection("ChildEquipments/\(id)/equipments").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -372,5 +342,4 @@ class FirebaseRequest{
     }
     
 }
-
 

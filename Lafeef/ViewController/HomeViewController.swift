@@ -92,8 +92,7 @@ class HomeViewController: UIViewController {
         self.setCurrentLevel(child.currentLevel)
         self.setMoney(child.money)
         self.setScore(child.score)
-        
-        setImage(sex: child.sex)
+        self.setImage(child.sex)
     }
     
     //Name
@@ -116,22 +115,12 @@ class HomeViewController: UIViewController {
     }
     
     //Image
-     func setImage(sex:String) {
-        switch sex {
-        case "girl":
+    func setImage(_ sex:String) {
+        if sex != "girl"{
+            characterUIImageView.image = UIImage(named: "boy-icon")
+        }else{
             characterUIImageView.image = UIImage(named: "girl-icon")
-            break
-        case "boy":
-            characterUIImageView.image = UIImage(named: "boy-icon")
-            break
-        case "blueBoy":
-            characterUIImageView.image = UIImage(named: "boy-icon")
-            break
-            
-        default:
-            print("hi")
         }
-     
     }
     //MARK:- Get User Data
     
