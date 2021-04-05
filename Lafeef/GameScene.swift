@@ -81,6 +81,10 @@ class GameScene: SKScene {
     //advertisment node variables
     static var firstAdv : SKSpriteNode?
     static var secondAdv : SKSpriteNode?
+    static var cupcakeFrame : SKSpriteNode?
+    static var lavendarFrame : SKSpriteNode?
+    static var loliPopFrame : SKSpriteNode?
+    static var lamp : SKSpriteNode?
     
     var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
@@ -196,6 +200,27 @@ class GameScene: SKScene {
             GameScene.secondAdv?.isHidden = false
             updateMoneyLabel(250)
         }
+    }
+    static func presentBackeyEquipment(at name: String){
+        switch name {
+        case BackeryStore.cupcakeFrame.rawValue:
+            GameScene.cupcakeFrame?.isHidden = false
+            break
+        case BackeryStore.loliPopFrame.rawValue:
+            GameScene.loliPopFrame?.isHidden = false
+            break
+        case BackeryStore.lavendarFrame.rawValue:
+            GameScene.lavendarFrame?.isHidden = false
+            break
+        case BackeryStore.lavendarFrame.rawValue:
+            GameScene.lamp?.isHidden = false
+            break
+            
+        default:
+            print("no equipment")
+        }
+        print("adv presented success")
+       
     }
     
     //MARK: - Money Continer Functions

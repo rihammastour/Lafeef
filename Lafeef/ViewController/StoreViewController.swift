@@ -23,7 +23,7 @@ class StoreViewController: UIViewController {
     //Variables
     var money:Float! = 0
     var sex:String! = "unisex"
-    var childEquipment:[ChildEquipment]? = nil
+    var childEquipment:[ChildEquipment] = []
     var bakeryEquipments:[StoreEquipment]? = []
     var characterEquipments:[StoreEquipment]? = []
     
@@ -101,10 +101,11 @@ class StoreViewController: UIViewController {
         //Get Child Prefrences
         FirebaseRequest.getChildEquipments { (data, err) in
             if data != nil {
-                print("Data     ",data)
+                print("Data ",data)
                 do{
                     let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
                     self.childEquipment = equipments
+                    self.reflecBackerytUserEquipment(equipmentName: "name")
                 }catch{
                     print("Incorrect Format")
                 }
@@ -112,9 +113,56 @@ class StoreViewController: UIViewController {
                 print("error")
             }
         }
-        print("dddddddd ",self.childEquipment)
+        print("dddddddd ",childEquipment)
+   
         
     }
+    func reflecBackerytUserEquipment(equipmentName:String){
+        print("inside reflect")
+        for item in self.childEquipment{
+            if !item.inUse && item.name.contains("Frame"){
+                print("frame")
+                GameScene.presentBackeyEquipment(at: item.name)
+                FirebaseRequest.updateUserEquipment(equipmentName: item.name) { (update, error) in
+                        if error == nil {
+                            print("updated")
+                        }else{
+                            print("eror")
+                        }
+                    }
+                    
+            }else if !item.inUse && item.name == "lamp"{
+                print("lamp")
+                GameScene.presentBackeyEquipment(at: item.name)
+                FirebaseRequest.updateUserEquipment(equipmentName:item.name) { (update, error) in
+                        if error == nil {
+                            print("updated")
+                        }else{
+                            print("eror")
+                        }
+                    }
+            }
+        }
+        }
+    func reflecCharachtertUserEquipment(equipmentName:String){
+        print("inside reflect")
+        for item in self.childEquipment{
+            if !item.inUse && item.name == equipmentName{
+                print("frame")
+           
+//                HomeViewController.setImage(<#String#>)
+                FirebaseRequest.updateUserEquipment(equipmentName: item.name) { (update, error) in
+                        if error == nil {
+                            print("updated")
+                        }else{
+                            print("eror")
+                        }
+                    }
+
+            }
+        }
+    
+        }
     
     ///Buy Item
     func buyItem(_ aEquipment:StoreEquipment){
