@@ -294,7 +294,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         // 6 -> 139
         
         var base : Base? = nil
-        var toppings : [Topping]? = nil
+        var toppings : [Topping] = []
         var change : Float = 0
         
         for label in answerLabels {
@@ -318,19 +318,19 @@ class ObjectDetectionViewController: ChallengeViewController{
                 base = Base.chocolateCupcake
                 break
             case "ChocolateBrown":
-                toppings?.append(Topping.darkChocolate)
+                toppings.append(Topping.darkChocolate)
                 break
             case "ChocolateWhite":
-                toppings?.append(Topping.whiteChocolate)
+                toppings.append(Topping.whiteChocolate)
                 break
             case "Kiwi":
-                toppings?.append(Topping.kiwi)
+                toppings.append(Topping.kiwi)
                 break
             case "Strawberry":
-                toppings?.append(Topping.strawberry)
+                toppings.append(Topping.strawberry)
                 break
             case "Pineapple":
-                toppings?.append(Topping.pineapple)
+                toppings.append(Topping.pineapple)
                 break
             case "OneRiyal":
                 change += 1

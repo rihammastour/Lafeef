@@ -20,7 +20,7 @@ class DailyReportViewController: UIViewController {
     var alertService = AlertService()
     var childInfo : Child?
     var flag = false
-    var levelnum : Int?
+    var levelnum : Int = 1
  
    
     
@@ -92,19 +92,19 @@ class DailyReportViewController: UIViewController {
         }
     }
     func updatelevelNum(){
-     levelnum = Int(LevelGoalViewController.report.levelNum)
+        levelnum = Int(LevelGoalViewController.report.levelNum)!
         if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
            
-            levelnum = levelnum!+1
-            childInfo?.currentLevel = levelnum!
+            levelnum = levelnum+1
+            childInfo?.currentLevel = levelnum
         }else{
-            childInfo?.currentLevel = levelnum!
+            childInfo?.currentLevel = levelnum
         }
 
         
     }
     func updateChildInfo(){
-        FirebaseRequest.updateChildInfo(LevelGoalViewController.report.collectedScore+childInfo!.score, Money: LevelGoalViewController.report.collectedMoney+childInfo?.money, levelnum!) { (complete, error) in
+        FirebaseRequest.updateChildInfo(LevelGoalViewController.report.collectedScore+Float(childInfo!.score), Money: LevelGoalViewController.report.collectedMoney+childInfo!.money, levelnum) { (complete, error) in
             
             if error == nil {
                 print("successfuly update child info ")
@@ -208,6 +208,7 @@ class DailyReportViewController: UIViewController {
                         let array = [ReportData]
                         self.completedLevel = CompletedLevel(reportData: array)
                         print("first if ")
+                        flag = true 
                          // the first time
                         // overrite
                     }else {
@@ -215,8 +216,10 @@ class DailyReportViewController: UIViewController {
                             if report.levelNum == levelnum{
                                 report = ReportData
                                 flag = true
+                                print("loop in if ")
                               
                             }
+                            print("out loop ")
                         }
                     }
                         if !flag{

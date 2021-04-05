@@ -164,7 +164,7 @@ class FirebaseRequest{
     
     
     //Get User Data
-    static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+    static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->Void){
         
         db.collection("users").document(userID)
             .getDocument { (response, error) in
@@ -188,7 +188,7 @@ class FirebaseRequest{
     
     
     //Get Challenge Level Data
-    static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+    static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)-> Void)  {
         
         db.collection("challenge").document(levelNum)
             .getDocument { (response, error) in
