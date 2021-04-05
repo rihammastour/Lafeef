@@ -81,6 +81,10 @@ class GameScene: SKScene {
     //advertisment node variables
     static var firstAdv : SKSpriteNode?
     static var secondAdv : SKSpriteNode?
+    static var loliPopFrame : SKSpriteNode?
+    static var lavendarFrame : SKSpriteNode?
+    static var cupCakeFrame : SKSpriteNode?
+    static var lamp : SKSpriteNode?
     
     var viewController2: UIViewController?
     //MARK: - Lifecycle Functons
@@ -167,7 +171,20 @@ class GameScene: SKScene {
         
         GameScene.secondAdv = self.childNode(withName: "adv2") as? SKSpriteNode
         GameScene.secondAdv?.isHidden = true
+        setStoreEquipment()
         
+    }
+    func setStoreEquipment(){
+        GameScene.loliPopFrame = self.childNode(withName: "loliPopFrame") as? SKSpriteNode
+        GameScene.loliPopFrame?.isHidden = true
+        
+        GameScene.lavendarFrame = self.childNode(withName: "lavendarFrame") as? SKSpriteNode
+        GameScene.lavendarFrame?.isHidden = true
+        GameScene.cupCakeFrame = self.childNode(withName: "cupcakeFrame") as? SKSpriteNode
+        GameScene.cupCakeFrame?.isHidden = true
+        
+        GameScene.lamp = self.childNode(withName: "lamp") as? SKSpriteNode
+        GameScene.lamp?.isHidden = true
     }
     
     //MARK: - Set Bakary Enviroment Function
@@ -197,7 +214,26 @@ class GameScene: SKScene {
             updateMoneyLabel(250)
         }
     }
-    
+    static func presentChildPrefrence( name: String){
+        print("adv presented success")
+        switch name {
+        case BackeryStore.cupcakeFrame.rawValue:
+        GameScene.cupCakeFrame?.isHidden = false
+            break
+        case BackeryStore.lavendarFrame.rawValue:
+            GameScene.lavendarFrame?.isHidden = false
+            break
+        case BackeryStore.lamp.rawValue:
+            GameScene.lamp?.isHidden = false
+            break
+        case BackeryStore.loliPopFrame.rawValue:
+            GameScene.loliPopFrame?.isHidden = false
+            break
+ 
+        default:
+            print("no item")
+        }
+    }
     //MARK: - Money Continer Functions
     func setUpMoneyContiner(){
         ///Set Position

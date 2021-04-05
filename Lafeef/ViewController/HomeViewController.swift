@@ -108,6 +108,10 @@ class HomeViewController: UIViewController {
     func setScore(_ score:Int) {
         scoreLabel.text = String(score)
     }
+    func setChildPrefrence(name:String){
+        characterUIImageView.image = UIImage(named: name)
+        
+    }
     
     //Money
     func setMoney(_ money:Float) {
@@ -118,6 +122,8 @@ class HomeViewController: UIViewController {
     func setImage(_ sex:String) {
         if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
+        }else if LoginViewController.userPrfrence != ""{
+        characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)
         }else{
             characterUIImageView.image = UIImage(named: "girl-icon")
         }

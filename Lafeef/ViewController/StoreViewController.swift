@@ -18,6 +18,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var moneyUILabel: UILabel!
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     //Variables

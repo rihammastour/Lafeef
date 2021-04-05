@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
+                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -330,7 +330,7 @@
                                         <rect key="frame" x="5" y="5" width="140" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-qZ-zcf">
-                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
+                                                <rect key="frame" x="0.0" y="-4" width="140" height="48"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -432,7 +432,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Nk-mEq">
-                                <rect key="frame" x="525" y="85" width="159" height="93.5"/>
+                                <rect key="frame" x="543" y="85" width="141" height="96"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
@@ -472,6 +472,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4971.875" y="1079.8828125"/>
+        </scene>
+        <!--Preview Prefrence View Controller-->
+        <scene sceneID="Zgu-QV-Udo">
+            <objects>
+                <viewController id="e3W-Mk-wMq" customClass="PreviewPrefrenceViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SYG-tX-bxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="V8P-Be-ZuY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D2h-Ov-4RY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5611" y="1083"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="6fA-f2-M9d">

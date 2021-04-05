@@ -53,5 +53,20 @@ struct Constants {
         
         
     }
+    struct equipmentNames {
+        static let yellowBoy = "yellowBoy"
+        static let grayBoy = "grayBoy"
+        static let blueBoy = "blueBoy"
+        static let BlueGlassessBoyC = "BlueGlassessBoyC"
+        static let redGlassessBoyC = "redGlassessBoyC"
+        static let orangeGirl = "orangeGirl"
+        static let blueGirl = "blueGirl"
+        static let pinkGirl = "pinkGirl"
+        static let redGlassessGirlC = "redGlassessGirlC"
+        static let blueGlassessGirlC = "blueGlassessGirlC"
+       
+      
+    
+    }
     
 }
