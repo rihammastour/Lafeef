@@ -18,25 +18,25 @@ enum TrainingSections: String,Codable {
         
         case .shapes:
             if type == "circle" {
-                return "kiwi cake" //need preprocessing
+                return "Kiwi CompleteCake RiyalHalf RiyalQuarter" //need preprocessing
             } else if type == "triangle" {
-                return "pineapple"
+                return "Pineapple"
             }
             
         case .colors:
             if type == "brown" {
-                return "darkChocolate"
+                return "ChocolateBrown BrownCupcake"
             } else if type == "red" {
-                return "strawberry"
+                return "Strawberry"
             }
 
         case .calculations:
             if type == "addition" {
-                return "5"
+                return "FiftyRiyal"
             } else if type == "subtraction" {
-                return "1"
+                return "OneRiyal"
             } else if type == "multiplication" {
-                return "4"
+                return "OneRiyal OneRiyal OneRiyal OneRiyal"
             }
             
          }

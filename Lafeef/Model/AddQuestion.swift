@@ -48,7 +48,7 @@ class AddQuestion {
         let questionOne = TrainingQuestions(answer: section.getObject(for: "addition"), type: "addition")
         let questionTwo = TrainingQuestions(answer: section.getObject(for: "subtraction"), type: "subtraction")
         let questionThree = TrainingQuestions(answer: section.getObject(for: "multiplication"), type: "multiplication")
-        let questions = Questions(qeustionDetailes: [questionOne, questionTwo, questionThree], questionText: "كم يساوي:")
+        let questions = Questions(qeustionDetailes: [questionOne, questionTwo, questionThree], questionText: "كم ناتج:")
         
         FirebaseRequest.addQuestion(section: section, questions: questions) { (success, err) in
             if success {

@@ -59,6 +59,13 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-Bj-60Y">
                                         <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUC-Wl-e1f">
+                                        <rect key="frame" x="244" y="493" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="niW-VK-nYs" kind="show" id="0qq-fI-5EI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -66,7 +73,11 @@
                                     <constraint firstAttribute="trailing" secondItem="i5e-4v-4ka" secondAttribute="trailing" constant="130" id="7wT-RQ-jGw"/>
                                     <constraint firstAttribute="trailing" secondItem="yyl-Bj-60Y" secondAttribute="trailing" id="Hnq-Yf-zvI"/>
                                     <constraint firstAttribute="bottom" secondItem="9KP-ax-VlD" secondAttribute="bottom" constant="46" id="HyX-oc-tW0"/>
+                                    <constraint firstItem="KUC-Wl-e1f" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" constant="244" id="Oet-di-Bwa"/>
+                                    <constraint firstItem="KUC-Wl-e1f" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" constant="493" id="PsT-mJ-nzB"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" id="QAb-Fu-eID"/>
+                                    <constraint firstItem="9KP-ax-VlD" firstAttribute="top" secondItem="KUC-Wl-e1f" secondAttribute="bottom" constant="128" id="hBK-3n-xF5"/>
+                                    <constraint firstAttribute="trailing" secondItem="KUC-Wl-e1f" secondAttribute="trailing" constant="308" id="nrg-7T-JBR"/>
                                     <constraint firstItem="9KP-ax-VlD" firstAttribute="top" secondItem="yyl-Bj-60Y" secondAttribute="bottom" constant="10" id="s3A-F4-lUC"/>
                                     <constraint firstItem="9KP-ax-VlD" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" constant="130" id="zJ2-VW-GmX"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" id="zp1-j5-lXA"/>
@@ -163,7 +174,7 @@
         <!--Training Board View Controller-->
         <scene sceneID="dMt-UQ-2mZ">
             <objects>
-                <viewController storyboardIdentifier="TrainingBoard2VC" id="niW-VK-nYs" customClass="TrainingBoardViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TrainingBoard2VC" modalPresentationStyle="overFullScreen" id="niW-VK-nYs" customClass="TrainingBoardViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0TC-M8-Cus">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,29 +191,23 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="X1C-qA-1JC">
                                         <rect key="frame" x="214" y="219" width="340" height="385"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Training-yellowCircle" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-LC-aaM">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="270"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKw-91-0EL">
-                                                <rect key="frame" x="0.0" y="345" width="340" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سؤال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKw-91-0EL">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vIc-cn-vfO"/>
                                                 </constraints>
-                                                <string key="text">سؤال سؤالسؤال سؤالسؤال سؤالسؤال سؤالسؤال سؤال
-سؤال سؤالسؤال سؤالسؤال سؤالسؤال سؤالسؤال سؤال
-
-</string>
-                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="20"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
+                                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3j3-LC-aaM">
+                                                <rect key="frame" x="0.0" y="115" width="340" height="270"/>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="3j3-LC-aaM" firstAttribute="top" secondItem="X1C-qA-1JC" secondAttribute="top" id="Ehc-HG-aT5"/>
                                             <constraint firstAttribute="trailing" secondItem="3j3-LC-aaM" secondAttribute="trailing" id="GQx-cF-vV5"/>
-                                            <constraint firstItem="tKw-91-0EL" firstAttribute="top" secondItem="3j3-LC-aaM" secondAttribute="bottom" constant="75" id="TEj-Ea-UJY"/>
-                                            <constraint firstItem="3j3-LC-aaM" firstAttribute="top" secondItem="X1C-qA-1JC" secondAttribute="top" id="Zxe-Op-NaI"/>
+                                            <constraint firstItem="3j3-LC-aaM" firstAttribute="top" secondItem="tKw-91-0EL" secondAttribute="bottom" constant="75" id="IE3-I0-8ww"/>
                                             <constraint firstItem="3j3-LC-aaM" firstAttribute="leading" secondItem="X1C-qA-1JC" secondAttribute="leading" id="cNk-Si-8qd"/>
                                             <constraint firstAttribute="trailing" secondItem="tKw-91-0EL" secondAttribute="trailing" id="qyL-70-2yx"/>
                                             <constraint firstItem="tKw-91-0EL" firstAttribute="leading" secondItem="X1C-qA-1JC" secondAttribute="leading" id="wMo-Br-BHq"/>
@@ -218,6 +223,9 @@
                                                 <state key="normal" title="تجاهل">
                                                     <color key="titleColor" name="BlackApp"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="skipButton:" destination="niW-VK-nYs" eventType="touchUpInside" id="7qX-o3-PZ1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7t-eL-be0">
                                                 <rect key="frame" x="190" y="0.0" width="150" height="50"/>
@@ -229,6 +237,9 @@
                                                 <state key="normal" title="أجبت">
                                                     <color key="titleColor" name="BlackApp"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="answerButton:" destination="niW-VK-nYs" eventType="touchUpInside" id="Ni1-SH-4aa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -270,10 +281,13 @@
                             <constraint firstItem="nMe-vn-i2f" firstAttribute="leading" secondItem="zb0-gK-JTK" secondAttribute="leading" constant="20" id="zIw-YG-SUn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hiv-Ab-E4W"/>
                     <connections>
                         <outlet property="QuestionLabel" destination="tKw-91-0EL" id="fY3-Fs-5qg"/>
+                        <outlet property="image" destination="3j3-LC-aaM" id="tPp-f6-cRA"/>
                         <outlet property="nextlOutlet" destination="c7t-eL-be0" id="0Qn-Gm-m79"/>
                         <outlet property="skiplOutlet" destination="9z1-Vd-aaW" id="L7P-Me-tDz"/>
+                        <outlet property="strawberry" destination="nMe-vn-i2f" id="xv6-vG-HdT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zl-x2-6of" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,7 +303,6 @@
         <image name="Training-RedBalloon" width="134.81399536132812" height="276.54400634765625"/>
         <image name="Training-YellowAndBlueBalloon" width="239.35400390625" height="336.61801147460938"/>
         <image name="Training-strawberry" width="242.35000610351562" height="311.42300415039062"/>
-        <image name="Training-yellowCircle" width="237" height="237"/>
         <namedColor name="BlackApp">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
