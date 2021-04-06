@@ -104,6 +104,7 @@
 		C2082889EBD56239C02CB2D3 /* Pods_Lafeef_LafeefUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4704DACE68D98C70B7CF71 /* Pods_Lafeef_LafeefUITests.framework */; };
 		C9081C2E25D97ADE00B19998 /* Topping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C2D25D97ADE00B19998 /* Topping.swift */; };
 		C9081C3625D9858400B19998 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9081C3525D9858400B19998 /* Base.swift */; };
+		C916EC5D2618D0F40076CE1C /* TrainingSection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */; };
 		C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */; };
 		C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659425CB3F4F0060AA53 /* HomeViewController.swift */; };
 		C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */; };
@@ -124,6 +125,7 @@
 		C9646E582616BD01008FB6C7 /* TrainingBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */; };
 		C96B660025D83C3F00A9043E /* PositionTopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96B65FF25D83C3F00A9043E /* PositionTopping.swift */; };
 		C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A96F525D1FD770051FF53 /* OrderTimer.swift */; };
+		C98635E9261810D600A94CCF /* TrainingSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */; };
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
@@ -261,6 +263,7 @@
 		B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lafeef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9081C2D25D97ADE00B19998 /* Topping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topping.swift; sourceTree = "<group>"; };
 		C9081C3525D9858400B19998 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TrainingSection.storyboard; sourceTree = "<group>"; };
 		C91B331725DD8E8C00BED6BC /* ProgressBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarViewController.swift; sourceTree = "<group>"; };
 		C92A659425CB3F4F0060AA53 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Lafeef/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOrLoginViewController.swift; path = Lafeef/ViewController/SignUpOrLoginViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -281,6 +284,7 @@
 		C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBoardViewController.swift; sourceTree = "<group>"; };
 		C96B65FF25D83C3F00A9043E /* PositionTopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTopping.swift; sourceTree = "<group>"; };
 		C97A96F525D1FD770051FF53 /* OrderTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimer.swift; sourceTree = "<group>"; };
+		C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSectionViewController.swift; sourceTree = "<group>"; };
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
@@ -378,6 +382,7 @@
 				C9BF6F4F2603EF98004D64B5 /* GuidanceInstructionsViewController.swift */,
 				C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */,
 				C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */,
+				C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				4E427B562616C8AA009692C8 /* HomeView.storyboard */,
 				4E453A4B25B61D5100B8363F /* Main.storyboard */,
 				C9AB67D5260ACD57005E373E /* instructions.storyboard */,
+				C916EC5C2618D0F40076CE1C /* TrainingSection.storyboard */,
 				4E7DECC825CDDFBF00D50362 /* Training.storyboard */,
 				4E7DECC225CDDF9600D50362 /* Challenge.storyboard */,
 				4EFA24B125EE208500A17868 /* Color.xcassets */,
@@ -708,6 +714,7 @@
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EDFA44625EAF46300924569 /* NWOrange.atlas in Resources */,
+				C916EC5D2618D0F40076CE1C /* TrainingSection.storyboard in Resources */,
 				C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */,
 				4EDFA44B25EAF46300924569 /* NWPear.atlas in Resources */,
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
@@ -972,6 +979,7 @@
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
+				C98635E9261810D600A94CCF /* TrainingSectionViewController.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,
 				4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */,
 				4E427B3A2616259C009692C8 /* TrainingSections.swift in Sources */,
