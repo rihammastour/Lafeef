@@ -393,18 +393,14 @@ PODS:
     - BoringSSL-GRPC (= 0.0.7)
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
-  - GTMAppAuth (1.1.0):
+  - GTMAppAuth (1.2.1):
     - AppAuth/Core (~> 1.4)
-    - GTMSessionFetcher (~> 1.4)
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
   - LayoutHelper (1.0.0)
-  - leveldb-library (1.22)
+  - leveldb-library (1.22.1)
   - lottie-ios (3.2.1)
-  - MaterialShowcase (0.7.3)
+  - MaterialShowcase (0.8.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -414,9 +410,9 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PromisesObjC (1.2.12)
-  - SDWebImage (5.10.4):
-    - SDWebImage/Core (= 5.10.4)
-  - SDWebImage/Core (5.10.4)
+  - SDWebImage (5.11.0):
+    - SDWebImage/Core (= 5.11.0)
+  - SDWebImage/Core (5.11.0)
   - SwiftGifOrigin (1.7.0)
   - SwiftValidator (4.0.0)
   - SwiftyGif (5.4.0)
@@ -517,20 +513,20 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
-  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
+  GTMAppAuth: 5b53231ef6920f149ab84b2969cb0ab572da3077
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   LayoutHelper: fd809f52e0ae583f7576bf5d2af8248b5c3ec4d0
-  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
-  MaterialShowcase: 245a465768dee8cce70fe72674ae2490ac41bfca
+  MaterialShowcase: 0c0cef713a6504cd2a76a5d047bcb2787944a318
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
 
 PODFILE CHECKSUM: ee3cbbdd20ca1e6077971a1fb8215eba2cbd1de3
 
-COCOAPODS: 1.10.0.beta.1
+COCOAPODS: 1.10.1

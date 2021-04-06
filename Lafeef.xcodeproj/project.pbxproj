@@ -42,7 +42,6 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
-		4E6242A626065A0100FA6377 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E6242A526065A0100FA6377 /* star.json */; };
 		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
 		4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC225CDDF9600D50362 /* Challenge.storyboard */; };
 		4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC825CDDFBF00D50362 /* Training.storyboard */; };
@@ -54,9 +53,6 @@
 		4EB976EB25CAD83900518EF9 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976E925CAD83900518EF9 /* AlertService.swift */; };
 		4EB976F125CAD84B00518EF9 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976EF25CAD84900518EF9 /* InstructionViewController.swift */; };
 		4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976F025CAD84B00518EF9 /* AlertViewController.swift */; };
-		4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
-		4EC6D37D25C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
-		4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */; };
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED47F4C25D366C60064D86C /* StarsAnimation.json */; };
 		4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCA23D25C63A8100C29464 /* SplashAnimationView.swift */; };
@@ -129,6 +125,9 @@
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
 		C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9AB67D5260ACD57005E373E /* instructions.storyboard */; };
+		C9AE4D87261BF86F004007B1 /* star.json in Resources */ = {isa = PBXBuildFile; fileRef = C9AE4D86261BF86F004007B1 /* star.json */; };
+		C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9AE4D8B261BF92B004007B1 /* FFHekaya-Light.otf */; };
+		C9AE4D9A261C0BA6004007B1 /* ObjectDetectionTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE4D99261C0BA6004007B1 /* ObjectDetectionTrainingViewController.swift */; };
 		C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */; };
 		C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */; };
 		C9B6CDA9260ED69C0079D0A1 /* Stand.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CDA8260ED69C0079D0A1 /* Stand.gif */; };
@@ -169,7 +168,6 @@
 		4122DA3A25DB926F00DABB29 /* CustomerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerNode.swift; sourceTree = "<group>"; };
 		4129EDEF25E1978B0028C86C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		41314C4425F5F6800022FA0B /* DailyReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReport.swift; sourceTree = "<group>"; };
-		4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FFHekaya-Light.otf"; path = "../../../Downloads/ff-hekaya-dd2833a0ea-2/ArbFonts.com-(4)/FFHekaya-Light.otf"; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		419B1BD725FBF55F0024F011 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E6242A526065A0100FA6377 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../Downloads/star.json; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
@@ -288,6 +285,9 @@
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
 		C9AB67D5260ACD57005E373E /* instructions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = instructions.storyboard; sourceTree = SOURCE_ROOT; };
+		C9AE4D86261BF86F004007B1 /* star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = star.json; path = ../../../../../Downloads/star.json; sourceTree = "<group>"; };
+		C9AE4D8B261BF92B004007B1 /* FFHekaya-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FFHekaya-Light.otf"; sourceTree = "<group>"; };
+		C9AE4D99261C0BA6004007B1 /* ObjectDetectionTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionTrainingViewController.swift; sourceTree = "<group>"; };
 		C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-reflector.gif"; sourceTree = "<group>"; };
 		C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-Stand.gif"; sourceTree = "<group>"; };
 		C9B6CDA8260ED69C0079D0A1 /* Stand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Stand.gif; sourceTree = "<group>"; };
@@ -383,6 +383,7 @@
 				C9B6CDAD260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift */,
 				C9646E572616BD01008FB6C7 /* TrainingBoardViewController.swift */,
 				C98635E8261810D600A94CCF /* TrainingSectionViewController.swift */,
+				C9AE4D99261C0BA6004007B1 /* ObjectDetectionTrainingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -462,7 +463,7 @@
 		4E53480025BC904500ACA8BC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4144583D25C0F3D9000EE8F0 /* FFHekaya-Light.otf */,
+				C9AE4D8B261BF92B004007B1 /* FFHekaya-Light.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -472,10 +473,10 @@
 			children = (
 				4ED47F4C25D366C60064D86C /* StarsAnimation.json */,
 				4EDFA46E25EC597F00924569 /* icecream.gif */,
-				4E6242A526065A0100FA6377 /* star.json */,
 				4EDFA47325EC59A000924569 /* trophy.json */,
 				4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */,
 				41CFB12725D08754004D31F9 /* WinningReport.swift */,
+				C9AE4D86261BF86F004007B1 /* star.json */,
 				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
 				4EB21B7B25CF768F0076530E /* ProgressBar.swift */,
 				C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */,
@@ -710,6 +711,7 @@
 			files = (
 				4EDFA43F25EAF46300924569 /* HappyPear.atlas in Resources */,
 				4EDFA44725EAF46300924569 /* WaitingPear.atlas in Resources */,
+				C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */,
 				4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */,
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
@@ -721,11 +723,9 @@
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
-				4E6242A626065A0100FA6377 /* star.json in Resources */,
 				4EFA24B225EE208500A17868 /* Color.xcassets in Resources */,
 				C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
-				4EC6D37325C213B800A15A9D /* FFHekaya-Light.otf in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
@@ -752,6 +752,7 @@
 				4EDFA44425EAF46300924569 /* WaitingPineapple.atlas in Resources */,
 				4EDFA44925EAF46300924569 /* SadApple.atlas in Resources */,
 				4EDFA44D25EAF46300924569 /* NWStrawberry.atlas in Resources */,
+				C9AE4D87261BF86F004007B1 /* star.json in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
@@ -763,7 +764,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EC6D37D25C2338400A15A9D /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +771,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EC6D38125C2338400A15A9D /* FFHekaya-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +977,7 @@
 				4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */,
 				C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */,
 				41F4C24D25D0AD01000D4064 /* LosingViewController.swift in Sources */,
+				C9AE4D9A261C0BA6004007B1 /* ObjectDetectionTrainingViewController.swift in Sources */,
 				C92A66FE25CE91FC0060AA53 /* LocalStorageManager.swift in Sources */,
 				C98635E9261810D600A94CCF /* TrainingSectionViewController.swift in Sources */,
 				C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */,
@@ -1181,13 +1181,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.LafeefApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1203,13 +1203,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.LafeefApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
