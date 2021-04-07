@@ -14,6 +14,7 @@ class StoreViewController: UIViewController {
     //MARK:- Variabels
     
     //@IBOustlet
+    @IBOutlet weak var waveUIView: UIImageView!
     @IBOutlet weak var moneyBarUIView: UIView!
     @IBOutlet weak var moneyUILabel: UILabel!
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
@@ -64,6 +65,9 @@ class StoreViewController: UIViewController {
         tableView.rowHeight = 180
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        
+        //Style Wave image
+        Utilities.styleWaveView(waveUIView)
         
     }
     

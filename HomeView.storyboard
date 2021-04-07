@@ -316,7 +316,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="الشخصية"/>
-                                    <segment title="المتجر"/>
+                                    <segment title="المخبز"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="GreenApp"/>
                                 <connections>
@@ -441,7 +441,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Nk-mEq">
-                                <rect key="frame" x="543" y="85" width="141" height="96"/>
+                                <rect key="frame" x="547" y="85" width="141" height="96"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
@@ -451,7 +451,7 @@
                         <color key="backgroundColor" name="whiteApp"/>
                         <constraints>
                             <constraint firstItem="14g-Xh-LRr" firstAttribute="top" secondItem="4pI-Ss-2NN" secondAttribute="top" constant="-91" id="9V8-LN-hfo"/>
-                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="ZhZ-Nk-mEq" secondAttribute="trailing" constant="84" id="C2N-DE-LUF"/>
+                            <constraint firstItem="Rxb-ol-933" firstAttribute="trailing" secondItem="ZhZ-Nk-mEq" secondAttribute="trailing" constant="80" id="C2N-DE-LUF"/>
                             <constraint firstItem="Rxb-ol-933" firstAttribute="bottom" secondItem="s2d-OB-KfM" secondAttribute="bottom" constant="40" id="GC9-oI-beB"/>
                             <constraint firstItem="qSN-ks-2ZV" firstAttribute="leading" secondItem="Rxb-ol-933" secondAttribute="leading" constant="60" id="GUt-f7-FEm"/>
                             <constraint firstItem="lKF-Qj-2jY" firstAttribute="leading" secondItem="Wck-5F-zfv" secondAttribute="trailing" constant="70" id="Gqi-N8-fzd"/>
@@ -476,6 +476,7 @@
                         <outlet property="moneyUILabel" destination="r0b-qZ-zcf" id="JaV-Oy-LAX"/>
                         <outlet property="segmentedControlUI" destination="qSN-ks-2ZV" id="wRp-ug-TBQ"/>
                         <outlet property="tableView" destination="s2d-OB-KfM" id="Dgv-Qu-xMa"/>
+                        <outlet property="waveUIView" destination="14g-Xh-LRr" id="ATI-hD-C7E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
