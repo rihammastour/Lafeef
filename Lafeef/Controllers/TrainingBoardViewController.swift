@@ -57,7 +57,6 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         nextlOutlet.layer.cornerRadius =  nextlOutlet.frame.size.height/2
         
         skiplOutlet?.layer.cornerRadius =  skiplOutlet.frame.size.height/2
-        AddQuestion.calculations()
         
         // make multiline
         QuestionLabel.numberOfLines = 0
