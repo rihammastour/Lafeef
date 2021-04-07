@@ -52,7 +52,6 @@ class FirebaseRequest{
         
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
             if let user = authResult?.user {
-                print(user)
                 completionBlock(true, nil)
                 
             } else {
@@ -89,7 +88,6 @@ class FirebaseRequest{
     
     //Add Equipment
     static func addEquipment(_ equipment:StoreEquipment, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
-        
         let id = getUserId()!
         let eq = ChildEquipment(name: equipment.name, inUse: equipment.inUse)
         do{
@@ -114,6 +112,24 @@ class FirebaseRequest{
                 completion(false,err)
             } else {
                 print("Document successfully written!")
+            }
+        }
+        completion(true,nil)
+    }
+    
+    //Update Money
+    static func updateUseEquipment(for equipmentID:String, isUsing:Bool, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+        print("equipmentID  ::",equipmentID)
+        let id = getUserId()!
+        
+        db.collection("ChildEquipments/\(id)/equipments").document(equipmentID).updateData([
+            "inUse": isUsing
+        ]){ err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false,err)
+            } else {
+                print("Document updated successfully written!")
             }
         }
         completion(true,nil)
@@ -148,7 +164,7 @@ class FirebaseRequest{
                     return
                 }
                 //Featch changers successfully
-                print("data in seeting db listener",data)
+                print("data in seeting db listener")
                 completion(data,nil)
             }
     }
@@ -191,7 +207,6 @@ class FirebaseRequest{
                 }
                 
                 //Featch changers successfully
-                print("data in fetch user data ",data)
                 completion(data,nil)
                 
             }
@@ -288,9 +303,9 @@ class FirebaseRequest{
                 print("Error getting documents: \(err)")
                 completion(nil,err)
             } else {
-                var array : [Any] = []
+                var array : [String:Any] = [:]
                 for document in querySnapshot!.documents {
-                    array.append(document.data())
+                    array.updateValue( document.data(), forKey: document.documentID)
                 }
                 completion(array,nil)
             }
@@ -317,7 +332,6 @@ class FirebaseRequest{
                 return
             }
             //Featch image successfully
-            print("image fetched ", image)
             completion(image, nil)
         }
         
