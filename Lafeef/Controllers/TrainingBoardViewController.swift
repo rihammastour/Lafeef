@@ -155,7 +155,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             } else  if detailes[index].type == "subtraction" {
                 image.image = UIImage(named: "Training-subtraction")
                 self.answer = detailes[index].answer
-            } else  if detailes[index].type == "muliplication" {
+            } else  if detailes[index].type == "multiplication" {
                 image.image = UIImage(named: "Training-multiplication")
                 self.answer = detailes[index].answer
             }
