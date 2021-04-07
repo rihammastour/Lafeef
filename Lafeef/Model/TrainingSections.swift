@@ -32,11 +32,11 @@ enum TrainingSections: String,Codable {
 
         case .calculations:
             if type == "addition" {
-                return "FiftyRiyal"
+                return "Kiwi Kiwi"
             } else if type == "subtraction" {
-                return "OneRiyal"
+                return "ChocolateBrown"
             } else if type == "multiplication" {
-                return "OneRiyal OneRiyal OneRiyal OneRiyal"
+                return "Pineapple Pineapple Pineapple Pineapple"
             }
             
          }

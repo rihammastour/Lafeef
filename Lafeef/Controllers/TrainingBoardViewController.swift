@@ -57,7 +57,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         nextlOutlet.layer.cornerRadius =  nextlOutlet.frame.size.height/2
         
         skiplOutlet?.layer.cornerRadius =  skiplOutlet.frame.size.height/2
-        
+        AddQuestion.calculations()
         
         // make multiline
         QuestionLabel.numberOfLines = 0
@@ -151,13 +151,13 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             
         case "calculations":
             if detailes[index].type == "addition"{
-                image.image = UIImage(named: "Training-yellowCircle")
+                image.image = UIImage(named: "Training-addition")
                 self.answer = detailes[index].answer
             } else  if detailes[index].type == "subtraction" {
-                image.image = UIImage(named: "Training-bleuTriangle")
+                image.image = UIImage(named: "Training-subtraction")
                 self.answer = detailes[index].answer
             } else  if detailes[index].type == "muliplication" {
-                image.image = UIImage(named: "Training-bleuTriangle")
+                image.image = UIImage(named: "Training-multiplication")
                 self.answer = detailes[index].answer
             }
             break
