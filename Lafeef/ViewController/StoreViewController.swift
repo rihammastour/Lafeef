@@ -19,6 +19,7 @@ class StoreViewController: UIViewController {
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
     
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     //Variables
@@ -27,6 +28,11 @@ class StoreViewController: UIViewController {
     var childEquipments:[ChildEquipment]? = nil
     var bakeryEquipments:[StoreEquipment]? = []
     var characterEquipments:[StoreEquipment]? = []
+    var showlamp = false
+    var framename = ""
+    var charachterImage = ""
+    var isStore = false
+    var isGirl = false
     
     var tableData:[StoreEquipment]?
     
@@ -210,9 +216,20 @@ class StoreViewController: UIViewController {
       // use the tag of button as index
         let aEquipment = tableData?[sender.tag]
         print("use item tapped")
+        self.performSegue(withIdentifier: "preview", sender:self)
+        
     }
     
     //MARK: - Dalegate
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! PreviewPrefrenceViewController
+        destinationVC.showLamp = showlamp
+        destinationVC.framename = framename
+        destinationVC.charachterImageName = charachterImage
+        
+    }
+    
     
     func showAlert(with message:String){
         let alert = AlertService()
@@ -278,7 +295,78 @@ class StoreViewController: UIViewController {
             //TODO:Alert..
         }
     }
-    
+    func reflectuserPrefrence(name:String){
+        switch name {
+        case  BackeryStore.lamp.rawValue:
+            updatePreviewVariables(isGirl: false, isStore: true, isLamp: true)
+        break
+        case BackeryStore.cupcakeFrame.rawValue:
+            framename = BackeryStore.cupcakeFrame.rawValue
+            updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
+        break
+        case  BackeryStore.lavendarFrame.rawValue:
+            framename = BackeryStore.lavendarFrame.rawValue
+            updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
+        break
+        case  BackeryStore.loliPopFrame.rawValue:
+            framename = BackeryStore.loliPopFrame.rawValue
+            updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
+        break
+        case CharachtersStore.blueBoy.rawValue:
+            charachterImage = "FullBlueBoy"
+            updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
+        case CharachtersStore.grayBoy.rawValue:
+            charachterImage = "fullGrayBoy"
+            updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
+        case CharachtersStore.yellowBoy.rawValue:
+            charachterImage = "fullYellowBoy"
+            updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
+        case CharachtersStore.redGlassess.rawValue:
+            if sex == "girl"{
+            charachterImage = "redGlassessGirl"
+                updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
+            }else{
+                charachterImage = "redGlasssessBoy"
+                updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
+            }
+            
+        break
+        case CharachtersStore.blueglassess.rawValue:
+            if sex == "girl"{
+            charachterImage = "blueGlassessGirl"
+            updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
+            }else{
+                charachterImage = "blueGlassessBoy"
+                updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
+            }
+            
+        break
+        case CharachtersStore.pinkGirl.rawValue:
+            charachterImage = "fullPinkGirl"
+            updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
+            break
+        case CharachtersStore.blueGirl.rawValue:
+            charachterImage = "FullBlueGirl"
+            updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
+            break
+        case CharachtersStore.orangeGirl.rawValue:
+            charachterImage = "fullOrangeGirl"
+            updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
+            break
+        default:
+            print("nothing ")
+        }
+        
+        
+        
+    }
+    func updatePreviewVariables(isGirl:Bool,isStore:Bool, isLamp:Bool){
+        self.showlamp = isLamp
+        self.isGirl = isGirl
+        self.isStore = isStore
+        
+        
+    }
 }
 
 
@@ -319,6 +407,8 @@ extension StoreViewController : UITableViewDataSource{
                     cell.button.isEnabled = false
                 }else{
                     cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)
+                    reflectuserPrefrence(name: aEquipment.name)
+                    
                 }
             }else{
                 cell.button.addTarget(self, action: #selector(buyItemTapped(_:)), for: .touchUpInside)

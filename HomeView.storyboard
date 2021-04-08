@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
+                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -330,7 +330,7 @@
                                         <rect key="frame" x="5" y="5" width="140" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-qZ-zcf">
-                                                <rect key="frame" x="0.0" y="-4" width="140" height="48"/>
+                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -432,7 +432,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Nk-mEq">
-                                <rect key="frame" x="543" y="85" width="141" height="96"/>
+                                <rect key="frame" x="525" y="85" width="159" height="93.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
@@ -467,6 +467,7 @@
                         <outlet property="moneyUILabel" destination="r0b-qZ-zcf" id="JaV-Oy-LAX"/>
                         <outlet property="segmentedControlUI" destination="qSN-ks-2ZV" id="wRp-ug-TBQ"/>
                         <outlet property="tableView" destination="s2d-OB-KfM" id="Dgv-Qu-xMa"/>
+                        <segue destination="e3W-Mk-wMq" kind="show" identifier="preview" id="cN9-gu-1f5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -478,11 +479,71 @@
             <objects>
                 <viewController id="e3W-Mk-wMq" customClass="PreviewPrefrenceViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SYG-tX-bxZ">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="previewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Hn9-5X-Aq1">
+                                <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                                <color key="tintColor" name="BlackApp"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="OVu-h8-hgX">
+                                <rect key="frame" x="264" y="62" width="504" height="128"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cupcakeFrame" translatesAutoresizingMaskIntoConstraints="NO" id="gUC-7z-xrK">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="9ch-lk-1sH"/>
+                                            <constraint firstAttribute="height" constant="128" id="ya4-p6-6m3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamp" translatesAutoresizingMaskIntoConstraints="NO" id="St4-Na-2XV">
+                                        <rect key="frame" x="264" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="1Jb-Mt-8Mo"/>
+                                            <constraint firstAttribute="height" constant="128" id="dCp-cD-0Eu"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-bg-52M">
+                                <rect key="frame" x="203" y="293" width="298" height="398"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="398" id="Dmi-9u-0Gy"/>
+                                    <constraint firstAttribute="width" constant="298" id="xmw-2N-VBe"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-i4-tSg">
+                                <rect key="frame" x="-5" y="13" width="128" height="128"/>
+                                <state key="normal" image="arrow-back"/>
+                                <connections>
+                                    <segue destination="yXw-yV-vtD" kind="show" id="cY7-xM-3x5"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="V8P-Be-ZuY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KTm-bg-52M" firstAttribute="centerX" secondItem="V8P-Be-ZuY" secondAttribute="centerX" id="39m-sj-aHr"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="leading" secondItem="VSU-i4-tSg" secondAttribute="leading" constant="5" id="L1u-VR-5ZB"/>
+                            <constraint firstItem="VSU-i4-tSg" firstAttribute="top" secondItem="V8P-Be-ZuY" secondAttribute="top" constant="13" id="QBw-Io-ZJx"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="trailing" secondItem="VSU-i4-tSg" secondAttribute="trailing" constant="581" id="RfI-Lb-6H1"/>
+                            <constraint firstItem="Hn9-5X-Aq1" firstAttribute="leading" secondItem="V8P-Be-ZuY" secondAttribute="leading" id="Unq-rd-gDn"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="trailing" secondItem="Hn9-5X-Aq1" secondAttribute="trailing" id="eck-kI-TFF"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="bottom" secondItem="VSU-i4-tSg" secondAttribute="bottom" constant="843" id="jk3-ZV-5Yh"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="bottom" secondItem="Hn9-5X-Aq1" secondAttribute="bottom" id="nPz-Z4-Kea"/>
+                            <constraint firstItem="OVu-h8-hgX" firstAttribute="top" secondItem="V8P-Be-ZuY" secondAttribute="top" constant="62" id="pvd-RX-a9a"/>
+                            <constraint firstItem="KTm-bg-52M" firstAttribute="centerY" secondItem="V8P-Be-ZuY" secondAttribute="centerY" id="rMq-y0-gR4"/>
+                            <constraint firstItem="OVu-h8-hgX" firstAttribute="centerX" secondItem="Hn9-5X-Aq1" secondAttribute="centerX" id="tnX-Z9-dl3"/>
+                            <constraint firstItem="Hn9-5X-Aq1" firstAttribute="top" secondItem="V8P-Be-ZuY" secondAttribute="top" id="xzJ-Jq-LfV"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jAi-LV-dqA"/>
+                    <connections>
+                        <outlet property="charachterImage" destination="KTm-bg-52M" id="VyL-pR-3V8"/>
+                        <outlet property="frameImage" destination="gUC-7z-xrK" id="bxa-Qa-hvW"/>
+                        <outlet property="lampImage" destination="St4-Na-2XV" id="PSp-No-1nM"/>
+                        <outlet property="previewBackground" destination="Hn9-5X-Aq1" id="eH6-tL-rK2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2h-Ov-4RY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -759,18 +820,23 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8sL-cd-Nm3"/>
+        <segue reference="cY7-xM-3x5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="EditButton" width="82" height="80"/>
         <image name="Girl-Profile" width="419" height="365"/>
         <image name="Training-wave" width="403" height="287.4949951171875"/>
         <image name="arrow-back" width="22" height="38.480998992919922"/>
+        <image name="boy" width="873" height="1529"/>
         <image name="buy-item" width="93.013999938964844" height="113.40000152587891"/>
         <image name="calendar" width="52.647998809814453" height="49"/>
         <image name="calendar-level" width="624" height="687.60198974609375"/>
         <image name="challenge-wave" width="403.00201416015625" height="332.72900390625"/>
+        <image name="cupcakeFrame" width="413" height="385"/>
         <image name="greenBackground" width="674" height="240.00300598144531"/>
+        <image name="lamp" width="1155" height="603"/>
         <image name="moneyBag" width="23" height="23.666666030883789"/>
+        <image name="previewBackground" width="1598" height="2042"/>
         <image name="profileCircle" width="256.70199584960938" height="256.70199584960938"/>
         <image name="scoreIcon" width="23" height="23"/>
         <image name="store-wave" width="1170.6929931640625" height="403.95199584960938"/>
