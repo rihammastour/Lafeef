@@ -476,13 +476,13 @@
                         <outlet property="moneyUILabel" destination="r0b-qZ-zcf" id="JaV-Oy-LAX"/>
                         <outlet property="segmentedControlUI" destination="qSN-ks-2ZV" id="wRp-ug-TBQ"/>
                         <outlet property="tableView" destination="s2d-OB-KfM" id="Dgv-Qu-xMa"/>
-                        <segue destination="e3W-Mk-wMq" kind="show" identifier="preview" id="cN9-gu-1f5"/>
                         <outlet property="waveUIView" destination="14g-Xh-LRr" id="ATI-hD-C7E"/>
+                        <segue destination="e3W-Mk-wMq" kind="show" identifier="preview" id="cN9-gu-1f5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTt-yw-wIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5730" y="987"/>
+            <point key="canvasLocation" x="6396" y="1083"/>
         </scene>
         <!--Preview Prefrence View Controller-->
         <scene sceneID="Zgu-QV-Udo">
@@ -810,7 +810,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8sL-cd-Nm3"/>
+        <segue reference="cN9-gu-1f5"/>
+        <segue reference="fBs-5G-GmW"/>
         <segue reference="cY7-xM-3x5"/>
     </inferredMetricsTieBreakers>
     <resources>

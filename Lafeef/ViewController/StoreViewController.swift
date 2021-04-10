@@ -41,12 +41,24 @@ class StoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Additional setup after loading the view.
         setUIElements()
         getChildData()
         
+        
         fechStoreEquipment {
             tableView.reloadData()
+        }
+        FirebaseRequest.updateMoney(2000) { (success, errore) in
+            if !success{
+                //Purches won't complated
+                self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+            }else{
+                
+                self.updateMoney(2000)
+                self.getChildPrefrnces()
+            }
         }
     }
     
@@ -189,7 +201,8 @@ class StoreViewController: UIViewController {
                 if (succes){
                     
                     self.getChildPrefrnces()
-                    self.showAlert(with: "تم تغيير بنجاح")
+                    self.performSegue(withIdentifier: "preview", sender:self)
+//                    self.showAlert(with: "تم تغيير بنجاح")
                     
                 }
             }
@@ -326,6 +339,7 @@ class StoreViewController: UIViewController {
       // use the tag of button as index
         if let aEquipment = tableData?[sender.tag]{
             buyItem(aEquipment)
+    
             let indexPath = IndexPath(item: sender.tag, section: 0)
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -338,7 +352,7 @@ class StoreViewController: UIViewController {
             useItem(aEquipment)
             let indexPath = IndexPath(item: sender.tag, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
-              self.performSegue(withIdentifier: "preview", sender:self)
+   
         }
     }
     
@@ -349,6 +363,10 @@ class StoreViewController: UIViewController {
         destinationVC.showLamp = showlamp
         destinationVC.framename = framename
         destinationVC.charachterImageName = charachterImage
+        destinationVC.isStore = isStore
+        destinationVC.isGirl = isGirl
+        
+        
         
     }
     
@@ -530,10 +548,11 @@ extension StoreViewController : UITableViewDataSource{
                     cell.button.isEnabled = false
                     cell.button.setBackgroundImage(UIImage(named: "item-used-icon"), for: UIControl.State.normal)
                 }else{
+                    reflectuserPrefrence(name: aEquipment.name)
                     cell.button.setBackgroundImage(UIImage(named: "use-item-icon"), for: UIControl.State.normal)
                     cell.button.removeTarget(nil, action: nil, for: .allEvents)
                     cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)
-                    reflectuserPrefrence(name: aEquipment.name)
+                  
                     
                 }
             }else{
