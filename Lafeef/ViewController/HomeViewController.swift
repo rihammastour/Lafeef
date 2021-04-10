@@ -25,6 +25,12 @@ class HomeViewController: UIViewController {
     //Buttons
     @IBOutlet weak var storeButton: UIButton!
     
+    
+    let formatter = NumberFormatter()
+    let  sound = SoundManager()
+    let alertservice = AlertService()
+
+    
 
     
     //MARK: - Lifecycle Functions
@@ -35,7 +41,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//
+        formatter.locale = Locale(identifier: "ar")
+        sound.playSound(sound: Constants.Sounds.hello)
     //Additional setup after loading the view.
 
     //Style elemnts
@@ -101,12 +109,13 @@ class HomeViewController: UIViewController {
     }
     //Level
     func setCurrentLevel(_ level:Int) {
-        levelNumLabel.text = String(level)
+       
+        levelNumLabel.text = formatter.string(from: NSNumber(value: level))!
     }
     
     //Score
     func setScore(_ score:Int) {
-        scoreLabel.text = String(score)
+        scoreLabel.text = formatter.string(from: NSNumber(value: score))!
     }
     func setChildPrefrence(name:String){
         characterUIImageView.image = UIImage(named: name)
@@ -115,7 +124,7 @@ class HomeViewController: UIViewController {
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money)
+        moneyLabel.text = formatter.string(from: NSNumber(value: money))!
     }
     
     //Image
@@ -139,6 +148,7 @@ class HomeViewController: UIViewController {
                     print("Home View Controller",err!)
                      if err?.localizedDescription == "Failed to get document because the client is offline."{
                         print("تأكد من اتصال الانترنيت")
+                        self.present(self.alertservice.Alert(body: "تأكد من اتصالك بالإنترنت"),animated:true)
                         //TODO: Alert and update button and logout
                     }
     
@@ -158,7 +168,10 @@ class HomeViewController: UIViewController {
             setUIChildInfo(child)
         }else{
             print("No Child Found")
+            self.present(self.alertservice.Alert(body: "لايوجد مستخدم"),animated:true)
+           
             //TODO: Alert..
+            
         }
       
     }
@@ -192,7 +205,38 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: Constants.Segue.showProfile, sender: self)
     }
     
+    @IBAction func challeange(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+  self.performSegue(withIdentifier: Constants.Segue.goToChalleange, sender: self)
+//
+      }
+
+    
+      sound.playSound(sound: Constants.Sounds.challeange)
 }
+    @IBAction func train(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+  self.performSegue(withIdentifier: Constants.Segue.goToTraining, sender: self)
+//
+      }
+
+    
+      sound.playSound(sound: Constants.Sounds.train)
+}
+
+    @IBAction func store(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.56) {
+  self.performSegue(withIdentifier: Constants.Segue.goToStore, sender: self)
+//
+      }
+
+    
+      sound.playSound(sound: Constants.Sounds.store)
+}
+}
+
 
 //MARK: - Extention
 public extension UIView {

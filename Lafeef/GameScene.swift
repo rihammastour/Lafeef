@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import Speech
 
 class GameScene: SKScene {
     
@@ -14,6 +15,11 @@ class GameScene: SKScene {
     
     //MARK: Variables
     let alert = AlertService()
+    let formatter = NumberFormatter()
+    let voice2 = Voice2ViewController()
+
+    var text = ""
+ 
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -31,7 +37,7 @@ class GameScene: SKScene {
     
     //MARK:  Charachters  Variables
     var customers : [CustomerNode]=[]
-    var currentCustomer = 0
+    static var currentCustomer = 0
     
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
@@ -87,23 +93,34 @@ class GameScene: SKScene {
     static var lamp : SKSpriteNode?
     
     var viewController2: UIViewController?
+    
+   
     //MARK: - Lifecycle Functons
     
+    
     override func sceneDidLoad() {
+    
+        
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        
         setupSceneElements()
         setUpCharacters()
+     
+        
+    
     }
     
+
     
     override func didMove(to view: SKView) {
         backgroundColor = .white
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            
-            
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//            
+//            
+//        }
         
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
@@ -112,7 +129,7 @@ class GameScene: SKScene {
     }
     
      func startGame(){
-        self.buildCustomer(customerNode: self.customers[self.currentCustomer])
+        self.buildCustomer(customerNode: self.customers[GameScene.currentCustomer])
     }
     
     //MARK: - Set up Scene Eslements Functions
@@ -138,13 +155,13 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY)!+(50))
-        OrderButton.zPosition = 3
+        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY ?? 0)+(50))
+        OrderButton.zPosition = 50
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY)!+(50))
-        PaymentButton.zPosition = 3
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY ??  20) + (50))
+        PaymentButton.zPosition = 50
         self.addChild(PaymentButton)
         
         // Get Camera node from scene and store it for use later
@@ -257,18 +274,31 @@ class GameScene: SKScene {
         GameScene.moneyLabel.fontSize = 34
         GameScene.moneyLabel.fontName = "FF Hekaya"
         GameScene.moneyLabel.fontColor = SKColor(named: "BlackApp")
-        GameScene.moneyLabel.text = "0.0"
+        GameScene.moneyLabel.text = "٠"
         self.moneyCountiner?.addChild(GameScene.moneyLabel!)
         
     }
     
     //updateMoneyLabel
     static func updateMoneyLabel(_ earnedMoney:Float){
+        let arabicFormatter: NumberFormatter = NumberFormatter()
+        let EnglishFormatter: NumberFormatter = NumberFormatter()
+        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        EnglishFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         
-        var money = Float(GameScene.moneyLabel.text!)!
+        var money = Float(EnglishFormatter.number(from: GameScene.moneyLabel.text!)!)
         money += earnedMoney
-        GameScene.moneyLabel.text = String(money)
+        GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
+    }
+    static func setMoneyLabel(_ earnedMoney:Float){
+        let arabicFormatter: NumberFormatter = NumberFormatter()
+
+        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+     
         
+      
+       
+        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
     }
     
     
@@ -305,7 +335,7 @@ class GameScene: SKScene {
     
     //setup Characters
     func setUpCharacters(){
-        while customers.count <= 0  {
+        while customers.count <= 3  {
             let randomInt = Int.random(in: 1..<7)
             var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
@@ -491,6 +521,7 @@ class GameScene: SKScene {
     func setPaymentContent(with money:[Money]?){
         self.paymentContainer?.removeAllChildren()
         
+        
         //unwrap payment continer
         guard self.paymentContainer != nil else {
             print("no payment continer")
@@ -618,35 +649,36 @@ class GameScene: SKScene {
     
     // OrderbuttonTapped
     func checkOrderAnswer(){
+    OrderButton.isHidden = true
         
         // Get answers provided
-        let answer = (viewController?.objectDetected?.getAnswer())!
+    let answer = (viewController?.objectDetected?.getAnswer())!
         
         //Handling detection overlay
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
         Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         
         //make order invisible
-        hideOrder()
+    self.hideOrder()
         
         //check base if provided
         if answer.base == nil {
-            customerDone()
-            customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
+         customerDone()
+            customers[GameScene.currentCustomer].moveOutSadly(customerNode: customers[GameScene.currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
+             nextCustomer()}
             return
         }
         
         //Calculate the Scores
         viewController?.calculateOrderScore(for: answer)
-        let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
+    let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
         
         //Bill calculation
         viewController?.calculateTotalBill(for: answer)
         viewController?.calculateTotalBillWithTax(for: answer)
-        viewController?.showBill()
-        self.paymentContainer?.isHidden = false
+    viewController?.showBill()
+    paymentContainer?.isHidden = false
 
         
         //Walk to cashire and react
@@ -662,7 +694,7 @@ class GameScene: SKScene {
     func checkPaymentAnswer(){
         print("Payment button tapped!")
         
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
         
         //get Answer payment
         let answer = viewController?.objectDetected?.getAnswer()
@@ -681,7 +713,7 @@ class GameScene: SKScene {
     func walkToCashir(satisfaction: CustmerSatisfaction){
         
         GameScene.flag = true
-        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
+        customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: satisfaction)
     }
     
     func customerLeave(satisfaction: CustmerSatisfaction){
@@ -694,7 +726,7 @@ class GameScene: SKScene {
         customerDone()
         
         //Move Customer
-        customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
+        customers[GameScene.currentCustomer].moveOut(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: satisfaction) { [self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                 
                 let startPoint = CGPoint(x: 0, y: 0)
@@ -724,11 +756,13 @@ class GameScene: SKScene {
     }
     
     func nextCustomer(){
-        currentCustomer += 1
+        OrderButton.isHidden = false
+        PaymentButton.isHidden = false
+        GameScene.currentCustomer += 1
         GameScene.timeLeft = 30
-        if (currentCustomer<=0){
+        if (GameScene.currentCustomer<=3){
             print("داخل الاف الصغيره")
-            buildCustomer(customerNode: customers[currentCustomer])
+            buildCustomer(customerNode: customers[GameScene.currentCustomer])
             GameScene.timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
@@ -739,6 +773,7 @@ class GameScene: SKScene {
             print("THE LEVEL IS END ")
             GameScene.timer.invalidate()
             viewController?.levlEnd()
+            hideDetectionOverlay()
         }
         
     }
@@ -941,10 +976,16 @@ class GameScene: SKScene {
     }
     //MARK:- Buttons Tapped methods
     
-    func OrderbuttonTapped(){
-        checkOrderAnswer()
+    func OrderbuttonTapped(button:String){
+        Voice2ViewController.flag = true
+        print("inside order")
+
+    checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
+        Voice2ViewController.flag = true 
+//        hideDetectionOverlay()
+        PaymentButton.isHidden = true
         checkPaymentAnswer()
     }
     
@@ -1005,7 +1046,7 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             
             if OrderButton.contains(location) {
-                OrderbuttonTapped()
+                OrderbuttonTapped(button: "x")
             }
             if PaymentButton.contains(location) {
                 PaymentbuttonTapped()
@@ -1026,7 +1067,7 @@ class GameScene: SKScene {
         
         if (GameScene.flag){
             
-            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[GameScene.currentCustomer].customer.position.x, y: 0)
             
         }
         

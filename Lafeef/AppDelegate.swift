@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 animatedSplashVC.isChild = true
                 
             } else {
-                //                Set is logged in child to false
-                animatedSplashVC.isChild = false
+//                Set is logged in child to false
+             animatedSplashVC.isChild = false
             }
         }
         return true

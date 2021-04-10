@@ -11,6 +11,7 @@ import Cosmos
 class NormalViewController: UIViewController {
 
     var challeangeReport = ChallengeViewController()
+    var  sound = SoundManager()
 
  
     // customer satisfaction
@@ -35,11 +36,16 @@ class NormalViewController: UIViewController {
    // to convert into Arabic
    let formatter: NumberFormatter = NumberFormatter()
     let toChangeLevel: DailyReportViewController? = nil
+ 
   
     
   
     override func viewDidLoad() {
+    
+      
+        
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.excellent)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
@@ -56,7 +62,7 @@ class NormalViewController: UIViewController {
         // trophy animation
         bigStar!.frame = view.bounds
         bigStar!.contentMode = .scaleAspectFit
-        bigStar!.loopMode = .loop
+        bigStar!.loopMode = .playOnce
         bigStar!.animationSpeed = 0.5
         bigStar!.play()
         
@@ -74,9 +80,9 @@ class NormalViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(LevelGoalViewController.report.collectedScore))
+        setScore(score:LevelGoalViewController.report.collectedScore)
         // set money
-        setMoney(money:Int(LevelGoalViewController.report.collectedMoney))
+        setMoney(money:LevelGoalViewController.report.collectedMoney)
         
         if LevelGoalViewController.report.levelNum == "4"{
             nextDayOutlet.isHidden = true
@@ -89,7 +95,7 @@ class NormalViewController: UIViewController {
         if LevelGoalViewController.report.levelNum != "4"{
         levelnum! += 1
             LevelGoalViewController.report.levelNum = String(levelnum!)
-            self.performSegue(withIdentifier: " showChalleange", sender: self)
+            self.performSegue(withIdentifier: "normalshowChalleange", sender: self)
       
         }else{
             print("last level")
@@ -97,7 +103,7 @@ class NormalViewController: UIViewController {
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: " showCalendar", sender: self)
+        self.performSegue(withIdentifier: "showCalendar", sender: self)
         //
     }
     
@@ -123,13 +129,22 @@ class NormalViewController: UIViewController {
         sadLabel.text = formatter.string(from:sad as NSNumber)
 
     }
-    func setScore(score:Int)  {
+    func setScore(score:Float)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = round(Double(score/5))
-
-            }
-
-   func setMoney(money:Int)  {
+        if( score == 0){
+            starView.rating = 0
+        }else if (score > 0 && score <= 20){
+            starView.rating = 1
+        }else if  (score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
+        
+    }
+   func setMoney(money:Float)  {
     moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
         }
         

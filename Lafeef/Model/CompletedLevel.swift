@@ -7,6 +7,6 @@
 import Foundation
 
 public struct CompletedLevel: Codable {
-    var childID: String
-    var reportData: LevelReportData
+ 
+    var reportData: [LevelReportData]
 }

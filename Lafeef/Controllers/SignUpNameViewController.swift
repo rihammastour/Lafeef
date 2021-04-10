@@ -170,6 +170,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
       }
     
     func transition(){
+        adddefaultReport()
         let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
         
         view.window?.rootViewController = homeNavigationController
@@ -185,5 +186,32 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         validator.validate(self)
         return true
     }
+    
+    func adddefaultReport(){
+        
+        
+        let ReportData = LevelReportData(levelNum:"1", collectedMoney: 0, collectedScore: 0, isPassed:false)
+        var array = [LevelReportData]()
+      
+        array.append(ReportData)
+        let completedLevel = CompletedLevel(reportData: array)
+
+      
+        FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: completedLevel) { (success, err) in
+            if (err != nil){
+            
+            print("success")
+            } else{
+                print("error")
+            }
+        }
+        var  levelTwocount = 0
+        var  levelFourCount = 0
+        let defaults = UserDefaults.standard
+        defaults.set(levelTwocount, forKey: "levelTwoCount")
+        defaults.set(levelFourCount, forKey: "levelFourCount")
+    }
+    
+    
     
 }

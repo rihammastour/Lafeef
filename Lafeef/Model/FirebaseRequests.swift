@@ -73,12 +73,11 @@ class FirebaseRequest{
         }
     }
     
-    //Pass Completed Level Data
-    static func passCompletedLevelData(levelNum: String, completedLevel: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
+    static func passCompletedLevelData(childID:String, reports: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
         // Add a new document in collection "users"
         
         do {
-            try db.collection("levelReport").document(levelNum).setData(from: completedLevel)
+            try db.collection("levelReport").document(childID).setData(from: reports)
         } catch let err {
             print("error while passing data", err)
         }
@@ -144,6 +143,57 @@ class FirebaseRequest{
             print("Error writing city to Firestore: \(error)")
         }
     }
+    static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "money":money
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    static func updateChildInfo(_ Score:Float,Money:Float,_ currentLevel: Int, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "score":Score,
+                "money":Money,
+                "currentLevel":currentLevel
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    static func updateCurrentLevek(_ CurrentLevek:Int, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+            
+            let id = getUserId()!
+            
+            db.collection("users").document(id).updateData([
+                "currentLevek":CurrentLevek
+            ]){ err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                    completion(false,err)
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            completion(true,nil)
+        }
+    
     
     //MARK: - Get Document Firestore
     
@@ -171,7 +221,7 @@ class FirebaseRequest{
     
     
     //Get User Data
-    static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+    static func getChildData(for userID:String,  completion: @escaping (_ data: Any?, _ err:Error?)->Void){
         
         let id = getUserId()!
         
@@ -192,7 +242,7 @@ class FirebaseRequest{
     
     
     //Get Challenge Level Data
-    static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)->()){
+    static func getChallengeLvelData(for levelNum:String,  completion: @escaping (_ data: Any?, _ err:Error?)-> Void)  {
         
         db.collection("challenge").document(levelNum)
             .getDocument { (response, error) in

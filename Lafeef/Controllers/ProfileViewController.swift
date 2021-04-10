@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
-    
+    let  sound = SoundManager()
     //    let id = Auth.auth().currentUser!.uid
 //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
@@ -122,8 +122,8 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logOutAction(sender: AnyObject) {
         let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "نعم", style: .destructive) { (alertAction) in
-            
+        let ok = UIAlertAction(title: "نعم", style: .destructive) { [self] (alertAction) in
+                sound.playSound(sound: Constants.Sounds.bye)
             if Auth.auth().currentUser != nil {
                 do {
                     

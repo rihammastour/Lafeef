@@ -40,7 +40,7 @@ class PauseGameViewController: UIViewController{
             GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.circle?.isHidden=false
             GameScene.circle =  GameScene.circle
-            GameScene.circle!.isPaused=false
+            GameScene.circle?.isPaused=false
             GameScene.TimerShouldDelay = true
             ChallengeViewController.stopImageBool=true
             ChallengeViewController.stopCircleNil=false

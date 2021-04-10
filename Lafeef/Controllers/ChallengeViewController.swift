@@ -12,11 +12,13 @@ import GameplayKit
 import AVFoundation
 import Vision
 import ARKit
+import Speech
 
-class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate {
+class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,SFSpeechRecognizerDelegate {
 
     @IBOutlet var previewView: UIView!
     @IBOutlet weak var stopGame: UIButton!
+    
     //MARK: - Proprites
     
   
@@ -27,6 +29,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var orders:[Order]?
     var money:[Money]?
     var alert = AlertService()
+    var voice = Voice2ViewController()
+    let sound = SoundManager()
+  
 
     
     //Scores and Report Variables
@@ -36,7 +41,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var isPassed = false
     var customersSatisfaction : [CustmerSatisfaction] = []
     
-    var challengeScen:GameScene?
+    static var challengeScen:GameScene?
 
 
     static var stopCircleNil=false//when stop the nil circle
@@ -64,36 +69,85 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //Outlet
     @IBOutlet weak var gameScen: SKView!
+//    var voice2 =  Voice2ViewController()
     
 
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+   
         ChallengeViewController.levelNum = LevelGoalViewController.report.levelNum
         print( ChallengeViewController.levelNum!)
         // Additional setup after loading the view.
         setupAVCapture()   
-        setScene() 
+        setScene()
+//      voice.recordButtonTapped()
+
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
 //            self.displayLevelGoalViewController()
 //        }
         
         fetchChallengeLevel()
+        displayAdvReport()
+ 
         
-        if LevelGoalViewController.report.levelNum == "2" || LevelGoalViewController.report.levelNum == "4" {
+        
+        
+
+    }
+    static func callButton(string:String){
+        
+        print("insdie xxxxxxxx")
+        
+        if string == "تفضل"{
+            print("if")
+            test()
+        }
+        
+        
+//        switch string {
+//        case "تفضل":
+//
+//         challengeScen!.OrderbuttonTapped(button: "x")
+//            print("insdie methos")
+//
+//
+//
+//
+//            break
+//        case CalledButton.paymentButton.rawValue:
+//            print("insdie methos")
+//         challengeScen!.PaymentbuttonTapped()
+//            print( CalledButton.paymentButton.rawValue)
+//            break
+//
+//
+//
+//        default:
+//           print( string)
+//        }
+    }
+   static  func test(){
+        print("insid")
+    }
+    func displayAdvReport(){
+        let defaults = UserDefaults.standard
+         let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+        let levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
+       
+   
+        if LevelGoalViewController.report.levelNum == "2" && levelTwoCount < 1  || LevelGoalViewController.report.levelNum == "4"  && levelFourCount < 1{
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
                 self.presentAdvReport()
                 
             }
         }else{
-            challengeScen?.startGame()
+            ChallengeViewController.challengeScen?.startGame()
         }
         
-        
-        
-
     }
 
     //MARK: -Set up UI Element
@@ -101,20 +155,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //setScens
     func setScene(){
         
-        self.challengeScen = gameScen.scene as! GameScene
-        self.challengeScen?.viewController = self
-        self.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
+        ChallengeViewController.challengeScen = gameScen.scene as! GameScene
+        ChallengeViewController.challengeScen?.viewController = self
+        ChallengeViewController.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
+   
         
     }
 
-//    func displayLevelGoalViewController(){
-//        print("display")
-//        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-//        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.LevelGoalViewControllerViewController) as! LevelGoalViewControllerViewController
-//
-//        self.present(goalVC, animated: true)
-//
-//    }
+
     //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
@@ -123,15 +171,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func presentAdvReport(){
+        sound.playSound(sound: Constants.Sounds.advertisment)
         let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
         let advVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.advReportViewController) as! AdvReportViewController
-        advVC.scene = self.challengeScen
+        advVC.scene = ChallengeViewController.challengeScen
 
         self.present(advVC, animated: true) {
-          //  GameScene.startGame()
+        
         }
-//        self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
 
+    }
+    func corderButton(){
+//    OrderbuttonTapped()
+        
     }
     
     func showAdvOnBakery(){
@@ -261,10 +313,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //fethChallengeLevel
     func fetchChallengeLevel(){
+    
         
         guard let levelNum = ChallengeViewController.levelNum else {
             //TODO: Alert and go back
-            showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
+           showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
         
@@ -285,7 +338,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let order = orders![number]
         let base = order.base
         let toppings = order.toppings
-        self.challengeScen?.setOrderContent(with: base, toppings)
+        ChallengeViewController.challengeScen?.setOrderContent(with: base, toppings)
         showCustomerPaid(at: number)
 
     }
@@ -296,7 +349,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
         print("money", money)
-        self.challengeScen?.setPaymentContent(with: money)
+        ChallengeViewController.challengeScen?.setPaymentContent(with: money)
     }
     
     func showBill() -> Void {
@@ -305,8 +358,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10)
         
-        self.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
-        self.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
+        ChallengeViewController.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
+        ChallengeViewController.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
         LevelGoalViewController.report.salesAmount = totalBillWithTaxRounded
     }
     
@@ -317,6 +370,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             ChallengeViewController.currentOrder = ChallengeViewController.currentOrder + 1
             showOrder(at: ChallengeViewController.currentOrder)
         }else{
+            levlEnd()
             //TODO:End Level
         }
     }
@@ -505,7 +559,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //check if child pass the level
     func checkLevelPassed(){
-        if LevelGoalViewController.report.collectedScore > 20.0 {
+        if LevelGoalViewController.report.collectedScore >= 50.0 {
             LevelGoalViewController.report.isPassed = true
         }else{
             LevelGoalViewController.report.isPassed  = false
@@ -513,6 +567,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func DispalyReport(_ report:DailyReport){
+        
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
         
 //                self.present(report.displayDailyReport(), animated: true)
                 self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
@@ -523,8 +579,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //showAlert
     func showAlert(with message:String) {
-        //        alert.Alert(body: message)
-        // need an alert
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        self.present(alert.Alert(body: message), animated: true)
+      
     }
     
     //feachChalengeLevelHandeler
@@ -534,6 +591,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             print("Challenge View Controller",err!)
             
             if err?.localizedDescription == "Failed to get document because the client is offline."{
+                self.present(alert.Alert(body: "لطفًا، تأكد من اتصالك بالإنترنت"), animated: true)
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
@@ -547,6 +605,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 self.setLevelInfo(level)
                 //self.startLevelTimer()
             }catch{
+                
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
             }

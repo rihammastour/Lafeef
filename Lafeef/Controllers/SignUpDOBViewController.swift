@@ -85,7 +85,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
        datePicker.datePickerMode = .date
        datePicker.semanticContentAttribute = .forceRightToLeft
        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
-       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -20, to: Date())
+       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -12, to: Date())
        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
        datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
         let toolBar = UIToolbar()

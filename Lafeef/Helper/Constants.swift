@@ -28,6 +28,8 @@ struct Constants {
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let backery = "backery"
         static let storeViewController = "storeVC"
+        static let gameInstruction = "gameInstruction"
+        
     }
     
     struct Segue {
@@ -50,8 +52,45 @@ struct Constants {
         static let challeange = "challeange"
         static let showBackery = "showBackery"
         static let showChalleange = "showChalleange"
+        static let goToChalleange =  "goToChalleange"
+        static let goToTraining = "goToTraining"
+        static let goToStore = "goToStore"
+        static let goToHome = "goToHome"
+      
         
         
+        
+    }
+    struct Sounds {
+        static let excellent = "excellent"
+        static let firstDay = "firstDay"
+        static let secondDay = "secondDay"
+        static let thirdDay = "thirdDay"
+        static let fourthDay = "fourthDay"
+        static let advertisment = "advertisment"
+        static let bye = "bye"
+        static let challeange = "challeange"
+        static let train = "train"
+        static let happyCustomer = "happyCustomer"
+        static let sadCustomer = "sadCustomer"
+        static let hello = "hello"
+        static let laernShapes = "laernShapes"
+        static let laernMath = "laernMath"
+        static let laernolors = "laerncolors"
+        static let reward = "reward"
+        static let store = "store"
+        static let tryAgain = "tryagain"
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+
     }
     struct equipmentNames {
         static let yellowBoy = "yellowBoy"

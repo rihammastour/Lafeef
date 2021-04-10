@@ -38,16 +38,18 @@ class WinningViewController: UIViewController {
    // to convert into Arabic
    let formatter: NumberFormatter = NumberFormatter()
     let toChangeLevel: DailyReportViewController? = nil
+    let  sound = SoundManager()
   
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.reward)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-       winningView.layer.cornerRadius = 30
-       Winning.layer.cornerRadius = 30
+        winningView.layer.cornerRadius = 30
+        Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
         scoreView.layer.cornerRadius = 20
@@ -130,7 +132,15 @@ class WinningViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)/5
+        if (score >= 0 && score <= 20){
+            starView.rating = 1
+        }else if  (score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
 
             }
 
