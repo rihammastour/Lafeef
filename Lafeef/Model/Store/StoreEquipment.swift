@@ -13,5 +13,4 @@ struct StoreEquipment: Codable,Equatable{
     var cost: Float
     var label:String
     var inUse:Bool = false
-    
 } 

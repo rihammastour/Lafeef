@@ -11,6 +11,7 @@ internal final class StoreCell: UITableViewCell {
     
     @IBOutlet weak var equipmentImage: UIImageView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     
     override func layoutSubviews() {

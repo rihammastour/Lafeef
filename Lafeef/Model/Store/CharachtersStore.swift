@@ -17,5 +17,23 @@ case blueGirl
 case orangeGirl
 case blueglassess
 case redGlassess
+    
+    func isGlassess()->Bool{
+        switch self {
+        case .blueBoy, .grayBoy,.yellowBoy,.pinkGirl,.blueGirl,.orangeGirl:
+            return false
+        case .blueglassess,.redGlassess:
+            return true
+        }
+    }
+    
+    func isClothes()->Bool{
+        switch self {
+        case .blueBoy, .grayBoy,.yellowBoy,.pinkGirl,.blueGirl,.orangeGirl:
+            return true
+        case .blueglassess,.redGlassess:
+            return false
+        }
+    }
 
 }

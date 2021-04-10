@@ -14,6 +14,7 @@ class StoreViewController: UIViewController {
     //MARK:- Variabels
     
     //@IBOustlet
+    @IBOutlet weak var waveUIView: UIImageView!
     @IBOutlet weak var moneyBarUIView: UIView!
     @IBOutlet weak var moneyUILabel: UILabel!
     @IBOutlet weak var segmentedControlUI: UISegmentedControl!
@@ -25,7 +26,7 @@ class StoreViewController: UIViewController {
     //Variables
     var money:Float! = 0
     var sex:String! = "unisex"
-    var childEquipments:[ChildEquipment]? = nil
+    var childEquipments:[String:ChildEquipment]? = nil
     var bakeryEquipments:[StoreEquipment]? = []
     var characterEquipments:[StoreEquipment]? = []
     var showlamp = false
@@ -72,6 +73,9 @@ class StoreViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
         
+        //Style Wave image
+        Utilities.styleWaveView(waveUIView)
+        
     }
     
     //MARK: - Set Content for UI Elements
@@ -81,7 +85,7 @@ class StoreViewController: UIViewController {
         moneyUILabel.text = String(self.money)
     }
     
-    //MARK:- Functions
+    //MARK:- Get Data Functions
     
     func fechStoreEquipment(completion:()->Void){
         
@@ -106,16 +110,15 @@ class StoreViewController: UIViewController {
             //TODO : Alert and back
         }
     }
-    
     ///get Child Prefrnces
     func getChildPrefrnces(){
         //Get Child Prefrences
         FirebaseRequest.getChildEquipments { (data, err) in
             if let data = data {
                 do{
-                    let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
+                    let equipments = try FirebaseDecoder().decode([String:ChildEquipment].self, from: data)
                     self.childEquipments = equipments
-                    print()
+                    self.tableView.reloadData()
                 }catch{
                     print("Incorrect Format")
                 }
@@ -126,12 +129,16 @@ class StoreViewController: UIViewController {
         }
     }
     
+    
+    
+    //MARK:- Set Data Functions
+    
     ///Buy Item
     func buyItem(_ aEquipment:StoreEquipment){
-        
         let leftMoney = self.money - aEquipment.cost
         
         if leftMoney >= 0{
+            
             FirebaseRequest.addEquipment(aEquipment) { (success, errore) in
                 if !success{
                     //Purches won't complated
@@ -145,21 +152,135 @@ class StoreViewController: UIViewController {
                     //Purches won't complated
                     self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
                 }else{
+                    
                     self.updateMoney(leftMoney)
+                    self.getChildPrefrnces()
                 }
                 
             }
         }else{
-            //Not enughe money to buy
+            //No enughe money to buy
             self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء")
         }
         
     }
     
+    func useItem(_ aEquipment:StoreEquipment){
+        if let id = getId(for: aEquipment.name) {
+            
+            if let eq = BackeryStore.init(rawValue: aEquipment.name){
+                if((eq.isFrame())){
+                    // False for Frames
+                    turnOff(bakery: aEquipment)
+                    
+                }
+            }else if let eq = CharachtersStore.init(rawValue: aEquipment.name){
+                if(eq.isGlassess()){
+                    // False for Sunglasses
+                    turnOff(sunGlasses: aEquipment)
+                }
+                if(eq.isClothes()){
+                    // False for Clothes
+                    turnOff(clothes: aEquipment)
+                }
+                
+            }
+            FirebaseRequest.updateUseEquipment(for: id, isUsing: true) { (succes, error) in
+                if (succes){
+                    
+                    self.getChildPrefrnces()
+                    self.showAlert(with: "تم تغيير بنجاح")
+                    
+                }
+            }
+        }
+    }
+    
+    func turnOff(bakery aEquipment:StoreEquipment){
+        
+        guard let values = self.childEquipments?.values else {
+            return
+        }
+            for v in values{
+                
+                if let value = BackeryStore.init(rawValue: v.name){
+                    if(value.isFrame() && v.inUse){
+                        let id = self.getId(for: v.name)!
+                        FirebaseRequest.updateUseEquipment(for: id, isUsing: false) { (succes, error) in
+                            if (succes){
+                            }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    func turnOff(sunGlasses aEquipment:StoreEquipment){
+
+        guard let values = self.childEquipments?.values else {
+            return
+        }
+            for v in values{
+                
+                if let value = CharachtersStore.init(rawValue: v.name){
+                    if(value.isGlassess() && v.inUse){
+                        let id = self.getId(for: v.name)!
+                        FirebaseRequest.updateUseEquipment(for: id, isUsing: false) { (succes, error) in
+                            if (succes){
+                            }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    func turnOff(clothes aEquipment:StoreEquipment){
+
+        guard let values = self.childEquipments?.values else {
+            return
+        }
+            for v in values{
+                
+                if let value = CharachtersStore.init(rawValue: v.name){
+                    if(value.isClothes() && v.inUse){
+                        let id = self.getId(for: v.name)!
+                        FirebaseRequest.updateUseEquipment(for: id, isUsing: false) { (succes, error) in
+                            if (succes){
+                            }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    //MARK: - Processing childEquipments array Functions
+    
+    
+    func getId(for itemName:String) -> String?{
+        
+        guard let keys = childEquipments?.keys else {
+            return nil
+        }
+        
+        for k in keys {
+            
+            if let name = childEquipments?[k]?.name {
+            if (name == itemName){
+                return k
+            }
+            }
+        }
+        return nil
+    }
+    
     /// is Equipment purchesed
     func isPurched(_ item:StoreEquipment) -> Bool{
         
-        if let equipments = self.childEquipments  {
+        if let equipments = self.childEquipments?.values  {
             for e in equipments{
                 if e.name == item.name{
                     return true
@@ -171,7 +292,7 @@ class StoreViewController: UIViewController {
     /// is Equipment use
     func isInUse(_ item:StoreEquipment)->Bool{
 
-        if let equipments = self.childEquipments  {
+        if let equipments = self.childEquipments?.values  {
             for e in equipments{
                 if e.name == item.name{
                     return e.inUse
@@ -182,10 +303,6 @@ class StoreViewController: UIViewController {
     }
     
    
-//    guard let index = equipments.firstIndex(of: item.name) else {
-//        return false }
-//
-//    return equipments[index].inUse
     //MARK: - @IBAcation
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -208,16 +325,21 @@ class StoreViewController: UIViewController {
     @objc func buyItemTapped(_ sender: UIButton){
       // use the tag of button as index
         if let aEquipment = tableData?[sender.tag]{
-            buyItem(aEquipment)}
+            buyItem(aEquipment)
+            let indexPath = IndexPath(item: sender.tag, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
     //Use Item button Tapped
     @objc func useItemTapped(_ sender: UIButton){
       // use the tag of button as index
-        let aEquipment = tableData?[sender.tag]
-        print("use item tapped")
-        self.performSegue(withIdentifier: "preview", sender:self)
-        
+        if let aEquipment = tableData?[sender.tag]{
+            useItem(aEquipment)
+            let indexPath = IndexPath(item: sender.tag, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+              self.performSegue(withIdentifier: "preview", sender:self)
+        }
     }
     
     //MARK: - Dalegate
@@ -262,7 +384,6 @@ class StoreViewController: UIViewController {
                 
                 self.bakeryEquipments = equipmens.eqippments
                 self.tableData = equipmens.eqippments
-                tableView.reloadData()
             }catch{
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
@@ -370,7 +491,7 @@ class StoreViewController: UIViewController {
 }
 
 
-// MARK: - Table view data source
+// MARK: - Extension Table view data source
 
 extension StoreViewController : UITableViewDataSource{
     
@@ -395,40 +516,58 @@ extension StoreViewController : UITableViewDataSource{
         // Configure cell
         if let aEquipment = aEquipment{
             
-            cell.label.text = aEquipment.label
+            cell.label.text = "\(aEquipment.label) | "
+            cell.costLabel.text = " \(aEquipment.cost) ريال"
             cell.equipmentImage.image = UIImage(named: "imagePlaceholder")
 
-            ///Register Button to handelr
+            ///Register Button to be handele
             cell.button.tag = indexPath.row
+            cell.button.isEnabled = true
             
-            ///Check Diffrent cases
+            ///Check Different cases of Item
             if(isPurched(aEquipment)){
                 if(isInUse(aEquipment)){
                     cell.button.isEnabled = false
+                    cell.button.setBackgroundImage(UIImage(named: "item-used-icon"), for: UIControl.State.normal)
                 }else{
+                    cell.button.setBackgroundImage(UIImage(named: "use-item-icon"), for: UIControl.State.normal)
+                    cell.button.removeTarget(nil, action: nil, for: .allEvents)
                     cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)
                     reflectuserPrefrence(name: aEquipment.name)
                     
                 }
             }else{
                 cell.button.addTarget(self, action: #selector(buyItemTapped(_:)), for: .touchUpInside)
+                cell.button.setBackgroundImage(UIImage(named: "buy-item"), for: UIControl.State.normal)
             }
             
-          
             
-            // cell.button.imageView?.image = //Depends on 3 casses
+            ///Get Item Image
+            let downloadQueue = DispatchQueue(label: "download", attributes: [])
             
-            ///Get Image
-            if let data = fetchImage(of: aEquipment.name){
-                let image = UIImage(data: data as Data)
-                cell.equipmentImage?.image = image
-                cell.setNeedsLayout()
-            }
+                // call dispatch async to send a closure to the downloads queue
+            downloadQueue.async { () -> Void in
+            
+                    // download Data
+                    FirebaseRequest.downloadStoreEquipmentImage(type: aEquipment.name) { (data, error) in
+                        guard let data = data else{
+                            return
+                        }
+            
+                    // Turn it into a UIImage
+                    let image = UIImage(data: data as Data)
+            
+                    // display it
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        cell.equipmentImage?.image = image
+                        cell.setNeedsLayout()
+                    })
+                }
+                }
             
         }
         return cell
     }
-    
-    
+
     
 }
