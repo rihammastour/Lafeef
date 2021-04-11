@@ -19,7 +19,6 @@ target 'Lafeef' do
  	pod 'FirebaseUI/Storage'
 	pod 'SwiftGifOrigin'
  	pod 'lottie-ios'
-    pod 'SwiftySound'
  	pod 'Cosmos', '~> 23.0'
 	pod "FlexibleSteppedProgressBar"
 	pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'

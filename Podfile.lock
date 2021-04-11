@@ -420,7 +420,6 @@ PODS:
   - SwiftGifOrigin (1.7.0)
   - SwiftValidator (4.0.0)
   - SwiftyGif (5.4.0)
-  - SwiftySound (1.2.0)
 
 DEPENDENCIES:
   - CodableFirebase
@@ -441,7 +440,6 @@ DEPENDENCIES:
   - SwiftGifOrigin
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - SwiftyGif
-  - SwiftySound
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -482,7 +480,6 @@ SPEC REPOS:
     - SDWebImage
     - SwiftGifOrigin
     - SwiftyGif
-    - SwiftySound
 
 EXTERNAL SOURCES:
   SwiftValidator:
@@ -533,8 +530,7 @@ SPEC CHECKSUMS:
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
-  SwiftySound: 9eb28bb14edb601b40027e44319e0ef8383f88bf
 
-PODFILE CHECKSUM: 0bb0126093b154620253627df51b74a5ee07c93d
+PODFILE CHECKSUM: ee3cbbdd20ca1e6077971a1fb8215eba2cbd1de3
 
 COCOAPODS: 1.10.1
