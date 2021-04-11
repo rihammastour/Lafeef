@@ -230,6 +230,7 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     }
 
     func getChildReports(){
+        
         FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
             if error == ""{
                 do{

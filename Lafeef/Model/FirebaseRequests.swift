@@ -73,18 +73,8 @@ class FirebaseRequest{
         }
     }
     
-    static func passCompletedLevelData(childID:String, reports: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
-        // Add a new document in collection "users"
-        
-        do {
-            try db.collection("levelReport").document(childID).setData(from: reports)
-        } catch let err {
-            print("error while passing data", err)
-        }
-        
-        
-    }
     
+
     //Add Equipment
     static func addEquipment(_ equipment:StoreEquipment, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
         let id = getUserId()!
@@ -141,24 +131,19 @@ class FirebaseRequest{
             try db.collection("Store").document(StorType).setData(from:StoreEquipment)
         } catch let error {
             print("Error writing city to Firestore: \(error)")
+
         }
     }
-    static func updateMoney(_ money:Float, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
+
+    static func passCompletedLevelData(childID:String, reports: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
+            // Add a new document in collection "users"
             
-            let id = getUserId()!
-            
-            db.collection("users").document(id).updateData([
-                "money":money
-            ]){ err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                    completion(false,err)
-                } else {
-                    print("Document successfully written!")
-                }
+            do {
+                try db.collection("levelReport").document(childID).setData(from: reports)
+            } catch let err {
+                print("error while passing data", err)
             }
-            completion(true,nil)
-        }
+    }
     static func updateChildInfo(_ Score:Float,Money:Float,_ currentLevel: Int, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
             
             let id = getUserId()!
@@ -281,25 +266,26 @@ class FirebaseRequest{
     
     
     static func getChalleangeLevelesReports( childID:String ,completionBlock: @escaping ( _ data: Any?, _ error :String) -> Void) {
-        
-        db.collection("levelReport").whereField("childID", isEqualTo: childID).getDocuments()
-        { (querySnapshot, err) in
-            if let err = err {
-                completionBlock(nil,err.localizedDescription)
-            } else {
                 
-                for document in querySnapshot!.documents {
+            db.collection("levelReport").document(childID)
+                .getDocument { (response, error) in
                     
+                    guard let document = response else {
+                        completionBlock(nil,error!.localizedDescription)
+                        return
+                    }
+                    guard let data = document.data() else {
+                        print("Document empty")
+                        return
+                    }
                     
+                  
+                    print("data in fetch user data ",data)
+                    completionBlock(data,"")
                     
-                    print("\(document.documentID) => \(document.data())")
-                    
-                    completionBlock(document.data(), "")
                 }
+            
             }
-        }
-    }
-    
     /// Get Character Equipment
     static func getCharacterEquipment(completion: @escaping ( _ data: Any?, _ error :Error?) -> Void){
         

@@ -95,12 +95,24 @@ class NormalViewController: UIViewController {
         if LevelGoalViewController.report.levelNum != "4"{
         levelnum! += 1
             LevelGoalViewController.report.levelNum = String(levelnum!)
-            self.performSegue(withIdentifier: "normalshowChalleange", sender: self)
+            movetoChalleange()
+            
+//            self.performSegue(withIdentifier: "normalshowChalleange", sender: self)
       
         }else{
             print("last level")
           
         }
+    }
+    
+    func movetoChalleange(){
+        if let viewController = UIStoryboard(name: "Challenge", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController) as? ChallengeViewController {
+             
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+           
+            }
     }
     @IBAction func cancel(_ sender: Any) {
         self.performSegue(withIdentifier: "showCalendar", sender: self)

@@ -139,7 +139,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                   if (success) {
                      
                       //Store in local Storage
-                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
+//                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
                       //navogation
                       self.transition()
                   } else {
@@ -171,10 +171,11 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     
     func transition(){
         adddefaultReport()
-        let homeNavigationController =   storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeNavigationController) as? UINavigationController
-        
-        view.window?.rootViewController = homeNavigationController
+        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
+        view.window?.rootViewController = controller
         view.window?.makeKeyAndVisible()
+
     }
     
     //MARK:- Delegate Handling

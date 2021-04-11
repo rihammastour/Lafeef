@@ -202,9 +202,12 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
-        do {
-            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+            dismiss(animated: true)
+            return
+        }
+         do {
+            deviceInput = try AVCaptureDeviceInput(device: videoDevice)
             
             print("device")
         } catch {
@@ -239,11 +242,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         captureConnection?.isEnabled = true
         print("before do ")
         do {
-            try  videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            try  videoDevice.lockForConfiguration()
+            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice.activeFormat.formatDescription))
             bufferSize.width = CGFloat(dimensions.width)
             bufferSize.height = CGFloat(dimensions.height)
-            videoDevice!.unlockForConfiguration()
+            videoDevice.unlockForConfiguration()
             print("inside do ")
         } catch {
             print(error)

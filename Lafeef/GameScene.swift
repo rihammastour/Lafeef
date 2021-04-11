@@ -37,7 +37,7 @@ class GameScene: SKScene {
     
     //MARK:  Charachters  Variables
     var customers : [CustomerNode]=[]
-    static var currentCustomer = 0
+    var currentCustomer = 0
     
     //MARK:  Nodes Variables
     private var label : SKLabelNode?
@@ -129,7 +129,7 @@ class GameScene: SKScene {
     }
     
      func startGame(){
-        self.buildCustomer(customerNode: self.customers[GameScene.currentCustomer])
+        self.buildCustomer(customerNode: self.customers[currentCustomer])
     }
     
     //MARK: - Set up Scene Eslements Functions
@@ -664,7 +664,7 @@ class GameScene: SKScene {
         //check base if provided
         if answer.base == nil {
          customerDone()
-            customers[GameScene.currentCustomer].moveOutSadly(customerNode: customers[GameScene.currentCustomer])
+            customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
              nextCustomer()}
             return
@@ -713,7 +713,7 @@ class GameScene: SKScene {
     func walkToCashir(satisfaction: CustmerSatisfaction){
         
         GameScene.flag = true
-        customers[GameScene.currentCustomer].movetoCashier(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: satisfaction)
+        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
     }
     
     func customerLeave(satisfaction: CustmerSatisfaction){
@@ -726,7 +726,7 @@ class GameScene: SKScene {
         customerDone()
         
         //Move Customer
-        customers[GameScene.currentCustomer].moveOut(customerNode: customers[GameScene.currentCustomer], customerSatisfaction: satisfaction) { [self] in
+        customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
                 
                 let startPoint = CGPoint(x: 0, y: 0)
@@ -758,11 +758,11 @@ class GameScene: SKScene {
     func nextCustomer(){
         OrderButton.isHidden = false
         PaymentButton.isHidden = false
-        GameScene.currentCustomer += 1
+        currentCustomer += 1
         GameScene.timeLeft = 30
-        if (GameScene.currentCustomer<=3){
+        if (currentCustomer<=3){
             print("داخل الاف الصغيره")
-            buildCustomer(customerNode: customers[GameScene.currentCustomer])
+            buildCustomer(customerNode: customers[currentCustomer])
             GameScene.timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
@@ -1067,7 +1067,7 @@ class GameScene: SKScene {
         
         if (GameScene.flag){
             
-            cam.position = CGPoint(x: customers[GameScene.currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             
         }
         

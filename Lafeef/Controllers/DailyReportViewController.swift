@@ -42,16 +42,19 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GameScene.currentCustomer = 0
+    
       
-       
-        calcultateIncome()
+        getChildId {
+        self.calcultateIncome()
+        }
+        
         styleUI()
         hideAdv()
         calculateReward()
         passReportData()
-        getChildId()
         updatelevelNum()
+
+    
     }
     
     //MARK:- Functions
@@ -64,33 +67,15 @@ class DailyReportViewController: UIViewController {
     }
     func updatemoneyLabel(){
         GameScene.setMoneyLabel(LevelGoalViewController.report.collectedMoney)
-        var child = LocalStorageManager.getChild()
-        child?.money += LevelGoalViewController.report.collectedMoney 
-        child?.score += Int(LevelGoalViewController.report.collectedScore)
-        
-        getChildData()
-       
-        
+        childInfo?.money += LevelGoalViewController.report.collectedMoney
+        childInfo?.score += Int(LevelGoalViewController.report.collectedScore)
+        updateChildInfo()
 //        LocalStorageManager.setChild(child!)
         
-    }
-    func getChildData(){
-        let child = LocalStorageManager.getChild()
         
-        if let child = child {
-            childInfo = child
-            updateChildInfo()
-            
-        }else{
-            print("No Child Found")
-            self.present(self.alertService.Alert(body: "لايوجد مستخدم"),animated:true)
-           
-            //TODO: Alert..
-           
-            // need to complete
-            
-        }
     }
+   
+    
     func updatelevelNum(){
         levelnum = Int(LevelGoalViewController.report.levelNum)!
         if (LevelGoalViewController.report.isPassed && LevelGoalViewController.report.levelNum != "4"){
@@ -177,7 +162,7 @@ class DailyReportViewController: UIViewController {
 
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-//        passReportData()
+
         if LevelGoalViewController.report.isRewarded {
             self.performSegue(withIdentifier: Constants.Segue.showWinningReport, sender: self)
         } else if  LevelGoalViewController.report.isPassed{
@@ -254,14 +239,12 @@ class DailyReportViewController: UIViewController {
 
     }
    
-    func updateScoreSum(){
+  
+    func getChildId(completion: @escaping ()  -> Void) {
         
-        
-        
-        
-    }
-    func getChildId(){
         self.childId =  FirebaseRequest.getUserId() ?? ""
+       childInfo = LocalStorageManager.getChild()
+        
     }
 
 

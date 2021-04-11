@@ -87,14 +87,25 @@ class LosingViewController: UIViewController {
         
         // need some code
         GameScene.timeLeft = 30
+        movetoChalleange()
         
-        self.performSegue(withIdentifier: "playAgain", sender: self)
+//
+//        self.performSegue(withIdentifier: "playAgain", sender: self)
 
   
      
      
     }
     
+    func movetoChalleange(){
+        if let viewController = UIStoryboard(name: "Challenge", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController) as? ChallengeViewController {
+             
+                if let navigator = navigationController {
+                    self.present(viewController, animated: true)
+                }
+           
+            }
+    }
     @IBAction func cancel(_ sender: Any) {
         self.performSegue(withIdentifier: "showCalendar", sender: self)
 
