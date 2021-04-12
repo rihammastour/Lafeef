@@ -17,7 +17,7 @@ struct Constants {
         static let homeViewController = "HomeVC"
         static let loginViewController = "LoginVC"
         static let signUpOrLoginViewController = "signUpOrLoginVC"
-        static let homeNavigationController = "HomeNavigation"
+        static let homeNavigationController = "HomeNavigationContoller"
         static let animatedSplashViewController = "animatedSplashVC"
         static let timerViewController = "TimerVC"
         static let orderVirwController = "OrderVC"

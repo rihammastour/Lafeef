@@ -233,7 +233,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     //Go to the ProfileViewController if the login is sucessful
 
                     let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
-                    let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as! HomeViewController
+                    let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavigationController) as! UINavigationController
                     view.window?.rootViewController = controller
                     view.window?.makeKeyAndVisible()
 

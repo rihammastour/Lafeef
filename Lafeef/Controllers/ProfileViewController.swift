@@ -120,21 +120,34 @@ class ProfileViewController: UIViewController {
         AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
+    func removeDataStorage(for key:String){
+        UserDefaults.standard.removeObject(forKey: key)
+        LocalStorageManager.removeChild()
+    }
+    
+    //MARK: - IBAction
+    
     @IBAction func logOutAction(sender: AnyObject) {
         let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
         let ok = UIAlertAction(title: "نعم", style: .destructive) { [self] (alertAction) in
+            
                 sound.playSound(sound: Constants.Sounds.bye)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+
             if Auth.auth().currentUser != nil {
                 do {
-                    
+                    removeDataStorage(for: "child")
                     try Auth.auth().signOut()
-                    LocalStorageManager.removeChild()
-                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController)
-                    self.present(vc, animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
+                    view.window?.rootViewController = controller
+                    view.window?.makeKeyAndVisible()
                     
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
+            }
             }
         }
         let cancel = UIAlertAction(title: "إلغاء", style: .default) { (alertAction) in
@@ -145,4 +158,11 @@ class ProfileViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    @IBAction func backTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+    
 }

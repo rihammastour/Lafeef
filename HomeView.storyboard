@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
+                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -213,7 +213,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="149.5" height="60"/>
                                                 <connections>
                                                     <action selector="profileBarViewTapped:" destination="lXH-ms-ACN" eventType="touchUpInside" id="2wp-LW-xrc"/>
-                                                    <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8A0-De-K2C"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLq-fc-m0Y">
@@ -259,7 +258,6 @@
                                 </state>
                                 <connections>
                                     <action selector="store:" destination="lXH-ms-ACN" eventType="touchUpInside" id="4Ib-1T-2ab"/>
-                                    <segue destination="yXw-yV-vtD" kind="show" id="XtX-p1-Rqm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -292,15 +290,13 @@
                         <outlet property="scoreBarUIView" destination="r0V-z3-lo9" id="Ovj-3M-Bxv"/>
                         <outlet property="scoreLabel" destination="fV9-7h-iI6" id="lTU-ef-kET"/>
                         <outlet property="storeButton" destination="qZ9-Vl-fvg" id="ktR-Eq-o9l"/>
-                        <segue destination="QwN-kj-aVU" kind="show" identifier="profileSegue" id="8sL-cd-Nm3"/>
                         <segue destination="r3Z-wc-CCP" kind="show" identifier="goToChalleange" id="0Uc-fX-jXA"/>
                         <segue destination="aSd-Ie-oQ0" kind="show" identifier="goToTraining" id="T41-ik-vXx"/>
-                        <segue destination="yXw-yV-vtD" kind="show" identifier="goToStore" id="qjQ-3C-Vup"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gf-j2-Ft8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6496.09375" y="256.640625"/>
+            <point key="canvasLocation" x="6486" y="257"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="vwE-lV-NTq">
@@ -335,7 +331,7 @@
                                         <rect key="frame" x="5" y="5" width="140" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0b-qZ-zcf">
-                                                <rect key="frame" x="0.0" y="-4" width="140" height="48"/>
+                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -387,7 +383,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xO8-lo-8MO">
-                                                    <rect key="frame" x="435.5" y="54" width="56.5" height="42"/>
+                                                    <rect key="frame" x="406" y="54.5" width="86" height="41"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -400,7 +396,7 @@
                                                     <state key="normal" backgroundImage="buy-item"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yut-YP-zo1">
-                                                    <rect key="frame" x="379" y="54" width="56.5" height="42"/>
+                                                    <rect key="frame" x="320" y="54.5" width="86" height="41"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <color key="textColor" name="blueApp"/>
                                                     <nil key="highlightedColor"/>
@@ -446,7 +442,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhZ-Nk-mEq">
-                                <rect key="frame" x="547" y="85" width="141" height="96"/>
+                                <rect key="frame" x="529" y="85" width="159" height="93.5"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
@@ -531,7 +527,7 @@
                                 <rect key="frame" x="-5" y="13" width="128" height="128"/>
                                 <state key="normal" image="arrow-back"/>
                                 <connections>
-                                    <segue destination="yXw-yV-vtD" kind="show" id="cY7-xM-3x5"/>
+                                    <action selector="backButtonTapped:" destination="e3W-Mk-wMq" eventType="touchUpInside" id="gs2-Cn-MhE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -687,7 +683,7 @@
                                 <rect key="frame" x="20" y="34" width="77" height="38"/>
                                 <state key="normal" image="arrow-back"/>
                                 <connections>
-                                    <segue destination="ZJq-Tw-8u2" kind="presentation" modalPresentationStyle="fullScreen" id="fBs-5G-GmW"/>
+                                    <action selector="backTapped:" destination="QwN-kj-aVU" eventType="touchUpInside" id="ri2-Ns-29w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -791,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2a-d7-Hey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5730" y="-591"/>
+            <point key="canvasLocation" x="6486" y="-461"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="WaC-DI-s28">
@@ -816,25 +812,21 @@
         <!--Navigation Controller-->
         <scene sceneID="lwQ-Df-vgM">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZJq-Tw-8u2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationContoller" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZJq-Tw-8u2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="5eH-hG-48E">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="lXH-ms-ACN" kind="relationship" relationship="rootViewController" id="34z-S0-zE6"/>
+                        <segue destination="lXH-ms-ACN" kind="relationship" relationship="rootViewController" id="nOv-4S-xrl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lml-PP-f0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5730.46875" y="256.640625"/>
+            <point key="canvasLocation" x="5730" y="257"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8A0-De-K2C"/>
-        <segue reference="XtX-p1-Rqm"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="EditButton" width="82" height="80"/>
         <image name="Girl-Profile" width="419" height="365"/>

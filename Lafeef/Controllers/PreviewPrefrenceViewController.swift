@@ -56,4 +56,11 @@ class PreviewPrefrenceViewController: UIViewController {
         charachterImage.isHidden  = charachter
     }
     
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+    
 }

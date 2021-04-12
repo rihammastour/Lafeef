@@ -50,16 +50,6 @@ class StoreViewController: UIViewController {
         fechStoreEquipment {
             tableView.reloadData()
         }
-        FirebaseRequest.updateMoney(2000) { (success, errore) in
-            if !success{
-                //Purches won't complated
-                self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
-            }else{
-                
-                self.updateMoney(2000)
-                self.getChildPrefrnces()
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -320,7 +310,9 @@ class StoreViewController: UIViewController {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
-        self.dismiss(animated: true)
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
     }
     
     @IBAction func didChangeSegment(_ sender:UISegmentedControl){

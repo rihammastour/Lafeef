@@ -82,21 +82,12 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene()
-//      voice.recordButtonTapped()
-
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-//            self.displayLevelGoalViewController()
-//        }
         
         fetchChallengeLevel()
         displayAdvReport()
- 
-        
-        
-        
-
     }
+    
+    
     static func callButton(string:String){
         
         print("insdie xxxxxxxx")
@@ -129,11 +120,19 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
 //           print( string)
 //        }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        dismiss(animated: false, completion: nil)
+    }
+    
+    //MARK: - Unpleaced method propirty
+    
    static  func test(){
         print("insid")
     }
+    
     func displayAdvReport(){
-        let defaults = UserDefaults.standard
          let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
         let levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
        
@@ -343,7 +342,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let toppings = order.toppings
         ChallengeViewController.challengeScen?.setOrderContent(with: base, toppings)
         showCustomerPaid(at: number)
-
     }
     
     func showCustomerPaid(at number:Int) -> Void {
@@ -351,7 +349,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let customerPaied = order.customerPaid
         
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
-        print("money", money)
         ChallengeViewController.challengeScen?.setPaymentContent(with: money)
     }
     
@@ -374,7 +371,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             showOrder(at: ChallengeViewController.currentOrder)
         }else{
             levlEnd()
-            //TODO:End Level
         }
     }
     
@@ -625,7 +621,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //override func prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //        if segue.identifier.da
+        //if segue.identifier.da
         
         if segue.identifier == Constants.Segue.menuSegue {
             let vc = segue.destination as! PauseGameViewController
@@ -637,8 +633,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
                 ChallengeViewController.stopImageBool=false
-                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //                changeStopImage()
+                //changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //changeStopImage()
                 
             }else{
                 GameScene.timeLeft = GameScene.timeLeft
@@ -647,9 +643,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 GameScene.circle!.isPaused=true
                 ChallengeViewController.stopImageBool=false
                 print(GameScene.timeLeft.time)
-                //                changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //                changeStopImage()
-                //            vc.levelNum = "1"
+                // changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                // changeStopImage()
+                // vc.levelNum = "1"
             }
         }
         

@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Auth.auth().addStateDidChangeListener { auth, user in
             
             if user != nil {
+                
                 //Fetch user data
                 self.fetchUserInfo()
                 //                Set is logged in child to true

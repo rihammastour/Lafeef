@@ -48,11 +48,5 @@ class LevelGoalViewController: UIViewController {
 
     @IBAction func ok(_ sender: Any) {
         self.performSegue(withIdentifier: Constants.Segue.challeange, sender: self)
-      
-        
-  
-
-
-             
     }
 }

@@ -50,53 +50,54 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     var challengeVC = ChallengeViewController()
     // activity indicaitor
     var  activityIndicatorView :NVActivityIndicatorView?
-  
+    
+    //MARK: - LifeCycle Funcrions
     override func viewWillAppear(_ animated: Bool) {
-   
+        super.viewWillAppear(animated)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-   
-       getChildReports()
-
+        
+        getChildReports()
+        
         let x =  CGRect(x:  self.activityIndicaitor.center.x-80, y: self.activityIndicaitor.center.y-100 , width: 200, height: 200)
-       activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.init(named: "blueApp"), padding: 0)
+        activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.init(named: "blueApp"), padding: 0)
         self.calendarView.addSubview(activityIndicatorView!)
-
+        
         activityIndicatorView!.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
-       
-
+        
+        
         hideStars()
         disableButtons()
         formatter.locale = Locale(identifier: "ar")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-         self.setLevelsData()
+            self.setLevelsData()
         }
-        
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "calendarBackground")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
-      func hideStars(){
-            levelOneStar.isHidden = true
-            levelTwoStar.isHidden = true
-            levelThreeStar.isHidden = true
-            levelFourStar.isHidden = true
-
-            }
+    
+    //MARK:- Functions
+    func hideStars(){
+        levelOneStar.isHidden = true
+        levelTwoStar.isHidden = true
+        levelThreeStar.isHidden = true
+        levelFourStar.isHidden = true
+        
+    }
     func disableButtons(){
         levelTwoOutlet.isEnabled = false
         levelThreeOutlet.isEnabled = false
         levelFourOutlet.isEnabled = false
     }
     
-
     
+    //MARK: - @IBAction
     @IBAction func levelOne(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
             
@@ -104,16 +105,13 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
             self.present(self.goalService.goal(levelNum: "1"),animated:true)
         }
         sound.playSound(sound: Constants.Sounds.firstDay)
-            
-               
-    
     }
     
     @IBAction func levelTwo(_ sender: Any) {
         print("leveltwo")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.54) {
             self.present(self.goalService.goal(levelNum: "2"),animated:true)
-    }
+        }
         sound.playSound(sound: Constants.Sounds.secondDay)
     }
     
@@ -121,51 +119,57 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
         print("levelthree")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
             self.present(self.goalService.goal(levelNum: "3"),animated:true)
-    }
+        }
         sound.playSound(sound: Constants.Sounds.thirdDay)
     }
-
+    
     
     @IBAction func levelFour(_ sender: Any) {
         print("levelfour")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.64) {
             self.present(self.goalService.goal(levelNum: "4"),animated:true)
-    }
+        }
         sound.playSound(sound: Constants.Sounds.fourthDay)
     }
+    @IBAction func Home(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+
+
+//MARK: - Functions
     
-
+    
     func setLevelsData(){
-
-
         print(self.completedLevels)
-
-   
+        
+        
         for level in completedLevels.reportData {
             print("inside fore")
-
-            switch level.levelNum {
-                case "1":
-                    if level.isPassed{
-                        leveOneView.backgroundColor = UIColor.init(named: "passChallenge")
-                        levelOneStar.image = UIImage(systemName: "star.fill")
-                        levelTwoView.backgroundColor = UIColor.init(named: "failChallenge")
-                        levelTwoOutlet.isEnabled = true
-                        levelTwoLock.isHidden = true
-                        levelTwoLabel.text = "١٠٠/٠"
-                        levelTwoStar.image = UIImage(systemName: "star")
-                        levelTwoStar.isHidden = false
             
-                    }else{
-                        levelOneStar.image = UIImage(systemName: "star")
-                    }
-                    levelOneLabel.text =  "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
-                    levelOneStar.isHidden = false
-
-
-
+            switch level.levelNum {
+            case "1":
+                if level.isPassed{
+                    leveOneView.backgroundColor = UIColor.init(named: "passChallenge")
+                    levelOneStar.image = UIImage(systemName: "star.fill")
+                    levelTwoView.backgroundColor = UIColor.init(named: "failChallenge")
+                    levelTwoOutlet.isEnabled = true
+                    levelTwoLock.isHidden = true
+                    levelTwoLabel.text = "١٠٠/٠"
+                    levelTwoStar.image = UIImage(systemName: "star")
+                    levelTwoStar.isHidden = false
+                    
+                }else{
+                    levelOneStar.image = UIImage(systemName: "star")
+                }
+                levelOneLabel.text =  "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
+                levelOneStar.isHidden = false
+                
+                
+                
                 break
-                case "2":
+            case "2":
                 if level.isPassed{
                     levelTwoView.backgroundColor =  UIColor.init(named: "passChallenge")
                     levelTwoStar.image = UIImage(systemName: "star.fill")
@@ -175,15 +179,15 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                     levelThreeLabel.text = "١٠٠/٠"
                     levelThreeStar.image = UIImage(systemName: "star")
                     levelThreeStar.isHidden = false
-                 }else{
+                }else{
                     levelTwoStar.image = UIImage(systemName: "star")
                 }
-                    levelTwoLabel.text = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
+                levelTwoLabel.text = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
                 levelTwoStar.isHidden = false
-
+                
                 //inside else
                 break
-                case "3":
+            case "3":
                 if level.isPassed{
                     levelThreeView.backgroundColor = UIColor.init(named: "passChallenge")
                     levelThreeStar.image = UIImage(systemName: "star.fill")
@@ -193,83 +197,75 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                     levelFourLabel.text = "١٠٠/٠"
                     levelFourStar.image = UIImage(systemName: "star")
                     levelFourStar.isHidden = false
-                
                     
-                 }else{
+                    
+                }else{
                     levelThreeStar.image = UIImage(systemName: "star")
                 }
                 levelThreeLabel.text = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
                 levelThreeStar.isHidden = false
                 break
-
-
-                default:
-                    if level.isPassed{
-                        levelFourView.backgroundColor = UIColor.init(named: "passChallenge")
-                        levelFourStar.image = UIImage(systemName: "star.fill")
-
-                        levelThreeView.backgroundColor = UIColor.init(named: "failChallenge")
-                        levelThreeOutlet.isEnabled = true
-                     }else{
-                        levelFourStar.image = UIImage(systemName: "star")
-                    }
-                    levelFourLabel.text  = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
-                    levelFourStar.isHidden = false
-
-                break
+                
+                
+            default:
+                if level.isPassed{
+                    levelFourView.backgroundColor = UIColor.init(named: "passChallenge")
+                    levelFourStar.image = UIImage(systemName: "star.fill")
+                    
+                    levelThreeView.backgroundColor = UIColor.init(named: "failChallenge")
+                    levelThreeOutlet.isEnabled = true
+                }else{
+                    levelFourStar.image = UIImage(systemName: "star")
                 }
-
-
-
+                levelFourLabel.text  = "١٠٠/" + formatter.string(from: NSNumber(value: level.collectedScore))!
+                levelFourStar.isHidden = false
+                
+                break
             }
-      
+            
+            
+            
+        }
+        
     }
-
+    
     func getChildId(){
         self.childId =  FirebaseRequest.getUserId() ?? ""
     }
-
+    
     func getChildReports(){
         
         FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
             if error == ""{
                 do{
-           let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
+                    let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
                     self.setLevel(level)
                     
                     activityIndicatorView!.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
-                  
-                 
-
-            }catch{
+                    
+                }catch{
+                    
+                    print("error while decoding child report ",error)
+                    self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
+                }
                 
-             print("error while decoding child report ",error)
-                self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
-
-               }
-
-
             }else{
                 print("error")
                 self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
-
+                
             }
         }
     }
-     func setLevel(_ level:CompletedLevel) -> Void {
+    func setLevel(_ level:CompletedLevel) -> Void {
         self.completedLevels = level
-                    }
-    
-  
-    override func didReceiveMemoryWarning() {
-          super.didReceiveMemoryWarning()
-          //...
-      }
-    
-    @IBAction func Home(_ sender: Any) {
-        self.performSegue(withIdentifier: Constants.Segue.goToHome, sender: self)
     }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
 }
 
 
