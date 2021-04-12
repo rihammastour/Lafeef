@@ -23,7 +23,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     var section:String = TrainingSectionViewController.sectionType  // must be passed from training sections viewcontroller
     var questionDetailes: [TrainingQuestions]?
     var questionId: Int = 0 // update it in next button or skip
-    var answer: String!
+    var answer: [String] = []
 
     @IBOutlet weak var strawberry: UIImageView!
     var infoView:UIView!
@@ -180,14 +180,198 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     }
     
     @IBAction func answerButton(_ sender: Any) {
+        // Get answers provided
+        let answer = (objectDetected?.getAnswer())!
+        print(answer)
+        print("the section is:")
+        print(section)
+   
+        guard let detailes = self.questionDetailes else {
+            print("there is no detailes") //replace it with alert
+            return
+        }
         
-        // OrderbuttonTapped
-     
+        switch section {
+        case "shapes":
+        
+            if detailes[questionId].type == "circle"{
+              
+                if (answer.base?.rawValue == "cake"){
+                    print("correct answer")}
+                if (answer.change == 0.5 || answer.change == 0.25 ){
+                    print("correct answer")}
+                
+               let providedAnswer = answer.toppings
+          
+                if providedAnswer == nil {
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        if (t.rawValue=="oval-kiwi"){
+                            print("crrect answer")
+                        }
+                    }//end for loop
+                }
+                
+            }// end if check type
+             else  if detailes[questionId].type == "triangle" {
+                print(answer.base?.rawValue)
+                if (answer.base?.rawValue == "quarter-cake"){
+                    print("correct answer")}
+               let providedAnswer = answer.toppings
+          
+                if providedAnswer == nil {
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        if (t.rawValue=="pineapple"){
+                            print("crrect answer")
+                        }
+                    }//end for loop
+                }
+            }
+            break
+
+        case "colors":
+            print("the question is:")
+            print(detailes[questionId].type)
+           
+           
+            if detailes[questionId].type == "brown"{
+                if (answer.base?.rawValue == "cupcake-ch"){
+                    print("correct answer")}
+               
+                
+               let providedAnswer = answer.toppings
+                print("the topping is is:")
+                if providedAnswer == nil {
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        print(t.rawValue)
+                        if (t.rawValue=="dark-chocolate"){
+                            print("crrect answer")
+                        }
+                    }//end for loop
+                }
+            }//end if brown color
             
-            // Get answers provided
-            let answer = (objectDetected?.getAnswer())!
-        print("raghaaad")
-            print(answer)
+            else  if detailes[questionId].type == "red" {
+            
+               
+                
+               let providedAnswer = answer.toppings
+          
+                if providedAnswer == nil {
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        print(t.rawValue)
+                        if (t.rawValue=="strawberry"){
+                            print("crrect answer")
+                        }
+                    }//end for loop
+                }
+            }//end id red color
+            break
+            
+        case "calculations":
+            if detailes[questionId].type == "addition"{
+                
+               let providedAnswer = answer.toppings
+                var kiwiNo = 0
+                if providedAnswer == nil {
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        if (t.rawValue=="oval-kiwi"){
+                            kiwiNo+=1
+                            
+                        }
+                    }//end for loop
+                }
+                print("number of kiwi is")
+                print(kiwiNo)
+                if (kiwiNo==2){
+                    print("crrect answer")
+                }
+                
+                
+            }// end if addtion
+            else  if detailes[questionId].type == "subtraction" {
+                let providedAnswer = answer.toppings
+                 var ChocolateBrownNo = 0
+                 if providedAnswer == nil {
+                     print("child no provide toppings")
+                 }else if let toppings = providedAnswer {
+                     
+                     for t in toppings{
+                        print(t.rawValue)
+                         if (t.rawValue=="dark-chocolate"){
+                            ChocolateBrownNo+=1
+                            
+                         }
+                     }//end for loop
+                 }
+                print("number of ChocolateBrown is")
+                print(ChocolateBrownNo)
+                 if (ChocolateBrownNo==1){
+                     print("crrect answer")
+                 }
+                
+            } else  if detailes[questionId].type == "multiplication" {
+                let providedAnswer = answer.toppings
+                 var PineappleNo = 0
+                 if providedAnswer == nil {
+                     print("child no provide toppings")
+                 }else if let toppings = providedAnswer {
+                     
+                     for t in toppings{
+                         if (t.rawValue=="pineapple"){
+                            PineappleNo+=1
+                            
+                         }
+                     }//end for loop
+                 }
+                print("number of Pineapple is")
+                print(PineappleNo)
+                 if (PineappleNo==4){
+                     print("crrect answer")
+                 }
+            }
+            break
+            
+        default:
+            print("there is no section selection")
+        }
+        
+        
+        
+        
+        
+
+     
+        
+//        switch section {
+//        case "colors":
+//            if
+//            TrainingSections.colors.getObject(for: "red")
+//        default:
+//            <#code#>
+//        }
+//
+        
+        if answer.base == nil {
+           print ("The base is nill")
+            
+            return
+        }
+        
 
         
         UIView.animate(

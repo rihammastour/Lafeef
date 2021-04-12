@@ -220,13 +220,22 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yua-tA-UR9" userLabel="BackButton">
+                                        <rect key="frame" x="50" y="23" width="22" height="38"/>
+                                        <state key="normal" image="arrow-back"/>
+                                        <connections>
+                                            <segue destination="75B-UP-2iv" kind="presentation" modalPresentationStyle="fullScreen" id="7vd-ZY-fxt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Yua-tA-UR9" firstAttribute="leading" secondItem="SCL-xU-fHC" secondAttribute="leading" constant="50" id="0dk-en-A3J"/>
                                     <constraint firstItem="wiy-hT-KyV" firstAttribute="top" secondItem="IFB-PT-25s" secondAttribute="bottom" constant="93.5" id="1Xo-1Q-TNO"/>
                                     <constraint firstItem="IFB-PT-25s" firstAttribute="top" secondItem="SCL-xU-fHC" secondAttribute="top" constant="219" id="6rT-rf-HYj"/>
                                     <constraint firstAttribute="trailing" secondItem="lxA-8m-z1K" secondAttribute="trailing" constant="20" id="8gq-yp-o5v"/>
                                     <constraint firstItem="IFB-PT-25s" firstAttribute="centerY" secondItem="SCL-xU-fHC" secondAttribute="centerY" id="9Bh-0h-Mmw"/>
+                                    <constraint firstItem="Yua-tA-UR9" firstAttribute="top" secondItem="SCL-xU-fHC" secondAttribute="top" constant="23" id="Jrw-m0-zmH"/>
                                     <constraint firstAttribute="bottom" secondItem="lxA-8m-z1K" secondAttribute="bottom" constant="8" id="RQb-1m-hbU"/>
                                     <constraint firstItem="IFB-PT-25s" firstAttribute="centerX" secondItem="SCL-xU-fHC" secondAttribute="centerX" id="Rnw-o2-kFe"/>
                                     <constraint firstItem="IFB-PT-25s" firstAttribute="trailing" secondItem="wiy-hT-KyV" secondAttribute="trailing" id="TyC-S1-VH6"/>
@@ -290,6 +299,7 @@
         <image name="Training-Shape" width="169" height="185"/>
         <image name="Training-YellowAndBlueBalloon" width="239.35400390625" height="336.61801147460938"/>
         <image name="Training-strawberry" width="242.35000610351562" height="311.42300415039062"/>
+        <image name="arrow-back" width="22" height="38.480998992919922"/>
         <namedColor name="BlackApp">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

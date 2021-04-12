@@ -304,7 +304,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
       // 6 -> 139
       
       var base : Base? = nil
-      var toppings : [Topping]? = nil
+      var toppings : [Topping]? = []
       var change : Float = 0
       
       for label in answerLabels {

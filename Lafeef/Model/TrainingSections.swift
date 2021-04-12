@@ -8,38 +8,58 @@
 import Foundation
 
 enum TrainingSections: String,Codable {
-    case shapes
+    case shapes 
     case colors
     case calculations
-    
+     
     //answers
-    func getObject(for type:String)-> String {
+    func getObject(for type:String)-> [String] {
+        var getAnswer : [String] = []
         switch self {
         
         case .shapes:
             if type == "circle" {
-                return "Kiwi CompleteCake RiyalHalf RiyalQuarter" //need preprocessing
+                getAnswer[0] = "Kiwi"
+                getAnswer[1] = "CompleteCake"
+                getAnswer[2] = "RiyalHalf"
+                getAnswer[3] = "RiyalQuarter"
+                return getAnswer //need preprocessing
             } else if type == "triangle" {
-                return "Pineapple"
+                getAnswer[0] = "Pineapple"
+                return getAnswer
             }
             
         case .colors:
             if type == "brown" {
-                return "ChocolateBrown BrownCupcake"
+                getAnswer[0] = "ChocolateBrown"
+                getAnswer[1] = "BrownCupcake"
+                return getAnswer
             } else if type == "red" {
-                return "Strawberry"
+                getAnswer[0] = "Strawberry"
+                return getAnswer
             }
 
         case .calculations:
             if type == "addition" {
-                return "Kiwi Kiwi"
+                getAnswer[0] = "Kiwi"
+                getAnswer[1] = "Kiwi"
+                return getAnswer
             } else if type == "subtraction" {
-                return "ChocolateBrown"
+                getAnswer[0] = "ChocolateBrown"
+                
+                return getAnswer
             } else if type == "multiplication" {
-                return "Pineapple Pineapple Pineapple Pineapple"
+                getAnswer[0] = "Pineapple"
+                getAnswer[1] = "Pineapple"
+                getAnswer[2] = "Pineapple"
+                getAnswer[3] = "Pineapple"
+
+            
+                
+                return getAnswer
             }
             
          }
-        return  ""
+        return  getAnswer
     }
 }

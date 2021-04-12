@@ -8,7 +8,7 @@
 import Foundation
 
 struct TrainingQuestions: Codable {
-    var answer: String 
+    var answer: [String]
     var type: String
 }
 
