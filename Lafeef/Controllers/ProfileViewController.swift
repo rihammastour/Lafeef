@@ -93,11 +93,12 @@ class ProfileViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
+        if  HomeViewController.userPrfrence != ""{
+            characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+        }else if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
-        }else if LoginViewController.userPrfrence != ""{
-            characterUIImageView.image = UIImage(named:LoginViewController.userPrfrence)
         }
+
         else{
             characterUIImageView.image = UIImage(named: "Girl-Profile")
         }

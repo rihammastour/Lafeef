@@ -20,17 +20,25 @@ class PreviewPrefrenceViewController: UIViewController {
     @IBOutlet weak var lampImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        previewBackground.isHidden = false
+        print(framename)
+        print(isStore,"isstore")
+        print(isGirl,"girl")
+        print(charachterImageName,"char")
    
-        frameImage.image = UIImage(named:framename)
-        lampImage.isHidden = showLamp
+//        frameImage.image = UIImage(named:framename)
+//        lampImage.isHidden = showLamp
         changeBackgroud()
 
        
     }
     func changeBackgroud(){
-        if !isStore {
+        if !isStore { // charachter
             // hide background image
-            previewImage(background: false, charachter: true, frame: false, lamp: false)
+            previewBackground.isHidden = true
+            
+         
+            previewImage(charachter: false, frame: true, lamp: true )
             charachterImage.image = UIImage(named: charachterImageName)
        
             if isGirl{
@@ -39,20 +47,26 @@ class PreviewPrefrenceViewController: UIViewController {
                 self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.67, greenBottom: 0.82, blueBottom: 0.76, type: "radial",  isFirstTimeInserting: false)
             }
         }else{
-            //show background 
-            if showLamp{
-                self.previewImage(background: true, charachter: false, frame: false, lamp: showLamp)
+            previewBackground.isHidden = false
+            //show background
+            print(showLamp,"lamp")
            
+            self.previewImage(charachter: true , frame: false, lamp: showLamp)
+            if framename == ""{
+                frameImage.isHidden = true
+                
+                
             }else{
-                self.previewImage(background: true, charachter: false, frame: true, lamp: false)
+                frameImage.isHidden = false
+                frameImage.image = UIImage(named: framename)
             }
+         
     
     }
     }
-    func previewImage(background:Bool,charachter:Bool,frame:Bool,lamp:Bool){
+    func previewImage(charachter:Bool,frame:Bool,lamp:Bool){
         frameImage.isHidden = frame
-        lampImage.isHidden = lamp
-        previewBackground.isHidden = background
+        lampImage.isHidden = !lamp
         charachterImage.isHidden  = charachter
     }
     
