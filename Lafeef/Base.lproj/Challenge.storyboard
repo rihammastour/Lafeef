@@ -48,7 +48,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="gameContinue:" destination="mRG-gB-WrO" eventType="touchUpInside" id="n57-SB-iJ3"/>
-                                                    <segue destination="ZnZ-4P-R8K" kind="showDetail" identifier="ContinueGame" id="fPF-r2-k4H"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-xr-u2P">
@@ -110,71 +109,6 @@
             </objects>
             <point key="canvasLocation" x="5891.40625" y="-862.5"/>
         </scene>
-        <!--Challenge Levels View Controller-->
-        <scene sceneID="Mzd-2w-Cgs">
-            <objects>
-                <viewController storyboardIdentifier="ChallengeLevelsVC" modalPresentationStyle="fullScreen" id="qAL-mm-ExN" customClass="ChallengeLevelsViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o52-Ab-7ti">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm8-K6-n1P">
-                                <rect key="frame" x="353" y="553" width="62" height="30"/>
-                                <state key="normal" title="Go Back!"/>
-                                <connections>
-                                    <action selector="goBackTapped:" destination="qAL-mm-ExN" eventType="touchUpInside" id="RiW-kd-GMT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfu-Fs-ob1">
-                                <rect key="frame" x="295" y="722" width="217" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Timer"/>
-                                <connections>
-                                    <segue destination="w8p-OG-6xJ" kind="presentation" modalPresentationStyle="fullScreen" id="PLM-K0-sMX"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge Levels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tS-gA-51O">
-                                <rect key="frame" x="245.5" y="385" width="277.5" height="66"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="55"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="DPd-Xl-jhl">
-                                <rect key="frame" x="319.5" y="488" width="129" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeC-WI-nCn">
-                                        <rect key="frame" x="0.0" y="0.0" width="129" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Level One"/>
-                                        <connections>
-                                            <action selector="levelOneTapped:" destination="qAL-mm-ExN" eventType="touchUpInside" id="ZGy-EY-v7G"/>
-                                            <segue destination="ZnZ-4P-R8K" kind="show" identifier="challengeSegue" id="Eyf-LD-2ez"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wHu-Hx-akc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="nm8-K6-n1P" firstAttribute="top" secondItem="DPd-Xl-jhl" secondAttribute="bottom" constant="17" id="3uu-n4-uMd"/>
-                            <constraint firstItem="DPd-Xl-jhl" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="77N-kn-VN7"/>
-                            <constraint firstItem="DPd-Xl-jhl" firstAttribute="top" secondItem="7tS-gA-51O" secondAttribute="bottom" constant="37" id="9ax-in-UCp"/>
-                            <constraint firstItem="DPd-Xl-jhl" firstAttribute="centerY" secondItem="o52-Ab-7ti" secondAttribute="centerY" id="IJR-0j-gFM"/>
-                            <constraint firstItem="nm8-K6-n1P" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="ma1-Jn-3i4"/>
-                            <constraint firstItem="DPd-Xl-jhl" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="o5u-j3-z4y"/>
-                            <constraint firstItem="7tS-gA-51O" firstAttribute="centerX" secondItem="o52-Ab-7ti" secondAttribute="centerX" id="vSV-6Y-LO2"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="y4B-HO-i8l"/>
-                    <connections>
-                        <outlet property="levelOneButton" destination="JeC-WI-nCn" id="yp7-ZP-1DT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N28-fr-V56" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7419" y="-700"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
@@ -223,13 +157,12 @@
                         <outlet property="gameScen" destination="vqo-gI-AL5" id="aeL-50-U2p"/>
                         <outlet property="previewView" destination="gjU-qm-wh3" id="wEM-CI-yU2"/>
                         <outlet property="stopGame" destination="szD-Yu-CQr" id="9xb-Ti-9gb"/>
-                        <segue destination="14F-0j-qY8" kind="showDetail" identifier="ShowDailyReport" id="YZe-8C-kOq"/>
                         <segue destination="n82-Um-LZF" kind="showDetail" identifier="ShowAdvReport" id="8JA-dV-PUX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6759" y="-392"/>
+            <point key="canvasLocation" x="7621" y="-814"/>
         </scene>
         <!--AdvReport-->
         <scene sceneID="J35-6T-Mad">
@@ -776,7 +709,6 @@
                         <constraints>
                             <constraint firstItem="ozu-ip-8vs" firstAttribute="centerX" secondItem="P3x-VV-D1m" secondAttribute="centerX" id="EOf-qp-inC"/>
                             <constraint firstItem="ozu-ip-8vs" firstAttribute="centerY" secondItem="P3x-VV-D1m" secondAttribute="centerY" id="M0F-75-dhn"/>
-                            <constraint firstItem="ozu-ip-8vs" firstAttribute="centerY" secondItem="P3x-VV-D1m" secondAttribute="centerY" id="odc-bs-XnZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2001,9 +1933,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="n6i-xY-u6l"/>
-        <segue reference="YZe-8C-kOq"/>
-        <segue reference="Eyf-LD-2ez"/>
+        <segue reference="T55-4v-3qf"/>
+        <segue reference="R9J-Zm-nyB"/>
+        <segue reference="WnJ-1U-t4x"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>

@@ -526,9 +526,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-i4-tSg">
                                 <rect key="frame" x="-5" y="13" width="128" height="128"/>
                                 <state key="normal" image="arrow-back"/>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="e3W-Mk-wMq" eventType="touchUpInside" id="gs2-Cn-MhE"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V8P-Be-ZuY"/>
@@ -812,7 +809,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lwQ-Df-vgM">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationContoller" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZJq-Tw-8u2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ZJq-Tw-8u2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="5eH-hG-48E">
                         <autoresizingMask key="autoresizingMask"/>

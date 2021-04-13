@@ -7,36 +7,61 @@
 
 import UIKit
 
-class BackeryViewController: UIViewController {
+class BackeryViewController: UIViewController, ManageViewController{
 
+    
+    
     var levelNum:String!
     var goalService = GoalService()
 
-    
+    //MARK:- LifeCycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Set bakery Background
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "calendarBackground")
+        backgroundImage.image = UIImage(named: "previewBackground")
         backgroundImage.contentMode = UIView.ContentMode.scaleToFill
         self.view.insertSubview(backgroundImage, at: 0)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            
-            self.setlevelLabel()
+            self.showGoalMessage()
         }
   
     }
-    func setlevelLabel(){
-            self.performSegue(withIdentifier: Constants.Segue.levelGoal, sender: self)
-          
+    
+    func showGoalMessage(){
+        if let goalLevelVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.goalLevelVC) as? LevelGoalViewController{
+            goalLevelVC.levelNum =  levelNum
+            goalLevelVC.delegate = self
+            present(goalLevelVC, animated: true,completion:nil)
+        }
+                   
     }
     
-    //MARK: - prepare seque
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! LevelGoalViewController
-        destinationVC.levelNum =  levelNum
+    //MARK: - Delagate Methods
+    
+    func startGame(){
+            if let challengeVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.challengeViewController) as? ObjectDetectionViewController{
+                challengeVC.delegate = self
+                challengeVC.levelNum = self.levelNum
+                    self.present(challengeVC, animated: true,completion: nil)
+                }
     }
- 
+    
+
+    
+    func displayDailyReport(_ report:DailyReport){
+        if let reportVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.dailyReportViewController) as? DailyReportViewController{
+            reportVC.report = report
+            reportVC.delagate = self
+                self.present(reportVC, animated: true,completion: nil)
+            }
+    }
+    
+    
+    func displayPauseMenue(){
+        print("Comming")
+    }
 
 }

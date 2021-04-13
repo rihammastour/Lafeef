@@ -290,6 +290,7 @@ class GameScene: SKScene {
         money += earnedMoney
         GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
     }
+
     static func setMoneyLabel(_ earnedMoney:Float){
         let arabicFormatter: NumberFormatter = NumberFormatter()
 
@@ -772,7 +773,8 @@ class GameScene: SKScene {
             //No more Customer Level end
             print("THE LEVEL IS END ")
             GameScene.timer.invalidate()
-            viewController?.levlEnd()
+            viewController?.levelEnd()
+            print("Called by Scene")
             hideDetectionOverlay()
         }
         

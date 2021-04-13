@@ -257,6 +257,7 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
             }
         }
     }
+    
     func setLevel(_ level:CompletedLevel) -> Void {
         self.completedLevels = level
     }

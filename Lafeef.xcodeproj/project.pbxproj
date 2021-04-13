@@ -156,6 +156,7 @@
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C9908C932613760800B4F394 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9908C922613760800B4F394 /* StoreCell.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
+		C9D4CD54262519B500C24436 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CD53262519B400C24436 /* ManageViewController.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
@@ -338,6 +339,7 @@
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C9908C922613760800B4F394 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
+		C9D4CD53262519B400C24436 /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				C92CFD8225E419CB007DD3B5 /* Answer.swift */,
 				41314C4425F5F6800022FA0B /* DailyReport.swift */,
 				C9241FB6260E9E4E003635E8 /* ChildPrefrences .swift */,
+				C9D4CD53262519B400C24436 /* ManageViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1031,6 +1034,7 @@
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,
+				C9D4CD54262519B500C24436 /* ManageViewController.swift in Sources */,
 				4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				412258562616F846005B19C6 /* Voice2ViewController.swift in Sources */,

@@ -79,8 +79,6 @@ class VoiceViewController: UIViewController,SFSpeechRecognizerDelegate {
                         let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
                         lastString = String(bestString[indexTo...])
                     }
-                  ChallengeViewController.callButton(string: lastString)
-//                  /
                 } else if let error = error {
                     self.sendAlert(title: "Speech Recognizer Error", message: "There has been a speech recognition error.")
                     print(error)
