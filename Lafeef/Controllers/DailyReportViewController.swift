@@ -39,19 +39,15 @@ class DailyReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        getChildId {
-            self.calcultateIncome()
-        }
-        
+        getChildInfo()
         styleUI()
         hideAdv()
         calculateReward()
+        calcultateIncome()
         passReportData()
-        updatelevelNum()
     }
     
-    //MARK:- Functions
+    //MARK:- UI Functions
     
     // Styling UI
     func styleUI(){
@@ -59,28 +55,49 @@ class DailyReportViewController: UIViewController {
         Utilities.styleFilledButton(nextButton, color: "blueApp")
         convertLabelsToArabic()
     }
+    
+    //MARK:- Functions
     func updatemoneyLabel(){ //Must be done in firestore
         
         GameScene.setMoneyLabel(report.collectedMoney)
-        childInfo?.money += report.collectedMoney
-        childInfo?.score += Int(report.collectedScore)
         updateChildInfo()
     }
     
     
-    func updatelevelNum(){ //Must be changed in firebase!!
-        levelnum = Int(report.levelNum)!
-        if (report.isPassed && report.levelNum != "4"){
+    func newCurrentLevel()->String{
+        
+
+        let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
+        if (report.isPassed && report.levelNum != "4"
+                && Int(report.levelNum)! > childCurrentLevel){
             
-            levelnum = levelnum+1
-            childInfo?.currentLevel = levelnum
+            return "\(childCurrentLevel+1)"
         }else{
-            childInfo?.currentLevel = levelnum
+            return "\(childInfo?.currentLevel)"
+        }
+    }
+    
+    //MARK: - Get Data
+    func getChildInfo(){
+        let child = LocalStorageManager.getChild()
+        
+        if let child = child {
+            self.childInfo = child
+        }else{
+            //TODO : Alert and back
         }
     }
     
     func updateChildInfo(){ //Firebase update methods
-        FirebaseRequest.updateChildInfo(report.collectedScore+Float(childInfo!.score), Money: report.collectedMoney+childInfo!.money, levelnum) { (complete, error) in
+        guard let childInfo = self.childInfo else {
+            return
+        }
+        
+        let score = report.collectedScore+Float(childInfo.score)
+        let money = report.collectedMoney+childInfo.money
+        let currentLevel = newCurrentLevel()
+        
+        FirebaseRequest.updateChildInfo(score, Money: money, levelnum) { (complete, error) in
             
             if error == nil {
                 print("successfuly update child info ")
@@ -89,9 +106,8 @@ class DailyReportViewController: UIViewController {
                 print("error in update child info")
             }
         }
-        
-        
     }
+    
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
         if report.advertismentAmount == 0 {
@@ -108,11 +124,14 @@ class DailyReportViewController: UIViewController {
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
+        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount + Float(report.reward)
+        
+        print("Sales amount",report.salesAmount)
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         //................................ missing money reward!
         report.collectedMoney += incomeDigit
+        print("Sales digits",report.collectedMoney)
         updatemoneyLabel()
     }
     
@@ -230,12 +249,6 @@ class DailyReportViewController: UIViewController {
     }
     
     
-    func getChildId(completion: @escaping ()  -> Void) {
-        
-        self.childId =  FirebaseRequest.getUserId() ?? ""
-        childInfo = LocalStorageManager.getChild()
-        
-    }
     
     
     func setCompletedLevel(completed:CompletedLevel){

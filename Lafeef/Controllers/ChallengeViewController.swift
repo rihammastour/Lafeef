@@ -24,7 +24,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //Variables
     var levelNum:String!
-    static var currentOrder = 0
+    var currentOrder = 0
     var duration:Float?
     var orders:[Order]?
     var money:[Money]?
@@ -81,7 +81,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         setScene()
         
         fetchChallengeLevel()
-        displayAdvReport()
+        //displayAdvReport()
+        ChallengeViewController.challengeScen?.startGame()
     }
     
     //MARK: - Unpleaced method propirty
@@ -94,7 +95,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         if report.levelNum == "2" && levelTwoCount < 1  || report.levelNum == "4"  && levelFourCount < 1{
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                self.presentAdvReport()
+               // self.presentAdvReport()
                 
             }
         }else{
@@ -257,7 +258,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         self.duration = level.duration
         self.orders = level.orders
         //Show First Order
-        showOrder(at: ChallengeViewController.currentOrder)
+        showOrder(at: currentOrder)
     }
     
     //showOrder
@@ -285,15 +286,15 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         ChallengeViewController.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
         ChallengeViewController.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
-        LevelGoalViewController.report.salesAmount = totalBillWithTaxRounded
+        report.salesAmount += totalBillWithTaxRounded
     }
     
     
     //nextOrder
     func nextOrder(){
-        if ChallengeViewController.currentOrder <= 3{
-            ChallengeViewController.currentOrder = ChallengeViewController.currentOrder + 1
-            showOrder(at: ChallengeViewController.currentOrder)
+        if currentOrder <= 3{
+            currentOrder = currentOrder + 1
+            showOrder(at: currentOrder)
         }else{
             levelEnd()
             print("Called by Challenge")
@@ -459,29 +460,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //getCurrentOrder
     func getCurrentOrder() ->  Order? {
-        return (self.orders?[ChallengeViewController.currentOrder])
+        return (self.orders?[currentOrder])
     }
     
     //MARK:- Advertisment Functions
     
-    func presentAdvReport(){
-        sound.playSound(sound: Constants.Sounds.advertisment)
-        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
-        let advVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.advReportViewController) as! AdvReportViewController
-        advVC.scene = ChallengeViewController.challengeScen
 
-        self.present(advVC, animated: true,completion: nil)
-    }
 
     
-    func showAdvOnBakery(){
-        if AdvReportViewController.randomNum == 1 {
-            GameScene.presentAdvertisment(at: 1)
-
-        } else if AdvReportViewController.randomNum == 2 {
-            GameScene.presentAdvertisment(at: 2)
-        }
-    }
     
     
     //MARK: - Level Ends
@@ -490,14 +476,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         let levelScore = scaleLevelScore()
         report.collectedScore = levelScore
-        checkLevelPassed()
+        report.isPassed = checkLevelPassed()
       
         //Set report attribute
-            ///Moeny
-        let EnglishFormatter: NumberFormatter = NumberFormatter()
-        EnglishFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
-        let money = Float(truncating: EnglishFormatter.number(from: GameScene.moneyLabel.text!)!)
-        report.salesAmount = money
             ///Customer Satisfaction and level number
         report.customerSatisfaction = customersSatisfaction
         report.levelNum = self.levelNum
@@ -509,11 +490,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     //check if child pass the level
-    func checkLevelPassed(){
+    func checkLevelPassed()->Bool{
         if report.collectedScore >= 50.0 {
-            report.isPassed = true
+            return true
         }else{
-            report.isPassed  = false
+            return false
         }
     }
     

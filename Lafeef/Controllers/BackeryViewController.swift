@@ -39,14 +39,31 @@ class BackeryViewController: UIViewController, ManageViewController{
                    
     }
     
+    func checkAd()->Bool{
+        let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+        let levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
+        
+        
+        if self.levelNum == "2" && levelTwoCount < 1  || self.levelNum == "4"  && levelFourCount < 1{
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    
     //MARK: - Delagate Methods
     
     func startGame(){
+        if(!checkAd()){
             if let challengeVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.challengeViewController) as? ObjectDetectionViewController{
                 challengeVC.delegate = self
                 challengeVC.levelNum = self.levelNum
                     self.present(challengeVC, animated: true,completion: nil)
                 }
+        }else{
+            presentAdvReport()
+        }
     }
     
 
@@ -57,6 +74,15 @@ class BackeryViewController: UIViewController, ManageViewController{
             reportVC.delagate = self
                 self.present(reportVC, animated: true,completion: nil)
             }
+    }
+    
+    
+    func presentAdvReport(){
+        SoundManager().playSound(sound: Constants.Sounds.advertisment)
+        let storyboard = UIStoryboard(name: "Challenge", bundle: nil)
+        let advVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.advReportViewController) as! AdvReportViewController
+        advVC.delagte = self
+        self.present(advVC, animated: true,completion: nil)
     }
     
     

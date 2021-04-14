@@ -15,4 +15,6 @@ protocol ManageViewController {
     func displayDailyReport(_ report:DailyReport)
     
     func displayPauseMenue()
+    
+    func presentAdvReport()
 }

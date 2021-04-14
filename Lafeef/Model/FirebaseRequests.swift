@@ -106,7 +106,7 @@ class FirebaseRequest{
         completion(true,nil)
     }
     
-    //Update Money
+    //Update uses equipments
     static func updateUseEquipment(for equipmentID:String, isUsing:Bool, completion: @escaping (_ success: Bool, _ error :Error?) -> Void){
         print("equipmentID  ::",equipmentID)
         let id = getUserId()!

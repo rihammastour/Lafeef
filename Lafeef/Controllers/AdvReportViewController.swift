@@ -27,7 +27,7 @@ class AdvReportViewController: UIViewController {
     @IBOutlet weak var accept: UIButton!
     @IBOutlet weak var reject: UIButton!
     @IBOutlet weak var advAmount: UILabel!
-    var  scene : GameScene!
+    var delagte : ManageViewController!
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
@@ -85,7 +85,7 @@ class AdvReportViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
-        let destinationVC = segue.destination as! DailyReportViewController
+//        let destinationVC = segue.destination as! DailyReportViewController
         if (segue.identifier == Constants.Segue.acceptAdvSegue) {
             // Text processing
             let advAmountStr = self.advAmount.text!.convertedDigitsToLocale(Locale(identifier: "EN"))
@@ -98,17 +98,16 @@ class AdvReportViewController: UIViewController {
             LevelGoalViewController.report.advertismentAmount = Float(advAmount)
             
             //Present Adv in bakery env
-            challeangeVC.showAdvOnBakery()
+//            challeangeVC.showAdvOnBakery()
 
             dismiss(animated: true) {
-                self.scene.startGame()
+                self.delagte.startGame()
                 
             }
         }
         if (segue.identifier == Constants.Segue.rejectAdvSegue) {
-//            destinationVC.advertismentAmount = 0
             dismiss(animated: true) {
-                self.scene.startGame()
+                self.delagte.startGame()
                 
             }
         }

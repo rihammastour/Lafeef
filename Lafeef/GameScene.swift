@@ -117,10 +117,6 @@ class GameScene: SKScene {
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//            
-//            
-//        }
         
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
@@ -296,9 +292,6 @@ class GameScene: SKScene {
 
         arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
      
-        
-      
-       
         GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
     }
     
@@ -446,6 +439,10 @@ class GameScene: SKScene {
     
     //setOrderContent
     func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
+        
+        //Reset nodes
+        self.base?.removeFromParent()
+        self.toopingCounter = 0
         
         //unwrap order continer
         guard self.orderContiner != nil else {
