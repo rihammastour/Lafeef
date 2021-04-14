@@ -57,4 +57,31 @@ struct Constants {
         
     }
     
+    struct Sounds {
+        static let excellent = "excellent"
+        static let firstDay = "firstDay"
+        static let secondDay = "secondDay"
+        static let thirdDay = "thirdDay"
+        static let fourthDay = "fourthDay"
+        static let advertisment = "advertisment"
+        static let bye = "bye"
+        static let challeange = "challeange"
+        static let train = "train"
+        static let happyCustomer = "happyCustomer"
+        static let sadCustomer = "sadCustomer"
+        static let hello = "hello"
+        static let learnShapes = "laernShapes"
+        static let learnMath = "laernMath"
+        static let learColors = "laerncolors"
+        static let reward = "reward"
+        static let store = "store"
+        static let tryAgain = "tryagain"
+        static let trainingRed = "trainingRed"
+        static let trainingBrown = "trainingBrown"
+        static let trainingTraingle = "trainingTraingle"
+        static let trainingCircle = "trainingCircle"
+        static let trainingAddition = "trainingAddition"
+        static let trainingSubtraction = "trainingSubtraction"
+        static let trainingMultiplication = "trainingMultiplication"
+    }
 }

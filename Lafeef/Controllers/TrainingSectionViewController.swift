@@ -10,6 +10,7 @@ import UIKit
 class TrainingSectionViewController: UIViewController {
     
     static var sectionType="colors"
+    let sound = SoundManager()
     
     override func viewDidLoad() {
     let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -22,19 +23,21 @@ class TrainingSectionViewController: UIViewController {
     
     @IBAction func colorSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="colors"
+        sound.playSound(sound: Constants.Sounds.learColors)
+
         goToTrainingBoard()
     }
     
     @IBAction func shapeSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="shapes"
+        sound.playSound(sound: Constants.Sounds.learnShapes)
         goToTrainingBoard()
     }
     
     
     @IBAction func calculateSection(_ sender: Any) {
-        
         TrainingSectionViewController.sectionType="calculations"
-        
+        sound.playSound(sound: Constants.Sounds.learnMath)
         goToTrainingBoard()
     }
     

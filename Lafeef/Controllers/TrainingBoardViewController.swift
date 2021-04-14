@@ -19,16 +19,15 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     @IBOutlet weak var skiplOutlet: UIButton!
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var strawberry: UIImageView!
+    @IBOutlet weak var answerView: UIView!
     
-    var section:String = TrainingSectionViewController.sectionType  // must be passed from training sections viewcontroller
+    var section:String = TrainingSectionViewController.sectionType
     var questionDetailes: [TrainingQuestions]?
     var questionId: Int = 0 // update it in next button or skip
     var answer: [String] = []
-
-    @IBOutlet weak var strawberry: UIImageView!
     var infoView:UIView!
-    
-    @IBOutlet weak var answerView: UIView!
+    let sound = SoundManager()
     
     var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
@@ -132,9 +131,12 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[index].type == "circle"{
                 image.image = UIImage(named: "Training-yellowCircle")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingCircle)
+                
             } else  if detailes[index].type == "triangle" {
                 image.image = UIImage(named: "Training-blueTriangle")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingTraingle)
             }
             break
 
@@ -142,9 +144,12 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[index].type == "brown"{
                 image.image = UIImage(named: "Training-brownColor")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingBrown)
+                
             } else  if detailes[index].type == "red" {
                 image.image = UIImage(named: "Training-redColor")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingRed)
             }
             break
             
@@ -152,12 +157,17 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[index].type == "addition"{
                 image.image = UIImage(named: "Training-addition")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingAddition)
+                
             } else  if detailes[index].type == "subtraction" {
                 image.image = UIImage(named: "Training-subtraction")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingSubtraction)
+                
             } else  if detailes[index].type == "multiplication" {
                 image.image = UIImage(named: "Training-multiplication")
                 self.answer = detailes[index].answer
+                sound.playSound(sound: Constants.Sounds.trainingMultiplication)
             }
             break
             
@@ -349,22 +359,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         default:
             print("there is no section selection")
         }
-        
-        
-        
-        
-        
-
-     
-        
-//        switch section {
-//        case "colors":
-//            if
-//            TrainingSections.colors.getObject(for: "red")
-//        default:
-//            <#code#>
-//        }
-//
+    
         
         if answer.base == nil {
            print ("The base is nill")

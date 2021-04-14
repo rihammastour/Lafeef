@@ -46,6 +46,14 @@
 		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
 		4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC225CDDF9600D50362 /* Challenge.storyboard */; };
 		4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC825CDDFBF00D50362 /* Training.storyboard */; };
+		4E7EB28526267C02008E7EDB /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7EB28426267C02008E7EDB /* SoundManager.swift */; };
+		4E7EB29026267EC3008E7EDB /* trainingTraingle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28926267EC2008E7EDB /* trainingTraingle.mp3 */; };
+		4E7EB29126267EC3008E7EDB /* trainingSubtraction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28A26267EC2008E7EDB /* trainingSubtraction.mp3 */; };
+		4E7EB29226267EC3008E7EDB /* trainingMultiplication.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */; };
+		4E7EB29326267EC3008E7EDB /* trainingAddition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */; };
+		4E7EB29426267EC3008E7EDB /* trainingBrown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */; };
+		4E7EB29526267EC3008E7EDB /* trainingCircle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */; };
+		4E7EB29626267EC3008E7EDB /* trainingRed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28F26267EC3008E7EDB /* trainingRed.mp3 */; };
 		4EB21B7C25CF768F0076530E /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB21B7B25CF768F0076530E /* ProgressBar.swift */; };
 		4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB21B9425D2FC660076530E /* DailyReportViewController.swift */; };
 		4EB21B9D25D353050076530E /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB21B9C25D353050076530E /* Reports.swift */; };
@@ -207,6 +215,14 @@
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7DECC825CDDFBF00D50362 /* Training.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = SOURCE_ROOT; };
+		4E7EB28426267C02008E7EDB /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		4E7EB28926267EC2008E7EDB /* trainingTraingle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingTraingle.mp3; sourceTree = "<group>"; };
+		4E7EB28A26267EC2008E7EDB /* trainingSubtraction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingSubtraction.mp3; sourceTree = "<group>"; };
+		4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingMultiplication.mp3; sourceTree = "<group>"; };
+		4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingAddition.mp3; sourceTree = "<group>"; };
+		4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingBrown.mp3; sourceTree = "<group>"; };
+		4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingCircle.mp3; sourceTree = "<group>"; };
+		4E7EB28F26267EC3008E7EDB /* trainingRed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingRed.mp3; sourceTree = "<group>"; };
 		4EB21B7B25CF768F0076530E /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		4EB21B9425D2FC660076530E /* DailyReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportViewController.swift; sourceTree = "<group>"; };
 		4EB21B9C25D353050076530E /* Reports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
@@ -490,6 +506,13 @@
 		4EDFA3D525EAF1BC00924569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */,
+				4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */,
+				4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */,
+				4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */,
+				4E7EB28F26267EC3008E7EDB /* trainingRed.mp3 */,
+				4E7EB28A26267EC2008E7EDB /* trainingSubtraction.mp3 */,
+				4E7EB28926267EC2008E7EDB /* trainingTraingle.mp3 */,
 				4EDFA42D25EAF46000924569 /* HappyApple.atlas */,
 				4EDFA42525EAF45E00924569 /* HappyOrange.atlas */,
 				4EDFA42725EAF45F00924569 /* HappyPear.atlas */,
@@ -556,6 +579,7 @@
 				4E427B392616259C009692C8 /* TrainingSections.swift */,
 				4E427B4326166C25009692C8 /* TrainingQuestions.swift */,
 				4E427B4826166FB9009692C8 /* AddQuestion.swift */,
+				4E7EB28426267C02008E7EDB /* SoundManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -716,6 +740,7 @@
 				4E453A4D25B61D5100B8363F /* Main.storyboard in Resources */,
 				4E7DECC925CDDFBF00D50362 /* Training.storyboard in Resources */,
 				4EDFA44625EAF46300924569 /* NWOrange.atlas in Resources */,
+				4E7EB29126267EC3008E7EDB /* trainingSubtraction.mp3 in Resources */,
 				C916EC5D2618D0F40076CE1C /* TrainingSection.storyboard in Resources */,
 				C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */,
 				4EDFA44B25EAF46300924569 /* NWPear.atlas in Resources */,
@@ -724,11 +749,14 @@
 				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
 				4EFA24B225EE208500A17868 /* Color.xcassets in Resources */,
+				4E7EB29526267EC3008E7EDB /* trainingCircle.mp3 in Resources */,
 				C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
+				4E7EB29326267EC3008E7EDB /* trainingAddition.mp3 in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
+				4E7EB29026267EC3008E7EDB /* trainingTraingle.mp3 in Resources */,
 				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				C9B6CDA9260ED69C0079D0A1 /* Stand.gif in Resources */,
@@ -738,6 +766,7 @@
 				4EDFA44F25EAF46300924569 /* HappyWatermelon.atlas in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
 				4EDFA44225EAF46300924569 /* WaitingApple.atlas in Resources */,
+				4E7EB29626267EC3008E7EDB /* trainingRed.mp3 in Resources */,
 				4EDFA43E25EAF46300924569 /* SadPear.atlas in Resources */,
 				4E427B572616C8AA009692C8 /* HomeView.storyboard in Resources */,
 				4EDFA44325EAF46300924569 /* WaitingOrange.atlas in Resources */,
@@ -750,8 +779,10 @@
 				4EDFA44E25EAF46300924569 /* WaitingWatermelon.atlas in Resources */,
 				4EDFA45125EAF46300924569 /* NWWatermelon.atlas in Resources */,
 				4EDFA44425EAF46300924569 /* WaitingPineapple.atlas in Resources */,
+				4E7EB29426267EC3008E7EDB /* trainingBrown.mp3 in Resources */,
 				4EDFA44925EAF46300924569 /* SadApple.atlas in Resources */,
 				4EDFA44D25EAF46300924569 /* NWStrawberry.atlas in Resources */,
+				4E7EB29226267EC3008E7EDB /* trainingMultiplication.mp3 in Resources */,
 				4E427BD6261D6A9E009692C8 /* star.json in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */,
@@ -923,6 +954,7 @@
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,
 				4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */,
+				4E7EB28526267C02008E7EDB /* SoundManager.swift in Sources */,
 				C92A65A625CB3F6D0060AA53 /* TrainigViewController.swift in Sources */,
 				C92A659525CB3F4F0060AA53 /* HomeViewController.swift in Sources */,
 				41CFB12825D08754004D31F9 /* WinningReport.swift in Sources */,
