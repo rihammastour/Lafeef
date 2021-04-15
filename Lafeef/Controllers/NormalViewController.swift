@@ -13,6 +13,8 @@ class NormalViewController: UIViewController {
     var challeangeReport = ChallengeViewController()
     var  sound = SoundManager()
 
+    var delagate:ManageViewController!
+    var report:DailyReport!
  
     // customer satisfaction
     @IBOutlet weak var sadLabel: UILabel!

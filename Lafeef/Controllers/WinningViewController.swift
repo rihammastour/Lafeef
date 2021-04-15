@@ -12,7 +12,8 @@ import Cosmos
 class WinningViewController: UIViewController {
     
     var challeangeReport = ChallengeViewController()
- 
+    var delagate:ManageViewController!
+    var report:DailyReport!
   
     @IBOutlet weak var Winning: UIView!
     
@@ -81,31 +82,33 @@ class WinningViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(LevelGoalViewController.report.collectedScore))
+        setScore(score: Int(report.collectedScore))
         // set money
-        setMoney(money:LevelGoalViewController.report.collectedMoney)
+        setMoney(money:report.collectedMoney)
         
-        if LevelGoalViewController.report.levelNum == "4"{
+        if report.levelNum == "4"{
             nextDayOutlet.isHidden = true
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
     }
     @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(LevelGoalViewController.report.levelNum)
-        if LevelGoalViewController.report.levelNum != "4"{
-        levelnum! += 1
-            LevelGoalViewController.report.levelNum = String(levelnum!)
-       
-            self.performSegue(withIdentifier:Constants.Segue.showChalleange, sender: self)
+        
+        if report.levelNum != "4"{
+            let  levelnum = 1 + ( Int(report.levelNum) ?? 0 )
+            delagate.levelNum = "\(levelnum)"
+            dismiss(animated: true) {
+                self.delagate.showGoalMessage()
+            }
         }else{
             print("last level")
           
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: " showCalendar", sender: self)
-   
+        self.dismiss(animated: true) {
+            self.delagate.exitPlayChallengeMode()
+        }
     }
     
     func setCustomerSatisfaction()  {
@@ -113,7 +116,7 @@ class WinningViewController: UIViewController {
         var sad = 0
         var normal = 0
         
-        for sat in  LevelGoalViewController.report.customerSatisfaction{
+        for sat in  report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1

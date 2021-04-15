@@ -8,13 +8,25 @@
 import Foundation
 protocol ManageViewController {
 
-    //var someVariable : String {get set}
-
-    func startGame()
+    var levelNum : String! {get set}
     
-    func displayDailyReport(_ report:DailyReport)
+    func presentAdvReport()
+    
+    func showGoalMessage()
+    
+    func startGame(with advAmount:Float, for adv:Int)
     
     func displayPauseMenue()
     
-    func presentAdvReport()
+    func displayDailyReport(_ report:DailyReport)
+        
+    func displayWainningReport(_ report:DailyReport)
+    
+    func displayNormalReport(_ report:DailyReport)
+    
+    func displayLosingReport(_ report:DailyReport)
+    
+    func exitPlayChallengeMode()
+    
+    
 }

@@ -33,7 +33,7 @@ class FirebaseRequest{
             "name": name,
             "email": email,
             "currentLevel": 1,
-            "money":20000,
+            "money":200,
             "score":0,
             "sex":sex,
             "DOB":DOB

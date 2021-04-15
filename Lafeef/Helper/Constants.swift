@@ -25,6 +25,7 @@ struct Constants {
         static let advReportViewController = "AdvReportVC"
         static let NormalViewController = "NormalReport"
         static let WinningViewController  = "WinningReport"
+        static let losingViewController = "losingReport"
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let backery = "backery"
         static let storeViewController = "storeVC"

@@ -58,7 +58,7 @@ class LevelGoalViewController: UIViewController {
 //MARK: - @IBAction
     @IBAction func ok(_ sender: Any) {
         self.dismiss(animated: true,completion:{
-            self.delegate?.startGame()
+            self.delegate?.startGame(with: 0,for: 0)
             
         })
     }

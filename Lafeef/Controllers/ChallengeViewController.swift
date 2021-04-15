@@ -41,7 +41,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var isPassed = false
     var customersSatisfaction : [CustmerSatisfaction] = []
     
-    static var challengeScen:GameScene?
+    var challengeScen:GameScene?
     var delegate:ManageViewController!
 
 
@@ -65,8 +65,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     var totalBill:Float = 0.0
     var tax:Float = 0.0
-    
+    //Report
     var report:DailyReport = DailyReport(levelNum: "", ingredientsAmount: 20, salesAmount: 0, backagingAmount: 20, advertismentAmount: 0, collectedScore: 0, collectedMoney: 0, isPassed: false, isRewarded: false, reward: 0, customerSatisfaction: [])
+    //Advertisment
+    var randomAdv:Int!
     
     //Outlet
     @IBOutlet weak var gameScen: SKView!
@@ -79,10 +81,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // Additional setup after loading the view.
         setupAVCapture()   
         setScene()
-        
+        reflectAdv()
         fetchChallengeLevel()
-        //displayAdvReport()
-        ChallengeViewController.challengeScen?.startGame()
+        challengeScen?.startGame()
     }
     
     //MARK: - Unpleaced method propirty
@@ -99,7 +100,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 
             }
         }else{
-            ChallengeViewController.challengeScen?.startGame()
+            challengeScen?.startGame()
         }
         
     }
@@ -109,11 +110,17 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //setScens
     func setScene(){
         
-        ChallengeViewController.challengeScen = gameScen.scene as! GameScene
-        ChallengeViewController.challengeScen?.viewController = self
-        ChallengeViewController.challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
+        challengeScen = gameScen.scene as! GameScene
+        challengeScen?.viewController = self
+        challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
    
         
+    }
+    
+    func reflectAdv(){
+        if(report.advertismentAmount>0){
+            self.challengeScen?.showAdvInbakery(at: randomAdv)
+        }
     }
 
 
@@ -242,7 +249,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //fethChallengeLevel
     func fetchChallengeLevel(){
     
-        print("Level number",self.levelNum)
         guard let levelNum = self.levelNum else {
             //TODO: Alert and go back
            showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
@@ -266,7 +272,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let order = orders![number]
         let base = order.base
         let toppings = order.toppings
-        ChallengeViewController.challengeScen?.setOrderContent(with: base, toppings)
+        challengeScen?.setOrderContent(with: base, toppings)
         showCustomerPaid(at: number)
     }
     
@@ -275,7 +281,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let customerPaied = order.customerPaid
         
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
-        ChallengeViewController.challengeScen?.setPaymentContent(with: money)
+        challengeScen?.setPaymentContent(with: money)
     }
     
     func showBill() -> Void {
@@ -284,8 +290,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10)
         
-        ChallengeViewController.challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
-        ChallengeViewController.challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
+        challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
+        challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
         report.salesAmount += totalBillWithTaxRounded
     }
     
@@ -491,6 +497,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //check if child pass the level
     func checkLevelPassed()->Bool{
+        print("report.collectedScore in Challenge ",report.collectedScore)
         if report.collectedScore >= 50.0 {
             return true
         }else{
@@ -498,10 +505,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
     }
     
-//    func DispalyReport(_ report:DailyReport){
-//        
-//        self.performSegue(withIdentifier: Constants.Segue.showDailyReport, sender: self)
-//    }
     
     func checkLevelCompletion(){
 

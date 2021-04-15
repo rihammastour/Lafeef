@@ -121,8 +121,13 @@ class ProfileViewController: UIViewController {
     }
     
     func removeDataStorage(for key:String){
-        UserDefaults.standard.removeObject(forKey: key)
-        LocalStorageManager.removeChild()
+        if(key == "child"){
+            LocalStorageManager.removeChild()}
+
+        if(key == "levelTwoCount" ||
+            key == "levelFourCount"){
+        LocalStorageManager.removeAdvertisments()
+        }
     }
     
     //MARK: - IBAction
@@ -138,6 +143,9 @@ class ProfileViewController: UIViewController {
             if Auth.auth().currentUser != nil {
                 do {
                     removeDataStorage(for: "child")
+                    removeDataStorage(for: "levelTwoCount")
+                    removeDataStorage(for: "levelFourCount")
+                    
                     try Auth.auth().signOut()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController

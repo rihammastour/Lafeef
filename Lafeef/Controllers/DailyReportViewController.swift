@@ -13,6 +13,8 @@ class DailyReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     var delagate:ManageViewController!
+    var report:DailyReport!
+    
     var challeangeVC = ChallengeViewController()
     var completedLevel  =  CompletedLevel(reportData: [])
     var childId :String?
@@ -22,8 +24,8 @@ class DailyReportViewController: UIViewController {
     var childInfo : Child?
     var flag = false
     var levelnum : Int = 1
-    var report:DailyReport!
-
+    
+    
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
     @IBOutlet weak var sales: UILabel!
@@ -59,14 +61,13 @@ class DailyReportViewController: UIViewController {
     //MARK:- Functions
     func updatemoneyLabel(){ //Must be done in firestore
         
-        GameScene.setMoneyLabel(report.collectedMoney)
         updateChildInfo()
     }
     
     
     func newCurrentLevel()->String{
         
-
+        
         let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
         if (report.isPassed && report.levelNum != "4"
                 && Int(report.levelNum)! > childCurrentLevel){
@@ -88,7 +89,10 @@ class DailyReportViewController: UIViewController {
         }
     }
     
-    func updateChildInfo(){ //Firebase update methods
+    //MARK:- Set Data
+    
+    //Firebase update methods
+    func updateChildInfo(){
         guard let childInfo = self.childInfo else {
             return
         }
@@ -124,14 +128,12 @@ class DailyReportViewController: UIViewController {
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount + Float(report.reward)
+        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
         
         print("Sales amount",report.salesAmount)
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
-        //................................ missing money reward!
-        report.collectedMoney += incomeDigit
-        print("Sales digits",report.collectedMoney)
+        report.collectedMoney += incomeDigit + Float(report.reward)
         updatemoneyLabel()
     }
     
@@ -152,7 +154,7 @@ class DailyReportViewController: UIViewController {
         case "3":
             if report.collectedScore>=70{
                 report.reward = 15
-               report.isRewarded = true
+                report.isRewarded = true
             }
             
             break
@@ -172,13 +174,22 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-        
+        print("is Rewarded      :",report.isRewarded  )
+        print("is Passed      :",report.isPassed  )
+        print("calculate score      :",report.collectedScore  )
         if report.isRewarded {
-            self.performSegue(withIdentifier: Constants.Segue.showWinningReport, sender: self)
+            self.dismiss(animated: true) {
+                self.delagate.displayWainningReport(self.report)
+            }
         } else if  report.isPassed{
-            self.performSegue(withIdentifier: Constants.Segue.showNormalReport, sender: self)
+            
+            self.dismiss(animated: true) {
+                self.delagate.displayNormalReport(self.report)
+            }
         } else{
-            self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
+            self.dismiss(animated: true) {
+                self.delagate.displayLosingReport(self.report)
+            }
             
         }
     }
@@ -235,16 +246,12 @@ class DailyReportViewController: UIViewController {
                     print("error while decoding child report ",error)
                 }
                 
-                
             }else{
                 print("error")
                 
             }
             
-            
         }
-        
-        
         
     }
     
@@ -252,7 +259,6 @@ class DailyReportViewController: UIViewController {
     
     
     func setCompletedLevel(completed:CompletedLevel){
-        print("inside set")
         self.completedLevel = completed
     }
 }

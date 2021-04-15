@@ -214,7 +214,7 @@ class GameScene: SKScene {
         
     }
     
-    static func presentAdvertisment(at random: Int){
+    func showAdvInbakery(at random: Int){
         print("adv presented success")
         if random == 1 {
             print("adv1 presented success")
@@ -276,7 +276,7 @@ class GameScene: SKScene {
     }
     
     //updateMoneyLabel
-    static func updateMoneyLabel(_ earnedMoney:Float){
+     func updateMoneyLabel(_ earnedMoney:Float){
         let arabicFormatter: NumberFormatter = NumberFormatter()
         let EnglishFormatter: NumberFormatter = NumberFormatter()
         arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
@@ -287,13 +287,13 @@ class GameScene: SKScene {
         GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
     }
 
-    static func setMoneyLabel(_ earnedMoney:Float){
-        let arabicFormatter: NumberFormatter = NumberFormatter()
-
-        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
-     
-        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
-    }
+//    static func setMoneyLabel(_ earnedMoney:Float){
+//        let arabicFormatter: NumberFormatter = NumberFormatter()
+//
+//        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+//
+//        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
+//    }
     
     
     //MARK: - Timer Continer Functions
@@ -718,7 +718,7 @@ class GameScene: SKScene {
         GameScene.flag = false
         //Add money earned
         let moneEarned = (viewController?.getTotalBillWithTax())!
-        GameScene.updateMoneyLabel(moneEarned)
+        updateMoneyLabel(moneEarned)
         
         //Customer Satsfaction bar
         customerDone()

@@ -11,15 +11,14 @@ import Cosmos
 
 class LosingViewController: UIViewController {
     // customer satisfaction
+    
+    var delagate:ManageViewController!
+    var report:DailyReport!
+    
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
     var challeangeReport = ChallengeViewController()
-
-    
-    
-    
-
  
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
