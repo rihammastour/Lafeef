@@ -15,9 +15,7 @@ protocol ManageViewController {
     func showGoalMessage()
     
     func startGame(with advAmount:Float, for adv:Int)
-    
-    func displayPauseMenue()
-    
+        
     func displayDailyReport(_ report:DailyReport)
         
     func displayWainningReport(_ report:DailyReport)

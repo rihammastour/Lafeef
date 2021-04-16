@@ -112,6 +112,7 @@
         <!--View Controller-->
         <scene sceneID="chD-4o-Q6v">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DdE-dr-vns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" sceneMemberID="viewController">
                     <view key="view" alpha="0.0" contentMode="scaleToFill" id="ier-ME-Xcq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -119,7 +120,6 @@
                         <viewLayoutGuide key="safeArea" id="OZx-KP-wV0"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DdE-dr-vns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6759" y="364"/>
         </scene>
@@ -166,10 +166,10 @@
         <!--AdvReport-->
         <scene sceneID="J35-6T-Mad">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="AdvReport" id="d0c-PB-tDz" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5s7-rg-IiR"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7088" y="-21"/>
         </scene>
@@ -184,9 +184,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="jMZ-ls-r3w"/>
-                    <connections>
-                        <segue destination="udq-xX-jAh" kind="showDetail" identifier="levelGoal" id="L4C-yo-xnx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQC-PX-wtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -642,16 +639,16 @@
                                 <rect key="frame" x="104.5" y="315.5" width="559" height="393"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="EpM-UR-hHf">
-                                        <rect key="frame" x="104.5" y="166.5" width="350" height="173"/>
+                                        <rect key="frame" x="104.5" y="168" width="350" height="171.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="anH-EJ-PdE">
-                                                <rect key="frame" x="24" y="0.0" width="302" height="60"/>
+                                                <rect key="frame" x="24" y="0.0" width="302" height="58.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="points" translatesAutoresizingMaskIntoConstraints="NO" id="se2-cq-vnV">
-                                                        <rect key="frame" x="0.0" y="12" width="36" height="36"/>
+                                                        <rect key="frame" x="0.0" y="11.5" width="36" height="36"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="هدف المستوى| " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY1-rk-KPz">
-                                                        <rect key="frame" x="41" y="1" width="261" height="58.5"/>
+                                                        <rect key="frame" x="41" y="0.0" width="261" height="58.5"/>
                                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
                                                         <color key="textColor" red="0.75378692150000004" green="0.85876220459999997" blue="0.85882598160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -659,7 +656,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A85-mx-MbP">
-                                                <rect key="frame" x="0.0" y="125" width="350" height="48"/>
+                                                <rect key="frame" x="0.0" y="123.5" width="350" height="48"/>
                                                 <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="PB9-Ng-rzm"/>
@@ -676,35 +673,31 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Charcetar" translatesAutoresizingMaskIntoConstraints="NO" id="3dh-hd-2uh">
-                                        <rect key="frame" x="0.0" y="-134" width="263" height="267.5"/>
+                                        <rect key="frame" x="0.0" y="-132.5" width="263" height="267.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="267.5" id="HZJ-RP-cIX"/>
-                                            <constraint firstAttribute="width" constant="263" id="rf5-dO-Iqp"/>
+                                            <constraint firstAttribute="height" constant="267.5" id="4W9-HZ-5Rf"/>
+                                            <constraint firstAttribute="width" constant="263" id="ahm-Qv-ETV"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="whiteApp"/>
                                 <constraints>
-                                    <constraint firstItem="3dh-hd-2uh" firstAttribute="leading" secondItem="ozu-ip-8vs" secondAttribute="leading" id="1gM-VZ-DQp"/>
-                                    <constraint firstAttribute="trailing" secondItem="3dh-hd-2uh" secondAttribute="trailing" constant="296" id="6RN-yB-LNE"/>
-                                    <constraint firstItem="3dh-hd-2uh" firstAttribute="top" secondItem="ozu-ip-8vs" secondAttribute="top" constant="-134" id="81h-Hj-vBQ"/>
-                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="centerX" secondItem="ozu-ip-8vs" secondAttribute="centerX" id="9ta-HQ-fUc"/>
+                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="leading" secondItem="ozu-ip-8vs" secondAttribute="leading" constant="104.5" id="0yy-7U-sZw"/>
                                     <constraint firstAttribute="height" constant="393" id="GIN-NA-eqD"/>
-                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="centerX" secondItem="ozu-ip-8vs" secondAttribute="centerX" id="Iae-E0-DNx"/>
-                                    <constraint firstAttribute="bottom" secondItem="3dh-hd-2uh" secondAttribute="bottom" constant="259.5" id="LGF-Np-qCv"/>
-                                    <constraint firstAttribute="trailing" secondItem="3dh-hd-2uh" secondAttribute="trailing" constant="296" id="N6x-IL-ZZ9"/>
-                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="top" secondItem="3dh-hd-2uh" secondAttribute="bottom" constant="33" id="bGs-Rl-KiD"/>
+                                    <constraint firstAttribute="bottom" secondItem="EpM-UR-hHf" secondAttribute="bottom" constant="53.5" id="HWe-Lz-Aug"/>
+                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="top" secondItem="3dh-hd-2uh" secondAttribute="bottom" constant="33" id="HxE-fW-tQv"/>
+                                    <constraint firstAttribute="trailing" secondItem="3dh-hd-2uh" secondAttribute="trailing" constant="296" id="cga-cA-XQH"/>
+                                    <constraint firstAttribute="trailing" secondItem="EpM-UR-hHf" secondAttribute="trailing" constant="104.5" id="cyl-yD-mNX"/>
                                     <constraint firstAttribute="width" constant="559" id="dON-x5-Pf6"/>
-                                    <constraint firstItem="anH-EJ-PdE" firstAttribute="centerX" secondItem="ozu-ip-8vs" secondAttribute="centerX" id="qS7-gT-0FB"/>
-                                    <constraint firstItem="anH-EJ-PdE" firstAttribute="centerY" secondItem="ozu-ip-8vs" secondAttribute="centerY" id="vNT-5d-gYL"/>
+                                    <constraint firstItem="3dh-hd-2uh" firstAttribute="leading" secondItem="ozu-ip-8vs" secondAttribute="leading" id="hBH-Be-lSP"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P3x-VV-D1m"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ozu-ip-8vs" firstAttribute="centerX" secondItem="P3x-VV-D1m" secondAttribute="centerX" id="EOf-qp-inC"/>
-                            <constraint firstItem="ozu-ip-8vs" firstAttribute="centerY" secondItem="P3x-VV-D1m" secondAttribute="centerY" id="M0F-75-dhn"/>
+                            <constraint firstItem="ozu-ip-8vs" firstAttribute="centerY" secondItem="ce1-E9-9zL" secondAttribute="centerY" id="Kjc-gh-OFu"/>
+                            <constraint firstItem="ozu-ip-8vs" firstAttribute="centerX" secondItem="ce1-E9-9zL" secondAttribute="centerX" id="NEh-QR-FDq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -712,7 +705,6 @@
                         <outlet property="levelLabel" destination="JY1-rk-KPz" id="ddS-51-gk3"/>
                         <outlet property="okbutton" destination="A85-mx-MbP" id="KII-Yz-AeB"/>
                         <outlet property="view" destination="ozu-ip-8vs" id="4Z7-VR-cYe"/>
-                        <segue destination="ZnZ-4P-R8K" kind="show" identifier="challeange" id="WnJ-1U-t4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcH-4t-oMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -984,8 +976,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="igh-QH-ecp" firstAttribute="centerY" secondItem="D9d-UO-Rb1" secondAttribute="centerY" id="18n-fK-ioR"/>
-                            <constraint firstItem="igh-QH-ecp" firstAttribute="centerX" secondItem="D9d-UO-Rb1" secondAttribute="centerX" id="t4G-h8-Ffr"/>
+                            <constraint firstItem="igh-QH-ecp" firstAttribute="centerY" secondItem="yhh-Nj-NDd" secondAttribute="centerY" id="18n-fK-ioR"/>
+                            <constraint firstItem="igh-QH-ecp" firstAttribute="centerX" secondItem="yhh-Nj-NDd" secondAttribute="centerX" id="t4G-h8-Ffr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1005,8 +997,6 @@
                         <outlet property="trophyView" destination="bc4-5G-xck" id="e3b-eg-m8B"/>
                         <outlet property="view" destination="igh-QH-ecp" id="wZl-LO-Jf0"/>
                         <outlet property="winningView" destination="bc4-5G-xck" id="R8A-na-Tws"/>
-                        <segue destination="HzJ-NT-MwY" kind="show" identifier="showCalendar" id="n6i-xY-u6l"/>
-                        <segue destination="ZnZ-4P-R8K" kind="show" identifier="showChalleange" id="u4x-Kk-P26"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rjv-gK-KWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1024,8 +1014,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0K-Po-9Yd">
                                 <rect key="frame" x="124" y="122" width="520" height="780"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WT9-xO-WVn">
-                                        <rect key="frame" x="30" y="121" width="402" height="600"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WT9-xO-WVn">
+                                        <rect key="frame" x="59" y="90" width="402" height="600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxU-30-E9o" customClass="AnimationView" customModule="Lottie">
                                                 <rect key="frame" x="32" y="0.0" width="338" height="350"/>
@@ -1197,7 +1187,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="cancel:" destination="jHR-8f-pGp" eventType="touchUpInside" id="4wi-wv-3a0"/>
-                                                            <segue destination="HzJ-NT-MwY" kind="show" identifier="showCalendar" id="UZh-yq-F3f"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEA-um-KQi">
@@ -1223,18 +1212,18 @@
                                 <color key="backgroundColor" name="whiteApp"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="520" id="3P2-aF-fdA"/>
+                                    <constraint firstItem="WT9-xO-WVn" firstAttribute="leading" secondItem="Q0K-Po-9Yd" secondAttribute="leading" constant="59" id="4Ws-bk-hOg"/>
                                     <constraint firstItem="oxU-30-E9o" firstAttribute="width" secondItem="Q0K-Po-9Yd" secondAttribute="width" multiplier="0.649351" id="5Gs-If-eSo"/>
                                     <constraint firstAttribute="height" constant="780" id="FNi-NE-tIx"/>
-                                    <constraint firstItem="WT9-xO-WVn" firstAttribute="centerY" secondItem="Q0K-Po-9Yd" secondAttribute="centerY" id="Spd-2A-7rh"/>
-                                    <constraint firstItem="WT9-xO-WVn" firstAttribute="centerX" secondItem="Q0K-Po-9Yd" secondAttribute="centerX" id="UvG-LC-bGe"/>
+                                    <constraint firstAttribute="trailing" secondItem="WT9-xO-WVn" secondAttribute="trailing" constant="59" id="lkN-wS-npw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FHH-o5-4JA"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Q0K-Po-9Yd" firstAttribute="centerX" secondItem="FHH-o5-4JA" secondAttribute="centerX" id="Jyt-ik-gMh"/>
-                            <constraint firstItem="Q0K-Po-9Yd" firstAttribute="centerY" secondItem="FHH-o5-4JA" secondAttribute="centerY" id="yF9-Mc-nAe"/>
+                            <constraint firstItem="Q0K-Po-9Yd" firstAttribute="centerX" secondItem="xGM-ej-dDG" secondAttribute="centerX" id="Jyt-ik-gMh"/>
+                            <constraint firstItem="Q0K-Po-9Yd" firstAttribute="centerY" secondItem="xGM-ej-dDG" secondAttribute="centerY" id="yF9-Mc-nAe"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1251,7 +1240,6 @@
                         <outlet property="smallBackground" destination="16T-Za-d2Q" id="hY9-Jn-Mmo"/>
                         <outlet property="starView" destination="uGp-mX-XVM" id="atM-zc-wXy"/>
                         <outlet property="winningView" destination="Q0K-Po-9Yd" id="DVL-ll-c6d"/>
-                        <segue destination="ZnZ-4P-R8K" kind="show" identifier="normalshowChalleange" id="STr-bk-c7n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRB-vO-0KY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1447,7 +1435,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="cancel:" destination="dak-4J-Ha6" eventType="touchUpInside" id="7A0-Ud-CkV"/>
-                                                    <segue destination="HzJ-NT-MwY" kind="presentation" identifier="showCalendar" modalPresentationStyle="fullScreen" id="U8D-cS-AGG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-y2-016">
@@ -1876,6 +1863,7 @@
         <!--Game Instruction View Controller-->
         <scene sceneID="rwN-tM-r64">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ig2-E1-O1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="gameInstruction" id="y53-r0-Kqp" customClass="GameInstructionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1xR-GB-LUt">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -1909,15 +1897,10 @@
                         <outlet property="scrollView" destination="rKm-tB-t69" id="vGW-Zb-YMi"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ig2-E1-O1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5226.5625" y="1415.625"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="n6i-xY-u6l"/>
-        <segue reference="u4x-Kk-P26"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>
         <image name="LafeefToppings" width="4656" height="4656"/>

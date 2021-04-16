@@ -31,6 +31,7 @@ struct Constants {
         static let storeViewController = "storeVC"
         static let gameInstruction = "gameInstruction"
         static let goalLevelVC = "goalViewController"
+        static let puaseGameViewController = "PauseGameVC"
         
     }
     

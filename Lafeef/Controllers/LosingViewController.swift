@@ -18,8 +18,7 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
-    var challeangeReport = ChallengeViewController()
- 
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var starView: CosmosView!
@@ -38,7 +37,7 @@ class LosingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               sound.playSound(sound: Constants.Sounds.tryAgain)
+        sound.playSound(sound: Constants.Sounds.tryAgain)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         smallbackground.layer.cornerRadius = 20 
@@ -52,7 +51,7 @@ class LosingViewController: UIViewController {
         smallbackground.layer.shadowOffset = .zero
         smallbackground.layer.shadowRadius = 5
         
-
+        
         icecream.image = UIImage.gif(name: "icecream")
         
         // star rates
@@ -68,58 +67,43 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-   
-            
-            self.setCustomerSatisfaction()
-            //set score
-            self.setScore(score:( LevelGoalViewController.report.collectedScore))
-            // set money
-        self.setMoney(money:( LevelGoalViewController.report.collectedMoney))
-      
         
-       
+        
+        self.setCustomerSatisfaction()
+        //set score
+        self.setScore(score:report.collectedScore)
+        // set money
+        self.setMoney(money:report.collectedMoney)
+        
+        
+        
     }
     
-
-
+    
+    
     @IBAction func playAgain(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            self.delagate.startGame(with: 0, for: 0)
+        })
         
-        // need some code
-        GameScene.timeLeft = 30
-        movetoChalleange()
-        
-//
-//        self.performSegue(withIdentifier: "playAgain", sender: self)
-
-  
-     
-     
     }
     
-    func movetoChalleange(){
-        if let viewController = UIStoryboard(name: "Challenge", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.challengeViewController) as? ChallengeViewController {
-             
-                if let navigator = navigationController {
-                    self.present(viewController, animated: true)
-                }
-           
-            }
-    }
+    
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: "showCalendar", sender: self)
-
-        
+        self.dismiss(animated: true, completion: {
+            self.delagate.exitPlayChallengeMode()
+        })
     }
     
     func setCustomerSatisfaction()  {
         
         print("inside customer")
-        print(LevelGoalViewController.report.customerSatisfaction)
+        print(report.customerSatisfaction)
         var happy = 0
         var sad = 0
         var normal = 0
         
-        for sat in  LevelGoalViewController.report.customerSatisfaction{
+        for sat in  report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -134,7 +118,7 @@ class LosingViewController: UIViewController {
         normalLabel.text = formatter.string(from:normal as NSNumber)
         happyLabel.text = formatter.string(from:happy as NSNumber)
         sadLabel.text = formatter.string(from:sad as NSNumber)
-
+        
     }
     
     func setScore(score:Float)  {
@@ -152,11 +136,11 @@ class LosingViewController: UIViewController {
         }else{ starView.rating = 5}
         
         
-            }
-
-   func setMoney(money:Float)  {
-    moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
-        }
+    }
     
-  
+    func setMoney(money:Float)  {
+        moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
+    }
+    
+    
 }

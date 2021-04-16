@@ -65,16 +65,16 @@ class DailyReportViewController: UIViewController {
     }
     
     
-    func newCurrentLevel()->String{
+    func newCurrentLevel()->Int{
         
         
         let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
         if (report.isPassed && report.levelNum != "4"
                 && Int(report.levelNum)! > childCurrentLevel){
             
-            return "\(childCurrentLevel+1)"
+            return childCurrentLevel+1
         }else{
-            return "\(childInfo?.currentLevel)"
+            return childInfo?.currentLevel ?? 1
         }
     }
     
@@ -101,7 +101,7 @@ class DailyReportViewController: UIViewController {
         let money = report.collectedMoney+childInfo.money
         let currentLevel = newCurrentLevel()
         
-        FirebaseRequest.updateChildInfo(score, Money: money, levelnum) { (complete, error) in
+        FirebaseRequest.updateChildInfo(score, Money: money, currentLevel) { (complete, error) in
             
             if error == nil {
                 print("successfuly update child info ")
@@ -174,9 +174,8 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-        print("is Rewarded      :",report.isRewarded  )
-        print("is Passed      :",report.isPassed  )
-        print("calculate score      :",report.collectedScore  )
+        report.isRewarded = false
+        report.isPassed = false
         if report.isRewarded {
             self.dismiss(animated: true) {
                 self.delagate.displayWainningReport(self.report)

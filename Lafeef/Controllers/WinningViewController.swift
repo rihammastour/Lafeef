@@ -101,8 +101,9 @@ class WinningViewController: UIViewController {
                 self.delagate.showGoalMessage()
             }
         }else{
-            print("last level")
-          
+            self.dismiss(animated: true) {
+                self.delagate.exitPlayChallengeMode()
+            }
         }
     }
     @IBAction func cancel(_ sender: Any) {

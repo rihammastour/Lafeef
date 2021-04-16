@@ -79,10 +79,6 @@ class BackeryViewController: UIViewController, ManageViewController{
         }
     }
     
-
-    func displayPauseMenue(){
-        print("Comming")
-    }
     
     func displayDailyReport(_ report:DailyReport){
         if let reportVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.dailyReportViewController) as? DailyReportViewController{
