@@ -84,7 +84,7 @@ class PauseGameViewController: UIViewController{
     
     @IBAction func exitbuttonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion:{
-            self.delegate.exitePlay()
+            self.delegate.exitPlaying()
         })
     }
     

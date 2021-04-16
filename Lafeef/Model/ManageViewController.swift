@@ -26,7 +26,7 @@ protocol ManageViewController {
     
     func exitPlayChallengeMode()
     
-    func exitePlay()
+    func exitPlaying()
     
     
 }

@@ -75,12 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Fetch User Data
     func fetchUserInfo(){
-        
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
-        
+        print("عبود٢")
+
         if let data = data{
             do{
                 //Convert data to type Child

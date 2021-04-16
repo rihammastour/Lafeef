@@ -142,6 +142,10 @@ class ProfileViewController: UIViewController {
 
             if Auth.auth().currentUser != nil {
                 do {
+                    
+                    if let vc = navigationController?.viewControllers.first{
+                        UserDefaults.standard.removeObserver(vc.self, forKeyPath: "child", context: nil)}
+                    
                     removeDataStorage(for: "child")
                     removeDataStorage(for: "levelTwoCount")
                     removeDataStorage(for: "levelFourCount")

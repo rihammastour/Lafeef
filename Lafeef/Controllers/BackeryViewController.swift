@@ -121,7 +121,7 @@ class BackeryViewController: UIViewController, ManageViewController{
     }
     
     ///Exit Play Mode
-    func exitePlay(){
+    func exitPlaying(){
         self.dismiss(animated: true, completion:{
             self.dismiss(animated: true, completion: nil)
         })

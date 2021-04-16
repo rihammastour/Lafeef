@@ -51,11 +51,18 @@ class HomeViewController: UIViewController {
         setUpElements()
         //Get Child Data
         getChildData()
+        RegisterObserver(for:"child")
+        
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        getChildData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
     }
     
     
@@ -183,7 +190,6 @@ class HomeViewController: UIViewController {
     
     //Register key value to be observed
     func RegisterObserver(for key:String){
-        
         UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
     }
     
