@@ -73,9 +73,9 @@ class GameScene: SKScene {
     private var baseAnswer : SKSpriteNode?
     
     //Timer variables
-    static var timeLeft: TimeInterval = 30//change
+    var timeLeft: TimeInterval = 30//change
     let timeLeft1=30//change
-    static var timer = Timer()
+    var timer:Timer!
     static var displayTime : SKLabelNode?
     static var endTime: Date?
     static var circleDecrement=true
@@ -117,14 +117,17 @@ class GameScene: SKScene {
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        
-        ChallengeViewController.stopImageBool=true
+        print("Heeree DIDMove")
+        //ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
     }
     
      func startGame(){
+        DispatchQueue.main.async {
+            self.timer = Timer()
+        }
         self.buildCustomer(customerNode: self.customers[currentCustomer])
     }
     
@@ -301,9 +304,9 @@ class GameScene: SKScene {
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
             
-            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
-            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-            GameScene.displayTime?.text=GameScene.timeLeft.time
+            GameScene.endTime = Date().addingTimeInterval(timeLeft)
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+            GameScene.displayTime?.text=timeLeft.time
             GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
             GameScene.displayTime?.isHidden=true
         }
@@ -367,7 +370,6 @@ class GameScene: SKScene {
     
     //addFaceToProgressBar
     func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
-        
         let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
         face.anchorPoint = CGPoint(x:0.5, y: 0.5)
         face.size = CGSize(width: 22, height: 23)
@@ -428,7 +430,10 @@ class GameScene: SKScene {
         self.orderContiner?.isHidden = true
         GameScene.circle?.isHidden = true
         GameScene.circle?.alpha=0
-        GameScene.timer.invalidate()
+        
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
         //GameScene.timeLeft = 0
         GameScene.countStop=0
     }
@@ -757,11 +762,11 @@ class GameScene: SKScene {
         OrderButton.isHidden = false
         PaymentButton.isHidden = false
         currentCustomer += 1
-        GameScene.timeLeft = 30
+        timeLeft = 30
         if (currentCustomer<=3){
             print("داخل الاف الصغيره")
             buildCustomer(customerNode: customers[currentCustomer])
-            GameScene.timeLeft = 30
+            timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
             
@@ -769,7 +774,9 @@ class GameScene: SKScene {
             //                GameScene.timeLeft = 0
             //No more Customer Level end
             print("THE LEVEL IS END ")
-            GameScene.timer.invalidate()
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+            }
             viewController?.levelEnd()
             print("Called by Scene")
             hideDetectionOverlay()
@@ -819,23 +826,23 @@ class GameScene: SKScene {
             {percent -= incr}
             
             
-            if(GameScene.timeLeft==0){
+            if(timeLeft==0){
                 percent = 1
                 circle.path = nil
                 
             }
             circle.path = self.circle(radius: radius, percent:percent)
-            if( Int(GameScene.timeLeft) < 30){
+            if( Int(timeLeft) < 30){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
             }
-            if( Int(GameScene.timeLeft) <= 20){
+            if( Int(timeLeft) <= 20){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
-            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
+            if( Int(timeLeft) <= 10 && Int(timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
-            if( Int(GameScene.timeLeft)==0){
+            if( Int(timeLeft)==0){
                 print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
@@ -918,6 +925,12 @@ class GameScene: SKScene {
         
     }
     
+    func pleaseRUUUNN(as timeInerval:TimeInterval){
+        self.timeLeft = timeInerval
+        print("قسمة",timeLeft/100)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+    }
+    
     // Creates a CGPath in the shape of a pie with slices missing
     func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
         let start:CGFloat = 0
@@ -933,31 +946,33 @@ class GameScene: SKScene {
     //update time
     @objc func updateTime() {
         
-        let greenTime=timeLeft1/3*2//12
+        let greenTime:Double=Double(timeLeft1)/3.0*2//12
         
-        let yellowTime=timeLeft1/3*1//6
+        let yellowTime:Double=Double(timeLeft1)/3.0*1//6
+        
+        print(timeLeft)
         
         
-        if(Int(GameScene.timeLeft)>greenTime){
+        if(timeLeft>greenTime){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             
             
             
         }
-        else  if (Int(GameScene.timeLeft) > yellowTime){
+        else  if (timeLeft > yellowTime){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             //yellow
             
         }
         
-        else  if (GameScene.timeLeft > 0 ){
+        else  if (timeLeft > 0 ){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             //orange
             
         }
@@ -969,7 +984,9 @@ class GameScene: SKScene {
             
             
             //call calculateScore
-            GameScene.timer.invalidate()
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+            }
             
         }
     }
@@ -982,7 +999,7 @@ class GameScene: SKScene {
     checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
-        Voice2ViewController.flag = true 
+        Voice2ViewController.flag = true
 //        hideDetectionOverlay()
         PaymentButton.isHidden = true
         checkPaymentAnswer()
@@ -1072,6 +1089,13 @@ class GameScene: SKScene {
         
         self.progressBarContiner.position.x = cam.position.x
         moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
+        
+//        if (timeLeft < 0 ){
+//            DispatchQueue.main.async {
+//                self.timer.invalidate()
+//            }
+//            return
+//        }
         
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {

@@ -15,7 +15,7 @@ import ARKit
 import Speech
 
 class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,SFSpeechRecognizerDelegate {
-
+    
     //MARK: - Proprites
     
     //IBOutlet
@@ -31,8 +31,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var alert = AlertService()
     var voice = Voice2ViewController()
     let sound = SoundManager()
-  
-
+    
+    
     
     //Scores and Report Variables
     var levelScore: Float = 0.0
@@ -43,8 +43,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     var challengeScen:GameScene?
     var delegate:ManageViewController!
-
-
+    
+    
     static var stopCircleNil=false//when stop the nil circle
     static var stopImageBool = true
     var stopImage = UIImage(named: "stopGame")
@@ -73,30 +73,31 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //Outlet
     @IBOutlet weak var gameScen: SKView!
     
-
+    
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Additional setup after loading the view.
-        setupAVCapture()   
+        setupAVCapture()
         setScene()
         reflectAdv()
         fetchChallengeLevel()
+        
         challengeScen?.startGame()
     }
     
     //MARK: - Unpleaced method propirty
     
     func displayAdvReport(){
-         let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+        let levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
         let levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
-       
-   
+        
+        
         if report.levelNum == "2" && levelTwoCount < 1  || report.levelNum == "4"  && levelFourCount < 1{
             self.performSegue(withIdentifier: Constants.Segue.showAdvReport, sender: self)
             DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-               // self.presentAdvReport()
+                // self.presentAdvReport()
                 
             }
         }else{
@@ -104,7 +105,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         }
         
     }
-
+    
     //MARK: -Set up UI Element
     
     //setScens
@@ -113,7 +114,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         challengeScen = gameScen.scene as! GameScene
         challengeScen?.viewController = self
         challengeScen?.scaleMode = SKSceneScaleMode.aspectFill
-   
+        
         
     }
     
@@ -122,8 +123,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             self.challengeScen?.showAdvInbakery(at: randomAdv)
         }
     }
-
-
+    
+    
     //MARK: -Set up Object Detection
     
     override func didReceiveMemoryWarning() {
@@ -139,10 +140,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             dismiss(animated: true)
             return
         }
-         do {
+        do {
             deviceInput = try AVCaptureDeviceInput(device: videoDevice)
             
-         } catch {
+        } catch {
             print("Could not create video device input: \(error)")
             return
         }
@@ -248,10 +249,10 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //fethChallengeLevel
     func fetchChallengeLevel(){
-    
+        
         guard let levelNum = self.levelNum else {
             //TODO: Alert and go back
-           showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
+            showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
             return
         }
         
@@ -319,7 +320,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //Reset to zero
         self.paymentScore = 0
         self.orderScore = 0
-           
+        
         return orderScore
     }
     
@@ -346,7 +347,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         return scaledLevelscore
     }
     
-
+    
     func calculateTotalBill(for providedAnswer: Answer) {
         //reset totalBill
         self.totalBill = 0
@@ -372,7 +373,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             self.totalBill += t.getPrice()
         }
         
-   
+        
     }
     
     func calculateTotalBillWithTax(for providedAnswer: Answer){
@@ -412,7 +413,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func getTotalBillWithTax() -> Float{
         return self.totalBill + self.tax
     }
-
+    
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) {
         var totalSocre = 0
@@ -469,10 +470,47 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         return (self.orders?[currentOrder])
     }
     
-    //MARK:- Advertisment Functions
+    //MARK:- Actions
     
-
-
+    @IBAction func stopGameTapped(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.puaseGameViewController) as? PauseGameViewController{
+            
+            vc.challengeScen = self.challengeScen
+            vc.delegate = self.delegate
+            
+            if(GameScene.circle==nil){
+                GameScene.circleDecrement=false
+                challengeScen?.timeLeft = 2000//make the circle green when stop before custmer arrive
+                
+                DispatchQueue.main.async {
+                    self.challengeScen?.timer.invalidate()
+                }
+                
+                ChallengeViewController.stopCircleNil=true
+                GameScene.circle?.isHidden=true
+                ChallengeViewController.stopImageBool=false
+                //changeStopImage(_sender:ChallengeViewController.stopImageBool)
+                //changeStopImage()
+                
+            }else{
+                challengeScen?.timeLeft = challengeScen!.timeLeft
+                DispatchQueue.main.async {
+                    self.challengeScen?.timer.invalidate()
+                }
+                //Boolean variables
+                GameScene.circleDecrement=false
+                GameScene.circle!.isPaused=true
+                ChallengeViewController.stopImageBool=false
+                
+                
+            }
+            present(vc, animated: true,completion:nil)
+            
+        }
+}
+    
+    
+    
     
     
     
@@ -483,16 +521,16 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let levelScore = scaleLevelScore()
         report.collectedScore = levelScore
         report.isPassed = checkLevelPassed()
-      
+        
         //Set report attribute
-            ///Customer Satisfaction and level number
+        ///Customer Satisfaction and level number
         report.customerSatisfaction = customersSatisfaction
         report.levelNum = self.levelNum
         
         self.dismiss(animated: true, completion: {
             self.delegate.displayDailyReport(self.report)
         })
-
+        
     }
     
     //check if child pass the level
@@ -507,9 +545,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     
     func checkLevelCompletion(){
-
+        
         if report.collectedScore  > 20 {
-           report.isPassed = true
+            report.isPassed = true
         }
     }
     //MARK: - Delegate handeler
@@ -518,7 +556,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func showAlert(with message:String) {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         self.present(alert.Alert(body: message), animated: true)
-      
+        
     }
     
     //feachChalengeLevelHandeler
@@ -551,39 +589,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     
-    //override func prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if segue.identifier.da
-        
-        if segue.identifier == Constants.Segue.menuSegue {
-            let vc = segue.destination as! PauseGameViewController
-            print("Segue proformed")
-            if(GameScene.circle==nil){
-                GameScene.circleDecrement=false
-                GameScene.timeLeft = 2000//make the circle green when stop before custmer arrive
-                GameScene.timer.invalidate()
-                ChallengeViewController.stopCircleNil=true
-                GameScene.circle?.isHidden=true
-                ChallengeViewController.stopImageBool=false
-                //changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //changeStopImage()
-                
-            }else{
-                GameScene.timeLeft = GameScene.timeLeft
-                GameScene.timer.invalidate()
-                GameScene.circleDecrement=false
-                GameScene.circle!.isPaused=true
-                ChallengeViewController.stopImageBool=false
-                print(GameScene.timeLeft.time)
-                // changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                // changeStopImage()
-                // vc.levelNum = "1"
-            }
-        }
-        
-    }
     
     
     
 }
-

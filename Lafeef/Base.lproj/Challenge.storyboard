@@ -18,9 +18,9 @@
         <!--Pause Game View Controller-->
         <scene sceneID="S6a-c0-3Fr">
             <objects>
-                <viewController id="mRG-gB-WrO" customClass="PauseGameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="tJ0-cl-WsB">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                <viewController storyboardIdentifier="PauseGameVC" id="mRG-gB-WrO" customClass="PauseGameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tJ0-cl-WsB">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-Qq-2CA" userLabel="pauseView">
@@ -75,7 +75,7 @@
                                                     <color key="titleColor" red="0.44313725490196076" green="0.44313725490196076" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="HzJ-NT-MwY" kind="presentation" identifier="exitGame" modalPresentationStyle="fullScreen" id="T55-4v-3qf"/>
+                                                    <action selector="exitbuttonTapped:" destination="mRG-gB-WrO" eventType="touchUpInside" id="7fP-hy-dt9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -107,21 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vun-ys-Lgl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5891.40625" y="-862.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="chD-4o-Q6v">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DdE-dr-vns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="TimerVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8p-OG-6xJ" sceneMemberID="viewController">
-                    <view key="view" alpha="0.0" contentMode="scaleToFill" id="ier-ME-Xcq">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="OZx-KP-wV0"/>
-                    </view>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="6759" y="364"/>
+            <point key="canvasLocation" x="7577" y="-863"/>
         </scene>
         <!--Object Detection View Controller-->
         <scene sceneID="RkD-vX-PLW">
@@ -139,7 +125,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="stopGame"/>
                                 <connections>
-                                    <segue destination="mRG-gB-WrO" kind="showDetail" identifier="MenuSegue" id="lh3-vD-tCs"/>
+                                    <action selector="stopGameTapped:" destination="ZnZ-4P-R8K" eventType="touchUpInside" id="JgV-0c-xiu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -161,17 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvC-f6-Aoj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8048" y="-1029"/>
-        </scene>
-        <!--AdvReport-->
-        <scene sceneID="J35-6T-Mad">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="694-51-2Wa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="DailyAdvReports" referencedIdentifier="AdvReport" id="d0c-PB-tDz" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="5s7-rg-IiR"/>
-                </viewControllerPlaceholder>
-            </objects>
-            <point key="canvasLocation" x="7088" y="-21"/>
+            <point key="canvasLocation" x="6813" y="-863"/>
         </scene>
         <!--Backery View Controller-->
         <scene sceneID="zU6-Q9-8IS">
@@ -187,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQC-PX-wtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6713" y="1099"/>
+            <point key="canvasLocation" x="5411" y="-863"/>
         </scene>
         <!--Daily Report View Controller-->
         <scene sceneID="Cyd-78-YTL">
@@ -494,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SV-uK-010" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="1352"/>
+            <point key="canvasLocation" x="6813" y="-185"/>
         </scene>
         <!--Adv Report View Controller-->
         <scene sceneID="2RU-7m-4vT">
@@ -625,7 +601,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEk-Eb-fh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8048" y="-1710"/>
+            <point key="canvasLocation" x="6813" y="-1591"/>
         </scene>
         <!--Level Goal View Controller-->
         <scene sceneID="fpF-lP-vpy">
@@ -682,14 +658,13 @@
                                 </subviews>
                                 <color key="backgroundColor" name="whiteApp"/>
                                 <constraints>
-                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="leading" secondItem="ozu-ip-8vs" secondAttribute="leading" constant="104.5" id="0yy-7U-sZw"/>
                                     <constraint firstAttribute="height" constant="393" id="GIN-NA-eqD"/>
                                     <constraint firstAttribute="bottom" secondItem="EpM-UR-hHf" secondAttribute="bottom" constant="53.5" id="HWe-Lz-Aug"/>
                                     <constraint firstItem="EpM-UR-hHf" firstAttribute="top" secondItem="3dh-hd-2uh" secondAttribute="bottom" constant="33" id="HxE-fW-tQv"/>
                                     <constraint firstAttribute="trailing" secondItem="3dh-hd-2uh" secondAttribute="trailing" constant="296" id="cga-cA-XQH"/>
-                                    <constraint firstAttribute="trailing" secondItem="EpM-UR-hHf" secondAttribute="trailing" constant="104.5" id="cyl-yD-mNX"/>
                                     <constraint firstAttribute="width" constant="559" id="dON-x5-Pf6"/>
                                     <constraint firstItem="3dh-hd-2uh" firstAttribute="leading" secondItem="ozu-ip-8vs" secondAttribute="leading" id="hBH-Be-lSP"/>
+                                    <constraint firstItem="EpM-UR-hHf" firstAttribute="centerX" secondItem="ozu-ip-8vs" secondAttribute="centerX" id="qfb-Bn-86a"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -709,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcH-4t-oMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7462" y="1099"/>
+            <point key="canvasLocation" x="6162" y="-863"/>
         </scene>
         <!--Winning View Controller-->
         <scene sceneID="Pl5-pW-hsl">
@@ -1001,7 +976,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rjv-gK-KWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700" y="554"/>
+            <point key="canvasLocation" x="4660" y="-185"/>
         </scene>
         <!--Normal View Controller-->
         <scene sceneID="9Fa-F8-iZ4">
@@ -1244,7 +1219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRB-vO-0KY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="-185"/>
+            <point key="canvasLocation" x="5411" y="-185"/>
         </scene>
         <!--Losing View Controller-->
         <scene sceneID="mOI-U9-YfK">
@@ -1484,7 +1459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkV-Ec-JLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5188" y="-185"/>
+            <point key="canvasLocation" x="6162" y="-185"/>
         </scene>
         <!--Challeange Level Calendar View Controller-->
         <scene sceneID="PH4-UT-obb">
@@ -1858,49 +1833,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFd-z3-ATZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5987.5" y="597.65625"/>
-        </scene>
-        <!--Game Instruction View Controller-->
-        <scene sceneID="rwN-tM-r64">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ig2-E1-O1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="gameInstruction" id="y53-r0-Kqp" customClass="GameInstructionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1xR-GB-LUt">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKm-tB-t69">
-                                <rect key="frame" x="127" y="165" width="514" height="694"/>
-                                <color key="backgroundColor" name="bachgroundApp"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="0Kr-rc-RHF"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="g3m-iz-SYe"/>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="cel-dM-LT9">
-                                <rect key="frame" x="304" y="771" width="160" height="27"/>
-                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="pageIndicatorTintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </pageControl>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="DcT-dq-Ntq"/>
-                        <color key="backgroundColor" name="bachgroundApp"/>
-                        <constraints>
-                            <constraint firstItem="rKm-tB-t69" firstAttribute="leading" secondItem="DcT-dq-Ntq" secondAttribute="leading" constant="127" id="8NU-dP-CuB"/>
-                            <constraint firstItem="rKm-tB-t69" firstAttribute="top" secondItem="DcT-dq-Ntq" secondAttribute="top" constant="165" id="cPf-78-5Cx"/>
-                            <constraint firstItem="rKm-tB-t69" firstAttribute="centerX" secondItem="DcT-dq-Ntq" secondAttribute="centerX" id="daa-tD-Svi"/>
-                            <constraint firstItem="cel-dM-LT9" firstAttribute="top" secondItem="DcT-dq-Ntq" secondAttribute="top" constant="771" id="eGQ-RQ-jr7"/>
-                            <constraint firstItem="cel-dM-LT9" firstAttribute="centerX" secondItem="rKm-tB-t69" secondAttribute="centerX" id="fvb-qJ-8Vu"/>
-                            <constraint firstItem="rKm-tB-t69" firstAttribute="centerY" secondItem="DcT-dq-Ntq" secondAttribute="centerY" id="mtj-28-hIR"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="pageControl" destination="cel-dM-LT9" id="eHw-zk-fsA"/>
-                        <outlet property="scrollView" destination="rKm-tB-t69" id="vGW-Zb-YMi"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="5226.5625" y="1415.625"/>
+            <point key="canvasLocation" x="4647" y="-863"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="a1P-yM-dNz"/>
+        <designable name="bc4-5G-xck"/>
+        <designable name="oxU-30-E9o"/>
+        <designable name="prC-iW-nvL">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tlW-4g-FSH">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="uGp-mX-XVM">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>
         <image name="LafeefToppings" width="4656" height="4656"/>
@@ -1921,9 +1870,6 @@
         <image name="stopGame" width="46" height="46"/>
         <namedColor name="BlackApp">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="bachgroundApp">
-            <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="whiteApp">
             <color red="0.98000001907348633" green="0.97699999809265137" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

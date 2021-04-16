@@ -59,6 +59,7 @@ struct Constants {
         static let goToTraining = "goToTraining"
         static let goToStore = "goToStore"
         static let goToHome = "goToHome"
+        static let startGameSegue = "startGameSeque"
       
         
         
