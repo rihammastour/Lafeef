@@ -22,13 +22,9 @@ class DailyReportViewController: UIViewController {
     var flag = false
     var levelnum : Int = 1
  
-   
-    
 
-
- 
    
-    //outlets
+    //MARK:- outltes
     @IBOutlet weak var dailyReportView: UIView!
     @IBOutlet weak var sales: UILabel!
     @IBOutlet weak var ingredients: UILabel!
@@ -43,10 +39,9 @@ class DailyReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-      
-        getChildId {
+  
         self.calcultateIncome()
-        }
+      
         
         styleUI()
         hideAdv()
@@ -188,28 +183,29 @@ class DailyReportViewController: UIViewController {
                     let levelnum = LevelGoalViewController.report.levelNum
                     print(levelnum)
                   
-                    if completedLevel.reportData.count == 1 &&
-                        completedLevel.reportData.first?.isPassed == false{
-                        let array = [ReportData]
-                        self.completedLevel = CompletedLevel(reportData: array)
-                        print("first if ")
-                        flag = true 
-                         // the first time
-                        // overrite
-                    }else {
+//                    if completedLevel.reportData.count == 1 &&
+//                        completedLevel.reportData.first?.isPassed == false{
+//                        print("first report false")
+//                        let array = [ReportData]
+//                        self.completedLevel = CompletedLevel(reportData: array)
+//                        print("first if")
+//                        flag = true
+//                         // the first time
+//                        // overrite
+//                    }else {
                         for var report in completedLevel.reportData{
-                            if report.levelNum == levelnum{
+                            if report.levelNum == levelnum && !report.isPassed{
                                 report = ReportData
                                 flag = true
                                 print("loop in if ")
-                              
-                            }
-                            print("out loop ")
+                            }  else if report.levelNum == levelnum &&  report.collectedScore < ReportData.collectedScore{
+                                report = ReportData
+                                flag = true
+                                print("loop in if ")
+                            }else{
+                               self.completedLevel.reportData.append(ReportData)}
                         }
-                    }
-                        if !flag{
-                        self.completedLevel.reportData.append(ReportData)
-                    }
+                  
 
                     FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
                     if (err != nil){
@@ -217,28 +213,17 @@ class DailyReportViewController: UIViewController {
                     } else{
                         print("error")
                         }
-
-
                     }
-
 
             }catch{
              print("error while decoding child report ",error)
                }
-
-
             }else{
                 print("error")
-
             }
-            
-     
         }
     
- 
-
     }
-   
   
     func getChildId(completion: @escaping ()  -> Void) {
         
@@ -253,5 +238,6 @@ class DailyReportViewController: UIViewController {
     self.completedLevel = completed
 }
 }
+
 
 
