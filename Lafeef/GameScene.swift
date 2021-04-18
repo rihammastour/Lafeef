@@ -93,7 +93,7 @@ class GameScene: SKScene {
     static var lamp : SKSpriteNode?
     
     var viewController2: UIViewController?
-    
+
    
     //MARK: - Lifecycle Functons
     
@@ -121,7 +121,10 @@ class GameScene: SKScene {
         ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
+   
+        let answer = getAnswer()
         
+//        setOrderContent(with: answer.base!, answer.toppings)
     }
     
      func startGame(){
@@ -650,7 +653,7 @@ class GameScene: SKScene {
     OrderButton.isHidden = true
         
         // Get answers provided
-    let answer = (viewController?.objectDetected?.getAnswer())!
+    let answer = getAnswer()
         
         //Handling detection overlay
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
@@ -675,8 +678,8 @@ class GameScene: SKScene {
         //Bill calculation
         viewController?.calculateTotalBill(for: answer)
         viewController?.calculateTotalBillWithTax(for: answer)
-    viewController?.showBill()
-    paymentContainer?.isHidden = false
+        viewController?.showBill()
+        paymentContainer?.isHidden = false
 
         
         //Walk to cashire and react
@@ -687,7 +690,11 @@ class GameScene: SKScene {
 
     }
     
-    
+    func getAnswer()-> Answer  {
+        // Get answers provided
+    let answer = (viewController?.objectDetected?.getAnswer())!
+        return answer
+    }
     // checkPaymentAnswer
     func checkPaymentAnswer(){
         print("Payment button tapped!")
@@ -796,6 +803,7 @@ class GameScene: SKScene {
         
         //show customer paid
         self.paymentContainer?.isHidden = false
+        
     }
     
     

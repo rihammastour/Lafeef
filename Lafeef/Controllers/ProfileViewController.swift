@@ -112,14 +112,14 @@ class ProfileViewController: UIViewController {
         let ageYear = age[ageYearSub]
         formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         let AgeEN = formatter.number(from: String(ageYear))
-        let convertAge = Int(AgeEN!)
+        let convertAge = Int(AgeEN ?? 0)
         let calculateAge = year-convertAge
         print(calculateAge)
         
         
         AgeLable.text = "العمر |\(String(calculateAge))"
     }
-    
+
     func removeDataStorage(for key:String){
         UserDefaults.standard.removeObject(forKey: key)
         LocalStorageManager.removeChild()

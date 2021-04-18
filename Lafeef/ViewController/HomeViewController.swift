@@ -118,7 +118,7 @@ class HomeViewController: UIViewController {
     }
     
     //Score
-    func setScore(_ score:Int) {
+    func setScore(_ score:Float) {
         scoreLabel.text = formatter.string(from: NSNumber(value: score))!
     }
     func setChildPrefrence(name:String){

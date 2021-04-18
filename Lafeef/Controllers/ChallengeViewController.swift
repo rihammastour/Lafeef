@@ -60,6 +60,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
     var objectDetected: ObjectDetectionViewController?
+    var isPaymentModelUsed: Bool = false
+    
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
     
@@ -70,7 +72,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //Outlet
     @IBOutlet weak var gameScen: SKView!
-    
+  
 
     //MARK: - Lifecycle functions
     override func viewDidLoad() {
@@ -84,7 +86,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //displayAdvReport()
         ChallengeViewController.challengeScen?.startGame()
     }
-    
+
     //MARK: - Unpleaced method propirty
     
     func displayAdvReport(){
@@ -128,7 +130,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -329,6 +331,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             self.paymentScore = 0
         }
         print("Payment Scoren : ",self.paymentScore)
+        isPaymentModelUsed = false
+        objectDetected?.setupVision()
         
     }
     
@@ -456,6 +460,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         self.orderScore = totalSocre
         print("Order Score :  ",self.orderScore)
+        isPaymentModelUsed = true
+        objectDetected?.setupVision()
     }
     
     //getCurrentOrder

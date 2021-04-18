@@ -37,9 +37,19 @@ class ObjectDetectionViewController: ChallengeViewController{
       func setupVision() -> NSError? {
           // Setup Vision parts
           let error: NSError! = nil
+        let modelResource: String!
         print("setupvision")
-          
-          guard let modelURL = Bundle.main.url(forResource: "LafeefModelDifferentSurfaces", withExtension: "mlmodelc") else {
+        if isPaymentModelUsed {
+            modelResource = "PaperModel"
+            print("payment model")
+         
+        } else {
+            modelResource = "LafeefModelDifferentSurfaces"
+            print("cake model")
+
+            
+        }
+          guard let modelURL = Bundle.main.url(forResource: modelResource, withExtension: "mlmodelc") else {
               return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
           }
           do {
@@ -72,21 +82,6 @@ class ObjectDetectionViewController: ChallengeViewController{
                   continue
                 
               }
-              // Select only the label with the highest confidence.
-     
-//            if  objectObservation.confidence > 0.9 {
-//                let topLabelObservation = objectObservation.labels[0]
-//                let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
-//              let shapeLayer = self.createRoundedRectLayerWithBounds(objectBounds,topLabelObservation.identifier)
-//              print(topLabelObservation)
-//                detectionOverlay.addSublayer(shapeLayer)
-//            }
-         
-
-  //            let textLayer = self.createTextSubLayerInBounds(objectBounds,
-  //                                                            identifier: topLabelObservation.identifier,
-  //                                                            confidence: topLabelObservation.confidence)
-  //            shapeLayer.addSublayer(textLayer)
      
           }
         answer(results: results as! [VNRecognizedObjectObservation])
