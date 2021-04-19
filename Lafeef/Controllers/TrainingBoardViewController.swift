@@ -10,7 +10,7 @@ import UIKit
 import CodableFirebase
 import AVFoundation
 import Vision
-
+import Lottie
 
 
 
@@ -21,6 +21,9 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var strawberry: UIImageView!
     @IBOutlet weak var answerView: UIView!
+    @IBOutlet weak var bubleView: UIImageView!
+    @IBOutlet weak var animationContainer: UIView!
+    private var animationView: AnimationView?
     
     var section:String = TrainingSectionViewController.sectionType
     var questionDetailes: [TrainingQuestions]?
@@ -65,19 +68,15 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         
         getTrainingQuestion()
         setInfoView()
-//        infoLabel?.isHidden = true
+        //        infoLabel?.isHidden = true
         
-        setupAVCapture()   
+        setupAVCapture()
     }
     
     func setInfoView(){
-//        self.stack.frame.size.width = width
-        let viewFrame = CGRect(x: 143, y: 1000, width: 0, height: 119)
-              let view = UIView(frame: viewFrame)
-              self.infoView = view
-        self.infoView.backgroundColor = UIColor(named: "whiteApp")
         self.strawberry.layer.zPosition = 1
-              self.view.addSubview(self.infoView!)
+        self.animationView = AnimationView()
+        hideAnswerIndication()
     }
     
     
@@ -106,7 +105,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 self.setTrainingQuestionInfo(question: question)
             }catch{
                 print("error while decoding ",error.localizedDescription)
-        
+                
             }
             
         }
@@ -139,7 +138,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 sound.playSound(sound: Constants.Sounds.trainingTraingle)
             }
             break
-
+            
         case "colors":
             if detailes[index].type == "brown"{
                 image.image = UIImage(named: "Training-brownColor")
@@ -177,7 +176,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     }
     
     func nextQuestion() {
-
+        
         // handling index out of range
         if (questionDetailes!.count-1) == self.questionId  {
             self.questionId = 0
@@ -185,17 +184,54 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             //next Question
             self.questionId += 1
         }
-
+        
         showQuestion(at: questionId)
     }
     
+    func answerIndication(for attempt: String){
+        
+        if attempt == "success-attempt"{
+            nextlOutlet.isEnabled = false
+            animationView?.animation = Animation.named(attempt)
+            sound.playSound(sound: Constants.Sounds.excellent)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                self.nextQuestion()
+                self.hideAnswerIndication()
+            })
+        } else {
+            animationView?.animation = Animation.named(attempt)
+            sound.playSound(sound: Constants.Sounds.tryAgain)
+        }
+        
+        self.bubleView.isHidden = false
+        self.animationContainer.isHidden = false
+        self.animationView!.isHidden = false
+    
+        self.animationView!.frame = self.animationContainer.bounds
+        self.animationView!.contentMode = .scaleAspectFit
+        self.animationView!.loopMode = .loop
+        self.animationView!.animationSpeed = 0.5
+        self.animationContainer.addSubview(self.animationView!)
+        self.animationView!.play()
+          
+    }
+    
+    func hideAnswerIndication(){
+        self.bubleView.isHidden = true
+        self.animationContainer.isHidden = true
+        self.animationView?.isHidden = true
+        nextlOutlet.isEnabled = true
+    }
+    
     @IBAction func answerButton(_ sender: Any) {
+        hideAnswerIndication()
+        
         // Get answers provided
         let answer = (objectDetected?.getAnswer())!
         print(answer)
         print("the section is:")
         print(section)
-   
+        
         guard let detailes = self.questionDetailes else {
             print("there is no detailes") //replace it with alert
             return
@@ -203,60 +239,83 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         
         switch section {
         case "shapes":
-        
+            
             if detailes[questionId].type == "circle"{
-              
-                if (answer.base?.rawValue == "cake"){
-                    print("correct answer")}
-                if (answer.change == 0.5 || answer.change == 0.25 ){
-                    print("correct answer")}
                 
-               let providedAnswer = answer.toppings
-          
+                if (answer.base?.rawValue == "cake"){
+                    print("correct answer")
+                    answerIndication(for: "success-attempt")
+     
+                }
+                if (answer.change == 0.5 || answer.change == 0.25 ){
+                    print("correct answer")
+                    answerIndication(for: "success-attempt")
+
+                }
+                
+                let providedAnswer = answer.toppings
+                
                 if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
                     for t in toppings{
                         if (t.rawValue=="oval-kiwi"){
                             print("crrect answer")
+                            answerIndication(for: "success-attempt")
+   
+                        } else {
+                            answerIndication(for: "failed-attempt")
                         }
                     }//end for loop
                 }
                 
             }// end if check type
-             else  if detailes[questionId].type == "triangle" {
+            else  if detailes[questionId].type == "triangle" {
                 print(answer.base?.rawValue)
                 if (answer.base?.rawValue == "quarter-cake"){
-                    print("correct answer")}
-               let providedAnswer = answer.toppings
-          
+                    print("correct answer")
+                    answerIndication(for: "success-attempt")
+
+                }
+                let providedAnswer = answer.toppings
+                
                 if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
                     for t in toppings{
                         if (t.rawValue=="pineapple"){
                             print("crrect answer")
+                            answerIndication(for: "success-attempt")
+
+                        } else {
+                            answerIndication(for: "failed-attempt")
                         }
                     }//end for loop
                 }
             }
             break
-
+            
         case "colors":
             print("the question is:")
             print(detailes[questionId].type)
-           
-           
+            
+            
             if detailes[questionId].type == "brown"{
                 if (answer.base?.rawValue == "cupcake-ch"){
-                    print("correct answer")}
-               
+                    print("correct answer")
+                    answerIndication(for: "success-attempt")
+
+                }
                 
-               let providedAnswer = answer.toppings
+                
+                let providedAnswer = answer.toppings
                 print("the topping is is:")
                 if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
@@ -264,18 +323,23 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                         print(t.rawValue)
                         if (t.rawValue=="dark-chocolate"){
                             print("crrect answer")
+                            answerIndication(for: "success-attempt")
+
+                        } else {
+                            answerIndication(for: "failed-attempt")
                         }
                     }//end for loop
                 }
             }//end if brown color
             
             else  if detailes[questionId].type == "red" {
-            
-               
                 
-               let providedAnswer = answer.toppings
-          
+                
+                
+                let providedAnswer = answer.toppings
+                
                 if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
@@ -283,6 +347,10 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                         print(t.rawValue)
                         if (t.rawValue=="strawberry"){
                             print("crrect answer")
+                            answerIndication(for: "success-attempt")
+            
+                        } else {
+                            answerIndication(for: "failed-attempt")
                         }
                     }//end for loop
                 }
@@ -292,9 +360,10 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         case "calculations":
             if detailes[questionId].type == "addition"{
                 
-               let providedAnswer = answer.toppings
+                let providedAnswer = answer.toppings
                 var kiwiNo = 0
                 if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
@@ -308,81 +377,83 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 print("number of kiwi is")
                 print(kiwiNo)
                 if (kiwiNo==2){
+                    answerIndication(for: "success-attempt")
                     print("crrect answer")
+                }else {
+                    answerIndication(for: "failed-attempt")
                 }
                 
                 
             }// end if addtion
             else  if detailes[questionId].type == "subtraction" {
                 let providedAnswer = answer.toppings
-                 var ChocolateBrownNo = 0
-                 if providedAnswer == nil {
-                     print("child no provide toppings")
-                 }else if let toppings = providedAnswer {
-                     
-                     for t in toppings{
+                var ChocolateBrownNo = 0
+                if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
                         print(t.rawValue)
-                         if (t.rawValue=="dark-chocolate"){
+                        if (t.rawValue=="dark-chocolate"){
                             ChocolateBrownNo+=1
                             
-                         }
-                     }//end for loop
-                 }
+                        }
+                    }//end for loop
+                }
                 print("number of ChocolateBrown is")
                 print(ChocolateBrownNo)
-                 if (ChocolateBrownNo==1){
-                     print("crrect answer")
-                 }
+                if (ChocolateBrownNo==1){
+                    answerIndication(for: "success-attempt")
+
+                    print("crrect answer")
+                }else {
+                    answerIndication(for: "failed-attempt")
+                }
                 
             } else  if detailes[questionId].type == "multiplication" {
                 let providedAnswer = answer.toppings
-                 var PineappleNo = 0
-                 if providedAnswer == nil {
-                     print("child no provide toppings")
-                 }else if let toppings = providedAnswer {
-                     
-                     for t in toppings{
-                         if (t.rawValue=="pineapple"){
+                var PineappleNo = 0
+                if providedAnswer == nil {
+                    answerIndication(for: "failed-attempt")
+                    print("child no provide toppings")
+                }else if let toppings = providedAnswer {
+                    
+                    for t in toppings{
+                        if (t.rawValue=="pineapple"){
                             PineappleNo+=1
                             
-                         }
-                     }//end for loop
-                 }
+                        }
+                    }//end for loop
+                }
                 print("number of Pineapple is")
                 print(PineappleNo)
-                 if (PineappleNo==4){
-                     print("crrect answer")
-                 }
+                if (PineappleNo==4){
+                    answerIndication(for: "success-attempt")
+                   
+                    print("crrect answer")
+                }else {
+                    answerIndication(for: "failed-attempt")
+                }
             }
             break
             
         default:
             print("there is no section selection")
         }
-    
+        
         
         if answer.base == nil {
-           print ("The base is nill")
-            
+            print ("The base is nill")
+//            answerIndication(for: "failed-attempt")
             return
         }
         
-
         
-        UIView.animate(
-                 withDuration: 0.4,
-                 delay: 0.0,
-                 options: .curveLinear,
-                 animations: {
- 
-                   self.infoView.frame.size.width = 655
- 
-             }) { (completed) in
-
-             }
+        
     }
     @IBAction func skipButton(_ sender: Any) {
-
+        hideAnswerIndication()
         nextQuestion()
     }
     
@@ -395,12 +466,12 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     func showAdvOnBakery(){
         if AdvReportViewController.randomNum == 1 {
             GameScene.presentAdvertisment(at: 1)
-
+            
             print("inside adv")
         } else if AdvReportViewController.randomNum == 2 {
             GameScene.presentAdvertisment(at: 2)
@@ -461,24 +532,24 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         }
         session.commitConfiguration()
         print("111")
-       
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         //flip camera upside down
         //            previewLayer.connection?.videoOrientation = .portraitUpsideDown
-//        rootLayer = answerView.layer
-//                previewLayer.frame = rootLayer.bounds
-//                rootLayer.addSublayer(previewLayer)
-//
+        //        rootLayer = answerView.layer
+        //                previewLayer.frame = rootLayer.bounds
+        //                rootLayer.addSublayer(previewLayer)
+        //
         rootLayer = answerView.layer
-                
-//                if let ansView = answerView {
-////                    self.present(ansView)
-//                    self.show(answer, sender: <#T##Any?#>)
-//                }
-                
-                
-                rootLayer.addSublayer(previewLayer)
+        
+        //                if let ansView = answerView {
+        ////                    self.present(ansView)
+        //                    self.show(answer, sender: <#T##Any?#>)
+        //                }
+        
+        
+        rootLayer.addSublayer(previewLayer)
         
     }
     
@@ -525,5 +596,5 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     }
     
     
-  
+    
 }

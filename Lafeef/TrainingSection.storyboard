@@ -255,6 +255,31 @@
                                 <rect key="frame" x="270" y="851" width="203" height="13"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-110" translatesAutoresizingMaskIntoConstraints="NO" id="Tzp-z6-f4o">
+                                <rect key="frame" x="160" y="607" width="170" height="94"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkAnswerBuble" translatesAutoresizingMaskIntoConstraints="NO" id="pq9-rW-1CB">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="125"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtF-LH-V1M">
+                                        <rect key="frame" x="38.5" y="15" width="93" height="79"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="79" id="KHl-nT-35o"/>
+                                            <constraint firstAttribute="width" constant="93" id="ZKT-j5-dI0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="failed-attempt"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LtF-LH-V1M" secondAttribute="trailing" constant="38.5" id="0dM-mz-d1T"/>
+                                    <constraint firstItem="LtF-LH-V1M" firstAttribute="top" secondItem="Tzp-z6-f4o" secondAttribute="top" constant="15" id="66J-jW-7HC"/>
+                                    <constraint firstItem="LtF-LH-V1M" firstAttribute="leading" secondItem="Tzp-z6-f4o" secondAttribute="leading" constant="38.5" id="Vab-WD-RsA"/>
+                                    <constraint firstAttribute="bottom" secondItem="LtF-LH-V1M" secondAttribute="bottom" id="u8b-4P-kyz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CgH-AC-LpU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -262,6 +287,7 @@
                             <constraint firstItem="etD-dd-KOL" firstAttribute="top" secondItem="SCL-xU-fHC" secondAttribute="bottom" constant="8" symbolic="YES" id="1Xm-VR-boZ"/>
                             <constraint firstItem="CgH-AC-LpU" firstAttribute="bottom" secondItem="etD-dd-KOL" secondAttribute="bottom" constant="160" id="1va-vg-a4s"/>
                             <constraint firstItem="SCL-xU-fHC" firstAttribute="top" secondItem="CgH-AC-LpU" secondAttribute="top" constant="20" id="CKF-9H-PE4"/>
+                            <constraint firstItem="87D-Qe-1On" firstAttribute="top" secondItem="Tzp-z6-f4o" secondAttribute="bottom" constant="-8" id="DLb-vb-LfC"/>
                             <constraint firstItem="mpi-OK-KJz" firstAttribute="top" secondItem="CgH-AC-LpU" secondAttribute="top" constant="48" id="G3X-kF-U9V"/>
                             <constraint firstItem="lYn-dv-b2e" firstAttribute="top" secondItem="CgH-AC-LpU" secondAttribute="top" constant="20" id="GQb-bg-A33"/>
                             <constraint firstItem="CgH-AC-LpU" firstAttribute="trailing" secondItem="etD-dd-KOL" secondAttribute="trailing" constant="295" id="HwN-b9-Qe3"/>
@@ -270,15 +296,20 @@
                             <constraint firstItem="SCL-xU-fHC" firstAttribute="leading" secondItem="CgH-AC-LpU" secondAttribute="leading" id="TR1-RI-MvF"/>
                             <constraint firstItem="SCL-xU-fHC" firstAttribute="trailing" secondItem="CgH-AC-LpU" secondAttribute="trailing" id="UP6-nn-3ln"/>
                             <constraint firstItem="CgH-AC-LpU" firstAttribute="trailing" secondItem="lYn-dv-b2e" secondAttribute="trailing" constant="20" id="WeB-qt-QYn"/>
+                            <constraint firstItem="Tzp-z6-f4o" firstAttribute="leading" secondItem="87D-Qe-1On" secondAttribute="trailing" constant="-102" id="aCv-p0-yLC"/>
                             <constraint firstItem="CgH-AC-LpU" firstAttribute="bottom" secondItem="87D-Qe-1On" secondAttribute="bottom" constant="20" id="c5M-R5-5p6"/>
                             <constraint firstItem="87D-Qe-1On" firstAttribute="leading" secondItem="CgH-AC-LpU" secondAttribute="leading" constant="20" id="hlS-NW-Abs"/>
+                            <constraint firstItem="Tzp-z6-f4o" firstAttribute="baseline" secondItem="87D-Qe-1On" secondAttribute="firstBaseline" constant="8" symbolType="layoutAnchor" id="jZN-ss-33C"/>
                             <constraint firstItem="etD-dd-KOL" firstAttribute="top" secondItem="SCL-xU-fHC" secondAttribute="bottom" constant="8" symbolic="YES" id="tU8-5w-eNH"/>
+                            <constraint firstItem="Tzp-z6-f4o" firstAttribute="leading" secondItem="CgH-AC-LpU" secondAttribute="leading" constant="160" id="yMC-Y0-pXN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WbV-Ip-8TY"/>
                     <connections>
                         <outlet property="QuestionLabel" destination="ffb-pn-Joy" id="XNQ-wU-O1z"/>
+                        <outlet property="animationContainer" destination="LtF-LH-V1M" id="n8m-RL-Hx5"/>
                         <outlet property="answerView" destination="etD-dd-KOL" id="uqk-gi-oRz"/>
+                        <outlet property="bubleView" destination="pq9-rW-1CB" id="SeI-HP-7ta"/>
                         <outlet property="image" destination="WSn-p2-uxA" id="P2S-Io-pOR"/>
                         <outlet property="nextlOutlet" destination="wAu-gZ-8NG" id="JQ0-5r-4hD"/>
                         <outlet property="skiplOutlet" destination="5WA-jV-hPf" id="PUM-oh-t1A"/>
@@ -300,6 +331,7 @@
         <image name="Training-YellowAndBlueBalloon" width="239.35400390625" height="336.61801147460938"/>
         <image name="Training-strawberry" width="242.35000610351562" height="311.42300415039062"/>
         <image name="arrow-back" width="22" height="38.480998992919922"/>
+        <image name="checkAnswerBuble" width="170" height="125"/>
         <namedColor name="BlackApp">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
