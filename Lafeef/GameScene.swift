@@ -117,7 +117,6 @@ class GameScene: SKScene {
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        print("Heeree DIDMove")
         //ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
@@ -304,8 +303,10 @@ class GameScene: SKScene {
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
             
+            self.timeLeft = 30
             GameScene.endTime = Date().addingTimeInterval(timeLeft)
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+
+            self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
             GameScene.displayTime?.text=timeLeft.time
             GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
             GameScene.displayTime?.isHidden=true
@@ -410,7 +411,6 @@ class GameScene: SKScene {
             
             //make order visible
             self.showOrder()
-            
             
         }
         
@@ -653,16 +653,19 @@ class GameScene: SKScene {
     // OrderbuttonTapped
     func checkOrderAnswer(){
     OrderButton.isHidden = true
-        
+
         // Get answers provided
     let answer = (viewController?.objectDetected?.getAnswer())!
         
-        //Handling detection overlay
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
+        //Handling timer
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
+//        self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
+//        self.timer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         
         //make order invisible
-    self.hideOrder()
+        self.hideOrder()
         
         //check base if provided
         if answer.base == nil {
@@ -762,11 +765,11 @@ class GameScene: SKScene {
         OrderButton.isHidden = false
         PaymentButton.isHidden = false
         currentCustomer += 1
-        timeLeft = 30
+        //timeLeft = 30
         if (currentCustomer<=3){
-            print("داخل الاف الصغيره")
+            
             buildCustomer(customerNode: customers[currentCustomer])
-            timeLeft = 30
+            //timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
             
@@ -778,7 +781,6 @@ class GameScene: SKScene {
                 self.timer.invalidate()
             }
             viewController?.levelEnd()
-            print("Called by Scene")
             hideDetectionOverlay()
         }
         
@@ -1081,7 +1083,10 @@ class GameScene: SKScene {
     //override update
     override func update(_ currentTime: TimeInterval) {
         
-        if (GameScene.flag){
+        if (GameScene.flag && currentCustomer<customers.count){
+            print("Current Customer",currentCustomer)
+            print("arrays",customers,"number",customers.count)
+            print(customers[currentCustomer])
             
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             

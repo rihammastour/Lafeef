@@ -480,7 +480,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             
             if(GameScene.circle==nil){
                 GameScene.circleDecrement=false
-                challengeScen?.timeLeft = 2000//make the circle green when stop before custmer arrive
+                challengeScen?.timeLeft = 0//make the circle green when stop before custmer arrive
                 
                 DispatchQueue.main.async {
                     self.challengeScen?.timer.invalidate()
