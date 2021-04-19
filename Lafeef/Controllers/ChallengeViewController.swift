@@ -136,7 +136,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -519,7 +519,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func levelEnd() {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         let levelScore = scaleLevelScore()
-        report.collectedScore = levelScore
+//        report.collectedScore = levelScore
+        report.collectedScore = 50
         report.isPassed = checkLevelPassed()
         
         //Set report attribute

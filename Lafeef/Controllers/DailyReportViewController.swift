@@ -69,9 +69,7 @@ class DailyReportViewController: UIViewController {
         
         
         let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
-        if (report.isPassed && report.levelNum != "4"
-                && Int(report.levelNum)! > childCurrentLevel){
-            
+        if (report.isPassed && report.levelNum != "4"){
             return childCurrentLevel+1
         }else{
             return childInfo?.currentLevel ?? 1
@@ -194,65 +192,64 @@ class DailyReportViewController: UIViewController {
     }
     // Assert data to firestore
     func passReportData(){
-        
+    
         let ReportData = LevelReportData(levelNum:report.levelNum, collectedMoney: Float(report.collectedMoney + report.advertismentAmount + Float(report.reward)), collectedScore: report.collectedScore, isPassed: report.isPassed)
-        
-        
+
+      
         FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
             if error == ""{
                 do{
-                    let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
+           let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
                     self.setCompletedLevel(completed: level)
-                    
+                 
                     
                     let levelnum = report.levelNum
-                    
-                    if completedLevel.reportData.count == 1 &&
-                        completedLevel.reportData.first?.isPassed == false{
-                        let array = [ReportData]
-                        self.completedLevel = CompletedLevel(reportData: array)
-                        print("first if ")
-                        flag = true 
-                        // the first time
-                        // overrite
-                    }else {
+                    print(levelnum)
+                  
+//                    if completedLevel.reportData.count == 1 &&
+//                        completedLevel.reportData.first?.isPassed == false{
+//                        print("first rIeport false")
+//                        let array = [ReportData]
+//                        self.completedLevel = CompletedLevel(reportData: array)
+//                        print("first if")
+//                        flag = true
+//                         // the first time
+//                        // overrite
+//                    }else {
                         for var report in completedLevel.reportData{
-                            if report.levelNum == levelnum{
+                            if report.levelNum == levelnum && !report.isPassed{
                                 report = ReportData
-                                flag = true
+                              
                                 print("loop in if ")
-                                
-                            }
-                            print("out loop ")
+                            }  else if report.levelNum == levelnum &&  report.collectedScore < ReportData.collectedScore{
+                                report = ReportData
+                        
+                                print("loop in if ")
+                            }else if report.levelNum == levelnum &&  report.collectedScore >= ReportData.collectedScore{
+                                continue
+                            }else{
+                               self.completedLevel.reportData.append(ReportData)}
                         }
-                    }
-                    if !flag{
-                        self.completedLevel.reportData.append(ReportData)
-                    }
-                    
+                  
+
                     FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
-                        if (err != nil){
-                            print("success")
-                        } else{
-                            print("error")
+                    if (err == nil){
+                    print("success")
+                    } else{
+                        print("error")
                         }
-                        
-                        
                     }
-                    
-                    
-                }catch{
-                    print("error while decoding child report ",error)
-                }
-                
+
+            }catch{
+             print("error while decoding child report ",error)
+               }
             }else{
                 print("error")
-                
             }
-            
         }
-        
+    
     }
+  
     
     
     
