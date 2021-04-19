@@ -156,6 +156,7 @@
 		C987434725D14CB90075581E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987434625D14CB90075581E /* Level.swift */; };
 		C9908C932613760800B4F394 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9908C922613760800B4F394 /* StoreCell.swift */; };
 		C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */; };
+		C9AF4FD6262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */; };
 		C9D4CD54262519B500C24436 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4CD53262519B400C24436 /* ManageViewController.swift */; };
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
@@ -339,6 +340,7 @@
 		C987434625D14CB90075581E /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Lafeef/Model/Level.swift; sourceTree = SOURCE_ROOT; };
 		C9908C922613760800B4F394 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		C998084525FBFCF600DC3902 /* TimeInterval+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Int.swift"; sourceTree = "<group>"; };
+		C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "LafeefPaperModel 1.mlmodel"; sourceTree = "<group>"; };
 		C9D4CD53262519B400C24436 /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				C987434625D14CB90075581E /* Level.swift */,
 				C97A96F525D1FD770051FF53 /* OrderTimer.swift */,
 				C9E2D3F625D162D900F1CAD5 /* Order.swift */,
+				C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */,
 				4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */,
 				4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
@@ -1121,6 +1124,7 @@
 				4E3EC75A25E7356400FBAD87 /* (null) in Sources */,
 				4EE2E7FF25DB50110026F98C /* LevelReportData.swift in Sources */,
 				41002BB125FCB158009E50D1 /* LevelGoalViewController.swift in Sources */,
+				C9AF4FD6262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

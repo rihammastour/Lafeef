@@ -39,7 +39,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         let error: NSError! = nil
         print("setupvision")
         
-        guard let modelURL = Bundle.main.url(forResource: "LafeefModelDifferentSurfaces", withExtension: "mlmodelc") else {
+        guard let modelURL = Bundle.main.url(forResource: "LafeefPaperModel 1", withExtension: "mlmodelc") else {
             return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
         }
         do {
