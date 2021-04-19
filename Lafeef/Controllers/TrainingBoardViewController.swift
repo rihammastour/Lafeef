@@ -31,7 +31,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
     var answer: [String] = []
     var infoView:UIView!
     let sound = SoundManager()
-    
+    var isCorrect = false
     var layer: CALayer! = nil
     var bufferSize: CGSize = .zero
     var rootLayer: CALayer! = nil
@@ -244,31 +244,33 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 
                 if (answer.base?.rawValue == "cake"){
                     print("correct answer")
-                    answerIndication(for: "success-attempt")
-     
+                    isCorrect=true
                 }
                 if (answer.change == 0.5 || answer.change == 0.25 ){
                     print("correct answer")
-                    answerIndication(for: "success-attempt")
-
+                    isCorrect=true
                 }
                 
                 let providedAnswer = answer.toppings
                 
                 if providedAnswer == nil {
-                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
                     for t in toppings{
                         if (t.rawValue=="oval-kiwi"){
                             print("crrect answer")
-                            answerIndication(for: "success-attempt")
-   
-                        } else {
-                            answerIndication(for: "failed-attempt")
+                            isCorrect=true
+
                         }
                     }//end for loop
+                }
+                
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
+                    answerIndication(for: "failed-attempt")
                 }
                 
             }// end if check type
@@ -276,25 +278,29 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 print(answer.base?.rawValue)
                 if (answer.base?.rawValue == "quarter-cake"){
                     print("correct answer")
-                    answerIndication(for: "success-attempt")
+                    isCorrect=true
 
                 }
                 let providedAnswer = answer.toppings
                 
                 if providedAnswer == nil {
-                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
                     for t in toppings{
                         if (t.rawValue=="pineapple"){
                             print("crrect answer")
-                            answerIndication(for: "success-attempt")
+                            isCorrect=true
 
-                        } else {
-                            answerIndication(for: "failed-attempt")
                         }
+                        
                     }//end for loop
+                }
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
+                    answerIndication(for: "failed-attempt")
                 }
             }
             break
@@ -307,39 +313,39 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[questionId].type == "brown"{
                 if (answer.base?.rawValue == "cupcake-ch"){
                     print("correct answer")
-                    answerIndication(for: "success-attempt")
-
+isCorrect=true
                 }
-                
-                
                 let providedAnswer = answer.toppings
                 print("the topping is is:")
                 if providedAnswer == nil {
-                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
-                }else if let toppings = providedAnswer {
-                    
+                } else if let toppings = providedAnswer {
                     for t in toppings{
                         print(t.rawValue)
                         if (t.rawValue=="dark-chocolate"){
-                            print("crrect answer")
-                            answerIndication(for: "success-attempt")
-
-                        } else {
-                            answerIndication(for: "failed-attempt")
+                            print("correct answer")
+                            isCorrect=true
                         }
-                    }//end for loop
+                    } //end for loop
                 }
-            }//end if brown color
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
+                    answerIndication(for: "failed-attempt")
+                }
+            } //end if brown color
             
             else  if detailes[questionId].type == "red" {
                 
-                
+                if (answer.change == 50 ){
+                    print("correct answer")
+                    isCorrect=true
+                }
                 
                 let providedAnswer = answer.toppings
                 
                 if providedAnswer == nil {
-                    answerIndication(for: "failed-attempt")
                     print("child no provide toppings")
                 }else if let toppings = providedAnswer {
                     
@@ -347,12 +353,16 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                         print(t.rawValue)
                         if (t.rawValue=="strawberry"){
                             print("crrect answer")
-                            answerIndication(for: "success-attempt")
-            
-                        } else {
-                            answerIndication(for: "failed-attempt")
+isCorrect=true
                         }
                     }//end for loop
+                }
+                
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
+                    answerIndication(for: "failed-attempt")
                 }
             }//end id red color
             break
@@ -377,12 +387,15 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 print("number of kiwi is")
                 print(kiwiNo)
                 if (kiwiNo==2){
-                    answerIndication(for: "success-attempt")
+                    isCorrect=true
                     print("crrect answer")
-                }else {
+                }
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
                     answerIndication(for: "failed-attempt")
                 }
-                
                 
             }// end if addtion
             else  if detailes[questionId].type == "subtraction" {
@@ -405,12 +418,15 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 print(ChocolateBrownNo)
                 if (ChocolateBrownNo==1){
                     answerIndication(for: "success-attempt")
-
+                    isCorrect=true
                     print("crrect answer")
-                }else {
+                }
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
                     answerIndication(for: "failed-attempt")
                 }
-                
             } else  if detailes[questionId].type == "multiplication" {
                 let providedAnswer = answer.toppings
                 var PineappleNo = 0
@@ -429,10 +445,13 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 print("number of Pineapple is")
                 print(PineappleNo)
                 if (PineappleNo==4){
-                    answerIndication(for: "success-attempt")
-                   
+                    isCorrect=true
                     print("crrect answer")
-                }else {
+                }
+                if(isCorrect){
+                    answerIndication(for: "success-attempt")
+                    isCorrect=false
+                }else{
                     answerIndication(for: "failed-attempt")
                 }
             }
