@@ -518,7 +518,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func levelEnd() {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
-        let levelScore = scaleLevelScore()
+        _ = scaleLevelScore()
 //        report.collectedScore = levelScore
         report.collectedScore = 50
         report.isPassed = checkLevelPassed()
