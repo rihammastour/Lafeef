@@ -478,13 +478,14 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             vc.challengeScen = self.challengeScen
             vc.delegate = self.delegate
             
-            if(GameScene.circle==nil){
+            if(challengeScen?.timer==nil){
                 GameScene.circleDecrement=false
                 challengeScen?.timeLeft = 0//make the circle green when stop before custmer arrive
-                
-                DispatchQueue.main.async {
-                    self.challengeScen?.timer.invalidate()
-                }
+                GameScene.circle?.isPaused=true
+                challengeScen?.isPaused=true
+//                DispatchQueue.main.async {
+//                    self.challengeScen?.timer.invalidate()
+//                }
                 
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
@@ -500,6 +501,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
                 //Boolean variables
                 GameScene.circleDecrement=false
                 GameScene.circle!.isPaused=true
+                challengeScen?.isPaused=true
                 ChallengeViewController.stopImageBool=false
                 
                 

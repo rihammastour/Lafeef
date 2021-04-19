@@ -38,8 +38,12 @@ class PauseGameViewController: UIViewController{
     //MARK: -IBAction
 
     @IBAction func gameContinue(_ sender: Any) {
-
+        print("temp" )
+       print(leftTimeTemp)
         if( ChallengeViewController.stopCircleNil){
+            challengeScen?.timeLeft = 30
+            GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
+//            GameScene.circleDecrement=true
 //            DispatchQueue.main.async {
 //                self.challengeScen.timer.invalidate()
 //            }
@@ -64,14 +68,17 @@ class PauseGameViewController: UIViewController{
 //            print(challengeScen.timeLeft.time)
 //            ChallengeViewController.stopImageBool=true
 //            GameScene.circleDecrement=true
+            GameScene.circle!.isPaused=false
             GameScene.TimerShouldDelay = true
             GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
             GameScene.circleDecrement=true
-            GameScene.circle!.isPaused=false
+//            GameScene.circle!.isPaused=false
             ChallengeViewController.stopImageBool=true
-            self.challengeScen.pleaseRUUUNN(as: self.leftTimeTemp)
+            
         }
-
+        GameScene.circleDecrement=true
+        challengeScen?.isPaused=false
+        self.challengeScen.pleaseRUUUNN(as: self.leftTimeTemp)
         //self.challengeScen.circleShouldDelay()
         self.dismiss(animated: true, completion: nil)
     }

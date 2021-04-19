@@ -303,6 +303,7 @@ class GameScene: SKScene {
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
             
+            
             self.timeLeft = 30
             GameScene.endTime = Date().addingTimeInterval(timeLeft)
 
@@ -422,8 +423,12 @@ class GameScene: SKScene {
     
     func showOrder(){
         self.orderContiner?.isHidden = false
+        print("is paused is:")
+        print(isPaused)
+        if(!isPaused){
         self.generateCircle()
         self.generateTimer()
+        }
     }
     
     func hideOrder(){
@@ -928,6 +933,7 @@ class GameScene: SKScene {
     }
     
     func pleaseRUUUNN(as timeInerval:TimeInterval){
+        print("قسمة",timeLeft/100)
         self.timeLeft = timeInerval
         print("قسمة",timeLeft/100)
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
