@@ -67,12 +67,13 @@ class DailyReportViewController: UIViewController {
     
     func newCurrentLevel()->Int{
            
-           
+ 
            let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
-           if (report.isPassed && report.levelNum != "4"){
+        if (report.isPassed && report.levelNum != "4" && Int(report.levelNum)! > childCurrentLevel){
                
-               return childCurrentLevel+1
-           }else{
+            return  childCurrentLevel+1
+            
+        }else{
                return childInfo?.currentLevel ?? 1
            }
        }
@@ -226,11 +227,14 @@ class DailyReportViewController: UIViewController {
                                 flag = true
                                
                                 
+                            }else{
+                                newCompleted.reportData.append(report)
                             }
                             
                          }
                      }
                      if !flag{
+                        newCompleted = completedLevel
                         newCompleted.reportData.append(ReportData)
                      }
                      
