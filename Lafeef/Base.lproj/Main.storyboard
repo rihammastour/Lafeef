@@ -141,7 +141,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="XK1-Ll-uag" customClass="LoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="42X-AC-nFf">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-PJ-fK1">
@@ -616,7 +616,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="yOy-Ef-E8i" customClass="SignUpDOBViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dZL-78-c8e">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-SR-pPe">
@@ -735,11 +735,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="sK3-mh-57D" customClass="SignUpCharachterViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ln-oi-bAL">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Cu-Yd-O0U">
-                                <rect key="frame" x="130" y="110" width="508" height="749"/>
+                                <rect key="frame" x="130" y="160" width="508" height="749"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختيار الشخصية " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-2i-dor">
                                         <rect key="frame" x="152" y="0.0" width="204.5" height="53"/>
@@ -844,11 +844,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="icf-UV-Xhx" customClass="SignUpNameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVM-6Z-rdg">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="yPl-rv-DHL">
-                                <rect key="frame" x="130" y="160" width="508" height="699"/>
+                                <rect key="frame" x="130" y="210" width="508" height="699"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اسم الشخصية" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpD-r4-s1b">
                                         <rect key="frame" x="156.5" y="0.0" width="195.5" height="53"/>
@@ -1109,40 +1109,9 @@
             </objects>
             <point key="canvasLocation" x="1173" y="1657"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2Sp-bp-eg0">
-            <objects>
-                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="3lk-F1-NhG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Av3-Vk-zqG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yCH-xw-hzU">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0VC-eD-mqB">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="aga-ih-iHi" kind="relationship" relationship="rootViewController" id="Esz-ZK-V7w"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gk4-YD-q2f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3967" y="398"/>
-        </scene>
-        <!--HomeVC-->
-        <scene sceneID="BSI-My-S2B">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="HomeView" referencedIdentifier="HomeVC" id="aga-ih-iHi" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="YVO-08-qaC"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-31-Krs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4578" y="398"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8a6-Jd-Cd4"/>
+        <segue reference="owq-en-L5A"/>
         <segue reference="RCy-tc-0xM"/>
     </inferredMetricsTieBreakers>
     <resources>

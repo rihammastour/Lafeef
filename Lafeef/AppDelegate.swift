@@ -38,14 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Auth.auth().addStateDidChangeListener { auth, user in
             
             if user != nil {
+                
                 //Fetch user data
                 self.fetchUserInfo()
-//                Set is logged in child to true
+                //                Set is logged in child to true
                 animatedSplashVC.isChild = true
                 
             } else {
 //                Set is logged in child to false
-                animatedSplashVC.isChild = false
+             animatedSplashVC.isChild = false
             }
         }
         return true
@@ -74,12 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Fetch User Data
     func fetchUserInfo(){
-        
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
-        
+        print("عبود٢")
+
         if let data = data{
             do{
                 //Convert data to type Child

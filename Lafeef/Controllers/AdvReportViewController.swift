@@ -13,10 +13,12 @@ class AdvReportViewController: UIViewController {
     //MARK:- Proprities
     //variables
     let storageManger = FirebaseRequest()
-    static var randomNum = 0
+    var randomNum = 0
     var advType: String = ""
-    var child = Child()
     var challeangeVC = ChallengeViewController()
+    let levelGoal = LevelGoalViewController()
+    let sound = SoundManager()
+    var levelNum:String!
     
     //outlets
     @IBOutlet weak var advReportView: UIView!    
@@ -25,16 +27,18 @@ class AdvReportViewController: UIViewController {
     @IBOutlet weak var accept: UIButton!
     @IBOutlet weak var reject: UIButton!
     @IBOutlet weak var advAmount: UILabel!
-    var  scene : GameScene!
+    var delagte : ManageViewController!
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.advertisment)
         
         // Do any additional setup after loading the view.
         styleUI()
         animateStars()
         setUpAdv()
+        UpdateAdvCounter()
         
     }
     
@@ -58,10 +62,11 @@ class AdvReportViewController: UIViewController {
     // Setup Advertisment
     func setUpAdv(){
         // 0 to (param - 1)
-        AdvReportViewController.randomNum = Int(arc4random_uniform(_:2)) + 1
-        storageManger.downloadImage(randPath: AdvReportViewController.randomNum) {(image, err) in
+        randomNum = Int(arc4random_uniform(_:2)) + 1
+        storageManger.downloadImage(randPath: randomNum) {(image, err) in
             self.advImage.image = image
-            if AdvReportViewController.randomNum == 1 {
+            
+            if  self.randomNum == 1 {
                 self.advAmount.text = "٢٠٠"
                 self.advType = "ice-cream"
             } else {
@@ -78,35 +83,45 @@ class AdvReportViewController: UIViewController {
         return 0
     }
     
-    //MARK:- Actions
+    //MARK: - IBAction
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! DailyReportViewController
-        if (segue.identifier == Constants.Segue.acceptAdvSegue) {
-            // Text processing
-            let advAmountStr = self.advAmount.text!.convertedDigitsToLocale(Locale(identifier: "EN"))
-            let advAmount  = self.convertStringToInt(str: advAmountStr)
-           
-//            destinationVC.advertismentAmount = advAmount
+    @IBAction func acceptButtonTapped(_ sender: Any) {
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        
+        let advAmountStr = self.advAmount.text!.convertedDigitsToLocale(Locale(identifier: "EN"))
+        
+        let advAmount  = self.convertStringToInt(str: advAmountStr)
+        
+        dismiss(animated: true) {
+            self.delagte.startGame(with: Float(advAmount),for: self.randomNum)
             
-            //TODO: Add money to wallet in top bar & firestore
-            child.money += Float(advAmount)
-            challeangeVC.report.advertismentAmount = Float(advAmount)
-            
-            //Present Adv in bakery env
-            challeangeVC.showAdvOnBakery()
-
-            dismiss(animated: true) {
-                self.scene.startGame()
-                
-            }
-        }
-        if (segue.identifier == Constants.Segue.rejectAdvSegue) {
-//            destinationVC.advertismentAmount = 0
-            dismiss(animated: true) {
-                self.scene.startGame()
-                
-            }
         }
     }
+    
+    @IBAction func rejectButtonTapped(_ sender: Any) {
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
+        
+        dismiss(animated: true) {
+            self.delagte.startGame(with: 0,for: 0)
+            
+        }
+    }
+    
+
+    
+    
+    func UpdateAdvCounter(){
+        let defaults = UserDefaults.standard
+        var levelTwoCount = UserDefaults.standard.integer(forKey: "levelTwoCount")
+        var levelFourCount = UserDefaults.standard.integer(forKey: "levelFourCount")
+        
+        if levelNum == "2"{
+            levelTwoCount = 1
+        }else  if levelNum == "4"{
+            levelFourCount = 1
+        }
+        defaults.set(levelTwoCount, forKey: "levelTwoCount")
+        defaults.set(levelFourCount, forKey: "levelFourCount")
+    }
+    
 }

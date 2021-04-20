@@ -9,11 +9,13 @@ import UIKit
 import SwiftyGif
 import CodableFirebase
 
-class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
+
+class SignUpOrLoginViewController: UIViewController {
 
     //MARK:- Proprities
     @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+ 
 
     
     override func viewDidLoad() {
@@ -21,9 +23,13 @@ class SignUpOrLoginViewController: UIViewController, SwiftyGifDelegate {
         // Additional setup after loading the view.
         setUpElements()
 
+    
         }
     
     func setUpElements() {
+    
+     
+    
         //Styling Text Label
         // Utilities.styleTextField(emailTextField)
             

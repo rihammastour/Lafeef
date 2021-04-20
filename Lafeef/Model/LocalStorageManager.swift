@@ -58,6 +58,24 @@ class LocalStorageManager{
         return false
         
     }
+
+    static func removeAdvertisments(){
+        if checkExistAdv(for: "levelTwoCount") {
+            UserDefaults.standard.removeObject(forKey: "levelTwoCount")
+        }
+        if checkExistAdv(for: "levelFourCount") {
+            UserDefaults.standard.removeObject(forKey: "levelFourCount")
+        }
+        
+    }
+    
+    static func checkExistAdv(for name:String) -> Bool{
+        if (UserDefaults.standard.object(forKey: name) != nil) {
+            return true
+        }
+        return false
+        
+    }
     
     
 }

@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var levelNumLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
-    
+    let  sound = SoundManager()
     //    let id = Auth.auth().currentUser!.uid
 //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
@@ -96,9 +96,12 @@ class ProfileViewController: UIViewController {
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
-            ProfilePic.image = UIImage(named: "BoyWithCircle")
-        }else{
-            ProfilePic.image = UIImage(named: "GirlWithCircle")
+            characterUIImageView.image = UIImage(named: "boy-icon")
+        }else if LoginViewController.userPrfrence != ""{
+            characterUIImageView.image = UIImage(named:LoginViewController.userPrfrence)
+        }
+        else{
+            characterUIImageView.image = UIImage(named: "Girl-Profile")
         }
     }
     
@@ -111,7 +114,7 @@ class ProfileViewController: UIViewController {
         let ageYear = age[ageYearSub]
         formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         let AgeEN = formatter.number(from: String(ageYear))
-        let convertAge = Int(AgeEN!)
+        let convertAge = Int(AgeEN ?? 0)
         let calculateAge = year-convertAge
         print(calculateAge)
         
@@ -119,55 +122,46 @@ class ProfileViewController: UIViewController {
         AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
-    //Fetch Child info from db
-        func feachUserData(){
-    
-            let userId = FirebaseRequest.getUserId()
-            FirebaseRequest.getChildData(for: userId!) { (data, err) in
-                if err != nil{
-                    print("Home View Controller",err!)
-                     if err?.localizedDescription == "Failed to get document because the client is offline."{
-                        print("تأكد من اتصال الانترنيت")
-                        //TODO: Alert and update button and logout
-                    }
-    
-                }else{
-                    let child = data!
-                    self.setUIChildInfo(child as! Child)
-                }
-            }
-    
-        }
-    
-    //Register key value to be observed
-    func RegisterObserver(for key:String){
-        
-        UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
-    }
-    
-    //Observe Handlere
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == "child" {
-            getChildData()
+    func removeDataStorage(for key:String){
+        if(key == "child"){
+            LocalStorageManager.removeChild()}
+
+        if(key == "levelTwoCount" ||
+            key == "levelFourCount"){
+        LocalStorageManager.removeAdvertisments()
         }
     }
+    
+    //MARK: - IBAction
     
     @IBAction func logOutAction(sender: AnyObject) {
         let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "نعم", style: .destructive) { (alertAction) in
+        let ok = UIAlertAction(title: "نعم", style: .destructive) { [self] (alertAction) in
             
+                sound.playSound(sound: Constants.Sounds.bye)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+
             if Auth.auth().currentUser != nil {
                 do {
                     
+                    if let vc = navigationController?.viewControllers.first{
+                        UserDefaults.standard.removeObserver(vc.self, forKeyPath: "child", context: nil)}
+                    
+                    removeDataStorage(for: "child")
+                    removeDataStorage(for: "levelTwoCount")
+                    removeDataStorage(for: "levelFourCount")
+                    
                     try Auth.auth().signOut()
-                    LocalStorageManager.removeChild()
-                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController)
-                    self.present(vc, animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
+                    view.window?.rootViewController = controller
+                    view.window?.makeKeyAndVisible()
                     
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
+            }
             }
         }
         let cancel = UIAlertAction(title: "إلغاء", style: .default) { (alertAction) in
@@ -178,4 +172,11 @@ class ProfileViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    @IBAction func backTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+    
 }

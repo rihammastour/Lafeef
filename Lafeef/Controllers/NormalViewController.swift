@@ -9,15 +9,19 @@ import UIKit
 import Lottie
 import Cosmos
 class NormalViewController: UIViewController {
-
+    
     var challeangeReport = ChallengeViewController()
- 
+    var  sound = SoundManager()
+    
+    var delagate:ManageViewController!
+    var report:DailyReport!
+    
     // customer satisfaction
     @IBOutlet weak var sadLabel: UILabel!
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     // animation trophy
-
+    
     // star rate
     @IBOutlet weak var starView: CosmosView!
     @IBOutlet weak var bigStar: AnimationView!
@@ -30,15 +34,20 @@ class NormalViewController: UIViewController {
     @IBOutlet weak var scoreView: UIView!
     @IBOutlet weak var cancelOutlet: UIButton!
     @IBOutlet weak var nextDayOutlet: UIButton!
-   
-   // to convert into Arabic
-   let formatter: NumberFormatter = NumberFormatter()
-    let toChangeLevel: DailyReportViewController? = nil
-  
     
-  
+    // to convert into Arabic
+    let formatter: NumberFormatter = NumberFormatter()
+    let toChangeLevel: DailyReportViewController? = nil
+    
+    
+    
+    
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.excellent)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
@@ -55,11 +64,11 @@ class NormalViewController: UIViewController {
         // trophy animation
         bigStar!.frame = view.bounds
         bigStar!.contentMode = .scaleAspectFit
-        bigStar!.loopMode = .loop
+        bigStar!.loopMode = .playOnce
         bigStar!.animationSpeed = 0.5
         bigStar!.play()
         
-
+        
         // star rates
         starView.settings.updateOnTouch = false
         starView.settings.fillMode = .full
@@ -73,31 +82,35 @@ class NormalViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(challeangeReport.report.collectedScore))
+        setScore(score:report.collectedScore)
         // set money
-        setMoney(money:Int(challeangeReport.report.collectedMoney))
+        setMoney(money:report.collectedMoney)
         
-        if challeangeReport.report.levelNum == "4"{
+        if report.levelNum == "4"{
             nextDayOutlet.isHidden = true
-        cancelOutlet.frame.size = CGSize(width: 280, height: 60)
-        
-    }
-    }
-    @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(challeangeReport.report.levelNum)
-        if challeangeReport.report.levelNum != "4"{
-        levelnum! += 1
-            challeangeReport.report.levelNum = String(levelnum!)
-            self.performSegue(withIdentifier: " showChalleange", sender: self)
-      
-        }else{
-            print("last level")
-          
+            cancelOutlet.frame.size = CGSize(width: 280, height: 60)
+            
         }
     }
+    @IBAction func nextDay(_ sender: Any) {
+        if report.levelNum != "4"{
+            let  levelnum = 1 + ( Int(report.levelNum) ?? 0 )
+            delagate.levelNum = "\(levelnum)"
+            dismiss(animated: true) {
+                self.delagate.showGoalMessage()
+            }
+        }else{
+            self.dismiss(animated: true) {
+                self.delagate.exitPlayChallengeMode()
+            }
+        }
+    }
+    
+    
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: " showCalendar", sender: self)
-        //
+        self.dismiss(animated: true) {
+            self.delagate.exitPlayChallengeMode()
+        }
     }
     
     func setCustomerSatisfaction()  {
@@ -105,7 +118,7 @@ class NormalViewController: UIViewController {
         var sad = 0
         var normal = 0
         
-        for sat in  challeangeReport.report.customerSatisfaction{
+        for sat in  report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -120,19 +133,28 @@ class NormalViewController: UIViewController {
         normalLabel.text = formatter.string(from:normal as NSNumber)
         happyLabel.text = formatter.string(from:happy as NSNumber)
         sadLabel.text = formatter.string(from:sad as NSNumber)
-
-    }
-    func setScore(score:Int)  {
-        scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)/5
-
-            }
-
-   func setMoney(money:Int)  {
-    moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
-        }
         
-      
-
+    }
+    func setScore(score:Float)  {
+        scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
+        if( score == 0){
+            starView.rating = 0
+        }else if (score > 0 && score <= 20){
+            starView.rating = 1
+        }else if  (score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
+        
+    }
+    func setMoney(money:Float)  {
+        moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
+    }
+    
+    
+    
 }
 

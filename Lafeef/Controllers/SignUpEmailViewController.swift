@@ -8,18 +8,21 @@
 import UIKit
 import SwiftValidator
 import FirebaseAuth
+import AVFoundation
 
 class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFieldDelegate {
     
     //MARK:- Proprities
     
     //variables
+   
     var isValidated = false
     let alert = AlertService()
     let instructionVC = instruction()
     let validator = Validator()
     var password = ""
     var progressBar = ProgressBar(stepNum: 0)
+    
     
     //outlets
     @IBOutlet weak var passLabel: UILabel!
@@ -207,11 +210,13 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
     
     //MARK:- Actions
     @IBAction func berryPass(_ sender: UIButton) {
+      
         validator.validate(self)
         passLabel.isHidden = true
         password = "berry123"
             selectButton(sender)
     }
+   
     
     @IBAction func kiwiPass(_ sender: UIButton) {
         validator.validate(self)

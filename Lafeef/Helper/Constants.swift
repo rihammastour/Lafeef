@@ -25,14 +25,17 @@ struct Constants {
         static let advReportViewController = "AdvReportVC"
         static let NormalViewController = "NormalReport"
         static let WinningViewController  = "WinningReport"
-        static let LevelGoalViewController = "LevelGoalViewController"
-        static let  GoalViewController = "GoalViewController"
+        static let losingViewController = "losingReport"
         static let challengeLevelsCalenderVC = "challengeLevelsCalenderVC"
         static let updatePasswordViewController = "UpdatePasswordVC"
-
         static let guidanceInstructionViewController = "GuidanceInstructiont1VC"
         static let TrainingBoardViewController = "TrainingBoard2VC"
         static let TrainingSectionViewController = "TrainingSectionVC"
+        static let backery = "backery"
+        static let storeViewController = "storeVC"
+        static let gameInstruction = "gameInstruction"
+        static let goalLevelVC = "goalViewController"
+        static let puaseGameViewController = "PauseGameVC"
         
     }
     
@@ -51,10 +54,66 @@ struct Constants {
         static let showAdvReport = "ShowAdvReport"
         static let showProfile = "profileSegue"
         static let showWinningReport = "showWinningReport"
-        static let showLevelGoal = "showLevelGoal"
+        static let levelGoal = "levelGoal"
         static let challengeLevelsCalenderVC = "challeange"
-        static let challenge = "challenge"
+        static let challeange = "challeange"
+        static let showBackery = "showBackery"
+        static let showChalleange = "showChalleange"
+        static let goToChalleange =  "goToChalleange"
+        static let goToTraining = "goToTraining"
+        static let goToStore = "goToStore"
+        static let goToHome = "goToHome"
+        static let startGameSegue = "startGameSeque"
+      
         
+        
+        
+    }
+    struct Sounds {
+        static let excellent = "excellent"
+        static let firstDay = "firstDay"
+        static let secondDay = "secondDay"
+        static let thirdDay = "thirdDay"
+        static let fourthDay = "fourthDay"
+        static let advertisment = "advertisment"
+        static let bye = "bye"
+        static let challeange = "challeange"
+        static let train = "train"
+        static let happyCustomer = "happyCustomer"
+        static let sadCustomer = "sadCustomer"
+        static let hello = "hello"
+        static let laernShapes = "laernShapes"
+        static let laernMath = "laernMath"
+        static let laernolors = "laerncolors"
+        static let reward = "reward"
+        static let store = "store"
+        static let tryAgain = "tryagain"
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+
+    }
+    struct equipmentNames {
+        static let yellowBoy = "yellowBoy"
+        static let grayBoy = "grayBoy"
+        static let blueBoy = "blueBoy"
+        static let BlueGlassessBoyC = "BlueGlassessBoyC"
+        static let redGlassessBoyC = "redGlassessBoyC"
+        static let orangeGirl = "orangeGirl"
+        static let blueGirl = "blueGirl"
+        static let pinkGirl = "pinkGirl"
+        static let redGlassessGirlC = "redGlassessGirlC"
+        static let blueGlassessGirlC = "blueGlassessGirlC"
+       
+      
+    
     }
     
     struct Sounds {

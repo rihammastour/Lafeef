@@ -12,7 +12,9 @@ import Cosmos
 class WinningViewController: UIViewController {
     
     var challeangeReport = ChallengeViewController()
- 
+    var delagate:ManageViewController!
+    var report:DailyReport!
+  
     @IBOutlet weak var Winning: UIView!
     
     // customer satisfaction
@@ -37,16 +39,18 @@ class WinningViewController: UIViewController {
    // to convert into Arabic
    let formatter: NumberFormatter = NumberFormatter()
     let toChangeLevel: DailyReportViewController? = nil
+    let  sound = SoundManager()
   
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.reward)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-       winningView.layer.cornerRadius = 30
-       Winning.layer.cornerRadius = 30
+        winningView.layer.cornerRadius = 30
+        Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
         scoreView.layer.cornerRadius = 20
@@ -78,31 +82,34 @@ class WinningViewController: UIViewController {
         // set customer satisfaction
         setCustomerSatisfaction()
         //set score
-        setScore(score: Int(challeangeReport.report.collectedScore))
+        setScore(score: Int(report.collectedScore))
         // set money
-        setMoney(money:challeangeReport.report.collectedMoney)
+        setMoney(money:report.collectedMoney)
         
-        if challeangeReport.report.levelNum == "4"{
+        if report.levelNum == "4"{
             nextDayOutlet.isHidden = true
         cancelOutlet.frame.size = CGSize(width: 280, height: 60)
         
     }
     }
     @IBAction func nextDay(_ sender: Any) {
-        var  levelnum = Int(challeangeReport.report.levelNum)
-        if challeangeReport.report.levelNum != "4"{
-        levelnum! += 1
-            challeangeReport.report.levelNum = String(levelnum!)
-       
-            self.performSegue(withIdentifier: " showChalleange", sender: self)
+        
+        if report.levelNum != "4"{
+            let  levelnum = 1 + ( Int(report.levelNum) ?? 0 )
+            delagate.levelNum = "\(levelnum)"
+            dismiss(animated: true) {
+                self.delagate.showGoalMessage()
+            }
         }else{
-            print("last level")
-          
+            self.dismiss(animated: true) {
+                self.delagate.exitPlayChallengeMode()
+            }
         }
     }
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: " showCalendar", sender: self)
-   
+        self.dismiss(animated: true) {
+            self.delagate.exitPlayChallengeMode()
+        }
     }
     
     func setCustomerSatisfaction()  {
@@ -110,7 +117,7 @@ class WinningViewController: UIViewController {
         var sad = 0
         var normal = 0
         
-        for sat in  challeangeReport.report.customerSatisfaction{
+        for sat in  report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -129,7 +136,15 @@ class WinningViewController: UIViewController {
     }
     func setScore(score:Int)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score)/5
+        if (score >= 0 && score <= 20){
+            starView.rating = 1
+        }else if  (score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
 
             }
 

@@ -25,7 +25,7 @@ enum PositionMoney : Equatable {
             return CGPoint(x: 0,  y: 0)
             
         case .seconed(let money):
-            if money == .riyal || money == .riyalHalf || money == .riyalQuarter {
+            if money == .riyalHalf || money == .riyalQuarter {
                 return CGPoint(x: 0,  y: 0)
             }
             return CGPoint(x: 20,  y: 0)
@@ -51,7 +51,7 @@ enum PositionMoney : Equatable {
             return CGFloat(conversionFactor * 60) // multiplied by degree
             
         case .seconed(let money):
-            if money == .riyal || money == .riyalHalf || money == .riyalQuarter {
+            if  money == .riyalHalf || money == .riyalQuarter {
                 return CGFloat(conversionFactor * 220)
             }
             return CGFloat(conversionFactor * 80)

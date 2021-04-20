@@ -28,25 +28,44 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var storeButton: UIButton!
     @IBOutlet weak var instructionButton: UIButton!
     
-
+    
+    let formatter = NumberFormatter()
+    let  sound = SoundManager()
+    let alertservice = AlertService()
+    
+    
+    
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+//        //Register child obj to observe changes
+//        RegisterObserver(for:"child")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    //Additional setup after loading the view.
-
-    //Style elemnts
+        formatter.locale = Locale(identifier: "ar")
+        sound.playSound(sound: Constants.Sounds.hello)
+        //Additional setup after loading the view.
+        
+        //Style elemnts
         setUpElements()
-    //Get Child Data
+        //Get Child Data
         getChildData()
-    //Register child obj to observe changes
         RegisterObserver(for:"child")
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        getChildData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
     }
     
     
@@ -86,13 +105,13 @@ class HomeViewController: UIViewController {
     }
     
     //Activity Indcator anmation
-//     func startSpinning() {
-//        activityIndicator.startAnimating()
-//    }
-//
-//    func stopSpinning() {
-//        activityIndicator.stopAnimating()
-//    }
+    //     func startSpinning() {
+    //        activityIndicator.startAnimating()
+    //    }
+    //
+    //    func stopSpinning() {
+    //        activityIndicator.stopAnimating()
+    //    }
     //MARK:- Set content for UI elemnnts
     //Set child info
     func setUIChildInfo(_ child:Child){
@@ -109,23 +128,30 @@ class HomeViewController: UIViewController {
     }
     //Level
     func setCurrentLevel(_ level:Int) {
-        levelNumLabel.text = String(level)
+        
+        levelNumLabel.text = formatter.string(from: NSNumber(value: level))!
     }
     
     //Score
-    func setScore(_ score:Int) {
-        scoreLabel.text = String(score)
+    func setScore(_ score:Float) {
+        scoreLabel.text = formatter.string(from: NSNumber(value: score))!
+    }
+    func setChildPrefrence(name:String){
+        characterUIImageView.image = UIImage(named: name)
+        
     }
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money)
+        moneyLabel.text = formatter.string(from: NSNumber(value: money))!
     }
     
     //Image
     func setImage(_ sex:String) {
         if sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
+        }else if LoginViewController.userPrfrence != ""{
+            characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)
         }else{
             characterUIImageView.image = UIImage(named: "girl-icon")
         }
@@ -133,24 +159,25 @@ class HomeViewController: UIViewController {
     //MARK:- Get User Data
     
     //Fetch Child info from db 
-        func feachUserData(){
-    
-            let userId = FirebaseRequest.getUserId()
-            FirebaseRequest.getChildData(for: userId!) { (data, err) in
-                if err != nil{
-                    print("Home View Controller",err!)
-                     if err?.localizedDescription == "Failed to get document because the client is offline."{
-                        print("تأكد من اتصال الانترنيت")
-                        //TODO: Alert and update button and logout
-                    }
-    
-                }else{
-                    let child = data!
-                    self.setUIChildInfo(child as! Child)
+    func feachUserData(){
+        
+        let userId = FirebaseRequest.getUserId()
+        FirebaseRequest.getChildData(for: userId!) { (data, err) in
+            if err != nil{
+                print("Home View Controller",err!)
+                if err?.localizedDescription == "Failed to get document because the client is offline."{
+                    print("تأكد من اتصال الانترنيت")
+                    self.present(self.alertservice.Alert(body: "تأكد من اتصالك بالإنترنت"),animated:true)
+                    //TODO: Alert and update button and logout
                 }
+                
+            }else{
+                let child = data!
+                self.setUIChildInfo(child as! Child)
             }
-    
         }
+        
+    }
     
     // Get child object from local storage
     func getChildData(){
@@ -160,15 +187,17 @@ class HomeViewController: UIViewController {
             setUIChildInfo(child)
         }else{
             print("No Child Found")
+            self.present(self.alertservice.Alert(body: "لايوجد مستخدم"),animated:true)
+            
             //TODO: Alert..
+            
         }
-      
+        
     }
     //MARK: - Local Storage Notifications
     
     //Register key value to be observed
     func RegisterObserver(for key:String){
-        
         UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
     }
     
@@ -183,32 +212,48 @@ class HomeViewController: UIViewController {
     //MARK: - Actions, Elements Tapped
     @IBAction func profileBarViewTapped(_ sender: Any) {
         
-//        profileBarUIView.showAnimation({
-//
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
-//
-//            self.navigationController?.pushViewController(vc, animated: true)
-//
-//        })
+        profileBarUIView.showAnimation({
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        })
         
-        self.performSegue(withIdentifier: Constants.Segue.showProfile, sender: self)
     }
     
-    
-    @IBAction func instructionBarViewTapped(_ sender: Any) {
-        
-//        profileBarUIView.showAnimation({
-//
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profileViewController ) as! ProfileViewController
-//
-//            self.navigationController?.pushViewController(vc, animated: true)
-//
-//        })
-        
-//        self.performSegue(withIdentifier: Constants.Segue.instruction1, sender: self)
+    @IBAction func challeange(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.performSegue(withIdentifier: Constants.Segue.goToChalleange, sender: self)
+        }
+        sound.playSound(sound: Constants.Sounds.challeange)
     }
     
+    @IBAction func train(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.performSegue(withIdentifier: Constants.Segue.goToTraining, sender: self)
+            //
+        }
+        
+        
+        sound.playSound(sound: Constants.Sounds.train)
+    }
+    
+    @IBAction func store(_ sender: Any) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.56) {
+            if let viewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.storeViewController) as? StoreViewController {
+                if let navigator = self.navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+        }
+        
+        sound.playSound(sound: Constants.Sounds.store)
+    }
 }
+
 
 //MARK: - Extention
 public extension UIView {
@@ -229,6 +274,6 @@ public extension UIView {
                 self?.isUserInteractionEnabled = true
                 completionBlock()
             }
-        }
+                       }
     }
 }

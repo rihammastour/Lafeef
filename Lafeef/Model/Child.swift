@@ -13,7 +13,6 @@ struct Child: Codable {
     var email :String = ""
     var money :Float = 0
     var name :String = ""
-    var score :Int = 0
+    var score :Float = 0
     var sex :String = ""
-    
 }

@@ -6,24 +6,26 @@
 //
 
 import UIKit
+import CodableFirebase
 
 class DailyReportViewController: UIViewController {
     
     //MARK:- Proprities
     //variables
-    var challeangeVC = ChallengeViewController()
+    var delagate:ManageViewController!
+    var report:DailyReport!
     
-    //.......................... Don't forget to pass attributes to this VC
-  
-//    var salesAmount = 0
-//    var ingredientsAmount = 0
-//    var backagingAmount = 0
-//    var advertismentAmount = 0
-//    var collectedScore = 0
-//    var collectedMoney = 0
-//    var isPassed = false
- 
-   
+    var challeangeVC = ChallengeViewController()
+    var completedLevel  =  CompletedLevel(reportData: [])
+    var childId :String?
+    var home = HomeViewController()
+    let sound = SoundManager()
+    var alertService = AlertService()
+    var childInfo : Child?
+    var flag = false
+    var levelnum : Int = 1
+    
+    
     //outlets
     @IBOutlet weak var dailyReportView: UIView!
     @IBOutlet weak var sales: UILabel!
@@ -38,15 +40,16 @@ class DailyReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        calcultateIncome()
+        
+        getChildInfo()
         styleUI()
         hideAdv()
         calculateReward()
+        calcultateIncome()
         passReportData()
     }
     
-    //MARK:- Functions
+    //MARK:- UI Functions
     
     // Styling UI
     func styleUI(){
@@ -55,86 +58,208 @@ class DailyReportViewController: UIViewController {
         convertLabelsToArabic()
     }
     
+    //MARK:- Functions
+    func updatemoneyLabel(){ //Must be done in firestore
+        
+        updateChildInfo()
+    }
+    
+    
+    func newCurrentLevel()->Int{
+        
+        
+        let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
+        if (report.isPassed && report.levelNum != "4"
+                && Int(report.levelNum)! > childCurrentLevel){
+            
+            return childCurrentLevel+1
+        }else{
+            return childInfo?.currentLevel ?? 1
+        }
+    }
+    
+    //MARK: - Get Data
+    func getChildInfo(){
+        let child = LocalStorageManager.getChild()
+        
+        if let child = child {
+            self.childInfo = child
+        }else{
+            //TODO : Alert and back
+        }
+    }
+    
+    //MARK:- Set Data
+    
+    //Firebase update methods
+    func updateChildInfo(){
+        guard let childInfo = self.childInfo else {
+            return
+        }
+        
+        let score = report.collectedScore+Float(childInfo.score)
+        let money = report.collectedMoney+childInfo.money
+        let currentLevel = newCurrentLevel()
+        
+        FirebaseRequest.updateChildInfo(score, Money: money, currentLevel) { (complete, error) in
+            
+            if error == nil {
+                print("successfuly update child info ")
+                
+            }else{
+                print("error in update child info")
+            }
+        }
+    }
+    
     func hideAdv(){
         // advertismentAmount passed from AdvReportVC
-        if challeangeVC.report.advertismentAmount == 0 {
+        if report.advertismentAmount == 0 {
             adv.isHidden = true
         }
     }
-
+    
     func convertLabelsToArabic(){
-        sales.text = "\(challeangeVC.report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        ingredients.text = "\(challeangeVC.report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        backaging.text = "\(challeangeVC.report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
-        advAmount.text = "\(challeangeVC.report.advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        sales.text = "\(report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        ingredients.text = "\(report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        backaging.text = "\(report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
+        advAmount.text = "\(report.advertismentAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     // Caluctate Income
     func calcultateIncome(){
-        let incomeDigit = challeangeVC.report.salesAmount - challeangeVC.report.ingredientsAmount - challeangeVC.report.backagingAmount + challeangeVC.report.advertismentAmount
+        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
+        
+        print("Sales amount",report.salesAmount)
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
-        //................................ missing money reward!
-        challeangeVC.report.collectedMoney += incomeDigit
+        report.collectedMoney += incomeDigit + Float(report.reward)
+        updatemoneyLabel()
     }
     
     func calculateReward(){
-        switch challeangeVC.report.levelNum {
+        switch report.levelNum {
         case "1":
-            if challeangeVC.report.collectedScore>=50{
-            challeangeVC.report.reward = 5
-            challeangeVC.report.isRewarded = true
+            if report.collectedScore>=50{
+                report.reward = 5
+                report.isRewarded = true
             }
             break
         case "2":
-            if challeangeVC.report.collectedScore>=60{
-            challeangeVC.report.reward = 10
-            challeangeVC.report.isRewarded = true
+            if report.collectedScore>=60{
+                report.reward = 10
+                report.isRewarded = true
             }
             break
         case "3":
-            if challeangeVC.report.collectedScore>=70{
-            challeangeVC.report.reward = 15
-            challeangeVC.report.isRewarded = true
+            if report.collectedScore>=70{
+                report.reward = 15
+                report.isRewarded = true
             }
-   
+            
             break
         default:
-            if challeangeVC.report.collectedScore>=80{
-            challeangeVC.report.reward = 20
-            challeangeVC.report.isRewarded = true
+            if report.collectedScore>=80{
+                report.reward = 20
+                report.isRewarded = true
             }
             break
         }
-     
+        
     }
     
-
+    
     
     // insert the data to database
-
+    
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-//        passReportData()
-        if challeangeVC.report.isRewarded {
-            self.performSegue(withIdentifier: Constants.Segue.showWinningReport, sender: self)
-        } else if  challeangeVC.report.isPassed{
-            self.performSegue(withIdentifier: Constants.Segue.showNormalReport, sender: self)
-        } else{
-                self.performSegue(withIdentifier: Constants.Segue.showLosingReport, sender: self)
-                
+        report.isRewarded = false
+        report.isPassed = false
+        if report.isRewarded {
+            self.dismiss(animated: true) {
+                self.delagate.displayWainningReport(self.report)
             }
+        } else if  report.isPassed{
+            
+            self.dismiss(animated: true) {
+                self.delagate.displayNormalReport(self.report)
+            }
+        } else{
+            self.dismiss(animated: true) {
+                self.delagate.displayLosingReport(self.report)
+            }
+            
         }
+    }
     // Assert data to firestore
     func passReportData(){
-        let levelReportData = LevelReportData(collectedMoney: Int(challeangeVC.report.collectedMoney + challeangeVC.report.advertismentAmount + Float(challeangeVC.report.reward) + challeangeVC.report.collectedMoney), collectedScore: challeangeVC.report.collectedScore, isPassed: challeangeVC.report.isPassed)
-
-//        let completedLevel = CompletedLevel(childID: FirebaseRequest.getUserId()!, reportData: levelReportData)
-
-//        FirebaseRequest.passCompletedLevelData(levelNum: challeangeVC.report.levelNum, completedLevel: completedLevel) { (success, err) in
-//            print(err)
-//        }
+        
+        let ReportData = LevelReportData(levelNum:report.levelNum, collectedMoney: Float(report.collectedMoney + report.advertismentAmount + Float(report.reward)), collectedScore: report.collectedScore, isPassed: report.isPassed)
+        
+        
+        FirebaseRequest.getChalleangeLevelesReports(childID: FirebaseRequest.getUserId()!) { [self] (data, error) in
+            if error == ""{
+                do{
+                    let level = try FirebaseDecoder().decode(CompletedLevel.self, from: data!)
+                    self.setCompletedLevel(completed: level)
+                    
+                    
+                    let levelnum = report.levelNum
+                    
+                    if completedLevel.reportData.count == 1 &&
+                        completedLevel.reportData.first?.isPassed == false{
+                        let array = [ReportData]
+                        self.completedLevel = CompletedLevel(reportData: array)
+                        print("first if ")
+                        flag = true 
+                        // the first time
+                        // overrite
+                    }else {
+                        for var report in completedLevel.reportData{
+                            if report.levelNum == levelnum{
+                                report = ReportData
+                                flag = true
+                                print("loop in if ")
+                                
+                            }
+                            print("out loop ")
+                        }
+                    }
+                    if !flag{
+                        self.completedLevel.reportData.append(ReportData)
+                    }
+                    
+                    FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: self.completedLevel) { (success, err) in
+                        if (err != nil){
+                            print("success")
+                        } else{
+                            print("error")
+                        }
+                        
+                        
+                    }
+                    
+                    
+                }catch{
+                    print("error while decoding child report ",error)
+                }
+                
+            }else{
+                print("error")
+                
+            }
+            
+        }
+        
     }
     
-}
     
+    
+    
+    func setCompletedLevel(completed:CompletedLevel){
+        self.completedLevel = completed
+    }
+}
+
+

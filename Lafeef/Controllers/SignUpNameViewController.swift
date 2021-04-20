@@ -139,7 +139,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
                   if (success) {
                      
                       //Store in local Storage
-                      LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
+//                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
                       //navogation
                       self.transition()
                   } else {
@@ -171,10 +171,12 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     
     
     func transition(){
-        let storyboard = UIStoryboard(name: "instructions", bundle: nil)
-        let homeNavigationController =   storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.guidanceInstructionViewController) as!GuidanceInstructionsViewController
-        view.window?.rootViewController = homeNavigationController
+        adddefaultReport()
+        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavigationController) as! UINavigationController
+        view.window?.rootViewController = controller
         view.window?.makeKeyAndVisible()
+
     }
     
     //MARK:- Delegate Handling
@@ -186,5 +188,32 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         validator.validate(self)
         return true
     }
+    
+    func adddefaultReport(){
+        
+        
+        let ReportData = LevelReportData(levelNum:"1", collectedMoney: 0, collectedScore: 0, isPassed:false)
+        var array = [LevelReportData]()
+      
+        array.append(ReportData)
+        let completedLevel = CompletedLevel(reportData: array)
+
+      
+        FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: completedLevel) { (success, err) in
+            if (err != nil){
+            
+            print("success")
+            } else{
+                print("error")
+            }
+        }
+        var  levelTwocount = 0
+        var  levelFourCount = 0
+        let defaults = UserDefaults.standard
+        defaults.set(levelTwocount, forKey: "levelTwoCount")
+        defaults.set(levelFourCount, forKey: "levelFourCount")
+    }
+    
+    
     
 }

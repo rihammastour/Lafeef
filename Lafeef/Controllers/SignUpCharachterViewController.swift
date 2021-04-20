@@ -101,4 +101,6 @@ class SignUpCharachterViewController: UIViewController {
                     self.present(alert.Alert(body:"لطفًا، اختر شخصيتك", isSuccess: false),animated: true)
         }
     }
+    
+  
 }

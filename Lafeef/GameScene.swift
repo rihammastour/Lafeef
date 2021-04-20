@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import Speech
 
 class GameScene: SKScene {
     
@@ -14,6 +15,11 @@ class GameScene: SKScene {
     
     //MARK: Variables
     let alert = AlertService()
+    let formatter = NumberFormatter()
+    let voice2 = Voice2ViewController()
+
+    var text = ""
+ 
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -67,9 +73,9 @@ class GameScene: SKScene {
     private var baseAnswer : SKSpriteNode?
     
     //Timer variables
-    static var timeLeft: TimeInterval = 30//change
+    var timeLeft: TimeInterval = 30//change
     let timeLeft1=30//change
-    static var timer = Timer()
+    var timer:Timer!
     static var displayTime : SKLabelNode?
     static var endTime: Date?
     static var circleDecrement=true
@@ -81,34 +87,47 @@ class GameScene: SKScene {
     //advertisment node variables
     static var firstAdv : SKSpriteNode?
     static var secondAdv : SKSpriteNode?
+    static var loliPopFrame : SKSpriteNode?
+    static var lavendarFrame : SKSpriteNode?
+    static var cupCakeFrame : SKSpriteNode?
+    static var lamp : SKSpriteNode?
     
     var viewController2: UIViewController?
+    
+   
     //MARK: - Lifecycle Functons
     
+    
     override func sceneDidLoad() {
+    
+        
+        formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        
         setupSceneElements()
         setUpCharacters()
+     
+        
+    
     }
     
+
     
     override func didMove(to view: SKView) {
         backgroundColor = .white
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            
-            
-        }
-        
-        ChallengeViewController.stopImageBool=true
+        //ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         
     }
     
      func startGame(){
-        self.buildCustomer(customerNode: self.customers[self.currentCustomer])
+        DispatchQueue.main.async {
+            self.timer = Timer()
+        }
+        self.buildCustomer(customerNode: self.customers[currentCustomer])
     }
     
     //MARK: - Set up Scene Eslements Functions
@@ -134,13 +153,13 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton = SKSpriteNode(imageNamed: "served")
-        OrderButton.position=CGPoint(x: self.frame.midX, y:((self.tableNode?.frame.minY)!)+(50))
-        OrderButton.zPosition = 3
+        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY ?? 0)+(50))
+        OrderButton.zPosition = 50
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
-        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY)!+(50))
-        PaymentButton.zPosition = 3
+        PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY ??  20) + (50))
+        PaymentButton.zPosition = 50
         self.addChild(PaymentButton)
         
         // Get Camera node from scene and store it for use later
@@ -167,7 +186,20 @@ class GameScene: SKScene {
         
         GameScene.secondAdv = self.childNode(withName: "adv2") as? SKSpriteNode
         GameScene.secondAdv?.isHidden = true
+        setStoreEquipment()
         
+    }
+    func setStoreEquipment(){
+        GameScene.loliPopFrame = self.childNode(withName: "loliPopFrame") as? SKSpriteNode
+        GameScene.loliPopFrame?.isHidden = true
+        
+        GameScene.lavendarFrame = self.childNode(withName: "lavendarFrame") as? SKSpriteNode
+        GameScene.lavendarFrame?.isHidden = true
+        GameScene.cupCakeFrame = self.childNode(withName: "cupcakeFrame") as? SKSpriteNode
+        GameScene.cupCakeFrame?.isHidden = true
+        
+        GameScene.lamp = self.childNode(withName: "lamp") as? SKSpriteNode
+        GameScene.lamp?.isHidden = true
     }
     
     //MARK: - Set Bakary Enviroment Function
@@ -184,7 +216,7 @@ class GameScene: SKScene {
         
     }
     
-    static func presentAdvertisment(at random: Int){
+    func showAdvInbakery(at random: Int){
         print("adv presented success")
         if random == 1 {
             print("adv1 presented success")
@@ -197,7 +229,26 @@ class GameScene: SKScene {
             updateMoneyLabel(250)
         }
     }
-    
+    static func presentChildPrefrence( name: String){
+        print("adv presented success")
+        switch name {
+        case BackeryStore.cupcakeFrame.rawValue:
+        GameScene.cupCakeFrame?.isHidden = false
+            break
+        case BackeryStore.lavendarFrame.rawValue:
+            GameScene.lavendarFrame?.isHidden = false
+            break
+        case BackeryStore.lamp.rawValue:
+            GameScene.lamp?.isHidden = false
+            break
+        case BackeryStore.loliPopFrame.rawValue:
+            GameScene.loliPopFrame?.isHidden = false
+            break
+ 
+        default:
+            print("no item")
+        }
+    }
     //MARK: - Money Continer Functions
     func setUpMoneyContiner(){
         ///Set Position
@@ -221,19 +272,30 @@ class GameScene: SKScene {
         GameScene.moneyLabel.fontSize = 34
         GameScene.moneyLabel.fontName = "FF Hekaya"
         GameScene.moneyLabel.fontColor = SKColor(named: "BlackApp")
-        GameScene.moneyLabel.text = "0.0"
+        GameScene.moneyLabel.text = "٠"
         self.moneyCountiner?.addChild(GameScene.moneyLabel!)
         
     }
     
     //updateMoneyLabel
-    static func updateMoneyLabel(_ earnedMoney:Float){
+     func updateMoneyLabel(_ earnedMoney:Float){
+        let arabicFormatter: NumberFormatter = NumberFormatter()
+        let EnglishFormatter: NumberFormatter = NumberFormatter()
+        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+        EnglishFormatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         
-        var money = Float(GameScene.moneyLabel.text!)!
+        var money = Float(EnglishFormatter.number(from: GameScene.moneyLabel.text!)!)
         money += earnedMoney
-        GameScene.moneyLabel.text = String(money)
-        
+        GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
     }
+
+//    static func setMoneyLabel(_ earnedMoney:Float){
+//        let arabicFormatter: NumberFormatter = NumberFormatter()
+//
+//        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
+//
+//        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
+//    }
     
     
     //MARK: - Timer Continer Functions
@@ -241,9 +303,12 @@ class GameScene: SKScene {
         GameScene.displayTime = self.childNode(withName: "displayTimeLabel") as? SKLabelNode
         if GameScene.displayTime != nil {
             
-            GameScene.endTime = Date().addingTimeInterval(GameScene.timeLeft)
-            GameScene.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-            GameScene.displayTime?.text=GameScene.timeLeft.time
+            
+            self.timeLeft = 30
+            GameScene.endTime = Date().addingTimeInterval(timeLeft)
+
+            self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+            GameScene.displayTime?.text=timeLeft.time
             GameScene.displayTime?.run(SKAction.fadeIn(withDuration: 2.0))
             GameScene.displayTime?.isHidden=true
         }
@@ -269,7 +334,7 @@ class GameScene: SKScene {
     
     //setup Characters
     func setUpCharacters(){
-        while customers.count <= 0  {
+        while customers.count <= 3  {
             let randomInt = Int.random(in: 1..<7)
             var choosenCustomer = Customers(rawValue: randomInt)?.createCustomerNode()
             customers.append(choosenCustomer!)
@@ -307,7 +372,6 @@ class GameScene: SKScene {
     
     //addFaceToProgressBar
     func addFaceToProgressBar(on positionX:CGFloat,as satisfaction:CustmerSatisfaction){
-        
         let face = SKSpriteNode(imageNamed: satisfaction.rawValue)
         face.anchorPoint = CGPoint(x:0.5, y: 0.5)
         face.size = CGSize(width: 22, height: 23)
@@ -349,7 +413,6 @@ class GameScene: SKScene {
             //make order visible
             self.showOrder()
             
-            
         }
         
         // for cashier
@@ -360,15 +423,22 @@ class GameScene: SKScene {
     
     func showOrder(){
         self.orderContiner?.isHidden = false
+        print("is paused is:")
+        print(isPaused)
+        if(!isPaused){
         self.generateCircle()
         self.generateTimer()
+        }
     }
     
     func hideOrder(){
         self.orderContiner?.isHidden = true
         GameScene.circle?.isHidden = true
         GameScene.circle?.alpha=0
-        GameScene.timer.invalidate()
+        
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
         //GameScene.timeLeft = 0
         GameScene.countStop=0
     }
@@ -379,6 +449,10 @@ class GameScene: SKScene {
     
     //setOrderContent
     func setOrderContent(with baseType:Base,_ toppings:[Topping]?){
+        
+        //Reset nodes
+        self.base?.removeFromParent()
+        self.toopingCounter = 0
         
         //unwrap order continer
         guard self.orderContiner != nil else {
@@ -454,6 +528,7 @@ class GameScene: SKScene {
     //MARK:  Set up Payment Contents Functions
     func setPaymentContent(with money:[Money]?){
         self.paymentContainer?.removeAllChildren()
+        
         
         //unwrap payment continer
         guard self.paymentContainer != nil else {
@@ -582,35 +657,39 @@ class GameScene: SKScene {
     
     // OrderbuttonTapped
     func checkOrderAnswer(){
-        
+    OrderButton.isHidden = true
+
         // Get answers provided
-        let answer = (viewController?.objectDetected?.getAnswer())!
+    let answer = (viewController?.objectDetected?.getAnswer())!
         
-        //Handling detection overlay
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
+        //Handling timer
+        DispatchQueue.main.async {
+            self.timer.invalidate()
+        }
+//        self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
+//        self.timer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         
         //make order invisible
-        hideOrder()
+        self.hideOrder()
         
         //check base if provided
         if answer.base == nil {
-            customerDone()
+         customerDone()
             customers[currentCustomer].moveOutSadly(customerNode: customers[currentCustomer])
             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
-                nextCustomer()}
+             nextCustomer()}
             return
         }
         
         //Calculate the Scores
         viewController?.calculateOrderScore(for: answer)
-        let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
+    let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
         
         //Bill calculation
         viewController?.calculateTotalBill(for: answer)
         viewController?.calculateTotalBillWithTax(for: answer)
-        viewController?.showBill()
-        self.paymentContainer?.isHidden = false
+    viewController?.showBill()
+    paymentContainer?.isHidden = false
 
         
         //Walk to cashire and react
@@ -626,7 +705,7 @@ class GameScene: SKScene {
     func checkPaymentAnswer(){
         print("Payment button tapped!")
         
-        ObjectDetectionViewController.detectionOverlay.isHidden = false
+        ObjectDetectionViewController.detectionOverlay.isHidden = true
         
         //get Answer payment
         let answer = viewController?.objectDetected?.getAnswer()
@@ -652,7 +731,7 @@ class GameScene: SKScene {
         GameScene.flag = false
         //Add money earned
         let moneEarned = (viewController?.getTotalBillWithTax())!
-        GameScene.updateMoneyLabel(moneEarned)
+        updateMoneyLabel(moneEarned)
         
         //Customer Satsfaction bar
         customerDone()
@@ -688,12 +767,14 @@ class GameScene: SKScene {
     }
     
     func nextCustomer(){
+        OrderButton.isHidden = false
+        PaymentButton.isHidden = false
         currentCustomer += 1
-        GameScene.timeLeft = 30
-        if (currentCustomer<=0){
-            print("داخل الاف الصغيره")
+        //timeLeft = 30
+        if (currentCustomer<=3){
+            
             buildCustomer(customerNode: customers[currentCustomer])
-            GameScene.timeLeft = 30
+            //timeLeft = 30
             GameScene.TimerShouldDelay = false
             viewController?.nextOrder()
             
@@ -701,8 +782,11 @@ class GameScene: SKScene {
             //                GameScene.timeLeft = 0
             //No more Customer Level end
             print("THE LEVEL IS END ")
-            GameScene.timer.invalidate()
-            viewController?.levlEnd()
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+            }
+            viewController?.levelEnd()
+            hideDetectionOverlay()
         }
         
     }
@@ -749,23 +833,23 @@ class GameScene: SKScene {
             {percent -= incr}
             
             
-            if(GameScene.timeLeft==0){
+            if(timeLeft==0){
                 percent = 1
                 circle.path = nil
                 
             }
             circle.path = self.circle(radius: radius, percent:percent)
-            if( Int(GameScene.timeLeft) < 30){
+            if( Int(timeLeft) < 30){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
             }
-            if( Int(GameScene.timeLeft) <= 20){
+            if( Int(timeLeft) <= 20){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
-            if( Int(GameScene.timeLeft) <= 10 && Int(GameScene.timeLeft)>=0){
+            if( Int(timeLeft) <= 10 && Int(timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
-            if( Int(GameScene.timeLeft)==0){
+            if( Int(timeLeft)==0){
                 print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
@@ -848,6 +932,13 @@ class GameScene: SKScene {
         
     }
     
+    func pleaseRUUUNN(as timeInerval:TimeInterval){
+        print("قسمة",timeLeft/100)
+        self.timeLeft = timeInerval
+        print("قسمة",timeLeft/100)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+    }
+    
     // Creates a CGPath in the shape of a pie with slices missing
     func circle(radius:CGFloat, percent:CGFloat) -> CGPath {
         let start:CGFloat = 0
@@ -863,31 +954,33 @@ class GameScene: SKScene {
     //update time
     @objc func updateTime() {
         
-        let greenTime=timeLeft1/3*2//12
+        let greenTime:Double=Double(timeLeft1)/3.0*2//12
         
-        let yellowTime=timeLeft1/3*1//6
+        let yellowTime:Double=Double(timeLeft1)/3.0*1//6
+        
+        print(timeLeft)
         
         
-        if(Int(GameScene.timeLeft)>greenTime){
+        if(timeLeft>greenTime){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             
             
             
         }
-        else  if (Int(GameScene.timeLeft) > yellowTime){
+        else  if (timeLeft > yellowTime){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             //yellow
             
         }
         
-        else  if (GameScene.timeLeft > 0 ){
+        else  if (timeLeft > 0 ){
             GameScene.displayTime?.fontName =  "FF Hekaya"
-            GameScene.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-            GameScene.displayTime?.text = GameScene.timeLeft.time
+            timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
+            GameScene.displayTime?.text = timeLeft.time
             //orange
             
         }
@@ -899,16 +992,24 @@ class GameScene: SKScene {
             
             
             //call calculateScore
-            GameScene.timer.invalidate()
+            DispatchQueue.main.async {
+                self.timer.invalidate()
+            }
             
         }
     }
     //MARK:- Buttons Tapped methods
     
-    func OrderbuttonTapped(){
-        checkOrderAnswer()
+    func OrderbuttonTapped(button:String){
+        Voice2ViewController.flag = true
+        print("inside order")
+
+    checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
+        Voice2ViewController.flag = true
+//        hideDetectionOverlay()
+        PaymentButton.isHidden = true
         checkPaymentAnswer()
     }
     
@@ -969,7 +1070,7 @@ class GameScene: SKScene {
             let location = t.location(in: self)
             
             if OrderButton.contains(location) {
-                OrderbuttonTapped()
+                OrderbuttonTapped(button: "x")
             }
             if PaymentButton.contains(location) {
                 PaymentbuttonTapped()
@@ -988,7 +1089,10 @@ class GameScene: SKScene {
     //override update
     override func update(_ currentTime: TimeInterval) {
         
-        if (GameScene.flag){
+        if (GameScene.flag && currentCustomer<customers.count){
+            print("Current Customer",currentCustomer)
+            print("arrays",customers,"number",customers.count)
+            print(customers[currentCustomer])
             
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             
@@ -996,6 +1100,13 @@ class GameScene: SKScene {
         
         self.progressBarContiner.position.x = cam.position.x
         moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
+        
+//        if (timeLeft < 0 ){
+//            DispatchQueue.main.async {
+//                self.timer.invalidate()
+//            }
+//            return
+//        }
         
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {

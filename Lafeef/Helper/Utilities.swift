@@ -84,4 +84,25 @@ class Utilities {
         button.tintColor = UIColor.black
     }
     
+    static func styleSegmentedControl(_ segmentedControlUI:UISegmentedControl){
+        let font = UIFont(name: "FF Hekaya", size: 30)
+        segmentedControlUI.setTitleTextAttributes([NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 20) ], for: .normal)
+        
+        //Shadow
+        segmentedControlUI.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        segmentedControlUI.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        segmentedControlUI.layer.shadowOpacity = 1
+        segmentedControlUI.layer.shadowRadius = 7
+        segmentedControlUI.layer.masksToBounds = false
+    }
+    
+    static func styleWaveView(_ view:UIView){
+        //Shadow
+        view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 7
+        view.layer.masksToBounds = false
+    }
+    
 }

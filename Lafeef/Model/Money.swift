@@ -20,11 +20,11 @@ enum Money: Float, Codable {
     func getMoneySize() -> CGSize {
         
         switch self {
-        case .fiftyRiyal , .tenRiyal , .fiveRiyal:
-            return CGSize(width: 180, height: 180)
+        case .fiftyRiyal , .tenRiyal , .fiveRiyal, .riyal :
+            return CGSize(width: 130, height: 60)
             
-        case .riyal , .riyalHalf, .riyalQuarter:
-            return CGSize(width: 120, height: 120)
+        case .riyalHalf, .riyalQuarter:
+            return CGSize(width: 50, height: 50)
         }
     }
     

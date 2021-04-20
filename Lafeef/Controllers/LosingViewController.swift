@@ -11,15 +11,14 @@ import Cosmos
 
 class LosingViewController: UIViewController {
     // customer satisfaction
+    
+    var delagate:ManageViewController!
+    var report:DailyReport!
+    
     @IBOutlet weak var happyLabel: UILabel!
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var sadLabel: UILabel!
-    var challeangeReport = ChallengeViewController()
     
-    
-    
-
- 
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var starView: CosmosView!
@@ -30,12 +29,15 @@ class LosingViewController: UIViewController {
     @IBOutlet weak var moneyView: UIView!
     @IBOutlet weak var cancelOutlet: UIButton!
     @IBOutlet weak var playAgainOutlet: UIButton!
+    let  sound = SoundManager()
+    
     
     // to convert into Arabic
     let formatter: NumberFormatter = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sound.playSound(sound: Constants.Sounds.tryAgain)
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         
         smallbackground.layer.cornerRadius = 20 
@@ -48,7 +50,8 @@ class LosingViewController: UIViewController {
         smallbackground.layer.shadowOpacity = 0.2
         smallbackground.layer.shadowOffset = .zero
         smallbackground.layer.shadowRadius = 5
-
+        
+        
         icecream.image = UIImage.gif(name: "icecream")
         
         // star rates
@@ -64,35 +67,43 @@ class LosingViewController: UIViewController {
         starView.settings.starSize = 22
         
         // set customer satisfaction
-        setCustomerSatisfaction()
+        
+        
+        self.setCustomerSatisfaction()
         //set score
-        setScore(score: Int( challeangeReport.report.collectedScore))
+        self.setScore(score:report.collectedScore)
         // set money
-        setMoney(money:Int( challeangeReport.report.collectedScore))
+        self.setMoney(money:report.collectedMoney)
+        
+        
+        
     }
     
-
-
+    
+    
     @IBAction func playAgain(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            self.delagate.startGame(with: 0, for: 0)
+        })
         
-        // need some code
-        GameScene.timeLeft = 30
-     
-     
     }
+    
     
     @IBAction func cancel(_ sender: Any) {
-        self.performSegue(withIdentifier: "showCalendar", sender: self)
-
-        
+        self.dismiss(animated: true, completion: {
+            self.delagate.exitPlayChallengeMode()
+        })
     }
     
     func setCustomerSatisfaction()  {
+        
+        print("inside customer")
+        print(report.customerSatisfaction)
         var happy = 0
         var sad = 0
         var normal = 0
         
-        for sat in  challeangeReport.report.customerSatisfaction{
+        for sat in  report.customerSatisfaction{
             switch sat{
             case .happey:
                 happy += 1
@@ -107,19 +118,29 @@ class LosingViewController: UIViewController {
         normalLabel.text = formatter.string(from:normal as NSNumber)
         happyLabel.text = formatter.string(from:happy as NSNumber)
         sadLabel.text = formatter.string(from:sad as NSNumber)
-
+        
     }
     
-    func setScore(score:Int)  {
+    func setScore(score:Float)  {
         scoreLabel.text = formatter.string(from:score as NSNumber)! + " نقطة "
-        starView.rating = Double(score*100)/5
+        if( score == 0){
+            starView.rating = 0
+        }else if (score > 0 && score <= 20){
+            starView.rating = 1
+        }else if(score >= 21 && score <= 40){
+            starView.rating = 2
+        }else if  (score >= 41 && score <= 60){
+            starView.rating = 3
+        }else if  (score >= 61 && score <= 80){
+            starView.rating = 4
+        }else{ starView.rating = 5}
         
         
-            }
-
-   func setMoney(money:Int)  {
-    moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
-        }
+    }
     
-  
+    func setMoney(money:Float)  {
+        moneyLabel.text = formatter.string(from:money as NSNumber)! +  " ريال "
+    }
+    
+    
 }
