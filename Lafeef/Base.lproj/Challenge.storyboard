@@ -37,7 +37,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6b-ff-eDt">
                                                 <rect key="frame" x="0.0" y="72.5" width="400" height="73"/>
-                                                <color key="backgroundColor" red="0.84705882352941175" green="0.88627450980392153" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="400" id="6yc-vD-hiQ"/>
                                                     <constraint firstAttribute="height" constant="73" id="NaT-hW-rs3"/>
@@ -472,6 +472,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SV-uK-010" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6813" y="-185"/>
+        </scene>
+        <!--Goal View Controller-->
+        <scene sceneID="Zq5-7b-On5">
+            <objects>
+                <viewController id="bS1-U3-dXd" customClass="GoalViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UZ6-rd-5uz">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvM-rv-anD">
+                                <rect key="frame" x="104.5" y="315.5" width="559" height="393"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="eDm-uf-Pm0">
+                                        <rect key="frame" x="104.5" y="168" width="350" height="171.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xpd-9T-KXC">
+                                                <rect key="frame" x="24" y="0.0" width="302" height="58.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="points" translatesAutoresizingMaskIntoConstraints="NO" id="eqw-a4-eJ2">
+                                                        <rect key="frame" x="0.0" y="11.5" width="36" height="36"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="هدف المستوى| " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR1-ge-U4G">
+                                                        <rect key="frame" x="41" y="0.0" width="261" height="58.5"/>
+                                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="50"/>
+                                                        <color key="textColor" red="0.75378692150000004" green="0.85876220459999997" blue="0.85882598160000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-a8-AI0">
+                                                <rect key="frame" x="0.0" y="123.5" width="350" height="48"/>
+                                                <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="4np-w2-2sQ"/>
+                                                    <constraint firstAttribute="height" constant="48" id="7Xz-H0-hQ2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="45"/>
+                                                <state key="normal" title="حسنًا">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="ok:" destination="bS1-U3-dXd" eventType="touchUpInside" id="VK7-A2-Igs"/>
+                                                    <action selector="ok:" destination="udq-xX-jAh" eventType="touchUpInside" id="okj-J7-dWz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lafeef-Charcetar" translatesAutoresizingMaskIntoConstraints="NO" id="pO6-rv-rmN">
+                                        <rect key="frame" x="0.0" y="-132.5" width="263" height="267.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="VAU-WV-0oi"/>
+                                            <constraint firstAttribute="height" constant="267.5" id="fUJ-rj-0hU"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="whiteApp"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="393" id="2An-ia-AQv"/>
+                                    <constraint firstAttribute="width" constant="559" id="7oY-c0-Ipt"/>
+                                    <constraint firstAttribute="bottom" secondItem="eDm-uf-Pm0" secondAttribute="bottom" constant="53.5" id="8Fm-Zp-qwA"/>
+                                    <constraint firstAttribute="trailing" secondItem="pO6-rv-rmN" secondAttribute="trailing" constant="296" id="ie5-yu-JoJ"/>
+                                    <constraint firstItem="eDm-uf-Pm0" firstAttribute="centerX" secondItem="PvM-rv-anD" secondAttribute="centerX" id="jQd-5A-c48"/>
+                                    <constraint firstItem="eDm-uf-Pm0" firstAttribute="top" secondItem="pO6-rv-rmN" secondAttribute="bottom" constant="33" id="nXZ-mg-unQ"/>
+                                    <constraint firstItem="pO6-rv-rmN" firstAttribute="leading" secondItem="PvM-rv-anD" secondAttribute="leading" id="uUS-Eh-app"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S1S-0x-j07"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PvM-rv-anD" firstAttribute="centerX" secondItem="S1S-0x-j07" secondAttribute="centerX" id="E3O-dA-VRI"/>
+                            <constraint firstItem="PvM-rv-anD" firstAttribute="centerY" secondItem="S1S-0x-j07" secondAttribute="centerY" id="Fgn-BZ-PX0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goalLabel" destination="eR1-ge-U4G" id="T8D-jN-88D"/>
+                        <outlet property="goalView" destination="PvM-rv-anD" id="T9S-5s-0KQ"/>
+                        <outlet property="okbutton" destination="goZ-a8-AI0" id="ji4-qg-ul0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cug-7x-LEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6078" y="-1603"/>
         </scene>
         <!--Adv Report View Controller-->
         <scene sceneID="2RU-7m-4vT">
@@ -1837,20 +1920,6 @@
             <point key="canvasLocation" x="4647" y="-863"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="a1P-yM-dNz"/>
-        <designable name="bc4-5G-xck"/>
-        <designable name="oxU-30-E9o"/>
-        <designable name="prC-iW-nvL">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="tlW-4g-FSH">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="uGp-mX-XVM">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>
         <image name="LafeefToppings" width="4656" height="4656"/>

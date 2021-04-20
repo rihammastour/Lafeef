@@ -146,7 +146,8 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
         
         
         for level in completedLevels.reportData {
-            print("inside fore")
+            print("inside for")
+            print(level)
             
             switch level.levelNum {
             case "1":
