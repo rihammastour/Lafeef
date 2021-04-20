@@ -526,13 +526,13 @@
         <!--Preview Prefrence View Controller-->
         <scene sceneID="Zgu-QV-Udo">
             <objects>
-                <viewController id="e3W-Mk-wMq" customClass="PreviewPrefrenceViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="e3W-Mk-wMq" customClass="PreviewPrefrenceViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SYG-tX-bxZ">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="previewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Hn9-5X-Aq1">
-                                <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="tintColor" name="BlackApp"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="OVu-h8-hgX">
@@ -555,14 +555,14 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-bg-52M">
-                                <rect key="frame" x="203" y="293" width="298" height="398"/>
+                                <rect key="frame" x="235" y="313" width="298" height="398"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="398" id="Dmi-9u-0Gy"/>
                                     <constraint firstAttribute="width" constant="298" id="xmw-2N-VBe"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-i4-tSg">
-                                <rect key="frame" x="-5" y="13" width="128" height="128"/>
+                                <rect key="frame" x="0.0" y="13" width="138" height="168"/>
                                 <state key="normal" image="arrow-back"/>
                             </button>
                         </subviews>
@@ -570,9 +570,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KTm-bg-52M" firstAttribute="centerX" secondItem="V8P-Be-ZuY" secondAttribute="centerX" id="39m-sj-aHr"/>
-                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="leading" secondItem="VSU-i4-tSg" secondAttribute="leading" constant="5" id="L1u-VR-5ZB"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="leading" secondItem="VSU-i4-tSg" secondAttribute="leading" id="L1u-VR-5ZB"/>
                             <constraint firstItem="VSU-i4-tSg" firstAttribute="top" secondItem="V8P-Be-ZuY" secondAttribute="top" constant="13" id="QBw-Io-ZJx"/>
-                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="trailing" secondItem="VSU-i4-tSg" secondAttribute="trailing" constant="581" id="RfI-Lb-6H1"/>
+                            <constraint firstItem="V8P-Be-ZuY" firstAttribute="trailing" secondItem="VSU-i4-tSg" secondAttribute="trailing" constant="630" id="RfI-Lb-6H1"/>
                             <constraint firstItem="Hn9-5X-Aq1" firstAttribute="leading" secondItem="V8P-Be-ZuY" secondAttribute="leading" id="Unq-rd-gDn"/>
                             <constraint firstItem="V8P-Be-ZuY" firstAttribute="trailing" secondItem="Hn9-5X-Aq1" secondAttribute="trailing" id="eck-kI-TFF"/>
                             <constraint firstItem="V8P-Be-ZuY" firstAttribute="bottom" secondItem="VSU-i4-tSg" secondAttribute="bottom" constant="843" id="jk3-ZV-5Yh"/>

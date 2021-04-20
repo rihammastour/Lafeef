@@ -17,8 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
     let validator = Validator()
     let alert = AlertService()
     var isValidated : Bool  = false
-    var childEquipments:[ChildEquipment] = []
-    static var userPrfrence = ""
+  
 
     @IBOutlet weak var logo: UIImageView!
       @IBOutlet weak var lemon: UIButton!
@@ -237,8 +236,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     view.window?.rootViewController = controller
                     view.window?.makeKeyAndVisible()
 
-                    self.getChildPrefrence()
-                    self.reflectChildPrefrences()
+                  
                   
                    
                     
@@ -277,74 +275,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                      }
                  }
      
-    func getChildPrefrence(){
-        //Get Child Prefrences
-        FirebaseRequest.getChildEquipments { (data, err) in
-            if data != nil {
-                print("Data",data)
-                do{
-                    let equipments = try FirebaseDecoder().decode([ChildEquipment].self, from: data)
-                    self.childEquipments = equipments
-                }catch{
-                    print("Incorrect Format")
-                }
-            }else{
-                print("error")
-            }
-        }
-        print("dddddddd ",self.childEquipments)
-    }
-    
-    func reflectChildPrefrences(){
-        if childEquipments.count != 0 {
-        for item in childEquipments{
-            if item.inUse{
-                switch item.name {
-                case BackeryStore.cupcakeFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
-                    break
-                case BackeryStore.lavendarFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
-                    break
-                case BackeryStore.lamp.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
-                    break
-                case BackeryStore.loliPopFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
-                    break
-                case CharachtersStore.blueBoy.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.blueGirl.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.orangeGirl.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.pinkGirl.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.yellowBoy.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.grayBoy.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                case CharachtersStore.blueglassess.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                    
-                case CharachtersStore.redGlassess.rawValue:
-                    LoginViewController.userPrfrence = CharachtersStore.blueBoy.rawValue
-                    break
-                
-                default:
-                    print("no prefrence")
-                }
-            }
-            }
-            
-        }
-    }
+ 
 }
 

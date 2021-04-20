@@ -99,6 +99,7 @@ class ProfileViewController: UIViewController {
         }else if LoginViewController.userPrfrence != ""{
             ProfilePic.image = UIImage(named:LoginViewController.userPrfrence)
         }
+
         else{
             ProfilePic.image = UIImage(named: "Girl-Profile")
         }

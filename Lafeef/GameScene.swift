@@ -191,15 +191,15 @@ class GameScene: SKScene {
     }
     func setStoreEquipment(){
         GameScene.loliPopFrame = self.childNode(withName: "loliPopFrame") as? SKSpriteNode
-        GameScene.loliPopFrame?.isHidden = true
+//        GameScene.loliPopFrame?.isHidden = true
         
         GameScene.lavendarFrame = self.childNode(withName: "lavendarFrame") as? SKSpriteNode
-        GameScene.lavendarFrame?.isHidden = true
+//        GameScene.lavendarFrame?.isHidden = true
         GameScene.cupCakeFrame = self.childNode(withName: "cupcakeFrame") as? SKSpriteNode
-        GameScene.cupCakeFrame?.isHidden = true
+//        GameScene.cupCakeFrame?.isHidden = true
         
         GameScene.lamp = self.childNode(withName: "lamp") as? SKSpriteNode
-        GameScene.lamp?.isHidden = true
+//        GameScene.lamp?.isHidden = true
     }
     
     //MARK: - Set Bakary Enviroment Function
@@ -231,23 +231,34 @@ class GameScene: SKScene {
     }
     static func presentChildPrefrence( name: String){
         print("adv presented success")
+        print(name,"name")
         switch name {
         case BackeryStore.cupcakeFrame.rawValue:
-        GameScene.cupCakeFrame?.isHidden = false
+            GameScene.previewFrames(lamp: true , lavendar: true, cupcake: false, lolipop: true)
             break
         case BackeryStore.lavendarFrame.rawValue:
-            GameScene.lavendarFrame?.isHidden = false
+            GameScene.previewFrames(lamp: true , lavendar: false, cupcake: true, lolipop: true )
+         
             break
+         
         case BackeryStore.lamp.rawValue:
-            GameScene.lamp?.isHidden = false
+            GameScene.previewFrames(lamp: false , lavendar: true, cupcake: true, lolipop: true)
             break
         case BackeryStore.loliPopFrame.rawValue:
-            GameScene.loliPopFrame?.isHidden = false
+            GameScene.previewFrames(lamp: true , lavendar: true, cupcake: true, lolipop: false)
             break
  
         default:
             print("no item")
+        
         }
+    }
+    static func previewFrames(lamp:Bool,lavendar:Bool,cupcake:Bool,lolipop:Bool){
+        GameScene.loliPopFrame?.isHidden = lolipop
+        GameScene.lamp?.isHidden = lamp
+        GameScene.lavendarFrame?.isHidden = lavendar
+        GameScene.cupCakeFrame?.isHidden = cupcake
+        
     }
     //MARK: - Money Continer Functions
     func setUpMoneyContiner(){
