@@ -199,7 +199,8 @@ class FirebaseRequest{
             }
         }
         completion(true,nil)
-
+    }
+    
     static func passCompletedLevelData(childID:String, reports: CompletedLevel, completion: @escaping (_ success: Bool, _ error :String) -> Void){
             // Add a new document in collection "users"
             

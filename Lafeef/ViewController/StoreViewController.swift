@@ -144,7 +144,7 @@ class StoreViewController: UIViewController {
             FirebaseRequest.addEquipment(aEquipment) { (success, errore) in
                 if !success{
                     //Purches won't complated
-                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً", isSuccess: false)
                     return
                 }
             }
@@ -152,7 +152,7 @@ class StoreViewController: UIViewController {
             FirebaseRequest.updateMoney(leftMoney) { (success, errore) in
                 if !success{
                     //Purches won't complated
-                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                    self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً", isSuccess: false)
                 }else{
                     
                     self.updateMoney(leftMoney)
@@ -162,7 +162,7 @@ class StoreViewController: UIViewController {
             }
         }else{
             //No enughe money to buy
-            self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء")
+            self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء", isSuccess: false)
         }
         
     }
@@ -363,9 +363,9 @@ class StoreViewController: UIViewController {
     }
     
     
-    func showAlert(with message:String){
+    func showAlert(with message:String, isSuccess: Bool){
         let alert = AlertService()
-        let alertVC = alert.Alert(body: message)
+        let alertVC = alert.Alert(body: message, isSuccess: isSuccess)
         
         self.present(alertVC, animated: true)
     }

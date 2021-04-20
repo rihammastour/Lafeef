@@ -33,7 +33,7 @@ class AdvReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sound.playSound(sound: Constants.Sounds.advertisment)
-        
+
         // Do any additional setup after loading the view.
         styleUI()
         animateStars()

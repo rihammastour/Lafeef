@@ -20,7 +20,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var monthTextfield: UITextField!
     @IBOutlet weak var dayTextfield: UITextField!
-
+    
     @IBOutlet weak var ProfileRectangle: UIButton!
     
     @IBOutlet weak var ImageToChange: UIButton!
@@ -47,7 +47,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         self.navigationController?.isNavigationBarHidden = true
         
         logOut.layer.cornerRadius = logOut.frame.size.height/2
-         ProfileRectangle.layer.cornerRadius = ProfileRectangle.frame.size.height/8
+        ProfileRectangle.layer.cornerRadius = ProfileRectangle.frame.size.height/8
         NameTextField.layer.cornerRadius = NameTextField.frame.size.height/2
         NameTextField.clipsToBounds = true
         monthTextfield.layer.cornerRadius = monthTextfield.frame.size.height/2
@@ -69,7 +69,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         createDatePicker()
         
         
-
+        
     }
     
     
@@ -79,7 +79,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         if child != nil {
             setUIChildInfo(child!)
         }
-      
+        
     }
     
     //Set child info
@@ -87,36 +87,36 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         self.setName(child.name)
         self.setCurrentLevel(child.currentLevel)
         self.setMoney(child.money)
-       self.setImage(child.sex)
+        self.setImage(child.sex)
         self.setEmail(child.email)
         self.setAge(child.DOB)
-
+        
     }
     
     //Name
     func setName(_ name:String) {
         NameTextField.placeholder = String(name)
     }
-//    //Name
-//    func setDay(_ name:String) {
-//        dayTextfield.placeholder = String(name)
-//    }
-//    //Name
-//    func setMonth(_ name:String) {
-//        monthTextfield.placeholder = String(name)
-//    }
-//    //Name
-//    func setYear(_ name:String) {
-//        yearTextfield.placeholder = String(name)
-//    }
+    //    //Name
+    //    func setDay(_ name:String) {
+    //        dayTextfield.placeholder = String(name)
+    //    }
+    //    //Name
+    //    func setMonth(_ name:String) {
+    //        monthTextfield.placeholder = String(name)
+    //    }
+    //    //Name
+    //    func setYear(_ name:String) {
+    //        yearTextfield.placeholder = String(name)
+    //    }
     
-//    func changePic(){
-//        if sex == "girl"{
-//            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
-//        }else{
-//            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
-//
-//    }
+    //    func changePic(){
+    //        if sex == "girl"{
+    //            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
+    //        }else{
+    //            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
+    //
+    //    }
     //Level
     func setCurrentLevel(_ level:Int) {
         levelNumLabel.text = String(level)
@@ -143,13 +143,13 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    func setImageToChange(_ sex:String){
-//        if sex != "girl"{
-//            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
-//        }else{
-//            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
-//
-//    }
+    //    func setImageToChange(_ sex:String){
+    //        if sex != "girl"{
+    //            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
+    //        }else{
+    //            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
+    //
+    //    }
     
     //set birthday
     func setAge(_ age:String) {
@@ -167,7 +167,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         yearTextfield.placeholder = age.substring(with: 6..<10)
         monthTextfield.placeholder = age.substring(with: 3..<5)
         dayTextfield.placeholder = age.substring(with: 0..<2)
-       // AgeLable.text = "العمر |\(String(calculateAge))"
+        // AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
     
@@ -179,34 +179,34 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         yearTextfield.text =  formatter.string(from: components.year! as NSNumber)
         monthTextfield.text = formatter.string(from: components.month! as NSNumber)
         dayTextfield.text = formatter.string(from: components.day! as NSNumber)
-//        errorLabel.isHidden = true
-//        isValidated = true
+        //        errorLabel.isHidden = true
+        //        isValidated = true
     }
     
     func createDatePicker(){
-       datePicker.locale = Locale(identifier: "ar")
-       datePicker.preferredDatePickerStyle = .wheels
-       datePicker.datePickerMode = .date
-       datePicker.semanticContentAttribute = .forceRightToLeft
-       datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
-       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -20, to: Date())
-       datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
-       datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
+        datePicker.locale = Locale(identifier: "ar")
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        datePicker.semanticContentAttribute = .forceRightToLeft
+        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
+        datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -20, to: Date())
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
+        datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         toolBar.barStyle = UIBarStyle.default
-           toolBar.isTranslucent = true
-           toolBar.tintColor = UIColor.black
-           toolBar.sizeToFit()
-       
-       let doneButton = UIBarButtonItem(title: "تم", style: UIBarButtonItem.Style.done, target: self, action: #selector(doneDatePickerPressed))
-       let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-       
-       let cancelButton = UIBarButtonItem(title: "إلغاء", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelDatePickerPressed))
-
-       toolBar.setItems([ cancelButton, spaceButton,doneButton], animated: false)
-       toolBar.isUserInteractionEnabled = true
-   
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.black
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "تم", style: UIBarButtonItem.Style.done, target: self, action: #selector(doneDatePickerPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let cancelButton = UIBarButtonItem(title: "إلغاء", style: UIBarButtonItem.Style.plain, target: self, action: #selector(cancelDatePickerPressed))
+        
+        toolBar.setItems([ cancelButton, spaceButton,doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
         yearTextfield.inputAccessoryView = toolBar
         monthTextfield.inputAccessoryView = toolBar
         dayTextfield.inputAccessoryView = toolBar
@@ -216,26 +216,26 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
     }
     
     @objc func doneDatePickerPressed(){
-       self.view.endEditing(true)
+        self.view.endEditing(true)
     }
     
     @objc func cancelDatePickerPressed(){
-       self.view.endEditing(true)
+        self.view.endEditing(true)
         
-       yearTextfield.text = ""
-       monthTextfield.text = ""
-       dayTextfield.text = ""
-      // isValidated = false
+        yearTextfield.text = ""
+        monthTextfield.text = ""
+        dayTextfield.text = ""
+        // isValidated = false
     }
     @IBAction func changePic(_ sender: Any) {
         
         if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
             ProfilePic.image = UIImage(named: "GirlWithCircle")
-    
+            
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
-
-
-           // ProfilePic.image = UIImage(named: "GirlWithCircle")
+            
+            
+            // ProfilePic.image = UIImage(named: "GirlWithCircle")
             
         }else{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
@@ -243,17 +243,17 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         }
         
         
-        }
+    }
     @IBAction func changeInfo(_ sender: Any) {
         var newName = NameTextField!.text!
         if(!(newName=="")){
-        updateName(newName)
+            updateName(newName)
         }
         
         var month = monthTextfield.text!
         var day = dayTextfield.text!
         if(!(day==""&&month=="")){
-          
+            
             if (dayTextfield.text!.count<2){
                 day = "٠"+dayTextfield.text!
             }
@@ -264,7 +264,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
             updateBOD(newBOD)
             
         }
-       
+        
         var sex = ""
         if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
             sex="boy"
@@ -273,86 +273,93 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         }
         updateSex(sex)
         
-//        var newImage = NameTextField!.text!
-//        updateName(newName)
-        }
-     
+        backToProfile()
         
-        //MARK:- Functions
+    }
+    
+    
+    //MARK:- Functions
+    
+    func getChildMoney(){
         
-        func getChildMoney(){
+        let child = LocalStorageManager.getChild()
+        if let child = child {
+            setMoney(child.money)
+        }else{
             
-            let child = LocalStorageManager.getChild()
-            if let child = child {
-                setMoney(child.money)
-            }else{
-                
-                print("No Child Found")
-                //TODO: Alert and back button..
-            }
-            
+            print("No Child Found")
+            //TODO: Alert and back button..
         }
+        
+    }
     
     func updateName(_ newName:String){
-            FirebaseRequest.updateName(newName) { (success, errore) in
-                if !success{
-                    //Purches won't complated
-                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
-                    
-                }else{
-                    self.setName(newName)
-                }
+        FirebaseRequest.updateName(newName) { (success, errore) in
+            if !success{
+                //Purches won't complated
+                //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                
+            }else{
+                self.setName(newName)
             }
         }
+    }
     
     func updateBOD(_ newDOB:String){
-     
         
-            FirebaseRequest.updateDOB(newDOB) { (success, errore) in
-                if !success{
-                    //Purches won't complated
-                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
-                    
-                }else{
-                    self.setAge(newDOB)
-                }
+        
+        FirebaseRequest.updateDOB(newDOB) { (success, errore) in
+            if !success{
+                //Purches won't complated
+                //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                
+            }else{
+                self.setAge(newDOB)
             }
         }
+    }
     func updateSex(_ newSex:String){
-     
         
-            FirebaseRequest.updateSex(newSex) { (success, errore) in
-                if !success{
-                    //Purches won't complated
-                  //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
-                    
-                }else{
-                    self.setImage(newSex)
-                }
+        
+        FirebaseRequest.updateSex(newSex) { (success, errore) in
+            if !success{
+                //Purches won't complated
+                //  self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً")
+                
+            }else{
+                self.setImage(newSex)
             }
         }
-        
+    }
     
-       
-  
-
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        backToProfile()
+    }
+    
+    func backToProfile(){
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
+    
     //اه
 }//end class
 extension String {
     func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)
     }
-
+    
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
         return String(self[fromIndex...])
     }
-
+    
     func substring(to: Int) -> String {
         let toIndex = index(from: to)
         return String(self[..<toIndex])
     }
-
+    
     func substring(with r: Range<Int>) -> String {
         let startIndex = index(from: r.lowerBound)
         let endIndex = index(from: r.upperBound)

@@ -247,12 +247,12 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
                 }catch{
                     
                     print("error while decoding child report ",error)
-                    self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
+                    self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى", isSuccess: false), animated: true)
                 }
                 
             }else{
                 print("error")
-                self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى"), animated: true)
+                self.present(alert.Alert(body: "حدث خطأ، حاول مره اخرى", isSuccess: false), animated: true)
                 
             }
         }

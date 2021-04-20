@@ -176,12 +176,13 @@ class UpdatePasswordViewController: UIViewController {
                 if newPassword != oldPassword {
                     FirebaseRequest.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { (success, err) in
                         if success {
-                                self.present(self.alert.Alert(body:"تم تغيير رمز مرورك بنجاح 🎉", isSuccess: true ), animated: true){
+                            self.present(self.alert.Alert(body:"تم تغيير رمز مرورك بنجاح 🎉", isSuccess: true ), animated: true){
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    self.performSegue(withIdentifier: "showEditProfile", sender: sender)
+                                    
+                                    self.back()
                                 }
                             }
-
+                            
                         } else {
                             //error happend while perform update password
                             self.present(self.alert.Alert(body:err, isSuccess: false), animated: true)
@@ -199,7 +200,16 @@ class UpdatePasswordViewController: UIViewController {
             // old password nil
             self.present(self.alert.Alert(body:"هلّا أدخلت رمز مرورك السابق؟", isSuccess: false), animated: true)
         }
-   
+        
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        back()
+    }
+    
+    func back(){
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
 }

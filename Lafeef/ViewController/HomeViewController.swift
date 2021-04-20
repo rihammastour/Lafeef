@@ -167,7 +167,7 @@ class HomeViewController: UIViewController {
                 print("Home View Controller",err!)
                 if err?.localizedDescription == "Failed to get document because the client is offline."{
                     print("تأكد من اتصال الانترنيت")
-                    self.present(self.alertservice.Alert(body: "تأكد من اتصالك بالإنترنت"),animated:true)
+                    self.present(self.alertservice.Alert(body: "تأكد من اتصالك بالإنترنت", isSuccess: false),animated:true)
                     //TODO: Alert and update button and logout
                 }
                 
@@ -187,7 +187,7 @@ class HomeViewController: UIViewController {
             setUIChildInfo(child)
         }else{
             print("No Child Found")
-            self.present(self.alertservice.Alert(body: "لايوجد مستخدم"),animated:true)
+            self.present(self.alertservice.Alert(body: "لايوجد مستخدم", isSuccess: false),animated:true)
             
             //TODO: Alert..
             

@@ -26,6 +26,10 @@ class AlertViewController: UIViewController {
         if isSuccess {
             alertBody.textColor =  UIColor.init(named: "GreenApp")
             nextButton.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                
+                self.dismiss(animated: true)
+            }
         }
     }
     

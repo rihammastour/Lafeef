@@ -485,19 +485,6 @@ isCorrect=true
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    func showAdvOnBakery(){
-        if AdvReportViewController.randomNum == 1 {
-            GameScene.presentAdvertisment(at: 1)
-            
-            print("inside adv")
-        } else if AdvReportViewController.randomNum == 2 {
-            GameScene.presentAdvertisment(at: 2)
-            print("inside adv2")
-        }
-    }
-    
     func setupAVCapture() {
         print("setup without override")
         var deviceInput: AVCaptureDeviceInput!

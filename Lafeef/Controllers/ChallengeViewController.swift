@@ -252,7 +252,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         guard let levelNum = self.levelNum else {
             //TODO: Alert and go back
-            showAlert(with: "لا يوجد طلبات لهذا اليوم")//Not working
+            showAlert(with: "لا يوجد طلبات لهذا اليوم", isSuccess: false)//Not working
             return
         }
         
@@ -555,9 +555,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //MARK: - Delegate handeler
     
     //showAlert
-    func showAlert(with message:String) {
+    func showAlert(with message:String, isSuccess: Bool) {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
-        self.present(alert.Alert(body: message), animated: true)
+        self.present(alert.Alert(body: message, isSuccess: isSuccess), animated: true)
         
     }
     
@@ -568,7 +568,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             print("Challenge View Controller",err!)
             
             if err?.localizedDescription == "Failed to get document because the client is offline."{
-                self.present(alert.Alert(body: "لطفًا، تأكد من اتصالك بالإنترنت"), animated: true)
+                self.present(alert.Alert(body: "لطفًا، تأكد من اتصالك بالإنترنت", isSuccess: false), animated: true)
                 print("تأكد من اتصال الانترنيت")
                 //TODO: Alert and update button and go back
             }
