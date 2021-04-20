@@ -96,8 +96,8 @@ class ProfileViewController: UIViewController {
     func setImage(_ sex:String) {
         if sex != "girl"{
             ProfilePic.image = UIImage(named: "boy-icon")
-        }else if LoginViewController.userPrfrence != ""{
-            ProfilePic.image = UIImage(named:LoginViewController.userPrfrence)
+        }else if HomeViewController.userPrfrence != ""{
+            ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
         }
 
         else{

@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
     //Style elemnts
         setUpElements()
         //Get Child Data
-        getChildDatads()
+        getChildData()
         RegisterObserver(for:"child")
         
     }

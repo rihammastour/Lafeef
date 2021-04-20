@@ -71,10 +71,9 @@ class PreviewPrefrenceViewController: UIViewController {
     }
     
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-        if let navigationController = self.navigationController {
-            navigationController.popViewController(animated: true)
-        }
+    @IBAction func closePreview(_ sender: Any) {
+        self.dismiss(animated: true)
     }
+    
     
 }
