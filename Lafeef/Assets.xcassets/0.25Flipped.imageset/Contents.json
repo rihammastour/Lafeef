@@ -3,20 +3,6 @@
     {
       "filename" : "0.25Flipped.png",
       "idiom" : "universal",
-      "resizing" : {
-        "cap-insets" : {
-          "bottom" : 155,
-          "left" : 153,
-          "right" : 154,
-          "top" : 155
-        },
-        "center" : {
-          "height" : 1,
-          "mode" : "tile",
-          "width" : 1
-        },
-        "mode" : "9-part"
-      },
       "scale" : "1x"
     },
     {

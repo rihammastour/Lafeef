@@ -30,7 +30,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var money:[Money]?
     var alert = AlertService()
     var voice = Voice2ViewController()
-    let sound = SoundManager()
+    var sound = SoundManager()
     
     
     
@@ -136,7 +136,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -275,6 +275,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         let toppings = order.toppings
         challengeScen?.setOrderContent(with: base, toppings)
         showCustomerPaid(at: number)
+        calculateTotalBillWithTax(at: number)
+        calculateTotalBill(at: number)
+        showBill()
     }
     
     func showCustomerPaid(at number:Int) -> Void {
@@ -286,10 +289,11 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func showBill() -> Void {
+    
         let totalBillRounded = Float(round(100*getTotalBill())/100)
         let taxRounded = Float(round(100*getTotalTax())/100)
         
-        let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10)
+        let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10) 
         
         challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
         challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
@@ -348,22 +352,23 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     
-    func calculateTotalBill(for providedAnswer: Answer) {
+    func calculateTotalBill(at number: Int) {
         //reset totalBill
         self.totalBill = 0
         
+        let order = orders![number]
         //get Order base  and toppings
-        let providedBase = providedAnswer.base
-        let providedToppings = providedAnswer.toppings
+        let base = order.base
+        let orderToppings = order.toppings
         
-        guard providedBase != nil else {
+        guard base != nil else {
             self.totalBill = 0
             return
         }
         
-        self.totalBill = (providedBase!.getPrice())
+        self.totalBill = (base.getPrice())
         
-        guard let toppings = providedToppings else {
+        guard let toppings = orderToppings else {
             //No Toppings
             return
         }
@@ -376,22 +381,23 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
     }
     
-    func calculateTotalBillWithTax(for providedAnswer: Answer){
+    func calculateTotalBillWithTax(at number: Int){
         //reset tax
         self.tax = 0
         
-        //get Order
-        let providedBase = providedAnswer.base
-        let providedToppings = providedAnswer.toppings
+        let order = orders![number]
+        //get Order base  and toppings
+        let base = order.base
+        let orderToppings = order.toppings
         
-        guard providedBase != nil else {
+        guard base != nil else {
             self.tax = 0
             return
         }
         
-        self.tax = providedBase!.getTax()
+        self.tax = base.getTax()
         
-        guard let toppings = providedToppings else {
+        guard let toppings = orderToppings else {
             //No Toppings
             return
         }
@@ -477,6 +483,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             
             vc.challengeScen = self.challengeScen
             vc.delegate = self.delegate
+            vc.sound = sound
             
             if(challengeScen?.timer==nil){
                 challengeScen?.timeLeft = 0//make the circle green when stop before custmer arrive
@@ -512,8 +519,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     func levelEnd() {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         _ = scaleLevelScore()
-//        report.collectedScore = levelScore
-        report.collectedScore = 60
+        report.collectedScore = levelScore
+//        report.collectedScore = 60
         report.isPassed = checkLevelPassed()
         
         //Set report attribute

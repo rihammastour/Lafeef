@@ -15,7 +15,7 @@ class PauseGameViewController: UIViewController{
     var challengeScen:GameScene!
     var leftTimeTemp:TimeInterval!
     var delegate:ManageViewController!
-
+    var sound = SoundManager()
     @IBOutlet weak var pauseView: UIView!
     @IBOutlet weak var viewInstructionOutlet: UIButton!
     @IBOutlet weak var exitOutlet: UIButton!
@@ -80,7 +80,9 @@ class PauseGameViewController: UIViewController{
     }
     
     @IBAction func exitbuttonTapped(_ sender: Any) {
+        GameScene.circleDecrement=true
         self.dismiss(animated: true, completion:{
+            self.sound.player?.stop()
             self.delegate.exitPlaying()
         })
     }
