@@ -18,7 +18,7 @@
         <!--Training Section View Controller-->
         <scene sceneID="nbG-26-PS5">
             <objects>
-                <viewController restorationIdentifier="TrainingSectionVC" storyboardIdentifier="TrainingSectionVC" id="75B-UP-2iv" customClass="TrainingSectionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TrainingSectionVC" storyboardIdentifier="TrainingSectionVC" modalPresentationStyle="overFullScreen" id="75B-UP-2iv" customClass="TrainingSectionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JB3-Cs-F2f">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

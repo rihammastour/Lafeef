@@ -272,7 +272,6 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="instructionBarViewTapped:" destination="lXH-ms-ACN" eventType="touchUpInside" id="0Bd-GM-LFK"/>
                                             <segue destination="A7N-Qq-EyP" kind="presentation" identifier="instruction1" modalPresentationStyle="fullScreen" id="vP9-K1-MPq"/>
                                         </connections>
                                     </button>
@@ -344,7 +343,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvc-co-AM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5559" y="636"/>
+            <point key="canvasLocation" x="6324" y="385"/>
         </scene>
         <!--Challenge-->
         <scene sceneID="9Ve-9y-Rwr">
@@ -354,7 +353,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-qk-PQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6368" y="346"/>
+            <point key="canvasLocation" x="6311" y="270"/>
         </scene>
         <!--GuidanceInstructiont1VC-->
         <scene sceneID="SY0-gV-1gj">
@@ -362,7 +361,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="GuidanceInstructiont1VC" storyboardName="instructions" referencedIdentifier="GuidanceInstructiont1VC" id="A7N-Qq-EyP" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nk0-UM-9Ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5625" y="-328.125"/>
+            <point key="canvasLocation" x="6323" y="494"/>
         </scene>
         <!--GuidanceInstructiont3VC-->
         <scene sceneID="VHa-az-Y57">
