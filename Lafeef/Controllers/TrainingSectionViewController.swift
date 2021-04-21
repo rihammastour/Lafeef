@@ -25,20 +25,27 @@ class TrainingSectionViewController: UIViewController {
         TrainingSectionViewController.sectionType="colors"
         sound.playSound(sound: Constants.Sounds.learColors)
 
-        goToTrainingBoard()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.goToTrainingBoard()
+        }
+    
     }
     
     @IBAction func shapeSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="shapes"
         sound.playSound(sound: Constants.Sounds.learnShapes)
-        goToTrainingBoard()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.goToTrainingBoard()
+        }
     }
     
     
     @IBAction func calculateSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="calculations"
         sound.playSound(sound: Constants.Sounds.learnMath)
-        goToTrainingBoard()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.goToTrainingBoard()
+        }
     }
     
     func goToTrainingBoard(){
@@ -49,5 +56,9 @@ class TrainingSectionViewController: UIViewController {
             self.present(goalVC, animated: true)
         
     }
-    
+    @IBAction func bcakTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
 }

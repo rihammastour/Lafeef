@@ -129,6 +129,13 @@
                                     <constraint firstAttribute="height" constant="400" id="1uw-DT-KQQ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ys8-8s-CgK" userLabel="BackButton">
+                                <rect key="frame" x="28" y="29" width="22" height="38"/>
+                                <state key="normal" image="arrow-back"/>
+                                <connections>
+                                    <action selector="bcakTapped:" destination="75B-UP-2iv" eventType="touchUpInside" id="Yj7-ga-XoS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X7a-x2-cce"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -136,13 +143,16 @@
                             <constraint firstItem="X9U-wE-dpr" firstAttribute="top" secondItem="X7a-x2-cce" secondAttribute="top" constant="386" id="9eq-tb-a9s"/>
                             <constraint firstItem="X9U-wE-dpr" firstAttribute="leading" secondItem="JB3-Cs-F2f" secondAttribute="leading" id="ERH-bv-6lH"/>
                             <constraint firstItem="X7a-x2-cce" firstAttribute="bottom" secondItem="fJM-Wq-CFT" secondAttribute="bottom" constant="324" id="GZv-kh-qWP"/>
+                            <constraint firstItem="ys8-8s-CgK" firstAttribute="leading" secondItem="X7a-x2-cce" secondAttribute="leading" constant="28" id="Iqo-PJ-HBf"/>
                             <constraint firstItem="X9U-wE-dpr" firstAttribute="centerX" secondItem="JB3-Cs-F2f" secondAttribute="centerX" id="Rar-2G-5hw"/>
                             <constraint firstItem="fJM-Wq-CFT" firstAttribute="top" secondItem="X7a-x2-cce" secondAttribute="top" constant="300" id="RhP-FQ-D1i"/>
                             <constraint firstItem="fJM-Wq-CFT" firstAttribute="leading" secondItem="X7a-x2-cce" secondAttribute="leading" constant="20" id="W72-LS-dAh"/>
+                            <constraint firstItem="ys8-8s-CgK" firstAttribute="top" secondItem="X7a-x2-cce" secondAttribute="top" constant="29" id="gov-c5-dg4"/>
                             <constraint firstItem="X9U-wE-dpr" firstAttribute="centerY" secondItem="JB3-Cs-F2f" secondAttribute="centerY" id="hpP-cQ-o07"/>
                             <constraint firstItem="X7a-x2-cce" firstAttribute="trailing" secondItem="fJM-Wq-CFT" secondAttribute="trailing" constant="20" id="rZS-Hh-V68"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="djf-5v-1Qj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQP-qU-oV3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,7 +234,7 @@
                                         <rect key="frame" x="50" y="23" width="22" height="38"/>
                                         <state key="normal" image="arrow-back"/>
                                         <connections>
-                                            <segue destination="75B-UP-2iv" kind="presentation" modalPresentationStyle="fullScreen" id="7vd-ZY-fxt"/>
+                                            <action selector="backTapped:" destination="19p-3N-rqQ" eventType="touchUpInside" id="bvA-qw-4Rq"/>
                                         </connections>
                                     </button>
                                 </subviews>

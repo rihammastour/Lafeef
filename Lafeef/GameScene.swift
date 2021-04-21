@@ -695,11 +695,8 @@ class GameScene: SKScene {
         //Calculate the Scores
         viewController?.calculateOrderScore(for: answer)
     let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
-        
-        //Bill calculation
-        viewController?.calculateTotalBill(for: answer)
-        viewController?.calculateTotalBillWithTax(for: answer)
-    viewController?.showBill()
+    
+      
     paymentContainer?.isHidden = false
 
         

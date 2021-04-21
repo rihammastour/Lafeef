@@ -216,23 +216,23 @@ class ObjectDetectionViewController: ChallengeViewController{
         shapeLayer.name = "Found Object"
         switch classLabel {
         case "CompleteCake":
-            shapeLayer.contents = UIImage(named: "cake")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dcake")!.cgImage
             break
         case "QuarterCake":
-            shapeLayer.contents = UIImage(named: "quarter-cake")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dquarter-cake")!.cgImage
             break
         case "HalfCake":
-            shapeLayer.contents = UIImage(named: "half-cake")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dhalf-cake")!.cgImage
             break
         case "3QuartersCake":
-            shapeLayer.contents = UIImage(named: "threequarter-cake")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dthreequarter-cake")!.cgImage
             
             break
         case "WhiteCupcake":
-            shapeLayer.contents = UIImage(named: "cupcake-van")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dcupcake-van")!.cgImage
             break
         case "BrownCupcake":
-            shapeLayer.contents = UIImage(named: "cupcake-ch")!.cgImage
+            shapeLayer.contents = UIImage(named: "Dcupcake-ch")!.cgImage
             break
         case "ChocolateBrown":
             shapeLayer.contents = UIImage(named: "dark-chocolate")!.cgImage
