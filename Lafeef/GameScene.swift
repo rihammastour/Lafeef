@@ -327,6 +327,7 @@ class GameScene: SKScene {
     
     
     func generateCircle(){
+        
         GameScene.circle = SKShapeNode(circleOfRadius: 36)
         GameScene.circle!.position = CGPoint(x: 70, y: 95)
         
@@ -334,6 +335,7 @@ class GameScene: SKScene {
         GameScene.circle!.strokeColor = SKColor.clear
         GameScene.circle!.zRotation = CGFloat.pi / 2
         self.orderContiner!.addChild(GameScene.circle!)
+        GameScene.circleDecrement=true
         self.countdown(circle: GameScene.circle!, steps: 30, duration: 30) {
             print("circle is done ")
         }
@@ -418,7 +420,7 @@ class GameScene: SKScene {
         })
         let moveActionWithDone = SKAction.sequence([moveAction,WaitingAction] )
         
-        //        customerNode.customer.run(moveActionWithDone, withKey:"sequence\(customerNode.customerName)")
+
         customerNode.customer.run(moveActionWithDone) {
             
             //make order visible
@@ -434,8 +436,7 @@ class GameScene: SKScene {
     
     func showOrder(){
         self.orderContiner?.isHidden = false
-        print("is paused is:")
-        print(isPaused)
+        showDetectionOverlay()
         if(!isPaused){
         self.generateCircle()
         self.generateTimer()
@@ -444,6 +445,7 @@ class GameScene: SKScene {
     
     func hideOrder(){
         self.orderContiner?.isHidden = true
+        hideDetectionOverlay()
         GameScene.circle?.isHidden = true
         GameScene.circle?.alpha=0
         
@@ -677,8 +679,6 @@ class GameScene: SKScene {
         DispatchQueue.main.async {
             self.timer.invalidate()
         }
-//        self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
-//        self.timer =  Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         
         //make order invisible
         self.hideOrder()
@@ -704,7 +704,9 @@ class GameScene: SKScene {
 
         
         //Walk to cashire and react
-        walkToCashir(satisfaction: custSat)
+        walkToCashir(satisfaction: custSat,complition: {
+            showDetectionOverlay()
+        })
         
         //Packege the order
         packegeOrder(for: answer)
@@ -715,6 +717,7 @@ class GameScene: SKScene {
     // checkPaymentAnswer
     func checkPaymentAnswer(){
         print("Payment button tapped!")
+        hideDetectionOverlay()
         
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         
@@ -732,10 +735,12 @@ class GameScene: SKScene {
     
     
     //MARK: - Customer movments
-    func walkToCashir(satisfaction: CustmerSatisfaction){
+    func walkToCashir(satisfaction: CustmerSatisfaction,complition:()->Void){
         
         GameScene.flag = true
         customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
+        complition()
+        
     }
     
     func customerLeave(satisfaction: CustmerSatisfaction){

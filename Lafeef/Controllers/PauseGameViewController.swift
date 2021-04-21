@@ -57,25 +57,15 @@ class PauseGameViewController: UIViewController{
 //            ChallengeViewController.stopImageBool=true
 //            ChallengeViewController.stopCircleNil=false
         }else{
-//            GameScene.countStop+=1
-////            GameScene.circle =  GameScene.circle
-//            print(challengeScen.timeLeft.time)
-//            GameScene.TimerShouldDelay = true
-//            GameScene.endTime = Date().addingTimeInterval(challengeScen.timeLeft)
-//            challengeScen.timeLeft = challengeScen.timeLeft
-//            challengeScen.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-//            print("after start")
-//            print(challengeScen.timeLeft.time)
-//            ChallengeViewController.stopImageBool=true
-//            GameScene.circleDecrement=true
+
             GameScene.circle!.isPaused=false
             GameScene.TimerShouldDelay = true
             GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
             GameScene.circleDecrement=true
-//            GameScene.circle!.isPaused=false
             ChallengeViewController.stopImageBool=true
             
         }
+        
         GameScene.circleDecrement=true
         challengeScen?.isPaused=false
         self.challengeScen.pleaseRUUUNN(as: self.leftTimeTemp)

@@ -123,21 +123,10 @@ class BackeryViewController: UIViewController, ManageViewController{
     ///Exit Play Mode
     func exitPlaying(){
         self.dismiss(animated: true, completion:{
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         })
     }
     
-    //MARK:- Prepare for segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segue.startGameSegue {
-//            let challengeVC = segue.destination as ObjectDetectionViewController
-//            challengeVC.delegate = self
-//            challengeVC.levelNum = self.levelNum
-//            //Set Adv if any
-//            challengeVC.report.advertismentAmount = advAmount
-//            challengeVC.randomAdv = adv
-        }
-    }
 
 
 }

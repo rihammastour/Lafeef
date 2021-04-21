@@ -136,7 +136,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -479,33 +479,24 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             vc.delegate = self.delegate
             
             if(challengeScen?.timer==nil){
-                GameScene.circleDecrement=false
                 challengeScen?.timeLeft = 0//make the circle green when stop before custmer arrive
-                GameScene.circle?.isPaused=true
-                challengeScen?.isPaused=true
-//                DispatchQueue.main.async {
-//                    self.challengeScen?.timer.invalidate()
-//                }
-                
+
                 ChallengeViewController.stopCircleNil=true
                 GameScene.circle?.isHidden=true
                 ChallengeViewController.stopImageBool=false
-                //changeStopImage(_sender:ChallengeViewController.stopImageBool)
-                //changeStopImage()
                 
             }else{
                 challengeScen?.timeLeft = challengeScen!.timeLeft
                 DispatchQueue.main.async {
                     self.challengeScen?.timer.invalidate()
                 }
-                //Boolean variables
-                GameScene.circleDecrement=false
-                GameScene.circle!.isPaused=true
-                challengeScen?.isPaused=true
-                ChallengeViewController.stopImageBool=false
-                
                 
             }
+            //Boolean variables
+            GameScene.circleDecrement=false
+            GameScene.circle?.isPaused=true
+            challengeScen?.isPaused=true
+            ChallengeViewController.stopImageBool=false
             present(vc, animated: true,completion:nil)
             
         }
