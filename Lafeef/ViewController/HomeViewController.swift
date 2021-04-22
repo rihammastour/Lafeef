@@ -184,12 +184,6 @@ class HomeViewController: UIViewController {
         
         if let child = child {
             setUIChildInfo(child)
-        }else{
-            print("No Child Found")
-            self.present(self.alertservice.Alert(body: "لايوجد مستخدم", isSuccess: false),animated:true)
-            
-            //TODO: Alert..
-            
         }
         
     }

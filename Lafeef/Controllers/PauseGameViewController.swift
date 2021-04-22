@@ -43,19 +43,7 @@ class PauseGameViewController: UIViewController{
         if( ChallengeViewController.stopCircleNil){
             challengeScen?.timeLeft = 30
             GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
-//            GameScene.circleDecrement=true
-//            DispatchQueue.main.async {
-//                self.challengeScen.timer.invalidate()
-//            }
-//            challengeScen.timeLeft=30
-//            GameScene.endTime = Date().addingTimeInterval(challengeScen.timeLeft)
-//            challengeScen.timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
-//            GameScene.circle?.isHidden=false
-//            GameScene.circle =  GameScene.circle
-//            GameScene.circle?.isPaused=false
-//            GameScene.TimerShouldDelay = true
-//            ChallengeViewController.stopImageBool=true
-//            ChallengeViewController.stopCircleNil=false
+
         }else{
 
             GameScene.circle!.isPaused=false
@@ -69,6 +57,7 @@ class PauseGameViewController: UIViewController{
         GameScene.circleDecrement=true
         challengeScen?.isPaused=false
         self.challengeScen.pleaseRUUUNN(as: self.leftTimeTemp)
+        self.sound.player?.play()
         //self.challengeScen.circleShouldDelay()
         self.dismiss(animated: true, completion: nil)
     }
@@ -77,14 +66,13 @@ class PauseGameViewController: UIViewController{
 
     @IBAction func viewInstruction(_ sender: Any) {
         if let reportVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.InstructionsVewController) as? InstructionsViewController{
-                self.present(reportVC, animated: true,completion: nil)
+            self.present(reportVC, animated: true,completion: nil)
             }
     }
     
     @IBAction func exitbuttonTapped(_ sender: Any) {
         GameScene.circleDecrement=true
         self.dismiss(animated: true, completion:{
-            self.sound.player?.stop()
             self.delegate.exitPlaying()
         })
     }

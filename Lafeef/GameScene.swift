@@ -92,7 +92,9 @@ class GameScene: SKScene {
     static var cupCakeFrame : SKSpriteNode?
     static var lamp : SKSpriteNode?
     
-    var viewController2: UIViewController?
+    //isOrder variable
+    var isOrdering:Bool = false
+    
     
    
     //MARK: - Lifecycle Functons
@@ -429,12 +431,11 @@ class GameScene: SKScene {
         }
         
         // for cashier
-        
-        //        customerNode.customer.size = CGSize(width: 300, height: 350)
         addChild(customerNode.customer)
     }
     
     func showOrder(){
+        self.isOrdering = true
         self.orderContiner?.isHidden = false
         showDetectionOverlay()
         if(!isPaused){
@@ -444,6 +445,7 @@ class GameScene: SKScene {
     }
     
     func hideOrder(){
+        self.isOrdering = false
         self.orderContiner?.isHidden = true
         hideDetectionOverlay()
         GameScene.circle?.isHidden = true
@@ -950,9 +952,11 @@ class GameScene: SKScene {
     }
     
     func pleaseRUUUNN(as timeInerval:TimeInterval){
-        print("قسمة",timeLeft/100)
+        
+        if !isOrdering{
+            return
+        }
         self.timeLeft = timeInerval
-        print("قسمة",timeLeft/100)
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
     
@@ -1107,9 +1111,6 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         
         if (GameScene.flag && currentCustomer<customers.count){
-            print("Current Customer",currentCustomer)
-            print("arrays",customers,"number",customers.count)
-            print(customers[currentCustomer])
             
             cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
             

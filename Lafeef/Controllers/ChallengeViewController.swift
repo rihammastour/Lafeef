@@ -136,7 +136,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -480,7 +480,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     @IBAction func stopGameTapped(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.puaseGameViewController) as? PauseGameViewController{
-            
+            self.sound.player?.stop()
+
             vc.challengeScen = self.challengeScen
             vc.delegate = self.delegate
             vc.sound = sound
@@ -518,9 +519,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     func levelEnd() {
         ObjectDetectionViewController.detectionOverlay.isHidden = true
-        _ = scaleLevelScore()
-        report.collectedScore = levelScore
-//        report.collectedScore = 60
+        let scaledScore = scaleLevelScore()
+        report.collectedScore = scaledScore
         report.isPassed = checkLevelPassed()
         
         //Set report attribute

@@ -12,6 +12,8 @@ class TrainingSectionViewController: UIViewController {
     static var sectionType="colors"
     let sound = SoundManager()
     
+    //MARK: - LifeCycle
+
     override func viewDidLoad() {
     let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
             backgroundImage.image = UIImage(named: "Training-Background")
@@ -21,6 +23,7 @@ class TrainingSectionViewController: UIViewController {
             view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
+    //MARK: - IBAction
     @IBAction func colorSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="colors"
         sound.playSound(sound: Constants.Sounds.learColors)
@@ -48,17 +51,22 @@ class TrainingSectionViewController: UIViewController {
         }
     }
     
-    func goToTrainingBoard(){
-    print("display")
-            let storyboard = UIStoryboard(name: "TrainingSection", bundle: nil)
-        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.TrainingBoardViewController) as! TrainingBoardViewController
-    
-            self.present(goalVC, animated: true)
-        
-    }
     @IBAction func bcakTapped(_ sender: Any) {
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
         }
     }
+    
+    //MARK:- Functions
+    
+    func goToTrainingBoard(){
+    print("display")
+            let storyboard = UIStoryboard(name: "TrainingSection", bundle: nil)
+        let goalVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.TrainingBoardViewController) as! TrainingBoardViewController
+    
+        self.navigationController?.pushViewController(goalVC, animated: true)
+        
+    }
+    
+
 }
