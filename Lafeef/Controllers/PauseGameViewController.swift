@@ -76,7 +76,9 @@ class PauseGameViewController: UIViewController{
 
 
     @IBAction func viewInstruction(_ sender: Any) {
-
+        if let reportVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.InstructionsVewController) as? InstructionsViewController{
+                self.present(reportVC, animated: true,completion: nil)
+            }
     }
     
     @IBAction func exitbuttonTapped(_ sender: Any) {

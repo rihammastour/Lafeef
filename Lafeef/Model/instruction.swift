@@ -10,8 +10,8 @@ class instruction {
     func Instruction() ->  InstructionViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let instructionVC = storyboard.instantiateViewController(identifier: "instruction") as InstructionViewController
-      
-      
+
+
         return instructionVC
       }
   
