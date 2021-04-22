@@ -157,11 +157,13 @@ class GameScene: SKScene {
         OrderButton = SKSpriteNode(imageNamed: "served")
         OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY ?? 0)+(50))
         OrderButton.zPosition = 50
+        OrderButton.isHidden=true
         self.addChild(OrderButton)
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
         PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY ??  20) + (50))
         PaymentButton.zPosition = 50
+        PaymentButton.isHidden = true
         self.addChild(PaymentButton)
         
         // Get Camera node from scene and store it for use later
@@ -285,7 +287,7 @@ class GameScene: SKScene {
         GameScene.moneyLabel.fontSize = 34
         GameScene.moneyLabel.fontName = "FF Hekaya"
         GameScene.moneyLabel.fontColor = SKColor(named: "BlackApp")
-        GameScene.moneyLabel.text = "٠"
+        GameScene.moneyLabel.text = "٠.٠"
         self.moneyCountiner?.addChild(GameScene.moneyLabel!)
         
     }
@@ -302,13 +304,6 @@ class GameScene: SKScene {
         GameScene.moneyLabel.text =  arabicFormatter.string(from:money as NSNumber)
     }
 
-//    static func setMoneyLabel(_ earnedMoney:Float){
-//        let arabicFormatter: NumberFormatter = NumberFormatter()
-//
-//        arabicFormatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
-//
-//        GameScene.moneyLabel.text =  arabicFormatter.string(from:earnedMoney as NSNumber)
-//    }
     
     
     //MARK: - Timer Continer Functions
@@ -436,6 +431,7 @@ class GameScene: SKScene {
     
     func showOrder(){
         self.isOrdering = true
+        OrderButton.isHidden = false
         self.orderContiner?.isHidden = false
         showDetectionOverlay()
         if(!isPaused){
@@ -705,11 +701,9 @@ class GameScene: SKScene {
       
     paymentContainer?.isHidden = false
 
-        
+        viewController?.showBill()
         //Walk to cashire and react
-        walkToCashir(satisfaction: custSat,complition: {
-            showDetectionOverlay()
-        })
+        walkToCashir(satisfaction: custSat)
         
         //Packege the order
         packegeOrder(for: answer)
@@ -738,11 +732,15 @@ class GameScene: SKScene {
     
     
     //MARK: - Customer movments
-    func walkToCashir(satisfaction: CustmerSatisfaction,complition:()->Void){
+    func walkToCashir(satisfaction: CustmerSatisfaction){
         
         GameScene.flag = true
-        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction)
-        complition()
+        customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction){ [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 9.5) { [self] in
+            self.showDetectionOverlay()
+            PaymentButton.isHidden = false
+            }
+        }
         
     }
     
@@ -786,8 +784,7 @@ class GameScene: SKScene {
     }
     
     func nextCustomer(){
-        OrderButton.isHidden = false
-        PaymentButton.isHidden = false
+        
         currentCustomer += 1
         //timeLeft = 30
         if (currentCustomer<=3){
@@ -1028,9 +1025,8 @@ class GameScene: SKScene {
     checkOrderAnswer()
     }
     func PaymentbuttonTapped(){
-        Voice2ViewController.flag = true
-//        hideDetectionOverlay()
         PaymentButton.isHidden = true
+        Voice2ViewController.flag = true
         checkPaymentAnswer()
     }
     
@@ -1090,10 +1086,11 @@ class GameScene: SKScene {
             self.touchUp(atPoint: t.location(in: self))
             let location = t.location(in: self)
             
-            if OrderButton.contains(location) {
+            if OrderButton.contains(location) && !OrderButton.isHidden{
                 OrderbuttonTapped(button: "x")
             }
-            if PaymentButton.contains(location) {
+            
+            if PaymentButton.contains(location) && !PaymentButton.isHidden{
                 PaymentbuttonTapped()
             }
             

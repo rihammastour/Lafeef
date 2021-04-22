@@ -277,7 +277,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         showCustomerPaid(at: number)
         calculateTotalBillWithTax(at: number)
         calculateTotalBill(at: number)
-        showBill()
+        
     }
     
     func showCustomerPaid(at number:Int) -> Void {
@@ -330,9 +330,9 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     
     func calculatePaymentScore(with chenge:Float){
-        //        ChallengeViewController.report.ingredientsAmount += totalBill
-        //        ChallengeViewController.report.salesAmount += totalBill
-        let expectedChange = getCurrentOrder()!.customerPaid - getTotalBillWithTax()
+     
+        let totalBillWithTax = Float(round(10*getTotalBillWithTax())/10)
+        let expectedChange = getCurrentOrder()!.customerPaid - totalBillWithTax
         print("expectedChange", expectedChange)
         if expectedChange == chenge {
             self.paymentScore = 1

@@ -48,7 +48,7 @@ class BackeryViewController: UIViewController, ManageViewController{
     
     //MARK: - Delagate Methods
     func showGoalMessage(){
-        if let goalLevelVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.goalLevelVC) as? LevelGoalViewController{
+        if let goalLevelVC = storyboard?.instantiateViewController(identifier: "GoalVC") as? GoalViewController{
             goalLevelVC.levelNum =  levelNum
             goalLevelVC.delegate = self
             present(goalLevelVC, animated: true,completion:nil)

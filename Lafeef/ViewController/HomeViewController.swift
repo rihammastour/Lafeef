@@ -254,7 +254,6 @@ class HomeViewController: UIViewController {
                 do{
                     let equipments = try FirebaseDecoder().decode([String:ChildEquipment].self, from: data)
                     self.childEquipments = equipments
-                    print("ddld")
                     self.reflectChildPrefrences()
                
                 }catch{
@@ -270,6 +269,7 @@ class HomeViewController: UIViewController {
     
     func reflectChildPrefrences(){
         print(childEquipments.values.count,"count")
+        GameScene.previewFrames(lamp: true, lavendar: true, cupcake: true, lolipop: true)
         if childEquipments.count != 0 {
          
             for item in childEquipments.values{

@@ -59,22 +59,20 @@ class DailyReportViewController: UIViewController {
     }
     
     //MARK:- Functions
-    func updatemoneyLabel(){ //Must be done in firestore
-        
-        updateChildInfo()
-    }
     
     
     func newCurrentLevel()->Int{
            
- 
-           let childCurrentLevel = Int(childInfo?.currentLevel ?? 1)
-        if (report.isPassed && report.levelNum != "4" && Int(report.levelNum)! > childCurrentLevel){
+        guard let child =  childInfo else {
+            return 1
+        }
+           let childCurrentLevel = Int(child.currentLevel)
+        if (report.isPassed && report.levelNum != "4" && Int(report.levelNum)! >= childCurrentLevel){
                
             return  childCurrentLevel+1
             
         }else{
-               return childInfo?.currentLevel ?? 1
+               return child.currentLevel
            }
        }
     
@@ -83,8 +81,6 @@ class DailyReportViewController: UIViewController {
         let child = LocalStorageManager.getChild()
         if let child = child {
             self.childInfo = child
-        }else{
-            //TODO : Alert and back
         }
     }
     
@@ -99,7 +95,7 @@ class DailyReportViewController: UIViewController {
         let score = report.collectedScore+Float(childInfo.score)
         let money = report.collectedMoney+childInfo.money
         let currentLevel = newCurrentLevel()
-        
+        print("currentLevel ::::",currentLevel)
         FirebaseRequest.updateChildInfo(score, Money: money, currentLevel) { (complete, error) in
             
             if error == nil {
@@ -119,6 +115,7 @@ class DailyReportViewController: UIViewController {
     }
     
     func convertLabelsToArabic(){
+        checkSalesAmount()
         sales.text = "\(report.salesAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
         ingredients.text = "\(report.ingredientsAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
         backaging.text = "\(report.backagingAmount)".convertedDigitsToLocale(Locale(identifier: "AR"))
@@ -127,13 +124,14 @@ class DailyReportViewController: UIViewController {
     
     // Caluctate Income
     func calcultateIncome(){
+        checkSalesAmount()
         let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
         
         print("Sales amount",report.salesAmount)
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))
         
         report.collectedMoney += incomeDigit + Float(report.reward)
-        updatemoneyLabel()
+        updateChildInfo()
     }
     
     func calculateReward(){
@@ -263,7 +261,12 @@ class DailyReportViewController: UIViewController {
      }
      
     
-    
+    func checkSalesAmount(){
+            if report.salesAmount == 0.0 {
+                report.ingredientsAmount = 0
+                report.backagingAmount = 0
+            }
+        }
     
     
     func setCompletedLevel(completed:CompletedLevel){

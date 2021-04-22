@@ -134,7 +134,7 @@ class CustomerNode {
            }
     }
     
-    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction) {
+    func movetoCashier(customerNode : CustomerNode, customerSatisfaction : CustmerSatisfaction,completion: @escaping ()->()) {
         // need to hide ca layer
         print(ObjectDetectionViewController.detectionOverlay, "----------------------------------------")
         
@@ -184,6 +184,7 @@ class CustomerNode {
         
         
         }
+        completion()
 
     }
     
