@@ -671,6 +671,7 @@ class GameScene: SKScene {
     // OrderbuttonTapped
     func checkOrderAnswer(){
     OrderButton.isHidden = true
+        
 
         // Get answers provided
     let answer = (viewController?.objectDetected?.getAnswer())!
@@ -680,6 +681,9 @@ class GameScene: SKScene {
             self.timer.invalidate()
         }
         
+        //Handling detection overlay
+           Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(hideDetectionOverlay), userInfo: nil, repeats: false)
+           Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(showObjectsAfterCustomerArrive), userInfo: nil, repeats: false)
         //make order invisible
         self.hideOrder()
         
