@@ -52,6 +52,10 @@ class ProfileViewController: UIViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+
+        UserDefaults.standard.removeObserver(self, forKeyPath: "child", context: nil)
+    }
     
     //MARK:- Functions
     
@@ -72,12 +76,12 @@ class ProfileViewController: UIViewController {
     }
     //Level
     func setCurrentLevel(_ level:Int) {
-        levelNumLabel.text = String(level)
+        levelNumLabel.text = String(level).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money)
+        moneyLabel.text = String(money).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //Email
@@ -110,7 +114,7 @@ class ProfileViewController: UIViewController {
         print(calculateAge)
         
         
-        AgeLable.text = "العمر |\(String(calculateAge))"
+        AgeLable.text = "العمر | "+"\(String(calculateAge))".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     func removeDataStorage(for key:String){

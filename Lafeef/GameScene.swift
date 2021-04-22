@@ -122,6 +122,7 @@ class GameScene: SKScene {
         //ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
+        previewFrames()
         
     }
     
@@ -233,36 +234,12 @@ class GameScene: SKScene {
             updateMoneyLabel(250)
         }
     }
-    static func presentChildPrefrence( name: String){
-        print("adv presented success")
-        print(name,"name")
-        switch name {
-        case BackeryStore.cupcakeFrame.rawValue:
-            GameScene.previewFrames(lamp: true , lavendar: true, cupcake: false, lolipop: true)
-            break
-        case BackeryStore.lavendarFrame.rawValue:
-            GameScene.previewFrames(lamp: true , lavendar: false, cupcake: true, lolipop: true )
-         
-            break
-         
-        case BackeryStore.lamp.rawValue:
-            GameScene.previewFrames(lamp: false , lavendar: true, cupcake: true, lolipop: true)
-            break
-        case BackeryStore.loliPopFrame.rawValue:
-            GameScene.previewFrames(lamp: true , lavendar: true, cupcake: true, lolipop: false)
-            break
- 
-        default:
-            print("no item")
-        
-        }
-    }
-    static func previewFrames(lamp:Bool,lavendar:Bool,cupcake:Bool,lolipop:Bool){
-        GameScene.loliPopFrame?.isHidden = lolipop
-        GameScene.lamp?.isHidden = lamp
-        GameScene.lavendarFrame?.isHidden = lavendar
-        GameScene.cupCakeFrame?.isHidden = cupcake
-        
+
+    func previewFrames(){
+        GameScene.loliPopFrame?.isHidden = HomeViewController.isHiddenLoliPopFrame
+        GameScene.lamp?.isHidden = HomeViewController.isHiddenLamp
+        GameScene.lavendarFrame?.isHidden =  HomeViewController.isHiddenLavendarFrame
+        GameScene.cupCakeFrame?.isHidden =  HomeViewController.isHiddenCupcakeFrame
     }
     //MARK: - Money Continer Functions
     func setUpMoneyContiner(){
@@ -591,16 +568,16 @@ class GameScene: SKScene {
     
     //MARK: Payment Elements
     func setTotalBill(totalBill: Float, tax: Float){
-        totalBillLabel?.position = CGPoint(x: 20, y: -40)
+        totalBillLabel?.position = CGPoint(x: 17, y: -40)
         totalBillLabel?.numberOfLines = 3
         totalBillLabel?.fontName =  "FF Hekaya"
-        totalBillLabel?.fontSize = 25
+        totalBillLabel?.fontSize = 35
         totalBillLabel?.text = "المبلغ = \(totalBill) \n الضريبة (١٥٪) = \(tax) \n المجموع =".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     func setTotalBillWithTax(totalBillWithTax: Float){
-        totalBillWithTaxLabel?.position = CGPoint(x: 30, y: -90)
-        totalBillWithTaxLabel?.fontSize = 40
+        totalBillWithTaxLabel?.position = CGPoint(x: 27, y: -90)
+        totalBillWithTaxLabel?.fontSize = 60
         totalBillWithTaxLabel?.fontName =  "FF Hekaya"
         totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
@@ -755,8 +732,14 @@ class GameScene: SKScene {
         
         //Move Customer
         customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                paymentContainer?.isHidden = true
+                box?.isHidden = true
+                bill?.isHidden = true
                 
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) { [self] in
+        
                 let startPoint = CGPoint(x: 0, y: 0)
                 let moveing = SKAction.move(to: startPoint, duration: 1)
                 cam.run(moveing){
@@ -784,6 +767,10 @@ class GameScene: SKScene {
     }
     
     func nextCustomer(){
+        
+        paymentContainer?.isHidden = false
+        box?.isHidden = false
+        bill?.isHidden = false
         
         currentCustomer += 1
         //timeLeft = 30

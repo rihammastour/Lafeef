@@ -95,6 +95,10 @@
 		4EC81A8D2630C384007EAA90 /* answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8A2630C383007EAA90 /* answer.mp3 */; };
 		4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8B2630C383007EAA90 /* skip.mp3 */; };
 		4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A922630D3D4007EAA90 /* bakery.mp3 */; };
+		4EC81ADD2631431A007EAA90 /* CakeModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */; };
+		4EC81AE226314434007EAA90 /* MoneyModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */; };
+		4EC81AE726314B16007EAA90 /* LightInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81AE626314B15007EAA90 /* LightInstructionViewController.swift */; };
+		4EC81AEC26315773007EAA90 /* lampInstruction.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81AEB26315772007EAA90 /* lampInstruction.gif */; };
 		4ED05391262CE0130021544F /* failed-attempt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED05390262CE0130021544F /* failed-attempt.json */; };
 		4ED0539E262D29070021544F /* success-attempt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED0539D262D29070021544F /* success-attempt.json */; };
 		4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED47F4C25D366C60064D86C /* StarsAnimation.json */; };
@@ -313,6 +317,10 @@
 		4EC81A8A2630C383007EAA90 /* answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = answer.mp3; sourceTree = "<group>"; };
 		4EC81A8B2630C383007EAA90 /* skip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = skip.mp3; sourceTree = "<group>"; };
 		4EC81A922630D3D4007EAA90 /* bakery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bakery.mp3; sourceTree = "<group>"; };
+		4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
+		4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
+		4EC81AE626314B15007EAA90 /* LightInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightInstructionViewController.swift; sourceTree = "<group>"; };
+		4EC81AEB26315772007EAA90 /* lampInstruction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lampInstruction.gif; sourceTree = "<group>"; };
 		4ED05390262CE0130021544F /* failed-attempt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "failed-attempt.json"; sourceTree = "<group>"; };
 		4ED0539D262D29070021544F /* success-attempt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "success-attempt.json"; sourceTree = "<group>"; };
 		4ED47F4C25D366C60064D86C /* StarsAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StarsAnimation.json; sourceTree = "<group>"; };
@@ -510,6 +518,7 @@
 				C95EBD6926308A98000A56EC /* InstructionsViewController.swift */,
 				C95EBD6E26308EB2000A56EC /* CustomUIPageViewController.swift */,
 				C95EBD7B26309247000A56EC /* ContentInstructionsViewController.swift */,
+				4EC81AE626314B15007EAA90 /* LightInstructionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -608,6 +617,7 @@
 				41CFB12725D08754004D31F9 /* WinningReport.swift */,
 				41CFB12225D084E3004D31F9 /* WinningReport.sks */,
 				4EB21B7B25CF768F0076530E /* ProgressBar.swift */,
+				4EC81AEB26315772007EAA90 /* lampInstruction.gif */,
 				C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */,
 				C9B6CDA8260ED69C0079D0A1 /* Stand.gif */,
 				C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */,
@@ -694,8 +704,10 @@
 				C987434625D14CB90075581E /* Level.swift */,
 				C97A96F525D1FD770051FF53 /* OrderTimer.swift */,
 				C9E2D3F625D162D900F1CAD5 /* Order.swift */,
+				4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */,
 				C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */,
 				4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */,
+				4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */,
 				4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				411091CD25E4986F0035FACF /* Answer.swift */,
@@ -946,6 +958,7 @@
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
 				4E7EB29026267EC3008E7EDB /* trainingTraingle.mp3 in Resources */,
+				4EC81AEC26315773007EAA90 /* lampInstruction.gif in Resources */,
 				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
 				C9B6CDA9260ED69C0079D0A1 /* Stand.gif in Resources */,
@@ -1219,6 +1232,7 @@
 				41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
+				4EC81AE226314434007EAA90 /* MoneyModel.mlmodel in Sources */,
 				4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41F78E682618AA8D0048C968 /* Slide.swift in Sources */,
@@ -1252,11 +1266,13 @@
 				419B1BD825FBF55F0024F011 /* NormalViewController.swift in Sources */,
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				C95EBD7C26309247000A56EC /* ContentInstructionsViewController.swift in Sources */,
+				4EC81AE726314B16007EAA90 /* LightInstructionViewController.swift in Sources */,
 				4EE2E7F225DAC1980026F98C /* CompletedLevel.swift in Sources */,
 				41BE5A1125E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift in Sources */,
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */,
+				4EC81ADD2631431A007EAA90 /* CakeModel.mlmodel in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C9241FBD260E9E4F003635E8 /* Store.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
@@ -1446,14 +1462,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1469,14 +1485,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

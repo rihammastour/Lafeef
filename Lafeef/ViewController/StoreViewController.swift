@@ -46,7 +46,7 @@ class StoreViewController: UIViewController {
         setUIElements()
         getChildData()
         
-        
+//        updateMoney(200)
         fechStoreEquipment {
             tableView.reloadData()
         }
@@ -84,7 +84,7 @@ class StoreViewController: UIViewController {
     
     func updateMoney(_ money:Float){
         self.money = money
-        moneyUILabel.text = String(self.money)
+        moneyUILabel.text = String(self.money).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //MARK:- Get Data Functions
@@ -168,6 +168,7 @@ class StoreViewController: UIViewController {
     }
     
     func useItem(_ aEquipment:StoreEquipment){
+
         if let id = getId(for: aEquipment.name) {
             
             if let eq = BackeryStore.init(rawValue: aEquipment.name){
@@ -191,6 +192,7 @@ class StoreViewController: UIViewController {
                 if (succes){
                     
                     self.getChildPrefrnces()
+                    self.reflectuserPrefrence(name: aEquipment.name)
                     self.performSegue(withIdentifier: "preview", sender:self)
 //                    self.showAlert(with: "تم تغيير بنجاح")
                     
@@ -527,7 +529,7 @@ extension StoreViewController : UITableViewDataSource{
         if let aEquipment = aEquipment{
             
             cell.label.text = "\(aEquipment.label) | "
-            cell.costLabel.text = " \(aEquipment.cost) ريال"
+            cell.costLabel.text = " \(aEquipment.cost)".convertedDigitsToLocale(Locale(identifier: "AR")) +  "ريال"
             cell.equipmentImage.image = UIImage(named: "imagePlaceholder")
 
             ///Register Button to be handele
@@ -540,7 +542,6 @@ extension StoreViewController : UITableViewDataSource{
                     cell.button.isEnabled = false
                     cell.button.setBackgroundImage(UIImage(named: "item-used-icon"), for: UIControl.State.normal)
                 }else{
-                    reflectuserPrefrence(name: aEquipment.name)
                     cell.button.setBackgroundImage(UIImage(named: "use-item-icon"), for: UIControl.State.normal)
                     cell.button.removeTarget(nil, action: nil, for: .allEvents)
                     cell.button.addTarget(self, action: #selector(useItemTapped(_:)), for: .touchUpInside)

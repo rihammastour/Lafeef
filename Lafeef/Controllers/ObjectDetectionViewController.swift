@@ -38,8 +38,18 @@ class ObjectDetectionViewController: ChallengeViewController{
         // Setup Vision parts
         let error: NSError! = nil
         print("setupvision")
-        
-        guard let modelURL = Bundle.main.url(forResource: "LafeefPaperModel 1", withExtension: "mlmodelc") else {
+        let modelResource: String!
+        if isPaymentModelUsed {
+            modelResource = "MoneyModel"
+            print("payment model")
+         
+        } else {
+            modelResource = "CakeModel"
+            print("cake model")
+
+            
+        }
+        guard let modelURL = Bundle.main.url(forResource: modelResource, withExtension: "mlmodelc") else {
             return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
         }
         do {
@@ -215,7 +225,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         shapeLayer.position = position
         shapeLayer.name = "Found Object"
         switch classLabel {
-        case "CompleteCake":
+        case "Cake":
             shapeLayer.contents = UIImage(named: "Dcake")!.cgImage
             break
         case "QuarterCake":
@@ -226,18 +236,17 @@ class ObjectDetectionViewController: ChallengeViewController{
             break
         case "3QuartersCake":
             shapeLayer.contents = UIImage(named: "Dthreequarter-cake")!.cgImage
-            
             break
-        case "WhiteCupcake":
+        case "WhiteCupCake":
             shapeLayer.contents = UIImage(named: "Dcupcake-van")!.cgImage
             break
-        case "BrownCupcake":
+        case "BrownCupCake":
             shapeLayer.contents = UIImage(named: "Dcupcake-ch")!.cgImage
             break
-        case "ChocolateBrown":
+        case "BrownChocolate":
             shapeLayer.contents = UIImage(named: "dark-chocolate")!.cgImage
             break
-        case "ChocolateWhite":
+        case "WhiteChocolate":
             shapeLayer.contents = UIImage(named: "white-chocolate")!.cgImage
             break
         case "Kiwi":
@@ -258,10 +267,10 @@ class ObjectDetectionViewController: ChallengeViewController{
         case "TenRiyal":
             shapeLayer.contents = UIImage(named: "10Flipped")!.cgImage
             break
-        case "RiyalHalf":
+        case "HalfRiyal":
             shapeLayer.contents = UIImage(named: "0.5Flipped")!.cgImage
             break
-        case "RiyalQuarter":
+        case "Quarter":
             shapeLayer.contents = UIImage(named: "0.25Flipped")!.cgImage
             break
         case "FiveRiyal":
@@ -299,7 +308,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         
         for label in answerLabels {
             switch label {
-            case "CompleteCake":
+            case "Cake":
                 base = Base.cake
                 break
             case "QuarterCake":
@@ -311,16 +320,16 @@ class ObjectDetectionViewController: ChallengeViewController{
             case "3QuartersCake":
                 base = Base.threequarterCake
                 break
-            case "WhiteCupcake":
+            case "WhiteCupCake":
                 base = Base.vanilaCupcake
                 break
-            case "BrownCupcake":
+            case "BrownCupCake":
                 base = Base.chocolateCupcake
                 break
-            case "ChocolateBrown":
+            case "BrownChocolate":
                 toppings?.append(Topping.darkChocolate)
                 break
-            case "ChocolateWhite":
+            case "WhiteChocolate":
                 toppings?.append(Topping.whiteChocolate)
                 break
             case "Kiwi":
@@ -341,10 +350,10 @@ class ObjectDetectionViewController: ChallengeViewController{
             case "TenRiyal":
                 change += 10
                 break
-            case "RiyalHalf":
+            case "HalfRiyal":
                 change += 0.5
                 break
-            case "RiyalQuarter":
+            case "Quarter":
                 change += 0.25
                 break
             case "FiveRiyal":

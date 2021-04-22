@@ -60,6 +60,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
     var objectDetected: ObjectDetectionViewController?
+    var isPaymentModelUsed: Bool = false
+
     var answerArray = [VNRecognizedObjectObservation]()
     var answerLabels = [String]()
     
@@ -136,7 +138,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -340,6 +342,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             self.paymentScore = 0
         }
         print("Payment Scoren : ",self.paymentScore)
+        isPaymentModelUsed = false
+        objectDetected?.setupVision()
         
     }
     
@@ -469,6 +473,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         self.orderScore = totalSocre
         print("Order Score :  ",self.orderScore)
+        isPaymentModelUsed = true
+        objectDetected?.setupVision()
     }
     
     //getCurrentOrder
@@ -521,6 +527,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         let scaledScore = scaleLevelScore()
         report.collectedScore = scaledScore
+
         report.isPassed = checkLevelPassed()
         
         //Set report attribute

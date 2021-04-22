@@ -36,10 +36,10 @@ class HomeViewController: UIViewController {
     var childEquipments:[String:ChildEquipment] = [:]
     static var userPrfrence = ""
     var sex : String = ""
-
-    
-    
-    
+    static var isHiddenLamp: Bool = true
+    static var isHiddenLavendarFrame: Bool = true
+    static var isHiddenCupcakeFrame: Bool = true
+    static var isHiddenLoliPopFrame: Bool = true
     
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
@@ -269,7 +269,6 @@ class HomeViewController: UIViewController {
     
     func reflectChildPrefrences(){
         print(childEquipments.values.count,"count")
-        GameScene.previewFrames(lamp: true, lavendar: true, cupcake: true, lolipop: true)
         if childEquipments.count != 0 {
          
             for item in childEquipments.values{
@@ -277,16 +276,17 @@ class HomeViewController: UIViewController {
             if item.inUse{
                 switch item.name {
                 case BackeryStore.cupcakeFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
+//                    GameScene.presentChildPrefrence(name: item.name)
+                    HomeViewController.isHiddenCupcakeFrame = false
                     break
                 case BackeryStore.lavendarFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
+                    HomeViewController.isHiddenLavendarFrame = false
                     break
                 case BackeryStore.lamp.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
+                    HomeViewController.isHiddenLamp = false
                     break
                 case BackeryStore.loliPopFrame.rawValue:
-                    GameScene.presentChildPrefrence(name: item.name)
+                    HomeViewController.isHiddenLoliPopFrame = false
                     break
                 case CharachtersStore.blueBoy.rawValue:
                     setChildPrefrence(name: Constants.equipmentNames.blueBoy)

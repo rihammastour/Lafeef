@@ -17,6 +17,7 @@ class LocalStorageManager{
         do{
             // Encode Child
             let data = try encoder.encode(child)
+         
             print("local storage manager",child)
             //Set child
             defaults.set(data, forKey: "child")
