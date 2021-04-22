@@ -122,7 +122,8 @@ class ObjectDetectionViewController: ChallengeViewController{
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(bufferSize.width), Int(bufferSize.height))
             ObjectDetectionViewController.shapeLayer =
                 self.createRoundedRectLayerWithBounds(objectBounds,objectObservation.labels[0].identifier)
-            ObjectDetectionViewController.detectionOverlay.addSublayer(ObjectDetectionViewController.shapeLayer)
+//            ObjectDetectionViewController.detectionOverlay.addSublayer(ObjectDetectionViewController.shapeLayer)
+            ObjectDetectionViewController.detectionOverlay.insertSublayer(ObjectDetectionViewController.shapeLayer, above: ObjectDetectionViewController.shapeLayer.superlayer)
             // need to make it global variable and pass it to move to cahier function to hide it then if in location == 600 same as the detection trigger
             // we need to fix the postion inside the box
             // I think its 480 x and -320 y

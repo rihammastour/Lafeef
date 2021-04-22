@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController {
         
         //Get Child Data
         getChildData()
-        RegisterObserver(for:"child")
+//        RegisterObserver(for:"child")
         
     }
     
@@ -52,10 +52,10 @@ class ProfileViewController: UIViewController {
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-
-        UserDefaults.standard.removeObserver(self, forKeyPath: "child", context: nil)
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//
+//        UserDefaults.standard.removeObserver(self, forKeyPath: "child", context: nil)
+//    }
     
     //MARK:- Functions
     
@@ -96,8 +96,9 @@ class ProfileViewController: UIViewController {
         }else if HomeViewController.userPrfrence != ""{
             ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
         }else{
-            ProfilePic.image = UIImage(named: "GirlwithCircle")
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
         }
+//        ProfilePic.image = UIImage(named: "GirlwithCircle")
     }
     
     //Email
@@ -171,6 +172,8 @@ class ProfileViewController: UIViewController {
     @IBAction func backTapped(_ sender: Any) {
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
+//            UserDefaults.standard.removeObserver(self, forKeyPath: "child", context: nil)
+
         }
     }
     

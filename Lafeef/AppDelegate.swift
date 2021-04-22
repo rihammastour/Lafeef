@@ -36,15 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
-            
+            print(user?.uid)
             if user != nil {
-                
+                print("user exist ")
                 //Fetch user data
                 self.fetchUserInfo()
                 //                Set is logged in child to true
                 animatedSplashVC.isChild = true
                 
             } else {
+                print("user not exist ")
+
 //                Set is logged in child to false
              animatedSplashVC.isChild = false
             }
@@ -75,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Fetch User Data
     func fetchUserInfo(){
+        print("ALIVE????")
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     
