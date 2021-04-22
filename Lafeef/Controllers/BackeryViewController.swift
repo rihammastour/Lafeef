@@ -13,6 +13,7 @@ class BackeryViewController: UIViewController, ManageViewController{
     
     var levelNum:String!
     var goalService = GoalService()
+    let sound = SoundManager()
 
     //MARK:- LifeCycle Functions
     override func viewDidLoad() {
@@ -72,7 +73,10 @@ class BackeryViewController: UIViewController, ManageViewController{
                 //Set Adv if any 
                 challengeVC.report.advertismentAmount = advAmount
                 challengeVC.randomAdv = adv
-                    self.present(challengeVC, animated: true,completion: nil)
+                challengeVC.sound = sound
+                self.present(challengeVC, animated: true){
+                    self.sound.playSound(sound:Constants.Sounds.bakery)
+                }
                 }
         }else{
             presentAdvReport()
@@ -84,7 +88,9 @@ class BackeryViewController: UIViewController, ManageViewController{
         if let reportVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.dailyReportViewController) as? DailyReportViewController{
             reportVC.report = report
             reportVC.delagate = self
-                self.present(reportVC, animated: true,completion: nil)
+            self.present(reportVC, animated: true){
+                    self.sound.player?.stop()
+                }
             }
     }
     

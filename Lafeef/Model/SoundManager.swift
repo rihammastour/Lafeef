@@ -33,5 +33,13 @@ class SoundManager{
             print(error.localizedDescription)
         }
     }
+    
+    func stopSound(){
+        guard let player = player else {
+            print("error in sounds")
+            return
+        }
+        player.stop()
+    }
 }
 

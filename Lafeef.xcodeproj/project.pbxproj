@@ -50,7 +50,7 @@
 		41F78DDF2618962D0048C968 /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DDE2618962D0048C968 /* train.mp3 */; };
 		41F78DE4261896410048C968 /* reward.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DE3261896410048C968 /* reward.mp3 */; };
 		41F78DE9261896610048C968 /* challeange.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DE8261896610048C968 /* challeange.mp3 */; };
-		41F78DEE261896840048C968 /* laernShapes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DED261896840048C968 /* laernShapes.mp3 */; };
+		41F78DEE261896840048C968 /* learnShapes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DED261896840048C968 /* learnShapes.mp3 */; };
 		41F78DF32618969D0048C968 /* learncolors.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DF22618969D0048C968 /* learncolors.mp3 */; };
 		41F78DF8261896B00048C968 /* learnMath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DF7261896B00048C968 /* learnMath.mp3 */; };
 		41F78E00261896C30048C968 /* bye.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DFF261896C30048C968 /* bye.mp3 */; };
@@ -79,7 +79,6 @@
 		4E7EB29026267EC3008E7EDB /* trainingTraingle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28926267EC2008E7EDB /* trainingTraingle.mp3 */; };
 		4E7EB29126267EC3008E7EDB /* trainingSubtraction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28A26267EC2008E7EDB /* trainingSubtraction.mp3 */; };
 		4E7EB29226267EC3008E7EDB /* trainingMultiplication.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */; };
-		4E7EB29326267EC3008E7EDB /* trainingAddition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */; };
 		4E7EB29426267EC3008E7EDB /* trainingBrown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */; };
 		4E7EB29526267EC3008E7EDB /* trainingCircle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */; };
 		4E7EB29626267EC3008E7EDB /* trainingRed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E7EB28F26267EC3008E7EDB /* trainingRed.mp3 */; };
@@ -92,6 +91,10 @@
 		4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB976F025CAD84B00518EF9 /* AlertViewController.swift */; };
 		4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */; };
 		4EC819CB262F8A2C007EAA90 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC819CA262F8A2C007EAA90 /* Store.storyboard */; };
+		4EC81A8C2630C384007EAA90 /* trainingAddition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A892630C382007EAA90 /* trainingAddition.mp3 */; };
+		4EC81A8D2630C384007EAA90 /* answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8A2630C383007EAA90 /* answer.mp3 */; };
+		4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8B2630C383007EAA90 /* skip.mp3 */; };
+		4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A922630D3D4007EAA90 /* bakery.mp3 */; };
 		4ED05391262CE0130021544F /* failed-attempt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED05390262CE0130021544F /* failed-attempt.json */; };
 		4ED0539E262D29070021544F /* success-attempt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED0539D262D29070021544F /* success-attempt.json */; };
 		4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED47F4C25D366C60064D86C /* StarsAnimation.json */; };
@@ -260,7 +263,7 @@
 		41F78DDE2618962D0048C968 /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
 		41F78DE3261896410048C968 /* reward.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reward.mp3; sourceTree = "<group>"; };
 		41F78DE8261896610048C968 /* challeange.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = challeange.mp3; sourceTree = "<group>"; };
-		41F78DED261896840048C968 /* laernShapes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = laernShapes.mp3; sourceTree = "<group>"; };
+		41F78DED261896840048C968 /* learnShapes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnShapes.mp3; sourceTree = "<group>"; };
 		41F78DF22618969D0048C968 /* learncolors.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learncolors.mp3; sourceTree = "<group>"; };
 		41F78DF7261896B00048C968 /* learnMath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMath.mp3; sourceTree = "<group>"; };
 		41F78DFF261896C30048C968 /* bye.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bye.mp3; sourceTree = "<group>"; };
@@ -294,7 +297,6 @@
 		4E7EB28926267EC2008E7EDB /* trainingTraingle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingTraingle.mp3; sourceTree = "<group>"; };
 		4E7EB28A26267EC2008E7EDB /* trainingSubtraction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingSubtraction.mp3; sourceTree = "<group>"; };
 		4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingMultiplication.mp3; sourceTree = "<group>"; };
-		4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingAddition.mp3; sourceTree = "<group>"; };
 		4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingBrown.mp3; sourceTree = "<group>"; };
 		4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingCircle.mp3; sourceTree = "<group>"; };
 		4E7EB28F26267EC3008E7EDB /* trainingRed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingRed.mp3; sourceTree = "<group>"; };
@@ -307,6 +309,10 @@
 		4EB976F025CAD84B00518EF9 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		4EC6D39025C2402B00A15A9D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4EC819CA262F8A2C007EAA90 /* Store.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
+		4EC81A892630C382007EAA90 /* trainingAddition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trainingAddition.mp3; sourceTree = "<group>"; };
+		4EC81A8A2630C383007EAA90 /* answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = answer.mp3; sourceTree = "<group>"; };
+		4EC81A8B2630C383007EAA90 /* skip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = skip.mp3; sourceTree = "<group>"; };
+		4EC81A922630D3D4007EAA90 /* bakery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bakery.mp3; sourceTree = "<group>"; };
 		4ED05390262CE0130021544F /* failed-attempt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "failed-attempt.json"; sourceTree = "<group>"; };
 		4ED0539D262D29070021544F /* success-attempt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "success-attempt.json"; sourceTree = "<group>"; };
 		4ED47F4C25D366C60064D86C /* StarsAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StarsAnimation.json; sourceTree = "<group>"; };
@@ -615,6 +621,7 @@
 			children = (
 				C95EBD882630B3A0000A56EC /* Media */,
 				41F78DA9261895690048C968 /* excellent.mp3 */,
+				4EC81A922630D3D4007EAA90 /* bakery.mp3 */,
 				41F78DAE261895790048C968 /* fourthDay.mp3 */,
 				41F78DBD261895B90048C968 /* advertisment.mp3 */,
 				41F78DB3261895950048C968 /* secondDay.mp3 */,
@@ -623,16 +630,18 @@
 				41F78DE3261896410048C968 /* reward.mp3 */,
 				41F78DD4261896060048C968 /* happyCustomer.mp3 */,
 				41F78DFF261896C30048C968 /* bye.mp3 */,
-				41F78DED261896840048C968 /* laernShapes.mp3 */,
+				41F78DED261896840048C968 /* learnShapes.mp3 */,
 				41F78DF7261896B00048C968 /* learnMath.mp3 */,
 				41F78DCA261895E10048C968 /* thirdDay.mp3 */,
 				41F78D9F261894FE0048C968 /* hello.mp3 */,
 				41F78E04261898F80048C968 /* firstDay.mp3 */,
 				41F78DD9261896140048C968 /* sadCustomer.mp3 */,
 				41F78DF22618969D0048C968 /* learncolors.mp3 */,
+				4EC81A8A2630C383007EAA90 /* answer.mp3 */,
+				4EC81A8B2630C383007EAA90 /* skip.mp3 */,
+				4EC81A892630C382007EAA90 /* trainingAddition.mp3 */,
 				41F78DDE2618962D0048C968 /* train.mp3 */,
 				41F78DA42618954E0048C968 /* store.mp3 */,
-				4E7EB28C26267EC2008E7EDB /* trainingAddition.mp3 */,
 				4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */,
 				4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */,
 				4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */,
@@ -905,10 +914,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EDFA43F25EAF46300924569 /* HappyPear.atlas in Resources */,
-				41F78DEE261896840048C968 /* laernShapes.mp3 in Resources */,
+				41F78DEE261896840048C968 /* learnShapes.mp3 in Resources */,
+				4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */,
 				41F78DDF2618962D0048C968 /* train.mp3 in Resources */,
 				41F78DDA261896140048C968 /* sadCustomer.mp3 in Resources */,
 				4EDFA44725EAF46300924569 /* WaitingPear.atlas in Resources */,
+				4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */,
 				C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */,
 				4EC819CB262F8A2C007EAA90 /* Store.storyboard in Resources */,
 				4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */,
@@ -930,7 +941,6 @@
 				C95EBD922630C4FD000A56EC /* serveOrder.mov in Resources */,
 				C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */,
 				4EDFA45325EAF46300924569 /* HappyStrawberry.atlas in Resources */,
-				4E7EB29326267EC3008E7EDB /* trainingAddition.mp3 in Resources */,
 				4ED05391262CE0130021544F /* failed-attempt.json in Resources */,
 				4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */,
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
@@ -954,6 +964,7 @@
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
 				4EDFA44225EAF46300924569 /* WaitingApple.atlas in Resources */,
 				4E7EB29626267EC3008E7EDB /* trainingRed.mp3 in Resources */,
+				4EC81A8D2630C384007EAA90 /* answer.mp3 in Resources */,
 				4EDFA43E25EAF46300924569 /* SadPear.atlas in Resources */,
 				4E427B572616C8AA009692C8 /* HomeView.storyboard in Resources */,
 				41F78DF8261896B00048C968 /* learnMath.mp3 in Resources */,
@@ -983,6 +994,7 @@
 				4E427BD6261D6A9E009692C8 /* star.json in Resources */,
 				4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */,
 				C9AB67D6260ACD57005E373E /* instructions.storyboard in Resources */,
+				4EC81A8C2630C384007EAA90 /* trainingAddition.mp3 in Resources */,
 				4E453A4625B61D5100B8363F /* Actions.sks in Resources */,
 				4EDFA45225EAF46300924569 /* HappyPineapple.atlas in Resources */,
 				4ED0539E262D29070021544F /* success-attempt.json in Resources */,
@@ -1434,14 +1446,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1457,14 +1469,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U8U4G9L86W;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

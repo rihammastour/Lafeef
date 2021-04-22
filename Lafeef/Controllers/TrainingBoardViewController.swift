@@ -477,6 +477,12 @@ isCorrect=true
     }
     
     
+    @IBAction func backTapped(_ sender: Any) {
+        
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
     
     //MARK: -Set up Object Detection
     
