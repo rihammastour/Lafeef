@@ -9,11 +9,18 @@ import UIKit
 import Foundation
 import Firebase
 import FirebaseAuth
+import SwiftValidator
 import FirebaseFirestore
-class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
+
+import FirebaseCore
+
+class EditProfileViewConroller: UIViewController, UITextFieldDelegate, ValidationDelegate {
     
     let datePicker = UIDatePicker()
-    
+//    errorLabel
+    @IBOutlet weak var errorLabel: UILabel!
+    //    @IBOutlet weak var errorLable: UILabel!
+//    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var NameTextField: UITextField!
     
     @IBOutlet weak var yearTextfield: UITextField!
@@ -39,6 +46,9 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var ChangePasword: UIButton!
     var db: Firestore!
+    var isValidated = false
+    let validator = Validator()
+    let alert = AlertService()
     let year = Calendar.current.component(.year, from: Date())
     let formatter: NumberFormatter = NumberFormatter()
     override func viewDidLoad() {
@@ -65,7 +75,10 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         monthTextfield.delegate = self
         dayTextfield.delegate = self
         yearTextfield.delegate = self
+        NameTextField.delegate = self
         
+       // errorLabel.delegate = self
+        validation()
         createDatePicker()
         
         
@@ -97,26 +110,6 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
     func setName(_ name:String) {
         NameTextField.placeholder = String(name)
     }
-    //    //Name
-    //    func setDay(_ name:String) {
-    //        dayTextfield.placeholder = String(name)
-    //    }
-    //    //Name
-    //    func setMonth(_ name:String) {
-    //        monthTextfield.placeholder = String(name)
-    //    }
-    //    //Name
-    //    func setYear(_ name:String) {
-    //        yearTextfield.placeholder = String(name)
-    //    }
-    
-    //    func changePic(){
-    //        if sex == "girl"{
-    //            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
-    //        }else{
-    //            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
-    //
-    //    }
     //Level
     func setCurrentLevel(_ level:Int) {
         levelNumLabel.text = String(level)
@@ -142,14 +135,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
         }
     }
-    
-    //    func setImageToChange(_ sex:String){
-    //        if sex != "girl"{
-    //            ProfilePic.image = UIImage(named: "BoyWithCircle-1")
-    //        }else{
-    //            ProfilePic.image = UIImage(named: "GirlWithCircle")        }
-    //
-    //    }
+  
     
     //set birthday
     func setAge(_ age:String) {
@@ -245,38 +231,53 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
         
     }
     @IBAction func changeInfo(_ sender: Any) {
-        var newName = NameTextField!.text!
-        if(!(newName=="")){
-            updateName(newName)
-        }
         
-        var month = monthTextfield.text!
-        var day = dayTextfield.text!
-        if(!(day==""&&month=="")){
-            
-            if (dayTextfield.text!.count<2){
-                day = "٠"+dayTextfield.text!
+        validator.validate(self)
+        if !isValidated{
+            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true) }
+        else{
+            var newName = NameTextField!.text!
+            if(!(newName=="")){
+                updateName(newName)
             }
-            if (monthTextfield.text!.count<2){
-                month = "٠"+monthTextfield.text!
-            }
-            var newBOD = day+"-"+month+"-"+yearTextfield.text!
-            updateBOD(newBOD)
             
-        }
-        
-        var sex = ""
-        if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
-            sex="boy"
-        }else{
-            sex="girl"
-        }
-        updateSex(sex)
-        
-        backToProfile()
+            var month = monthTextfield.text!
+            var day = dayTextfield.text!
+            if(!(day==""&&month=="")){
+                
+                if (dayTextfield.text!.count<2){
+                    day = "٠"+dayTextfield.text!
+                }
+                if (monthTextfield.text!.count<2){
+                    month = "٠"+monthTextfield.text!
+                }
+                var newBOD = day+"-"+month+"-"+yearTextfield.text!
+                updateBOD(newBOD)
+                
+            }
+            
+            var sex = ""
+            if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
+                sex="boy"
+            }else{
+                sex="girl"
+            }
+            updateSex(sex)
+            
+            backToProfile()
+        }//end else
+   
         
     }
+    //MARK:- Delegate Handling
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        validator.validate(self)
+    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        validator.validate(self)
+        return true
+    }
     
     //MARK:- Functions
     
@@ -342,7 +343,58 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate {
             navigationController.popViewController(animated: true)
         }
     }
+    //Validation
+    func validation(){
+        validator.styleTransformers(success:{ (validationRule) -> Void in
+            validationRule.errorLabel?.isHidden = true
+            validationRule.errorLabel?.text = ""
+            
+            if let textField = validationRule.field as? UITextField {
+                textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                textField.layer.borderWidth = 3
+            } else if let textField = validationRule.field as? UITextView {
+                textField.layer.borderColor = UIColor(red: 0.85, green: 0.89, blue: 0.56, alpha: 1.00).cgColor
+                textField.layer.borderWidth = 3
+                
+            }
+        }, error:{ (validationError) -> Void in
+            validationError.errorLabel?.isHidden = false
+            validationError.errorLabel?.text = validationError.errorMessage
+            if let textField = validationError.field as? UITextField {
+                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 3
+            } else if let textField = validationError.field as? UITextView {
+                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 3
+            }
+        })
+        
+        validator.registerField(NameTextField, rules: [RequiredRule(), ZipCodeRule(regex : "^[ء-ي]+$")])
+    }
     
+    func validationSuccessful() {
+        print("Validation Success!")
+        errorLabel?.isHidden = true
+        isValidated = true
+    }
+    func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
+            // turn the fields to red
+            for (field, error) in errors {
+                if let field = field as? UITextField {
+                    field.layer.borderColor = UIColor.red.cgColor
+                    field.layer.borderWidth = 3.0
+                }
+//                if error.errorMessage == "This field is required"{
+//                    errorLabel?.text = "لطفًا، الاسم مطلوب "
+//                             }
+//                else
+                if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
+                                 errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
+                             }// works if you added labels
+                errorLabel?.isHidden = false
+            }
+            isValidated = false
+        }
     //اه
 }//end class
 extension String {

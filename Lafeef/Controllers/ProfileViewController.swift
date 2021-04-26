@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController {
         
         //Get Child Data
         getChildData()
-//        RegisterObserver(for:"child")
+    RegisterObserver(for:"child")
         
     }
     

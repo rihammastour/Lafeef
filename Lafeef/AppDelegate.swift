@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Fetch user data
                 self.fetchUserInfo()
                 //                Set is logged in child to true
-                animatedSplashVC.isChild = true
+            animatedSplashVC.isChild = true
                 
             } else {
                 print("user not exist ")
