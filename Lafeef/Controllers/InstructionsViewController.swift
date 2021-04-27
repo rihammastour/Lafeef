@@ -12,7 +12,7 @@ class InstructionsViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var continerView: UIView!
     
-    let dataSource = ["serveOrder","2"]
+    let dataSource = ["serveOrder","PaymentInstruction"]
     var currentViewControllerIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
