@@ -60,7 +60,16 @@ class FirebaseRequest{
         }
     }
     
-    
+    static func login(email:String, password:String, completion: @escaping (_ success: Bool, _ error :Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) {(authResult, error) in
+            if let user = authResult?.user {
+                completion(true, nil)
+                
+            } else {
+                completion(false,error!)
+            }
+        }
+    }
     
     //Set Challenge level
     static func addLevel(levelNum: String,level:Level, completion: @escaping (_ success: Bool, _ error :String) -> Void) {
@@ -425,7 +434,7 @@ class FirebaseRequest{
         var credential: AuthCredential
 
         // Prompt the user to re-provide their sign-in credentials
-        credential = EmailAuthProvider.credential(withEmail: (user?.email)!, password: oldPassword)
+        credential = EmailAuthProvider.credential(withEmail: "riirii@gmail.com", password: oldPassword)
         
         if user != nil {
             user?.reauthenticate(with: credential) { success ,error in

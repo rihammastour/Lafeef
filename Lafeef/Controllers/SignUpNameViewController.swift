@@ -21,6 +21,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     var password = ""
     var progressBar = ProgressBar(stepNum: 3)
     var userId = ""
+    var user = User(DOB: "", email: "", name: "", sex: "")
     
     //outlets
     @IBOutlet weak var errorLabel: UILabel!
@@ -30,7 +31,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CharachterType(charachter: User.sex)
+        CharachterType(charachter: user.sex)
         nameTextfield.delegate = self
         validation()
         styleUI()
@@ -45,7 +46,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
- 
+        
         charachterImage.layer.cornerRadius = charachterImage.frame.size.height/2
         nextOutlet.layer.cornerRadius = nextOutlet.frame.size.height/2
         nameTextfield.layer.cornerRadius = nameTextfield.frame.size.height/2
@@ -91,22 +92,22 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         isValidated = true
     }
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
-            // turn the fields to red
-            for (field, error) in errors {
-                if let field = field as? UITextField {
-                    field.layer.borderColor = UIColor.red.cgColor
-                    field.layer.borderWidth = 3.0
-                }
-                if error.errorMessage == "This field is required"{
-                    errorLabel?.text = "لطفًا، الاسم مطلوب "
-                             }
-                else if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
-                                 errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
-                             }// works if you added labels
-                errorLabel?.isHidden = false
+        // turn the fields to red
+        for (field, error) in errors {
+            if let field = field as? UITextField {
+                field.layer.borderColor = UIColor.red.cgColor
+                field.layer.borderWidth = 3.0
             }
-            isValidated = false
+            if error.errorMessage == "This field is required"{
+                errorLabel?.text = "لطفًا، الاسم مطلوب "
+            }
+            else if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
+                errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
+            }// works if you added labels
+            errorLabel?.isHidden = false
         }
+        isValidated = false
+    }
     
     func CharachterType(charachter : String ){
         if (charachter == "girl"){
@@ -120,54 +121,55 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         
     }
     
+    func signup(email: String, name: String, password: String, sex: String, DOB: String){
+
+        self.userId =  FirebaseRequest.getUserId() ?? ""
+        
+        FirebaseRequest.createUser(id: self.userId,email: email, password: password, name:name, sex:sex, DOB:DOB) {
+            [weak self] (success,error) in
+            guard let self = self else { return }
+            
+            if (success) {
+                print("success inside")
+                self.isValidated = true
+                self.transition()
+            } else {
+                print("error inside")
+                if let errorCode = AuthErrorCode(rawValue: error!._code){
+                    
+                    switch errorCode {
+                    case .invalidEmail:
+                        self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني", isSuccess: false), animated: true)
+                        self.isValidated = false
+                        break
+                    case .networkError:
+                        self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت",isSuccess: false), animated: true)
+                        self.isValidated = false
+                        break
+                    @unknown default:
+                        self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى",isSuccess: false), animated: true)
+                        self.isValidated = false
+                        
+                        break
+                    }
+                }
+                //Tells the user that there is an error and then gets firebase to tell them the error
+                self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى", isSuccess: false), animated: true)
+                
+            }
+        }
+    }
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-          validator.validate(self)
-          if !isValidated{
-              self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
-              
-          } else {
-              
-              User.name = nameTextfield!.text!
-              self.userId =  FirebaseRequest.getUserId() ?? ""
-          
-              
-              FirebaseRequest.createUser(id: self.userId,email: User.email, password: password, name:User.name, sex:User.sex, DOB:User.DOB) {
-                  [weak self] (success,error) in
-                  guard let self = self else { return }
-                  
-                  if (success) {
-                     
-                      //Store in local Storage
-//                    LocalStorageManager.setChild(Child(DOB: User.DOB, currentLevel: 1, email: User.email, money: 0, name: User.name, score: 0))
-                      //navogation
-                      self.transition()
-                  } else {
-                      if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                        
-                          switch errorCode {
-                      
-
-                          case .invalidEmail:
-                              self.present(self.alert.Alert(body: "لطفًا، تحقق من البريد الالكتروني", isSuccess: false), animated: true)
-                   
-                              break
-                          case .networkError:
-                              self.present(self.alert.Alert(body: "فضلًا تحقق من اتصالك بالانترنت",isSuccess: false), animated: true)
-                              break
-                          @unknown default:
-                              self.present(self.alert.Alert(body: "يوجد خطأ بإنشاء الحساب ، حاول مرة اخرى",isSuccess: false), animated: true)
-                             
-                              break
-                          }
-                      }
-                       //Tells the user that there is an error and then gets firebase to tell them the error
-                      self.present(self.alert.Alert(body: "يوجد خطأ بالدخول، حاول مرة اخرى", isSuccess: false), animated: true)
-                 
-                   }
-               }
-          }
-      }
+        validator.validate(self)
+        if !isValidated{
+            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
+            
+        } else {
+            user.name = nameTextfield!.text!
+            signup(email: user.email, name: user.name, password: password, sex: user.sex, DOB: user.DOB)
+        }
+    }
     
     
     func transition(){
@@ -176,7 +178,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavigationController) as! UINavigationController
         view.window?.rootViewController = controller
         view.window?.makeKeyAndVisible()
-
+        
     }
     
     //MARK:- Delegate Handling
@@ -198,20 +200,20 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
         
         let ReportData = LevelReportData(levelNum:"1", collectedMoney: 0, collectedScore: 0, isPassed:false)
         var array = [LevelReportData]()
-      
+        
         array.append(ReportData)
         let completedLevel = CompletedLevel(reportData: array)
-
-      
+        
+        
         FirebaseRequest.passCompletedLevelData(childID:FirebaseRequest.getUserId()! , reports: completedLevel) { (success, err) in
             if (err != nil){
-            
-            print("success")
+                
+                print("success")
             } else{
                 print("error")
             }
         }
-   
+        
     }
     
     

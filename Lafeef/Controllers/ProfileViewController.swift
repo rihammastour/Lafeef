@@ -51,11 +51,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated) // call super
         
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
 
-        UserDefaults.standard.removeObserver(self, forKeyPath: "child", context: nil)
-    }
     
     //MARK:- Functions
     

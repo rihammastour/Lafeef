@@ -26,29 +26,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Firebase configuration
         FirebaseApp.configure()
-        
         //Show Animated Splash Screen as intial screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()
-        
+   
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
-            
             if user != nil {
-                
+
                 //Fetch user data
                 self.fetchUserInfo()
                 //                Set is logged in child to true
                 animatedSplashVC.isChild = true
+   
                 
             } else {
 //                Set is logged in child to false
              animatedSplashVC.isChild = false
             }
         }
+
         return true
     }
     
@@ -79,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
-        print("عبود٢")
 
         if let data = data{
             do{

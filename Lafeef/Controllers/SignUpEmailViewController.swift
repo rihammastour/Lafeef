@@ -256,7 +256,7 @@ class SignUpEmailViewController: UIViewController, ValidationDelegate, UITextFie
         if (segue.identifier == "emailNxt") {
              let destinationVC = segue.destination as! SignUpDOBViewController
              destinationVC.password =  password
-             User.email = emailTextfield?.text ?? ""
+            destinationVC.user.email = emailTextfield?.text ?? ""
         }
 
     }

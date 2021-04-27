@@ -20,7 +20,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
     let datePicker = UIDatePicker()
     var password = ""
     var progressBar = ProgressBar(stepNum: 1)
-
+    var user = User(DOB: "", email: "", name: "", sex: "")
     //outlets
     @IBOutlet weak var monthTextfield: UITextField!
     @IBOutlet weak var dayTextfield: UITextField!
@@ -85,7 +85,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
        datePicker.datePickerMode = .date
        datePicker.semanticContentAttribute = .forceRightToLeft
        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
-       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -12, to: Date())
+       datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -14, to: Date())
        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
        datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
         let toolBar = UIToolbar()
@@ -140,7 +140,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
             month = "٠"+monthTextfield.text!
         }
         
-        User.DOB = day+"-"+month+"-"+yearTextfield.text!
+        destinationVC.user.DOB = day+"-"+month+"-"+yearTextfield.text!
      }
     
     @IBAction func next(_ sender: Any) {

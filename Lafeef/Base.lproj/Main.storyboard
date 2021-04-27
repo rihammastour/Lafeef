@@ -141,7 +141,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="XK1-Ll-uag" customClass="LoginViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="42X-AC-nFf">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="-130" translatesAutoresizingMaskIntoConstraints="NO" id="1l7-PJ-fK1">
@@ -378,7 +378,7 @@
         <!--Sign Up Email View Controller-->
         <scene sceneID="4xt-aS-4y4">
             <objects>
-                <viewController id="SG8-tt-k7w" customClass="SignUpEmailViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupEmailVC" id="SG8-tt-k7w" customClass="SignUpEmailViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9kH-Sn-RkH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,9 +614,9 @@
         <!--Sign UpDOB View Controller-->
         <scene sceneID="DWR-7Y-0aN">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yOy-Ef-E8i" customClass="SignUpDOBViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signuoDOBVC" modalPresentationStyle="fullScreen" id="yOy-Ef-E8i" customClass="SignUpDOBViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dZL-78-c8e">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ZVT-SR-pPe">
@@ -733,13 +733,13 @@
         <!--Sign Up Charachter View Controller-->
         <scene sceneID="PJG-BL-So0">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="sK3-mh-57D" customClass="SignUpCharachterViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupCharectarVC" modalPresentationStyle="fullScreen" id="sK3-mh-57D" customClass="SignUpCharachterViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ln-oi-bAL">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Cu-Yd-O0U">
-                                <rect key="frame" x="130" y="160" width="508" height="747.5"/>
+                                <rect key="frame" x="130" y="110" width="508" height="747.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختيار الشخصية " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymG-2i-dor">
                                         <rect key="frame" x="118" y="0.0" width="272" height="51.5"/>
@@ -842,13 +842,13 @@
         <!--Sign Up Name View Controller-->
         <scene sceneID="y1T-eY-Vlu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="icf-UV-Xhx" customClass="SignUpNameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupNameVC" modalPresentationStyle="fullScreen" id="icf-UV-Xhx" customClass="SignUpNameViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVM-6Z-rdg">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="974"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="yPl-rv-DHL">
-                                <rect key="frame" x="130" y="210" width="508" height="697.5"/>
+                                <rect key="frame" x="130" y="160" width="508" height="697.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اسم الشخصية" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpD-r4-s1b">
                                         <rect key="frame" x="141" y="0.0" width="226.5" height="51.5"/>
@@ -1111,7 +1111,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="owq-en-L5A"/>
+        <segue reference="8a6-Jd-Cd4"/>
         <segue reference="RCy-tc-0xM"/>
     </inferredMetricsTieBreakers>
     <resources>
