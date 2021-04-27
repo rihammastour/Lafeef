@@ -17,32 +17,44 @@ class LafeefTests: XCTestCase {
     var loginVC : LoginViewController!
     var updatePasswordVC: UpdatePasswordViewController!
     var buyItem: StoreViewController!
+    var editProfileVC: EditProfileViewConroller!
+    var challengeVC: ChallengeViewController!
+    var dailyReportVC: DailyReportViewController!
     
     override func setUp() {
         super.setUp()
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        emailVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpEmailViewController) as! SignUpEmailViewController
+        emailVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpEmailViewController) as? SignUpEmailViewController
         emailVC.loadViewIfNeeded()
 
-        DOBVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpDOBViewController) as! SignUpDOBViewController
+        DOBVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpDOBViewController) as? SignUpDOBViewController
         DOBVC.loadViewIfNeeded()
 
-        charectarVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signupCharectarViewController) as! SignUpCharachterViewController
+        charectarVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signupCharectarViewController) as? SignUpCharachterViewController
         charectarVC.loadViewIfNeeded()
 
-        nameVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpNameViewController) as! SignUpNameViewController
+        nameVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.signUpNameViewController) as? SignUpNameViewController
        nameVC.loadViewIfNeeded()
         
-        loginVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.loginViewController) as! LoginViewController
+        loginVC = mainStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.loginViewController) as? LoginViewController
         loginVC.loadViewIfNeeded()
         
         let homeViewStoryboard = UIStoryboard(name: "HomeView", bundle: nil)
-        updatePasswordVC = homeViewStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.updatePasswordViewController) as! UpdatePasswordViewController
+        updatePasswordVC = homeViewStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.updatePasswordViewController) as? UpdatePasswordViewController
         updatePasswordVC.loadViewIfNeeded()
         
-        buyItem = homeViewStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.storeViewController) as! StoreViewController
+        buyItem = homeViewStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.storeViewController) as? StoreViewController
         buyItem.loadViewIfNeeded()
-
+        
+        editProfileVC = homeViewStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.editProfileViewController) as? EditProfileViewConroller
+        editProfileVC.loadViewIfNeeded()
+     
+        let challengeStoryboard = UIStoryboard(name: "Challenge", bundle: nil)
+        challengeVC = challengeStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.challengeViewController) as? ChallengeViewController
+        challengeVC.loadViewIfNeeded()
+        
+        dailyReportVC = challengeStoryboard.instantiateViewController(withIdentifier:Constants.Storyboard.dailyReportViewController) as? DailyReportViewController
+        dailyReportVC.loadViewIfNeeded()
     }
     
     override func tearDown() {
@@ -50,6 +62,10 @@ class LafeefTests: XCTestCase {
         DOBVC = nil
         nameVC = nil
         loginVC = nil
+        buyItem = nil
+        editProfileVC = nil
+        challengeVC = nil
+        dailyReportVC = nil
         super.tearDown()
     }
     
@@ -173,4 +189,126 @@ class LafeefTests: XCTestCase {
         XCTAssertFalse(test)
     }
     
+    func testInvalidNameEditProfile(){
+        editProfileVC.NameTextField.text = "123r"
+        editProfileVC.validator.validate(editProfileVC.self)
+        editProfileVC.validation()
+        
+        XCTAssertFalse(editProfileVC.isValidated)
+    }
+    
+    func testValidEditProfile(){
+        editProfileVC.NameTextField.text = "ريناد"
+        editProfileVC.dayTextfield.text = "12"
+        editProfileVC.monthTextfield.text = "02"
+        editProfileVC.yearTextfield.text = "2017"
+        editProfileVC.ProfilePic.image = UIImage(named: "BoyWithCircle")
+        editProfileVC.validator.validate(editProfileVC.self)
+        editProfileVC.validation()
+        let test = editProfileVC.updateProfile()
+        
+        XCTAssertTrue(test)
+    }
+    
+    func testInvalidBaseTotalScore(){
+        let order = Order(base: Base.cake, customerPaid: 50, toppings: nil)
+        challengeVC.setOrder(order: order)
+        
+        /// to calculate order bill
+        challengeVC.calculateTotalBill(at: 0)
+        challengeVC.calculateTotalBillWithTax(at: 0)
+        
+        let answer = Answer(base: Base.chocolateCupcake, change: 0, atTime: 12, toppings: nil)
+        challengeVC.calculateOrderScore(for: answer)
+        challengeVC.calculatePaymentScore(with: answer.change)
+        
+        let test = challengeVC.calculateTotalScore()
+        
+        XCTAssertEqual(test, 1)
+    }
+    
+    func testInvalidToppingsTypeAndNumberTotalScore(){
+        let order = Order(base: Base.cake, customerPaid: 50, toppings: nil)
+        challengeVC.setOrder(order: order)
+        
+        /// to calculate order bill
+        challengeVC.calculateTotalBill(at: 0)
+        challengeVC.calculateTotalBillWithTax(at: 0)
+        
+        let answer = Answer(base: Base.cake, change: 0, atTime: 12, toppings: [Topping.kiwi, Topping.darkChocolate])
+        challengeVC.calculateOrderScore(for: answer)
+        challengeVC.calculatePaymentScore(with: answer.change)
+        
+        let test = challengeVC.calculateTotalScore()
+        
+        XCTAssertEqual(test, 2)
+    }
+    
+    func testInvalidToppingsNumberTotalScore(){
+        let order = Order(base: Base.cake, customerPaid: 53, toppings: [Topping.strawberry])
+        challengeVC.setOrder(order: order)
+        
+        /// to calculate order bill
+        challengeVC.calculateTotalBill(at: 0)
+        challengeVC.calculateTotalBillWithTax(at: 0)
+        
+        let answer = Answer(base: Base.cake, change: 0, atTime: 12, toppings: [Topping.strawberry, Topping.strawberry])
+        challengeVC.calculateOrderScore(for: answer)
+        challengeVC.calculatePaymentScore(with: answer.change)
+        
+        let test = challengeVC.calculateTotalScore()
+        
+        XCTAssertEqual(test, 3)
+    }
+    
+    func testInvalidChangeTotalScore(){
+        let order = Order(base: Base.cake, customerPaid: 50, toppings: nil)
+        challengeVC.setOrder(order: order)
+        
+        /// to calculate order bill
+        challengeVC.calculateTotalBill(at: 0)
+        challengeVC.calculateTotalBillWithTax(at: 0)
+        
+        let answer = Answer(base: Base.cake, change: 30, atTime: 12, toppings: nil)
+        challengeVC.calculateOrderScore(for: answer)
+        challengeVC.calculatePaymentScore(with: answer.change)
+        
+        let test = challengeVC.calculateTotalScore()
+        
+        XCTAssertEqual(test, 3)
+    }
+    
+    func testValidTotalScore(){
+        let order = Order(base: Base.cake, customerPaid: 50, toppings: nil)
+        challengeVC.setOrder(order: order)
+        
+        /// to calculate order bill
+        challengeVC.calculateTotalBill(at: 0)
+        challengeVC.calculateTotalBillWithTax(at: 0)
+        
+        let answer = Answer(base: Base.cake, change: 0, atTime: 12, toppings: nil)
+        challengeVC.calculateOrderScore(for: answer)
+        challengeVC.calculatePaymentScore(with: answer.change)
+        
+        let test = challengeVC.calculateTotalScore()
+        
+        XCTAssertEqual(test, 4)
+    }
+    
+    func testLessThanGoalScoreGenerateReward(){
+        dailyReportVC.report.levelNum = "1"
+        dailyReportVC.report.collectedScore = 30
+        dailyReportVC.calculateReward()
+        
+        XCTAssertFalse(dailyReportVC.report.isRewarded)
+    }
+    
+    func testValidGenerateReward(){
+        dailyReportVC.report.levelNum = "1"
+        dailyReportVC.report.collectedScore = 70
+        dailyReportVC.calculateReward()
+        
+        XCTAssertTrue(dailyReportVC.report.isRewarded)
+    }
+
 }

@@ -139,7 +139,7 @@ class SignUpDOBViewController: UIViewController, UITextFieldDelegate  {
         if (monthTextfield.text!.count<2){
             month = "٠"+monthTextfield.text!
         }
-        
+        destinationVC.user.email = user.email
         destinationVC.user.DOB = day+"-"+month+"-"+yearTextfield.text!
      }
     

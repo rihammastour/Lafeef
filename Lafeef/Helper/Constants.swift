@@ -42,6 +42,7 @@ struct Constants {
         static let signUpEmailViewController = "signupEmailVC"
         static let signUpDOBViewController = "signuoDOBVC"
         static let signupCharectarViewController = "signupCharectarVC"
+        static let editProfileViewController = "editProfileVC"
     }
     
     struct Segue {

@@ -17,10 +17,10 @@ import FirebaseCore
 class EditProfileViewConroller: UIViewController, UITextFieldDelegate, ValidationDelegate {
     
     let datePicker = UIDatePicker()
-//    errorLabel
+    //    errorLabel
     @IBOutlet weak var errorLabel: UILabel!
     //    @IBOutlet weak var errorLable: UILabel!
-//    @IBOutlet weak var errorLabel: UILabel!
+    //    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var NameTextField: UITextField!
     
     @IBOutlet weak var yearTextfield: UITextField!
@@ -77,7 +77,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         yearTextfield.delegate = self
         NameTextField.delegate = self
         
-       // errorLabel.delegate = self
+        // errorLabel.delegate = self
         validation()
         createDatePicker()
         
@@ -112,12 +112,12 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     }
     //Level
     func setCurrentLevel(_ level:Int) {
-        levelNumLabel.text = String(level)
+        levelNumLabel.text = String(level).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money)
+        moneyLabel.text = String(money).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //Email
@@ -135,7 +135,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
         }
     }
-  
+    
     
     //set birthday
     func setAge(_ age:String) {
@@ -150,9 +150,9 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         let calculateAge = year-convertAge
         print(calculateAge)
         
-        yearTextfield.placeholder = age.substring(with: 6..<10)
-        monthTextfield.placeholder = age.substring(with: 3..<5)
-        dayTextfield.placeholder = age.substring(with: 0..<2)
+        yearTextfield.placeholder = age.substring(with: 6..<10).convertedDigitsToLocale(Locale(identifier: "AR"))
+        monthTextfield.placeholder = age.substring(with: 3..<5).convertedDigitsToLocale(Locale(identifier: "AR"))
+        dayTextfield.placeholder = age.substring(with: 0..<2).convertedDigitsToLocale(Locale(identifier: "AR"))
         // AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
@@ -162,9 +162,9 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         let formatter: NumberFormatter = NumberFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
-        yearTextfield.text =  formatter.string(from: components.year! as NSNumber)
-        monthTextfield.text = formatter.string(from: components.month! as NSNumber)
-        dayTextfield.text = formatter.string(from: components.day! as NSNumber)
+        yearTextfield.text =  formatter.string(from: components.year! as NSNumber)!.convertedDigitsToLocale(Locale(identifier: "AR"))
+        monthTextfield.text = formatter.string(from: components.month! as NSNumber)!.convertedDigitsToLocale(Locale(identifier: "AR"))
+        dayTextfield.text = formatter.string(from: components.day! as NSNumber)!.convertedDigitsToLocale(Locale(identifier: "AR"))
         //        errorLabel.isHidden = true
         //        isValidated = true
     }
@@ -230,11 +230,14 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         
         
     }
-    @IBAction func changeInfo(_ sender: Any) {
+    
+    func updateProfile() -> Bool{
         
         validator.validate(self)
         if !isValidated{
-            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true) }
+            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
+            return false
+        }
         else{
             var newName = NameTextField!.text!
             if(!(newName=="")){
@@ -251,7 +254,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
                 if (monthTextfield.text!.count<2){
                     month = "٠"+monthTextfield.text!
                 }
-                var newBOD = day+"-"+month+"-"+yearTextfield.text!
+                var newBOD = day+"-"+month+"-"+yearTextfield.text!.convertedDigitsToLocale(Locale(identifier: "AR"))
                 updateBOD(newBOD)
                 
             }
@@ -263,12 +266,16 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
                 sex="girl"
             }
             updateSex(sex)
+            return true
+        }
+    }
+        @IBAction func changeInfo(_ sender: Any) {
+            
+            updateProfile()
             
             backToProfile()
-        }//end else
-   
+        }
         
-    }
     //MARK:- Delegate Handling
     func textFieldDidBeginEditing(_ textField: UITextField) {
         validator.validate(self)
@@ -378,23 +385,23 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         isValidated = true
     }
     func validationFailed(_ errors:[(Validatable ,ValidationError)]) {
-            // turn the fields to red
-            for (field, error) in errors {
-                if let field = field as? UITextField {
-                    field.layer.borderColor = UIColor.red.cgColor
-                    field.layer.borderWidth = 3.0
-                }
-//                if error.errorMessage == "This field is required"{
-//                    errorLabel?.text = "لطفًا، الاسم مطلوب "
-//                             }
-//                else
-                if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
-                                 errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
-                             }// works if you added labels
-                errorLabel?.isHidden = false
+        // turn the fields to red
+        for (field, error) in errors {
+            if let field = field as? UITextField {
+                field.layer.borderColor = UIColor.red.cgColor
+                field.layer.borderWidth = 3.0
             }
-            isValidated = false
+            //                if error.errorMessage == "This field is required"{
+            //                    errorLabel?.text = "لطفًا، الاسم مطلوب "
+            //                             }
+            //                else
+            if error.errorMessage == "Enter a valid 5 digit zipcode"||error.errorMessage == "Invalid Regular Expression"{
+                errorLabel?.text = "لطفًا، أدخل اسمك الأول باللغة العربية "
+            }// works if you added labels
+            errorLabel?.isHidden = false
         }
+        isValidated = false
+    }
     //اه
 }//end class
 extension String {

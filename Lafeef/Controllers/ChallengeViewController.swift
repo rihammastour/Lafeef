@@ -26,7 +26,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     var levelNum:String!
     var currentOrder = 0
     var duration:Float?
-    var orders:[Order]?
+    var orders:[Order] = []
     var money:[Money]?
     var alert = AlertService()
     var voice = Voice2ViewController()
@@ -138,7 +138,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -265,14 +265,20 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     //setLevelInfo
     func setLevelInfo(_ level:Level) -> Void {
         self.duration = level.duration
-        self.orders = level.orders
+        for order in level.orders{
+            self.setOrder(order: order)
+        }
         //Show First Order
         showOrder(at: currentOrder)
     }
     
+    func setOrder(order: Order){
+        self.orders.append(order)
+    }
+    
     //showOrder
     func showOrder(at number:Int) -> Void {
-        let order = orders![number]
+        let order = orders[number]
         let base = order.base
         let toppings = order.toppings
         challengeScen?.setOrderContent(with: base, toppings)
@@ -283,7 +289,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     }
     
     func showCustomerPaid(at number:Int) -> Void {
-        let order = orders![number]
+        let order = orders[number]
         let customerPaied = order.customerPaid
         
         let money = CustomerPaied.convertToMoney(customerPaied: customerPaied)
@@ -360,7 +366,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //reset totalBill
         self.totalBill = 0
         
-        let order = orders![number]
+        let order = orders[number]
         //get Order base  and toppings
         let base = order.base
         let orderToppings = order.toppings
@@ -389,7 +395,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         //reset tax
         self.tax = 0
         
-        let order = orders![number]
+        let order = orders[number]
         //get Order base  and toppings
         let base = order.base
         let orderToppings = order.toppings
@@ -479,7 +485,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //getCurrentOrder
     func getCurrentOrder() ->  Order? {
-        return (self.orders?[currentOrder])
+        return (self.orders[currentOrder])
     }
     
     //MARK:- Actions

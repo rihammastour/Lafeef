@@ -438,7 +438,7 @@ class FirebaseRequest{
         var credential: AuthCredential
 
         // Prompt the user to re-provide their sign-in credentials
-        credential = EmailAuthProvider.credential(withEmail: "riirii@gmail.com", password: oldPassword)
+        credential = EmailAuthProvider.credential(withEmail: (user?.email)!, password: oldPassword)
         
         if user != nil {
             user?.reauthenticate(with: credential) { success ,error in

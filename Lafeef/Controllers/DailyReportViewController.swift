@@ -137,26 +137,26 @@ class DailyReportViewController: UIViewController {
     func calculateReward(){
         switch report.levelNum {
         case "1":
-            if report.collectedScore>=50{
+            if report.collectedScore>=60{
                 report.reward = 5
                 report.isRewarded = true
             }
             break
         case "2":
-            if report.collectedScore>=60{
+            if report.collectedScore>=70{
                 report.reward = 10
                 report.isRewarded = true
             }
             break
         case "3":
-            if report.collectedScore>=70{
+            if report.collectedScore>=80{
                 report.reward = 15
                 report.isRewarded = true
             }
             
             break
         default:
-            if report.collectedScore>=80{
+            if report.collectedScore>=90{
                 report.reward = 20
                 report.isRewarded = true
             }
@@ -171,7 +171,6 @@ class DailyReportViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func next(_ sender: Any) {
-    
         if report.isRewarded {
             self.dismiss(animated: true) {
                 self.delagate.displayWainningReport(self.report)

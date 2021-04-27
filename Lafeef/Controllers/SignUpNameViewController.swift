@@ -167,6 +167,7 @@ class SignUpNameViewController: UIViewController ,UITextFieldDelegate, Validatio
             
         } else {
             user.name = nameTextfield!.text!
+            print("signup success")
             signup(email: user.email, name: user.name, password: password, sex: user.sex, DOB: user.DOB)
         }
     }

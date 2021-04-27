@@ -91,6 +91,8 @@ class SignUpCharachterViewController: UIViewController {
         
         let destinationVC = segue.destination as! SignUpNameViewController
         destinationVC.password = password
+        destinationVC.user.email = user.email
+        destinationVC.user.DOB = user.DOB
         destinationVC.user.sex = user.sex
     }
     
