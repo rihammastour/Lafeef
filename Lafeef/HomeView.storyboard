@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
+                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -407,7 +407,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvS-pu-z3h">
-                                <rect key="frame" x="90" y="556" width="588" height="47"/>
+                                <rect key="frame" x="90" y="555" width="588" height="48"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -424,16 +424,16 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-RQ-mUv" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="731" width="390" height="47"/>
+                                <rect key="frame" x="179" y="730" width="390" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-y9-DmL">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللفل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IP-yb-d4m" userLabel="اليوم السابع">
-                                        <rect key="frame" x="250" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="250" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -474,7 +474,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="right" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xvr-YL-tgL">
-                                <rect key="frame" x="144" y="388" width="467" height="73"/>
+                                <rect key="frame" x="144" y="361" width="467" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="467" id="N9n-8p-fZF"/>
                                     <constraint firstAttribute="height" constant="73" id="hnS-ZY-VDe"/>
@@ -543,6 +543,12 @@
                                     <segue destination="Arm-ou-aOY" kind="show" id="1eP-Pt-oVi"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlW-Zh-5JU" userLabel="errorLabel">
+                                <rect key="frame" x="204" y="432" width="406" height="0.0"/>
+                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
+                                <color key="textColor" name="RedApp"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dmn-JJ-XTf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -567,10 +573,14 @@
                             </constraint>
                             <constraint firstItem="vKr-8O-gRN" firstAttribute="top" secondItem="Dmn-JJ-XTf" secondAttribute="top" constant="34" id="AMB-JJ-Z2N"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="OXp-iF-pUy" secondAttribute="trailing" constant="158" id="ATa-qn-Pyn"/>
+                            <constraint firstItem="MlW-Zh-5JU" firstAttribute="top" secondItem="nP7-ul-QMW" secondAttribute="bottom" constant="191" id="CtY-sk-ieT"/>
                             <constraint firstItem="rSd-e5-5xp" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="264" id="Dzw-Xy-jFd" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
                                         <real key="value" value="380"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
+                                        <real key="value" value="290"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
@@ -603,8 +613,8 @@
                             <constraint firstItem="Vlb-RQ-mUv" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="179" id="R1d-Kg-buE"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="3h8-z9-vE2" secondAttribute="trailing" constant="120" id="Txt-iQ-uAn"/>
                             <constraint firstItem="Ojw-gA-qaL" firstAttribute="top" secondItem="Dmn-JJ-XTf" secondAttribute="top" constant="34" id="U7x-gf-Y4F"/>
+                            <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="MlW-Zh-5JU" secondAttribute="trailing" constant="158" id="V69-D2-bA2"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="mmy-8i-k64" secondAttribute="trailing" constant="120" id="VsV-V7-hPs"/>
-                            <constraint firstItem="rSd-e5-5xp" firstAttribute="top" secondItem="Dmn-JJ-XTf" secondAttribute="top" constant="107" id="Ykr-6B-fcs"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="Vlb-RQ-mUv" secondAttribute="trailing" constant="199" id="ZXY-bO-SRe"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="Vlb-RQ-mUv" secondAttribute="trailing" constant="199" id="amq-fw-sWb"/>
                             <constraint firstItem="xvr-YL-tgL" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="144" id="bcM-Ai-QeF"/>
@@ -616,9 +626,11 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="gLN-Ow-NFR" secondAttribute="trailing" constant="120" id="ev2-tV-mmC"/>
+                            <constraint firstItem="MlW-Zh-5JU" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="204" id="ff0-r4-iZS"/>
                             <constraint firstItem="gLN-Ow-NFR" firstAttribute="top" secondItem="Vlb-RQ-mUv" secondAttribute="bottom" constant="120" id="gEv-UQ-Xer"/>
                             <constraint firstItem="nP7-ul-QMW" firstAttribute="leading" secondItem="Cqg-yz-xOF" secondAttribute="leadingMargin" constant="-94" id="iha-2X-rwr"/>
                             <constraint firstItem="mmy-8i-k64" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="96" id="jIU-9H-kxR"/>
+                            <constraint firstItem="rSd-e5-5xp" firstAttribute="top" secondItem="Dmn-JJ-XTf" secondAttribute="top" constant="80" id="jsY-h9-Re1"/>
                             <constraint firstItem="mmy-8i-k64" firstAttribute="top" secondItem="OXp-iF-pUy" secondAttribute="bottom" constant="77" id="k7V-7u-Pba" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -629,7 +641,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="xvr-YL-tgL" firstAttribute="top" secondItem="nP7-ul-QMW" secondAttribute="bottom" constant="147" id="lLl-9a-R4e"/>
+                            <constraint firstItem="xvr-YL-tgL" firstAttribute="top" secondItem="nP7-ul-QMW" secondAttribute="bottom" constant="120" id="lLl-9a-R4e"/>
                             <constraint firstItem="OXp-iF-pUy" firstAttribute="leading" secondItem="Dmn-JJ-XTf" secondAttribute="leading" constant="144" id="nb7-Ta-m2g"/>
                             <constraint firstItem="Dmn-JJ-XTf" firstAttribute="trailing" secondItem="Ojw-gA-qaL" secondAttribute="trailing" constant="500" id="oQc-Vf-Chr" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
@@ -659,6 +671,7 @@
                         <outlet property="back" destination="vKr-8O-gRN" id="YFD-07-cnF"/>
                         <outlet property="dayTextfield" destination="UO5-UL-wQj" id="k8S-KT-Oi6"/>
                         <outlet property="emailLabel" destination="XvS-pu-z3h" id="wEy-9d-qmP"/>
+                        <outlet property="errorLabel" destination="MlW-Zh-5JU" id="dzH-Ty-uB7"/>
                         <outlet property="levelNumLabel" destination="4IP-yb-d4m" id="UyR-aD-V24"/>
                         <outlet property="logOut" destination="gLN-Ow-NFR" id="7qa-tl-E4p"/>
                         <outlet property="moneyLabel" destination="r5o-y9-DmL" id="RMa-8p-uaq"/>
@@ -668,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqo-sk-4Mv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="55"/>
+            <point key="canvasLocation" x="3184.375" y="54.4921875"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="8Yt-UW-nmy">
@@ -729,16 +742,16 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="iCH-ho-yWO" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="751" width="390" height="47"/>
+                                <rect key="frame" x="179" y="750" width="390" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ML-eF-W6I">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللفل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sq0-5G-RPl" userLabel="اليوم السابع">
-                                        <rect key="frame" x="250" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="250" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -808,7 +821,7 @@
                                         <real key="value" value="380"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
-                                        <real key="value" value="300"/>
+                                        <real key="value" value="290"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
@@ -918,31 +931,31 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="CaH-2U-vjo" userLabel="form">
-                                <rect key="frame" x="150.5" y="25.5" width="467" height="917"/>
+                                <rect key="frame" x="150.5" y="25.5" width="467" height="923"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تغيير رمز المرور" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXM-mO-ZW3">
-                                        <rect key="frame" x="49" y="0.0" width="369" height="82"/>
+                                        <rect key="frame" x="89" y="0.0" width="289" height="84"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="70"/>
                                         <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-hJ-qHz">
-                                        <rect key="frame" x="0.0" y="112" width="467" height="805"/>
+                                        <rect key="frame" x="0.0" y="114" width="467" height="809"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="raS-ok-8Rh">
-                                                <rect key="frame" x="0.0" y="0.0" width="467" height="632"/>
+                                                <rect key="frame" x="48.5" y="0.0" width="370" height="636"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="b9I-kp-VcG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="467" height="291"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="370" height="293"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر رمز مرورك السابق" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rR-4X-Yge">
-                                                                <rect key="frame" x="40" y="0.0" width="387" height="56"/>
+                                                                <rect key="frame" x="35" y="0.0" width="300.5" height="58"/>
                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4ux-9W-qhi" userLabel="buttons">
-                                                                <rect key="frame" x="48.5" y="81" width="370" height="210"/>
+                                                                <rect key="frame" x="0.0" y="83" width="370" height="210"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bMu-C0-mVD">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="210"/>
@@ -1039,16 +1052,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="wO4-1b-Jew">
-                                                        <rect key="frame" x="0.0" y="341" width="467" height="291"/>
+                                                        <rect key="frame" x="0.0" y="343" width="370" height="293"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر صورة لتغيير رمز مرورك" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MI2-og-rMY">
-                                                                <rect key="frame" x="0.0" y="0.0" width="467" height="56"/>
+                                                                <rect key="frame" x="2.5" y="0.0" width="365" height="58"/>
                                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="48"/>
                                                                 <color key="textColor" red="0.67843137249999996" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="QjF-GH-hcy" userLabel="buttons">
-                                                                <rect key="frame" x="48.5" y="81" width="370" height="210"/>
+                                                                <rect key="frame" x="0.0" y="83" width="370" height="210"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YaX-bc-1Nb">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="210"/>
@@ -1147,13 +1160,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73j-NT-7zX">
-                                                <rect key="frame" x="208.5" y="657" width="50" height="50"/>
+                                                <rect key="frame" x="208.5" y="661" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="30"/>
                                                 <color key="textColor" red="0.9519898295" green="0.47486984729999998" blue="0.47840648889999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbE-az-WEp">
-                                                <rect key="frame" x="0.0" y="732" width="467" height="73"/>
+                                                <rect key="frame" x="0.0" y="736" width="467" height="73"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="467" id="SQP-M3-d6a"/>
@@ -1294,7 +1307,7 @@
                                         <rect key="frame" x="5" y="5" width="140" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-BJ-fe1">
-                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
+                                                <rect key="frame" x="0.0" y="-4" width="140" height="48"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1346,7 +1359,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5O-Xt-LrR">
-                                                    <rect key="frame" x="406" y="54.5" width="86" height="41"/>
+                                                    <rect key="frame" x="435.5" y="54" width="56.5" height="42"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1359,7 +1372,7 @@
                                                     <state key="normal" backgroundImage="buy-item"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdH-dL-xTy">
-                                                    <rect key="frame" x="320" y="54.5" width="86" height="41"/>
+                                                    <rect key="frame" x="379" y="54" width="56.5" height="42"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <color key="textColor" name="blueApp"/>
                                                     <nil key="highlightedColor"/>
@@ -1405,7 +1418,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-LC-E1E">
-                                <rect key="frame" x="529" y="85" width="159" height="93.5"/>
+                                <rect key="frame" x="547" y="85" width="141" height="96"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
@@ -14823,6 +14836,9 @@ ggAMIYoAAAAAAAAEAQAAAAAAAABWAAAAAAAAAAAAAAAAAAwhjQ
         </namedColor>
         <namedColor name="GreenApp">
             <color red="0.84600001573562622" green="0.89200001955032349" blue="0.56099998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="RedApp">
+            <color red="0.95099997520446777" green="0.47499999403953552" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="bachgroundApp">
             <color red="0.95999997854232788" green="0.95800000429153442" blue="0.90200001001358032" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

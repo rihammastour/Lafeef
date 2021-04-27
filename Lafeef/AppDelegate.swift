@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
                 
             } else {
+                print("user not exist ")
+
 //                Set is logged in child to false
              animatedSplashVC.isChild = false
             }
@@ -75,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Fetch User Data
     func fetchUserInfo(){
+        print("ALIVE????")
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     

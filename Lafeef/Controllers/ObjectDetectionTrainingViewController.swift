@@ -156,6 +156,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
                                          height: bufferSize.height)
       ObjectDetectionViewController.detectionOverlay.position = CGPoint(x: rootLayer.bounds.midX, y: rootLayer.bounds.midY)
       rootLayer.addSublayer(ObjectDetectionViewController.detectionOverlay)
+        
     }
     
     func updateLayerGeometry() {

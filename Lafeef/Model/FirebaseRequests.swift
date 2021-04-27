@@ -268,11 +268,15 @@ class FirebaseRequest{
                     //Error
                     print("Error fetching document: \(error!)")
                     completion(nil,error)
+                    print("Not!!")
                     return
                 }
                 guard let data = document.data() else {
+                    print("Nottt!!")
                     return
                 }
+                print("SUCESS!!")
+
                 //Featch changers successfully
                 print("data in seeting db listener")
                 completion(data,nil)

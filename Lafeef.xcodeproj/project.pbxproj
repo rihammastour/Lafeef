@@ -497,8 +497,8 @@
 				41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */,
 				41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */,
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
-				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
+				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */,
@@ -1462,7 +1462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1485,7 +1485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
