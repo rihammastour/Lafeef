@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Firebase configuration
         FirebaseApp.configure()
-        try! Auth.auth().signOut()
+        
         //Show Animated Splash Screen as intial screen
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let animatedSplashVC = storyboard.instantiateViewController(withIdentifier:Constants.Storyboard.animatedSplashViewController) as! AnimatedSplashViewController
