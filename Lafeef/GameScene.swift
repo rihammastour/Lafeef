@@ -179,7 +179,7 @@ class GameScene: SKScene {
         self.paymentContainer = tableNode?.childNode(withName: "paymentContainer") as? SKSpriteNode
         self.paymentContainer?.isHidden = true
         
-        self.bill = tableNode?.childNode(withName: "bill") as? SKSpriteNode
+        self.bill = wallNode?.childNode(withName: "bill") as? SKSpriteNode
         self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
         self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
         
@@ -676,7 +676,7 @@ class GameScene: SKScene {
     let custSat = CustmerSatisfaction.getOrderCusSat(for: viewController!.orderScore)
     
       
-    paymentContainer?.isHidden = false
+        paymentContainer?.isHidden = false
 
         viewController?.showBill()
         //Walk to cashire and react
