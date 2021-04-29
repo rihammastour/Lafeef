@@ -36,16 +36,16 @@ class GoalViewController: UIViewController {
         }
        func setlevelGoal(){
         if levelNum == "1"{
-            goalLabel.text = "هدف المستوى الأول| ٥٠ نقطة "
+            goalLabel.text = "هدف المستوى الأول| ٦٠ نقطة "
             LevelGoalViewController.report.levelNum = "1"
         }else if  levelNum == "2"{
-            goalLabel.text = "هدف المستوى الثاني | ٦٠ نقطة "
+            goalLabel.text = "هدف المستوى الثاني | ٧٠ نقطة "
         }else if levelNum == "3"{
             LevelGoalViewController.report.levelNum = "3"
-            goalLabel.text = "هدف المستوى الثالث | ٧٠ نقطة "
+            goalLabel.text = "هدف المستوى الثالث | ٨٠ نقطة "
         }else{
             LevelGoalViewController.report.levelNum = "4"
-            goalLabel.text = "هدف المستوى الرابع | ٨٠ نقطة "
+            goalLabel.text = "هدف المستوى الرابع | ٩٠ نقطة "
         }
 
     }

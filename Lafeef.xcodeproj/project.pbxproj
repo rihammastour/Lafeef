@@ -73,6 +73,9 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
+		4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */ = {isa = PBXBuildFile; fileRef = 4E69EB63263801870044D680 /* PaymentInstruction.mov */; };
+		4E69EB702638C1FD0044D680 /* CakeModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */; };
+		4E69EB712638C1FD0044D680 /* MoneyModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */; };
 		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
 		4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECC225CDDF9600D50362 /* Challenge.storyboard */; };
 		4E7EB28526267C02008E7EDB /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7EB28426267C02008E7EDB /* SoundManager.swift */; };
@@ -95,8 +98,6 @@
 		4EC81A8D2630C384007EAA90 /* answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8A2630C383007EAA90 /* answer.mp3 */; };
 		4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A8B2630C383007EAA90 /* skip.mp3 */; };
 		4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81A922630D3D4007EAA90 /* bakery.mp3 */; };
-		4EC81ADD2631431A007EAA90 /* CakeModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */; };
-		4EC81AE226314434007EAA90 /* MoneyModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */; };
 		4EC81AE726314B16007EAA90 /* LightInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC81AE626314B15007EAA90 /* LightInstructionViewController.swift */; };
 		4EC81AEC26315773007EAA90 /* lampInstruction.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EC81AEB26315772007EAA90 /* lampInstruction.gif */; };
 		4ED05391262CE0130021544F /* failed-attempt.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED05390262CE0130021544F /* failed-attempt.json */; };
@@ -131,7 +132,6 @@
 		4EDFA46F25EC597F00924569 /* icecream.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA46E25EC597F00924569 /* icecream.gif */; };
 		4EDFA47425EC59A000924569 /* trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA47325EC59A000924569 /* trophy.json */; };
 		4EDFA4B325EC610200924569 /* LafeefModelDifferentSurfaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */; };
-		4EDFA4BB25EC65C800924569 /* NewTransfer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */; };
 		4EE2E7F225DAC1980026F98C /* CompletedLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2E7F125DAC1970026F98C /* CompletedLevel.swift */; };
 		4EE2E7FF25DB50110026F98C /* LevelReportData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2E7FE25DB50110026F98C /* LevelReportData.swift */; };
 		4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */; };
@@ -295,6 +295,9 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PaymentInstruction.mov; path = ../../../../../Downloads/PaymentInstruction.mov; sourceTree = "<group>"; };
+		4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
+		4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
 		4E7DECC325CDDF9600D50362 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Challenge.storyboard; sourceTree = "<group>"; };
 		4E7EB28426267C02008E7EDB /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -317,8 +320,6 @@
 		4EC81A8A2630C383007EAA90 /* answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = answer.mp3; sourceTree = "<group>"; };
 		4EC81A8B2630C383007EAA90 /* skip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = skip.mp3; sourceTree = "<group>"; };
 		4EC81A922630D3D4007EAA90 /* bakery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bakery.mp3; sourceTree = "<group>"; };
-		4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
-		4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
 		4EC81AE626314B15007EAA90 /* LightInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightInstructionViewController.swift; sourceTree = "<group>"; };
 		4EC81AEB26315772007EAA90 /* lampInstruction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lampInstruction.gif; sourceTree = "<group>"; };
 		4ED05390262CE0130021544F /* failed-attempt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "failed-attempt.json"; sourceTree = "<group>"; };
@@ -353,7 +354,6 @@
 		4EDFA46E25EC597F00924569 /* icecream.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icecream.gif; sourceTree = "<group>"; };
 		4EDFA47325EC59A000924569 /* trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trophy.json; sourceTree = "<group>"; };
 		4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LafeefModelDifferentSurfaces.mlmodel; sourceTree = "<group>"; };
-		4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = NewTransfer.mlmodel; sourceTree = "<group>"; };
 		4EE2E7F125DAC1970026F98C /* CompletedLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedLevel.swift; sourceTree = "<group>"; };
 		4EE2E7FE25DB50110026F98C /* LevelReportData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReportData.swift; sourceTree = "<group>"; };
 		4EEDE10A25BCFBCB00CA7B9A /* UIView+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+String.swift"; sourceTree = "<group>"; };
@@ -497,8 +497,8 @@
 				41BD684B25BABFF100257EA6 /* SignUpDOBViewController.swift */,
 				41BD685025BAC00700257EA6 /* SignUpCharachterViewController.swift */,
 				41BD685525BAC01400257EA6 /* SignUpNameViewController.swift */,
-				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				523A362525BF56B40059C0BC /* ProfileViewController.swift */,
+				4EB976F025CAD84B00518EF9 /* AlertViewController.swift */,
 				C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */,
 				C961FA7A25CEEC5800D5A473 /* AnimatedSplashViewController.swift */,
 				4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */,
@@ -704,11 +704,10 @@
 				C987434625D14CB90075581E /* Level.swift */,
 				C97A96F525D1FD770051FF53 /* OrderTimer.swift */,
 				C9E2D3F625D162D900F1CAD5 /* Order.swift */,
-				4EC81ADC26314319007EAA90 /* CakeModel.mlmodel */,
+				4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */,
+				4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */,
 				C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */,
 				4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */,
-				4EC81AE126314434007EAA90 /* MoneyModel.mlmodel */,
-				4EDFA4BA25EC65C700924569 /* NewTransfer.mlmodel */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				411091CD25E4986F0035FACF /* Answer.swift */,
 				C92A65E025CB43DB0060AA53 /* Child.swift */,
@@ -770,6 +769,7 @@
 			isa = PBXGroup;
 			children = (
 				C95EBD912630C4FD000A56EC /* serveOrder.mov */,
+				4E69EB63263801870044D680 /* PaymentInstruction.mov */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -933,6 +933,7 @@
 				4EDFA44725EAF46300924569 /* WaitingPear.atlas in Resources */,
 				4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */,
 				C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */,
+				4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */,
 				4EC819CB262F8A2C007EAA90 /* Store.storyboard in Resources */,
 				4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */,
 				41F78DE4261896410048C968 /* reward.mp3 in Resources */,
@@ -1177,6 +1178,7 @@
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
 				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,
+				4E69EB712638C1FD0044D680 /* MoneyModel.mlmodel in Sources */,
 				C9D4CD54262519B500C24436 /* ManageViewController.swift in Sources */,
 				4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */,
 				4E7EB28526267C02008E7EDB /* SoundManager.swift in Sources */,
@@ -1207,6 +1209,7 @@
 				4EEDE10B25BCFBCB00CA7B9A /* UIView+String.swift in Sources */,
 				C9241FBF260E9E4F003635E8 /* StoreEquipment.swift in Sources */,
 				4EDCA23E25C63A8100C29464 /* SplashAnimationView.swift in Sources */,
+				4E69EB702638C1FD0044D680 /* CakeModel.mlmodel in Sources */,
 				41314C4525F5F6800022FA0B /* DailyReport.swift in Sources */,
 				C9241FBE260E9E4F003635E8 /* BackeryStore.swift in Sources */,
 				4EB21B9D25D353050076530E /* Reports.swift in Sources */,
@@ -1224,7 +1227,6 @@
 				C95EBD6F26308EB2000A56EC /* CustomUIPageViewController.swift in Sources */,
 				41BD685125BAC00700257EA6 /* SignUpCharachterViewController.swift in Sources */,
 				52A92EF6260C0CEB009D58DD /* EditProfileViewController.swift in Sources */,
-				4EDFA4BB25EC65C800924569 /* NewTransfer.mlmodel in Sources */,
 				41709028261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift in Sources */,
 				4E453A4225B61D5100B8363F /* AppDelegate.swift in Sources */,
 				C95EBD6A26308A98000A56EC /* InstructionsViewController.swift in Sources */,
@@ -1232,7 +1234,6 @@
 				41F4C24025D0AB72000D4064 /* levelInfo.swift in Sources */,
 				41BD685625BAC01400257EA6 /* SignUpNameViewController.swift in Sources */,
 				4EB976EA25CAD83900518EF9 /* instruction.swift in Sources */,
-				4EC81AE226314434007EAA90 /* MoneyModel.mlmodel in Sources */,
 				4EB21B9525D2FC660076530E /* DailyReportViewController.swift in Sources */,
 				4EB976F225CAD84B00518EF9 /* AlertViewController.swift in Sources */,
 				41F78E682618AA8D0048C968 /* Slide.swift in Sources */,
@@ -1272,7 +1273,6 @@
 				C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */,
 				4EF5219825DE5B4F00A765D4 /* Money.swift in Sources */,
 				C9BF6F502603EF98004D64B5 /* GuidanceInstructionsViewController.swift in Sources */,
-				4EC81ADD2631431A007EAA90 /* CakeModel.mlmodel in Sources */,
 				523A362625BF56B40059C0BC /* ProfileViewController.swift in Sources */,
 				C9241FBD260E9E4F003635E8 /* Store.swift in Sources */,
 				C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */,
@@ -1462,14 +1462,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.LafeefApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1485,14 +1485,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6HV5YGYCJ8;
+				DEVELOPMENT_TEAM = 8WNUZCBQWY;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.r-s990.LafeefApp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

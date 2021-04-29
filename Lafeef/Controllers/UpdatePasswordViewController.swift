@@ -99,6 +99,46 @@ class UpdatePasswordViewController: UIViewController {
                                         $0.layer.borderColor = .none})
     }
     
+    
+    func updatePassword() -> String{
+        if oldPassword != ""  {
+            if newPassword != "" {
+                if newPassword != oldPassword {
+                    FirebaseRequest.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { (success, err) in
+                        if success {
+                            self.present(self.alert.Alert(body:"تم تغيير رمز مرورك بنجاح 🎉", isSuccess: true ), animated: true){
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    
+                                    self.back()
+                                }
+                            }
+                            
+                        } else {
+                            //error happend while perform update password
+                            self.present(self.alert.Alert(body:err, isSuccess: false), animated: true)
+                        }
+                    }
+                } else{
+                    // new password as old password
+                    let body = "اختر رمز مرور جديد"
+                    self.present(self.alert.Alert(body:body, isSuccess: false), animated: true)
+                    return body
+                }
+            } else {
+                // new password nil
+                let body = "هلّا أدخلت رمز مرورك الجديد؟"
+                self.present(self.alert.Alert(body: body, isSuccess: false), animated: true)
+                return body
+            }
+        } else {
+            // old password nil
+            let body = "هلّا أدخلت رمز مرورك السابق؟"
+            self.present(self.alert.Alert(body:body, isSuccess: false), animated: true)
+            return body
+        }
+        return "تم تغيير رمز مرورك بنجاح 🎉"
+    }
+    
     //MARK:- Actions
     @IBAction func oldBerryPass(_ sender: UIButton) {
         passLabel.isHidden = true
@@ -171,36 +211,7 @@ class UpdatePasswordViewController: UIViewController {
     }
     
     @IBAction func updatePassword(_ sender: Any) {
-        if oldPassword != ""  {
-            if newPassword != ""{
-                if newPassword != oldPassword {
-                    FirebaseRequest.updatePassword(oldPassword: oldPassword, newPassword: newPassword) { (success, err) in
-                        if success {
-                            self.present(self.alert.Alert(body:"تم تغيير رمز مرورك بنجاح 🎉", isSuccess: true ), animated: true){
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    
-                                    self.back()
-                                }
-                            }
-                            
-                        } else {
-                            //error happend while perform update password
-                            self.present(self.alert.Alert(body:err, isSuccess: false), animated: true)
-                        }
-                    }
-                } else{
-                    // new password as old password
-                    self.present(self.alert.Alert(body:"اختر رمز مرور جديد", isSuccess: false), animated: true)
-                }
-            } else {
-                // new password nil
-                self.present(self.alert.Alert(body:"هلّا أدخلت رمز مرورك الجديد؟", isSuccess: false), animated: true)
-            }
-        } else {
-            // old password nil
-            self.present(self.alert.Alert(body:"هلّا أدخلت رمز مرورك السابق؟", isSuccess: false), animated: true)
-        }
-        
+        updatePassword()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

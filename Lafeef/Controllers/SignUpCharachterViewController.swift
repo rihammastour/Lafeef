@@ -15,6 +15,8 @@ class SignUpCharachterViewController: UIViewController {
     var password = ""
     let alert = AlertService()
     var progressBar = ProgressBar(stepNum: 2)
+    var user = User(DOB: "", email: "", name: "", sex: "")
+
     
     //outlets
     @IBOutlet var charectarView: UIView!
@@ -29,7 +31,7 @@ class SignUpCharachterViewController: UIViewController {
         super.viewDidLoad()
         styleUI()
         boy.isSelected =  true
-        User.sex = "boy"
+        user.sex = "boy"
     }
     
     //MARK:- Functions
@@ -70,7 +72,7 @@ class SignUpCharachterViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func girl(_ sender: UIButton) {
-        User.sex = "girl"
+        user.sex = "girl"
         selectButton(sender)
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.96, greenBottom: 0.71, blueBottom: 0.71, type: "radial", isFirstTimeInserting: false)
         self.charachterImage.image = UIImage(named: "girl")
@@ -78,7 +80,7 @@ class SignUpCharachterViewController: UIViewController {
         
     }
     @IBAction func boy(_ sender: UIButton) {
-        User.sex = "boy"
+        user.sex = "boy"
         selectButton(sender)
         self.view.setGradientBackground(redTop: 1, greenTop: 1, blueTop: 1, redBottom: 0.67, greenBottom: 0.82, blueBottom: 0.76, type: "radial",  isFirstTimeInserting: false)
         self.charachterImage.image =  UIImage(named: "boy")
@@ -89,11 +91,17 @@ class SignUpCharachterViewController: UIViewController {
         
         let destinationVC = segue.destination as! SignUpNameViewController
         destinationVC.password = password
+        destinationVC.user.email = user.email
+        destinationVC.user.DOB = user.DOB
+        destinationVC.user.sex = user.sex
     }
     
-
+    func checkCharectar() -> Bool {
+        return user.sex != ""
+    }
+    
     @IBAction func next(_ sender: Any) {
-        if User.sex != ""{
+        if checkCharectar() {
                 self.performSegue(withIdentifier: "charachterNext", sender: self)
             }
                 else{

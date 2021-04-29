@@ -33,16 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = animatedSplashVC
         self.window?.makeKeyAndVisible()
-        
+   
         //Auto Login
         _ = Auth.auth().addStateDidChangeListener { auth, user in
-            print(user?.uid)
             if user != nil {
-                print("user exist ")
+
                 //Fetch user data
                 self.fetchUserInfo()
                 //                Set is logged in child to true
                 animatedSplashVC.isChild = true
+   
                 
             } else {
                 print("user not exist ")
@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              animatedSplashVC.isChild = false
             }
         }
+
         return true
     }
     
@@ -82,7 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
-        print("عبود٢")
 
         if let data = data{
             do{

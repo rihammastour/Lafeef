@@ -7,8 +7,8 @@
 
 import Foundation
 struct User {
-    static  var DOB :String = ""
-    static  var email :String = ""
-    static  var name :String = ""
-    static  var sex :String = ""
+    var DOB :String = ""
+    var email :String = ""
+    var name :String = ""
+    var sex :String = ""
 }

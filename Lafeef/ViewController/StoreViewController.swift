@@ -136,16 +136,15 @@ class StoreViewController: UIViewController {
     //MARK:- Set Data Functions
     
     ///Buy Item
-    func buyItem(_ aEquipment:StoreEquipment){
+    func buyItem(_ aEquipment:StoreEquipment) -> Bool{
         let leftMoney = self.money - aEquipment.cost
         
         if leftMoney >= 0{
-            
             FirebaseRequest.addEquipment(aEquipment) { (success, errore) in
                 if !success{
                     //Purches won't complated
                     self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً", isSuccess: false)
-                    return
+               
                 }
             }
             
@@ -153,6 +152,7 @@ class StoreViewController: UIViewController {
                 if !success{
                     //Purches won't complated
                     self.showAlert(with: "خطأ حدث اثناء اتمام عملية الشراء ، الرجاء اعادة المحاولة لاحقاً", isSuccess: false)
+    
                 }else{
                     
                     self.updateMoney(leftMoney)
@@ -160,11 +160,14 @@ class StoreViewController: UIViewController {
                 }
                 
             }
+            
+            return true
         }else{
             //No enughe money to buy
             self.showAlert(with:"ليس لديك مال كافِ لإتمام عملية الشراء", isSuccess: false)
+            return false
         }
-        
+
     }
     
     func useItem(_ aEquipment:StoreEquipment){
