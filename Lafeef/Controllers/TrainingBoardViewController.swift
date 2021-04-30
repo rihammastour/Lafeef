@@ -496,9 +496,11 @@ isCorrect=true
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first
+        guard let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else {
+            return
+        }
         do {
-            deviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+            deviceInput = try AVCaptureDeviceInput(device: videoDevice)
             
             print("device")
         } catch {
@@ -533,11 +535,11 @@ isCorrect=true
         captureConnection?.isEnabled = true
         print("before do ")
         do {
-            try  videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
+            try  videoDevice.lockForConfiguration()
+            let dimensions = CMVideoFormatDescriptionGetDimensions(videoDevice.activeFormat.formatDescription) 
             bufferSize.width = CGFloat(dimensions.width)
             bufferSize.height = CGFloat(dimensions.height)
-            videoDevice!.unlockForConfiguration()
+            videoDevice.unlockForConfiguration()
             print("inside do ")
         } catch {
             print(error)

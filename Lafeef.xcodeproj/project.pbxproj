@@ -299,7 +299,7 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PaymentInstruction.mov; path = ../../../../Videos/PaymentInstruction.mov; sourceTree = "<group>"; };
+		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = PaymentInstruction.mov; sourceTree = "<group>"; };
 		4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
 		4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
