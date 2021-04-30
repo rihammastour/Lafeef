@@ -73,7 +73,6 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
-		4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */ = {isa = PBXBuildFile; fileRef = 4E69EB63263801870044D680 /* PaymentInstruction.mov */; };
 		4E69EB702638C1FD0044D680 /* CakeModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */; };
 		4E69EB712638C1FD0044D680 /* MoneyModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */; };
 		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
@@ -295,7 +294,6 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PaymentInstruction.mov; path = ../../../../../Downloads/PaymentInstruction.mov; sourceTree = "<group>"; };
 		4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
 		4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
@@ -769,7 +767,6 @@
 			isa = PBXGroup;
 			children = (
 				C95EBD912630C4FD000A56EC /* serveOrder.mov */,
-				4E69EB63263801870044D680 /* PaymentInstruction.mov */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -933,7 +930,6 @@
 				4EDFA44725EAF46300924569 /* WaitingPear.atlas in Resources */,
 				4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */,
 				C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */,
-				4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */,
 				4EC819CB262F8A2C007EAA90 /* Store.storyboard in Resources */,
 				4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */,
 				41F78DE4261896410048C968 /* reward.mp3 in Resources */,
@@ -1462,14 +1458,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.LafeefApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1485,14 +1481,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = 8D5P9YJN3N;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mihafsalman11.LafeefApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setUserPref()
 //        //Register child obj to observe changes
 //        RegisterObserver(for:"child")
     }
@@ -118,7 +119,12 @@ class HomeViewController: UIViewController {
         self.setImage(child.sex)
         self.sex = child.sex
     }
-    
+    func setUserPref(){
+        
+        if HomeViewController.userPrfrence != ""{
+       characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
+    }
+    }
     //Name
     func setName(_ name:String) {
         nameLabel.text = String(name)
@@ -145,13 +151,11 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
+        if   HomeViewController.userPrfrence == "" && sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
         // }else if LoginViewController.userPrfrence != ""{
         //     characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)}
-        }else if HomeViewController.userPrfrence != ""{
-        characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
-        }else{
+        }else if HomeViewController.userPrfrence == ""{
             characterUIImageView.image = UIImage(named: "girl-icon")
         }
     }
