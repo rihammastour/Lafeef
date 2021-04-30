@@ -145,25 +145,20 @@ class CustomerNode {
              customerNode.happyCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
 
-                moveCustomer(customerNode : customerNode,x: 650, y: 0)
+                moveCustomer(customerNode : customerNode,x: 530, y: 0)
      
 
                }
             
          
             print(customerNode.customer.position.x * CGFloat.pi / 180,"Customer postion")
-//            if customerNode.customer.position.x == 600 {
-//                ObjectDetectionViewController.detectionOverlay.isHidden = false
-//                // I think its 480 x and -320 y
-//                ObjectDetectionViewController.detectionOverlay.position = CGPoint(x:600, y:230)
-//            }
-//            
+       
             break
 
         case .sad:
             customerNode.sadCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-                moveCustomer(customerNode:customerNode,x: 650, y: 0)
+                moveCustomer(customerNode:customerNode,x: 530, y: 0)
               
                }
          
@@ -174,11 +169,10 @@ class CustomerNode {
 
             customerNode.normalCustomer()
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) { [self] in
-                moveCustomer(customerNode:customerNode,x: 650, y: 0)
+                moveCustomer(customerNode:customerNode,x: 530, y: 0)
 
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 9.5) { [self] in
-//                ObjectDetectionViewController.detectionOverlay.isHidden = false
 
                }
         

@@ -138,7 +138,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         var deviceInput: AVCaptureDeviceInput!
         
         // Select a video device, make an input
-        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else{
+        guard  let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else{
             dismiss(animated: true)
             return
         }
@@ -296,15 +296,15 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         challengeScen?.setPaymentContent(with: money)
     }
     
-    func showBill() -> Void {
+    func setupBill() -> Void {
     
         let totalBillRounded = Float(round(100*getTotalBill())/100)
         let taxRounded = Float(round(100*getTotalTax())/100)
         
         let totalBillWithTaxRounded = Float(round(10*getTotalBillWithTax())/10) 
         
-        challengeScen?.setTotalBill(totalBill: totalBillRounded, tax: taxRounded)
-        challengeScen?.setTotalBillWithTax(totalBillWithTax: totalBillWithTaxRounded)
+        challengeScen?.setBillLabels(totalBill: totalBillRounded, tax: taxRounded, totalBillWithTax: totalBillWithTaxRounded)
+
         report.salesAmount += totalBillWithTaxRounded
     }
     

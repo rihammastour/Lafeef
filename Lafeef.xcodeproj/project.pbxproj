@@ -198,6 +198,10 @@
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
 		C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */; };
 		C9EBE9572618E29700A1A93E /* ChildEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EBE9562618E29600A1A93E /* ChildEquipment.swift */; };
+		C9F28651263B8BB7002A9429 /* Money2Model 4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9F2864F263B8BB5002A9429 /* Money2Model 4.mlmodel */; };
+		C9F28652263B8BB7002A9429 /* SecondCakeModel2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9F28650263B8BB7002A9429 /* SecondCakeModel2.mlmodel */; };
+		C9F28656263BE586002A9429 /* LafeefTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A5525B61D5500B8363F /* LafeefTests.xctest */; };
+		C9F28657263BE58B002A9429 /* LafeefUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A6025B61D5500B8363F /* LafeefUITests.xctest */; };
 		C9F4B17425BDE90500ADDA6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */; };
 		C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -295,7 +299,7 @@
 		4E453A6025B61D5500B8363F /* LafeefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LafeefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E453A6425B61D5500B8363F /* LafeefUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LafeefUITests.swift; sourceTree = "<group>"; };
 		4E453A6625B61D5500B8363F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PaymentInstruction.mov; path = ../../../../../Downloads/PaymentInstruction.mov; sourceTree = "<group>"; };
+		4E69EB63263801870044D680 /* PaymentInstruction.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PaymentInstruction.mov; path = ../../../../Videos/PaymentInstruction.mov; sourceTree = "<group>"; };
 		4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CakeModel.mlmodel; sourceTree = "<group>"; };
 		4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MoneyModel.mlmodel; sourceTree = "<group>"; };
 		4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "splash-animation.gif"; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
 		C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareOrderController.swift; sourceTree = "<group>"; };
 		C9EBE9562618E29600A1A93E /* ChildEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildEquipment.swift; sourceTree = "<group>"; };
+		C9F2864F263B8BB5002A9429 /* Money2Model 4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Money2Model 4.mlmodel"; sourceTree = "<group>"; };
+		C9F28650263B8BB7002A9429 /* SecondCakeModel2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SecondCakeModel2.mlmodel; sourceTree = "<group>"; };
 		C9F4B17325BDE90500ADDA6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		D15DBE30DFD273AA2B178F61 /* Pods-Lafeef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lafeef.release.xcconfig"; path = "Target Support Files/Pods-Lafeef/Pods-Lafeef.release.xcconfig"; sourceTree = "<group>"; };
@@ -707,6 +713,8 @@
 				4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */,
 				4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */,
 				C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */,
+				C9F2864F263B8BB5002A9429 /* Money2Model 4.mlmodel */,
+				C9F28650263B8BB7002A9429 /* SecondCakeModel2.mlmodel */,
 				4EDFA4B225EC610100924569 /* LafeefModelDifferentSurfaces.mlmodel */,
 				C92A65B925CB3FFB0060AA53 /* FirebaseRequests.swift */,
 				411091CD25E4986F0035FACF /* Answer.swift */,
@@ -1019,6 +1027,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F28656263BE586002A9429 /* LafeefTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1035,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F28657263BE58B002A9429 /* LafeefUITests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1201,6 +1211,7 @@
 				41F421882612EC85005C3940 /* SoundManager.swift in Sources */,
 				41AA7469260ADA66002F11AC /* BackeryViewController.swift in Sources */,
 				C97A96F625D1FD770051FF53 /* OrderTimer.swift in Sources */,
+				C9F28651263B8BB7002A9429 /* Money2Model 4.mlmodel in Sources */,
 				C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */,
 				C998084625FBFCF600DC3902 /* TimeInterval+Int.swift in Sources */,
 				C9081C3625D9858400B19998 /* Base.swift in Sources */,
@@ -1240,6 +1251,7 @@
 				C91B331825DD8E8C00BED6BC /* ProgressBarViewController.swift in Sources */,
 				4E427B4426166C25009692C8 /* TrainingQuestions.swift in Sources */,
 				C987434725D14CB90075581E /* Level.swift in Sources */,
+				C9F28652263B8BB7002A9429 /* SecondCakeModel2.mlmodel in Sources */,
 				C9F7943025D0380A0067E14B /* ChallengeViewController.swift in Sources */,
 				4122DA4125DB926F00DABB29 /* CustomerNode.swift in Sources */,
 				41BD684725BABF0800257EA6 /* SignUpEmailViewController.swift in Sources */,
@@ -1462,14 +1474,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = U8U4G9L86W;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1485,14 +1497,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8WNUZCBQWY;
+				DEVELOPMENT_TEAM = U8U4G9L86W;
 				INFOPLIST_FILE = Lafeef/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rihammastour.LafeefApp1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rnod-22.Lafeef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

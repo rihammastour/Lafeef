@@ -30,6 +30,8 @@ class GameScene: SKScene {
     var button: SKNode! = nil
     var OrderButton: SKNode! = nil
     var PaymentButton: SKNode! = nil
+    var checkButton: SKNode! = nil
+    var diffrenceDistanceCheckButton : CGFloat!
     let cam = SKCameraNode()
     static var flag = false
     
@@ -65,6 +67,7 @@ class GameScene: SKScene {
     private var bill : SKSpriteNode?
     private var paymentContainer : SKSpriteNode?
     private var totalBillLabel : SKLabelNode?
+    private var taxBillLabel : SKLabelNode?
     private var totalBillWithTaxLabel : SKLabelNode?
     
     //pickup order node variables
@@ -92,8 +95,9 @@ class GameScene: SKScene {
     static var cupCakeFrame : SKSpriteNode?
     static var lamp : SKSpriteNode?
     
-    //isOrder variable
+    //Game modes
     var isOrdering:Bool = false
+    var isPayment:Bool = false
     
     
    
@@ -156,10 +160,18 @@ class GameScene: SKScene {
         setUpMoneyContiner()
         
         OrderButton = SKSpriteNode(imageNamed: "served")
-        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.minY ?? 0)+(50))
+        OrderButton.position = CGPoint(x: self.frame.midX, y:(self.tableNode?.frame.maxY ?? 0)+(50))
         OrderButton.zPosition = 50
         OrderButton.isHidden=true
         self.addChild(OrderButton)
+        
+        checkButton = SKSpriteNode(imageNamed: "checkButton")
+        checkButton.zPosition = 50
+        checkButton.position = CGPoint(x: self.frame.minX+(30), y:(self.tableNode?.frame.maxY ?? 0)+(50))
+        checkButton.isHidden=true
+        self.addChild(checkButton)
+        diffrenceDistanceCheckButton = cam.position.x - checkButton.position.x
+
         
         PaymentButton  = SKSpriteNode(imageNamed: "paid")
         PaymentButton.position = CGPoint(x: self.frame.midX+600, y:(self.tableNode?.frame.minY ??  20) + (50))
@@ -180,7 +192,9 @@ class GameScene: SKScene {
         self.paymentContainer?.isHidden = true
         
         self.bill = wallNode?.childNode(withName: "bill") as? SKSpriteNode
+        bill?.isHidden = true
         self.totalBillLabel = bill?.childNode(withName: "totalBillLabel") as? SKLabelNode
+        self.taxBillLabel = bill?.childNode(withName: "taxBillLabel") as? SKLabelNode
         self.totalBillWithTaxLabel = bill?.childNode(withName: "totalBillWithTaxLabel") as? SKLabelNode
         
         self.box = tableNode?.childNode(withName: "box") as? SKSpriteNode
@@ -408,7 +422,7 @@ class GameScene: SKScene {
     
     func showOrder(){
         self.isOrdering = true
-        OrderButton.isHidden = false
+        checkButton.isHidden = false
         self.orderContiner?.isHidden = false
         showDetectionOverlay()
         if(!isPaused){
@@ -427,8 +441,13 @@ class GameScene: SKScene {
         DispatchQueue.main.async {
             self.timer.invalidate()
         }
-        //GameScene.timeLeft = 0
         GameScene.countStop=0
+    }
+    
+    func startPayment(_ flag:Bool){
+        isPayment = flag
+        checkButton.isHidden = !flag
+        bill?.isHidden = !flag
     }
     
     //MARK: - Set Order and Payment Elements
@@ -567,17 +586,30 @@ class GameScene: SKScene {
     }
     
     //MARK: Payment Elements
-    func setTotalBill(totalBill: Float, tax: Float){
-        totalBillLabel?.position = CGPoint(x: 17, y: -40)
+    func setBillLabels(totalBill: Float,tax:Float,totalBillWithTax: Float){
+        setTotalBill(totalBill: totalBill)
+        setTaxBill(tax: tax)
+        setTotalBillWithTax(totalBillWithTax: totalBillWithTax)
+    }
+    func setTotalBill(totalBill: Float){
+    //    totalBillLabel?.position = CGPoint(x: totalBillLabel?.position.x ?? 10, y: (totalBillLabel?.position.y)!+20)
         totalBillLabel?.numberOfLines = 3
-        totalBillLabel?.fontName =  "FF Hekaya"
-        totalBillLabel?.fontSize = 35
-        totalBillLabel?.text = "المبلغ = \(totalBill) \n الضريبة (١٥٪) = \(tax) \n المجموع =".convertedDigitsToLocale(Locale(identifier: "AR"))
+        totalBillLabel?.fontSize = 20
+        totalBillLabel?.text = "\(totalBill)".convertedDigitsToLocale(Locale(identifier: "AR"))
+
+    }
+    
+    func setTaxBill(tax: Float){
+       // taxBillLabel?.position = CGPoint(x: 17, y: -40)
+        taxBillLabel?.numberOfLines = 3
+        taxBillLabel?.fontSize = 20
+        taxBillLabel?.text = "\(tax)".convertedDigitsToLocale(Locale(identifier: "AR"))
+
     }
     
     func setTotalBillWithTax(totalBillWithTax: Float){
-        totalBillWithTaxLabel?.position = CGPoint(x: 27, y: -90)
-        totalBillWithTaxLabel?.fontSize = 60
+    //    totalBillWithTaxLabel?.position = CGPoint(x:(bill?.position.x ?? 10)/2, y:(bill?.position.y ?? 10)/2)
+        totalBillWithTaxLabel?.fontSize = 50
         totalBillWithTaxLabel?.fontName =  "FF Hekaya"
         totalBillWithTaxLabel?.text = "\(totalBillWithTax) ريـال".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
@@ -643,9 +675,9 @@ class GameScene: SKScene {
     
     //MARK: - Check Answers
     
-    // OrderbuttonTapped
+    // Check Order Answer
     func checkOrderAnswer(){
-    OrderButton.isHidden = true
+    checkButton.isHidden = true
         
 
         // Get answers provided
@@ -678,7 +710,7 @@ class GameScene: SKScene {
       
         paymentContainer?.isHidden = false
 
-        viewController?.showBill()
+        viewController?.setupBill()
         //Walk to cashire and react
         walkToCashir(satisfaction: custSat)
         
@@ -713,13 +745,15 @@ class GameScene: SKScene {
         
         GameScene.flag = true
         customers[currentCustomer].movetoCashier(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction){ [self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 9.5) { [self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 9.0) { [self] in
             self.showDetectionOverlay()
-            PaymentButton.isHidden = false
+                startPayment(true)
             }
+
         }
         
     }
+    
     
     func customerLeave(satisfaction: CustmerSatisfaction){
         GameScene.flag = false
@@ -732,7 +766,7 @@ class GameScene: SKScene {
         
         //Move Customer
         customers[currentCustomer].moveOut(customerNode: customers[currentCustomer], customerSatisfaction: satisfaction) { [self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 paymentContainer?.isHidden = true
                 box?.isHidden = true
                 bill?.isHidden = true
@@ -743,7 +777,6 @@ class GameScene: SKScene {
                 let startPoint = CGPoint(x: 0, y: 0)
                 let moveing = SKAction.move(to: startPoint, duration: 1)
                 cam.run(moveing){
-                    //                self.progressBarContiner.position.x = cam.position.x
                     self.nextCustomer()
                 }
                 
@@ -770,7 +803,7 @@ class GameScene: SKScene {
         
         paymentContainer?.isHidden = false
         box?.isHidden = false
-        bill?.isHidden = false
+        
         
         currentCustomer += 1
         //timeLeft = 30
@@ -853,9 +886,9 @@ class GameScene: SKScene {
             }
             
             if( Int(timeLeft)==0){
-                print("اريج")
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.0, alpha: 0.0)
                 self.removeAction(forKey: "stopTimer")
+                checkButton.isHidden = true
                 checkOrderAnswer()
                 
             }
@@ -1006,13 +1039,14 @@ class GameScene: SKScene {
     //MARK:- Buttons Tapped methods
     
     func OrderbuttonTapped(button:String){
-        Voice2ViewController.flag = true
-        print("inside order")
-
-    checkOrderAnswer()
+        checkOrderAnswer()
     }
+    
     func PaymentbuttonTapped(){
-        PaymentButton.isHidden = true
+//        PaymentButton.isHidden = true
+//        isPayment = false
+//        checkButton.isHidden = false
+        startPayment(false)
         Voice2ViewController.flag = true
         checkPaymentAnswer()
     }
@@ -1073,11 +1107,11 @@ class GameScene: SKScene {
             self.touchUp(atPoint: t.location(in: self))
             let location = t.location(in: self)
             
-            if OrderButton.contains(location) && !OrderButton.isHidden{
+            if checkButton.contains(location) && isOrdering{
                 OrderbuttonTapped(button: "x")
             }
             
-            if PaymentButton.contains(location) && !PaymentButton.isHidden{
+            if checkButton.contains(location) && isPayment{
                 PaymentbuttonTapped()
             }
             
@@ -1096,19 +1130,14 @@ class GameScene: SKScene {
         
         if (GameScene.flag && currentCustomer<customers.count){
             
-            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x, y: 0)
+            cam.position = CGPoint(x: customers[currentCustomer].customer.position.x+70, y: 0)
             
         }
         
         self.progressBarContiner.position.x = cam.position.x
         moneyCountiner.position.x = cam.position.x + diffrenceDistancePBMC
+        self.checkButton.position.x = cam.position.x - diffrenceDistanceCheckButton
         
-//        if (timeLeft < 0 ){
-//            DispatchQueue.main.async {
-//                self.timer.invalidate()
-//            }
-//            return
-//        }
         
         // Initialize _lastUpdateTime if it has not already been
         if (self.lastUpdateTime == 0) {
