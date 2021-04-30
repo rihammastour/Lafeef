@@ -173,6 +173,10 @@ class ObjectDetectionViewController: ChallengeViewController{
     }
     
     func setupLayers() {
+        
+        guard let rootLayer = rootLayer else {
+            return
+        }
         ObjectDetectionViewController.detectionOverlay = CALayer() // container layer that has all the renderings of the observations
         ObjectDetectionViewController.detectionOverlay.name = "DetectionOverlay"
         ObjectDetectionViewController.detectionOverlay.bounds = CGRect(x: 0.0,
@@ -184,6 +188,10 @@ class ObjectDetectionViewController: ChallengeViewController{
     }
     
     func updateLayerGeometry() {
+        
+        guard let rootLayer = rootLayer else {
+            return
+        }
         let bounds = rootLayer.bounds
         var scale: CGFloat
         
