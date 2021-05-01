@@ -58,31 +58,31 @@
                                                     <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="YOe-AA-RZY"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYR-Ze-jwV">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="55"/>
+                                                <color key="backgroundColor" red="0.96691697840000002" green="0.56139135360000003" blue="0.54901278019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="9xA-LW-zOV"/>
+                                                    <constraint firstAttribute="height" constant="55" id="MKm-yR-3Zs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                                <state key="normal" title="انهاء">
+                                                    <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="doneTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="gP0-oJ-yWy"/>
+                                                    <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="cmp-xN-3wE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-Bj-60Y">
                                         <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
                                     </imageView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYR-Ze-jwV">
-                                        <rect key="frame" x="219" y="652" width="160" height="55"/>
-                                        <color key="backgroundColor" red="0.74955147499999997" green="0.87930101159999996" blue="0.83921974899999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="9xA-LW-zOV"/>
-                                            <constraint firstAttribute="height" constant="55" id="MKm-yR-3Zs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
-                                        <state key="normal" title="انهاء">
-                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="doneTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="gP0-oJ-yWy"/>
-                                            <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="cmp-xN-3wE"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE8-Em-5aE">
-                                        <rect key="frame" x="494.5" y="14" width="89.5" height="32"/>
+                                        <rect key="frame" x="511.5" y="14" width="72.5" height="33"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
-                                        <color key="tintColor" name="RedApp"/>
+                                        <color key="tintColor" red="0.96691697840000002" green="0.56139135360000003" blue="0.54901278019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="تخطي " image="arrow.right.to.line.alt" catalog="system">
                                             <color key="titleColor" name="BlackApp"/>
                                         </state>
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXc-nI-gMq">
-                                        <rect key="frame" x="266" y="569.5" width="66.5" height="31.5"/>
+                                        <rect key="frame" x="277.5" y="568.5" width="43.5" height="32.5"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +99,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="HYR-Ze-jwV" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="4wL-5O-yRX"/>
                                     <constraint firstItem="aXc-nI-gMq" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="H0i-47-zYT"/>
                                     <constraint firstAttribute="trailing" secondItem="yyl-Bj-60Y" secondAttribute="trailing" id="Hnq-Yf-zvI"/>
                                     <constraint firstAttribute="bottom" secondItem="4NP-8P-kza" secondAttribute="bottom" constant="46" id="N72-rn-JfN"/>
@@ -107,7 +106,6 @@
                                     <constraint firstAttribute="trailing" secondItem="TE8-Em-5aE" secondAttribute="trailing" constant="14" id="Tmo-Y0-Ghh"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="aXc-nI-gMq" secondAttribute="bottom" constant="50" id="Zql-wg-Q7r"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="yyl-Bj-60Y" secondAttribute="bottom" constant="10" id="fIm-sH-HUh"/>
-                                    <constraint firstAttribute="bottom" secondItem="HYR-Ze-jwV" secondAttribute="bottom" constant="45" id="hiq-Bp-PTy"/>
                                     <constraint firstItem="TE8-Em-5aE" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" constant="14" id="omS-wP-1Q4"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="uWJ-7R-zK4"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" id="zp1-j5-lXA"/>
@@ -279,9 +277,6 @@
         <image name="arrow.right.to.line.alt" catalog="system" width="128" height="89"/>
         <namedColor name="BlackApp">
             <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="RedApp">
-            <color red="0.95099997520446777" green="0.47499999403953552" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
