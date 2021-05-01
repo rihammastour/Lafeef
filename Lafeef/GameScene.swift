@@ -123,7 +123,6 @@ class GameScene: SKScene {
         self.camera = cam
         addChild(cam)
         setCameraConstraints()
-        //ChallengeViewController.stopImageBool=true
         circleShouldDelay()
         ObjectDetectionViewController.detectionOverlay.isHidden = false
         previewFrames()
@@ -167,7 +166,7 @@ class GameScene: SKScene {
         
         checkButton = SKSpriteNode(imageNamed: "checkButton")
         checkButton.zPosition = 50
-        checkButton.position = CGPoint(x: self.frame.minX+(30), y:(self.tableNode?.frame.maxY ?? 0)+(50))
+        checkButton.position = CGPoint(x: self.frame.minX+(45), y:(self.tableNode?.frame.maxY ?? 0)+(50))
         checkButton.isHidden=true
         self.addChild(checkButton)
         diffrenceDistanceCheckButton = cam.position.x - checkButton.position.x

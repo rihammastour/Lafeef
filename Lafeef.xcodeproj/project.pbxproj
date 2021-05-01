@@ -55,9 +55,7 @@
 		41F78DF8261896B00048C968 /* learnMath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DF7261896B00048C968 /* learnMath.mp3 */; };
 		41F78E00261896C30048C968 /* bye.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78DFF261896C30048C968 /* bye.mp3 */; };
 		41F78E05261898F80048C968 /* firstDay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41F78E04261898F80048C968 /* firstDay.mp3 */; };
-		41F78E632618A9F60048C968 /* GameInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F78E622618A9F60048C968 /* GameInstructionViewController.swift */; };
 		41F78E682618AA8D0048C968 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F78E672618AA8C0048C968 /* Slide.swift */; };
-		41F78E702618AAAB0048C968 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41F78E6F2618AAAB0048C968 /* Slide.xib */; };
 		4E3EC75A25E7356400FBAD87 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		4E427B3A2616259C009692C8 /* TrainingSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E427B392616259C009692C8 /* TrainingSections.swift */; };
 		4E427B4426166C25009692C8 /* TrainingQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E427B4326166C25009692C8 /* TrainingQuestions.swift */; };
@@ -196,7 +194,6 @@
 		C9E2D3F725D162D900F1CAD5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3F625D162D900F1CAD5 /* Order.swift */; };
 		C9E2D3FF25D1965200F1CAD5 /* AddLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */; };
 		C9E3373F25DB5244008CFFB1 /* PauseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */; };
-		C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */; };
 		C9EBE9572618E29700A1A93E /* ChildEquipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EBE9562618E29600A1A93E /* ChildEquipment.swift */; };
 		C9F28651263B8BB7002A9429 /* Money2Model 4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9F2864F263B8BB5002A9429 /* Money2Model 4.mlmodel */; };
 		C9F28652263B8BB7002A9429 /* SecondCakeModel2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9F28650263B8BB7002A9429 /* SecondCakeModel2.mlmodel */; };
@@ -276,9 +273,7 @@
 		41F78DF7261896B00048C968 /* learnMath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = learnMath.mp3; sourceTree = "<group>"; };
 		41F78DFF261896C30048C968 /* bye.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bye.mp3; sourceTree = "<group>"; };
 		41F78E04261898F80048C968 /* firstDay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = firstDay.mp3; sourceTree = "<group>"; };
-		41F78E622618A9F60048C968 /* GameInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInstructionViewController.swift; sourceTree = "<group>"; };
 		41F78E672618AA8C0048C968 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
-		41F78E6F2618AAAB0048C968 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		4E427B392616259C009692C8 /* TrainingSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingSections.swift; sourceTree = "<group>"; };
 		4E427B4326166C25009692C8 /* TrainingQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingQuestions.swift; sourceTree = "<group>"; };
 		4E427B4826166FB9009692C8 /* AddQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestion.swift; sourceTree = "<group>"; };
@@ -421,7 +416,6 @@
 		C9E2D3F625D162D900F1CAD5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C9E2D3FE25D1965200F1CAD5 /* AddLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLevels.swift; sourceTree = "<group>"; };
 		C9E3373E25DB5244008CFFB1 /* PauseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameViewController.swift; sourceTree = "<group>"; };
-		C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepareOrderController.swift; sourceTree = "<group>"; };
 		C9EBE9562618E29600A1A93E /* ChildEquipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildEquipment.swift; sourceTree = "<group>"; };
 		C9F2864F263B8BB5002A9429 /* Money2Model 4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Money2Model 4.mlmodel"; sourceTree = "<group>"; };
 		C9F28650263B8BB7002A9429 /* SecondCakeModel2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SecondCakeModel2.mlmodel; sourceTree = "<group>"; };
@@ -481,16 +475,13 @@
 			isa = PBXGroup;
 			children = (
 				52A92EF5260C0CE1009D58DD /* EditProfileViewController.swift */,
-				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				412258502616F266005B19C6 /* VoiceViewController.swift */,
-				41F78E6F2618AAAB0048C968 /* Slide.xib */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				41F78E672618AA8C0048C968 /* Slide.swift */,
 				412258552616F846005B19C6 /* Voice2ViewController.swift */,
 				41AA7468260ADA66002F11AC /* BackeryViewController.swift */,
 				418121C7262E006A00AD7812 /* GoalViewController.swift */,
 				41709027261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift */,
-				41F78E622618A9F60048C968 /* GameInstructionViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
@@ -1000,7 +991,6 @@
 				41F78DAA261895690048C968 /* excellent.mp3 in Resources */,
 				41F78DD0261895F20048C968 /* tryAgain.mp3 in Resources */,
 				4EDFA44E25EAF46300924569 /* WaitingWatermelon.atlas in Resources */,
-				41F78E702618AAAB0048C968 /* Slide.xib in Resources */,
 				41F78DB4261895950048C968 /* secondDay.mp3 in Resources */,
 				4EDFA45125EAF46300924569 /* NWWatermelon.atlas in Resources */,
 				41F78E05261898F80048C968 /* firstDay.mp3 in Resources */,
@@ -1187,7 +1177,6 @@
 				412258512616F266005B19C6 /* VoiceViewController.swift in Sources */,
 				C92A65BA25CB3FFB0060AA53 /* FirebaseRequests.swift in Sources */,
 				C92A65A125CB3F660060AA53 /* StoreViewController.swift in Sources */,
-				C9E4666C25D2F3EA0002161A /* PrepareOrderController.swift in Sources */,
 				4E69EB712638C1FD0044D680 /* MoneyModel.mlmodel in Sources */,
 				C9D4CD54262519B500C24436 /* ManageViewController.swift in Sources */,
 				4EF5225025E06B7000A765D4 /* CustomerPaied.swift in Sources */,
@@ -1226,7 +1215,6 @@
 				4EB21B9D25D353050076530E /* Reports.swift in Sources */,
 				4EB21BA225D354750076530E /* AdvReportViewController.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
-				41F78E632618A9F60048C968 /* GameInstructionViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */,
 				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,

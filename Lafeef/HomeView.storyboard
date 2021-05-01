@@ -263,10 +263,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqr-sn-W5N">
                                 <rect key="frame" x="33" y="900" width="214" height="94"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awb-OU-V4q">
-                                        <rect key="frame" x="-9" y="8" width="203" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awb-OU-V4q">
+                                        <rect key="frame" x="20" y="-15" width="180" height="49"/>
                                         <color key="backgroundColor" name="bachgroundApp"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="OWW-lQ-3A3"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="31"/>
                                         <state key="normal" title="التعليمات">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -275,11 +277,20 @@
                                             <segue destination="A7N-Qq-EyP" kind="presentation" identifier="instruction1" modalPresentationStyle="fullScreen" id="vP9-K1-MPq"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="helpIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fh2-yK-BhI">
-                                        <rect key="frame" x="136" y="6" width="73" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="helpIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fh2-yK-BhI">
+                                        <rect key="frame" x="160" y="-21" width="55" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="2RT-nP-3k0"/>
+                                            <constraint firstAttribute="width" constant="55" id="Lh8-uA-qI1"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Awb-OU-V4q" firstAttribute="leading" secondItem="iqr-sn-W5N" secondAttribute="leading" constant="20" id="3zC-cR-Zua"/>
+                                    <constraint firstItem="Fh2-yK-BhI" firstAttribute="leading" secondItem="iqr-sn-W5N" secondAttribute="leading" constant="160" id="Oti-VW-Fyw"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fh2-yK-BhI" secondAttribute="bottom" constant="55" id="YcA-Q8-6FH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Awb-OU-V4q" secondAttribute="bottom" constant="60" id="nEO-18-mFW"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NDV-bo-kYe"/>
@@ -362,14 +373,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nk0-UM-9Ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6323" y="494"/>
-        </scene>
-        <!--GuidanceInstructiont3VC-->
-        <scene sceneID="VHa-az-Y57">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="GuidanceInstructiont3VC" storyboardName="instructions" referencedIdentifier="GuidanceInstructiont3VC" id="iUg-PH-2Jg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="io9-i5-VpC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6982" y="-328"/>
         </scene>
         <!--Edit Profile View Conroller-->
         <scene sceneID="ZeQ-Sj-X23">
@@ -1272,7 +1275,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3s-iF-ySj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4932" y="-177"/>
+            <point key="canvasLocation" x="4969" y="305"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="zjW-xt-rbH">
