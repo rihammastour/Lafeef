@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,25 +26,25 @@
                                 <rect key="frame" x="85" y="136" width="598" height="752"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4NP-8P-kza">
-                                        <rect key="frame" x="130" y="651" width="338" height="55"/>
+                                        <rect key="frame" x="219" y="651" width="160" height="55"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KP-ax-VlD">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KP-ax-VlD">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="55"/>
-                                                <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.74955147499999997" green="0.87930101159999996" blue="0.83921974899999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="d4Y-H3-vM3"/>
                                                     <constraint firstAttribute="height" constant="55" id="k7x-Gu-Ilt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
-                                                <state key="normal" title="تجاهل">
+                                                <state key="normal" title="السابق">
                                                     <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="skipInstructionsTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="9iL-L8-2j8"/>
+                                                    <action selector="goBackTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="Cez-p4-XER"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5e-4v-4ka">
-                                                <rect key="frame" x="178" y="0.0" width="160" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="55"/>
                                                 <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="GDq-3G-34q"/>
@@ -78,15 +79,36 @@
                                             <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="cmp-xN-3wE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE8-Em-5aE">
+                                        <rect key="frame" x="494.5" y="14" width="89.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
+                                        <color key="tintColor" name="RedApp"/>
+                                        <state key="normal" title="تخطي " image="arrow.right.to.line.alt" catalog="system">
+                                            <color key="titleColor" name="BlackApp"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipInstructionsTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="RlA-yy-Flg"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXc-nI-gMq">
+                                        <rect key="frame" x="266" y="569.5" width="66.5" height="31.5"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HYR-Ze-jwV" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="4wL-5O-yRX"/>
+                                    <constraint firstItem="aXc-nI-gMq" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="H0i-47-zYT"/>
                                     <constraint firstAttribute="trailing" secondItem="yyl-Bj-60Y" secondAttribute="trailing" id="Hnq-Yf-zvI"/>
                                     <constraint firstAttribute="bottom" secondItem="4NP-8P-kza" secondAttribute="bottom" constant="46" id="N72-rn-JfN"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" id="QAb-Fu-eID"/>
+                                    <constraint firstAttribute="trailing" secondItem="TE8-Em-5aE" secondAttribute="trailing" constant="14" id="Tmo-Y0-Ghh"/>
+                                    <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="aXc-nI-gMq" secondAttribute="bottom" constant="50" id="Zql-wg-Q7r"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="yyl-Bj-60Y" secondAttribute="bottom" constant="10" id="fIm-sH-HUh"/>
                                     <constraint firstAttribute="bottom" secondItem="HYR-Ze-jwV" secondAttribute="bottom" constant="45" id="hiq-Bp-PTy"/>
+                                    <constraint firstItem="TE8-Em-5aE" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" constant="14" id="omS-wP-1Q4"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="uWJ-7R-zK4"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" id="zp1-j5-lXA"/>
                                 </constraints>
@@ -102,11 +124,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backOutlet" destination="9KP-ax-VlD" id="yFk-BW-XmW"/>
                         <outlet property="doneOutlet" destination="HYR-Ze-jwV" id="6dy-M4-LP9"/>
+                        <outlet property="instructionNumLabel" destination="aXc-nI-gMq" id="pOH-AM-ufS"/>
                         <outlet property="instructionView" destination="ubA-Cb-9pN" id="Cfz-Kc-95w"/>
                         <outlet property="nextlOutlet" destination="i5e-4v-4ka" id="rUQ-Iz-Et0"/>
                         <outlet property="reflector" destination="yyl-Bj-60Y" id="4lj-2z-pby"/>
-                        <outlet property="skiplOutlet" destination="9KP-ax-VlD" id="aff-iY-Bwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btP-37-PwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -252,4 +275,13 @@
             <point key="canvasLocation" x="6209" y="-350"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.right.to.line.alt" catalog="system" width="128" height="89"/>
+        <namedColor name="BlackApp">
+            <color red="0.43900001049041748" green="0.43900001049041748" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="RedApp">
+            <color red="0.95099997520446777" green="0.47499999403953552" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>
