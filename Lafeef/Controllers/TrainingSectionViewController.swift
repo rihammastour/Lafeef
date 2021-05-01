@@ -28,27 +28,25 @@ class TrainingSectionViewController: UIViewController {
         TrainingSectionViewController.sectionType="colors"
         sound.playSound(sound: Constants.Sounds.learColors)
 
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+       
             self.goToTrainingBoard()
-        }
+        
     
     }
     
     @IBAction func shapeSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="shapes"
         sound.playSound(sound: Constants.Sounds.learnShapes)
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.goToTrainingBoard()
-        }
+        
     }
     
     
     @IBAction func calculateSection(_ sender: Any) {
         TrainingSectionViewController.sectionType="calculations"
         sound.playSound(sound: Constants.Sounds.learnMath)
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.goToTrainingBoard()
-        }
+        
     }
     
     @IBAction func bcakTapped(_ sender: Any) {

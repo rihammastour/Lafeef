@@ -31,5 +31,8 @@ class LightInstructionViewController: UIViewController {
                 view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
+    @IBAction func endInstructionsTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }

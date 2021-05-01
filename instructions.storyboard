@@ -36,7 +36,7 @@
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="dlf-3A-BVh" kind="show" id="c76-2V-jZ7"/>
+                                            <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="YOe-AA-RZY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KP-ax-VlD">
@@ -51,20 +51,38 @@
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="sl7-b9-WRO" kind="presentation" modalPresentationStyle="fullScreen" id="x2P-qE-TTW"/>
+                                            <action selector="skipInstructionsTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="9iL-L8-2j8"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yyl-Bj-60Y">
                                         <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
                                     </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYR-Ze-jwV">
+                                        <rect key="frame" x="219" y="652" width="160" height="55"/>
+                                        <color key="backgroundColor" red="0.74955147499999997" green="0.87930101159999996" blue="0.83921974899999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="9xA-LW-zOV"/>
+                                            <constraint firstAttribute="height" constant="55" id="MKm-yR-3Zs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                        <state key="normal" title="انهاء">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneTapped:" destination="deH-nX-AbY" eventType="touchUpInside" id="gP0-oJ-yWy"/>
+                                            <action selector="nextInstruction:" destination="deH-nX-AbY" eventType="touchUpInside" id="cmp-xN-3wE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="i5e-4v-4ka" secondAttribute="bottom" constant="45" id="2yL-ci-hbP"/>
+                                    <constraint firstItem="HYR-Ze-jwV" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="4wL-5O-yRX"/>
                                     <constraint firstAttribute="trailing" secondItem="i5e-4v-4ka" secondAttribute="trailing" constant="130" id="7wT-RQ-jGw"/>
                                     <constraint firstAttribute="trailing" secondItem="yyl-Bj-60Y" secondAttribute="trailing" id="Hnq-Yf-zvI"/>
                                     <constraint firstAttribute="bottom" secondItem="9KP-ax-VlD" secondAttribute="bottom" constant="46" id="HyX-oc-tW0"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" id="QAb-Fu-eID"/>
+                                    <constraint firstAttribute="bottom" secondItem="HYR-Ze-jwV" secondAttribute="bottom" constant="45" id="hiq-Bp-PTy"/>
                                     <constraint firstItem="9KP-ax-VlD" firstAttribute="top" secondItem="yyl-Bj-60Y" secondAttribute="bottom" constant="10" id="s3A-F4-lUC"/>
                                     <constraint firstItem="9KP-ax-VlD" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" constant="130" id="zJ2-VW-GmX"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" id="zp1-j5-lXA"/>
@@ -81,6 +99,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doneOutlet" destination="HYR-Ze-jwV" id="6dy-M4-LP9"/>
                         <outlet property="instructionView" destination="ubA-Cb-9pN" id="Cfz-Kc-95w"/>
                         <outlet property="nextlOutlet" destination="i5e-4v-4ka" id="rUQ-Iz-Et0"/>
                         <outlet property="reflector" destination="yyl-Bj-60Y" id="4lj-2z-pby"/>
@@ -89,12 +108,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btP-37-PwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5414" y="-328"/>
+            <point key="canvasLocation" x="5411" y="-350"/>
         </scene>
         <!--Light Instruction View Controller-->
         <scene sceneID="03S-SG-CQ1">
             <objects>
-                <viewController storyboardIdentifier="LightInstructionVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Z84-VE-RDz" customClass="LightInstructionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Z84-VE-RDz" customClass="LightInstructionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BMs-Mm-pxo">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +136,7 @@
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="sl7-b9-WRO" kind="presentation" modalPresentationStyle="fullScreen" id="2bK-BH-mA2"/>
+                                            <action selector="endInstructionsTapped:" destination="Z84-VE-RDz" eventType="touchUpInside" id="T4y-SO-tDd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -151,17 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4r-eM-b2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6982" y="-328"/>
-        </scene>
-        <!--HomeVC-->
-        <scene sceneID="AS4-qO-qXN">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="HomeView" referencedIdentifier="HomeVC" id="sl7-b9-WRO" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="lrX-fC-0el"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uiL-K1-uxi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4951.5625" y="304.6875"/>
+            <point key="canvasLocation" x="6896" y="-350"/>
         </scene>
         <!--Guidance Instructions View Controller2-->
         <scene sceneID="qeC-ih-Lm5">
@@ -185,9 +194,6 @@
                                         <state key="normal" title="التالي">
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="Z84-VE-RDz" kind="show" id="ybe-zH-or4"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-yd-JTn">
                                         <rect key="frame" x="130" y="651" width="160" height="55"/>
@@ -201,7 +207,7 @@
                                             <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="sl7-b9-WRO" kind="show" id="kgn-no-2Ad"/>
+                                            <action selector="skipInstructionsTapped:" destination="dlf-3A-BVh" eventType="touchUpInside" id="VlW-OC-KfF"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rz4-5a-xCu">
@@ -240,10 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D7u-eE-x3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6208" y="-350"/>
+            <point key="canvasLocation" x="6209" y="-350"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2bK-BH-mA2"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -68,7 +68,6 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         
         getTrainingQuestion()
         setInfoView()
-        //        infoLabel?.isHidden = true
         
         setupAVCapture()
     }
@@ -126,16 +125,22 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
         }
         
         switch section {
+        
         case "shapes":
             if detailes[index].type == "circle"{
                 image.image = UIImage(named: "Training-yellowCircle")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingCircle)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingCircle)
+                }
                 
             } else  if detailes[index].type == "triangle" {
                 image.image = UIImage(named: "Training-blueTriangle")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingTraingle)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingTraingle)
+                }
             }
             break
             
@@ -143,12 +148,16 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[index].type == "brown"{
                 image.image = UIImage(named: "Training-brownColor")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingBrown)
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.8) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingBrown)
+                }
                 
             } else  if detailes[index].type == "red" {
                 image.image = UIImage(named: "Training-redColor")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingRed)
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingRed)
+                }
             }
             break
             
@@ -156,17 +165,27 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
             if detailes[index].type == "addition"{
                 image.image = UIImage(named: "Training-addition")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingAddition)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingAddition)
+                }
+                
                 
             } else  if detailes[index].type == "subtraction" {
                 image.image = UIImage(named: "Training-subtraction")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingSubtraction)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.6) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingSubtraction)
+                }
                 
             } else  if detailes[index].type == "multiplication" {
                 image.image = UIImage(named: "Training-multiplication")
                 self.answer = detailes[index].answer
-                sound.playSound(sound: Constants.Sounds.trainingMultiplication)
+                DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
+                    self.sound.playSound(sound: Constants.Sounds.trainingMultiplication)
+
+                }
             }
             break
             

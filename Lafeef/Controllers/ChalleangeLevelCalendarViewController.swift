@@ -99,36 +99,23 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     
     //MARK: - @IBAction
     @IBAction func levelOne(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
-            
-            print("level one")
             self.present(self.goalService.goal(levelNum: "1"),animated:true)
-        }
         sound.playSound(sound: Constants.Sounds.firstDay)
     }
     
     @IBAction func levelTwo(_ sender: Any) {
-        print("leveltwo")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.54) {
             self.present(self.goalService.goal(levelNum: "2"),animated:true)
-        }
         sound.playSound(sound: Constants.Sounds.secondDay)
     }
     
     @IBAction func levelThree(_ sender: Any) {
-        print("levelthree")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.75) {
             self.present(self.goalService.goal(levelNum: "3"),animated:true)
-        }
         sound.playSound(sound: Constants.Sounds.thirdDay)
     }
     
     
     @IBAction func levelFour(_ sender: Any) {
-        print("levelfour")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.64) {
             self.present(self.goalService.goal(levelNum: "4"),animated:true)
-        }
         sound.playSound(sound: Constants.Sounds.fourthDay)
     }
     @IBAction func Home(_ sender: Any) {
