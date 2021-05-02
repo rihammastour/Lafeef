@@ -11,8 +11,9 @@ import UIKit
 class GuidanceInstructionsViewController: UIViewController {
     
     //Variables
-    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangeCake"]
+    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangecalendar","challeangeCake","payment","trainingsection","pineappleAnswer"]
    var instructionIndex = 0
+    let formatter = NumberFormatter()
     //IBOutlet
     @IBOutlet weak var instructionView: UIView!
     @IBOutlet weak var reflector: UIImageView!
@@ -23,6 +24,8 @@ class GuidanceInstructionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.locale = Locale(identifier: "ar")
         nextlOutlet.layer.cornerRadius =  nextlOutlet.frame.size.height/2
         
         backOutlet?.layer.cornerRadius =  backOutlet.frame.size.height/2
@@ -62,9 +65,8 @@ class GuidanceInstructionsViewController: UIViewController {
         self.backOutlet.isHidden = true
     }
     func updatLabel(){
-        instructionNumLabel.text = "\(instructionData.count) \\ \(instructionIndex+1)"
-    }
-    
+        instructionNumLabel.text = formatter.string(from: NSNumber(value: instructionIndex+1))!+"//"+formatter.string(from: NSNumber(value: instructionData.count))!
+            }
     
     @IBAction func nextInstruction(_ sender: Any) {
         instructionIndex+=1
