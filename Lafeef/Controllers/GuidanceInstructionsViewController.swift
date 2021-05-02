@@ -11,7 +11,7 @@ import UIKit
 class GuidanceInstructionsViewController: UIViewController {
     
     //Variables
-    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction"]
+    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangeCake"]
    var instructionIndex = 0
     //IBOutlet
     @IBOutlet weak var instructionView: UIView!
@@ -87,9 +87,9 @@ class GuidanceInstructionsViewController: UIViewController {
         if instructionIndex >= 0{
             showInstruction()
             if instructionIndex == 0{
-                middileInstructionButtons()
-            }else{
                 firstInstructionButtons()
+            }else{
+                middileInstructionButtons()
             }
         }
         

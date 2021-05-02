@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE8-Em-5aE">
-                                        <rect key="frame" x="511.5" y="14" width="72.5" height="33"/>
+                                        <rect key="frame" x="478.5" y="30" width="89.5" height="32"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
                                         <color key="tintColor" red="0.96691697840000002" green="0.56139135360000003" blue="0.54901278019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="تخطي " image="arrow.right.to.line.alt" catalog="system">
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXc-nI-gMq">
-                                        <rect key="frame" x="277.5" y="568.5" width="43.5" height="32.5"/>
+                                        <rect key="frame" x="266" y="569.5" width="66.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -103,10 +103,10 @@
                                     <constraint firstAttribute="trailing" secondItem="yyl-Bj-60Y" secondAttribute="trailing" id="Hnq-Yf-zvI"/>
                                     <constraint firstAttribute="bottom" secondItem="4NP-8P-kza" secondAttribute="bottom" constant="46" id="N72-rn-JfN"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" id="QAb-Fu-eID"/>
-                                    <constraint firstAttribute="trailing" secondItem="TE8-Em-5aE" secondAttribute="trailing" constant="14" id="Tmo-Y0-Ghh"/>
+                                    <constraint firstAttribute="trailing" secondItem="TE8-Em-5aE" secondAttribute="trailing" constant="30" id="Tmo-Y0-Ghh"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="aXc-nI-gMq" secondAttribute="bottom" constant="50" id="Zql-wg-Q7r"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="top" secondItem="yyl-Bj-60Y" secondAttribute="bottom" constant="10" id="fIm-sH-HUh"/>
-                                    <constraint firstItem="TE8-Em-5aE" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" constant="14" id="omS-wP-1Q4"/>
+                                    <constraint firstItem="TE8-Em-5aE" firstAttribute="top" secondItem="ubA-Cb-9pN" secondAttribute="top" constant="30" id="omS-wP-1Q4"/>
                                     <constraint firstItem="4NP-8P-kza" firstAttribute="centerX" secondItem="ubA-Cb-9pN" secondAttribute="centerX" id="uWJ-7R-zK4"/>
                                     <constraint firstItem="yyl-Bj-60Y" firstAttribute="leading" secondItem="ubA-Cb-9pN" secondAttribute="leading" id="zp1-j5-lXA"/>
                                 </constraints>

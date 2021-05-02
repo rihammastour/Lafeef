@@ -167,6 +167,7 @@
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
 		C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */; };
 		C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD8225E419CB007DD3B5 /* Answer.swift */; };
+		C93754ED263E426D003FB848 /* challeangeCake.gif in Resources */ = {isa = PBXBuildFile; fileRef = C93754EC263E426D003FB848 /* challeangeCake.gif */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C95EBD6A26308A98000A56EC /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EBD6926308A98000A56EC /* InstructionsViewController.swift */; };
 		C95EBD6F26308EB2000A56EC /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EBD6E26308EB2000A56EC /* CustomUIPageViewController.swift */; };
@@ -389,6 +390,7 @@
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustmerSatisfaction.swift; sourceTree = "<group>"; };
 		C92CFD8225E419CB007DD3B5 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		C93754EC263E426D003FB848 /* challeangeCake.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = challeangeCake.gif; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C95EBD6926308A98000A56EC /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		C95EBD6E26308EB2000A56EC /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 		C95EBD882630B3A0000A56EC /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				C93754EC263E426D003FB848 /* challeangeCake.gif */,
 				C95EBD912630C4FD000A56EC /* serveOrder.mov */,
 				4E69EB63263801870044D680 /* PaymentInstruction.mov */,
 			);
@@ -924,6 +927,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93754ED263E426D003FB848 /* challeangeCake.gif in Resources */,
 				4EDFA43F25EAF46300924569 /* HappyPear.atlas in Resources */,
 				41F78DEE261896840048C968 /* learnShapes.mp3 in Resources */,
 				4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */,
