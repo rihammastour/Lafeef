@@ -11,7 +11,7 @@ import UIKit
 class GuidanceInstructionsViewController: UIViewController {
     
     //Variables
-    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangeCake","payment","trainingsection","pineappleAnswer"] //"challeangecalendar" missing
+    var instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangecalendar","challeangeCake","payment","trainingsection","pineappleAnswer"]
     var instructionIndex = 0
     let formatter = NumberFormatter()
     let sound = SoundManager()

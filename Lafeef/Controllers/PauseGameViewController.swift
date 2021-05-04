@@ -67,7 +67,8 @@ class PauseGameViewController: UIViewController{
     @IBAction func viewInstruction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "instructions", bundle: nil)
         if let reportVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.guidanceInstructionViewController) as? GuidanceInstructionsViewController{
-            reportVC.instructionIndex = 2
+            reportVC.instructionData = ["challeangeCake","payment"]
+            
             self.present(reportVC, animated: true,completion: nil)
         }
         

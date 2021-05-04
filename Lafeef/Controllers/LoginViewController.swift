@@ -202,7 +202,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, ValidationDele
                     let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavigationController) as! UINavigationController
                     view.window?.rootViewController = controller
                     view.window?.makeKeyAndVisible()
-                    print("success")
                     isSuccess = true
         
                 } else {
