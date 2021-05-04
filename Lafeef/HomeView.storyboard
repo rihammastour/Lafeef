@@ -34,7 +34,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dn-sS-UK2">
-                                        <rect key="frame" x="64" y="17" width="72.5" height="156"/>
+                                        <rect key="frame" x="73.5" y="17" width="53" height="156"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="130"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -264,7 +264,7 @@
                                 <rect key="frame" x="33" y="900" width="214" height="94"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awb-OU-V4q">
-                                        <rect key="frame" x="20" y="-15" width="180" height="49"/>
+                                        <rect key="frame" x="20" y="-16" width="180" height="50"/>
                                         <color key="backgroundColor" name="bachgroundApp"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="OWW-lQ-3A3"/>
@@ -410,7 +410,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvS-pu-z3h">
-                                <rect key="frame" x="90" y="556" width="588" height="47"/>
+                                <rect key="frame" x="90" y="555" width="588" height="48"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                 <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -427,16 +427,16 @@
                                 </state>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="Vlb-RQ-mUv" userLabel="rectangle info">
-                                <rect key="frame" x="179" y="731" width="390" height="47"/>
+                                <rect key="frame" x="179" y="730" width="390" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="251" text="المال" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-y9-DmL">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللفل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IP-yb-d4m" userLabel="اليوم السابع">
-                                        <rect key="frame" x="250" y="0.0" width="140" height="47"/>
+                                        <rect key="frame" x="250" y="0.0" width="140" height="48"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                         <color key="textColor" red="0.45098039220000002" green="0.59215686270000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -694,6 +694,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-z0-nCw">
+                                <rect key="frame" x="-60" y="-41" width="888" height="282"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2I-hY-CdD" userLabel="logOut">
                                 <rect key="frame" x="96" y="898" width="552" height="81"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -708,31 +711,10 @@
                                     <action selector="logOutActionWithSender:" destination="EJH-aT-6MK" eventType="touchUpInside" id="YY6-Yg-g03"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="العمر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-R6-jHs">
-                                <rect key="frame" x="290" y="469" width="188" height="48"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
-                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-z0-nCw">
-                                <rect key="frame" x="-74" y="-41" width="902" height="282"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GirlWithCircle" id="fr4-WD-c8H" userLabel="ProfilePic">
+                                <rect key="frame" x="166" y="-16" width="436" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-oJ-Lmg">
-                                <rect key="frame" x="90" y="525" width="588" height="48"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
-                                <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-fJ-d8N">
-                                <rect key="frame" x="264" y="113" width="240" height="128"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GirlWithCircle" id="fr4-WD-c8H" userLabel="ProfilePic">
-                                        <rect key="frame" x="-98" y="-119" width="436" height="365"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-X4-OIh" userLabel="rectangle">
                                 <rect key="frame" x="96" y="619" width="552" height="220"/>
                                 <color key="backgroundColor" red="0.98044949770000001" green="0.97687536480000003" blue="0.95588201279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -787,12 +769,29 @@
                                     <constraint firstAttribute="trailing" secondItem="wnp-m2-prb" secondAttribute="trailing" id="oYd-xI-tjI"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="الاسم" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-PW-pmU">
-                                <rect key="frame" x="304" y="357" width="160" height="108"/>
-                                <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
-                                <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cdj-mU-HCh">
+                                <rect key="frame" x="230" y="357" width="308.5" height="216"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-PW-pmU">
+                                        <rect key="frame" x="74" y="0.0" width="160" height="108"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="90"/>
+                                        <color key="textColor" red="0.57704472539999996" green="0.74905651809999996" blue="0.74118065830000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="العمر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK5-R6-jHs">
+                                        <rect key="frame" x="125" y="114" width="58.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reejaljeraiwi@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-oJ-Lmg">
+                                        <rect key="frame" x="0.0" y="168" width="308.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Job-TK-t2O">
                                 <rect key="frame" x="20" y="34" width="22" height="38"/>
                                 <state key="normal" image="arrow-back"/>
@@ -813,28 +812,18 @@
                         <constraints>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="GRH-IT-M73" secondAttribute="bottom" constant="146" id="2em-88-VnG"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="MYP-X4-OIh" secondAttribute="bottom" constant="59" id="35Z-m6-BAm"/>
-                            <constraint firstItem="yJ4-oJ-Lmg" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="90" id="4kL-5S-mUB"/>
+                            <constraint firstItem="PxU-z0-nCw" firstAttribute="centerX" secondItem="iWu-dW-usM" secondAttribute="centerX" id="71b-on-t1f"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="iCH-ho-yWO" secondAttribute="trailing" constant="199" id="7Nm-qP-XLm"/>
                             <constraint firstItem="PxU-z0-nCw" firstAttribute="top" secondItem="iWu-dW-usM" secondAttribute="top" constant="-41" id="8md-vY-vGf"/>
-                            <constraint firstItem="SOA-PW-pmU" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="304" id="9JX-eN-UH6"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="iCH-ho-yWO" secondAttribute="bottom" constant="100" id="9P1-XS-7tn"/>
-                            <constraint firstItem="fY6-fJ-d8N" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="264" id="9yJ-Xy-Pjh" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
-                                        <real key="value" value="380"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
-                                        <real key="value" value="290"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="iCH-ho-yWO" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="179" id="AOj-sS-DAq"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="5tl-wr-0Fe" secondAttribute="trailing" constant="20" id="CDm-2M-AF7"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="96" id="EYh-7e-Rao"/>
                             <constraint firstItem="5tl-wr-0Fe" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="20" id="FRz-Ob-E2P"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="MYP-X4-OIh" secondAttribute="trailing" constant="120" id="GYB-pQ-ypf"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="bottom" secondItem="e2I-hY-CdD" secondAttribute="bottom" constant="45" id="LGF-ka-pVO"/>
                             <constraint firstItem="MYP-X4-OIh" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="96" id="LWG-sZ-eVE"/>
+                            <constraint firstItem="MYP-X4-OIh" firstAttribute="top" secondItem="cdj-mU-HCh" secondAttribute="bottom" constant="46" id="O08-9T-SSE"/>
+                            <constraint firstItem="cdj-mU-HCh" firstAttribute="centerX" secondItem="iWu-dW-usM" secondAttribute="centerX" id="OtE-wO-rGz"/>
                             <constraint firstItem="GRH-IT-M73" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="180" id="PKG-kg-2c7" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -845,27 +834,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="fY6-fJ-d8N" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="113" id="QMY-Ox-Whi"/>
-                            <constraint firstItem="SOA-PW-pmU" firstAttribute="top" secondItem="PxU-z0-nCw" secondAttribute="bottom" constant="116" id="QTK-vi-tos" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
-                                        <real key="value" value="150"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="EK5-R6-jHs" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="290" id="RSv-Pm-BlS"/>
-                            <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="fY6-fJ-d8N" secondAttribute="trailing" constant="264" id="SbW-Ii-HTg" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
-                                        <real key="value" value="100"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="yJ4-oJ-Lmg" firstAttribute="top" secondItem="EK5-R6-jHs" secondAttribute="bottom" constant="8" symbolic="YES" id="VTw-eQ-UiP" customClass="NSLayoutHelper" customModule="LayoutHelper"/>
-                            <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="EK5-R6-jHs" secondAttribute="trailing" constant="290" id="Vdv-5M-iTg"/>
+                            <constraint firstItem="cdj-mU-HCh" firstAttribute="top" secondItem="fr4-WD-c8H" secondAttribute="bottom" constant="8" symbolic="YES" id="dsP-7d-wCD"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="GRH-IT-M73" secondAttribute="trailing" constant="179" id="fPa-aw-LxQ" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -877,27 +846,10 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="iCH-ho-yWO" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="179" id="jDW-3G-gHC"/>
-                            <constraint firstItem="EK5-R6-jHs" firstAttribute="top" secondItem="SOA-PW-pmU" secondAttribute="bottom" constant="4" id="kzT-YT-uaD" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
-                                        <real key="value" value="-8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="Job-TK-t2O" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="20" id="lxQ-Tz-lJY"/>
-                            <constraint firstItem="PxU-z0-nCw" firstAttribute="leading" secondItem="iWu-dW-usM" secondAttribute="leadingMargin" constant="-94" id="mSR-mp-aho"/>
                             <constraint firstItem="PxU-z0-nCw" firstAttribute="height" secondItem="iWu-dW-usM" secondAttribute="height" multiplier="0.275391" id="mv4-t5-7pf"/>
-                            <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="yJ4-oJ-Lmg" secondAttribute="trailing" constant="90" id="nFE-Hz-H9G"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="e2I-hY-CdD" secondAttribute="trailing" constant="120" id="qVc-KS-u3r"/>
-                            <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="SOA-PW-pmU" secondAttribute="trailing" constant="304" id="s2o-eA-pCo"/>
                             <constraint firstItem="Job-TK-t2O" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="34" id="taO-yT-Gan"/>
-                            <constraint firstItem="MYP-X4-OIh" firstAttribute="top" secondItem="yJ4-oJ-Lmg" secondAttribute="bottom" constant="46" id="uQM-fQ-tCJ" customClass="NSLayoutHelper" customModule="LayoutHelper">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
-                                        <real key="value" value="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="iCH-ho-yWO" secondAttribute="trailing" constant="199" id="vKa-Um-XWd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PxU-z0-nCw" secondAttribute="trailing" constant="-80" id="vge-O8-amA"/>
                         </constraints>
@@ -1310,7 +1262,7 @@
                                         <rect key="frame" x="5" y="5" width="140" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-BJ-fe1">
-                                                <rect key="frame" x="0.0" y="-3.5" width="140" height="47"/>
+                                                <rect key="frame" x="0.0" y="-4" width="140" height="48"/>
                                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1362,7 +1314,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5O-Xt-LrR">
-                                                    <rect key="frame" x="406" y="54.5" width="86" height="41"/>
+                                                    <rect key="frame" x="435.5" y="54" width="56.5" height="42"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1375,7 +1327,7 @@
                                                     <state key="normal" backgroundImage="buy-item"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdH-dL-xTy">
-                                                    <rect key="frame" x="320" y="54.5" width="86" height="41"/>
+                                                    <rect key="frame" x="379" y="54" width="56.5" height="42"/>
                                                     <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
                                                     <color key="textColor" name="blueApp"/>
                                                     <nil key="highlightedColor"/>
@@ -1421,7 +1373,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المتجر" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-LC-E1E">
-                                <rect key="frame" x="529" y="85" width="159" height="93.5"/>
+                                <rect key="frame" x="547" y="85" width="141" height="96"/>
                                 <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="80"/>
                                 <color key="textColor" name="BlackApp"/>
                                 <nil key="highlightedColor"/>
