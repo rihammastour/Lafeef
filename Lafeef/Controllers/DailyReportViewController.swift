@@ -78,7 +78,7 @@ class DailyReportViewController: UIViewController {
     
     //MARK: - Get Data
     func getChildInfo(){
-        let child = LocalStorageManager.getChild()
+        let child = LocalStorageManager.childValue
         if let child = child {
             self.childInfo = child
         }

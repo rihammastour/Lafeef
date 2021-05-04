@@ -11,39 +11,72 @@ class LocalStorageManager{
     
     //MARK: - Setting and Getting child
     
-    static func setChild(_ child:Child){
-        let defaults = UserDefaults.standard
-        let encoder = JSONEncoder()
-        do{
-            // Encode Child
-            let data = try encoder.encode(child)
-         
-            print("local storage manager",child)
-            //Set child
-            defaults.set(data, forKey: "child")
-        }catch{
-            print("UserDefaults error cannot set for child key", error.localizedDescription)
-        }
-    }
+    private static var childKey: String = "child"
     
-    static func getChild() -> Child?{
-        
-        let defaults = UserDefaults.standard
-        //Get Child
-        if let data = defaults.data(forKey: "child") {
+    public static var childValue: Child? {
+        set {
+            
+            let encoder = JSONEncoder()
             do{
-                //Decode Child
-                let decoder = JSONDecoder()
-                let child = try decoder.decode(Child.self, from: data)
-                return child
+                // Encode Child
+                let data = try encoder.encode(newValue)
+                //Set child
+                UserDefaults.standard.set(data, forKey: childKey)
             }catch{
-                print("err get user")
+                print("UserDefaults error cannot set for child key", error.localizedDescription)
             }
             
         }
         
-        return nil
+        get{
+           if let data = UserDefaults.standard.data(forKey: "child") {
+                do{
+                    //Decode Child
+                    let decoder = JSONDecoder()
+                    let child = try decoder.decode(Child.self, from: data)
+                    return child
+                }catch{
+                    print("err get user")
+                }
+        }
+            return nil
     }
+        
+    }
+    
+//    static func setChild(_ child:Child){
+//        let defaults = UserDefaults.standard
+//        let encoder = JSONEncoder()
+//        do{
+//            // Encode Child
+//            let data = try encoder.encode(child)
+//
+//            print("local storage manager",child)
+//            //Set child
+//            defaults.set(data, forKey: "child")
+//        }catch{
+//            print("UserDefaults error cannot set for child key", error.localizedDescription)
+//        }
+//    }
+//
+//    static func getChild() -> Child?{
+//
+//        let defaults = UserDefaults.standard
+//        //Get Child
+//        if let data = defaults.data(forKey: "child") {
+//            do{
+//                //Decode Child
+//                let decoder = JSONDecoder()
+//                let child = try decoder.decode(Child.self, from: data)
+//                return child
+//            }catch{
+//                print("err get user")
+//            }
+//
+//        }
+//
+//        return nil
+//    }
     
     static func removeChild(){
         if checkExistChild() {

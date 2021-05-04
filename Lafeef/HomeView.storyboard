@@ -542,7 +542,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="changeInfo:" destination="yKY-vS-AbK" eventType="touchUpInside" id="vGj-TN-rpj"/>
                                     <segue destination="Arm-ou-aOY" kind="show" id="1eP-Pt-oVi"/>
                                 </connections>
                             </button>
@@ -694,9 +693,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-z0-nCw">
-                                <rect key="frame" x="-60" y="-41" width="888" height="282"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2I-hY-CdD" userLabel="logOut">
                                 <rect key="frame" x="96" y="898" width="552" height="81"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -711,10 +707,19 @@
                                     <action selector="logOutActionWithSender:" destination="EJH-aT-6MK" eventType="touchUpInside" id="YY6-Yg-g03"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GirlWithCircle" id="fr4-WD-c8H" userLabel="ProfilePic">
-                                <rect key="frame" x="166" y="-16" width="436" height="365"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-z0-nCw">
+                                <rect key="frame" x="-74" y="-41" width="902" height="282"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-fJ-d8N" userLabel="View image">
+                                <rect key="frame" x="264" y="113" width="240" height="204"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GirlWithCircle" id="fr4-WD-c8H" userLabel="ProfilePic">
+                                        <rect key="frame" x="-98" y="-119" width="436" height="365"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYP-X4-OIh" userLabel="rectangle">
                                 <rect key="frame" x="96" y="619" width="552" height="220"/>
                                 <color key="backgroundColor" red="0.98044949770000001" green="0.97687536480000003" blue="0.95588201279999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -812,18 +817,28 @@
                         <constraints>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="GRH-IT-M73" secondAttribute="bottom" constant="146" id="2em-88-VnG"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="MYP-X4-OIh" secondAttribute="bottom" constant="59" id="35Z-m6-BAm"/>
-                            <constraint firstItem="PxU-z0-nCw" firstAttribute="centerX" secondItem="iWu-dW-usM" secondAttribute="centerX" id="71b-on-t1f"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="iCH-ho-yWO" secondAttribute="trailing" constant="199" id="7Nm-qP-XLm"/>
                             <constraint firstItem="PxU-z0-nCw" firstAttribute="top" secondItem="iWu-dW-usM" secondAttribute="top" constant="-41" id="8md-vY-vGf"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="top" secondItem="iCH-ho-yWO" secondAttribute="bottom" constant="100" id="9P1-XS-7tn"/>
+                            <constraint firstItem="fY6-fJ-d8N" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="264" id="9yJ-Xy-Pjh" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
+                                        <real key="value" value="380"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
+                                        <real key="value" value="290"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="iCH-ho-yWO" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="179" id="AOj-sS-DAq"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="5tl-wr-0Fe" secondAttribute="trailing" constant="20" id="CDm-2M-AF7"/>
                             <constraint firstItem="e2I-hY-CdD" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="96" id="EYh-7e-Rao"/>
+                            <constraint firstItem="cdj-mU-HCh" firstAttribute="centerX" secondItem="iWu-dW-usM" secondAttribute="centerX" id="F7R-vb-hPc"/>
                             <constraint firstItem="5tl-wr-0Fe" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="20" id="FRz-Ob-E2P"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="MYP-X4-OIh" secondAttribute="trailing" constant="120" id="GYB-pQ-ypf"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="bottom" secondItem="e2I-hY-CdD" secondAttribute="bottom" constant="45" id="LGF-ka-pVO"/>
                             <constraint firstItem="MYP-X4-OIh" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="96" id="LWG-sZ-eVE"/>
                             <constraint firstItem="MYP-X4-OIh" firstAttribute="top" secondItem="cdj-mU-HCh" secondAttribute="bottom" constant="46" id="O08-9T-SSE"/>
-                            <constraint firstItem="cdj-mU-HCh" firstAttribute="centerX" secondItem="iWu-dW-usM" secondAttribute="centerX" id="OtE-wO-rGz"/>
                             <constraint firstItem="GRH-IT-M73" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="180" id="PKG-kg-2c7" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -834,7 +849,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="cdj-mU-HCh" firstAttribute="top" secondItem="fr4-WD-c8H" secondAttribute="bottom" constant="8" symbolic="YES" id="dsP-7d-wCD"/>
+                            <constraint firstItem="fY6-fJ-d8N" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="113" id="QMY-Ox-Whi"/>
+                            <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="fY6-fJ-d8N" secondAttribute="trailing" constant="264" id="SbW-Ii-HTg" customClass="NSLayoutHelper" customModule="LayoutHelper">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro12_9">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="GRH-IT-M73" secondAttribute="trailing" constant="179" id="fPa-aw-LxQ" customClass="NSLayoutHelper" customModule="LayoutHelper">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="iPadPro11">
@@ -847,7 +872,9 @@
                             </constraint>
                             <constraint firstItem="iCH-ho-yWO" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="179" id="jDW-3G-gHC"/>
                             <constraint firstItem="Job-TK-t2O" firstAttribute="leading" secondItem="8yn-ql-Cj2" secondAttribute="leading" constant="20" id="lxQ-Tz-lJY"/>
+                            <constraint firstItem="PxU-z0-nCw" firstAttribute="leading" secondItem="iWu-dW-usM" secondAttribute="leadingMargin" constant="-94" id="mSR-mp-aho"/>
                             <constraint firstItem="PxU-z0-nCw" firstAttribute="height" secondItem="iWu-dW-usM" secondAttribute="height" multiplier="0.275391" id="mv4-t5-7pf"/>
+                            <constraint firstItem="cdj-mU-HCh" firstAttribute="top" secondItem="fY6-fJ-d8N" secondAttribute="bottom" constant="40" id="ngH-Fo-Elx"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="e2I-hY-CdD" secondAttribute="trailing" constant="120" id="qVc-KS-u3r"/>
                             <constraint firstItem="Job-TK-t2O" firstAttribute="top" secondItem="8yn-ql-Cj2" secondAttribute="top" constant="34" id="taO-yT-Gan"/>
                             <constraint firstItem="8yn-ql-Cj2" firstAttribute="trailing" secondItem="iCH-ho-yWO" secondAttribute="trailing" constant="199" id="vKa-Um-XWd"/>

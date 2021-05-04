@@ -19,8 +19,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     let datePicker = UIDatePicker()
     //    errorLabel
     @IBOutlet weak var errorLabel: UILabel!
-    //    @IBOutlet weak var errorLable: UILabel!
-    //    @IBOutlet weak var errorLabel: UILabel!
+
     @IBOutlet weak var NameTextField: UITextField!
     
     @IBOutlet weak var yearTextfield: UITextField!
@@ -51,6 +50,8 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     let alert = AlertService()
     let year = Calendar.current.component(.year, from: Date())
     let formatter: NumberFormatter = NumberFormatter()
+    
+    //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -88,7 +89,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.getChild()
+        let child = LocalStorageManager.childValue
         if child != nil {
             setUIChildInfo(child!)
         }
@@ -108,7 +109,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     //Name
     func setName(_ name:String) {
-        NameTextField.placeholder = String(name)
+        NameTextField.text = String(name)
     }
     //Level
     func setCurrentLevel(_ level:Int) {
@@ -127,12 +128,12 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
-            ProfilePic.image = UIImage(named: "BoyWithCircle")
-            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
-        }else{
+        if sex == "girl"{
             ProfilePic.image = UIImage(named: "GirlWithCircle")
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
+        }else{
+            ProfilePic.image = UIImage(named: "BoyWithCircle")
+            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
         }
     }
     
@@ -142,17 +143,15 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         // Get range based on the string index.
         let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
         // Access substring from range.
-        print(year)
         let ageYear = age[ageYearSub]
         formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         let AgeEN = formatter.number(from: String(ageYear))
         let convertAge = Int(AgeEN!)
         let calculateAge = year-convertAge
-        print(calculateAge)
         
-        yearTextfield.placeholder = age.substring(with: 6..<10).convertedDigitsToLocale(Locale(identifier: "AR"))
-        monthTextfield.placeholder = age.substring(with: 3..<5).convertedDigitsToLocale(Locale(identifier: "AR"))
-        dayTextfield.placeholder = age.substring(with: 0..<2).convertedDigitsToLocale(Locale(identifier: "AR"))
+        yearTextfield.text = age.substring(with: 6..<10).convertedDigitsToLocale(Locale(identifier: "AR"))
+        monthTextfield.text = age.substring(with: 3..<5).convertedDigitsToLocale(Locale(identifier: "AR"))
+        dayTextfield.text = age.substring(with: 0..<2).convertedDigitsToLocale(Locale(identifier: "AR"))
         // AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
@@ -220,9 +219,6 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
             
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
             
-            
-            // ProfilePic.image = UIImage(named: "GirlWithCircle")
-            
         }else{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
             ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
@@ -235,7 +231,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         
         validator.validate(self)
         if !isValidated{
-            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
+            self.present(alert.Alert(body:"خطأ بتحديث معلوماتك", isSuccess: false), animated: true)
             return false
         }
         else{
@@ -258,7 +254,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
                 updateBOD(newBOD)
                 
             }
-            
+            print("Check Gender         ",ProfilePic.image == UIImage(named: "BoyWithCircle"))
             var sex = ""
             if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
                 sex="boy"
@@ -287,19 +283,6 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     }
     
     //MARK:- Functions
-    
-    func getChildMoney(){
-        
-        let child = LocalStorageManager.getChild()
-        if let child = child {
-            setMoney(child.money)
-        }else{
-            
-            print("No Child Found")
-            //TODO: Alert and back button..
-        }
-        
-    }
     
     func updateName(_ newName:String){
         FirebaseRequest.updateName(newName) { (success, errore) in
