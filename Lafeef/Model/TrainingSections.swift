@@ -35,7 +35,7 @@ enum TrainingSections: String,Codable {
                 getAnswer[1] = "BrownCupcake"
                 return getAnswer
             } else if type == "white" {
-                getAnswer[0] = "WhiteChoclate"
+                getAnswer[0] = "WhiteChocolate"
                 return getAnswer
             }
 
