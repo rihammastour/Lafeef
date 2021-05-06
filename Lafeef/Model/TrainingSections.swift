@@ -24,8 +24,8 @@ enum TrainingSections: String,Codable {
                 getAnswer[2] = "RiyalHalf"
                 getAnswer[3] = "RiyalQuarter"
                 return getAnswer //need preprocessing
-            } else if type == "sqaure" {
-                getAnswer[0] = "ChocolateBrown"
+            } else if type == "triangle" {
+                getAnswer[0] = "Pineapple"
                 return getAnswer
             }
             
@@ -34,8 +34,8 @@ enum TrainingSections: String,Codable {
                 getAnswer[0] = "ChocolateBrown"
                 getAnswer[1] = "BrownCupcake"
                 return getAnswer
-            } else if type == "white" {
-                getAnswer[0] = "WhiteChocolate"
+            } else if type == "red" {
+                getAnswer[0] = "Strawberry"
                 return getAnswer
             }
 

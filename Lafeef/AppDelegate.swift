@@ -4,6 +4,7 @@
 //
 //  Created by Riham Mastour on 05/06/1442 AH.
 //
+
 import UIKit
 import Firebase
 import CodableFirebase
@@ -77,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Fetch User Data
     func fetchUserInfo(){
+        print("ALIVE????")
         FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
     }
     
@@ -87,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //Convert data to type Child
                 let child = try FirebaseDecoder().decode(Child.self, from: data)
                 //Store child object in local storage
-                LocalStorageManager.childValue = child
+                LocalStorageManager.setChild(child)
             }catch{
                 print("error while decoding ",error.localizedDescription)
                 //TODO:Alert..
@@ -101,3 +103,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
 }
+

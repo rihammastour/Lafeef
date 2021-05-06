@@ -28,6 +28,7 @@ class WinningViewController: UIViewController {
     @IBOutlet weak var starView: CosmosView!
     
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var winningView: UIView!
     @IBOutlet weak var smallBackground: UIView!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var moneyView: UIView!
@@ -48,7 +49,7 @@ class WinningViewController: UIViewController {
         formatter.locale = NSLocale(localeIdentifier: "ar") as Locale?
         // front end
         smallBackground.layer.cornerRadius = 20
-    
+        winningView.layer.cornerRadius = 30
         Winning.layer.cornerRadius = 30
         cancelOutlet.layer.cornerRadius = cancelOutlet.frame.size.height/2
         nextDayOutlet.layer.cornerRadius = nextDayOutlet.frame.size.height/2
@@ -76,7 +77,7 @@ class WinningViewController: UIViewController {
         starView.settings.filledBorderColor = UIColor.yellow
         starView.settings.filledColor = UIColor.yellow
         starView.settings.emptyBorderColor = UIColor.yellow
-        starView.settings.starSize = 18
+        starView.settings.starSize = 22
         
         // set customer satisfaction
         setCustomerSatisfaction()

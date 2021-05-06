@@ -14,6 +14,7 @@ target 'Lafeef' do
 	pod 'Firebase/Storage'
 	pod 'FirebaseFirestoreSwift'
  	pod 'CodableFirebase'
+ 	pod 'MaterialShowcase'
  	pod 'FirebaseUI', '~> 8.0'
  	pod 'FirebaseUI/Storage'
 	pod 'SwiftGifOrigin'

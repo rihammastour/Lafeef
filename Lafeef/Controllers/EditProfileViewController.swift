@@ -4,6 +4,7 @@
 //
 //  Created by MACBOOKPRO on 3/20/21.
 //
+
 import UIKit
 import Foundation
 import Firebase
@@ -18,7 +19,8 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     let datePicker = UIDatePicker()
     //    errorLabel
     @IBOutlet weak var errorLabel: UILabel!
-
+    //    @IBOutlet weak var errorLable: UILabel!
+    //    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var NameTextField: UITextField!
     
     @IBOutlet weak var yearTextfield: UITextField!
@@ -49,16 +51,10 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     let alert = AlertService()
     let year = Calendar.current.component(.year, from: Date())
     let formatter: NumberFormatter = NumberFormatter()
-    var buttonImage = ""
-    var userImage = ""
-   
-    
-    //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         self.navigationController?.isNavigationBarHidden = true
-    
         
         logOut.layer.cornerRadius = logOut.frame.size.height/2
         ProfileRectangle.layer.cornerRadius = ProfileRectangle.frame.size.height/8
@@ -84,7 +80,6 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         // errorLabel.delegate = self
         validation()
         createDatePicker()
-       
         
         
         
@@ -93,7 +88,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.childValue
+        let child = LocalStorageManager.getChild()
         if child != nil {
             setUIChildInfo(child!)
         }
@@ -108,13 +103,12 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         self.setImage(child.sex)
         self.setEmail(child.email)
         self.setAge(child.DOB)
-        setUserPref(name: HomeViewController.userPrfrence, sex: child.sex)
         
     }
     
     //Name
     func setName(_ name:String) {
-        NameTextField.text = String(name)
+        NameTextField.placeholder = String(name)
     }
     //Level
     func setCurrentLevel(_ level:Int) {
@@ -133,88 +127,13 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     //Image
     func setImage(_ sex:String) {
-        if HomeViewController.userPrfrence != ""{
-           setUserPref(name: HomeViewController.userPrfrence, sex: sex)
-        } else if sex == "girl"{
-            ProfilePic.image = UIImage(named: "GirlWithCircle")
-            
-            userImage =  "GirlWithCircle"
-            if HomeViewController.userPrfrence != ""{
-                ImageToChange.setImage( UIImage.init(named: HomeViewController.userPrfrence), for: .normal)
-                buttonImage = HomeViewController.userPrfrence
-            }else{
-            ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
-                buttonImage = "BoyWithCircle"
-            }
-        }else{
+        if sex != "girl"{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
-            userImage =  "BoyWithCircle"
-            if HomeViewController.userPrfrence != ""{
-                ImageToChange.setImage( UIImage.init(named: HomeViewController.userPrfrence), for: .normal)
-                buttonImage = HomeViewController.userPrfrence
-            }else{
             ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
-                buttonImage = "GirlWithCircle"
-                
-        }
-        }
-    }
-    func setUserPref(name : String, sex:String){
-           switch sex {
-           case "boy":
-            if (name == Constants.equipmentNames.blueBoy) {
-                ProfilePic.image = UIImage(named:"blueboyb")
-                userImage = "blueboyb"
-            }else if(name == Constants.equipmentNames.grayBoy ){
-                ProfilePic.image = UIImage(named:"grayboyb")
-                userImage = "grayboyb"
-            }else if(name == Constants.equipmentNames.yellowBoy ){
-                ProfilePic.image = UIImage(named:"yellowboyb")
-                userImage = "yellowboyb"
-            }else if(name == Constants.equipmentNames.redGlassessBoyC ){
-                ProfilePic.image = UIImage(named:"redglasssesboyb")
-                userImage = "redglasssesboyb"
-            }else if(name == Constants.equipmentNames.BlueGlassessBoyC ){
-                ProfilePic.image = UIImage(named:"blueglassessBoyB")
-                userImage = "blueglassessBoyB"
-               }else{
-                   ProfilePic.image = UIImage(named: "BoyWithCircle")
-                userImage = "BoyWithCircle"
-               }
-            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
-            buttonImage = "GirlWithCircle"
-               break
-    
-            case "girl":
-                if (name == Constants.equipmentNames.orangeGirl){
-                    ProfilePic.image = UIImage(named:"orangegirlB")
-                    userImage = "orangegirlB"
-                }else if(name == Constants.equipmentNames.pinkGirl){
-                    ProfilePic.image = UIImage(named:"pinkgirlb")
-                    userImage = "pinkgirlb"
-                }else if(name == Constants.equipmentNames.blueGirl){
-                    ProfilePic.image = UIImage(named:"bluegirlB")
-                    userImage = "bluegirlB"
-                } else if(name == Constants.equipmentNames.redGlassessGirlC){
-                    ProfilePic.image = UIImage(named:"redglassgirlB")
-                    userImage = "redglassgirlB"
-                }
-                else if(name == Constants.equipmentNames.blueGlassessGirlC){
-                   ProfilePic.image = UIImage(named:"blueglassessgirlb")
-                    userImage = "blueglassessgirlb"
-               }else{
-                       ProfilePic.image = UIImage(named: "GirlWithCircle")
-                userImage = "GirlWithCircle"
-                   }
+        }else{
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
-                buttonImage = "BoyWithCircle"
-
-               break
-          
-        default:
-        print("x")
-           
-       }
+        }
     }
     
     
@@ -223,15 +142,17 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         // Get range based on the string index.
         let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
         // Access substring from range.
+        print(year)
         let ageYear = age[ageYearSub]
         formatter.locale = NSLocale(localeIdentifier: "EN") as Locale?
         let AgeEN = formatter.number(from: String(ageYear))
         let convertAge = Int(AgeEN!)
         let calculateAge = year-convertAge
+        print(calculateAge)
         
-        yearTextfield.text = age.substring(with: 6..<10).convertedDigitsToLocale(Locale(identifier: "AR"))
-        monthTextfield.text = age.substring(with: 3..<5).convertedDigitsToLocale(Locale(identifier: "AR"))
-        dayTextfield.text = age.substring(with: 0..<2).convertedDigitsToLocale(Locale(identifier: "AR"))
+        yearTextfield.placeholder = age.substring(with: 6..<10).convertedDigitsToLocale(Locale(identifier: "AR"))
+        monthTextfield.placeholder = age.substring(with: 3..<5).convertedDigitsToLocale(Locale(identifier: "AR"))
+        dayTextfield.placeholder = age.substring(with: 0..<2).convertedDigitsToLocale(Locale(identifier: "AR"))
         // AgeLable.text = "العمر |\(String(calculateAge))"
     }
     
@@ -293,23 +214,28 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         // isValidated = false
     }
     @IBAction func changePic(_ sender: Any) {
-        if (ProfilePic.image == UIImage(named: userImage)){
-                 ProfilePic.image = UIImage(named: buttonImage)
-                 ImageToChange.setImage( UIImage.init(named: userImage), for: .normal)
-                 
+        
+        if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
+            
+            ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
+            
+            
+            // ProfilePic.image = UIImage(named: "GirlWithCircle")
+            
         }else{
-                 ProfilePic.image = UIImage(named: userImage)
-                 ImageToChange.setImage( UIImage.init(named: buttonImage), for: .normal)
-
-    }
+            ProfilePic.image = UIImage(named: "BoyWithCircle")
+            ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
+        }
+        
         
     }
- 
+    
     func updateProfile() -> Bool{
         
         validator.validate(self)
         if !isValidated{
-            self.present(alert.Alert(body:"خطأ بتحديث معلوماتك", isSuccess: false), animated: true)
+            self.present(alert.Alert(body:errorLabel.text!, isSuccess: false), animated: true)
             return false
         }
         else{
@@ -332,7 +258,7 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
                 updateBOD(newBOD)
                 
             }
-            print("Check Gender         ",ProfilePic.image == UIImage(named: "BoyWithCircle"))
+            
             var sex = ""
             if (ProfilePic.image == UIImage(named: "BoyWithCircle")){
                 sex="boy"
@@ -361,6 +287,19 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     }
     
     //MARK:- Functions
+    
+    func getChildMoney(){
+        
+        let child = LocalStorageManager.getChild()
+        if let child = child {
+            setMoney(child.money)
+        }else{
+            
+            print("No Child Found")
+            //TODO: Alert and back button..
+        }
+        
+    }
     
     func updateName(_ newName:String){
         FirebaseRequest.updateName(newName) { (success, errore) in

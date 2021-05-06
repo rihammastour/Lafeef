@@ -46,7 +46,7 @@ class StoreViewController: UIViewController {
         setUIElements()
         getChildData()
         
-      updateMoney(200)
+//        updateMoney(200)
         fechStoreEquipment {
             tableView.reloadData()
         }
@@ -102,7 +102,7 @@ class StoreViewController: UIViewController {
     //Get Child Data
     func getChildData(){
         
-        let child = LocalStorageManager.childValue
+        let child = LocalStorageManager.getChild()
         
         if let child = child {
             updateMoney(child.money)
@@ -435,46 +435,35 @@ class StoreViewController: UIViewController {
         switch name {
         case  BackeryStore.lamp.rawValue:
             updatePreviewVariables(isGirl: false, isStore: true, isLamp: true)
-            HomeViewController.isHiddenLamp = false
-            
         break
         case BackeryStore.cupcakeFrame.rawValue:
             framename = BackeryStore.cupcakeFrame.rawValue
             updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
-            HomeViewController.isHiddenCupcakeFrame = false
         break
         case  BackeryStore.lavendarFrame.rawValue:
             framename = BackeryStore.lavendarFrame.rawValue
             updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
-            HomeViewController.isHiddenLavendarFrame = false
         break
-            
         case  BackeryStore.loliPopFrame.rawValue:
             framename = BackeryStore.loliPopFrame.rawValue
             updatePreviewVariables(isGirl: false, isStore: true, isLamp: false)
-            HomeViewController.isHiddenLoliPopFrame = false
         break
         case CharachtersStore.blueBoy.rawValue:
             charachterImage = "FullBlueBoy"
             updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.blueBoy
         case CharachtersStore.grayBoy.rawValue:
             charachterImage = "fullGrayBoy"
             updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.grayBoy
         case CharachtersStore.yellowBoy.rawValue:
             charachterImage = "fullYellowBoy"
             updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.yellowBoy
         case CharachtersStore.redGlassess.rawValue:
             if sex == "girl"{
             charachterImage = "redGlassessGirl"
                 updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
-                HomeViewController.userPrfrence = Constants.equipmentNames.redGlassessGirlC
             }else{
                 charachterImage = "redGlasssessBoy"
                 updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
-                HomeViewController.userPrfrence = Constants.equipmentNames.redGlassessBoyC
             }
             
         break
@@ -482,28 +471,23 @@ class StoreViewController: UIViewController {
             if sex == "girl"{
             charachterImage = "blueGlassessGirl"
             updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
-                HomeViewController.userPrfrence = Constants.equipmentNames.blueGlassessGirlC
             }else{
                 charachterImage = "blueGlassessBoy"
                 updatePreviewVariables(isGirl: false, isStore: false, isLamp: false)
-                HomeViewController.userPrfrence = Constants.equipmentNames.BlueGlassessBoyC
             }
             
         break
         case CharachtersStore.pinkGirl.rawValue:
             charachterImage = "fullPinkGirl"
             updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.pinkGirl
             break
         case CharachtersStore.blueGirl.rawValue:
             charachterImage = "FullBlueGirl"
             updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.blueGirl
             break
         case CharachtersStore.orangeGirl.rawValue:
             charachterImage = "fullOrangeGirl"
             updatePreviewVariables(isGirl: true, isStore: false, isLamp: false)
-            HomeViewController.userPrfrence = Constants.equipmentNames.orangeGirl
             break
         default:
             print("nothing ")

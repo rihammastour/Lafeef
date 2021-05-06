@@ -147,9 +147,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             
         } catch {
             print("Could not create video device input: \(error)")
-            self.present(alert.Alert(body: "لايمكن الوصول للكاميرا ", isSuccess: false), animated :true)
-                
-        
             return
         }
         
@@ -159,7 +156,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         // Add a video input
         guard session.canAddInput(deviceInput) else {
             print("Could not add video device input to the session")
-            self.present(alert.Alert(body: "لايمكن الوصول للكاميرا ", isSuccess: false), animated :true)
             session.commitConfiguration()
             return
         }
@@ -173,7 +169,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
         } else {
             print("Could not add video data output to the session")
-            self.present(alert.Alert(body: "لايمكن الوصول للكاميرا ", isSuccess: false), animated :true)
             session.commitConfiguration()
             return
         }
@@ -498,8 +493,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     @IBAction func stopGameTapped(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.puaseGameViewController) as? PauseGameViewController{
             self.sound.player?.stop()
-            ObjectDetectionViewController.detectionOverlay.isHidden = true
-            
 
             vc.challengeScen = self.challengeScen
             vc.delegate = self.delegate
@@ -540,7 +533,6 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         ObjectDetectionViewController.detectionOverlay.isHidden = true
         let scaledScore = scaleLevelScore()
         report.collectedScore = scaledScore
-        report.collectedScore = 49
 
         report.isPassed = checkLevelPassed()
         

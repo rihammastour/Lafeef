@@ -54,19 +54,12 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     //MARK: - LifeCycle Funcrions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getChildReports()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.setLevelsData()
-        }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getChildReports()
         
-    
+        getChildReports()
         
         let x =  CGRect(x:  self.activityIndicaitor.center.x-80, y: self.activityIndicaitor.center.y-100 , width: 200, height: 200)
         activityIndicatorView = NVActivityIndicatorView(frame: x, type:.ballBeat, color:UIColor.init(named: "blueApp"), padding: 0)
