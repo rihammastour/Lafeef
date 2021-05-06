@@ -21,7 +21,6 @@
 		41709028261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41709027261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift */; };
 		418121C8262E006B00AD7812 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418121C7262E006A00AD7812 /* GoalViewController.swift */; };
 		418F77DE260DCA6100831CAC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418F77DD260DCA6000831CAC /* AVFoundation.framework */; };
-		4190ADD3263E47AE00BE8D08 /* challeangecalendar.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4190ADCD263E47AE00BE8D08 /* challeangecalendar.gif */; };
 		4190ADD4263E47AE00BE8D08 /* payment.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4190ADCE263E47AE00BE8D08 /* payment.gif */; };
 		4190ADD5263E47AE00BE8D08 /* trainingsection.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4190ADCF263E47AE00BE8D08 /* trainingsection.gif */; };
 		4190ADD6263E47AE00BE8D08 /* pineappleAnswer.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4190ADD0263E47AE00BE8D08 /* pineappleAnswer.gif */; };
@@ -173,6 +172,7 @@
 		C92A670625CEA0320060AA53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A670525CEA0310060AA53 /* SceneDelegate.swift */; };
 		C92CFD7B25E1AD83007DD3B5 /* CustmerSatisfaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */; };
 		C92CFD8325E419CB007DD3B5 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CFD8225E419CB007DD3B5 /* Answer.swift */; };
+		C9526D6C26411C47005D3579 /* paymentVoiceInstruction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9526D6B26411C47005D3579 /* paymentVoiceInstruction.mp3 */; };
 		C955926C25D0AF0F005C1B4F /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C955926B25D0AF0F005C1B4F /* TimerViewController.swift */; };
 		C95EBD6A26308A98000A56EC /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EBD6926308A98000A56EC /* InstructionsViewController.swift */; };
 		C95EBD6F26308EB2000A56EC /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95EBD6E26308EB2000A56EC /* CustomUIPageViewController.swift */; };
@@ -243,11 +243,10 @@
 		41709027261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPrefrenceViewController.swift; sourceTree = "<group>"; };
 		418121C7262E006A00AD7812 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		418F77DD260DCA6000831CAC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4190ADCD263E47AE00BE8D08 /* challeangecalendar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = challeangecalendar.gif; path = "../../../../../lafeef gif/challeangecalendar.gif"; sourceTree = "<group>"; };
-		4190ADCE263E47AE00BE8D08 /* payment.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = payment.gif; path = "../../../../../lafeef gif/payment.gif"; sourceTree = "<group>"; };
-		4190ADCF263E47AE00BE8D08 /* trainingsection.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = trainingsection.gif; path = "../../../../../lafeef gif/trainingsection.gif"; sourceTree = "<group>"; };
-		4190ADD0263E47AE00BE8D08 /* pineappleAnswer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pineappleAnswer.gif; path = "../../../../../lafeef gif/pineappleAnswer.gif"; sourceTree = "<group>"; };
-		4190AE37263E4B2900BE8D08 /* challeangeCake.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = challeangeCake.gif; path = "../../../../../lafeef gif/challeangeCake.gif"; sourceTree = "<group>"; };
+		4190ADCE263E47AE00BE8D08 /* payment.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = payment.gif; sourceTree = "<group>"; };
+		4190ADCF263E47AE00BE8D08 /* trainingsection.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = trainingsection.gif; sourceTree = "<group>"; };
+		4190ADD0263E47AE00BE8D08 /* pineappleAnswer.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pineappleAnswer.gif; sourceTree = "<group>"; };
+		4190AE37263E4B2900BE8D08 /* challeangeCake.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = challeangeCake.gif; sourceTree = "<group>"; };
 		4193027225D1FEE600BACE0B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4193027725D1FEF000BACE0B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		419B1BD725FBF55F0024F011 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +400,7 @@
 		C92A670525CEA0310060AA53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C92CFD7A25E1AD83007DD3B5 /* CustmerSatisfaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustmerSatisfaction.swift; sourceTree = "<group>"; };
 		C92CFD8225E419CB007DD3B5 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		C9526D6B26411C47005D3579 /* paymentVoiceInstruction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = paymentVoiceInstruction.mp3; sourceTree = "<group>"; };
 		C955926B25D0AF0F005C1B4F /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		C95EBD6926308A98000A56EC /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		C95EBD6E26308EB2000A56EC /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
@@ -623,7 +623,6 @@
 				4190AE37263E4B2900BE8D08 /* challeangeCake.gif */,
 				4ED0539D262D29070021544F /* success-attempt.json */,
 				4EDFA47325EC59A000924569 /* trophy.json */,
-				4190ADCD263E47AE00BE8D08 /* challeangecalendar.gif */,
 				4190ADCE263E47AE00BE8D08 /* payment.gif */,
 				4190ADD0263E47AE00BE8D08 /* pineappleAnswer.gif */,
 				4190ADCF263E47AE00BE8D08 /* trainingsection.gif */,
@@ -646,6 +645,7 @@
 			children = (
 				C95EBD882630B3A0000A56EC /* Media */,
 				41F78DA9261895690048C968 /* excellent.mp3 */,
+				C9526D6B26411C47005D3579 /* paymentVoiceInstruction.mp3 */,
 				4EC81A922630D3D4007EAA90 /* bakery.mp3 */,
 				41F78DAE261895790048C968 /* fourthDay.mp3 */,
 				41F78DBD261895B90048C968 /* advertisment.mp3 */,
@@ -944,6 +944,7 @@
 			files = (
 				4EDFA43F25EAF46300924569 /* HappyPear.atlas in Resources */,
 				41F78DEE261896840048C968 /* learnShapes.mp3 in Resources */,
+				C9526D6C26411C47005D3579 /* paymentVoiceInstruction.mp3 in Resources */,
 				4EC81A8E2630C384007EAA90 /* skip.mp3 in Resources */,
 				41F78DDF2618962D0048C968 /* train.mp3 in Resources */,
 				41F78DDA261896140048C968 /* sadCustomer.mp3 in Resources */,
@@ -976,7 +977,6 @@
 				4EDFA43C25EAF46300924569 /* SadWatermelon.atlas in Resources */,
 				4EDFA44525EAF46300924569 /* HappyApple.atlas in Resources */,
 				4E7EB29026267EC3008E7EDB /* trainingTraingle.mp3 in Resources */,
-				4190ADD3263E47AE00BE8D08 /* challeangecalendar.gif in Resources */,
 				4EC81AEC26315773007EAA90 /* lampInstruction.gif in Resources */,
 				4EDFA47425EC59A000924569 /* trophy.json in Resources */,
 				4E453A4425B61D5100B8363F /* GameScene.sks in Resources */,
