@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         //        //Register child obj to observe changes
         //        RegisterObserver(for:"child")
+        getChildPrefrnces()
     }
     
     override func viewDidLoad() {
@@ -134,7 +135,7 @@ class HomeViewController: UIViewController {
     }
     func setChildPrefrence(name:String){
         characterUIImageView.image = UIImage(named: name)
-        
+
     }
     
     //Money
@@ -144,15 +145,45 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
-            characterUIImageView.image = UIImage(named: "boy-icon")
-            // }else if LoginViewController.userPrfrence != ""{
-            //     characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)}
-        }else if HomeViewController.userPrfrence != ""{
-            characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
-        }else{
+        setUserPref(name: HomeViewController.userPrfrence, sex: sex)
+    }
+    func setUserPref(name : String, sex:String){
+        print(name,"nammme")
+        
+           switch sex {
+           case "boy":
+            if (name == Constants.equipmentNames.blueBoy ||
+            name == Constants.equipmentNames.grayBoy ||
+            name == Constants.equipmentNames.yellowBoy ||
+            name == Constants.equipmentNames.redGlassessBoyC ||
+            name == Constants.equipmentNames.BlueGlassessBoyC) {
+                 characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
+               }else{
+                characterUIImageView.image = UIImage(named: "boy-icon")
+               }
+       
+               break
+    
+           case "girl":
+            if (name == Constants.equipmentNames.orangeGirl ||
+                    name == Constants.equipmentNames.pinkGirl ||
+                    name == Constants.equipmentNames.blueGirl ||
+                    name == Constants.equipmentNames.redGlassessGirlC ||
+                    name == Constants.equipmentNames.blueGlassessGirlC){
+                    characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+               
+           }
+      
+          else{
             characterUIImageView.image = UIImage(named: "girl-icon")
-        }
+               }
+       
+               break
+           
+        default:
+            print("xx")
+           
+       }
     }
     //MARK:- Get User Data
     
@@ -179,7 +210,7 @@ class HomeViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.getChild()
+        let child = LocalStorageManager.childValue
         
         if let child = child {
             setUIChildInfo(child)
@@ -262,13 +293,11 @@ class HomeViewController: UIViewController {
     func reflectChildPrefrences(){
         print(childEquipments.values.count,"count")
         if childEquipments.count != 0 {
-            
             for item in childEquipments.values{
                 print("item",item)
                 if item.inUse{
                     switch item.name {
                     case BackeryStore.cupcakeFrame.rawValue:
-                        //                    GameScene.presentChildPrefrence(name: item.name)
                         HomeViewController.isHiddenCupcakeFrame = false
                         break
                     case BackeryStore.lavendarFrame.rawValue:
@@ -281,37 +310,42 @@ class HomeViewController: UIViewController {
                         HomeViewController.isHiddenLoliPopFrame = false
                         break
                     case CharachtersStore.blueBoy.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.blueBoy)
+                        if sex == "boy"{
+                            setChildPrefrence(name: Constants.equipmentNames.blueBoy)}
                         HomeViewController.userPrfrence = Constants.equipmentNames.blueBoy
                         break
                     case CharachtersStore.blueGirl.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.blueGirl)
+                        if sex == "girl"{
+                            setChildPrefrence(name: Constants.equipmentNames.blueGirl)}
                         HomeViewController.userPrfrence = Constants.equipmentNames.blueGirl
                         break
                     case CharachtersStore.orangeGirl.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.orangeGirl)
+                        if sex == "girl"{
+                            setChildPrefrence(name: Constants.equipmentNames.orangeGirl)}
                         HomeViewController.userPrfrence = Constants.equipmentNames.orangeGirl
                         break
                     case CharachtersStore.pinkGirl.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.pinkGirl)
+                        if sex == "girl"{
+                            setChildPrefrence(name: Constants.equipmentNames.pinkGirl)}
                         HomeViewController.userPrfrence = Constants.equipmentNames.pinkGirl
                         break
                     case CharachtersStore.yellowBoy.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.yellowBoy)
+                        if sex == "boy"{
+                            setChildPrefrence(name: Constants.equipmentNames.yellowBoy)}
                         HomeViewController.userPrfrence = Constants.equipmentNames.yellowBoy
                         break
                     case CharachtersStore.grayBoy.rawValue:
-                        setChildPrefrence(name: Constants.equipmentNames.grayBoy)
+                        if sex == "boy"{
+                            setChildPrefrence(name: Constants.equipmentNames.grayBoy)}
                         HomeViewController.userPrfrence =  Constants.equipmentNames.grayBoy
                         break
                     case CharachtersStore.blueglassess.rawValue:
                         if sex == "girl"{
-                            
-                            setChildPrefrence(name: Constants.equipmentNames.blueGlassessGirlC)
+                            setChildPrefrence(name :Constants.equipmentNames.blueGlassessGirlC)
                             HomeViewController.userPrfrence =  Constants.equipmentNames.blueGlassessGirlC
                             
                         }else{
-                            setChildPrefrence(name: Constants.equipmentNames.BlueGlassessBoyC)
+                      setChildPrefrence(name: Constants.equipmentNames.BlueGlassessBoyC)
                             HomeViewController.userPrfrence =  Constants.equipmentNames.BlueGlassessBoyC
                         }
                         
@@ -320,11 +354,11 @@ class HomeViewController: UIViewController {
                     case CharachtersStore.redGlassess.rawValue:
                         if sex == "girl"{
                             
-                            setChildPrefrence(name: Constants.equipmentNames.redGlassessGirlC)
+                     setChildPrefrence(name: Constants.equipmentNames.redGlassessGirlC)
                             HomeViewController.userPrfrence =  Constants.equipmentNames.redGlassessGirlC
                             
                         }else{
-                            setChildPrefrence(name: Constants.equipmentNames.redGlassessBoyC)
+                       setChildPrefrence(name: Constants.equipmentNames.redGlassessBoyC)
                             HomeViewController.userPrfrence =  Constants.equipmentNames.redGlassessBoyC
                         }
                         

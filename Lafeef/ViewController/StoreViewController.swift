@@ -102,7 +102,7 @@ class StoreViewController: UIViewController {
     //Get Child Data
     func getChildData(){
         
-        let child = LocalStorageManager.getChild()
+        let child = LocalStorageManager.childValue
         
         if let child = child {
             updateMoney(child.money)

@@ -29,8 +29,10 @@ class ProfileViewController: UIViewController {
     var db: Firestore!
     let year = Calendar.current.component(.year, from: Date())
     let formatter: NumberFormatter = NumberFormatter()
+    var sex = "girl"
     
     //MARK:- Lifecycle functions
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -42,14 +44,19 @@ class ProfileViewController: UIViewController {
         
         //Get Child Data
         getChildData()
-    RegisterObserver(for:"child")
+ 
         
     }
     
+
+   
     
     override func viewWillAppear(_ animated: Bool) {
         
-        super.viewWillAppear(animated) // call super
+        super.viewWillAppear(animated)
+        getChildData()
+        // call super
+      
         
     }
     
@@ -63,7 +70,11 @@ class ProfileViewController: UIViewController {
         self.setImage(child.sex)
         self.setEmail(child.email)
         self.setAge(child.DOB)
+        setUserPref(name: HomeViewController.userPrfrence, sex: child.sex)
         
+    }
+    func setSex(sex:String){
+        self.sex = sex
     }
     
     //Name
@@ -87,48 +98,65 @@ class ProfileViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
+        if HomeViewController.userPrfrence != ""{
+           setUserPref(name: HomeViewController.userPrfrence, sex: sex)
+    }else if sex != "girl"{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
-        }else if HomeViewController.userPrfrence != ""{
-            setUserPref(name: HomeViewController.userPrfrence, sex: sex)
+        
         }else{
             ProfilePic.image = UIImage(named: "GirlWithCircle")
         }
 //        ProfilePic.image = UIImage(named: "GirlwithCircle")
     }
-    
-    //Email
-    
     func setUserPref(name : String, sex:String){
-        switch sex {
-        case "boy":
-            if (name == Constants.equipmentNames.blueBoy ||
-                name == Constants.equipmentNames.grayBoy ||
-            name == Constants.equipmentNames.yellowBoy  ||
-            name == Constants.equipmentNames.redGlassessBoyC ||
-                name == Constants.equipmentNames.redGlassessBoyC) {
-                ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-            }else{
-                ProfilePic.image = UIImage(named: "BoyWithCircle")
-            }
-    
-            break
- 
-        default:
-            if (name == Constants.equipmentNames.orangeGirl ||
-                name == Constants.equipmentNames.pinkGirl ||
-            name == Constants.equipmentNames.blueGirl  ||
-            name == Constants.equipmentNames.redGlassessGirlC ||
-                name == Constants.equipmentNames.blueGlassessGirlC) {
-                ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-            }else{
-                ProfilePic.image = UIImage(named: "GirlWithCircle")
-            }
-    
-            break
-        }
         
+           switch sex {
+           case "boy":
+            if (name == Constants.equipmentNames.blueBoy) {
+                ProfilePic.image = UIImage(named:"blueboyb")
+            }else if(name == Constants.equipmentNames.grayBoy ){
+                ProfilePic.image = UIImage(named:"grayboyb")
+            }else if(name == Constants.equipmentNames.yellowBoy ){
+                ProfilePic.image = UIImage(named:"yellowboyb")
+            }else if(name == Constants.equipmentNames.redGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"redglasssesboyb")
+            }else if(name == Constants.equipmentNames.BlueGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"blueglassessBoyB")
+               }else{
+                   ProfilePic.image = UIImage(named: "BoyWithCircle")
+               }
+       
+               break
+    
+           case "girl":
+            if (name == Constants.equipmentNames.orangeGirl){
+                ProfilePic.image = UIImage(named:"orangegirlB")
+            }else if(name == Constants.equipmentNames.pinkGirl){
+                ProfilePic.image = UIImage(named:"pinkgirlb")
+                
+            }else if(name == Constants.equipmentNames.blueGirl){
+                ProfilePic.image = UIImage(named:"bluegirlB")
+                
+            } else if(name == Constants.equipmentNames.redGlassessGirlC){
+                ProfilePic.image = UIImage(named:"redglassgirlB")
+            }
+            else if(name == Constants.equipmentNames.blueGlassessGirlC){
+               ProfilePic.image = UIImage(named:"blueglassessgirlb")
+               
+           }
+      
+          else{
+                   ProfilePic.image = UIImage(named: "GirlWithCircle")
+               }
+       
+               break
+           
+        default:
+            print("xx")
+           
+       }
     }
+    //Email
     func setAge(_ age:String) {
         // Get range based on the string index.
         let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
@@ -145,22 +173,20 @@ class ProfileViewController: UIViewController {
         AgeLable.text = "العمر | "+"\(String(calculateAge))".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
-//    func removeDataStorage(for key:String){
-//        if(key == "child"){
-//            LocalStorageManager.removeChild()}
-//        
-//        if(key == "levelTwoCount" ||
-//            key == "levelFourCount"){
-//            LocalStorageManager.removeAdvertisments()
-//        }
-//    }
+    func removeDataStorage(for key:String){
+        if(key == "child"){
+            LocalStorageManager.removeChild()}
+        
+        if(key == "levelTwoCount" ||
+            key == "levelFourCount"){
+            LocalStorageManager.removeAdvertisments()
+        }
+    }
     
     //MARK: - IBAction
     
     @IBAction func logOutAction(sender: AnyObject) {
-
         self.present(alert.logoutAlert(), animated: true)
-      
         
     }
     
@@ -190,7 +216,7 @@ class ProfileViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.getChild()
+        let child = LocalStorageManager.childValue
         if child != nil {
             setUIChildInfo(child!)
         }
