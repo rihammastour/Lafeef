@@ -179,7 +179,7 @@ class HomeViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.childValue
+        let child = LocalStorageManager.getChild()
         
         if let child = child {
             setUIChildInfo(child)

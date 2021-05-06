@@ -63,7 +63,6 @@ class ObjectDetectionViewController: ChallengeViewController{
                     }
                 })
             })
-            print("SOLVE IT         ",objectRecognition)
             self.requests = [objectRecognition]
         } catch let error as NSError {
             print("Model loading went wrong: \(error)")

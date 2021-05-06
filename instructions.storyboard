@@ -17,7 +17,7 @@
         <!--Guidance Instructions View Controller-->
         <scene sceneID="7Il-a7-iQ4">
             <objects>
-                <viewController restorationIdentifier="GuidanceInstructiont1VC" storyboardIdentifier="GuidanceInstructiont1VC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="deH-nX-AbY" customClass="GuidanceInstructionsViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="GuidanceInstructiont1VC" storyboardIdentifier="GuidanceInstructiont1VC" id="deH-nX-AbY" customClass="GuidanceInstructionsViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BES-BI-EuY">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TE8-Em-5aE">
-                                        <rect key="frame" x="495.5" y="30" width="72.5" height="33"/>
+                                        <rect key="frame" x="478.5" y="30" width="89.5" height="32"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
                                         <color key="tintColor" red="0.96691697840000002" green="0.56139135360000003" blue="0.54901278019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="تخطي " image="arrow.right.to.line.alt" catalog="system">
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXc-nI-gMq">
-                                        <rect key="frame" x="277.5" y="568.5" width="43.5" height="32.5"/>
+                                        <rect key="frame" x="266" y="569.5" width="66.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -133,6 +133,144 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btP-37-PwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5411" y="-350"/>
+        </scene>
+        <!--Light Instruction View Controller-->
+        <scene sceneID="03S-SG-CQ1">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Z84-VE-RDz" customClass="LightInstructionViewController" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BMs-Mm-pxo">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-Jw-o23">
+                                <rect key="frame" x="85" y="136" width="598" height="752"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILY-nX-Pz3">
+                                        <rect key="frame" x="0.0" y="0.0" width="598" height="613"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEZ-xF-r6W">
+                                        <rect key="frame" x="219" y="652" width="160" height="55"/>
+                                        <color key="backgroundColor" red="0.70196078429999997" green="0.85490196080000003" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="9F1-9I-uct"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="YNA-xp-LQq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                        <state key="normal" title="انهاء">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endInstructionsTapped:" destination="Z84-VE-RDz" eventType="touchUpInside" id="T4y-SO-tDd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jEZ-xF-r6W" firstAttribute="top" secondItem="ILY-nX-Pz3" secondAttribute="bottom" constant="39" id="3pk-C4-1dg"/>
+                                    <constraint firstItem="ILY-nX-Pz3" firstAttribute="top" secondItem="fq6-Jw-o23" secondAttribute="top" id="Dct-La-sj6"/>
+                                    <constraint firstItem="jEZ-xF-r6W" firstAttribute="centerX" secondItem="ILY-nX-Pz3" secondAttribute="centerX" id="Kqd-LB-eh9"/>
+                                    <constraint firstItem="ILY-nX-Pz3" firstAttribute="leading" secondItem="fq6-Jw-o23" secondAttribute="leading" id="MtF-Xl-uif"/>
+                                    <constraint firstAttribute="bottom" secondItem="jEZ-xF-r6W" secondAttribute="bottom" constant="45" id="X2F-m1-dmy"/>
+                                    <constraint firstAttribute="trailing" secondItem="ILY-nX-Pz3" secondAttribute="trailing" id="Yh7-TY-bKG"/>
+                                    <constraint firstItem="jEZ-xF-r6W" firstAttribute="top" secondItem="ILY-nX-Pz3" secondAttribute="bottom" constant="39" id="kAr-Wl-B9M"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rUS-7b-qqk"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fq6-Jw-o23" firstAttribute="top" secondItem="rUS-7b-qqk" secondAttribute="top" constant="136" id="I04-w9-fAk"/>
+                            <constraint firstItem="rUS-7b-qqk" firstAttribute="trailing" secondItem="fq6-Jw-o23" secondAttribute="trailing" constant="85" id="RJe-z2-xB9"/>
+                            <constraint firstItem="fq6-Jw-o23" firstAttribute="leading" secondItem="rUS-7b-qqk" secondAttribute="leading" constant="85" id="klZ-cs-My6"/>
+                            <constraint firstItem="fq6-Jw-o23" firstAttribute="centerY" secondItem="BMs-Mm-pxo" secondAttribute="centerY" id="mFD-XX-t6f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RFs-9F-GqN"/>
+                    <connections>
+                        <outlet property="instructionView" destination="fq6-Jw-o23" id="Mzi-JP-Vto"/>
+                        <outlet property="lamp" destination="ILY-nX-Pz3" id="zMa-iA-jXc"/>
+                        <outlet property="nextlOutlet" destination="jEZ-xF-r6W" id="RL4-cu-AdU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X4r-eM-b2N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6896" y="-350"/>
+        </scene>
+        <!--Guidance Instructions View Controller2-->
+        <scene sceneID="qeC-ih-Lm5">
+            <objects>
+                <viewController storyboardIdentifier="GuidanceInstructiont3VC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="dlf-3A-BVh" customClass="GuidanceInstructionsViewController2" customModule="Lafeef" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7kO-3K-JD3">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAT-KD-oRt">
+                                <rect key="frame" x="85" y="136" width="598" height="752"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSS-L3-bxW">
+                                        <rect key="frame" x="308" y="652" width="160" height="55"/>
+                                        <color key="backgroundColor" red="0.84705882349999995" green="0.8862745098" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="exh-ap-zK1"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="fxL-fn-Bqv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                        <state key="normal" title="التالي">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-yd-JTn">
+                                        <rect key="frame" x="130" y="651" width="160" height="55"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="0.47450980390000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="M3I-sN-SG7"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="bH8-Lk-qTz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FFHekaya-Light" family="FF Hekaya" pointSize="35"/>
+                                        <state key="normal" title="تجاهل">
+                                            <color key="titleColor" red="0.4431372549" green="0.4431372549" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipInstructionsTapped:" destination="dlf-3A-BVh" eventType="touchUpInside" id="VlW-OC-KfF"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rz4-5a-xCu">
+                                        <rect key="frame" x="0.0" y="0.0" width="598" height="641"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JBp-yd-JTn" firstAttribute="leading" secondItem="HAT-KD-oRt" secondAttribute="leading" constant="130" id="2lF-6n-DMG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rz4-5a-xCu" secondAttribute="trailing" id="C6e-xW-EFs"/>
+                                    <constraint firstItem="Rz4-5a-xCu" firstAttribute="leading" secondItem="HAT-KD-oRt" secondAttribute="leading" id="USS-Mp-Ljf"/>
+                                    <constraint firstAttribute="bottom" secondItem="vSS-L3-bxW" secondAttribute="bottom" constant="45" id="Z6B-nE-yin"/>
+                                    <constraint firstItem="JBp-yd-JTn" firstAttribute="top" secondItem="Rz4-5a-xCu" secondAttribute="bottom" constant="10" id="gpN-B4-gnw"/>
+                                    <constraint firstAttribute="bottom" secondItem="JBp-yd-JTn" secondAttribute="bottom" constant="46" id="jzw-n3-Tdq"/>
+                                    <constraint firstAttribute="trailing" secondItem="vSS-L3-bxW" secondAttribute="trailing" constant="130" id="n3v-Dz-2gg"/>
+                                    <constraint firstItem="Rz4-5a-xCu" firstAttribute="top" secondItem="HAT-KD-oRt" secondAttribute="top" id="sKs-fV-PJe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k8C-Kx-lTs"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.32000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HAT-KD-oRt" firstAttribute="leading" secondItem="k8C-Kx-lTs" secondAttribute="leading" constant="85" id="2rm-cu-ZNs"/>
+                            <constraint firstItem="HAT-KD-oRt" firstAttribute="top" secondItem="k8C-Kx-lTs" secondAttribute="top" constant="136" id="CeE-o5-j40"/>
+                            <constraint firstItem="HAT-KD-oRt" firstAttribute="centerY" secondItem="7kO-3K-JD3" secondAttribute="centerY" id="Fro-qm-iJ0"/>
+                            <constraint firstItem="k8C-Kx-lTs" firstAttribute="trailing" secondItem="HAT-KD-oRt" secondAttribute="trailing" constant="85" id="vh6-mP-Ped"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cvk-gK-pFA"/>
+                    <connections>
+                        <outlet property="instructionView" destination="HAT-KD-oRt" id="znG-C5-utO"/>
+                        <outlet property="nextlOutlet" destination="vSS-L3-bxW" id="hya-vE-UpH"/>
+                        <outlet property="skiplOutlet" destination="JBp-yd-JTn" id="eMu-Ka-3EF"/>
+                        <outlet property="stand" destination="Rz4-5a-xCu" id="MAo-lL-BqC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D7u-eE-x3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6209" y="-350"/>
         </scene>
     </scenes>
     <resources>

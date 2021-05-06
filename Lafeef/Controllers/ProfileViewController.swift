@@ -37,16 +37,19 @@ class ProfileViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         logOut.layer.cornerRadius = logOut.frame.size.height/2
         ProfileRectangle.layer.cornerRadius = ProfileRectangle.frame.size.height/8
+        //        self.emailLabel.text = email
+        
+        
+        //Get Child Data
+        getChildData()
+    RegisterObserver(for:"child")
         
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated) // call super
-        //Get Child Data
-        getChildData()
         
     }
     
@@ -84,15 +87,14 @@ class ProfileViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        
-        if HomeViewController.userPrfrence != ""{
-            ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-        }else if sex == "girl"{
-            ProfilePic.image = UIImage(named: "GirlWithCircle")
-        }else{
+        if sex != "girl"{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
+        }else if HomeViewController.userPrfrence != ""{
+            setUserPref(name: HomeViewController.userPrfrence, sex: sex)
+        }else{
+            ProfilePic.image = UIImage(named: "GirlWithCircle")
         }
-
+//        ProfilePic.image = UIImage(named: "GirlwithCircle")
     }
     
     //Email
@@ -188,7 +190,7 @@ class ProfileViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.childValue
+        let child = LocalStorageManager.getChild()
         if child != nil {
             setUIChildInfo(child!)
         }

@@ -70,6 +70,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
+    //MARK: - Functions
+    func fetchChildInfo(){
+        //TODO: Should check local storage before fetch
+        //TODO: Fetch User Info , And check if previous two steps are needed
+        FirebaseRequest.setDBListener(completion: fetchChildChangesoHandler(_:_:))
+    }
+    
+    func fetchChildChangesoHandler(_ data:Any?, _ error:Error?) -> Void {
+        print("data in app delagate Handeler",data)
+        if let data = data{
+            do{
+                let child = try FirebaseDecoder().decode(Child.self, from: data)
+                print("child in appdalegate",child)
+                LocalStorageManager.setChild(child)
+            }catch{
+                print("error while decoding ",error.localizedDescription)
+            }
+            
+        }else{
+            print("error!! App delagate - No data passed",error?.localizedDescription ?? "error localized Description" )
+        }
+    }
+    
     
 }
 
