@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
 		41002BB125FCB158009E50D1 /* LevelGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41002BB025FCB158009E50D1 /* LevelGoalViewController.swift */; };
+		410A885126440AE700424FFF /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A885026440AE700424FFF /* LogoutViewController.swift */; };
 		411091CE25E4986F0035FACF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411091CD25E4986F0035FACF /* Answer.swift */; };
 		4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */; };
 		412258512616F266005B19C6 /* VoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412258502616F266005B19C6 /* VoiceViewController.swift */; };
@@ -230,6 +231,7 @@
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
 		41002BB025FCB158009E50D1 /* LevelGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGoalViewController.swift; sourceTree = "<group>"; };
+		410A885026440AE700424FFF /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		411091CD25E4986F0035FACF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		412258502616F266005B19C6 /* VoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewController.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				41709027261B4D0D00FEB4B3 /* PreviewPrefrenceViewController.swift */,
 				41BE5A1025E0911D00EA834F /* ChalleangeLevelCalendarViewController.swift */,
 				C92A65A525CB3F6D0060AA53 /* TrainigViewController.swift */,
+				410A885026440AE700424FFF /* LogoutViewController.swift */,
 				C955926B25D0AF0F005C1B4F /* TimerViewController.swift */,
 				C92A65A025CB3F660060AA53 /* StoreViewController.swift */,
 				C92A659B25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift */,
@@ -1241,6 +1244,7 @@
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C9B6CDAE260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
+				410A885126440AE700424FFF /* LogoutViewController.swift in Sources */,
 				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,
 				C92A65E125CB43DB0060AA53 /* Child.swift in Sources */,
 				C95EBD6F26308EB2000A56EC /* CustomUIPageViewController.swift in Sources */,

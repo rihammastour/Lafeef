@@ -2006,6 +2006,20 @@
             <point key="canvasLocation" x="8394.53125" y="-149.4140625"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="a1P-yM-dNz"/>
+        <designable name="bc4-5G-xck"/>
+        <designable name="oxU-30-E9o"/>
+        <designable name="prC-iW-nvL">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tlW-4g-FSH">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="uGp-mX-XVM">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Lafeef-Charcetar" width="387" height="391"/>
         <image name="LafeefToppings" width="4656" height="4656"/>

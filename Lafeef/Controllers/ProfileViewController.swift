@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var AgeLable: UILabel!
     let  sound = SoundManager()
+    let alert = AlertService()
     //    let id = Auth.auth().currentUser!.uid
     //    let email = Auth.auth().currentUser!.email
     var db: Firestore!
@@ -89,7 +90,7 @@ class ProfileViewController: UIViewController {
         if sex != "girl"{
             ProfilePic.image = UIImage(named: "BoyWithCircle")
         }else if HomeViewController.userPrfrence != ""{
-            ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
+            setUserPref(name: HomeViewController.userPrfrence, sex: sex)
         }else{
             ProfilePic.image = UIImage(named: "GirlWithCircle")
         }
@@ -97,6 +98,37 @@ class ProfileViewController: UIViewController {
     }
     
     //Email
+    
+    func setUserPref(name : String, sex:String){
+        switch sex {
+        case "boy":
+            if (name == Constants.equipmentNames.blueBoy ||
+                name == Constants.equipmentNames.grayBoy ||
+            name == Constants.equipmentNames.yellowBoy  ||
+            name == Constants.equipmentNames.redGlassessBoyC ||
+                name == Constants.equipmentNames.redGlassessBoyC) {
+                ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
+            }else{
+                ProfilePic.image = UIImage(named: "BoyWithCircle")
+            }
+    
+            break
+ 
+        default:
+            if (name == Constants.equipmentNames.orangeGirl ||
+                name == Constants.equipmentNames.pinkGirl ||
+            name == Constants.equipmentNames.blueGirl  ||
+            name == Constants.equipmentNames.redGlassessGirlC ||
+                name == Constants.equipmentNames.blueGlassessGirlC) {
+                ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
+            }else{
+                ProfilePic.image = UIImage(named: "GirlWithCircle")
+            }
+    
+            break
+        }
+        
+    }
     func setAge(_ age:String) {
         // Get range based on the string index.
         let ageYearSub = age.index(age.startIndex, offsetBy: 6)..<age.endIndex
@@ -113,54 +145,22 @@ class ProfileViewController: UIViewController {
         AgeLable.text = "العمر | "+"\(String(calculateAge))".convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
-    func removeDataStorage(for key:String){
-        if(key == "child"){
-            LocalStorageManager.removeChild()}
-        
-        if(key == "levelTwoCount" ||
-            key == "levelFourCount"){
-            LocalStorageManager.removeAdvertisments()
-        }
-    }
+//    func removeDataStorage(for key:String){
+//        if(key == "child"){
+//            LocalStorageManager.removeChild()}
+//        
+//        if(key == "levelTwoCount" ||
+//            key == "levelFourCount"){
+//            LocalStorageManager.removeAdvertisments()
+//        }
+//    }
     
     //MARK: - IBAction
     
     @IBAction func logOutAction(sender: AnyObject) {
-        let alert = UIAlertController(title: "تنبيه", message: "هل أنت متأكد من تسجيل الخروج؟", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "نعم", style: .destructive) { [self] (alertAction) in
-            
-            sound.playSound(sound: Constants.Sounds.bye)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                
-                if Auth.auth().currentUser != nil {
-                    do {
-                        
-                        if let vc = navigationController?.viewControllers.first{
-                            UserDefaults.standard.removeObserver(vc.self, forKeyPath: "child", context: nil)}
-                        
-                        removeDataStorage(for: "child")
-                        removeDataStorage(for: "levelTwoCount")
-                        removeDataStorage(for: "levelFourCount")
-                        
-                        try Auth.auth().signOut()
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let controller = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signUpOrLoginViewController) as! SignUpOrLoginViewController
-                        view.window?.rootViewController = controller
-                        view.window?.makeKeyAndVisible()
-                        
-                    } catch let error as NSError {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-        }
-        let cancel = UIAlertAction(title: "إلغاء", style: .default) { (alertAction) in
-            //Do nothing?
-        }
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+
+        self.present(alert.logoutAlert(), animated: true)
+      
         
     }
     
