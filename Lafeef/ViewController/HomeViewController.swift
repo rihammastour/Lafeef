@@ -51,7 +51,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUserPref()
         formatter.locale = Locale(identifier: "ar")
         sound.playSound(sound: Constants.Sounds.hello)
         getChildPrefrnces()
@@ -122,9 +122,39 @@ class HomeViewController: UIViewController {
     func setUserPref(){
         
         if HomeViewController.userPrfrence != ""{
-       characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
+            userpref(name: HomeViewController.userPrfrence, sex: sex)
     }
     }
+    func userpref(name : String, sex:String){
+           switch sex {
+           case "boy":
+               if (name == Constants.equipmentNames.blueBoy ||
+                   name == Constants.equipmentNames.grayBoy ||
+               name == Constants.equipmentNames.yellowBoy  ||
+               name == Constants.equipmentNames.redGlassessBoyC ||
+                   name == Constants.equipmentNames.redGlassessBoyC) {
+                characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+               }else{
+                characterUIImageView.image = UIImage(named: "BoyWithCircle")
+               }
+       
+               break
+    
+           default:
+               if (name == Constants.equipmentNames.orangeGirl ||
+                   name == Constants.equipmentNames.pinkGirl ||
+               name == Constants.equipmentNames.blueGirl  ||
+               name == Constants.equipmentNames.redGlassessGirlC ||
+                   name == Constants.equipmentNames.blueGlassessGirlC) {
+                characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+               }else{
+                characterUIImageView.image = UIImage(named: "GirlWithCircle")
+               }
+       
+               break
+           }
+           
+       }
     //Name
     func setName(_ name:String) {
         nameLabel.text = String(name)
@@ -184,13 +214,13 @@ class HomeViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.getChild()
-        
-        if let child = child {
-            setUIChildInfo(child)
-        }
-        
-    }
+          let child = LocalStorageManager.childValue
+          
+          if let child = child {
+              setUIChildInfo(child)
+          }
+          
+      }
     //MARK: - Local Storage Notifications
     
     //Register key value to be observed
