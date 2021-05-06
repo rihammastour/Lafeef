@@ -110,12 +110,16 @@ class ProfileViewController: UIViewController {
         
            switch sex {
            case "boy":
-               if (name == Constants.equipmentNames.blueBoy ||
-                   name == Constants.equipmentNames.grayBoy ||
-               name == Constants.equipmentNames.yellowBoy  ||
-               name == Constants.equipmentNames.redGlassessBoyC ||
-                   name == Constants.equipmentNames.redGlassessBoyC) {
-                   ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
+            if (name == Constants.equipmentNames.blueBoy) {
+                ProfilePic.image = UIImage(named:"blueboyb")
+            }else if(name == Constants.equipmentNames.grayBoy ){
+                ProfilePic.image = UIImage(named:"grayboyb")
+            }else if(name == Constants.equipmentNames.yellowBoy ){
+                ProfilePic.image = UIImage(named:"yellowboyb")
+            }else if(name == Constants.equipmentNames.redGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"redglasssesboyb")
+            }else if(name == Constants.equipmentNames.BlueGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"blueglassessBoyB")
                }else{
                    ProfilePic.image = UIImage(named: "BoyWithCircle")
                }
@@ -123,13 +127,23 @@ class ProfileViewController: UIViewController {
                break
     
            case "girl":
-               if (name == Constants.equipmentNames.orangeGirl ||
-                   name == Constants.equipmentNames.pinkGirl ||
-               name == Constants.equipmentNames.blueGirl  ||
-               name == Constants.equipmentNames.redGlassessGirlC ||
-                   name == Constants.equipmentNames.blueGlassessGirlC) {
-                   ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-               }else{
+            if (name == Constants.equipmentNames.orangeGirl){
+                ProfilePic.image = UIImage(named:"orangegirlB")
+            }else if(name == Constants.equipmentNames.pinkGirl){
+                ProfilePic.image = UIImage(named:"pinkgirlb")
+                
+            }else if(name == Constants.equipmentNames.blueGirl){
+                ProfilePic.image = UIImage(named:"bluegirlB")
+                
+            } else if(name == Constants.equipmentNames.redGlassessGirlC){
+                ProfilePic.image = UIImage(named:"redglassgirlB")
+            }
+            else if(name == Constants.equipmentNames.blueGlassessGirlC){
+               ProfilePic.image = UIImage(named:"blueglassessgirlb")
+               
+           }
+      
+          else{
                    ProfilePic.image = UIImage(named: "GirlWithCircle")
                }
        

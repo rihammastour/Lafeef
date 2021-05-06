@@ -44,14 +44,14 @@ class HomeViewController: UIViewController {
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUserPref()
+       
 //        //Register child obj to observe changes
 //        RegisterObserver(for:"child")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUserPref()
+        
         formatter.locale = Locale(identifier: "ar")
         sound.playSound(sound: Constants.Sounds.hello)
         getChildPrefrnces()
@@ -118,6 +118,7 @@ class HomeViewController: UIViewController {
         self.setScore(child.score)
         self.setImage(child.sex)
         self.sex = child.sex
+        setUserPref()
     }
     func setUserPref(){
         
@@ -135,7 +136,7 @@ class HomeViewController: UIViewController {
                    name == Constants.equipmentNames.redGlassessBoyC) {
                 characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
                }else{
-                characterUIImageView.image = UIImage(named: "BoyWithCircle")
+                characterUIImageView.image = UIImage(named: "boy-icon")
                }
        
                break
@@ -148,7 +149,7 @@ class HomeViewController: UIViewController {
                    name == Constants.equipmentNames.blueGlassessGirlC) {
                 characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
                }else{
-                characterUIImageView.image = UIImage(named: "GirlWithCircle")
+                characterUIImageView.image = UIImage(named: "girl-icon")
                }
        
                break

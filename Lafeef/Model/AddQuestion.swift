@@ -12,7 +12,7 @@ class AddQuestion {
         let section = TrainingSections.shapes
         
         let questionOne = TrainingQuestions(answer: section.getObject(for: "circle"), type: "circle")
-        let questionTwo = TrainingQuestions(answer: section.getObject(for: "triangle"), type: "triangle")
+        let questionTwo = TrainingQuestions(answer: section.getObject(for: "square"), type: "square")
         let questions = Questions(qeustionDetailes: [questionOne, questionTwo], questionText: "أحضر شكلًا يشبه:")
         
         FirebaseRequest.addQuestion(section: section, questions: questions) { (success, err) in
@@ -29,7 +29,7 @@ class AddQuestion {
         let section = TrainingSections.colors
         
         let questionOne = TrainingQuestions(answer: section.getObject(for: "brown"), type: "brown")
-        let questionTwo = TrainingQuestions(answer: section.getObject(for: "red"), type: "red")
+        let questionTwo = TrainingQuestions(answer: section.getObject(for: "white"), type: "white")
         let questions = Questions(qeustionDetailes: [questionOne, questionTwo], questionText: "أرني القطع ذات اللون:")
         
         FirebaseRequest.addQuestion(section: section, questions: questions) { (success, err) in

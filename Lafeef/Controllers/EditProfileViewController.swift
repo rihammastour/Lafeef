@@ -162,34 +162,50 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     func setUserPref(name : String, sex:String){
            switch sex {
            case "boy":
-               if (name == Constants.equipmentNames.blueBoy ||
-                   name == Constants.equipmentNames.grayBoy ||
-               name == Constants.equipmentNames.yellowBoy  ||
-               name == Constants.equipmentNames.redGlassessBoyC ||
-                   name == Constants.equipmentNames.redGlassessBoyC) {
-                   ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-                userImage = HomeViewController.userPrfrence
+            if (name == Constants.equipmentNames.blueBoy) {
+                ProfilePic.image = UIImage(named:"blueboyb")
+                userImage = "blueboyb"
+            }else if(name == Constants.equipmentNames.grayBoy ){
+                ProfilePic.image = UIImage(named:"grayboyb")
+                userImage = "grayboyb"
+            }else if(name == Constants.equipmentNames.yellowBoy ){
+                ProfilePic.image = UIImage(named:"yellowboyb")
+                userImage = "yellowboyb"
+            }else if(name == Constants.equipmentNames.redGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"redglasssesboyb")
+                userImage = "redglasssesboyb"
+            }else if(name == Constants.equipmentNames.BlueGlassessBoyC ){
+                ProfilePic.image = UIImage(named:"blueglassessBoyB")
+                userImage = "blueglassessBoyB"
                }else{
                    ProfilePic.image = UIImage(named: "BoyWithCircle")
                 userImage = "BoyWithCircle"
                }
             ImageToChange.setImage( UIImage.init(named: "GirlWithCircle"), for: .normal)
             buttonImage = "GirlWithCircle"
-       
                break
     
             case "girl":
-               if (name == Constants.equipmentNames.orangeGirl ||
-                   name == Constants.equipmentNames.pinkGirl ||
-               name == Constants.equipmentNames.blueGirl  ||
-               name == Constants.equipmentNames.redGlassessGirlC ||
-                   name == Constants.equipmentNames.blueGlassessGirlC) {
-                   ProfilePic.image = UIImage(named:HomeViewController.userPrfrence)
-                userImage = HomeViewController.userPrfrence
+                if (name == Constants.equipmentNames.orangeGirl){
+                    ProfilePic.image = UIImage(named:"orangegirlB")
+                    userImage = "orangegirlB"
+                }else if(name == Constants.equipmentNames.pinkGirl){
+                    ProfilePic.image = UIImage(named:"pinkgirlb")
+                    userImage = "pinkgirlb"
+                }else if(name == Constants.equipmentNames.blueGirl){
+                    ProfilePic.image = UIImage(named:"bluegirlB")
+                    userImage = "bluegirlB"
+                } else if(name == Constants.equipmentNames.redGlassessGirlC){
+                    ProfilePic.image = UIImage(named:"redglassgirlB")
+                    userImage = "redglassgirlB"
+                }
+                else if(name == Constants.equipmentNames.blueGlassessGirlC){
+                   ProfilePic.image = UIImage(named:"blueglassessgirlb")
+                    userImage = "blueglassessgirlb"
                }else{
-                   ProfilePic.image = UIImage(named: "GirlWithCircle")
+                       ProfilePic.image = UIImage(named: "GirlWithCircle")
                 userImage = "GirlWithCircle"
-               }
+                   }
             ImageToChange.setImage( UIImage.init(named: "BoyWithCircle"), for: .normal)
                 buttonImage = "BoyWithCircle"
 
