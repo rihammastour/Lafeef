@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		09F8D59451428576367B7573 /* Pods_Lafeef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B61265579B4C33852B7EE8 /* Pods_Lafeef.framework */; };
 		41002BB125FCB158009E50D1 /* LevelGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41002BB025FCB158009E50D1 /* LevelGoalViewController.swift */; };
-		410A885126440AE700424FFF /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A885026440AE700424FFF /* LogoutViewController.swift */; };
+		410A88592644169A00424FFF /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410A88582644169A00424FFF /* LogoutViewController.swift */; };
 		411091CE25E4986F0035FACF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411091CD25E4986F0035FACF /* Answer.swift */; };
 		4114F34925E4592A00B229C7 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */; };
 		412258512616F266005B19C6 /* VoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412258502616F266005B19C6 /* VoiceViewController.swift */; };
@@ -77,7 +77,6 @@
 		4E453A4F25B61D5400B8363F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E453A4E25B61D5400B8363F /* Assets.xcassets */; };
 		4E453A5A25B61D5500B8363F /* LafeefTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A5925B61D5500B8363F /* LafeefTests.swift */; };
 		4E453A6525B61D5500B8363F /* LafeefUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E453A6425B61D5500B8363F /* LafeefUITests.swift */; };
-		4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */ = {isa = PBXBuildFile; fileRef = 4E69EB63263801870044D680 /* PaymentInstruction.mov */; };
 		4E69EB702638C1FD0044D680 /* CakeModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6E2638C1FC0044D680 /* CakeModel.mlmodel */; };
 		4E69EB712638C1FD0044D680 /* MoneyModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E69EB6F2638C1FD0044D680 /* MoneyModel.mlmodel */; };
 		4E7DECBB25CDB9FA00D50362 /* splash-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4E7DECBA25CDB9FA00D50362 /* splash-animation.gif */; };
@@ -231,7 +230,7 @@
 		0554BA4951BACB4B292657DC /* Pods_LafeefTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LafeefTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD9BE7C1DE628BE933DA62B /* Pods-LafeefTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LafeefTests.release.xcconfig"; path = "Target Support Files/Pods-LafeefTests/Pods-LafeefTests.release.xcconfig"; sourceTree = "<group>"; };
 		41002BB025FCB158009E50D1 /* LevelGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGoalViewController.swift; sourceTree = "<group>"; };
-		410A885026440AE700424FFF /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		410A88582644169A00424FFF /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		411091CD25E4986F0035FACF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4114F34825E4592A00B229C7 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		412258502616F266005B19C6 /* VoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				52A92EF5260C0CE1009D58DD /* EditProfileViewController.swift */,
+				410A88582644169A00424FFF /* LogoutViewController.swift */,
+				C9E4666B25D2F3EA0002161A /* PrepareOrderController.swift */,
 				412258502616F266005B19C6 /* VoiceViewController.swift */,
 				C9F7942F25D0380A0067E14B /* ChallengeViewController.swift */,
 				41F78E672618AA8C0048C968 /* Slide.swift */,
@@ -786,7 +787,6 @@
 			isa = PBXGroup;
 			children = (
 				C95EBD912630C4FD000A56EC /* serveOrder.mov */,
-				4E69EB63263801870044D680 /* PaymentInstruction.mov */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -950,7 +950,6 @@
 				4EDFA44725EAF46300924569 /* WaitingPear.atlas in Resources */,
 				4EC81A932630D3D5007EAA90 /* bakery.mp3 in Resources */,
 				C9AE4D8C261BF92B004007B1 /* FFHekaya-Light.otf in Resources */,
-				4E69EB64263801870044D680 /* PaymentInstruction.mov in Resources */,
 				4EC819CB262F8A2C007EAA90 /* Store.storyboard in Resources */,
 				4ED47F4D25D366C60064D86C /* StarsAnimation.json in Resources */,
 				41F78DE4261896410048C968 /* reward.mp3 in Resources */,
@@ -1243,6 +1242,7 @@
 				41BE5A1625E09E2D00EA834F /* LevelReportData.swift in Sources */,
 				41BD684C25BABFF100257EA6 /* SignUpDOBViewController.swift in Sources */,
 				C9B6CDAE260EDDF30079D0A1 /* GuidanceInstructionsViewController2.swift in Sources */,
+				410A88592644169A00424FFF /* LogoutViewController.swift in Sources */,
 				C92A659C25CB3F5E0060AA53 /* SignUpOrLoginViewController.swift in Sources */,
 				410A885126440AE700424FFF /* LogoutViewController.swift in Sources */,
 				4129EDF025E1978B0028C86C /* CompletedLevel.swift in Sources */,

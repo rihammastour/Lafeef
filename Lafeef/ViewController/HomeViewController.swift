@@ -44,8 +44,9 @@ class HomeViewController: UIViewController {
     //MARK: - Lifecycle Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //        //Register child obj to observe changes
-        //        RegisterObserver(for:"child")
+       
+//        //Register child obj to observe changes
+//        RegisterObserver(for:"child")
     }
     
     override func viewDidLoad() {
@@ -116,8 +117,44 @@ class HomeViewController: UIViewController {
         self.setScore(child.score)
         self.setImage(child.sex)
         self.sex = child.sex
+        setUserPref()
     }
+    func setUserPref(){
+        
+        if HomeViewController.userPrfrence != ""{
+            userpref(name: HomeViewController.userPrfrence, sex: sex)
+    }
+    }
+    func userpref(name : String, sex:String){
+           switch sex {
+           case "boy":
+               if (name == Constants.equipmentNames.blueBoy ||
+                   name == Constants.equipmentNames.grayBoy ||
+               name == Constants.equipmentNames.yellowBoy  ||
+               name == Constants.equipmentNames.redGlassessBoyC ||
+                   name == Constants.equipmentNames.redGlassessBoyC) {
+                characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+               }else{
+                characterUIImageView.image = UIImage(named: "boy-icon")
+               }
+       
+               break
     
+           default:
+               if (name == Constants.equipmentNames.orangeGirl ||
+                   name == Constants.equipmentNames.pinkGirl ||
+               name == Constants.equipmentNames.blueGirl  ||
+               name == Constants.equipmentNames.redGlassessGirlC ||
+                   name == Constants.equipmentNames.blueGlassessGirlC) {
+                characterUIImageView.image = UIImage(named:HomeViewController.userPrfrence)
+               }else{
+                characterUIImageView.image = UIImage(named: "girl-icon")
+               }
+       
+               break
+           }
+           
+       }
     //Name
     func setName(_ name:String) {
         nameLabel.text = String(name)
@@ -144,13 +181,11 @@ class HomeViewController: UIViewController {
     
     //Image
     func setImage(_ sex:String) {
-        if sex != "girl"{
+        if   HomeViewController.userPrfrence == "" && sex != "girl"{
             characterUIImageView.image = UIImage(named: "boy-icon")
-            // }else if LoginViewController.userPrfrence != ""{
-            //     characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)}
-        }else if HomeViewController.userPrfrence != ""{
-            characterUIImageView.image = UIImage(named: HomeViewController.userPrfrence)
-        }else{
+        // }else if LoginViewController.userPrfrence != ""{
+        //     characterUIImageView.image = UIImage(named: LoginViewController.userPrfrence)}
+        }else if HomeViewController.userPrfrence == ""{
             characterUIImageView.image = UIImage(named: "girl-icon")
         }
     }
@@ -179,13 +214,13 @@ class HomeViewController: UIViewController {
     
     // Get child object from local storage
     func getChildData(){
-        let child = LocalStorageManager.getChild()
-        
-        if let child = child {
-            setUIChildInfo(child)
-        }
-        
-    }
+          let child = LocalStorageManager.childValue
+          
+          if let child = child {
+              setUIChildInfo(child)
+          }
+          
+      }
     //MARK: - Local Storage Notifications
     
     //Register key value to be observed

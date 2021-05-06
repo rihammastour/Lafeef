@@ -27,7 +27,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>لفيف يريد الوصول للكاميرا الخاصة بك من اجل اكمال اللعبة ولن يتم حفظ اي صور خاصة  </string>
+	<string>لفيف يريد الوصول للكاميرا الخاصة بك من اجل اتمام اللعبة ولن يتم حفظ اي صور خاصة </string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FFHekaya-Light.ttf</string>

@@ -134,8 +134,8 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                     self.sound.playSound(sound: Constants.Sounds.trainingCircle)
                 }
                 
-            } else  if detailes[index].type == "triangle" {
-                image.image = UIImage(named: "Training-blueTriangle")
+            } else  if detailes[index].type == "square" {
+                image.image = UIImage(named: "Training-pinkSquare")
                 self.answer = detailes[index].answer
 
                 DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
@@ -152,7 +152,7 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                     self.sound.playSound(sound: Constants.Sounds.trainingBrown)
                 }
                 
-            } else  if detailes[index].type == "red" {
+            } else  if detailes[index].type == "white" {
                 image.image = UIImage(named: "Training-redColor")
                 self.answer = detailes[index].answer
                 DispatchQueue.main.asyncAfter(deadline: .now() +  0.5) {
@@ -293,9 +293,9 @@ class TrainingBoardViewController: UIViewController,AVCaptureVideoDataOutputSamp
                 }
                 
             }// end if check type
-            else  if detailes[questionId].type == "triangle" {
+            else  if detailes[questionId].type == "square" {
                 print(answer.base?.rawValue)
-                if (answer.base?.rawValue == "quarter-cake"){
+                if (answer.base?.rawValue == "dark-chocolate"){
                     print("correct answer")
                     isCorrect=true
 
@@ -355,13 +355,13 @@ isCorrect=true
                 }
             } //end if brown color
             
-            else  if detailes[questionId].type == "red" {
+            else  if detailes[questionId].type == "white" {
                 
-                if (answer.change == 50 ){
-                    print("correct answer")
-                    isCorrect=true
-                }
-                
+//                if (answer.change == 50 ){
+//                    print("correct answer")
+//                    isCorrect=true
+//                }
+//
                 let providedAnswer = answer.toppings
                 
                 if providedAnswer == nil {
@@ -370,7 +370,7 @@ isCorrect=true
                     
                     for t in toppings{
                         print(t.rawValue)
-                        if (t.rawValue=="strawberry"){
+                        if (t.rawValue=="whiteChcolate"){
                             print("crrect answer")
 isCorrect=true
                         }

@@ -43,6 +43,8 @@ class PauseGameViewController: UIViewController{
         if( ChallengeViewController.stopCircleNil){
             challengeScen?.timeLeft = 30
             GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
+            ObjectDetectionViewController.detectionOverlay.isHidden = true
+
 
         }else{
 
