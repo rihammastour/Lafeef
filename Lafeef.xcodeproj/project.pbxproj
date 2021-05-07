@@ -192,6 +192,8 @@
 		C9AF2A20264494B700D185F1 /* challeangecalendar.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9AF2A1F264494B700D185F1 /* challeangecalendar.gif */; };
 		C9AF2A252644BAF400D185F1 /* Money2Model4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9AF2A242644BAF300D185F1 /* Money2Model4.mlmodel */; };
 		C9AF2A2A2644BB0600D185F1 /* SecondCakeModel2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9AF2A292644BB0600D185F1 /* SecondCakeModel2.mlmodel */; };
+		C9AF2A322644F1AD00D185F1 /* serveOrderIndtruction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9AF2A312644F1AC00D185F1 /* serveOrderIndtruction.mp3 */; };
+		C9AF2A372644F32B00D185F1 /* paymentVoiceInstruction.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9AF2A362644F32B00D185F1 /* paymentVoiceInstruction.mp3 */; };
 		C9AF4FD6262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */; };
 		C9B6CD8A260ECB7B0079D0A1 /* instructions-reflector.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */; };
 		C9B6CDA4260ED4E30079D0A1 /* instructions-Stand.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */; };
@@ -421,6 +423,8 @@
 		C9AF2A1F264494B700D185F1 /* challeangecalendar.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = challeangecalendar.gif; sourceTree = "<group>"; };
 		C9AF2A242644BAF300D185F1 /* Money2Model4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Money2Model4.mlmodel; path = ../../../../../Downloads/Money2Model4.mlmodel; sourceTree = "<group>"; };
 		C9AF2A292644BB0600D185F1 /* SecondCakeModel2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = SecondCakeModel2.mlmodel; path = ../../../../../Downloads/SecondCakeModel2.mlmodel; sourceTree = "<group>"; };
+		C9AF2A312644F1AC00D185F1 /* serveOrderIndtruction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = serveOrderIndtruction.mp3; path = ../../../../../Downloads/serveOrderIndtruction.mp3; sourceTree = "<group>"; };
+		C9AF2A362644F32B00D185F1 /* paymentVoiceInstruction.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = paymentVoiceInstruction.mp3; path = ../../../../../Downloads/paymentVoiceInstruction.mp3; sourceTree = "<group>"; };
 		C9AF4FD5262DBBFB003356A1 /* LafeefPaperModel 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "LafeefPaperModel 1.mlmodel"; sourceTree = "<group>"; };
 		C9B6CD89260ECB7B0079D0A1 /* instructions-reflector.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-reflector.gif"; sourceTree = "<group>"; };
 		C9B6CDA3260ED4E30079D0A1 /* instructions-Stand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "instructions-Stand.gif"; sourceTree = "<group>"; };
@@ -659,6 +663,7 @@
 				41F78DFF261896C30048C968 /* bye.mp3 */,
 				41F78DED261896840048C968 /* learnShapes.mp3 */,
 				41F78DF7261896B00048C968 /* learnMath.mp3 */,
+				C9AF2A312644F1AC00D185F1 /* serveOrderIndtruction.mp3 */,
 				41F78DCA261895E10048C968 /* thirdDay.mp3 */,
 				41F78D9F261894FE0048C968 /* hello.mp3 */,
 				41F78E04261898F80048C968 /* firstDay.mp3 */,
@@ -669,6 +674,7 @@
 				4EC81A892630C382007EAA90 /* trainingAddition.mp3 */,
 				41F78DDE2618962D0048C968 /* train.mp3 */,
 				41F78DA42618954E0048C968 /* store.mp3 */,
+				C9AF2A362644F32B00D185F1 /* paymentVoiceInstruction.mp3 */,
 				4E7EB28D26267EC2008E7EDB /* trainingBrown.mp3 */,
 				4E7EB28E26267EC3008E7EDB /* trainingCircle.mp3 */,
 				4E7EB28B26267EC2008E7EDB /* trainingMultiplication.mp3 */,
@@ -968,6 +974,7 @@
 				41CFB12325D084E3004D31F9 /* WinningReport.sks in Resources */,
 				4EC6D39125C2402C00A15A9D /* Launch Screen.storyboard in Resources */,
 				4EDFA46F25EC597F00924569 /* icecream.gif in Resources */,
+				C9AF2A322644F1AD00D185F1 /* serveOrderIndtruction.mp3 in Resources */,
 				41F78DBE261895B90048C968 /* advertisment.mp3 in Resources */,
 				4EDFA44125EAF46300924569 /* NWPineapple.atlas in Resources */,
 				4EFA24B225EE208500A17868 /* Color.xcassets in Resources */,
@@ -1007,6 +1014,7 @@
 				41F78DF8261896B00048C968 /* learnMath.mp3 in Resources */,
 				4EDFA44325EAF46300924569 /* WaitingOrange.atlas in Resources */,
 				4EDFA44A25EAF46300924569 /* WaitingStrawberry.atlas in Resources */,
+				C9AF2A372644F32B00D185F1 /* paymentVoiceInstruction.mp3 in Resources */,
 				4E7DECC425CDDF9600D50362 /* Challenge.storyboard in Resources */,
 				4EDFA44025EAF46300924569 /* NWApple.atlas in Resources */,
 				4193027325D1FEE700BACE0B /* Podfile in Resources */,

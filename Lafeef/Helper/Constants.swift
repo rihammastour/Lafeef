@@ -121,5 +121,7 @@ struct Constants {
         static let trainingSkip = "skip"
         static let trainingAnswer = "answer"
         static let bakery = "bakery"
+        static let orderInstruction = "serveOrderIndtruction"
+        static let paymentInstruction = "paymentVoiceInstruction"
     }
 }

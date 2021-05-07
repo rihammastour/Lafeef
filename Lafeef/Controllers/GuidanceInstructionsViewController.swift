@@ -11,9 +11,10 @@ import UIKit
 class GuidanceInstructionsViewController: UIViewController {
     
     //Variables
-    let instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangecalendar","challeangeCake","payment","trainingsection","pineappleAnswer"]
-   var instructionIndex = 0
+    var instructionData:[String] = ["instructions-reflector","instructions-Stand","lampInstruction","challeangecalendar","challeangeCake","payment","trainingsection","pineappleAnswer"]
+    var instructionIndex = 0
     let formatter = NumberFormatter()
+    let sound = SoundManager()
     //IBOutlet
     @IBOutlet weak var instructionView: UIView!
     @IBOutlet weak var reflector: UIImageView!
@@ -21,6 +22,7 @@ class GuidanceInstructionsViewController: UIViewController {
     @IBOutlet weak var doneOutlet: UIButton!
     @IBOutlet weak var backOutlet: UIButton!
     @IBOutlet weak var instructionNumLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +33,26 @@ class GuidanceInstructionsViewController: UIViewController {
         backOutlet?.layer.cornerRadius =  backOutlet.frame.size.height/2
         
         doneOutlet?.layer.cornerRadius =  doneOutlet.frame.size.height/2
+        instructionView.layer.cornerRadius = 30
         
         showInstruction()
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-                backgroundImage.image = UIImage(named: "blank-bakery")
-                backgroundImage.contentMode = UIView.ContentMode.scaleToFill
-                self.view.insertSubview(backgroundImage, at: 0)
-                
-                view.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        backgroundImage.image = UIImage(named: "blank-bakery")
+        backgroundImage.contentMode = UIView.ContentMode.scaleToFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
     func showInstruction(){
-        instructionView.layer.cornerRadius = 30
+        sound.stopSound()
         reflector.image = UIImage.gif(name: instructionData[instructionIndex])
+        if( instructionData[instructionIndex]=="payment" ){
+            sound.playSound(sound: Constants.Sounds.paymentInstruction)
+        }else if( instructionData[instructionIndex]=="challeangeCake" ){
+            sound.playSound(sound: Constants.Sounds.orderInstruction)
+        }
         updatLabel()
     }
     
@@ -65,8 +74,8 @@ class GuidanceInstructionsViewController: UIViewController {
         self.backOutlet.isHidden = true
     }
     func updatLabel(){
-        instructionNumLabel.text = formatter.string(from: NSNumber(value: instructionIndex+1))!+"//"+formatter.string(from: NSNumber(value: instructionData.count))!
-            }
+        instructionNumLabel.text = formatter.string(from: NSNumber(value: instructionIndex+1))!+"/"+formatter.string(from: NSNumber(value: instructionData.count))!
+    }
     
     @IBAction func nextInstruction(_ sender: Any) {
         instructionIndex+=1
@@ -82,6 +91,7 @@ class GuidanceInstructionsViewController: UIViewController {
     
     @IBAction func skipInstructionsTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        sound.stopSound()
     }
     
     @IBAction func goBackTapped(_ sender: Any) {
@@ -98,6 +108,7 @@ class GuidanceInstructionsViewController: UIViewController {
     }
     @IBAction func doneTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        sound.stopSound()
     }
     
 }

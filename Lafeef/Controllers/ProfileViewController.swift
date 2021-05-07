@@ -44,12 +44,16 @@ class ProfileViewController: UIViewController {
         
         //Get Child Data
         getChildData()
+//        RegisterObserver(for:"child")
  
         
     }
     
 
-   
+    //Register key value to be observed
+    func RegisterObserver(for key:String){
+        UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -200,10 +204,7 @@ class ProfileViewController: UIViewController {
     
     //MARK: - Local Storage Notifications
     
-    //Register key value to be observed
-    func RegisterObserver(for key:String){
-        UserDefaults.standard.addObserver(self, forKeyPath: key, options: .new, context: nil)
-    }
+
     
     //Observe Handlere
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

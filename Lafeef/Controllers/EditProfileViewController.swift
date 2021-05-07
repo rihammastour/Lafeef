@@ -254,8 +254,8 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
         datePicker.datePickerMode = .date
         datePicker.semanticContentAttribute = .forceRightToLeft
         datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
-        datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -20, to: Date())
-        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
+        datePicker.minimumDate = Calendar.current.date(byAdding: .year, value: -14, to: Date())
+               datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: -3, to: Date())
         datePicker.addTarget(self, action:#selector( datePickerValueChange(sender:)), for: UIControl.Event.valueChanged)
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -408,8 +408,11 @@ class EditProfileViewConroller: UIViewController, UITextFieldDelegate, Validatio
     
     func backToProfile(){
         if let navigationController = self.navigationController {
-            navigationController.popViewController(animated: true)
+            navigationController.popToRootViewController(animated: true)
         }
+//        let controller = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavigationController) as! UINavigationController
+//        view.window?.rootViewController = controller
+//        view.window?.makeKeyAndVisible()
     }
     //Validation
     func validation(){
