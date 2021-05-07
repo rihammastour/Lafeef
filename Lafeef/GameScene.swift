@@ -807,7 +807,7 @@ class GameScene: SKScene {
         
         currentCustomer += 1
         //timeLeft = 30
-        if (currentCustomer<=3){
+        if (currentCustomer<=2){
             
             buildCustomer(customerNode: customers[currentCustomer])
             //timeLeft = 30

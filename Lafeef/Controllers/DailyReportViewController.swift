@@ -125,7 +125,7 @@ class DailyReportViewController: UIViewController {
     // Caluctate Income
     func calcultateIncome(){
         checkSalesAmount()
-        let incomeDigit = report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount
+        let incomeDigit = round(report.salesAmount - report.ingredientsAmount - report.backagingAmount + report.advertismentAmount)
         
         print("Sales amount",report.salesAmount)
         income.text = "\(incomeDigit)".convertedDigitsToLocale(Locale(identifier: "AR"))

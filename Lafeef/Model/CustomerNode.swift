@@ -90,14 +90,14 @@ class CustomerNode {
         withKey:"\(customerName)")
     }
     func happyCustomer(){
-        sound.playSound(sound: Constants.Sounds.happyCustomer)
+    sound.playSound(sound: Constants.Sounds.happyCustomer)
 
         animateCustomer(frame: HappyFrames, speed: 0.5)
      }
     
     func sadCustomer(){
-        sound.playSound(sound: Constants.Sounds.sadCustomer)
- 
+  sound.playSound(sound: Constants.Sounds.sadCustomer)
+// 
         animateCustomer(frame: SadFrames , speed: 0.5)
      }
     func waitingCustomer(){

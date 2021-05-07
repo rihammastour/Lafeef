@@ -497,9 +497,10 @@ isCorrect=true
     
     
     @IBAction func backTapped(_ sender: Any) {
-        
+        objectDetected?.stopSession()
         if let navigationController = self.navigationController {
             navigationController.popViewController(animated: true)
+            
         }
     }
     

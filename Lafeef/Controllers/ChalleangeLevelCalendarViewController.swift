@@ -54,6 +54,8 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     //MARK: - LifeCycle Funcrions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getChildReports()
+        
     }
     
     override func viewDidLoad() {
@@ -100,23 +102,23 @@ class ChalleangeLevelCalendarViewController:UIViewController,AVAudioPlayerDelega
     //MARK: - @IBAction
     @IBAction func levelOne(_ sender: Any) {
             self.present(self.goalService.goal(levelNum: "1"),animated:true)
-        sound.playSound(sound: Constants.Sounds.firstDay)
+//        sound.playSound(sound: Constants.Sounds.firstDay)
     }
     
     @IBAction func levelTwo(_ sender: Any) {
             self.present(self.goalService.goal(levelNum: "2"),animated:true)
-        sound.playSound(sound: Constants.Sounds.secondDay)
+//        sound.playSound(sound: Constants.Sounds.secondDay)
     }
     
     @IBAction func levelThree(_ sender: Any) {
             self.present(self.goalService.goal(levelNum: "3"),animated:true)
-        sound.playSound(sound: Constants.Sounds.thirdDay)
+//        sound.playSound(sound: Constants.Sounds.thirdDay)
     }
     
     
     @IBAction func levelFour(_ sender: Any) {
             self.present(self.goalService.goal(levelNum: "4"),animated:true)
-        sound.playSound(sound: Constants.Sounds.fourthDay)
+//        sound.playSound(sound: Constants.Sounds.fourthDay)
     }
     @IBAction func Home(_ sender: Any) {
         if let navigationController = self.navigationController {

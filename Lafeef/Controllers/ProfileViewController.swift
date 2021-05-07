@@ -92,7 +92,7 @@ class ProfileViewController: UIViewController {
     
     //Money
     func setMoney(_ money:Float) {
-        moneyLabel.text = String(money).convertedDigitsToLocale(Locale(identifier: "AR"))
+        moneyLabel.text = String(round(money)).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //Email

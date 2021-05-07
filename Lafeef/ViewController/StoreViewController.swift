@@ -84,7 +84,7 @@ class StoreViewController: UIViewController {
     
     func updateMoney(_ money:Float){
         self.money = money
-        moneyUILabel.text = String(self.money).convertedDigitsToLocale(Locale(identifier: "AR"))
+        moneyUILabel.text = String(round(self.money)).convertedDigitsToLocale(Locale(identifier: "AR"))
     }
     
     //MARK:- Get Data Functions

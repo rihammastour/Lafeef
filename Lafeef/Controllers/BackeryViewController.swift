@@ -75,7 +75,7 @@ class BackeryViewController: UIViewController, ManageViewController{
                 challengeVC.randomAdv = adv
                 challengeVC.sound = sound
                 self.present(challengeVC, animated: true){
-                    self.sound.playSound(sound:Constants.Sounds.bakery)
+//                    self.sound.playSound(sound:Constants.Sounds.bakery)
                 }
                 }
         }else{
