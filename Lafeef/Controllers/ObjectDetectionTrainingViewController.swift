@@ -27,7 +27,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
         let error: NSError! = nil
       print("setupvision")
         
-        guard let modelURL = Bundle.main.url(forResource: "LafeefModelDifferentSurfaces", withExtension: "mlmodelc") else {
+        guard let modelURL = Bundle.main.url(forResource: "SecondCakeModel2", withExtension: "mlmodelc") else {
             return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
         }
         do {
@@ -153,7 +153,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
         }
       ObjectDetectionViewController.detectionOverlay = CALayer() // container layer that has all the renderings of the observations
       ObjectDetectionViewController.detectionOverlay.name = "DetectionOverlay"
-      ObjectDetectionViewController.detectionOverlay.bounds = CGRect(x: 0.0,
+        ObjectDetectionViewController.detectionOverlay.bounds = CGRect(x: answerView.bounds.midX-30,
                                          y: 0.0,
                                          width: bufferSize.width,
                                          height: bufferSize.height)
@@ -169,8 +169,8 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
         let bounds = rootLayer.bounds
         var scale: CGFloat
 
-        let xScale: CGFloat = bounds.size.width / bufferSize.height
-        let yScale: CGFloat = bounds.size.height / bufferSize.width
+        let xScale: CGFloat = (bounds.size.width / bufferSize.height)*2
+        let yScale: CGFloat = (bounds.size.height / bufferSize.width)*2
         
         scale = fmax(xScale, yScale)
         if scale.isInfinite {
@@ -195,7 +195,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
       // self.view.frame.size.width -> 834
       
       var position = CGPoint()
-          position = CGPoint(x: ceil(bounds.midX), y:  430)
+          position = CGPoint(x: ceil(bounds.midX), y:  260)
       
       // ranges
 //        switch round(bounds.midX) {
@@ -231,62 +231,61 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
       
       shapeLayer.position = position
       shapeLayer.name = "Found Object"
-      switch classLabel {
-      case "CompleteCake":
-          shapeLayer.contents = UIImage(named: "Dcake")!.cgImage
-          break
-      case "QuarterCake":
-          shapeLayer.contents = UIImage(named: "Dquarter-cake")!.cgImage
-          break
-      case "HalfCake":
-          shapeLayer.contents = UIImage(named: "Dhalf-cake")!.cgImage
-          break
-      case "3QuartersCake":
-          shapeLayer.contents = UIImage(named: "Dthreequarter-cake")!.cgImage
-          
-          break
-      case "WhiteCupcake":
-          shapeLayer.contents = UIImage(named: "Dcupcake-van")!.cgImage
-          break
-      case "BrownCupcake":
-          shapeLayer.contents = UIImage(named: "Dcupcake-ch")!.cgImage
-          break
-      case "ChocolateBrown":
-          shapeLayer.contents = UIImage(named: "dark-chocolate")!.cgImage
-          break
-      case "ChocolateWhite":
-          shapeLayer.contents = UIImage(named: "white-chocolate")!.cgImage
-          break
-      case "Kiwi":
-          shapeLayer.contents = UIImage(named: "oval-kiwi")!.cgImage
-          break
-      case "Strawberry":
-          shapeLayer.contents = UIImage(named: "strawberry")!.cgImage
-          break
-      case "Pineapple":
-          shapeLayer.contents = UIImage(named: "pineapple")!.cgImage
-          break
-      case "OneRiyal":
-          shapeLayer.contents = UIImage(named: "1Flipped")!.cgImage
-          break
-      case "FiftyRiyal":
-          shapeLayer.contents = UIImage(named: "50Flipped")!.cgImage
-          break
-      case "TenRiyal":
-          shapeLayer.contents = UIImage(named: "10Flipped")!.cgImage
-          break
-      case "RiyalHalf":
-          shapeLayer.contents = UIImage(named: "0.5Flipped")!.cgImage
-          break
-      case "RiyalQuarter":
-          shapeLayer.contents = UIImage(named: "0.25Flipped")!.cgImage
-          break
-      case "FiveRiyal":
-          shapeLayer.contents = UIImage(named: "5Flipped")!.cgImage
-          break
-      default:
-          break
-      }
+    switch classLabel {
+    case "Cake":
+        shapeLayer.contents = UIImage(named: "Dcake")!.cgImage
+        break
+    case "QuarterCake":
+        shapeLayer.contents = UIImage(named: "Dquarter-cake")!.cgImage
+        break
+    case "HalfCake":
+        shapeLayer.contents = UIImage(named: "Dhalf-cake")!.cgImage
+        break
+    case "3QuartersCake":
+        shapeLayer.contents = UIImage(named: "Dthreequarter-cake")!.cgImage
+        break
+    case "WhiteCupCake":
+        shapeLayer.contents = UIImage(named: "Dcupcake-van")!.cgImage
+        break
+    case "BrownCupCake":
+        shapeLayer.contents = UIImage(named: "Dcupcake-ch")!.cgImage
+        break
+    case "BrownChocolate":
+        shapeLayer.contents = UIImage(named: "dark-chocolate")!.cgImage
+        break
+    case "WhiteChocolate":
+        shapeLayer.contents = UIImage(named: "white-chocolate")!.cgImage
+        break
+    case "Kiwi":
+        shapeLayer.contents = UIImage(named: "oval-kiwi")!.cgImage
+        break
+    case "Strawberry":
+        shapeLayer.contents = UIImage(named: "strawberry")!.cgImage
+        break
+    case "Pineapple":
+        shapeLayer.contents = UIImage(named: "pineapple")!.cgImage
+        break
+    case "OneRiyal":
+        shapeLayer.contents = UIImage(named: "1Flipped")!.cgImage
+        break
+    case "FiftyRiyal":
+        shapeLayer.contents = UIImage(named: "50Flipped")!.cgImage
+        break
+    case "TenRiyal":
+        shapeLayer.contents = UIImage(named: "10Flipped")!.cgImage
+        break
+    case "HalfRiyal":
+        shapeLayer.contents = UIImage(named: "0.5Flipped")!.cgImage
+        break
+    case "Quarter":
+        shapeLayer.contents = UIImage(named: "0.25Flipped")!.cgImage
+        break
+    case "FiveRiyal":
+        shapeLayer.contents = UIImage(named: "5Flipped")!.cgImage
+        break
+    default:
+        break
+    }
       
       layer = shapeLayer
       return shapeLayer
@@ -314,64 +313,65 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
       var toppings : [Topping]? = []
       var change : Float = 0
       
-      for label in answerLabels {
-          switch label {
-          case "CompleteCake":
-              base = Base.cake
-              break
-          case "QuarterCake":
-              base = Base.quarterCake
-              break
-          case "HalfCake":
-              base = Base.halfCake
-              break
-          case "3QuartersCake":
-              base = Base.threequarterCake
-              break
-          case "WhiteCupcake":
-              base = Base.vanilaCupcake
-              break
-          case "BrownCupcake":
-              base = Base.chocolateCupcake
-              break
-          case "ChocolateBrown":
-              toppings?.append(Topping.darkChocolate)
-              break
-          case "ChocolateWhite":
-              toppings?.append(Topping.whiteChocolate)
-              break
-          case "Kiwi":
-              toppings?.append(Topping.kiwi)
-              break
-          case "Strawberry":
-              toppings?.append(Topping.strawberry)
-              break
-          case "Pineapple":
-              toppings?.append(Topping.pineapple)
-              break
-          case "OneRiyal":
-              change += 1
-              break
-          case "FiftyRiyal":
-              change += 50
-              break
-          case "TenRiyal":
-              change += 10
-              break
-          case "RiyalHalf":
-              change += 0.5
-              break
-          case "RiyalQuarter":
-              change += 0.25
-              break
-          case "FiveRiyal":
-              change += 5
-              break
-          default:
+    for label in answerLabels {
+        switch label {
+        case "Cake":
+            base = Base.cake
+            break
+        case "QuarterCake":
+            base = Base.quarterCake
+            break
+        case "HalfCake":
+            base = Base.halfCake
+            break
+        case "3QuartersCake":
+            base = Base.threequarterCake
+            break
+        case "WhiteCupCake":
+            base = Base.vanilaCupcake
+            break
+        case "BrownCupCake":
+            base = Base.chocolateCupcake
+            break
+        case "BrownChocolate":
+            toppings?.append(Topping.darkChocolate)
+            break
+        case "WhiteChocolate":
+            toppings?.append(Topping.whiteChocolate)
+            break
+        case "Kiwi":
+            toppings?.append(Topping.kiwi)
+            break
+        case "Strawberry":
+            toppings?.append(Topping.strawberry)
+            break
+        case "Pineapple":
+            toppings?.append(Topping.pineapple)
+            break
+        case "OneRiyal":
+            change += 1
+            break
+        case "FiftyRiyal":
+            change += 50
+            break
+        case "TenRiyal":
+            change += 10
+            break
+        case "HalfRiyal":
+            change += 0.5
+            break
+        case "Quarter":
+            change += 0.25
+            break
+        case "FiveRiyal":
+            change += 5
+            break
+        default:
             print("No label match")
-              break
-          }
-      }
+            break
+        }
+    }
+
       
       
       

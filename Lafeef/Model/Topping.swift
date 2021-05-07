@@ -30,7 +30,7 @@ enum Topping : String,Codable {
         case .kiwi , .strawberry , .pineapple:
             return 0.45
         case .whiteChocolate , .darkChocolate:
-            return 0.6
+            return 0.56
         }
     }
     

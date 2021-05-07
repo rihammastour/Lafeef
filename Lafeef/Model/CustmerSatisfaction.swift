@@ -19,9 +19,9 @@ enum CustmerSatisfaction : String {
 
         switch self {
         case .happey:
-            return 50
+            return 77
         case .normal:
-            return 35
+            return 50
         case .sad:
             return 20
         }

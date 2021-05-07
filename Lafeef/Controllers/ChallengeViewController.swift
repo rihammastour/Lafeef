@@ -432,6 +432,8 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
     
     //calculateOrderScore
     func calculateOrderScore(for answer:Answer) {
+        isPaymentModelUsed = true
+        objectDetected?.setupVision()
         var totalSocre = 0
         
         //Declaration variabels
@@ -479,8 +481,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         
         self.orderScore = totalSocre
         print("Order Score :  ",self.orderScore)
-        isPaymentModelUsed = true
-        objectDetected?.setupVision()
+    
     }
     
     //getCurrentOrder
@@ -517,6 +518,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
             GameScene.circle?.isPaused=true
             challengeScen?.isPaused=true
             ChallengeViewController.stopImageBool=false
+            vc.controller=self
             present(vc, animated: true,completion:nil)
             
         }
@@ -540,7 +542,7 @@ class ChallengeViewController: UIViewController,AVCaptureVideoDataOutputSampleBu
         ///Customer Satisfaction and level number
         report.customerSatisfaction = customersSatisfaction
         report.levelNum = self.levelNum
-        
+        objectDetected?.stopSession()
         self.dismiss(animated: true, completion: {
             self.delegate.displayDailyReport(self.report)
         })

@@ -49,7 +49,7 @@ enum Base : String,Codable {
         case .quarterCake : return 10.625
         case .halfCake : return 21.25
         case .threequarterCake: return 31.875
-        case .chocolateCupcake , .vanilaCupcake: return 15
+        case .chocolateCupcake , .vanilaCupcake: return 12.75
 
         }
     }

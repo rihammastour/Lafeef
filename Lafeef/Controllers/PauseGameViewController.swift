@@ -13,6 +13,7 @@ class PauseGameViewController: UIViewController{
 
     //MARK: - Variables
     var challengeScen:GameScene!
+    var controller: ChallengeViewController?
     var leftTimeTemp:TimeInterval!
     var delegate:ManageViewController!
     var sound = SoundManager()
@@ -41,7 +42,7 @@ class PauseGameViewController: UIViewController{
         print("temp" )
        print(leftTimeTemp)
         if( ChallengeViewController.stopCircleNil){
-            challengeScen?.timeLeft = 30
+            challengeScen?.timeLeft = 120
             GameScene.endTime = Date().addingTimeInterval(self.leftTimeTemp)
 
         }else{
@@ -75,6 +76,7 @@ class PauseGameViewController: UIViewController{
     
     @IBAction func exitbuttonTapped(_ sender: Any) {
         GameScene.circleDecrement=true
+        controller?.objectDetected?.stopSession()
         self.dismiss(animated: true, completion:{
             self.delegate.exitPlaying()
         })
@@ -87,7 +89,7 @@ class PauseGameViewController: UIViewController{
             if segue.identifier == "exitGame" {
                 let vc = segue.destination as! ChalleangeLevelCalendarViewController
                 challengeScen.timer.invalidate()
-                challengeScen.timeLeft = 30//when exit and enter the game again the
+                challengeScen.timeLeft = 120//when exit and enter the game again the
                         ChallengeViewController.stopImageBool=true
                 GameScene.circleDecrement=true
             }

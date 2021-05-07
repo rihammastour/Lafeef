@@ -29,8 +29,16 @@ class CustomerPaied {
             return mapCustomerPaied(customerPaied: [10, 10])
         case 19:
             return mapCustomerPaied(customerPaied: [10, 5, 1, 1, 1, 1])
+        case 17:
+            return mapCustomerPaied(customerPaied: [10, 5, 1,1])
+        case 16.5:
+            return mapCustomerPaied(customerPaied: [10, 5, 1, 0.5])
         case 16:
             return mapCustomerPaied(customerPaied: [10, 5, 1])
+        case 15:
+            return mapCustomerPaied(customerPaied: [10, 5])
+        case 15.5:
+            return mapCustomerPaied(customerPaied: [10, 5, 0.5])
         default:
             return []
         }
@@ -57,8 +65,16 @@ class CustomerPaied {
             return [.tenRiyal, .tenRiyal]
         case [10, 5, 1, 1, 1, 1]:
             return [.tenRiyal, .fiveRiyal, .riyal, .riyal, .riyal, .riyal]
+        case [10, 5, 1, 1]:
+            return [.tenRiyal, .fiveRiyal, .riyal, .riyal]
+        case [10, 5, 1, 0.5]:
+            return [.tenRiyal, .fiveRiyal, .riyal, .riyalHalf]
         case [10, 5, 1]:
             return [.tenRiyal, .fiveRiyal, .riyal]
+        case [10, 5, 0.5]:
+            return [.tenRiyal, .fiveRiyal, .riyalHalf]
+        case [10, 5]:
+            return [.tenRiyal, .fiveRiyal]
         default:
             return []
         }

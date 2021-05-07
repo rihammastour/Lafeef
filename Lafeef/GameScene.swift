@@ -76,8 +76,8 @@ class GameScene: SKScene {
     private var baseAnswer : SKSpriteNode?
     
     //Timer variables
-    var timeLeft: TimeInterval = 30//change
-    let timeLeft1=30//change
+    var timeLeft: TimeInterval = 120//change
+    let timeLeft1=120//change
     var timer:Timer!
     static var displayTime : SKLabelNode?
     static var endTime: Date?
@@ -259,6 +259,7 @@ class GameScene: SKScene {
         ///Set Position
         self.moneyCountiner = self.childNode(withName: "moneyContainer") as? SKSpriteNode
         moneyCountiner?.position = CGPoint(x: self.frame.maxX-100, y: (self.wallNode?.size.height)!-208)
+        moneyCountiner.zPosition = 3
         
         ///Calculate the distance between progress bar and money continer to use latter
         diffrenceDistancePBMC = moneyCountiner?.position.x ?? 0 - cam.position.x
@@ -302,7 +303,7 @@ class GameScene: SKScene {
         if GameScene.displayTime != nil {
             
             
-            self.timeLeft = 30
+            self.timeLeft = 120
             GameScene.endTime = Date().addingTimeInterval(timeLeft)
 
             self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
@@ -323,7 +324,7 @@ class GameScene: SKScene {
         GameScene.circle!.zRotation = CGFloat.pi / 2
         self.orderContiner!.addChild(GameScene.circle!)
         GameScene.circleDecrement=true
-        self.countdown(circle: GameScene.circle!, steps: 30, duration: 30) {
+        self.countdown(circle: GameScene.circle!, steps: 120, duration: 120) {
             print("circle is done ")
         }
     }
@@ -874,13 +875,13 @@ class GameScene: SKScene {
                 
             }
             circle.path = self.circle(radius: radius, percent:percent)
-            if( Int(timeLeft) < 30){
+            if( Int(timeLeft) < 120){
                 circle.fillColor = SKColor(hue: 0.1861, saturation: 0.36, brightness: 0.88, alpha: 1.0)
             }
-            if( Int(timeLeft) <= 20){
+            if( Int(timeLeft) <= 80){
                 circle.fillColor = SKColor(hue: 0.1222, saturation: 0.46, brightness: 0.94, alpha: 1.0)
             }
-            if( Int(timeLeft) <= 10 && Int(timeLeft)>=0){
+            if( Int(timeLeft) <= 40 && Int(timeLeft)>=0){
                 circle.fillColor = SKColor(hue: 0, saturation: 0.5, brightness: 0.95, alpha: 1.0)
             }
             
@@ -998,7 +999,7 @@ class GameScene: SKScene {
         print(timeLeft)
         
         
-        if(timeLeft>greenTime){
+        if(timeLeft>80){
             GameScene.displayTime?.fontName =  "FF Hekaya"
             timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.displayTime?.text = timeLeft.time
@@ -1006,7 +1007,7 @@ class GameScene: SKScene {
             
             
         }
-        else  if (timeLeft > yellowTime){
+        else  if (timeLeft > 40){
             GameScene.displayTime?.fontName =  "FF Hekaya"
             timeLeft = GameScene.endTime?.timeIntervalSinceNow ?? 0
             GameScene.displayTime?.text = timeLeft.time

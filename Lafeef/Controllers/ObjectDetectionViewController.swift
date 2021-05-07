@@ -40,7 +40,7 @@ class ObjectDetectionViewController: ChallengeViewController{
         print("setupvision")
         let modelResource: String!
         if isPaymentModelUsed {
-            modelResource = "Money2Model 4"
+            modelResource = "Money2Model4"
             print("payment model")
          
         } else {
