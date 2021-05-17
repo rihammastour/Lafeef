@@ -13,6 +13,7 @@ class LogoutViewController: UIViewController {
     @IBOutlet weak var yesoutlet: UIButton!
     @IBOutlet weak var canceloutlet: UIButton!
     @IBOutlet weak var logoutView: UIView!
+    var controller: UIViewController!
     
     var sound = SoundManager()
     
@@ -34,7 +35,7 @@ class LogoutViewController: UIViewController {
             if Auth.auth().currentUser != nil {
                 do {
                     
-                    if let vc = self.navigationController?.viewControllers.first{
+                    if let vc = self.controller.navigationController?.viewControllers.first{
                         UserDefaults.standard.removeObserver(vc.self, forKeyPath: "child", context: nil)}
                     
                     self.removeDataStorage(for: "child")

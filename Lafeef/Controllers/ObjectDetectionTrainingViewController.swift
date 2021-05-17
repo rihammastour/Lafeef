@@ -27,7 +27,7 @@ class ObjectDetectionTrainingViewController:TrainingBoardViewController {
         let error: NSError! = nil
       print("setupvision")
         
-        guard let modelURL = Bundle.main.url(forResource: "SecondCakeModel2", withExtension: "mlmodelc") else {
+        guard let modelURL = Bundle.main.url(forResource: "CakeModel", withExtension: "mlmodelc") else {
             return NSError(domain: "VisionObjectRecognitionViewController", code: -1, userInfo: [NSLocalizedDescriptionKey: "Model file is missing"])
         }
         do {

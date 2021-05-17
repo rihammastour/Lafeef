@@ -16,12 +16,12 @@ class AlertService {
         
         return AlertVc
       }
-    func logoutAlert() ->  LogoutViewController {
+    func logoutAlert(vc: UIViewController) ->  LogoutViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let AlertVc = storyboard.instantiateViewController(identifier: "logout") as LogoutViewController
-      print(AlertVc)
-        
-        return AlertVc
+        let alertVc = storyboard.instantiateViewController(identifier: "logout") as LogoutViewController
+      print(alertVc)
+        alertVc.controller = vc
+        return alertVc
       }
   
   

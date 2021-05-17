@@ -190,7 +190,7 @@ class ProfileViewController: UIViewController {
     //MARK: - IBAction
     
     @IBAction func logOutAction(sender: AnyObject) {
-        self.present(alert.logoutAlert(), animated: true)
+        self.present(alert.logoutAlert(vc: self), animated: true)
         
     }
     
